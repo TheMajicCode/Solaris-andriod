@@ -15,45 +15,78 @@ Three kinds of check exist and must never be confused.
 ## Source-only repository checks — these run here
 
 ```sh
-python3 tools/repo-check.py          # human-readable
-python3 tools/repo-check.py --json   # machine-readable
+python3 -m pip install --require-hashes --no-deps -r tools/requirements.txt
+python3 tools/tests/test_repo_check.py          # the checker's own negative controls
+python3 tools/repo-check.py                     # human-readable
+python3 tools/repo-check.py --json              # machine-readable on stdout
+python3 tools/repo-check.py --report out.json   # write the report, keep the real exit status
 ```
 
-Requires Python 3.9+ and, for the JavaScript parse checks, Node.js. If Node is
-absent those checks report `SKIPPED` — which is **not** a pass.
+Requires Python 3.9+, the pinned dependencies above, and Node.js.
+
+### These checks fail closed
+
+A required check that could not do its job **fails**. It never reports a green
+skip. Specifically, a check fails when:
+
+- a dependency it needs is unavailable (PyYAML absent, Node absent);
+- it examined zero files while its scope says files exist;
+- it raised an unexpected exception; or
+- it found a defect not registered in `provenance/CANDIDATE-CHANGES.json`.
+
+A genuinely out-of-scope gate — a native Android build, full-reference
+reproduction — is reported separately as **BLOCKED**. A blocked gate is never a
+pass and is never evidence of an Android build.
 
 | Check | Scope |
 | --- | --- |
-| `import-integrity` | Every tracked file under an imported root matches `docs/provenance/REPO-IMPORT-MANIFEST.json` by size and SHA-256, and nothing extra appears there |
-| `excluded-path-policy` | Private phone evidence, host disassembly, build inputs, `node_modules` and binary/archive inputs stay untracked |
-| `json-parse` | Every tracked `.json` file parses (JSONC permitted for `devcontainer.json`/`tsconfig.json`) |
-| `yaml-parse` | Every tracked `.yml`/`.yaml` file parses. Reports `SKIPPED` — not a pass — if PyYAML is absent |
-| `python-syntax` | Every tracked `.py` file compiles (syntax only — this is not a linter and not a security check) |
-| `javascript-syntax-authored` | Current authored JS in `Solaris-Android-R2/`, `R3/`, `R4/` and `Solaris-Android-Reconstruction/src/reconstructed/` parses with `node --check` |
-| `javascript-parse-evidence` | Retained recovered/probe JS parses. Reported as **informational**: a failure here is a finding to triage, never a reason to edit imported bytes |
-| `doc-links` | Relative Markdown links in this repository's authored docs resolve |
-| `secret-pattern-scan` | Credential-shaped filenames and key-material patterns. A filename/regex sweep is **not** a complete secret audit |
+| `classification-complete` | Every tracked file resolves to one integrity role and one check scope. An unclassified path fails; a new directory never silently inherits informational treatment. |
+| `frozen-integrity` | Imported bytes match `provenance/REPO-IMPORT-MANIFEST.json`, or an authorized override in `CANDIDATE-CHANGES.json` whose original and resulting hashes both match. Drift, deletion and reclassification all fail. |
+| `candidate-changes-valid` | Every override, declared candidate path and registered inherited defect resolves and still matches its recorded hash. |
+| `excluded-path-policy` | Private phone evidence, host disassembly, build inputs, `node_modules` and binary/archive inputs stay untracked. |
+| `build-input-exceptions` | Only the five recorded JSON descriptors are re-included under `build-inputs/`, and a binary there would still be ignored. |
+| `json-parse` | Every tracked `.json` parses. JSONC is permitted only for `devcontainer.json`/`tsconfig.json`/`jsconfig.json`, and comments are removed by a string-aware scanner that cannot corrupt a URL. |
+| `yaml-parse` | Every tracked `.yml`/`.yaml` parses. **Absent PyYAML fails this check.** |
+| `python-syntax` | Every tracked `.py` compiles. Syntax only — this is not a lint audit. |
+| `javascript-syntax-authored` | Authored and maintained-candidate JavaScript parses, checked under an explicit module/script extension. |
+| `javascript-parse-evidence` | Retained-evidence JavaScript parses, except defects registered by exact path and exact hash. An unregistered defect fails. |
+| `doc-links` | Relative Markdown links in this repository's authored docs resolve. |
+| `secret-pattern-scan` | Credential-shaped filenames and key-material patterns. A pattern sweep, **not** a completed secret audit. |
+| `candidate-regression-tests` | The maintained-candidate regression suite. `NOT_APPLICABLE` only while no candidate source is classified. |
 
-### Result recorded for this import
+### Result recorded for this candidate
 
-Run on the bootstrap candidate tree, 17 September 2026, 1,917 tracked files:
+1,925 tracked files:
 
-```text
-PASS  import-integrity            (1,879 manifest entries verified)
-PASS  excluded-path-policy
-PASS  json-parse                  (481 files)
-PASS  yaml-parse                  (3 files)
-PASS  python-syntax               (74 files)
-PASS  javascript-syntax-authored  (185 files)
-INFO  javascript-parse-evidence   (20 files, 1 finding: AND-IMP-01)
-PASS  doc-links
-PASS  secret-pattern-scan
-Overall: PASS
-```
+| Check | Result | Files |
+| --- | --- | --- |
+| `classification-complete` | PASS | 1925/1925 |
+| `frozen-integrity` | PASS | 1881/1881 |
+| `candidate-changes-valid` | PASS | 1/1 |
+| `excluded-path-policy` | PASS | 1925/1925 |
+| `build-input-exceptions` | PASS | 5/5 |
+| `json-parse` | PASS | 483/483 |
+| `yaml-parse` | PASS | 2/2 |
+| `python-syntax` | PASS | 79/79 |
+| `javascript-syntax-authored` | PASS | 64/64 |
+| `javascript-parse-evidence` | PASS | 141/141 |
+| `doc-links` | PASS | 25/25 |
+| `secret-pattern-scan` | PASS | 1925/1925 |
+| `candidate-regression-tests` | NOT_APPLICABLE | 0/0 |
 
-`AND-IMP-01`: `solaris-603-native-probe/recommended-request-builder.cjs` is
-truncated in the imported evidence. It was preserved unrepaired. See
-[`workflow/STATUS.md`](workflow/STATUS.md).
+Overall: **PASS**. The checker's own negative controls: **22 passed, 0 failed**.
+
+`AND-IMP-01` — `solaris-603-native-probe/recommended-request-builder.cjs` is
+truncated in the imported evidence. It is registered by exact path and hash in
+`provenance/CANDIDATE-CHANGES.json`, so it neither fails the run nor hides any
+other defect: a second broken evidence file, or any change to this one, fails.
+
+`AND-CI-01` — `node --check file.js` returns success for a `.js` file containing
+ESM syntax even when that file has a real syntax error, because Node's
+module-syntax detection stops short of a full module parse. The earlier checker
+inherited that blind spot. The checker now parses each file under an explicit
+`.cjs`/`.mjs` extension and fails only when **both** modes fail. A negative
+control covers it.
 
 ## Frozen import-pack verification — does not run here
 

@@ -1,65 +1,95 @@
 # Status
 
-**Updated:** 2026-09-17
+**Updated:** 2026-09-17 · Session 2
+
+## Publication gate — CLOSED
+
+| Item | Verified value |
+| --- | --- |
+| Repository | `TheMajicCode/Solaris-andriod` |
+| Visibility | **PUBLIC** (`private: false`), re-verified this session |
+| Forks / stars at inspection | 0 / 0 |
+| Default branch | `main` at `5cc354c852565479020d4a6c99109fff992c6de4` |
+| Input branch | `import/604-source` at `bf1d4e90ea173f088ca3fa9a6c806876aba51adc` |
+| Task branch | `claude/solaris-android-import-iyla4d` |
+| Last published head | `edd43bd7404730480f3c5bd94720a3aef068fdb9` |
+| PR #1 | Open, draft, unmerged |
+
+The owner's direction is **private development**. No further push, PR update,
+release or other publication may happen until private visibility is verified.
+
+**This session cannot change visibility.** No GitHub tool available here exposes
+a repository-settings or visibility endpoint, and there is no `gh` CLI. Creating
+a replacement repository is explicitly prohibited.
+
+### The single owner action required
+
+> In GitHub: **Settings → General → Danger Zone → Change repository visibility →
+> Make private**, on `https://github.com/TheMajicCode/Solaris-andriod/settings`.
+> Then tell this session, so visibility can be re-verified before anything is
+> pushed.
+
+Work continues locally in the meantime. Remote CI is therefore **BLOCKED**, not
+passed, for every commit after `edd43bd`.
 
 ## Current task
 
 | Field | Value |
 | --- | --- |
-| Task | `AND-00` — verified repository bootstrap from the 604 source import |
+| Task | `A604-01` — foundation: private import, integrity model and truthful CI |
 | Writer | Claude Code (this session) |
-| Reviewer | Independent review agent, against the exact candidate tree |
-| Base | `bf1d4e9` (`import/604-source`, identical to the task branch's starting commit) |
-| Branch | `claude/solaris-android-import-iyla4d` |
-| Allowed paths | All imported source roots (write-once, byte-preserving); new `README.md`, `AGENTS.md`, `CLAUDE.md`, `.gitignore`, `docs/`, `tools/`, `contracts/`, `artifacts/`, `.github/`, `.devcontainer/` |
-| State | Import complete and verified; documentation and scoped CI in place; awaiting owner review of the unmerged PR |
+| Reviewer | Pending — an independent review of the **new full SHA** is required |
+| Base | `edd43bd` |
+| State | Foundation repairs complete locally and unpushed |
 
-## Checks actually run
+## Checks actually run this session
 
-See [Build and test](../BUILD-AND-TEST.md) for the full result block.
+Local only. Remote CI has not run on this work.
 
 | Check | Result |
 | --- | --- |
-| Transport archive SHA-256 vs expected value and checksum file | PASS |
-| Archive member-list safety inspection (1,879 entries) | PASS — all regular files, one root, no traversal, no links |
-| `verify-import.py` in the unchanged extracted pack | PASS — 1,878 files, zero failures |
-| `tools/repo-check.py` on the candidate tree (1,917 tracked files) | PASS overall — 1 informational finding (`AND-IMP-01`) |
+| Handoff `HANDOFF-SHA256SUMS.txt` (7 files) | PASS |
+| Audit evidence ZIP vs declared hash/size | PASS — `f3b30628…`, 1,319,606 bytes |
+| Evidence `MANIFEST.json` (103 members) | PASS — 103 verified, 0 mismatched, 0 missing |
+| `tools/tests/test_repo_check.py` | PASS — 22 negative controls, 0 failed |
+| `tools/repo-check.py` | PASS — 13 checks, 0 failed |
 
-## Blocked checks
+## What was repaired this session
 
-Not failures — inputs are deliberately absent. Never report these as passed.
-
-`full-reference-604-reproduction`, `frozen-import-pack-verification`,
-`hbc-reconstruction-and-packaging`, `native-android-gradle-build`,
-`on-device-acceptance-and-latency`, `local-model-inference-checks`.
+| Defect | Repair |
+| --- | --- |
+| `yaml-parse` reported `SKIPPED` with PyYAML absent while the run stayed green | Required checks now **fail closed**. Absent PyYAML fails; dependencies are pinned with hashes in `tools/requirements.txt` and installed in CI. |
+| JSONC comments were stripped with a regex that corrupts strings and URLs | Replaced with a string-aware scanner (`tools/solaris_checks/jsonc.py`), with unit controls for URLs, `/* */` inside strings and escaped quotes. |
+| New source outside the old `R2/R3/R4` prefixes would get informational treatment | Every path now resolves through `provenance/SOURCE-CLASSIFICATION.json`; unclassified paths fail, and maintained-candidate source gets the strictest treatment. |
+| Imported-byte immutability had no way to express an authorized change | Two separate models: frozen reference (never changes) and `provenance/CANDIDATE-CHANGES.json` (overrides with original + resulting hash, rationale, integration target). Unlisted drift, deletion and reclassification fail. |
+| `AND-IMP-01` was a whole-scope informational downgrade | Registered by exact path **and** exact hash. A change to it, its disappearance, or any second broken evidence file now fails. |
+| Actions were unpinned | All four actions pinned to full commit SHAs with their upstream release recorded. |
+| The reference workflow was an always-failing placeholder | Removed. The gate is reported as BLOCKED by the checker instead of masquerading as a job. |
+| `node --check` silently passes broken ESM `.js` (`AND-CI-01`, new) | Each file is parsed under an explicit `.cjs`/`.mjs` extension; failure requires both modes to fail. |
 
 ## Open findings
 
-| ID | Finding | Severity | Action |
-| --- | --- | --- | --- |
-| `AND-IMP-01` | `solaris-603-native-probe/recommended-request-builder.cjs` is truncated at line 10 — `SyntaxError: Unexpected end of input`. The file arrived this way and was imported byte-for-byte; it was **not** repaired, because repairing imported evidence to obtain a green check is prohibited. | Low — retained probe evidence, not shipped application source | Triage in `AND-01`. Either recover the complete original from the full reference, or record it explicitly as a truncated evidence fragment. Do not hand-write the missing lines. |
+| ID | Finding | Disposition |
+| --- | --- | --- |
+| `AND-IMP-01` | `solaris-603-native-probe/recommended-request-builder.cjs` is truncated at line 10. Imported byte-for-byte; **not** repaired. | OPEN — registered by exact hash. Recover from the full reference or record permanently as a truncated fragment. |
+| `AND-CI-01` | `node --check` returns success for broken `.js` containing ESM syntax. | FIXED in the checker; negative control added. |
+| `F09` | Repository public while every governing document assumes private. | OPEN — blocked on the owner action above. See `provenance/PUBLIC-EXPOSURE-RECORD.md`. |
 
 ## Unresolved boundaries
 
 - Native production readiness is **unproven**. All eight gates in
-  [`handoff/PRODUCTION-GATES.md`](../../handoff/PRODUCTION-GATES.md) remain open.
-- No security, dependency or license audit has been performed.
-- No repository license is set; first-party licensing is unresolved.
-- No artifact release exists; `artifacts/manifest.json` has an empty asset list.
-- Branch protection and required-review enforcement are the owner's to configure
-  and were not set from this session. Independent AI review is **not** an
-  enforced GitHub approval from a second eligible account.
-- **Repository visibility is public**, at the owner's explicit direction, decided
-  after this concern was raised. The setup brief and import pack both assumed
-  private. Consequences, accepted by the owner and recorded rather than resolved:
-  retained recovered and third-party material is published while redistribution
-  rights are unestablished; only a pattern-level secret sweep has run; and the
-  20 MB transport object in `import/604-source` history is publicly fetchable.
-  Visibility was **not** changed by this session.
+  `handoff/PRODUCTION-GATES.md` remain open.
+- `F01` complete native source/build, `F02` production signing custody, `F03`
+  answer-boundary, `F05` mixed clinical routing and `F06` native durability are
+  all open. See `AUDIT-FINDINGS-MATRIX.md`.
+- No security, dependency, CVE or license audit exists. No repository license is
+  set. No artifact release exists.
+- Remote CI has not run on any commit after `edd43bd`.
+- Independent review of the current candidate has **not** been obtained. A review
+  of `c57c0b2` does not cover `edd43bd` or later, and must not be reused.
 
 ## Next action
 
-Owner reviews and decides on the unmerged PR. After that, `AND-01` first slice:
-classify and triage the imported tree by scope and produce a prioritized findings
-list tied to exact paths and hashes, starting from `AND-IMP-01`. Findings only,
-no code changes.
+1. **Owner:** make the repository private (action above).
+2. Then: re-verify visibility, obtain independent review of the exact new SHA,
+   push, and update PR #1 with the real evidence.

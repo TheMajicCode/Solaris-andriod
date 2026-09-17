@@ -33,6 +33,29 @@ This repository                       1,867 source files at original relative pa
 `1,867 retained + 3,367 excluded = 5,234` archive members. The excluded counts are
 carried verbatim into `REPO-IMPORT-MANIFEST.json`.
 
+### The five counts are five different sets — do not use them interchangeably
+
+| # | Count | What it counts |
+| --- | ---: | --- |
+| A | **5,234** | Entries in the complete 604 handoff archive (1,867 retained + 3,367 excluded) |
+| B | **1,879** | Members of the transport pack `.tar.xz` |
+| C | **1,878** | Entries listed by `IMPORT-INVENTORY.json`, which does not list itself — this is what `verify-import.py` checks |
+| D | **1,867** | Retained **original** handoff files, listed in `IMPORT-PROVENANCE.json` |
+| E | **12** | New pack metadata and instruction files created for the transport (B − D) |
+| F | **1,879** | Entries in `REPO-IMPORT-MANIFEST.json` (C + `IMPORT-INVENTORY.json` itself) |
+| G | **38** | Files this repository authored during the first bootstrap |
+
+Identities that must hold, and which `tools/repo-check.py` enforces: `D + E = B`,
+`C + 1 = F`, and `F + (repository-authored files) = tracked files`. The tracked
+total therefore grows as this repository adds its own work; it is **not** an
+import count and must never be quoted as one.
+
+Two further frozen files — the transport authorization prompt and its checksum
+file under `docs/provenance/transport/` — arrived on the input branch rather than
+inside the pack, so they appear in neither B nor C. They are hash-pinned in
+`CANDIDATE-CHANGES.json` under `frozen_external_records`, which is why
+`frozen-integrity` checks 1,881 files rather than 1,879.
+
 ## What was retained, by classification
 
 | Classification | Files | Meaning |

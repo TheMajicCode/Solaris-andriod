@@ -1,0 +1,49 @@
+{
+  "format": "solaris-android-candidate-changes/1",
+  "updated": "2026-09-17",
+  "purpose": "The frozen import manifest records what arrived and never changes. This file records every authorized deviation from it: overrides of imported paths, new maintained candidate source, and known inherited defects. tools/repo-check.py rejects any drift, deletion or reclassification that is not listed here, and rejects a listed entry whose recorded hashes no longer match.",
+  "rules": [
+    "An override must name the exact path, the original SHA-256 from the frozen manifest, the resulting SHA-256 on disk, a rationale, and the integration target that consumes it.",
+    "Refreshing a baseline hash to absorb a modification is prohibited. Record an override instead.",
+    "An inherited defect is registered by exact path and exact hash. If that file changes or disappears, the check FAILS rather than silently passing.",
+    "A registered inherited defect narrows to one diagnostic on one path. It never exempts a directory, and never suppresses a new defect.",
+    "A frozen path that is not in the import manifest must appear in frozen_external_records with its hash. Being absent from both is a failure, not a default pass."
+  ],
+  "candidate_overrides": [],
+  "maintained_candidate_paths": [],
+  "inherited_defects": [
+    {
+      "id": "AND-IMP-01",
+      "path": "solaris-603-native-probe/recommended-request-builder.cjs",
+      "sha256": "32e8ced1646b494fd3af6cb833ef9b9d1041f129805930bd7502b4dd77df3492",
+      "bytes": 839,
+      "scope": "retained-evidence",
+      "tool": "node --check",
+      "expected_diagnostic": "SyntaxError: Unexpected end of input",
+      "classification": "inherited-truncated-reference",
+      "evidence": "The file arrived truncated in the transport pack and was imported byte-for-byte. Its hash matches the frozen import manifest, so the truncation predates this repository.",
+      "disposition": "OPEN",
+      "resolution_options": [
+        "Recover the complete original from the restored full 604 reference and register it as an override.",
+        "Record it permanently as a truncated evidence fragment."
+      ],
+      "prohibited": "Do not guess the missing tail, and do not edit the original merely to make a syntax check green."
+    }
+  ],
+  "frozen_external_records": [
+    {
+      "path": "docs/provenance/transport/Solaris-604-Claude-GitHub-Import-Prompt.txt",
+      "sha256": "7f3b5d07b9bc327c0b8ced93a9100f01f62a8ac5fca2686d4bd0e3d38261d158",
+      "bytes": 2667,
+      "origin": "branch import/604-source at bf1d4e9, moved unchanged into docs/provenance/transport/",
+      "why_not_in_import_manifest": "These arrived on the input branch beside the transport archive, not inside the pack, so the pack inventory does not list them. They are still hash-pinned here so drift fails the run."
+    },
+    {
+      "path": "docs/provenance/transport/Solaris-604-GitHub-Source-Import-SHA256SUMS.txt",
+      "sha256": "b1da552e92d52516321cb8bdfaaa87342aebc3735e897cfa6df1b54149dec94f",
+      "bytes": 106,
+      "origin": "branch import/604-source at bf1d4e9, moved unchanged into docs/provenance/transport/",
+      "why_not_in_import_manifest": "These arrived on the input branch beside the transport archive, not inside the pack, so the pack inventory does not list them. They are still hash-pinned here so drift fails the run."
+    }
+  ]
+}

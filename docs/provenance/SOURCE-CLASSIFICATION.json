@@ -1,0 +1,55 @@
+{
+  "format": "solaris-android-source-classification/1",
+  "updated": "2026-09-17",
+  "purpose": "Every tracked file must resolve to exactly one integrity role and one check scope. tools/repo-check.py FAILS on any unclassified path; a new directory never silently inherits informational treatment.",
+  "integrity_roles": {
+    "frozen": "Imported bytes. Must match docs/provenance/REPO-IMPORT-MANIFEST.json exactly, unless the exact path appears as an authorized override in docs/provenance/CANDIDATE-CHANGES.json. Drift, deletion and reclassification all fail.",
+    "maintained": "This repository's own work. May change freely, but must still pass the checks its scope requires."
+  },
+  "check_scopes": {
+    "authored-source": "Current authored application, tool, UI and test source. Syntax/parse failures FAIL the run.",
+    "retained-evidence": "Recovered, decompiled, generated or probe evidence. Parse failures are findings to triage, never repaired by editing imported bytes. Each known defect must be registered by exact path and hash in CANDIDATE-CHANGES.json; an unregistered defect FAILS.",
+    "maintained-candidate": "New candidate source and tests authored in this repository. Receives the strictest treatment: syntax, targeted lint where configured, and functional tests must pass.",
+    "documentation": "Markdown and text. Relative links must resolve.",
+    "repo-tooling": "This repository's checkers and their tests. Syntax and self-tests must pass.",
+    "repo-config": "Workflow, template, ignore and container configuration. YAML/JSON must parse.",
+    "provenance-record": "Frozen or generated provenance records. JSON must parse; frozen copies must match their recorded hash."
+  },
+  "precedence": "Longest matching prefix wins. An exact-path rule beats any prefix rule.",
+  "rules": [
+    { "prefix": "Solaris-Android-R2/evidence/",                 "integrity": "frozen", "scope": "retained-evidence", "note": "Generated build/packaging evidence for the 602 lineage." },
+    { "prefix": "Solaris-Android-R2/reference/",                "integrity": "frozen", "scope": "retained-evidence", "note": "Reference bytecode comparisons and generated .hasm function disassembly." },
+    { "prefix": "Solaris-Android-R2/",                          "integrity": "frozen", "scope": "authored-source",   "note": "Reconstructed coordinator baseline and 602 guard repair: src, tests, tools, docs." },
+    { "prefix": "Solaris-Android-R3/evidence/",                 "integrity": "frozen", "scope": "retained-evidence" },
+    { "prefix": "Solaris-Android-R3/",                          "integrity": "frozen", "scope": "authored-source",   "note": "Retained 603 open-chat repair and dependencies used by 604." },
+    { "prefix": "Solaris-Android-R4/evidence/",                 "integrity": "frozen", "scope": "retained-evidence" },
+    { "prefix": "Solaris-Android-R4/",                          "integrity": "frozen", "scope": "authored-source",   "note": "Latest 604 change layer: grounding, ui, tools, tests, reviews, lifecycle, latency, docs." },
+    { "prefix": "Solaris-Android-Reconstruction/src/reconstructed/", "integrity": "frozen", "scope": "authored-source", "note": "Isolated recovery-envelope source reconstruction with component tests." },
+    { "prefix": "Solaris-Android-Reconstruction/tests/",        "integrity": "frozen", "scope": "authored-source" },
+    { "prefix": "Solaris-Android-Reconstruction/tools/",        "integrity": "frozen", "scope": "authored-source" },
+    { "prefix": "Solaris-Android-Reconstruction/docs/",         "integrity": "frozen", "scope": "documentation" },
+    { "prefix": "Solaris-Android-Reconstruction/build-inputs/", "integrity": "frozen", "scope": "provenance-record", "note": "Five JSON descriptors only. The tool binaries they describe are excluded from Git." },
+    { "prefix": "Solaris-Android-Reconstruction/",              "integrity": "frozen", "scope": "retained-evidence",  "note": "recovered-601, native-decompiled and other reference evidence." },
+    { "prefix": "solaris-603-native-probe/",                    "integrity": "frozen", "scope": "retained-evidence",  "note": "Retained desktop native model experiment code and results. Not maintained application source." },
+    { "prefix": "handoff/",                                     "integrity": "frozen", "scope": "documentation",      "note": "Retained handoff reference documents." },
+    { "prefix": "docs/provenance/import-pack/",                 "integrity": "frozen", "scope": "provenance-record",  "note": "The transport pack's own instruction files, frozen byte-for-byte." },
+    { "prefix": "docs/provenance/transport/",                   "integrity": "frozen", "scope": "provenance-record",  "note": "Transport authorization prompt and checksum file." },
+
+    { "path": "docs/provenance/REPO-IMPORT-MANIFEST.json",      "integrity": "maintained", "scope": "provenance-record" },
+    { "path": "docs/provenance/SOURCE-CLASSIFICATION.json",     "integrity": "maintained", "scope": "provenance-record" },
+    { "path": "docs/provenance/CANDIDATE-CHANGES.json",         "integrity": "maintained", "scope": "provenance-record" },
+    { "prefix": "docs/",                                        "integrity": "maintained", "scope": "documentation" },
+    { "prefix": "contracts/",                                   "integrity": "maintained", "scope": "documentation" },
+    { "prefix": "candidate/",                                   "integrity": "maintained", "scope": "maintained-candidate", "note": "New candidate source and tests authored in this repository." },
+    { "prefix": "tools/tests/fixtures/",                        "integrity": "maintained", "scope": "repo-config",    "note": "Deliberately malformed negative-control fixtures. Excluded from parse checks by design; exercised only by the checker self-tests." },
+    { "prefix": "tools/",                                       "integrity": "maintained", "scope": "repo-tooling" },
+    { "prefix": ".github/",                                     "integrity": "maintained", "scope": "repo-config" },
+    { "prefix": ".devcontainer/",                               "integrity": "maintained", "scope": "repo-config" },
+    { "prefix": "artifacts/",                                   "integrity": "maintained", "scope": "provenance-record" },
+
+    { "path": "README.md",    "integrity": "maintained", "scope": "documentation" },
+    { "path": "AGENTS.md",    "integrity": "maintained", "scope": "documentation" },
+    { "path": "CLAUDE.md",    "integrity": "maintained", "scope": "documentation" },
+    { "path": ".gitignore",   "integrity": "maintained", "scope": "repo-config" }
+  ]
+}
