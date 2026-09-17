@@ -6,7 +6,7 @@ in parallel — each item needs its own bounded task and review.
 
 | ID | Scope and dependencies | Acceptance evidence |
 | --- | --- | --- |
-| **AND-00** — Verified repository bootstrap | This import task | Private repo, exact source import and projection manifest, useful docs, real scoped CI, reviewed unmerged PR, artifact boundaries, no unsupported claims. **Delivered by this PR.** |
+| **AND-00** — Verified repository bootstrap | This import task | Exact source import and projection manifest, useful docs, real scoped CI, reviewed unmerged PR, artifact boundaries, no unsupported claims. **Delivered by this PR.** |
 | **AND-00b** — Curate private reference-input artifacts | After AND-00, needs restored reference and a licensing review | Reviewed, non-sensitive input bundles with hashes, sizes, restore paths and license status recorded in `artifacts/manifest.json`. Blocked until the reference is restored. |
 | **AND-01** — Baseline quality and security audit | After AND-00 | Prioritized findings tied to exact paths and SHAs; scoped lint, dependency, license and secret reports; clear native source gaps; the smallest next repair named |
 | **AND-02** — Reconstruct native build prerequisites | Based on the AND-01 audit | Traceable app/native graph, dependencies and build inputs; signer and vault compatibility preserved; rebuild stages proven without fabricated source |

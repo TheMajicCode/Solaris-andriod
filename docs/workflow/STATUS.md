@@ -49,6 +49,13 @@ Not failures — inputs are deliberately absent. Never report these as passed.
 - Branch protection and required-review enforcement are the owner's to configure
   and were not set from this session. Independent AI review is **not** an
   enforced GitHub approval from a second eligible account.
+- **Repository visibility is public**, at the owner's explicit direction, decided
+  after this concern was raised. The setup brief and import pack both assumed
+  private. Consequences, accepted by the owner and recorded rather than resolved:
+  retained recovered and third-party material is published while redistribution
+  rights are unestablished; only a pattern-level secret sweep has run; and the
+  20 MB transport object in `import/604-source` history is publicly fetchable.
+  Visibility was **not** changed by this session.
 
 ## Next action
 

@@ -4,8 +4,11 @@
 licensing clearance, and no redistribution right is implied by anything in this
 repository.**
 
-The repository is private. A public-source or public-showcase decision requires a
-separate content and licensing review and explicit authorization.
+The repository is currently **public**, at the owner's explicit direction. That
+happened **before** the content and licensing review this document calls for.
+Retained recovered and third-party material is therefore published while its
+redistribution rights remain unestablished — an open exposure, recorded here
+rather than presented as cleared.
 
 ## Status: unresolved
 

@@ -12,7 +12,7 @@ repository, or as a dedicated repository.
 
 ## Decision
 
-Solaris Android lives in its own private repository. The existing Solaris web
+Solaris Android lives in its own dedicated repository. The existing Solaris web
 repository stays where it is and is **not modified** from here. Ordinary
 short-lived branches inside this repository handle imports, audits and features.
 
@@ -38,9 +38,10 @@ data.
 | Field | Value |
 | --- | --- |
 | Product | Solaris Android · Pocket LUCA |
-| Visibility | **Private**, while source completeness, licensing and release readiness are assessed |
+| Visibility | **Public**, at the owner's explicit direction. The setup brief recommended private until source completeness, licensing and release readiness were assessed; that assessment is still outstanding. See [THIRD-PARTY-NOTICES](../THIRD-PARTY-NOTICES.md). |
 | License | Not set. Resolved by a separate ownership and licensing review. |
 | Source roots | `Solaris-Android-R4/`, `R3/`, `R2/`, `Solaris-Android-Reconstruction/`, `handoff/`, `solaris-603-native-probe/` — preserved at their original relative paths |
 
-A future public showcase or public-source decision requires a separate content
-and licensing review and explicit authorization.
+The public-source decision was taken by the owner ahead of the content and
+licensing review. That review remains outstanding and is tracked in
+`AND-01`.

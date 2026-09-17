@@ -10,7 +10,7 @@ acceptance evidence, output paths, status, next step.
 
 | Field | Value |
 | --- | --- |
-| **Problem** | The recovered 604 source existed only as a private archive. It needed to become a reviewable private repository with honest documentation, provenance and scoped checks. |
+| **Problem** | The recovered 604 source existed only as a private archive. It needed to become a reviewable repository with honest documentation, provenance and scoped checks. |
 | **Writer** | Claude Code |
 | **Reviewer** | Independent review agent, against the exact candidate tree |
 | **Base SHA** | `bf1d4e9` |

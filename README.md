@@ -214,5 +214,12 @@ and [OpenStreetMap attribution](https://www.openstreetmap.org/copyright).
 Review actual dependency versions, licenses and service terms before integrating
 or redistributing components. Existing third-party notices must be preserved. A
 repository-level license must reflect an actual ownership and licensing review;
-none is implied here. This repository stays **private** while source
-completeness, licensing and release readiness are assessed.
+none is implied here.
+
+> **Visibility.** This repository is currently **public**, at the owner's
+> explicit direction. The setup brief and import pack both assumed a private
+> repository while source completeness, licensing and release readiness were
+> assessed, and neither establishes public-redistribution clearance for the
+> retained recovered and third-party material. Licensing is
+> [unresolved](docs/THIRD-PARTY-NOTICES.md) and no security audit has been
+> performed. Treat every file here as published.

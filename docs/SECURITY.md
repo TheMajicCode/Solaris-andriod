@@ -2,10 +2,16 @@
 
 ## Reporting
 
-This repository is **private**. Report a suspected vulnerability privately to the
-repository owner through the channel you already use with them — do not open a
-public issue, and do not include exploit details, credentials or patient data in
-an issue or PR body.
+This repository is currently **public**, at the owner's explicit direction.
+Report a suspected vulnerability privately to the repository owner through the
+channel you already use with them — do not open a public issue, and do not
+include exploit details, credentials or patient data in an issue or PR body.
+
+Because the repository is public, assume anything committed here is already
+disclosed. The `secret-pattern-scan` in `tools/repo-check.py` is a filename and
+regex sweep, not a completed secret audit, and no dependency or license audit has
+been performed. That combination is an accepted, owner-directed risk, recorded
+here rather than implied to be resolved.
 
 No security contact address, response-time commitment or disclosure policy is
 invented here. When the owner establishes one, it replaces this paragraph.
