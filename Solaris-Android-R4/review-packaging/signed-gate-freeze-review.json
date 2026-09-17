@@ -1,0 +1,67 @@
+{
+  "reviewer": "/root/604_recording",
+  "decision": "approve",
+  "gateSha256": "303b7d0beeae02fd47d96e30c2799446e407c62ef3c7d2405519f042e054f6dd",
+  "checks": [
+    {
+      "label": "604_functional_review",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/FUNCTIONAL-INDEPENDENT-REVIEW.md",
+      "sha256": "f210f908a850d438126feebc2b44a5ed4e46a8cd8202513fa25702b1ceaab019"
+    },
+    {
+      "label": "604_recording",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-packaging/UNSIGNED-PACKAGING-APPROVAL.md",
+      "sha256": "40e9f6a95a8ce85317f3775478435ac15d055067ea9b9f9692a5fc989f06addb"
+    },
+    {
+      "label": "604_latency",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/latency/UI-INDEPENDENT-REVIEW.md",
+      "sha256": "e6ad586ff1518177c3146ba3ca6b882dbcfe12e371abd36da0cec2a5704928e8"
+    },
+    {
+      "label": "packager",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/tools/package-candidate.py",
+      "sha256": "998cb6679f7d81d4fd0ea0fdde5e7a8b9d645f9499bfa20b736435383e2c0445"
+    },
+    {
+      "label": "signer",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/tools/sign-reviewed-candidate.py",
+      "sha256": "f61ca8fe6fbf12e03aaa2f15f33d23bb877aa13a942b50a4ff234395c1be9877"
+    },
+    {
+      "label": "HBC",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/evidence/release/candidate604.hbc",
+      "sha256": "30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3"
+    },
+    {
+      "label": "build manifest",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/evidence/release-build-manifest.json",
+      "sha256": "38b14c723fa8f08d0e4719384a6abf6ab4640fba2db2d57162bc077825cc0c13"
+    },
+    {
+      "label": "review-bound source",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/grounding/fast-guided.js",
+      "sha256": "100a7ce8045aa1ec64d554715eb0980d7379afb2c78cc6441ae424900a5c0369"
+    },
+    {
+      "label": "review-bound source",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/grounding/build-plans.py",
+      "sha256": "7025545b9117d3cb28d4cda1f8e6ba3762a35f2e460c6508bd956663df04430f"
+    },
+    {
+      "label": "review-bound source",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/ui/sanctuary.html",
+      "sha256": "1dd45155ee400b7316d32c30856d2b3394680e98af7148bca29e5610879dbab4"
+    },
+    {
+      "label": "review-bound source",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/ui/sanctuary.compact.html",
+      "sha256": "82f96bdb87f16cd40cf84e51987ed4442fe444bd39ec82de29fff75eac334831"
+    },
+    {
+      "label": "unsigned candidate",
+      "path": "/tmp/solaris604-unsigned-final/candidate-aligned-unsigned.apk",
+      "sha256": "1064281a1ee874726d1e16e69e0d621af4dad23539fba301e0b91eed3b175b10"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "static-native-evidence-verification/1",
+  "apk_sha256": "228c3d9f282d716515e3640de2b13478a29e21c607293eaf589741ec6d34f183",
+  "dex_sha256": "c05b0cc8e3ed118b26023440896c946e2722e3dbb6fd017b61e56da581d53d75",
+  "target_dex_classes": 254,
+  "mapped_source_files": 254,
+  "mapping_unique": true,
+  "package_counts": {
+    "LK5": 178,
+    "LL5": 72,
+    "Lorg": 4
+  },
+  "total_reference_java_files": 261,
+  "fallback_files": 5,
+  "resolved_gcm_tag_bits": 128,
+  "resolved_key_bits": 256,
+  "explicit_failed_solaris_methods": 1,
+  "source_diagnostic_entries": 168,
+  "build_attempted": false,
+  "android_runtime_tests_run": false,
+  "compatibility_verified": false,
+  "doc_sha256": "8903b0f50fc41151736a8aa1d93dfcc9e77de2dfb0a69f4558cc550d1828e24b",
+  "additional_manual_uncertainties": [
+    "L5.n$a structured parser Unicode escape fallthrough and object comma iteration require branch-level verification; raw fallback retained, not implemented."
+  ]
+}

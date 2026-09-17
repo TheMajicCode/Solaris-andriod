@@ -1,0 +1,10 @@
+{
+  "format": "solaris-v6-603-build-manifest/1",
+  "baselineApkSha256": "01da9f5281f5f92230dcbd64da62484557cc7a0a15e876cc2d99ec7ec3bcd2cd",
+  "patchedHbcSha256": "b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990",
+  "patchedHbcBytes": 30754484,
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 603,
+  "versionName": "6.0.3-preview.pocket-chat",
+  "scope": "Strict conversation response schema with a separate zero-source prompt; one bounded source-free pair from the current unlocked session; explicit response-length termination rejection; clearer diagnostics and normal-chat readiness UI. Existing model, native vault components and 602 completion guards are preserved. Full LUCA resume repair, complete native-source reconstruction and on-device validation remain pending."
+}

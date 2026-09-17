@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "scope": "Independently authored synthetic fixture only",
+  "original_output": "retained:6\nretained exception\nold:5\n",
+  "appended_output": "old:\nretained exception\nold:5\n",
+  "function_id": 1,
+  "old_offset": 443,
+  "new_offset": 588,
+  "old_size": 75,
+  "new_size": 88,
+  "debug_info_offset": 560,
+  "body_follows_original_debug": true,
+  "preserved_original_bytes_except_fileLength_and_one_header": true,
+  "new_exception_table": [
+    [
+      16,
+      35,
+      79
+    ],
+    [
+      45,
+      79,
+      79
+    ]
+  ],
+  "command_results": [
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+        "-O",
+        "-g0",
+        "-emit-binary",
+        "-out=/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/narrow-base.hbc",
+        "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/host.js"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/bin/hvm",
+        "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/narrow-base.hbc"
+      ],
+      "returncode": 0,
+      "stdout": "retained:6\nretained exception\nold:5\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/bin/hvm",
+        "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/narrow-appended.hbc"
+      ],
+      "returncode": 0,
+      "stdout": "old:\nretained exception\nold:5\n",
+      "stderr": ""
+    }
+  ]
+}

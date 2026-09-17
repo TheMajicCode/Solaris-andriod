@@ -1,0 +1,12 @@
+{
+  "args": [
+    "python3",
+    "Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py",
+    "--tools",
+    "Solaris-Android-R2/evidence/integration-feasibility/relocated-tools",
+    "Solaris-Android-R2/evidence/integration-feasibility/promise-probe.js"
+  ],
+  "returncode": 0,
+  "stdout": "microtasks-drained\n",
+  "stderr": ""
+}

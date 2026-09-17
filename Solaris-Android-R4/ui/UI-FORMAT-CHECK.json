@@ -1,0 +1,50 @@
+{
+  "inputSha256": "1dd45155ee400b7316d32c30856d2b3394680e98af7148bca29e5610879dbab4",
+  "formattedSha256": "82f96bdb87f16cd40cf84e51987ed4442fe444bd39ec82de29fff75eac334831",
+  "originalScriptBytes": 5178628,
+  "formattedScriptBytes": 5158568,
+  "verbatimPreservedAssets": [
+    {
+      "sha256": "c083c78f9676ca3b35055faee225b5581d955b2a7fde8fb93785620235408fed",
+      "bytes": 815240
+    },
+    {
+      "sha256": "d6f6d12b9210a60ce7a2fc381947bdaf3d578b313d979d61b790f935c2e48a93",
+      "bytes": 4096716
+    }
+  ],
+  "originalBindingTreeSha256": "0834b7d74676161e25b9665e508afadf4a5a85d349d0e283920763c365f47954",
+  "formattedBindingTreeSha256": "0834b7d74676161e25b9665e508afadf4a5a85d349d0e283920763c365f47954",
+  "bindingNormalizedSyntaxTreeIdentical": true,
+  "globalNamesUnchanged": true,
+  "nonScriptContentUnchangedExceptSyntaxPreservingCss": true,
+  "cssChecks": [
+    {
+      "inputSha256": "68dae09f2d112b468f7ce331cfdd6f5c3c123b3558c1c4ffd8485f04c2402b87",
+      "outputSha256": "34701aa31c901b8f416dde679a5ad38ca544e0b2b239e1dda950290316131729",
+      "beforeBytes": 82436,
+      "afterBytes": 75049,
+      "syntaxTreeUnchanged": true
+    }
+  ],
+  "terserVersion": "5.44.0",
+  "acornVersion": "8.15.0",
+  "eslintScopeVersion": "8.4.0",
+  "options": {
+    "compress": false,
+    "mangle": {
+      "toplevel": false,
+      "keep_fnames": true,
+      "keep_classnames": true
+    },
+    "ecma": 2020,
+    "format": {
+      "comments": false,
+      "inline_script": true,
+      "quote_style": 3,
+      "keep_quoted_props": true,
+      "semicolons": true,
+      "ecma": 2020
+    }
+  }
+}

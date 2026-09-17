@@ -1,0 +1,75 @@
+{
+  "pass": true,
+  "baseSha256": "b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990",
+  "candidateSha256": "e4b7391c82438d8853b62cf663eaefb4409991d1b40bbf4efdafedc085a30ddb",
+  "candidateBytes": 30793476,
+  "changedFunctionIds": [
+    6929,
+    14890,
+    14894,
+    14904
+  ],
+  "changedStringIds": [],
+  "unchangedFunctions": 15509,
+  "originalBytesOutsideApprovedRangesIdentical": true,
+  "functionChecks": [
+    {
+      "functionId": 6929,
+      "frameBefore": 38,
+      "frameAfter": 38,
+      "registerOperandsChecked": 1805,
+      "branchTargetsChecked": 177,
+      "bodySha256": "92212b842e6e0f539a74643644f392efcca663840051d6f1f13bd7e363427099"
+    },
+    {
+      "functionId": 14890,
+      "frameBefore": 20,
+      "frameAfter": 100,
+      "registerOperandsChecked": 8660,
+      "branchTargetsChecked": 121,
+      "bodySha256": "7485369c00a70fac85480b219f224a6e57ccf4c89c74bdcc85040ab9753c4558"
+    },
+    {
+      "functionId": 14894,
+      "frameBefore": 39,
+      "frameAfter": 119,
+      "registerOperandsChecked": 9569,
+      "branchTargetsChecked": 199,
+      "bodySha256": "45acb066198a79c523278052358ad3502b90d95926b3d0d6152faf6390589275"
+    },
+    {
+      "functionId": 14904,
+      "frameBefore": 25,
+      "frameAfter": 25,
+      "registerOperandsChecked": 467,
+      "branchTargetsChecked": 21,
+      "bodySha256": "35d0ae5bf7625dc568909f851cbf158b3cf3dee5f2f2a1ba0ea36d002e85c93c"
+    }
+  ],
+  "mutableOriginalRanges": [
+    [
+      32,
+      36
+    ],
+    [
+      110992,
+      111008
+    ],
+    [
+      238368,
+      238384
+    ],
+    [
+      238432,
+      238448
+    ],
+    [
+      238592,
+      238608
+    ]
+  ],
+  "limitations": [
+    "Same pinned HBC parser as build tooling; independent comparison/assertion code.",
+    "Structural check supplements execution tests and cannot prove all Android behavior."
+  ]
+}

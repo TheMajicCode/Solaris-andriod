@@ -1,0 +1,2 @@
+Keystore password for signer #1: 
+Key "androiddebugkey" password for signer #1: 

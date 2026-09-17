@@ -1,0 +1,32 @@
+=> [Function #7382 "_return" of 89 bytes]: 2 params, frame size=16, strict=0, exc handler=0, debug info=0  @ offset 0x01c32d2a
+
+Bytecode listing:
+
+==> 00000000: <LoadThisNS>: <Reg8: 3>
+==> 00000002: <LoadConstUndefined>: <Reg8: 2>
+==> 00000004: <LoadConstUndefined>: <Reg8: 0>
+==> 00000006: <GetById>: <Reg8: 1, Reg8: 3, UInt8: 1, string_id: 13971>  # String: 's' (Identifier)
+==> 0000000c: <GetByIdShort>: <Reg8: 5, Reg8: 1, UInt8: 2, string_id: 216>  # String: 'return' (Identifier)
+==> 00000011: <JStrictEqual>: <Addr8: 37, Reg8: 2, Reg8: 5>  # Address: 00000036
+==> 00000015: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 00000018: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 0>
+==> 0000001c: <GetByIdShort>: <Reg8: 4, Reg8: 5, UInt8: 3, string_id: 26>  # String: 'apply' (Identifier)
+==> 00000021: <GetById>: <Reg8: 3, Reg8: 3, UInt8: 1, string_id: 13971>  # String: 's' (Identifier)
+==> 00000027: <ReifyArguments>: <Reg8: 0>
+==> 00000029: <Call3>: <Reg8: 0, Reg8: 4, Reg8: 5, Reg8: 3, Reg8: 0>
+==> 0000002f: <Call2>: <Reg8: 0, Reg8: 1, Reg8: 2, Reg8: 0>
+==> 00000034: <Jmp>: <Addr8: 35>  # Address: 00000057
+==> 00000036: <GetGlobalObject>: <Reg8: 1>
+==> 00000038: <TryGetById>: <Reg8: 3, Reg8: 1, UInt8: 4, string_id: 19>  # String: 'Promise' (Identifier)
+==> 0000003e: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 5, string_id: 215>  # String: 'resolve' (Identifier)
+==> 00000043: <NewObject>: <Reg8: 1>
+==> 00000045: <LoadParam>: <Reg8: 4, UInt8: 1>
+==> 00000048: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 4, string_id: 249>  # String: 'value' (Identifier)
+==> 0000004c: <LoadConstTrue>: <Reg8: 4>
+==> 0000004e: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 4, string_id: 109>  # String: 'done' (Identifier)
+==> 00000052: <Call2>: <Reg8: 0, Reg8: 2, Reg8: 3, Reg8: 1>
+==> 00000057: <Ret>: <Reg8: 0>
+
+
+===============
+

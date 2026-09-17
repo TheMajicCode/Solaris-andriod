@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "different valid-HBC hash",
+      "result": "REJECT",
+      "reason": "Not exact verified602 input"
+    },
+    {
+      "name": "bad footer",
+      "result": "REJECT",
+      "reason": "HBC SHA1 mismatch"
+    },
+    {
+      "name": "middle-of-opcode insertion",
+      "result": "REJECT",
+      "reason": "Edit not on boundaries"
+    },
+    {
+      "name": "overlapping edits",
+      "result": "REJECT",
+      "reason": "Overlapping edits"
+    },
+    {
+      "name": "deleted branch target",
+      "result": "REJECT",
+      "reason": "Missing label: old:1501"
+    },
+    {
+      "name": "new instruction register overflow",
+      "result": "REJECT",
+      "reason": "Mov Reg8 operand overflow: 256"
+    },
+    {
+      "name": "missing branch label",
+      "result": "REJECT",
+      "reason": "Missing label: absent"
+    },
+    {
+      "name": "label in nonaddress operand",
+      "result": "REJECT",
+      "reason": "Label used outside relative branch"
+    },
+    {
+      "name": "duplicate label",
+      "result": "REJECT",
+      "reason": "Duplicate label: x"
+    },
+    {
+      "name": "empty plan list",
+      "result": "REJECT",
+      "reason": "Empty/duplicate function plan"
+    },
+    {
+      "name": "duplicate fid",
+      "result": "REJECT",
+      "reason": "Empty/duplicate function plan"
+    },
+    {
+      "name": "lexical environment mutation",
+      "result": "REJECT",
+      "reason": "Protected header update: environmentSize"
+    },
+    {
+      "name": "frame shrink",
+      "result": "REJECT",
+      "reason": "Unexpected cache/frame shrink"
+    },
+    {
+      "name": "body changed after report",
+      "result": "REJECT",
+      "reason": "Plan body differs from reviewed report"
+    },
+    {
+      "name": "exception record changed after report",
+      "result": "REJECT",
+      "reason": "Invalid patched exception boundary"
+    },
+    {
+      "name": "branch target at function EOF",
+      "result": "REJECT",
+      "reason": "Invalid patched branch: must target instruction, not EOF"
+    },
+    {
+      "name": "exception handler target at function EOF",
+      "result": "REJECT",
+      "reason": "Invalid patched exception boundary"
+    },
+    {
+      "name": "encoded register outside actual frame",
+      "result": "REJECT",
+      "reason": "Patched register outside function frame"
+    },
+    {
+      "name": "forward/backward Addr8 widening with target fidelity",
+      "result": "PASS",
+      "forward": 150,
+      "backward": -145
+    },
+    {
+      "name": "actual602 diagnostics preservation",
+      "result": "PASS",
+      "code602_guards_unchanged": true,
+      "all_existing_strings_ids_unchanged": true
+    }
+  ],
+  "input_sha256": "fd8b38bcdd42421c18da4a0b69b2d58906ceddd7c4a2044b34faed51490f4653",
+  "diagnostics_hbc_sha256": "2477ad2cd24c957ccfb3415a5a39d397bf6bc1d9139e0f4d86861fbc89cfc12a"
+}

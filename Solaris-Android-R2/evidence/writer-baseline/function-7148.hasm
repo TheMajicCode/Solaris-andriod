@@ -1,0 +1,24 @@
+=> [Function #7148 "context" of 52 bytes]: 3 params, frame size=11, strict=1, exc handler=0, debug info=0  @ offset 0x01c2df27
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 0, UInt8: 2>
+==> 00000003: <LoadConstNull>: <Reg8: 1>
+==> 00000005: <JNotEqual>: <Addr8: 45, Reg8: 0, Reg8: 1>  # Address: 00000032
+==> 00000009: <NewObject>: <Reg8: 1>
+==> 0000000b: <GetEnvironment>: <Reg8: 2, UInt8: 1>
+==> 0000000e: <LoadFromEnvironment>: <Reg8: 2, Reg8: 2, UInt8: 13>
+==> 00000012: <GetById>: <Reg8: 3, Reg8: 2, UInt8: 1, string_id: 19461>  # String: 'transientId' (Identifier)
+==> 00000018: <LoadConstUndefined>: <Reg8: 2>
+==> 0000001a: <Call1>: <Reg8: 2, Reg8: 3, Reg8: 2>
+==> 0000001e: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 2, string_id: 95>  # String: 'id' (Identifier)
+==> 00000022: <LoadConstZero>: <Reg8: 2>
+==> 00000024: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 2, string_id: 121>  # String: 'epoch' (Identifier)
+==> 00000028: <LoadParam>: <Reg8: 2, UInt8: 1>
+==> 0000002b: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 2, string_id: 174>  # String: 'method' (Identifier)
+==> 0000002f: <Mov>: <Reg8: 0, Reg8: 1>
+==> 00000032: <Ret>: <Reg8: 0>
+
+
+===============
+

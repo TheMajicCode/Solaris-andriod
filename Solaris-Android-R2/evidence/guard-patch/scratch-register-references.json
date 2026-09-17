@@ -1,0 +1,39 @@
+{
+  "7314": {
+    "insertion": "0x163",
+    "firstRegisterReferences": {
+      "9": [
+        "==> 00000169: <NewObjectWithBuffer>: <Reg8: 9, UInt16: 5, UInt16: 5, UInt16: 2544, UInt16: 541>  # Object: {'modelId': null, 'history': null, 'stream': true, 'captureThinking': false, 'kvCache': false}",
+        "==> 0000017c: <PutById>: <Reg8: 9, Reg8: 10, UInt8: 4, string_id: 176>  # String: 'modelId' (Identifier)",
+        "==> 000001c3: <PutById>: <Reg8: 9, Reg8: 10, UInt8: 5, string_id: 15275>  # String: 'history' (Identifier)",
+        "==> 000001cb: <Call2>: <Reg8: 9, Reg8: 12, Reg8: 14, Reg8: 9>"
+      ],
+      "12": [
+        "==> 00000163: <GetById>: <Reg8: 12, Reg8: 14, UInt8: 14, string_id: 15326>  # String: 'completion' (Identifier)",
+        "==> 000001cb: <Call2>: <Reg8: 9, Reg8: 12, Reg8: 14, Reg8: 9>",
+        "==> 000001d7: <CreateClosure>: <Reg8: 12, Reg8: 3, function_id: 7315>  # Function: [#7315  of 35 bytes]: 1 params @ offset 0x01c31379",
+        "==> 000001dc: <PutById>: <Reg8: 14, Reg8: 12, UInt8: 6, string_id: 20441>  # String: 'cancelAction' (Identifier)"
+      ]
+    }
+  },
+  "7337": {
+    "insertion": "0x13c",
+    "firstRegisterReferences": {
+      "1": [
+        "==> 00000408: <Ret>: <Reg8: 1>"
+      ],
+      "11": [
+        "==> 0000013f: <GetById>: <Reg8: 11, Reg8: 12, UInt8: 11, string_id: 15326>  # String: 'completion' (Identifier)",
+        "==> 0000018f: <Call2>: <Reg8: 8, Reg8: 11, Reg8: 12, Reg8: 8>",
+        "==> 0000019b: <CreateClosure>: <Reg8: 11, Reg8: 4, function_id: 7338>  # Function: [#7338  of 35 bytes]: 1 params @ offset 0x01c31d5b",
+        "==> 000001a0: <PutById>: <Reg8: 12, Reg8: 11, UInt8: 4, string_id: 20441>  # String: 'cancelAction' (Identifier)"
+      ],
+      "12": [
+        "==> 0000013c: <Mov>: <Reg8: 12, Reg8: 8>",
+        "==> 0000013f: <GetById>: <Reg8: 11, Reg8: 12, UInt8: 11, string_id: 15326>  # String: 'completion' (Identifier)",
+        "==> 0000018f: <Call2>: <Reg8: 8, Reg8: 11, Reg8: 12, Reg8: 8>",
+        "==> 00000198: <Mov>: <Reg8: 12, Reg8: 6>"
+      ]
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "R4 checked when ancestor is named evidence",
+      "pass": true
+    },
+    {
+      "check": "missing Node is BLOCKED with exit 2",
+      "pass": true
+    },
+    {
+      "check": "empty R4 source set is BLOCKED with exit 2",
+      "pass": true
+    },
+    {
+      "check": "valid synthetic inventory passes",
+      "pass": true
+    },
+    {
+      "check": "changed synthetic file fails",
+      "pass": true
+    },
+    {
+      "check": "parent escape is rejected",
+      "pass": true
+    },
+    {
+      "check": "required executable permission absence fails on POSIX",
+      "pass": true
+    },
+    {
+      "check": "required executable permission present passes",
+      "pass": true
+    },
+    {
+      "check": "inventoried final-path symlink is rejected",
+      "pass": true
+    }
+  ],
+  "reviewedHashes": {
+    "handoff/audit.py": "fcbead143436509bf1cc046651600661d558d8247eb3244f39ab5fbb4f5a1f61",
+    "handoff/verify.py": "ec11c91ba9705f2717af4cea0e9734189ab049c814a0c5bdc1643a4fba2cc5a0",
+    ".gitignore": "1119763895c1efef238451a4dcd7a030c9d2ec334176fc604f2f0046d2f73194"
+  }
+}

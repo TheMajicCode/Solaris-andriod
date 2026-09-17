@@ -1,0 +1,10 @@
+package K5;
+
+import android.app.ApplicationExitInfo;
+
+/* JADX INFO: loaded from: /workspace/scratch/7a1f5a13b137/reconstruction-work/code601-classes.dex */
+public abstract /* synthetic */ class E0 {
+    public static /* bridge */ /* synthetic */ ApplicationExitInfo a(Object obj) {
+        return (ApplicationExitInfo) obj;
+    }
+}

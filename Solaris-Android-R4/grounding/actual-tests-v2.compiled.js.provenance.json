@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "Solaris-Android-R4/grounding/actual-tests.js",
+  "output": "Solaris-Android-R4/grounding/actual-tests-v2.compiled.js",
+  "inputSha256": "8fc8539ada4429450d8596efec4597d369e0857ab9e7770528250c49d54f8ee2",
+  "outputSha256": "61b048a163b17c98d6ef43d2a9e1cf8f1144924495751aee2f0698cb342f033c",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "actual-tests.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

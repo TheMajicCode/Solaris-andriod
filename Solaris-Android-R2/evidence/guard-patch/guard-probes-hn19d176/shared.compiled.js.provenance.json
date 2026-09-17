@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/guard-patch/guard-probes-hn19d176/shared-fixtures.js",
+  "output": "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/guard-patch/guard-probes-hn19d176/shared.compiled.js",
+  "inputSha256": "6e3b5fb242489118e9e4677a376dc9513e58c1b557944cc3fbc28bc537119568",
+  "outputSha256": "8c6c5a192cfbfd42141fcaaef031a4404ecff6fa5fa1a57b96810ad4d2dd0697",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "shared-fixtures.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/fixture.js",
+  "output": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/fixture.compiled.js",
+  "inputSha256": "d4a0e77b175ea11732eac6fc2989dcfd1d756a847761aa294db7fcb62f27b928",
+  "outputSha256": "68d10aade5a714d649736dcb704f3501cd8f09242c13637ed0cfac75411c14ea",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "fixture.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

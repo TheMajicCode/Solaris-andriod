@@ -1,0 +1,33 @@
+[
+  {
+    "args": [
+      "node",
+      "Solaris-Android-R2/evidence/integration-feasibility/transpile-hermes-fixture.cjs",
+      "--invalid"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/transpile-hermes-fixture.cjs:11\nif (!input || !output) throw new Error('Usage: node transpile-hermes-fixture.cjs input.js output.js');\n                       ^\n\nError: Usage: node transpile-hermes-fixture.cjs input.js output.js\n    at Object.<anonymous> (/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/transpile-hermes-fixture.cjs:11:30)\n    at Module._compile (node:internal/modules/cjs/loader:1872:14)\n    at Object..js (node:internal/modules/cjs/loader:2003:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47\n\nNode.js v24.19.0\n"
+  },
+  {
+    "args": [
+      "reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+      "-O",
+      "-emit-binary",
+      "-out=Solaris-Android-R2/evidence/integration-feasibility/baseline-transpiled-probe.hbc",
+      "Solaris-Android-R2/evidence/integration-feasibility/baseline-transpiled-probe.js"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "reconstruction-work/r2-tools/hermes-runner",
+      "Solaris-Android-R2/evidence/integration-feasibility/baseline-transpiled-probe.hbc"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

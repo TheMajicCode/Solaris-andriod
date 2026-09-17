@@ -1,0 +1,28 @@
+{
+  "mode": "memory-json",
+  "history": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant. Answer the last question directly. /no_think Return JSON with message and sourceRefs: []."
+    },
+    {
+      "role": "user",
+      "content": "My name is Cedar."
+    },
+    {
+      "role": "assistant",
+      "content": "Nice to meet you, Cedar."
+    },
+    {
+      "role": "user",
+      "content": "What name did I tell you?"
+    }
+  ],
+  "generationParams": {
+    "json_schema": "{\"type\":\"object\",\"properties\":{\"message\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":500},\"sourceRefs\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"maxItems\":0}},\"required\":[\"message\",\"sourceRefs\"],\"additionalProperties\":false}",
+    "reasoning_budget": 0,
+    "predict": 128,
+    "temp": 0.3,
+    "seed": 42
+  }
+}

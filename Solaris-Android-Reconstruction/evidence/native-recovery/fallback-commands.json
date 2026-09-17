@@ -1,0 +1,92 @@
+[
+  {
+    "argv": [
+      "bash",
+      "reconstruction-work/toolchain/jadx/bin/jadx",
+      "-r",
+      "--log-level",
+      "warn",
+      "--single-class",
+      "L5.p",
+      "--single-class-output",
+      "Solaris-Android-Reconstruction/reference/native-decompiled/fallback/L5.p.java",
+      "--decompilation-mode",
+      "fallback",
+      "--no-replace-consts",
+      "reconstruction-work/code601-classes.dex"
+    ],
+    "exit_code": 0
+  },
+  {
+    "argv": [
+      "bash",
+      "reconstruction-work/toolchain/jadx/bin/jadx",
+      "-r",
+      "--log-level",
+      "warn",
+      "--single-class",
+      "K5.A0",
+      "--single-class-output",
+      "Solaris-Android-Reconstruction/reference/native-decompiled/fallback/K5.A0.java",
+      "--decompilation-mode",
+      "fallback",
+      "--no-replace-consts",
+      "reconstruction-work/code601-classes.dex"
+    ],
+    "exit_code": 0
+  },
+  {
+    "argv": [
+      "bash",
+      "reconstruction-work/toolchain/jadx/bin/jadx",
+      "-r",
+      "--log-level",
+      "warn",
+      "--single-class",
+      "K5.J0",
+      "--single-class-output",
+      "Solaris-Android-Reconstruction/reference/native-decompiled/fallback/K5.J0.java",
+      "--decompilation-mode",
+      "fallback",
+      "--no-replace-consts",
+      "reconstruction-work/code601-classes.dex"
+    ],
+    "exit_code": 0
+  },
+  {
+    "argv": [
+      "bash",
+      "reconstruction-work/toolchain/jadx/bin/jadx",
+      "-r",
+      "--log-level",
+      "warn",
+      "--single-class",
+      "K5.C0",
+      "--single-class-output",
+      "Solaris-Android-Reconstruction/reference/native-decompiled/fallback/K5.C0.java",
+      "--decompilation-mode",
+      "fallback",
+      "--no-replace-consts",
+      "reconstruction-work/code601-classes.dex"
+    ],
+    "exit_code": 0
+  },
+  {
+    "argv": [
+      "bash",
+      "reconstruction-work/toolchain/jadx/bin/jadx",
+      "-r",
+      "--log-level",
+      "warn",
+      "--single-class",
+      "L5.n$a",
+      "--single-class-output",
+      "Solaris-Android-Reconstruction/reference/native-decompiled/fallback/L5.n$a.java",
+      "--decompilation-mode",
+      "fallback",
+      "--no-replace-consts",
+      "reconstruction-work/code601-classes.dex"
+    ],
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "format": "solaris-host-recovery/1",
+  "apkVersionCode": 601,
+  "functionCount": 15513,
+  "disassemblySha256": "44fb11bf3a5e4a2272196960a34c61a79fe6d46c5f3746d90229dafa2e8543aa",
+  "pseudocodeSha256": "7cdfe297d5bf7f7d13243f4043c1dc175a4825228d7a59675119953ee7c75c59",
+  "completeAuthoredSourceRecovered": false,
+  "compilableSource": false,
+  "toolRepository": "https://github.com/P1sec/hermes-dec",
+  "toolCommit": "a0f18f97ab661eb8ed659c8c683a0d21ea619e69",
+  "logs": [
+    "hermes-disassembly.log",
+    "hermes-pseudocode.log"
+  ],
+  "pseudocodeSyntaxCheckExitCode": 1,
+  "pseudocodeSyntaxCheckLog": "host-pseudocode-parse.log",
+  "pseudocodeWarning": "Disassembler pseudocode is not executable source; parse fails. No application rebuild attempted."
+}

@@ -1,0 +1,22 @@
+{
+  "format": "solaris-v6-603-fixture-readiness/1",
+  "officialCommit": "b26166dcfece76b91a682aead1838282df4a1318",
+  "fixtureUrl": "https://raw.githubusercontent.com/expo/expo/b26166dcfece76b91a682aead1838282df4a1318/templates/expo-template-bare-minimum/android/app/debug.keystore",
+  "fixtureSha256": "221e0a3106aa4c3ccc154e0a418b55020b3f9ea6e84f92e8749cd9e2f39f5e58",
+  "fixtureBytes": 2257,
+  "configurationUrl": "https://raw.githubusercontent.com/expo/expo/b26166dcfece76b91a682aead1838282df4a1318/templates/expo-template-bare-minimum/android/app/build.gradle",
+  "configurationSha256": "82e4c3b15f3727d937918e96ecabb1fbf7f96abc463e33b21e4c6bbfbf79019d",
+  "localRestrictedFixturePath": "/workspace/scratch/7a1f5a13b137/solaris-603-private-signing-inputs/expo-sdk54-template-debug.keystore",
+  "localRestrictedConfigurationPath": "/workspace/scratch/7a1f5a13b137/solaris-603-private-signing-inputs/expo-sdk54-template-build.gradle",
+  "fixtureFileMode": "0o600",
+  "source": "Shared public Expo SDK54 development signing fixture; not exclusive production custody",
+  "generatedOrChangedKey": false,
+  "fixtureExcludedFromDownloadArchives": true,
+  "credentialsLogged": false,
+  "publicConfigurationSavedOnlyInRestrictedDirectory": true,
+  "loadableKeyEntries": 1,
+  "publicComponentsMatchCertificate": true,
+  "certificateSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+  "privateKeyMaterialExported": false,
+  "apkSigned": false
+}

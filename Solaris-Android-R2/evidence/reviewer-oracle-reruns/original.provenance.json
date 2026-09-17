@@ -1,0 +1,29 @@
+{
+  "bundleSha256": "ac973292961cc7a1505a47a416ecafdff2e1688b7eac31f20571e503d74ec177",
+  "patchedMode": false,
+  "sourceSha256": "8962620f87095abcc7b48c9b672e0a47797ed286292f7d19634e61bf60130e30",
+  "preludeSha256": "88c7cb3f85637a06435056eaf4a6693dd0aa604a8fa9293fc2b0927dff9d6e46",
+  "postludeSha256": "f3e370d994b9636b6530fe2cc711cbed413fd54c96cbb48b6cd4f73b607aaa5d",
+  "transformSha256": "976bda4cb727be86568370abf4427c8121dd8e0d8e5fb3965b1250b06111034a",
+  "buildDirectory": "evidence/hermes-comparison-4tzgoqiz",
+  "command": [
+    "python3",
+    "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py",
+    "--tools",
+    "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools",
+    "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/tests/hermes/capture-prelude.js",
+    "/workspace/scratch/7a1f5a13b137/Solaris-Android-Reconstruction/src/recovered-601/compiled-reference/assets/index.android.bundle",
+    "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/hermes-comparison-4tzgoqiz/mode.js",
+    "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/hermes-comparison-4tzgoqiz/baseline.compiled.js",
+    "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/hermes-comparison-4tzgoqiz/comparison.compiled.js"
+  ],
+  "exitCode": 0,
+  "resultSha256": "c01c31262f04445c43626ed5319200bdbd57e420c3e36d974ca3dd58c89ed7b4",
+  "limits": [
+    "synthetic dependencies",
+    "desktop Hermes microtask queue",
+    "JSON-normalized events and selected state",
+    "no Android AppState/BareKit ordering or real model execution",
+    "no real wall-clock timer test"
+  ]
+}

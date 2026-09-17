@@ -1,0 +1,1059 @@
+0: StartGenerator 
+1: CreateEnvironment 5
+3: ResumeGenerator 0, 1
+6: JmpTrueLong 4151, 1
+12: LoadParam 11, 1
+15: LoadConstUndefined 1
+17: LoadConstUndefined 8
+19: LoadConstUndefined 2
+21: LoadConstUndefined 14
+23: LoadConstUndefined 17
+25: StoreNPToEnvironment 5, 0, 1
+29: LoadConstUndefined 7
+31: LoadConstUndefined 9
+33: LoadConstUndefined 12
+35: LoadConstUndefined 13
+37: LoadConstUndefined 22
+39: LoadConstUndefined 16
+41: LoadConstUndefined 18
+43: LoadConstUndefined 20
+45: LoadConstUndefined 19
+47: GetEnvironment 3, 2
+50: LoadFromEnvironment 4, 3, 27
+54: GetByIdShort 8, 4, 1, 96='current'
+59: GetEnvironment 4, 3
+62: LoadFromEnvironment 6, 4, 18
+66: GetById 15, 6, 2, 20843='isAppUrl'
+72: LoadParam 6, 2
+75: Call2 6, 15, 1, 6
+80: JmpTrue 55, 6
+83: LoadFromEnvironment 6, 3, 1
+87: GetById 24, 6, 3, 15384='trace'
+93: GetByIdShort 23, 24, 4, 44='add'
+98: NewObjectWithBuffer 21, 3, 3, 2360, 2067
+108: Mov 6, 8
+111: PutById 21, 6, 1, 121='epoch'
+117: LoadConstString 15, 10355='rn-rejected'
+121: LoadConstString 6, 5714='ORIGIN_REJECTED'
+125: Call4 6, 23, 24, 21, 15, 6
+132: CompleteGenerator 
+133: Ret 1
+135: Mov 6, 11
+138: GetByIdShort 15, 6, 5, 168='length'
+143: LoadConstInt 6, 8500000
+149: JNotLessEqual 89, 15, 6
+153: GetGlobalObject 6
+155: TryGetById 21, 6, 6, 10='JSON'
+161: GetByIdShort 15, 21, 7, 190='parse'
+166: Mov 6, 11
+169: Call2 2, 15, 21, 6
+174: Jmp 4
+176: Catch 6
+178: Mov 15, 2
+181: LoadConstNull 6
+183: Eq 23, 15, 6
+187: LoadConstUndefined 21
+189: JmpTrue 9, 23
+192: GetById 21, 15, 8, 15633='transport'
+198: LoadConstString 15, 7285='solaris-legacy-read/1'
+202: JStrictEqualLong 3825, 21, 15
+209: Mov 15, 2
+212: Eq 23, 15, 6
+216: LoadConstUndefined 21
+218: JmpTrue 9, 23
+221: GetById 21, 15, 8, 15633='transport'
+227: LoadConstString 15, 8733='solaris-vault-ui/1'
+231: JStrictEqualLong 1497, 21, 15
+238: LoadFromEnvironment 15, 4, 18
+242: GetById 21, 15, 9, 20979='parseTrace'
+248: Mov 15, 11
+251: Call2 15, 21, 1, 15
+256: JmpTrueLong 1381, 15
+262: LoadFromEnvironment 21, 4, 18
+266: GetById 23, 21, 10, 18586='parseBridge'
+272: Mov 21, 11
+275: Call2 22, 23, 1, 21
+280: NewObject 26
+282: Mov 21, 22
+285: GetByIdShort 23, 21, 11, 95='id'
+290: PutNewOwnByIdShort 26, 23, 95='id'
+294: Mov 23, 8
+297: PutNewOwnByIdShort 26, 23, 121='epoch'
+301: GetByIdShort 23, 21, 12, 174='method'
+306: PutNewOwnByIdShort 26, 23, 174='method'
+310: Mov 18, 26
+313: LoadFromEnvironment 23, 3, 1
+317: GetById 25, 23, 3, 15384='trace'
+323: GetByIdShort 24, 25, 4, 44='add'
+328: LoadConstString 23, 8929='rn-received'
+332: Call3 23, 24, 25, 26, 23
+338: LoadFromEnvironment 23, 3, 28
+342: GetByIdShort 24, 23, 1, 96='current'
+347: GetByIdShort 23, 24, 13, 139='has'
+352: GetByIdShort 21, 21, 11, 95='id'
+357: Call2 21, 23, 24, 21
+362: JmpTrueLong 1038, 21
+368: LoadFromEnvironment 21, 3, 28
+372: GetByIdShort 24, 21, 1, 96='current'
+377: GetByIdShort 23, 24, 4, 44='add'
+382: Mov 21, 22
+385: GetByIdShort 21, 21, 11, 95='id'
+390: Call2 21, 23, 24, 21
+395: LoadFromEnvironment 21, 3, 28
+399: GetByIdShort 21, 21, 1, 96='current'
+404: GetByIdShort 23, 21, 14, 110='size'
+409: LoadConstInt 21, 512
+415: JNotGreater 55, 23, 21
+419: LoadFromEnvironment 21, 3, 28
+423: GetByIdShort 24, 21, 1, 96='current'
+428: GetByIdShort 23, 24, 15, 104='delete'
+433: LoadFromEnvironment 21, 3, 28
+437: GetByIdShort 25, 21, 1, 96='current'
+442: GetByIdShort 21, 25, 16, 250='values'
+447: Call1 25, 21, 25
+451: GetByIdShort 21, 25, 17, 180='next'
+456: Call1 21, 21, 25
+460: GetByIdShort 21, 21, 18, 249='value'
+465: Call2 21, 23, 24, 21
+470: LoadFromEnvironment 21, 3, 1
+474: GetById 25, 21, 3, 15384='trace'
+480: GetByIdShort 24, 25, 4, 44='add'
+485: Mov 23, 18
+488: LoadConstString 21, 2914='rn-accepted'
+492: Call3 21, 24, 25, 23, 21
+498: LoadFromEnvironment 24, 3, 29
+502: NewObject 23
+504: Mov 21, 22
+507: GetByIdShort 21, 21, 11, 95='id'
+512: PutNewOwnByIdShort 23, 21, 95='id'
+516: LoadConstString 21, 504='ack'
+520: PutNewOwnByIdShort 23, 21, 163='kind'
+524: Mov 21, 8
+527: Call3 21, 24, 1, 23, 21
+533: Mov 21, 22
+536: GetByIdShort 23, 21, 12, 174='method'
+541: LoadConstString 21, 14537='ping'
+545: JStrictEqualLong 622, 21, 23
+552: LoadConstString 21, 2691='openDiagnostics'
+556: JStrictEqualLong 588, 21, 23
+563: LoadConstString 21, 20764='getStatus'
+567: JStrictEqualLong 541, 21, 23
+574: LoadConstString 21, 17270='probeRuntime'
+578: JStrictEqualLong 494, 21, 23
+585: LoadConstString 21, 15765='getCatalog'
+589: JStrictEqualLong 444, 21, 23
+596: LoadConstString 21, 16772='provisionModel'
+600: JStrictEqualLong 394, 21, 23
+607: LoadConstString 21, 16776='importModel'
+611: JStrictEqualLong 344, 21, 23
+618: LoadConstString 21, 14103='loadModel'
+622: JStrictEqualLong 294, 21, 23
+629: LoadConstString 21, 20450='cancelProvision'
+633: JStrictEqualLong 221, 21, 23
+640: LoadConstString 21, 18039='unloadModel'
+644: JStrictEqualLong 171, 21, 23
+651: LoadConstString 21, 16701='deleteModel'
+655: JStrictEqual 121, 21, 23
+659: LoadConstString 21, 7292='runSmoke'
+663: JStrictEqual 69, 21, 23
+667: LoadConstString 21, 16014='completePublic'
+671: JStrictNotEqualLong 523, 21, 23
+678: LoadFromEnvironment 25, 3, 1
+682: GetById 24, 25, 19, 16014='completePublic'
+688: Mov 21, 22
+691: GetByIdShort 21, 21, 20, 189='params'
+696: GetById 23, 21, 21, 20048='promptId'
+702: Mov 21, 18
+705: Call3 21, 24, 25, 23, 21
+711: SaveGenerator 4
+713: Ret 21
+715: ResumeGenerator 21, 23
+718: JmpTrue 11, 23
+721: Mov 20, 21
+724: JmpLong 470
+729: CompleteGenerator 
+730: Ret 21
+732: LoadFromEnvironment 25, 3, 1
+736: GetById 24, 25, 19, 16014='completePublic'
+742: Mov 23, 18
+745: LoadConstString 21, 4120='smoke'
+749: Call3 21, 24, 25, 21, 23
+755: SaveGenerator 4
+757: Ret 21
+759: ResumeGenerator 21, 23
+762: JmpTrue 11, 23
+765: Mov 20, 21
+768: JmpLong 426
+773: CompleteGenerator 
+774: Ret 21
+776: LoadFromEnvironment 24, 3, 1
+780: GetById 23, 24, 22, 16701='deleteModel'
+786: Mov 21, 18
+789: Call2 21, 23, 24, 21
+794: SaveGenerator 4
+796: Ret 21
+798: ResumeGenerator 21, 23
+801: JmpTrue 11, 23
+804: Mov 20, 21
+807: JmpLong 387
+812: CompleteGenerator 
+813: Ret 21
+815: LoadFromEnvironment 24, 3, 1
+819: GetById 23, 24, 23, 18039='unloadModel'
+825: Mov 21, 18
+828: Call2 21, 23, 24, 21
+833: SaveGenerator 4
+835: Ret 21
+837: ResumeGenerator 21, 23
+840: JmpTrue 11, 23
+843: Mov 20, 21
+846: JmpLong 348
+851: CompleteGenerator 
+852: Ret 21
+854: LoadFromEnvironment 23, 3, 1
+858: GetById 21, 23, 24, 14239='stopDownload'
+864: Call1 21, 21, 23
+868: SaveGenerator 4
+870: Ret 21
+872: ResumeGenerator 21, 23
+875: JmpTrue 38, 23
+878: LoadFromEnvironment 24, 3, 1
+882: GetById 23, 24, 25, 20450='cancelProvision'
+888: Call1 23, 23, 24
+892: SaveGenerator 4
+894: Ret 23
+896: ResumeGenerator 23, 24
+899: JmpTrue 11, 24
+902: Mov 20, 23
+905: JmpLong 289
+910: CompleteGenerator 
+911: Ret 23
+913: CompleteGenerator 
+914: Ret 21
+916: LoadFromEnvironment 24, 3, 1
+920: GetById 23, 24, 26, 16773='retryModel'
+926: Mov 21, 18
+929: Call2 21, 23, 24, 21
+934: SaveGenerator 4
+936: Ret 21
+938: ResumeGenerator 21, 23
+941: JmpTrue 11, 23
+944: Mov 20, 21
+947: JmpLong 247
+952: CompleteGenerator 
+953: Ret 21
+955: LoadFromEnvironment 24, 3, 1
+959: GetById 23, 24, 27, 16776='importModel'
+965: Mov 21, 18
+968: Call2 21, 23, 24, 21
+973: SaveGenerator 4
+975: Ret 21
+977: ResumeGenerator 21, 23
+980: JmpTrue 11, 23
+983: Mov 20, 21
+986: JmpLong 208
+991: CompleteGenerator 
+992: Ret 21
+994: LoadFromEnvironment 24, 3, 1
+998: GetById 23, 24, 28, 16772='provisionModel'
+1004: Mov 21, 18
+1007: Call2 21, 23, 24, 21
+1012: SaveGenerator 4
+1014: Ret 21
+1016: ResumeGenerator 21, 23
+1019: JmpTrue 11, 23
+1022: Mov 20, 21
+1025: JmpLong 169
+1030: CompleteGenerator 
+1031: Ret 21
+1033: LoadFromEnvironment 24, 3, 1
+1037: GetById 23, 24, 29, 15765='getCatalog'
+1043: Mov 21, 18
+1046: Call2 21, 23, 24, 21
+1051: SaveGenerator 4
+1053: Ret 21
+1055: ResumeGenerator 21, 23
+1058: JmpTrue 11, 23
+1061: Mov 20, 21
+1064: JmpLong 130
+1069: CompleteGenerator 
+1070: Ret 21
+1072: LoadFromEnvironment 24, 3, 1
+1076: GetById 23, 24, 30, 17270='probeRuntime'
+1082: Mov 21, 18
+1085: Call2 21, 23, 24, 21
+1090: SaveGenerator 4
+1092: Ret 21
+1094: ResumeGenerator 21, 23
+1097: JmpTrue 8, 23
+1100: Mov 20, 21
+1103: Jmp 91
+1105: CompleteGenerator 
+1106: Ret 21
+1108: LoadFromEnvironment 24, 3, 1
+1112: GetById 23, 24, 31, 20764='getStatus'
+1118: Mov 21, 18
+1121: Call2 21, 23, 24, 21
+1126: SaveGenerator 4
+1128: Ret 21
+1130: ResumeGenerator 21, 23
+1133: JmpTrue 8, 23
+1136: Mov 20, 21
+1139: Jmp 55
+1141: CompleteGenerator 
+1142: Ret 21
+1144: LoadFromEnvironment 21, 3, 25
+1148: LoadConstTrue 23
+1150: Call2 21, 21, 1, 23
+1155: NewObject 21
+1157: PutNewOwnById 21, 23, 15238='opened'
+1162: Mov 20, 21
+1165: Jmp 29
+1167: NewObject 21
+1169: LoadFromEnvironment 23, 4, 18
+1173: GetById 23, 23, 32, 17420='VERSION'
+1179: PutNewOwnById 21, 23, 20405='bridgeVersion'
+1184: LoadConstTrue 23
+1186: PutNewOwnById 21, 23, 16091='alive'
+1191: Mov 20, 21
+1194: Mov 23, 8
+1197: LoadFromEnvironment 21, 3, 27
+1201: GetByIdShort 21, 21, 1, 96='current'
+1206: JStrictNotEqual 71, 23, 21
+1210: LoadFromEnvironment 21, 3, 1
+1214: GetById 25, 21, 3, 15384='trace'
+1220: GetByIdShort 24, 25, 4, 44='add'
+1225: Mov 23, 18
+1228: LoadConstString 21, 6204='rn-reply'
+1232: Call3 21, 24, 25, 23, 21
+1238: LoadFromEnvironment 23, 3, 29
+1242: NewObject 21
+1244: Mov 24, 22
+1247: GetByIdShort 24, 24, 11, 95='id'
+1252: PutNewOwnByIdShort 21, 24, 95='id'
+1256: LoadConstTrue 24
+1258: PutNewOwnById 21, 24, 15752='ok'
+1263: PutNewOwnById 21, 20, 14857='result'
+1268: Mov 20, 8
+1271: Call3 20, 23, 1, 21, 20
+1277: Jmp 120
+1279: Catch 21
+1281: LoadFromEnvironment 20, 4, 19
+1285: GetById 20, 20, 33, 18212='safeError'
+1291: Call2 19, 20, 1, 21
+1296: Mov 21, 8
+1299: LoadFromEnvironment 20, 3, 27
+1303: GetByIdShort 20, 20, 1, 96='current'
+1308: JStrictNotEqual 89, 21, 20
+1312: LoadFromEnvironment 20, 3, 1
+1316: GetById 25, 20, 3, 15384='trace'
+1322: GetByIdShort 24, 25, 4, 44='add'
+1327: Mov 23, 18
+1330: GetByIdShort 21, 19, 34, 80='code'
+1335: LoadConstString 20, 6204='rn-reply'
+1339: Call4 20, 24, 25, 23, 20, 21
+1346: LoadFromEnvironment 21, 3, 29
+1350: NewObject 20
+1352: GetByIdShort 22, 22, 11, 95='id'
+1357: PutNewOwnByIdShort 20, 22, 95='id'
+1361: LoadConstFalse 22
+1363: PutNewOwnById 20, 22, 15752='ok'
+1368: GetByIdShort 22, 19, 34, 80='code'
+1373: PutNewOwnByIdShort 20, 22, 122='error'
+1377: GetById 19, 19, 35, 15897='stage'
+1383: PutNewOwnById 20, 19, 15897='stage'
+1388: Mov 19, 8
+1391: Call3 19, 21, 1, 20, 19
+1397: CompleteGenerator 
+1398: Ret 1
+1400: LoadFromEnvironment 19, 3, 1
+1404: GetById 22, 19, 3, 15384='trace'
+1410: GetByIdShort 21, 22, 4, 44='add'
+1415: Mov 20, 18
+1418: LoadConstString 19, 10355='rn-rejected'
+1422: LoadConstString 18, 5589='DUPLICATE_REQUEST'
+1426: Call4 18, 21, 22, 20, 19, 18
+1433: CompleteGenerator 
+1434: Ret 1
+1436: Catch 18
+1438: LoadFromEnvironment 18, 3, 1
+1442: GetById 22, 18, 3, 15384='trace'
+1448: GetByIdShort 21, 22, 4, 44='add'
+1453: NewObjectWithBuffer 20, 3, 3, 2360, 2074
+1463: Mov 18, 8
+1466: PutById 20, 18, 1, 121='epoch'
+1472: LoadConstString 19, 10355='rn-rejected'
+1476: LoadConstString 18, 5007='BRIDGE_INVALID'
+1480: Call4 18, 21, 22, 20, 19, 18
+1487: Mov 18, 11
+1490: GetByIdShort 19, 18, 5, 168='length'
+1495: LoadConstInt 18, 2048
+1501: LessEq 20, 19, 18
+1505: LoadConstNull 18
+1507: LoadConstNull 19
+1509: JmpFalse 24, 20
+1512: GetGlobalObject 20
+1514: TryGetById 22, 20, 6, 10='JSON'
+1520: GetByIdShort 21, 22, 7, 190='parse'
+1525: Mov 20, 11
+1528: Call2 19, 21, 22, 20
+1533: Mov 16, 19
+1536: Eq 20, 19, 18
+1540: LoadConstUndefined 18
+1542: JmpTrue 8, 20
+1545: GetByIdShort 18, 19, 11, 95='id'
+1550: TypeOf 19, 18
+1553: LoadConstString 18, 228='string'
+1557: JStrictNotEqual 73, 19, 18
+1561: CreateRegExp 20, 1098='^[a-zA-Z0-9_-]{1,90}$', 13965='', 90
+1575: GetByIdShort 19, 20, 36, 182='test'
+1580: Mov 18, 16
+1583: GetByIdShort 18, 18, 11, 95='id'
+1588: Call2 18, 19, 20, 18
+1593: JmpFalse 37, 18
+1596: LoadFromEnvironment 19, 3, 29
+1600: NewObjectWithBuffer 18, 3, 3, 2372, 2088
+1610: GetByIdShort 16, 16, 11, 95='id'
+1615: PutById 18, 16, 2, 95='id'
+1621: Mov 16, 8
+1624: Call3 16, 19, 1, 18, 16
+1630: Jmp 4
+1632: Catch 16
+1634: CompleteGenerator 
+1635: Ret 1
+1637: NewObject 20
+1639: GetByIdShort 16, 15, 11, 95='id'
+1644: PutNewOwnByIdShort 20, 16, 95='id'
+1648: Mov 16, 8
+1651: PutNewOwnByIdShort 20, 16, 121='epoch'
+1655: GetByIdShort 16, 15, 12, 174='method'
+1660: PutNewOwnByIdShort 20, 16, 174='method'
+1664: LoadFromEnvironment 16, 3, 1
+1668: GetById 19, 16, 3, 15384='trace'
+1674: GetByIdShort 18, 19, 4, 44='add'
+1679: GetById 16, 15, 35, 15897='stage'
+1685: Call3 16, 18, 19, 20, 16
+1691: GetById 18, 15, 35, 15897='stage'
+1697: LoadConstString 16, 7985='web-timeout'
+1701: JStrictNotEqual 24, 18, 16
+1705: LoadFromEnvironment 18, 3, 1
+1709: GetById 16, 18, 37, 15124='cancelRequest'
+1715: GetByIdShort 15, 15, 11, 95='id'
+1720: Call2 15, 16, 18, 15
+1725: CompleteGenerator 
+1726: Ret 1
+1728: LoadFromEnvironment 15, 4, 12
+1732: GetById 15, 15, 38, 18555='parseVaultBridge'
+1738: Call2 14, 15, 1, 11
+1743: LoadFromEnvironment 11, 3, 11
+1747: GetByIdShort 11, 11, 1, 96='current'
+1752: JmpTrue 22, 11
+1755: GetGlobalObject 11
+1757: TryGetById 15, 11, 39, 8='Error'
+1763: LoadConstString 11, 8922='VAULT_LOCKED'
+1767: Call2 11, 15, 1, 11
+1772: Throw 11
+1774: Mov 11, 14
+1777: GetByIdShort 15, 11, 12, 174='method'
+1782: LoadConstString 11, 15253='view'
+1786: JStrictEqualLong 1871, 11, 15
+1793: LoadConstString 11, 21069='provisionChoice'
+1797: JStrictEqualLong 1801, 11, 15
+1804: LoadConstString 11, 21143='voiceStatus'
+1808: JStrictEqualLong 1744, 11, 15
+1815: LoadConstString 11, 14969='voiceDownload'
+1819: JStrictEqualLong 1683, 11, 15
+1826: LoadConstString 11, 21198='voiceStart'
+1830: JStrictEqualLong 1578, 11, 15
+1837: LoadConstString 11, 17377='voiceStop'
+1841: JStrictEqualLong 1532, 11, 15
+1848: LoadConstString 11, 15973='voiceCancel'
+1852: JStrictEqualLong 1475, 11, 15
+1859: LoadConstString 11, 17464='healthStatus'
+1863: JStrictEqualLong 1430, 11, 15
+1870: LoadConstString 11, 19046='healthConnect'
+1874: JStrictEqualLong 1317, 11, 15
+1881: LoadConstString 11, 14822='healthRead'
+1885: JStrictEqualLong 1171, 11, 15
+1892: LoadConstString 11, 14776='attachmentImport'
+1896: JStrictEqualLong 1125, 11, 15
+1903: LoadConstString 11, 19266='navigationState'
+1907: JStrictEqualLong 1059, 11, 15
+1914: LoadConstString 11, 14986='openExternal'
+1918: JStrictEqualLong 919, 11, 15
+1925: LoadConstString 11, 15844='openSetup'
+1929: JStrictEqualLong 807, 11, 15
+1936: LoadConstString 11, 14133='lock'
+1940: JStrictEqualLong 637, 11, 15
+1947: LoadConstString 11, 14161='change'
+1951: JStrictEqualLong 582, 11, 15
+1958: LoadConstString 11, 18320='converse'
+1962: JStrictEqualLong 212, 11, 15
+1969: LoadConstString 11, 14178='stop'
+1973: JStrictEqualLong 139, 11, 15
+1980: LoadConstString 11, 14674='getLegacy'
+1984: JStrictEqual 50, 11, 15
+1988: LoadConstString 11, 16924='legacyCleared'
+1992: JStrictNotEqualLong 1709, 11, 15
+1999: LoadFromEnvironment 15, 3, 2
+2003: GetById 11, 15, 40, 16924='legacyCleared'
+2009: Call1 11, 11, 15
+2013: SaveGenerator 4
+2015: Ret 11
+2017: ResumeGenerator 11, 15
+2020: JmpTrue 11, 15
+2023: Mov 17, 11
+2026: JmpLong 1675
+2031: CompleteGenerator 
+2032: Ret 11
+2034: LoadFromEnvironment 11, 3, 2
+2038: GetByIdShort 11, 11, 41, 35='state'
+2043: JmpTrue 22, 11
+2046: GetGlobalObject 11
+2048: TryGetById 15, 11, 39, 8='Error'
+2054: LoadConstString 11, 8922='VAULT_LOCKED'
+2058: Call2 11, 15, 1, 11
+2063: Throw 11
+2065: LoadFromEnvironment 15, 3, 2
+2069: GetByIdShort 15, 15, 41, 35='state'
+2074: GetById 16, 15, 42, 14293='legacy'
+2080: Eq 18, 16, 6
+2084: LoadConstUndefined 15
+2086: JmpTrue 9, 18
+2089: GetById 15, 16, 43, 14365='raw'
+2095: Mov 11, 15
+2098: JNotEqual 6, 15, 6
+2102: LoadConstNull 11
+2104: Mov 17, 11
+2107: JmpLong 1594
+2112: LoadFromEnvironment 15, 3, 12
+2116: GetByIdShort 11, 15, 1, 96='current'
+2121: Inc 11, 11
+2124: PutById 15, 11, 3, 96='current'
+2130: LoadFromEnvironment 15, 3, 2
+2134: GetById 11, 15, 44, 14178='stop'
+2140: Call1 11, 11, 15
+2144: SaveGenerator 4
+2146: Ret 11
+2148: ResumeGenerator 11, 15
+2151: JmpTrue 20, 15
+2154: NewObject 15
+2156: LoadConstTrue 16
+2158: PutNewOwnById 15, 16, 16603='stopped'
+2163: Mov 17, 15
+2166: JmpLong 1535
+2171: CompleteGenerator 
+2172: Ret 11
+2174: LoadFromEnvironment 15, 3, 12
+2178: GetByIdShort 11, 15, 1, 96='current'
+2183: Inc 11, 11
+2186: PutById 15, 11, 3, 96='current'
+2192: Mov 9, 11
+2195: NewArrayWithBuffer 16, 3, 3, 13726
+2203: GetByIdShort 15, 16, 45, 102='includes'
+2208: LoadFromEnvironment 18, 3, 15
+2212: GetById 11, 18, 46, 15253='view'
+2218: Call1 11, 11, 18
+2222: GetByIdShort 11, 11, 41, 35='state'
+2227: Call2 11, 15, 16, 11
+2232: JmpTrueLong 282, 11
+2238: LoadFromEnvironment 20, 3, 2
+2242: GetById 19, 20, 47, 18911='assertConversationAccess'
+2248: Mov 11, 14
+2251: GetByIdShort 15, 11, 20, 189='params'
+2256: GetByIdShort 18, 15, 48, 91='message'
+2261: GetByIdShort 15, 11, 20, 189='params'
+2266: GetById 16, 15, 49, 17490='sourceIds'
+2272: GetByIdShort 15, 11, 20, 189='params'
+2277: GetById 15, 15, 50, 16415='useAI'
+2283: Call4 15, 19, 20, 18, 16, 15
+2290: GetByIdShort 11, 11, 20, 189='params'
+2295: GetById 11, 11, 50, 16415='useAI'
+2301: JmpFalse 83, 11
+2304: LoadFromEnvironment 15, 3, 1
+2308: GetById 11, 15, 51, 17693='snapshot'
+2314: Call1 11, 11, 15
+2318: GetById 11, 11, 52, 14377='loaded'
+2324: JmpTrue 60, 11
+2327: LoadFromEnvironment 15, 3, 1
+2331: GetById 11, 15, 53, 17629='prepareForUse'
+2337: Call1 11, 11, 15
+2341: SaveGenerator 4
+2343: Ret 11
+2345: ResumeGenerator 11, 15
+2348: JmpTrue 33, 15
+2351: LoadFromEnvironment 15, 3, 14
+2355: Call1 15, 15, 1
+2359: JmpTrue 25, 15
+2362: GetGlobalObject 15
+2364: TryGetById 16, 15, 39, 8='Error'
+2370: LoadConstString 15, 8922='VAULT_LOCKED'
+2374: Call2 15, 16, 1, 15
+2379: Throw 15
+2381: CompleteGenerator 
+2382: Ret 11
+2384: Mov 11, 9
+2387: LoadFromEnvironment 9, 3, 12
+2391: GetByIdShort 9, 9, 1, 96='current'
+2396: JStrictNotEqual 99, 11, 9
+2400: LoadFromEnvironment 9, 3, 14
+2404: Call1 9, 9, 1
+2408: JmpFalse 87, 9
+2411: LoadFromEnvironment 19, 3, 2
+2415: GetById 18, 19, 54, 18320='converse'
+2421: Mov 9, 14
+2424: GetByIdShort 11, 9, 20, 189='params'
+2429: GetByIdShort 30, 11, 48, 91='message'
+2434: GetByIdShort 11, 9, 20, 189='params'
+2439: GetById 29, 11, 49, 17490='sourceIds'
+2445: GetByIdShort 11, 9, 20, 189='params'
+2450: GetById 28, 11, 50, 16415='useAI'
+2456: GetByIdShort 9, 9, 20, 189='params'
+2461: GetById 27, 9, 55, 18829='operationId'
+2467: Mov 31, 19
+2470: Call 9, 18, 5
+2474: SaveGenerator 4
+2476: Ret 9
+2478: ResumeGenerator 9, 11
+2481: JmpTrue 11, 11
+2484: Mov 17, 9
+2487: JmpLong 1214
+2492: CompleteGenerator 
+2493: Ret 9
+2495: GetGlobalObject 9
+2497: TryGetById 11, 9, 39, 8='Error'
+2503: LoadConstString 9, 15290='CANCELLED'
+2507: Call2 9, 11, 1, 9
+2512: Throw 9
+2514: GetGlobalObject 9
+2516: TryGetById 11, 9, 39, 8='Error'
+2522: LoadConstString 9, 8937='VOICE_BUSY'
+2526: Call2 9, 11, 1, 9
+2531: Throw 9
+2533: LoadFromEnvironment 15, 3, 2
+2537: GetById 11, 15, 56, 14161='change'
+2543: Mov 9, 14
+2546: GetByIdShort 9, 9, 20, 189='params'
+2551: Call2 9, 11, 15, 9
+2556: SaveGenerator 4
+2558: Ret 9
+2560: ResumeGenerator 9, 11
+2563: JmpTrue 11, 11
+2566: Mov 17, 9
+2569: JmpLong 1132
+2574: CompleteGenerator 
+2575: Ret 9
+2577: LoadFromEnvironment 11, 3, 12
+2581: GetByIdShort 9, 11, 1, 96='current'
+2586: Inc 9, 9
+2589: PutById 11, 9, 3, 96='current'
+2595: LoadFromEnvironment 11, 3, 15
+2599: GetById 9, 11, 57, 14752='cancel'
+2605: Call1 15, 9, 11
+2609: GetByIdShort 11, 15, 58, 71='catch'
+2614: CreateClosure 9, 5, 6932
+2619: Call2 9, 11, 15, 9
+2624: LoadFromEnvironment 11, 3, 16
+2628: GetById 9, 11, 57, 14752='cancel'
+2634: Call1 15, 9, 11
+2638: GetByIdShort 11, 15, 58, 71='catch'
+2643: CreateClosure 9, 5, 6933
+2648: Call2 9, 11, 15, 9
+2653: LoadFromEnvironment 11, 3, 4
+2657: LoadConstFalse 9
+2659: Call2 9, 11, 1, 9
+2664: LoadFromEnvironment 11, 3, 17
+2668: GetById 9, 11, 59, 17485='invalidate'
+2674: Call1 9, 9, 11
+2678: LoadFromEnvironment 11, 3, 17
+2682: GetById 9, 11, 60, 19369='suppressAutomatic'
+2688: Call1 9, 9, 11
+2692: LoadFromEnvironment 11, 3, 2
+2696: GetById 9, 11, 61, 14133='lock'
+2702: Call1 9, 9, 11
+2706: SaveGenerator 4
+2708: Ret 9
+2710: ResumeGenerator 9, 11
+2713: JmpTrue 20, 11
+2716: NewObject 11
+2718: LoadConstTrue 15
+2720: PutNewOwnById 11, 15, 14466='locked'
+2725: Mov 17, 11
+2728: JmpLong 973
+2733: CompleteGenerator 
+2734: Ret 9
+2736: LoadFromEnvironment 9, 3, 2
+2740: GetById 9, 9, 62, 14233='store'
+2746: GetById 9, 9, 63, 21109='unlocked'
+2752: JmpFalse 36, 9
+2755: LoadFromEnvironment 9, 3, 2
+2759: GetByIdShort 11, 9, 41, 35='state'
+2764: Eq 15, 11, 6
+2768: LoadConstUndefined 9
+2770: JmpTrue 15, 15
+2773: GetById 11, 11, 64, 19207='migration'
+2779: GetById 9, 11, 65, 20506='committed'
+2785: JmpTrue 24, 9
+2788: LoadFromEnvironment 9, 3, 30
+2792: Call1 9, 9, 1
+2796: SaveGenerator 4
+2798: Ret 9
+2800: ResumeGenerator 9, 11
+2803: JmpFalse 17, 11
+2806: CompleteGenerator 
+2807: Ret 9
+2809: LoadFromEnvironment 11, 3, 4
+2813: LoadConstTrue 9
+2815: Call2 9, 11, 1, 9
+2820: NewObject 9
+2822: LoadConstTrue 11
+2824: PutNewOwnById 9, 11, 15238='opened'
+2829: Mov 17, 9
+2832: JmpLong 869
+2837: LoadFromEnvironment 9, 3, 14
+2841: Call1 9, 9, 1
+2845: JmpTrue 22, 9
+2848: GetGlobalObject 9
+2850: TryGetById 11, 9, 39, 8='Error'
+2856: LoadConstString 9, 8922='VAULT_LOCKED'
+2860: Call2 9, 11, 1, 9
+2865: Throw 9
+2867: LoadFromEnvironment 9, 4, 12
+2871: GetById 11, 9, 66, 19232='onlineDestination'
+2877: Mov 9, 14
+2880: GetByIdShort 9, 9, 20, 189='params'
+2885: GetById 9, 9, 67, 15723='destination'
+2891: Call2 7, 11, 1, 9
+2896: LoadFromEnvironment 9, 4, 3
+2900: GetById 11, 9, 68, 16361='Linking'
+2906: GetById 9, 11, 69, 15499='openURL'
+2912: Call2 7, 9, 11, 7
+2917: SaveGenerator 4
+2919: Ret 7
+2921: ResumeGenerator 7, 9
+2924: JmpTrue 18, 9
+2927: NewObjectWithBuffer 17, 2, 2, 2364, 117
+2937: JmpLong 764
+2942: CompleteGenerator 
+2943: Ret 7
+2945: Catch 7
+2947: GetGlobalObject 7
+2949: TryGetById 9, 7, 39, 8='Error'
+2955: LoadConstString 7, 4644='ONLINE_HANDOFF_FAILED'
+2959: Call2 7, 9, 1, 7
+2964: Throw 7
+2966: LoadFromEnvironment 9, 3, 10
+2970: LoadFromEnvironment 11, 3, 14
+2974: Call1 11, 11, 1
+2978: Mov 7, 11
+2981: JmpFalse 17, 11
+2984: Mov 11, 14
+2987: GetByIdShort 11, 11, 20, 189='params'
+2992: GetById 7, 11, 70, 15620='canGoBack'
+2998: PutById 9, 7, 3, 96='current'
+3004: NewObject 7
+3006: LoadConstTrue 9
+3008: PutNewOwnById 7, 9, 14810='accepted'
+3013: Mov 17, 7
+3016: JmpLong 685
+3021: LoadFromEnvironment 9, 3, 2
+3025: GetById 7, 9, 71, 20823='importAttachment'
+3031: Call1 7, 7, 9
+3035: SaveGenerator 4
+3037: Ret 7
+3039: ResumeGenerator 7, 9
+3042: JmpTrue 11, 9
+3045: Mov 17, 7
+3048: JmpLong 653
+3053: CompleteGenerator 
+3054: Ret 7
+3056: LoadFromEnvironment 7, 3, 2
+3060: GetByIdShort 9, 7, 41, 35='state'
+3065: Eq 11, 9, 6
+3069: LoadConstUndefined 7
+3071: JmpTrue 9, 11
+3074: GetById 7, 9, 72, 17826='ownerId'
+3080: StoreToEnvironment 5, 0, 7
+3084: LoadFromEnvironment 16, 3, 16
+3088: GetById 15, 16, 73, 14356='read'
+3094: Mov 7, 14
+3097: GetByIdShort 9, 7, 20, 189='params'
+3102: GetById 11, 9, 74, 19129='startDate'
+3108: GetByIdShort 9, 7, 20, 189='params'
+3113: GetById 9, 9, 75, 16836='endDate'
+3119: GetByIdShort 7, 7, 20, 189='params'
+3124: GetByIdShort 7, 7, 76, 237='timeZone'
+3129: Call4 7, 15, 16, 11, 9, 7
+3136: SaveGenerator 4
+3138: Ret 7
+3140: ResumeGenerator 7, 9
+3143: JmpTrue 45, 9
+3146: LoadFromEnvironment 15, 3, 2
+3150: GetById 11, 15, 77, 18279='saveHealthSnapshot'
+3156: CreateClosure 9, 5, 6931
+3161: Call3 9, 11, 15, 7, 9
+3167: SaveGenerator 4
+3169: Ret 9
+3171: ResumeGenerator 9, 11
+3174: JmpTrue 11, 11
+3177: Mov 17, 9
+3180: JmpLong 521
+3185: CompleteGenerator 
+3186: Ret 9
+3188: CompleteGenerator 
+3189: Ret 7
+3191: LoadFromEnvironment 9, 3, 2
+3195: LoadConstTrue 7
+3197: PutById 9, 7, 4, 14393='ceremony'
+3203: LoadFromEnvironment 11, 3, 16
+3207: GetById 9, 11, 78, 16628='requestPermissions'
+3213: Mov 7, 14
+3216: GetByIdShort 7, 7, 20, 189='params'
+3221: GetById 7, 7, 79, 17981='scopes'
+3227: Call2 7, 9, 11, 7
+3232: SaveGenerator 4
+3234: Ret 7
+3236: ResumeGenerator 7, 9
+3239: JmpTrue 23, 9
+3242: Mov 17, 7
+3245: LoadFromEnvironment 11, 3, 2
+3249: LoadConstFalse 9
+3251: PutById 11, 9, 4, 14393='ceremony'
+3257: JmpLong 444
+3262: LoadFromEnvironment 11, 3, 2
+3266: LoadConstFalse 9
+3268: PutById 11, 9, 4, 14393='ceremony'
+3274: CompleteGenerator 
+3275: Ret 7
+3277: Catch 7
+3279: LoadFromEnvironment 11, 3, 2
+3283: LoadConstFalse 9
+3285: PutById 11, 9, 4, 14393='ceremony'
+3291: Throw 7
+3293: LoadFromEnvironment 9, 3, 16
+3297: GetByIdShort 7, 9, 80, 225='status'
+3302: Call1 7, 7, 9
+3306: SaveGenerator 4
+3308: Ret 7
+3310: ResumeGenerator 7, 9
+3313: JmpTrue 11, 9
+3316: Mov 17, 7
+3319: JmpLong 382
+3324: CompleteGenerator 
+3325: Ret 7
+3327: LoadFromEnvironment 9, 3, 15
+3331: GetById 7, 9, 57, 14752='cancel'
+3337: Call1 7, 7, 9
+3341: SaveGenerator 4
+3343: Ret 7
+3345: ResumeGenerator 7, 9
+3348: JmpTrue 22, 9
+3351: LoadFromEnvironment 11, 3, 15
+3355: GetById 9, 11, 46, 15253='view'
+3361: Call1 17, 9, 11
+3365: JmpLong 336
+3370: CompleteGenerator 
+3371: Ret 7
+3373: LoadFromEnvironment 9, 3, 15
+3377: GetById 7, 9, 44, 14178='stop'
+3383: Call1 7, 7, 9
+3387: SaveGenerator 4
+3389: Ret 7
+3391: ResumeGenerator 7, 9
+3394: JmpTrue 11, 9
+3397: Mov 17, 7
+3400: JmpLong 301
+3405: CompleteGenerator 
+3406: Ret 7
+3408: LoadFromEnvironment 9, 3, 12
+3412: GetByIdShort 7, 9, 1, 96='current'
+3417: Inc 7, 7
+3420: PutById 9, 7, 3, 96='current'
+3426: LoadFromEnvironment 9, 3, 2
+3430: GetById 7, 9, 44, 14178='stop'
+3436: Call1 7, 7, 9
+3440: SaveGenerator 4
+3442: Ret 7
+3444: ResumeGenerator 7, 9
+3447: JmpTrue 52, 9
+3450: LoadFromEnvironment 15, 3, 15
+3454: GetByIdShort 11, 15, 81, 222='start'
+3459: Mov 9, 14
+3462: GetByIdShort 9, 9, 20, 189='params'
+3467: GetById 9, 9, 82, 14326='locale'
+3473: Call2 9, 11, 15, 9
+3478: SaveGenerator 4
+3480: Ret 9
+3482: ResumeGenerator 9, 11
+3485: JmpTrue 11, 11
+3488: Mov 17, 9
+3491: JmpLong 210
+3496: CompleteGenerator 
+3497: Ret 9
+3499: CompleteGenerator 
+3500: Ret 7
+3502: LoadFromEnvironment 11, 3, 15
+3506: GetById 9, 11, 83, 14373='download'
+3512: Mov 7, 14
+3515: GetByIdShort 7, 7, 20, 189='params'
+3520: GetById 7, 7, 82, 14326='locale'
+3526: Call2 7, 9, 11, 7
+3531: SaveGenerator 4
+3533: Ret 7
+3535: ResumeGenerator 7, 9
+3538: JmpTrue 11, 9
+3541: Mov 17, 7
+3544: JmpLong 157
+3549: CompleteGenerator 
+3550: Ret 7
+3552: LoadFromEnvironment 11, 3, 15
+3556: GetByIdShort 9, 11, 80, 225='status'
+3561: Mov 7, 14
+3564: GetByIdShort 7, 7, 20, 189='params'
+3569: GetById 7, 7, 82, 14326='locale'
+3575: Call2 7, 9, 11, 7
+3580: SaveGenerator 4
+3582: Ret 7
+3584: ResumeGenerator 7, 9
+3587: JmpTrue 8, 9
+3590: Mov 17, 7
+3593: Jmp 108
+3595: CompleteGenerator 
+3596: Ret 7
+3598: LoadFromEnvironment 15, 3, 1
+3602: GetById 11, 15, 84, 16380='choosePreparation'
+3608: Mov 7, 14
+3611: GetByIdShort 9, 7, 20, 189='params'
+3616: GetById 9, 9, 85, 17456='enabled'
+3622: GetByIdShort 7, 7, 20, 189='params'
+3627: GetById 7, 7, 86, 19244='mobileData'
+3633: Call3 7, 11, 15, 9, 7
+3639: SaveGenerator 4
+3641: Ret 7
+3643: ResumeGenerator 7, 9
+3646: JmpTrue 8, 9
+3649: Mov 17, 7
+3652: Jmp 49
+3654: CompleteGenerator 
+3655: Ret 7
+3657: NewObject 7
+3659: LoadFromEnvironment 11, 3, 2
+3663: GetById 9, 11, 46, 15253='view'
+3669: Call1 29, 9, 11
+3673: Mov 30, 7
+3676: CallBuiltin 9, 44, 3
+3680: LoadFromEnvironment 9, 3, 13
+3684: GetByIdShort 11, 9, 1, 96='current'
+3689: LoadConstString 9, 5215='hasVault'
+3693: PutOwnByVal 7, 11, 9, 1
+3698: Mov 17, 7
+3701: Mov 9, 8
+3704: LoadFromEnvironment 7, 3, 27
+3708: GetByIdShort 7, 7, 1, 96='current'
+3713: JStrictNotEqual 94, 9, 7
+3717: LoadFromEnvironment 7, 3, 11
+3721: GetByIdShort 7, 7, 1, 96='current'
+3726: JmpFalse 81, 7
+3729: LoadFromEnvironment 9, 3, 20
+3733: GetGlobalObject 7
+3735: TryGetById 16, 7, 6, 10='JSON'
+3741: GetByIdShort 15, 16, 87, 229='stringify'
+3746: NewObject 11
+3748: Mov 18, 14
+3751: GetByIdShort 18, 18, 11, 95='id'
+3756: PutNewOwnByIdShort 11, 18, 95='id'
+3760: LoadConstTrue 18
+3762: PutNewOwnById 11, 18, 15752='ok'
+3767: PutNewOwnById 11, 17, 14857='result'
+3772: Call2 16, 15, 16, 11
+3777: TryGetById 7, 7, 88, 9='HermesInternal'
+3783: GetByIdShort 15, 7, 89, 82='concat'
+3788: LoadConstString 11, 8492='window.__solarisVaultReply?.('
+3792: LoadConstString 7, 1576=')'
+3796: Call3 7, 15, 11, 16, 7
+3802: Call2 7, 9, 1, 7
+3807: JmpLong 212
+3812: Catch 11
+3814: Mov 10, 11
+3817: LoadFromEnvironment 7, 4, 19
+3821: GetById 7, 7, 33, 18212='safeError'
+3827: Call2 12, 7, 1, 11
+3832: GetGlobalObject 7
+3834: TryGetById 9, 7, 39, 8='Error'
+3840: InstanceOf 9, 11, 9
+3844: JmpFalse 38, 9
+3847: CreateRegExp 15, 9153='^[A-Z_]{3,60}$', 13965='', 91
+3861: GetByIdShort 11, 15, 36, 182='test'
+3866: Mov 9, 10
+3869: GetByIdShort 9, 9, 48, 91='message'
+3874: Call2 9, 11, 15, 9
+3879: JmpTrue 33, 9
+3882: Mov 9, 12
+3885: GetByIdShort 15, 9, 34, 80='code'
+3890: LoadConstString 9, 8924='VAULT_OPERATION_FAILED'
+3894: LoadConstString 11, 4111='OPERATION_FAILED'
+3898: JStrictEqual 12, 15, 11
+3902: Mov 11, 12
+3905: GetByIdShort 9, 11, 34, 80='code'
+3910: Jmp 7
+3912: GetByIdShort 9, 10, 48, 91='message'
+3917: Mov 13, 9
+3920: Mov 9, 8
+3923: LoadFromEnvironment 8, 3, 27
+3927: GetByIdShort 8, 8, 1, 96='current'
+3932: JStrictNotEqual 87, 9, 8
+3936: LoadFromEnvironment 8, 3, 20
+3940: TryGetById 11, 7, 6, 10='JSON'
+3946: GetByIdShort 10, 11, 87, 229='stringify'
+3951: NewObject 9
+3953: GetByIdShort 14, 14, 11, 95='id'
+3958: PutNewOwnByIdShort 9, 14, 95='id'
+3962: LoadConstFalse 14
+3964: PutNewOwnById 9, 14, 15752='ok'
+3969: PutNewOwnByIdShort 9, 13, 122='error'
+3973: GetById 12, 12, 35, 15897='stage'
+3979: PutNewOwnById 9, 12, 15897='stage'
+3984: Call2 11, 10, 11, 9
+3989: TryGetById 7, 7, 88, 9='HermesInternal'
+3995: GetByIdShort 10, 7, 89, 82='concat'
+4000: LoadConstString 9, 8492='window.__solarisVaultReply?.('
+4004: LoadConstString 7, 1576=')'
+4008: Call3 7, 10, 9, 11, 7
+4014: Call2 7, 8, 1, 7
+4019: CompleteGenerator 
+4020: Ret 1
+4022: Catch 7
+4024: CompleteGenerator 
+4025: Ret 1
+4027: GetGlobalObject 7
+4029: TryGetById 9, 7, 90, 18='Object'
+4035: GetByIdShort 8, 9, 91, 161='keys'
+4040: Mov 7, 2
+4043: Call2 8, 8, 9, 7
+4048: GetById 7, 8, 92, 15734='every'
+4054: CreateClosure 5, 5, 6930
+4059: Call2 5, 7, 8, 5
+4064: JmpFalse 90, 5
+4067: Mov 5, 2
+4070: GetById 5, 5, 43, 14365='raw'
+4076: JStrictEqual 63, 5, 6
+4080: Mov 5, 2
+4083: GetById 5, 5, 43, 14365='raw'
+4089: TypeOf 6, 5
+4092: LoadConstString 5, 228='string'
+4096: JStrictNotEqual 58, 6, 5
+4100: LoadFromEnvironment 4, 4, 8
+4104: GetById 5, 4, 93, 18253='utf8'
+4110: Mov 4, 2
+4113: GetById 4, 4, 43, 14365='raw'
+4119: Call2 4, 5, 1, 4
+4124: GetByIdShort 5, 4, 5, 168='length'
+4129: LoadConstInt 4, 8000000
+4135: JNotLessEqual 19, 5, 4
+4139: LoadFromEnvironment 3, 3, 6
+4143: GetById 2, 2, 43, 14365='raw'
+4149: Call2 2, 3, 1, 2
+4154: CompleteGenerator 
+4155: Ret 1
+4157: CompleteGenerator 
+4158: Ret 0

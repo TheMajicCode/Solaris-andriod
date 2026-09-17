@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "name": "json_object constrains generic object only",
+      "pass": true
+    },
+    {
+      "name": "text has no grammar constraint",
+      "pass": true
+    },
+    {
+      "name": "load config reasoning budget converts to string0",
+      "pass": true
+    },
+    {
+      "name": "captureThinking false controls framing, not native generation",
+      "pass": true
+    },
+    {
+      "name": "normal completion has completionDone even without stopReason",
+      "pass": true
+    },
+    {
+      "name": "ordinary EOS may lack explicit stopReason",
+      "pass": true
+    },
+    {
+      "name": "captureThinking true controls framing, not native generation",
+      "pass": true
+    },
+    {
+      "name": "normal completion has completionDone even without stopReason",
+      "pass": true
+    },
+    {
+      "name": "ordinary EOS may lack explicit stopReason",
+      "pass": true
+    },
+    {
+      "name": "explicit per request reasoning0 and json_schema accepted by exact SDK",
+      "pass": true
+    }
+  ],
+  "scope": "Executes exact recovered SDK JavaScript only; no RPC transport or Android"
+}

@@ -1,0 +1,4815 @@
+{
+  "pass": true,
+  "cases": [
+    {
+      "name": "public-success",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 1
+    },
+    {
+      "name": "private-success",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 1
+    },
+    {
+      "name": "private-truthy-success",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 1
+    },
+    {
+      "name": "public-background",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 0
+    },
+    {
+      "name": "public-cancelled",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 0
+    },
+    {
+      "name": "private-revoked",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 0
+    },
+    {
+      "name": "private-background",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 0
+    },
+    {
+      "name": "private-cancelled",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 0
+    },
+    {
+      "name": "private-initially-denied",
+      "pass": true,
+      "dispatchBefore": 0,
+      "dispatchAfter": 0
+    },
+    {
+      "name": "public-not-ready",
+      "pass": true,
+      "dispatchBefore": 0,
+      "dispatchAfter": 0
+    },
+    {
+      "name": "private-not-ready",
+      "pass": true,
+      "dispatchBefore": 0,
+      "dispatchAfter": 0
+    },
+    {
+      "name": "public-empty",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 1
+    },
+    {
+      "name": "private-empty",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 1
+    },
+    {
+      "name": "public-sdk-throw",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 1
+    },
+    {
+      "name": "private-sdk-throw",
+      "pass": true,
+      "dispatchBefore": 1,
+      "dispatchAfter": 1
+    },
+    {
+      "name": "public-repeated-success",
+      "pass": true,
+      "dispatchBefore": 2,
+      "dispatchAfter": 2
+    },
+    {
+      "name": "private-repeated-success",
+      "pass": true,
+      "dispatchBefore": 2,
+      "dispatchAfter": 2
+    }
+  ],
+  "baselineSha256": "ac973292961cc7a1505a47a416ecafdff2e1688b7eac31f20571e503d74ec177",
+  "patchedSha256": "fd8b38bcdd42421c18da4a0b69b2d58906ceddd7c4a2044b34faed51490f4653",
+  "fixtureSourceSha256": "f3e370d994b9636b6530fe2cc711cbed413fd54c96cbb48b6cd4f73b607aaa5d",
+  "guardSourceSha256": "dc575e4ebb547c312b0111cdc059d9ae61f9eecacf4c34af8b5dc56b5ab44e79",
+  "testScriptSha256": "40636ec26adcce34d844f5901e754fda3dfa128cff9ecc0cc74f7d4ed9f624fc",
+  "outputs": {
+    "original": {
+      "public-success": {
+        "name": "public-success",
+        "value": {
+          "format": "solaris-runtime-result/1",
+          "outcome": "completed",
+          "mode": "qvac-device",
+          "promptId": "smoke",
+          "policyVersion": "V5-A-public-only/1",
+          "runtimeVersion": "QVAC 0.18.2",
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "contentEvents": 1,
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "completedAt": "2023-11-14T22:13:20.000Z",
+          "signed": false,
+          "text": "Hello.",
+          "residency": "device"
+        },
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [
+          {
+            "id": "synthetic-context",
+            "epoch": 0,
+            "text": "Hello."
+          }
+        ],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "Hello.",
+        "receipt": {
+          "format": "solaris-runtime-result/1",
+          "outcome": "completed",
+          "mode": "qvac-device",
+          "promptId": "smoke",
+          "policyVersion": "V5-A-public-only/1",
+          "runtimeVersion": "QVAC 0.18.2",
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "contentEvents": 1,
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "completedAt": "2023-11-14T22:13:20.000Z",
+          "signed": false
+        },
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      },
+      "private-success": {
+        "name": "private-success",
+        "value": {
+          "text": "{}",
+          "contentEvents": 1,
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "policyVersion": "daily-policy/1"
+        },
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 3,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      },
+      "private-truthy-success": {
+        "name": "private-truthy-success",
+        "value": {
+          "text": "{}",
+          "contentEvents": 1,
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "policyVersion": "daily-policy/1"
+        },
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 3,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      },
+      "public-background": {
+        "name": "public-background",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "idle"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": false,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "bounded",
+            10,
+            "CANCEL_UNCONFIRMED",
+            "cancel"
+          ],
+          [
+            "sdk-cancel",
+            {
+              "requestId": "synthetic-request"
+            }
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-ack",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "idle"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": false,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "idle"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-cancelled": {
+        "name": "public-cancelled",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "idle"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": true
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "bounded",
+            10,
+            "CANCEL_UNCONFIRMED",
+            "cancel"
+          ],
+          [
+            "sdk-cancel",
+            {
+              "requestId": "synthetic-request"
+            }
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-ack",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "idle"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "idle"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-revoked": {
+        "name": "private-revoked",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "local"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": false,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 2,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "bounded",
+            10,
+            "CANCEL_UNCONFIRMED",
+            "cancel"
+          ],
+          [
+            "sdk-cancel",
+            {
+              "requestId": "synthetic-request"
+            }
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-ack",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "local"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "local"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-background": {
+        "name": "private-background",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "idle"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": false,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 1,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "bounded",
+            10,
+            "CANCEL_UNCONFIRMED",
+            "cancel"
+          ],
+          [
+            "sdk-cancel",
+            {
+              "requestId": "synthetic-request"
+            }
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-ack",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "idle"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": false,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "idle"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-cancelled": {
+        "name": "private-cancelled",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "idle"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": true
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 1,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "bounded",
+            10,
+            "CANCEL_UNCONFIRMED",
+            "cancel"
+          ],
+          [
+            "sdk-cancel",
+            {
+              "requestId": "synthetic-request"
+            }
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-ack",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "idle"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "idle"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-initially-denied": {
+        "name": "private-initially-denied",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "local"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 1,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "local"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "local"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-not-ready": {
+        "name": "public-not-ready",
+        "value": null,
+        "error": {
+          "code": "QVAC_NOT_READY",
+          "stage": "stream"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "error",
+            "QVAC_NOT_READY"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": false,
+          "blocked": false,
+          "phase": "idle",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "QVAC_NOT_READY",
+            "stage": "stream"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "QVAC_NOT_READY",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-not-ready": {
+        "name": "private-not-ready",
+        "value": null,
+        "error": {
+          "code": "QVAC_NOT_READY",
+          "stage": "local"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 1,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "local"
+            },
+            "error",
+            "QVAC_NOT_READY"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": false,
+          "blocked": false,
+          "phase": "idle",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "QVAC_NOT_READY",
+            "stage": "local"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "QVAC_NOT_READY",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-empty": {
+        "name": "public-empty",
+        "value": null,
+        "error": {
+          "code": "EMPTY_COMPLETION",
+          "stage": "stream"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "error",
+            "EMPTY_COMPLETION"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "stream",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "EMPTY_COMPLETION",
+            "stage": "stream"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "EMPTY_COMPLETION",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-empty": {
+        "name": "private-empty",
+        "value": null,
+        "error": {
+          "code": "EMPTY_COMPLETION",
+          "stage": "local"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 2,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "local"
+            },
+            "error",
+            "EMPTY_COMPLETION"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "stream",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "EMPTY_COMPLETION",
+            "stage": "local"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "EMPTY_COMPLETION",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-sdk-throw": {
+        "name": "public-sdk-throw",
+        "value": null,
+        "error": {
+          "code": "SYNTHETIC_SDK_FAILURE",
+          "stage": "stream"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "error",
+            "SYNTHETIC_SDK_FAILURE"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "SYNTHETIC_SDK_FAILURE",
+            "stage": "stream"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "SYNTHETIC_SDK_FAILURE",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-sdk-throw": {
+        "name": "private-sdk-throw",
+        "value": null,
+        "error": {
+          "code": "SYNTHETIC_SDK_FAILURE",
+          "stage": "stream"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 1,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "error",
+            "SYNTHETIC_SDK_FAILURE"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "SYNTHETIC_SDK_FAILURE",
+            "stage": "stream"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "SYNTHETIC_SDK_FAILURE",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-repeated-success": {
+        "name": "public-repeated-success",
+        "value": [
+          {
+            "format": "solaris-runtime-result/1",
+            "outcome": "completed",
+            "mode": "qvac-device",
+            "promptId": "smoke",
+            "policyVersion": "V5-A-public-only/1",
+            "runtimeVersion": "QVAC 0.18.2",
+            "modelId": "synthetic-catalog-id",
+            "checksum": "synthetic-checksum",
+            "contentEvents": 1,
+            "firstTokenMs": 0,
+            "latencyMs": 0,
+            "completedAt": "2023-11-14T22:13:20.000Z",
+            "signed": false,
+            "text": "Hello.",
+            "residency": "device"
+          },
+          {
+            "format": "solaris-runtime-result/1",
+            "outcome": "completed",
+            "mode": "qvac-device",
+            "promptId": "smoke",
+            "policyVersion": "V5-A-public-only/1",
+            "runtimeVersion": "QVAC 0.18.2",
+            "modelId": "synthetic-catalog-id",
+            "checksum": "synthetic-checksum",
+            "contentEvents": 1,
+            "firstTokenMs": 0,
+            "latencyMs": 0,
+            "completedAt": "2023-11-14T22:13:20.000Z",
+            "signed": false,
+            "text": "Hello.",
+            "residency": "device"
+          }
+        ],
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          },
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [
+          {
+            "id": "synthetic-context",
+            "epoch": 0,
+            "text": "Hello."
+          },
+          {
+            "id": "synthetic-context",
+            "epoch": 0,
+            "text": "Hello."
+          }
+        ],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "Hello.",
+        "receipt": {
+          "format": "solaris-runtime-result/1",
+          "outcome": "completed",
+          "mode": "qvac-device",
+          "promptId": "smoke",
+          "policyVersion": "V5-A-public-only/1",
+          "runtimeVersion": "QVAC 0.18.2",
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "contentEvents": 1,
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "completedAt": "2023-11-14T22:13:20.000Z",
+          "signed": false
+        },
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      },
+      "private-repeated-success": {
+        "name": "private-repeated-success",
+        "value": [
+          {
+            "text": "{}",
+            "contentEvents": 1,
+            "modelId": "synthetic-catalog-id",
+            "checksum": "synthetic-checksum",
+            "firstTokenMs": 0,
+            "latencyMs": 0,
+            "policyVersion": "daily-policy/1"
+          },
+          {
+            "text": "{}",
+            "contentEvents": 1,
+            "modelId": "synthetic-catalog-id",
+            "checksum": "synthetic-checksum",
+            "firstTokenMs": 0,
+            "latencyMs": 0,
+            "policyVersion": "daily-policy/1"
+          }
+        ],
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          },
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 6,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      }
+    },
+    "patched": {
+      "public-success": {
+        "name": "public-success",
+        "value": {
+          "format": "solaris-runtime-result/1",
+          "outcome": "completed",
+          "mode": "qvac-device",
+          "promptId": "smoke",
+          "policyVersion": "V5-A-public-only/1",
+          "runtimeVersion": "QVAC 0.18.2",
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "contentEvents": 1,
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "completedAt": "2023-11-14T22:13:20.000Z",
+          "signed": false,
+          "text": "Hello.",
+          "residency": "device"
+        },
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [
+          {
+            "id": "synthetic-context",
+            "epoch": 0,
+            "text": "Hello."
+          }
+        ],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "Hello.",
+        "receipt": {
+          "format": "solaris-runtime-result/1",
+          "outcome": "completed",
+          "mode": "qvac-device",
+          "promptId": "smoke",
+          "policyVersion": "V5-A-public-only/1",
+          "runtimeVersion": "QVAC 0.18.2",
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "contentEvents": 1,
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "completedAt": "2023-11-14T22:13:20.000Z",
+          "signed": false
+        },
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      },
+      "private-success": {
+        "name": "private-success",
+        "value": {
+          "text": "{}",
+          "contentEvents": 1,
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "policyVersion": "daily-policy/1"
+        },
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 4,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      },
+      "private-truthy-success": {
+        "name": "private-truthy-success",
+        "value": {
+          "text": "{}",
+          "contentEvents": 1,
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "policyVersion": "daily-policy/1"
+        },
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 4,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      },
+      "public-background": {
+        "name": "public-background",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "idle"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "idle"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": false,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "idle"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-cancelled": {
+        "name": "public-cancelled",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "idle"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "idle"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "idle"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-revoked": {
+        "name": "private-revoked",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "local"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 2,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "local"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "local"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-background": {
+        "name": "private-background",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "idle"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 2,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "idle"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": false,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "idle"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-cancelled": {
+        "name": "private-cancelled",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "idle"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 2,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "idle"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "idle"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-initially-denied": {
+        "name": "private-initially-denied",
+        "value": null,
+        "error": {
+          "code": "CANCELLED",
+          "stage": "local"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 1,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "stage",
+            "model-ready"
+          ],
+          [
+            "bounded",
+            30,
+            "RECOVERY_STATE_TIMEOUT",
+            "cleanup"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "local"
+            },
+            "error",
+            "CANCELLED"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "paused",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "CANCELLED",
+            "stage": "local"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "CANCELLED",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-not-ready": {
+        "name": "public-not-ready",
+        "value": null,
+        "error": {
+          "code": "QVAC_NOT_READY",
+          "stage": "stream"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "error",
+            "QVAC_NOT_READY"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": false,
+          "blocked": false,
+          "phase": "idle",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "QVAC_NOT_READY",
+            "stage": "stream"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "QVAC_NOT_READY",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-not-ready": {
+        "name": "private-not-ready",
+        "value": null,
+        "error": {
+          "code": "QVAC_NOT_READY",
+          "stage": "local"
+        },
+        "dispatches": [],
+        "tokens": [],
+        "predicateCalls": 1,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "local"
+            },
+            "error",
+            "QVAC_NOT_READY"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": false,
+          "blocked": false,
+          "phase": "idle",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "QVAC_NOT_READY",
+            "stage": "local"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "QVAC_NOT_READY",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-empty": {
+        "name": "public-empty",
+        "value": null,
+        "error": {
+          "code": "EMPTY_COMPLETION",
+          "stage": "stream"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "error",
+            "EMPTY_COMPLETION"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "stream",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "EMPTY_COMPLETION",
+            "stage": "stream"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "EMPTY_COMPLETION",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-empty": {
+        "name": "private-empty",
+        "value": null,
+        "error": {
+          "code": "EMPTY_COMPLETION",
+          "stage": "local"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 3,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "local"
+            },
+            "error",
+            "EMPTY_COMPLETION"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "stream",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "EMPTY_COMPLETION",
+            "stage": "local"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "EMPTY_COMPLETION",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-sdk-throw": {
+        "name": "public-sdk-throw",
+        "value": null,
+        "error": {
+          "code": "SYNTHETIC_SDK_FAILURE",
+          "stage": "stream"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "error",
+            "SYNTHETIC_SDK_FAILURE"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "SYNTHETIC_SDK_FAILURE",
+            "stage": "stream"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "SYNTHETIC_SDK_FAILURE",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "private-sdk-throw": {
+        "name": "private-sdk-throw",
+        "value": null,
+        "error": {
+          "code": "SYNTHETIC_SDK_FAILURE",
+          "stage": "stream"
+        },
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 2,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "cancel-requested",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "error",
+            "SYNTHETIC_SDK_FAILURE"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "failed",
+          "cancellation": "settled",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": {
+            "code": "SYNTHETIC_SDK_FAILURE",
+            "stage": "stream"
+          }
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "failed",
+          "code": "SYNTHETIC_SDK_FAILURE",
+          "completedAt": null
+        },
+        "remainingTimerCount": 0
+      },
+      "public-repeated-success": {
+        "name": "public-repeated-success",
+        "value": [
+          {
+            "format": "solaris-runtime-result/1",
+            "outcome": "completed",
+            "mode": "qvac-device",
+            "promptId": "smoke",
+            "policyVersion": "V5-A-public-only/1",
+            "runtimeVersion": "QVAC 0.18.2",
+            "modelId": "synthetic-catalog-id",
+            "checksum": "synthetic-checksum",
+            "contentEvents": 1,
+            "firstTokenMs": 0,
+            "latencyMs": 0,
+            "completedAt": "2023-11-14T22:13:20.000Z",
+            "signed": false,
+            "text": "Hello.",
+            "residency": "device"
+          },
+          {
+            "format": "solaris-runtime-result/1",
+            "outcome": "completed",
+            "mode": "qvac-device",
+            "promptId": "smoke",
+            "policyVersion": "V5-A-public-only/1",
+            "runtimeVersion": "QVAC 0.18.2",
+            "modelId": "synthetic-catalog-id",
+            "checksum": "synthetic-checksum",
+            "contentEvents": 1,
+            "firstTokenMs": 0,
+            "latencyMs": 0,
+            "completedAt": "2023-11-14T22:13:20.000Z",
+            "signed": false,
+            "text": "Hello.",
+            "residency": "device"
+          }
+        ],
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          },
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "Say hello in one short sentence. /no_think"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [
+          {
+            "id": "synthetic-context",
+            "epoch": 0,
+            "text": "Hello."
+          },
+          {
+            "id": "synthetic-context",
+            "epoch": 0,
+            "text": "Hello."
+          }
+        ],
+        "predicateCalls": 0,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "runSmoke",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "Hello.",
+        "receipt": {
+          "format": "solaris-runtime-result/1",
+          "outcome": "completed",
+          "mode": "qvac-device",
+          "promptId": "smoke",
+          "policyVersion": "V5-A-public-only/1",
+          "runtimeVersion": "QVAC 0.18.2",
+          "modelId": "synthetic-catalog-id",
+          "checksum": "synthetic-checksum",
+          "contentEvents": 1,
+          "firstTokenMs": 0,
+          "latencyMs": 0,
+          "completedAt": "2023-11-14T22:13:20.000Z",
+          "signed": false
+        },
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      },
+      "private-repeated-success": {
+        "name": "private-repeated-success",
+        "value": [
+          {
+            "text": "{}",
+            "contentEvents": 1,
+            "modelId": "synthetic-catalog-id",
+            "checksum": "synthetic-checksum",
+            "firstTokenMs": 0,
+            "latencyMs": 0,
+            "policyVersion": "daily-policy/1"
+          },
+          {
+            "text": "{}",
+            "contentEvents": 1,
+            "modelId": "synthetic-catalog-id",
+            "checksum": "synthetic-checksum",
+            "firstTokenMs": 0,
+            "latencyMs": 0,
+            "policyVersion": "daily-policy/1"
+          }
+        ],
+        "error": null,
+        "dispatches": [
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          },
+          {
+            "options": {
+              "modelId": "retained-model-id",
+              "history": [
+                {
+                  "role": "user",
+                  "content": "{}"
+                }
+              ],
+              "stream": true,
+              "captureThinking": false,
+              "kvCache": false,
+              "responseFormat": {
+                "type": "json_object"
+              }
+            },
+            "active": true,
+            "eligible": true,
+            "cancelled": false
+          }
+        ],
+        "tokens": [],
+        "predicateCalls": 8,
+        "events": [
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask"
+            },
+            "service-start",
+            null
+          ],
+          [
+            "changed"
+          ],
+          [
+            "peek"
+          ],
+          [
+            "stage",
+            "stream"
+          ],
+          [
+            "changed"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-dispatch",
+            null
+          ],
+          [
+            "bounded",
+            50,
+            "STREAM_TIMEOUT",
+            "stream"
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "sdk-reply",
+            null
+          ],
+          [
+            "trace",
+            {
+              "id": "synthetic-context",
+              "epoch": 0,
+              "method": "completeLocalTask",
+              "phase": "stream"
+            },
+            "operation-settled",
+            null
+          ],
+          [
+            "stage",
+            "stream-complete"
+          ],
+          [
+            "changed"
+          ]
+        ],
+        "state": {
+          "active": true,
+          "workerReady": true,
+          "blocked": false,
+          "phase": "idle",
+          "status": "ready",
+          "cancellation": "none",
+          "modelId": "retained-model-id",
+          "runtimeState": {
+            "state": "unknown",
+            "value": null,
+            "reason": "NOT_STARTED"
+          },
+          "current": false,
+          "error": null
+        },
+        "output": "",
+        "receipt": null,
+        "inference": {
+          "state": "succeeded",
+          "code": null,
+          "completedAt": "2023-11-14T22:13:20.000Z"
+        },
+        "remainingTimerCount": 0
+      }
+    }
+  },
+  "commands": [
+    [
+      "python3",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py",
+      "--tools",
+      "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/tests/hermes/capture-prelude.js",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-Reconstruction/src/recovered-601/compiled-reference/assets/index.android.bundle",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/guard-patch/guard-probes-bkrb20c2/shared.compiled.js",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/guard-patch/guard-probes-bkrb20c2/guard.compiled.js"
+    ],
+    [
+      "python3",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py",
+      "--tools",
+      "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/tests/hermes/capture-prelude.js",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/guard-patch/completion-guards.hbc",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/guard-patch/guard-probes-bkrb20c2/shared.compiled.js",
+      "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/guard-patch/guard-probes-bkrb20c2/guard.compiled.js"
+    ]
+  ],
+  "buildDirectory": "evidence/guard-patch/guard-probes-bkrb20c2",
+  "limits": [
+    "synthetic runtime, budgets and timers",
+    "fixed clock",
+    "desktop Hermes microtask queue",
+    "no Android/BareKit event delivery, actual inference, vault persistence or elapsed timeout proof",
+    "does not repair SDK lifecycle reconciliation or deferred step dispatch"
+  ]
+}

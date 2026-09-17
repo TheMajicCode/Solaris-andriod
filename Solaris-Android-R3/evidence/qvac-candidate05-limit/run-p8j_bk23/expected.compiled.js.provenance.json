@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/src/conversation-request.js",
+  "output": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/qvac-candidate05-limit/run-p8j_bk23/expected.compiled.js",
+  "inputSha256": "33f7e34b75c5e0b15bc7af32df1b2084c483792549be2295f73e7b8e32af6042",
+  "outputSha256": "e98a7b5fcdbe9eb56e650811879b6335044cec96c5bfd044ac173c474c1299ce",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "conversation-request.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

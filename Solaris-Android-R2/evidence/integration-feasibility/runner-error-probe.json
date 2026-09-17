@@ -1,0 +1,9 @@
+{
+  "args": [
+    "reconstruction-work/r2-tools/hermes-runner",
+    "Solaris-Android-R2/evidence/integration-feasibility/intentional-error.js"
+  ],
+  "returncode": 2,
+  "stdout": "",
+  "stderr": "EXPECTED_HARNESS_EXCEPTION\n\nError: EXPECTED_HARNESS_EXCEPTION\n    at global (Solaris-Android-R2/evidence/integration-feasibility/intentional-error.js:1:16)\n"
+}

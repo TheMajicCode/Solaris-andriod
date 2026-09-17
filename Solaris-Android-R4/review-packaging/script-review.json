@@ -1,0 +1,10 @@
+{
+  "reviewer": "/root/604_recording",
+  "decision": "scripts acceptable; artifact approval pending",
+  "files": {
+    "tools/package-candidate.py": "998cb6679f7d81d4fd0ea0fdde5e7a8b9d645f9499bfa20b736435383e2c0445",
+    "tools/sign-reviewed-candidate.py": "f61ca8fe6fbf12e03aaa2f15f33d23bb877aa13a942b50a4ff234395c1be9877",
+    "review-packaging/verify_independent.py": "071f3e43f4c489cd3606b5a12af2a26b13cdbd7981439beb5a8c87cd77038fe5"
+  },
+  "findings": []
+}

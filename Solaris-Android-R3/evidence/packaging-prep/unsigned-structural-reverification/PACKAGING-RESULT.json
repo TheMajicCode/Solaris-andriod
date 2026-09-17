@@ -1,0 +1,49 @@
+{
+  "format": "solaris-v6-603-unsigned-packaging-or-verification/1",
+  "baselineApkSha256": "01da9f5281f5f92230dcbd64da62484557cc7a0a15e876cc2d99ec7ec3bcd2cd",
+  "candidatePath": "Solaris-Android-R3/evidence/packaging-prep/unsigned-structural-probe/candidate-aligned-unsigned.apk",
+  "candidateSha256": "32afad438da183d32321583ffea454ca7b8fffd88f65be6e2098c4b3187d2b15",
+  "candidateBytes": 242576907,
+  "patchedHbcSha256": "2477ad2cd24c957ccfb3415a5a39d397bf6bc1d9139e0f4d86861fbc89cfc12a",
+  "buildManifestSha256": "b965f411f3a0659cc330ea84b7e32281ac77d81c4481a0b5cf2ca1dafc9a054a",
+  "packagingScriptSha256": "560afea26dfcf6f2691125220ab2593bac4afbdbffeabf9168349a29d1ff97ee",
+  "toolSha256": {
+    "zipalign": "c5f559e946de5a9e7d58792181db20383b228877812136bc469d97ae00a43b0a",
+    "aapt2": "1a6a396b9cd071f7040071fdd108718cb98c3c9f4960044f373b288993d19eb7",
+    "lib/apksigner.jar": "3716d9311e55d2b0918a2fd9d54ba9e406c5f6abeea700b287f11259bc163dec",
+    "lib64/libc++.so": "96a19cd2154a4423a61f8444e5d3148a608fa3033bc1a22285d19855a950d05a"
+  },
+  "manifestSha256": "f906d8709e4eecdd850d3acc33d565e50b0d296abf235598a3e15e5f3bd4c20c",
+  "configSha256": "ae33bdf2a2d4d0489f2d87ae0e4929df5265b025346489b5814a87ba8f1611ba",
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 603,
+  "versionName": "6.0.3-preview.pocket-chat",
+  "changedPayloadEntries": [
+    "AndroidManifest.xml",
+    "assets/app.config",
+    "assets/index.android.bundle"
+  ],
+  "preservedPayloadEntries": 599,
+  "removedObsoleteSignatureEntries": [],
+  "nativeLibraryCount": 51,
+  "allNativePayloadsUnchanged": true,
+  "allNativeLibrariesStoredAnd16KiBAligned": true,
+  "manifestChange": {
+    "stringIndex": 35,
+    "originalStringOffset": 1452,
+    "stringGrowthBytes": -10,
+    "poolGrowthBytes": -8,
+    "originalVersionCodeOffset": 6728,
+    "newVersionCodeOffset": 6720,
+    "allOtherStringsUnchanged": true,
+    "allOtherXmlNodeBytesUnchanged": true
+  },
+  "allOtherManifestSemanticsUnchanged": true,
+  "signatureVerified": false,
+  "expectedCertificateSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+  "signingPerformedByThisTool": false,
+  "phoneInstalled": false,
+  "phoneTested": false,
+  "buildKind": "APK-derived binary patch; not a complete native source rebuild",
+  "scope": "Packaging structural probe using interim diagnostics bundle only. Not reviewed for signing or release."
+}

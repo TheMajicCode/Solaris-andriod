@@ -1,0 +1,52 @@
+=> [Function #14782 "?anon_0_" of 156 bytes]: 1 params, frame size=13, strict=1, exc handler=0, debug info=0  @ offset 0x01d3571d
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 3, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrueLong>: <Addr32: 146, Reg8: 1>  # Address: 00000099
+==> 0000000d: <GetById>: <Reg8: 1, Reg8: 3, UInt8: 1, string_id: 14213>  # String: 'allowed' (Identifier)
+==> 00000013: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 3>
+==> 00000017: <JmpTrue>: <Addr8: 37, Reg8: 1>  # Address: 0000003c
+==> 0000001a: <GetGlobalObject>: <Reg8: 1>
+==> 0000001c: <TryGetById>: <Reg8: 4, Reg8: 1, UInt8: 2, string_id: 8>  # String: 'Error' (Identifier)
+==> 00000022: <GetByIdShort>: <Reg8: 1, Reg8: 4, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000027: <CreateThis>: <Reg8: 2, Reg8: 1, Reg8: 4>
+==> 0000002b: <LoadConstString>: <Reg8: 5, string_id: 8922>  # String: 'VAULT_LOCKED' (String)
+==> 0000002f: <Mov>: <Reg8: 6, Reg8: 2>
+==> 00000032: <Construct>: <Reg8: 1, Reg8: 4, UInt8: 2>
+==> 00000036: <SelectObject>: <Reg8: 1, Reg8: 2, Reg8: 1>
+==> 0000003a: <Throw>: <Reg8: 1>
+==> 0000003c: <GetByIdShort>: <Reg8: 4, Reg8: 3, UInt8: 4, string_id: 121>  # String: 'epoch' (Identifier)
+==> 00000041: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 5, string_id: 14282>  # String: 'port' (Identifier)
+==> 00000047: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 6, string_id: 17464>  # String: 'healthStatus' (Identifier)
+==> 0000004d: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 2>
+==> 00000051: <SaveGenerator>: <Addr8: 4>  # Address: 00000055
+==> 00000053: <Ret>: <Reg8: 1>
+==> 00000055: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 00000058: <JmpTrue>: <Addr8: 62, Reg8: 2>  # Address: 00000096
+==> 0000005b: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 4, string_id: 121>  # String: 'epoch' (Identifier)
+==> 00000060: <JStrictNotEqual>: <Addr8: 20, Reg8: 4, Reg8: 2>  # Address: 00000074
+==> 00000064: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 1, string_id: 14213>  # String: 'allowed' (Identifier)
+==> 0000006a: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 0000006e: <JmpFalse>: <Addr8: 6, Reg8: 2>  # Address: 00000074
+==> 00000071: <CompleteGenerator>: <>
+==> 00000072: <Ret>: <Reg8: 1>
+==> 00000074: <GetGlobalObject>: <Reg8: 2>
+==> 00000076: <TryGetById>: <Reg8: 4, Reg8: 2, UInt8: 2, string_id: 8>  # String: 'Error' (Identifier)
+==> 0000007c: <GetByIdShort>: <Reg8: 2, Reg8: 4, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000081: <CreateThis>: <Reg8: 3, Reg8: 2, Reg8: 4>
+==> 00000085: <LoadConstString>: <Reg8: 5, string_id: 15290>  # String: 'CANCELLED' (Identifier)
+==> 00000089: <Mov>: <Reg8: 6, Reg8: 3>
+==> 0000008c: <Construct>: <Reg8: 2, Reg8: 4, UInt8: 2>
+==> 00000090: <SelectObject>: <Reg8: 2, Reg8: 3, Reg8: 2>
+==> 00000094: <Throw>: <Reg8: 2>
+==> 00000096: <CompleteGenerator>: <>
+==> 00000097: <Ret>: <Reg8: 1>
+==> 00000099: <CompleteGenerator>: <>
+==> 0000009a: <Ret>: <Reg8: 0>
+
+
+===============
+

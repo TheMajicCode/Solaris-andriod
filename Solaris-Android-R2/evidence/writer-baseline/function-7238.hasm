@@ -1,0 +1,51 @@
+=> [Function #7238 "?anon_0_" of 160 bytes]: 2 params, frame size=17, strict=1, exc handler=0, debug info=0  @ offset 0x01c2fe9f
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 1, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 2>
+==> 00000007: <JmpTrueLong>: <Addr32: 150, Reg8: 2>  # Address: 0000009d
+==> 0000000d: <LoadConstUndefined>: <Reg8: 6>
+==> 0000000f: <LoadConstUndefined>: <Reg8: 4>
+==> 00000011: <GetArgumentsLength>: <Reg8: 3, Reg8: 4>
+==> 00000014: <LoadConstUInt8>: <Reg8: 2, UInt8: 1>
+==> 00000017: <Greater>: <Reg8: 5, Reg8: 3, Reg8: 2>
+==> 0000001b: <LoadConstFalse>: <Reg8: 3>
+==> 0000001d: <JmpFalse>: <Addr8: 17, Reg8: 5>  # Address: 0000002e
+==> 00000020: <GetArgumentsPropByVal>: <Reg8: 5, Reg8: 2, Reg8: 4>
+==> 00000024: <LoadConstFalse>: <Reg8: 3>
+==> 00000026: <JStrictEqual>: <Addr8: 8, Reg8: 5, Reg8: 6>  # Address: 0000002e
+==> 0000002a: <GetArgumentsPropByVal>: <Reg8: 3, Reg8: 2, Reg8: 4>
+==> 0000002e: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 1, string_id: 16498>  # String: 'transferImport' (Identifier)
+==> 00000034: <JmpTrue>: <Addr8: 62, Reg8: 2>  # Address: 00000072
+==> 00000037: <GetById>: <Reg8: 6, Reg8: 1, UInt8: 2, string_id: 15384>  # String: 'trace' (Identifier)
+==> 0000003d: <GetByIdShort>: <Reg8: 5, Reg8: 6, UInt8: 3, string_id: 44>  # String: 'add' (Identifier)
+==> 00000042: <GetByIdShort>: <Reg8: 7, Reg8: 1, UInt8: 4, string_id: 85>  # String: 'context' (Identifier)
+==> 00000047: <LoadConstString>: <Reg8: 4, string_id: 16772>  # String: 'provisionModel' (Identifier)
+==> 0000004b: <LoadParam>: <Reg8: 2, UInt8: 1>
+==> 0000004e: <Call3>: <Reg8: 4, Reg8: 7, Reg8: 1, Reg8: 4, Reg8: 2>
+==> 00000054: <LoadConstString>: <Reg8: 2, string_id: 9426>  # String: 'service-start' (String)
+==> 00000058: <Call3>: <Reg8: 2, Reg8: 5, Reg8: 6, Reg8: 4, Reg8: 2>
+==> 0000005e: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 5, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 00000064: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 6, string_id: 14669>  # String: 'begin' (Identifier)
+==> 0000006a: <Call2>: <Reg8: 1, Reg8: 1, Reg8: 2, Reg8: 3>
+==> 0000006f: <CompleteGenerator>: <>
+==> 00000070: <Ret>: <Reg8: 1>
+==> 00000072: <GetEnvironment>: <Reg8: 1, UInt8: 3>
+==> 00000075: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 12>
+==> 00000079: <GetById>: <Reg8: 4, Reg8: 1, UInt8: 7, string_id: 17316>  # String: 'RuntimeError' (Identifier)
+==> 0000007f: <GetByIdShort>: <Reg8: 1, Reg8: 4, UInt8: 8, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000084: <CreateThis>: <Reg8: 2, Reg8: 1, Reg8: 4>
+==> 00000088: <LoadConstString>: <Reg8: 9, string_id: 7869>  # String: 'QVAC_BUSY' (String)
+==> 0000008c: <LoadConstString>: <Reg8: 8, string_id: 855>  # String: 'import' (String)
+==> 00000090: <Mov>: <Reg8: 10, Reg8: 2>
+==> 00000093: <Construct>: <Reg8: 1, Reg8: 4, UInt8: 3>
+==> 00000097: <SelectObject>: <Reg8: 1, Reg8: 2, Reg8: 1>
+==> 0000009b: <Throw>: <Reg8: 1>
+==> 0000009d: <CompleteGenerator>: <>
+==> 0000009e: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,70 @@
+=> [Function #7174 "?anon_0_" of 229 bytes]: 1 params, frame size=19, strict=1, exc handler=1, debug info=0  @ offset 0x01c2eaaf
+  [Exception handlers: [start=0xa, end=0x94, target=0xa6] [start=0xa, end=0x96, target=0xce] [start=0xa6, end=0xb9, target=0xce] ]
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000004: <JmpTrueLong>: <Addr32: 222, Reg8: 1>  # Address: 000000e2
+==> 0000000a: <GetEnvironment>: <Reg8: 1, UInt8: 5>
+==> 0000000d: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 12>
+==> 00000011: <GetById>: <Reg8: 7, Reg8: 1, UInt8: 1, string_id: 17526>  # String: 'bounded' (Identifier)
+==> 00000017: <GetGlobalObject>: <Reg8: 1>
+==> 00000019: <TryGetById>: <Reg8: 2, Reg8: 1, UInt8: 2, string_id: 19>  # String: 'Promise' (Identifier)
+==> 0000001f: <GetByIdShort>: <Reg8: 1, Reg8: 2, UInt8: 3, string_id: 215>  # String: 'resolve' (Identifier)
+==> 00000024: <Call1>: <Reg8: 4, Reg8: 1, Reg8: 2>
+==> 00000028: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 4, string_id: 149>  # String: 'then' (Identifier)
+==> 0000002d: <GetEnvironment>: <Reg8: 2, UInt8: 1>
+==> 00000030: <LoadFromEnvironment>: <Reg8: 1, Reg8: 2, UInt8: 0>
+==> 00000034: <GetById>: <Reg8: 1, Reg8: 1, UInt8: 5, string_id: 20441>  # String: 'cancelAction' (Identifier)
+==> 0000003a: <Call2>: <Reg8: 11, Reg8: 3, Reg8: 4, Reg8: 1>
+==> 0000003f: <LoadFromEnvironment>: <Reg8: 1, Reg8: 2, UInt8: 1>
+==> 00000043: <GetById>: <Reg8: 1, Reg8: 1, UInt8: 6, string_id: 20409>  # String: 'budgets' (Identifier)
+==> 00000049: <GetById>: <Reg8: 10, Reg8: 1, UInt8: 7, string_id: 17701>  # String: 'cleanup' (Identifier)
+==> 0000004f: <LoadConstUndefined>: <Reg8: 12>
+==> 00000051: <LoadConstString>: <Reg8: 9, string_id: 1859>  # String: 'CANCEL_UNCONFIRMED' (String)
+==> 00000055: <LoadConstString>: <Reg8: 8, string_id: 14752>  # String: 'cancel' (Identifier)
+==> 00000059: <Call>: <Reg8: 1, Reg8: 7, UInt8: 5>
+==> 0000005d: <SaveGenerator>: <Addr8: 4>  # Address: 00000061
+==> 0000005f: <Ret>: <Reg8: 1>
+==> 00000061: <ResumeGenerator>: <Reg8: 1, Reg8: 3>
+==> 00000064: <JmpTrue>: <Addr8: 50, Reg8: 3>  # Address: 00000096
+==> 00000067: <LoadFromEnvironment>: <Reg8: 3, Reg8: 2, UInt8: 1>
+==> 0000006b: <LoadConstString>: <Reg8: 4, string_id: 4513>  # String: 'acknowledged' (String)
+==> 0000006f: <PutById>: <Reg8: 3, Reg8: 4, UInt8: 1, string_id: 20452>  # String: 'cancellation' (Identifier)
+==> 00000075: <GetById>: <Reg8: 6, Reg8: 3, UInt8: 8, string_id: 15384>  # String: 'trace' (Identifier)
+==> 0000007b: <GetByIdShort>: <Reg8: 5, Reg8: 6, UInt8: 9, string_id: 44>  # String: 'add' (Identifier)
+==> 00000080: <LoadFromEnvironment>: <Reg8: 3, Reg8: 2, UInt8: 0>
+==> 00000084: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 10, string_id: 17234>  # String: 'ctx' (Identifier)
+==> 0000008a: <LoadConstString>: <Reg8: 3, string_id: 4421>  # String: 'cancel-ack' (String)
+==> 0000008e: <Call3>: <Reg8: 3, Reg8: 5, Reg8: 6, Reg8: 4, Reg8: 3>
+==> 00000094: <Jmp>: <Addr8: 37>  # Address: 000000b9
+==> 00000096: <LoadFromEnvironment>: <Reg8: 3, Reg8: 2, UInt8: 1>
+==> 0000009a: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 11, string_id: 72>  # String: 'changed' (Identifier)
+==> 0000009f: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 000000a3: <CompleteGenerator>: <>
+==> 000000a4: <Ret>: <Reg8: 1>
+==> 000000a6: <Catch>: <Reg8: 1>
+==> 000000a8: <GetEnvironment>: <Reg8: 1, UInt8: 1>
+==> 000000ab: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 1>
+==> 000000af: <LoadConstString>: <Reg8: 1, string_id: 11648>  # String: 'unconfirmed' (String)
+==> 000000b3: <PutById>: <Reg8: 2, Reg8: 1, UInt8: 1, string_id: 20452>  # String: 'cancellation' (Identifier)
+==> 000000b9: <GetEnvironment>: <Reg8: 1, UInt8: 1>
+==> 000000bc: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 1>
+==> 000000c0: <GetByIdShort>: <Reg8: 1, Reg8: 2, UInt8: 11, string_id: 72>  # String: 'changed' (Identifier)
+==> 000000c5: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 2>
+==> 000000c9: <LoadConstUndefined>: <Reg8: 1>
+==> 000000cb: <CompleteGenerator>: <>
+==> 000000cc: <Ret>: <Reg8: 1>
+==> 000000ce: <Catch>: <Reg8: 1>
+==> 000000d0: <GetEnvironment>: <Reg8: 2, UInt8: 1>
+==> 000000d3: <LoadFromEnvironment>: <Reg8: 3, Reg8: 2, UInt8: 1>
+==> 000000d7: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 11, string_id: 72>  # String: 'changed' (Identifier)
+==> 000000dc: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 000000e0: <Throw>: <Reg8: 1>
+==> 000000e2: <CompleteGenerator>: <>
+==> 000000e3: <Ret>: <Reg8: 0>
+
+
+===============
+

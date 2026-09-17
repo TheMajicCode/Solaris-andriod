@@ -1,0 +1,75 @@
+=> [Function #7301 "?anon_0_" of 254 bytes]: 2 params, frame size=22, strict=1, exc handler=0, debug info=0  @ offset 0x01c30c70
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <CreateEnvironment>: <Reg8: 2>
+==> 00000003: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000006: <JmpTrueLong>: <Addr32: 245, Reg8: 1>  # Address: 000000fb
+==> 0000000c: <LoadConstUndefined>: <Reg8: 1>
+==> 0000000e: <StoreNPToEnvironment>: <Reg8: 2, UInt8: 0, Reg8: 1>
+==> 00000012: <GetEnvironment>: <Reg8: 4, UInt8: 2>
+==> 00000015: <LoadFromEnvironment>: <Reg8: 1, Reg8: 4, UInt8: 0>
+==> 00000019: <GetByIdShort>: <Reg8: 1, Reg8: 1, UInt8: 1, string_id: 176>  # String: 'modelId' (Identifier)
+==> 0000001e: <JmpFalseLong>: <Addr32: 159, Reg8: 1>  # Address: 000000bd
+==> 00000024: <LoadFromEnvironment>: <Reg8: 1, Reg8: 4, UInt8: 0>
+==> 00000028: <GetById>: <Reg8: 5, Reg8: 1, UInt8: 2, string_id: 14467>  # String: 'runtime' (Identifier)
+==> 0000002e: <GetById>: <Reg8: 3, Reg8: 5, UInt8: 3, string_id: 15841>  # String: 'peek' (Identifier)
+==> 00000034: <Call1>: <Reg8: 3, Reg8: 3, Reg8: 5>
+==> 00000038: <StoreToEnvironment>: <Reg8: 2, UInt8: 0, Reg8: 3>
+==> 0000003c: <GetById>: <Reg8: 3, Reg8: 1, UInt8: 4, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 00000042: <GetById>: <Reg8: 1, Reg8: 3, UInt8: 5, string_id: 15897>  # String: 'stage' (Identifier)
+==> 00000048: <LoadConstString>: <Reg8: 9, string_id: 6127>  # String: 'unload' (String)
+==> 0000004c: <Call2>: <Reg8: 1, Reg8: 1, Reg8: 3, Reg8: 9>
+==> 00000051: <SaveGenerator>: <Addr8: 4>  # Address: 00000055
+==> 00000053: <Ret>: <Reg8: 1>
+==> 00000055: <ResumeGenerator>: <Reg8: 1, Reg8: 3>
+==> 00000058: <JmpTrueLong>: <Addr32: 160, Reg8: 3>  # Address: 000000f8
+==> 0000005e: <LoadFromEnvironment>: <Reg8: 8, Reg8: 4, UInt8: 0>
+==> 00000062: <GetById>: <Reg8: 7, Reg8: 8, UInt8: 6, string_id: 14429>  # String: 'step' (Identifier)
+==> 00000068: <GetById>: <Reg8: 3, Reg8: 8, UInt8: 7, string_id: 20409>  # String: 'budgets' (Identifier)
+==> 0000006e: <GetById>: <Reg8: 11, Reg8: 3, UInt8: 8, string_id: 14376>  # String: 'load' (Identifier)
+==> 00000074: <LoadParam>: <Reg8: 14, UInt8: 1>
+==> 00000077: <CreateClosure>: <Reg8: 12, Reg8: 2, function_id: 7302>  # Function: [#7302  of 45 bytes]: 1 params @ offset 0x01c30d6e
+==> 0000007c: <LoadConstTrue>: <Reg8: 10>
+==> 0000007e: <Mov>: <Reg8: 15, Reg8: 8>
+==> 00000081: <Mov>: <Reg8: 13, Reg8: 9>
+==> 00000084: <Call>: <Reg8: 2, Reg8: 7, UInt8: 6>
+==> 00000088: <SaveGenerator>: <Addr8: 4>  # Address: 0000008c
+==> 0000008a: <Ret>: <Reg8: 2>
+==> 0000008c: <ResumeGenerator>: <Reg8: 2, Reg8: 3>
+==> 0000008f: <JmpTrue>: <Addr8: 102, Reg8: 3>  # Address: 000000f5
+==> 00000092: <LoadFromEnvironment>: <Reg8: 3, Reg8: 4, UInt8: 0>
+==> 00000096: <LoadConstNull>: <Reg8: 5>
+==> 00000098: <PutById>: <Reg8: 3, Reg8: 5, UInt8: 1, string_id: 176>  # String: 'modelId' (Identifier)
+==> 0000009e: <GetById>: <Reg8: 6, Reg8: 3, UInt8: 4, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 000000a4: <GetById>: <Reg8: 5, Reg8: 6, UInt8: 5, string_id: 15897>  # String: 'stage' (Identifier)
+==> 000000aa: <LoadConstString>: <Reg8: 3, string_id: 5737>  # String: 'idle' (String)
+==> 000000ae: <Call2>: <Reg8: 3, Reg8: 5, Reg8: 6, Reg8: 3>
+==> 000000b3: <SaveGenerator>: <Addr8: 4>  # Address: 000000b7
+==> 000000b5: <Ret>: <Reg8: 3>
+==> 000000b7: <ResumeGenerator>: <Reg8: 3, Reg8: 5>
+==> 000000ba: <JmpTrue>: <Addr8: 56, Reg8: 5>  # Address: 000000f2
+==> 000000bd: <LoadFromEnvironment>: <Reg8: 5, Reg8: 4, UInt8: 0>
+==> 000000c1: <NewObjectWithBuffer>: <Reg8: 4, UInt16: 3, UInt16: 3, UInt16: 2487, UInt16: 2177>  # Object: {'state': 'not-run', 'code': null, 'completedAt': null}
+==> 000000cb: <PutById>: <Reg8: 5, Reg8: 4, UInt8: 2, string_id: 15634>  # String: 'inference' (Identifier)
+==> 000000d1: <LoadConstString>: <Reg8: 4, string_id: 14374>  # String: 'downloaded' (Identifier)
+==> 000000d5: <PutById>: <Reg8: 5, Reg8: 4, UInt8: 3, string_id: 225>  # String: 'status' (Identifier)
+==> 000000db: <LoadConstString>: <Reg8: 4, string_id: 5737>  # String: 'idle' (String)
+==> 000000df: <PutById>: <Reg8: 5, Reg8: 4, UInt8: 4, string_id: 195>  # String: 'phase' (Identifier)
+==> 000000e5: <GetById>: <Reg8: 4, Reg8: 5, UInt8: 9, string_id: 20764>  # String: 'getStatus' (Identifier)
+==> 000000eb: <Call1>: <Reg8: 4, Reg8: 4, Reg8: 5>
+==> 000000ef: <CompleteGenerator>: <>
+==> 000000f0: <Ret>: <Reg8: 4>
+==> 000000f2: <CompleteGenerator>: <>
+==> 000000f3: <Ret>: <Reg8: 3>
+==> 000000f5: <CompleteGenerator>: <>
+==> 000000f6: <Ret>: <Reg8: 2>
+==> 000000f8: <CompleteGenerator>: <>
+==> 000000f9: <Ret>: <Reg8: 1>
+==> 000000fb: <CompleteGenerator>: <>
+==> 000000fc: <Ret>: <Reg8: 0>
+
+
+===============
+

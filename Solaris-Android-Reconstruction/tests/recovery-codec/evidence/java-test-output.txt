@@ -1,0 +1,113 @@
+PASS minimum Python PBKDF2 key matches Java
+PASS minimum Python encrypt to Java decrypt exact bytes
+PASS minimum decrypt leaves caller arrays intact
+PASS minimum generated envelope structural length
+PASS minimum generated envelope big endian length
+PASS minimum generated envelope plaintext roundtrip
+PASS minimum encrypt leaves caller passphrase intact
+PASS unicode Python PBKDF2 key matches Java
+PASS unicode Python encrypt to Java decrypt exact bytes
+PASS unicode decrypt leaves caller arrays intact
+PASS unicode generated envelope structural length
+PASS unicode generated envelope big endian length
+PASS unicode generated envelope plaintext roundtrip
+PASS unicode encrypt leaves caller passphrase intact
+PASS binary Python PBKDF2 key matches Java
+PASS binary Python encrypt to Java decrypt exact bytes
+PASS binary decrypt leaves caller arrays intact
+PASS binary generated envelope structural length
+PASS binary generated envelope big endian length
+PASS binary generated envelope plaintext roundtrip
+PASS binary encrypt leaves caller passphrase intact
+PASS wrong password authenticates nothing
+PASS tampered authenticated byte offset 8
+PASS tampered authenticated byte offset 39
+PASS tampered authenticated byte offset 40
+PASS tampered authenticated byte offset 51
+PASS tampered authenticated byte offset 56
+PASS tampered authenticated byte offset 72
+PASS self-consistent modified length is still authenticated
+PASS short envelope 0
+PASS short envelope 1
+PASS short envelope 7
+PASS short envelope 8
+PASS short envelope 51
+PASS short envelope 52
+PASS short envelope 55
+PASS short envelope 56
+PASS short envelope 71
+PASS short envelope 72
+PASS oversized envelope inclusive rejected boundary
+PASS extra trailing byte rejected
+PASS magic mismatch 0
+PASS magic mismatch 1
+PASS magic mismatch 2
+PASS magic mismatch 3
+PASS magic mismatch 4
+PASS magic mismatch 5
+PASS magic mismatch 6
+PASS magic mismatch 7
+PASS invalid or mismatched declared length 0
+PASS invalid or mismatched declared length -1
+PASS invalid or mismatched declared length -2147483648
+PASS invalid or mismatched declared length 2
+PASS invalid or mismatched declared length 16777216
+PASS invalid or mismatched declared length 16777217
+PASS little endian one does not become big endian one
+PASS empty plaintext
+PASS plaintext above maximum
+PASS salt length 0
+PASS salt length 31
+PASS salt length 33
+PASS invalid structure precedes passphrase length check
+PASS invalid salt precedes passphrase length check
+PASS invalid plaintext size precedes passphrase length check
+PASS 19 ASCII codepoints rejected
+PASS 19 astral codepoints rejected despite 38 UTF-16 units
+PASS 19 decomposed characters rejected after NFC
+PASS 20 ASCII codepoints accepted
+PASS 20 astral codepoints accepted
+PASS NFC normalization preserved exactly
+PASS 1024 ASCII bytes accepted
+PASS 1025 ASCII bytes rejected
+PASS 1024 astral UTF-8 bytes accepted
+PASS 1028 astral UTF-8 bytes rejected
+PASS byte cap applies after NFC
+PASS spaces not trimmed
+PASS NULs not trimmed
+PASS normalizer preserves malformed UTF-16 per original getBytes rule
+PASS two exports have different random salts
+PASS two exports have different random nonces
+PASS UTF-8 empty allowed
+PASS UTF-8 Unicode valid
+PASS UTF-8 BOM preserved
+PASS strict UTF-8 rejects 80
+PASS strict UTF-8 rejects c0af
+PASS strict UTF-8 rejects eda080
+PASS strict UTF-8 rejects f4908080
+PASS strict UTF-8 rejects e282
+PASS strict UTF-8 rejects ff
+PASS Python HMAC matches Unicode exact receipt body
+PASS empty receipt body allowed
+PASS receipt body is not normalized
+PASS receipt body changes rejected
+PASS receipt key change rejected
+PASS wrong valid hex MAC rejected
+PASS invalid expected MAC syntax 95
+PASS invalid expected MAC syntax 96
+PASS invalid expected MAC syntax 97
+PASS invalid expected MAC syntax 98
+PASS invalid expected MAC syntax 99
+PASS invalid expected MAC syntax 100
+PASS invalid expected MAC syntax 101
+PASS 65536 ASCII receipt bytes allowed
+PASS 65537 ASCII receipt bytes rejected
+PASS 65536 multibyte receipt bytes allowed
+PASS 65538 multibyte receipt bytes rejected
+PASS malformed receipt UTF-16 Java replacement retained
+PASS bad syntax returns false before invalid empty key
+PASS overlimit returns false before invalid empty key
+PASS valid expected shape preserves JCA empty-key exception
+PASS maximum plaintext exports exact envelope limit
+PASS maximum envelope decrypts exact bytes
+JAVA_CHECKS=112

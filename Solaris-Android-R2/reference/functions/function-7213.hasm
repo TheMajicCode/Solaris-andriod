@@ -1,0 +1,19 @@
+=> [Function #7213 "" of 44 bytes]: 1 params, frame size=12, strict=1, exc handler=0, debug info=0  @ offset 0x01c2fa17
+
+Bytecode listing:
+
+==> 00000000: <GetEnvironment>: <Reg8: 0, UInt8: 0>
+==> 00000003: <LoadFromEnvironment>: <Reg8: 2, Reg8: 0, UInt8: 0>
+==> 00000007: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 1, string_id: 17934>  # String: 'getModelInfo' (Identifier)
+==> 0000000d: <NewObject>: <Reg8: 0>
+==> 0000000f: <GetEnvironment>: <Reg8: 3, UInt8: 7>
+==> 00000012: <LoadFromEnvironment>: <Reg8: 3, Reg8: 3, UInt8: 9>
+==> 00000016: <GetById>: <Reg8: 3, Reg8: 3, UInt8: 2, string_id: 14955>  # String: 'MODEL' (Identifier)
+==> 0000001c: <GetByIdShort>: <Reg8: 3, Reg8: 3, UInt8: 3, string_id: 95>  # String: 'id' (Identifier)
+==> 00000021: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 3, string_id: 129>  # String: 'name' (Identifier)
+==> 00000025: <Call2>: <Reg8: 0, Reg8: 1, Reg8: 2, Reg8: 0>
+==> 0000002a: <Ret>: <Reg8: 0>
+
+
+===============
+

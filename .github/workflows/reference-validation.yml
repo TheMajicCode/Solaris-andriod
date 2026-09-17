@@ -1,0 +1,42 @@
+# Manual-only placeholder for full-reference 604 validation.
+#
+# This workflow does NOT run the reference validation and must never be made to
+# look as though it did. The complete 604 reference (1,518,762,347 bytes,
+# SHA-256 b31177db52d0b041d8dd66ed5e3d3b504ef2448e60b54f8e6a8a436f9a8c0e3d) is
+# private, contains private phone evidence, and is restored manually outside any
+# Git working tree. Reference reproduction runs there, by a human, with the
+# restored inputs — not in shared CI.
+#
+# Its only purpose is to record the blocked gate in a place contributors will
+# look, and to fail loudly if someone triggers it expecting a result.
+name: reference-validation-blocked
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report-blocked:
+    name: Report full-reference validation as blocked
+    runs-on: ubuntu-latest
+    steps:
+      - name: Explain why this cannot run here
+        run: |
+          echo "::notice::Full-reference 604 validation is BLOCKED in CI by design."
+          cat <<'TEXT'
+          Blocked inputs:
+            - Four private Solaris-Android-604-Handoff-Part-N-of-4.zip backups
+            - Reassembled 1,518,762,347-byte reference ZIP
+            - Reference APKs and pinned host compiler/parser/packaging tools
+            - Qwen3-0.6B Q4 phone model and the probe model weight
+
+          These are deliberately excluded from this repository. The reference
+          contains private phone evidence and must not be uploaded to CI.
+
+          Run reference reproduction manually in the restored, unchanged
+          reference directory (e.g. $SOLARIS_604_REFERENCE_DIR), and label the
+          result "reference reproduction". See docs/BUILD-AND-TEST.md.
+          TEXT
+          exit 1

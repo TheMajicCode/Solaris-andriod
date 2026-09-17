@@ -1,0 +1,120 @@
+{
+  "scope": "TEST ONLY lexical wrapper; F6928/F6929 headers, bodies and exception tables unchanged from candidate. Bootstrap F0/F1/F2 synthetic, do not ship.",
+  "candidate": "../evidence/candidate-02/candidate604.hbc",
+  "candidateSHA256": "30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3",
+  "testCloneSHA256": "383405d447b8b8252b3f4e430fca874a25ea5939807238a18a74a8acb355f16f",
+  "changed": [
+    {
+      "fid": 0,
+      "before": {
+        "offset": 28759016,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 30194,
+        "functionName": 14042,
+        "infoOffset": 30723192,
+        "frameSize": 20,
+        "environmentSize": 0,
+        "highestReadCacheIndex": 11,
+        "highestWriteCacheIndex": 6,
+        "prohibitInvoke": 2,
+        "strictMode": 0,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "after": {
+        "offset": 30800768,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 279,
+        "functionName": 14042,
+        "infoOffset": 30801048,
+        "frameSize": 20,
+        "environmentSize": 20,
+        "highestReadCacheIndex": 3,
+        "highestWriteCacheIndex": 1,
+        "prohibitInvoke": 2,
+        "strictMode": 0,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      }
+    },
+    {
+      "fid": 1,
+      "before": {
+        "offset": 28789210,
+        "paramCount": 2,
+        "bytecodeSizeInBytes": 346,
+        "functionName": 13965,
+        "infoOffset": 30723192,
+        "frameSize": 20,
+        "environmentSize": 15,
+        "highestReadCacheIndex": 8,
+        "highestWriteCacheIndex": 10,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "after": {
+        "offset": 30801048,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 427,
+        "functionName": 13965,
+        "infoOffset": 30801476,
+        "frameSize": 20,
+        "environmentSize": 34,
+        "highestReadCacheIndex": 3,
+        "highestWriteCacheIndex": 1,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      }
+    },
+    {
+      "fid": 2,
+      "before": {
+        "offset": 28789556,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 37,
+        "functionName": 16370,
+        "infoOffset": 30723192,
+        "frameSize": 9,
+        "environmentSize": 0,
+        "highestReadCacheIndex": 2,
+        "highestWriteCacheIndex": 0,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "after": {
+        "offset": 30801476,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 41,
+        "functionName": 16370,
+        "infoOffset": 30801520,
+        "frameSize": 20,
+        "environmentSize": 0,
+        "highestReadCacheIndex": 3,
+        "highestWriteCacheIndex": 1,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      }
+    }
+  ],
+  "F6929_bodySHA256": "92212b842e6e0f539a74643644f392efcca663840051d6f1f13bd7e363427099"
+}

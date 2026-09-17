@@ -1,0 +1,36 @@
+package L5;
+
+import kotlin.jvm.functions.Function1;
+import org.json.JSONObject;
+import p137u3.A;
+
+/* JADX INFO: loaded from: /workspace/scratch/7a1f5a13b137/reconstruction-work/code601-classes.dex */
+public final class m$u implements Function1 {
+
+    /* JADX INFO: renamed from: f, reason: collision with root package name */
+    final /* synthetic */ m f1835f;
+
+    public m$u(m mVar) {
+        this.f1835f = mVar;
+    }
+
+    public final Object b(Object[] objArr) {
+        J3.l.f(objArr, "<destruct>");
+        if (m.u(this.f1835f, (W2.s) objArr[0])) {
+            if (m.L(this.f1835f).d() || m.N(this.f1835f) == null) {
+                m.x(this.f1835f, "RESTORE_PREVIEW_ONLY");
+            } else {
+                m mVar = this.f1835f;
+                JSONObject jSONObjectN = m.N(mVar);
+                J3.l.c(jSONObjectN);
+                m.s(mVar, true, "", jSONObjectN);
+            }
+        }
+        return A.f16167a;
+    }
+
+    @Override // kotlin.jvm.functions.Function1
+    public /* bridge */ /* synthetic */ Object q(Object obj) {
+        return b((Object[]) obj);
+    }
+}

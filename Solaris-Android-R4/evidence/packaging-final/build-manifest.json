@@ -1,0 +1,10 @@
+{
+  "format": "solaris-v6-604-build-manifest/1",
+  "baselineApkSha256": "25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227",
+  "patchedHbcSha256": "30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3",
+  "patchedHbcBytes": 30800788,
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 604,
+  "versionName": "6.0.4-preview.grounded-chat",
+  "scope": "Guided common-intent answers use only validated selected check-in fields or explain missing sources; bypass model load/generation; retain open chat and native model configuration. Strengthen post-MAC authority recheck. Correct stale chat notices/waiting controls and make source selection explicit. Return to chat after background unlock with honest interruption message; background generation and durable pending drafts remain unsupported. Native vault/model payloads and original foreground/cancellation guards unchanged."
+}

@@ -1,0 +1,9 @@
+{
+  "args": [
+    "reconstruction-work/r2-tools/hermes-build/bin/hbcdump",
+    "-c=disassemble 7314 -offsets;disassemble 7337 -offsets;quit",
+    "Solaris-Android-R2/evidence/guard-patch/completion-guards-analysis.hbc"
+  ],
+  "returncode": 0,
+  "stderr": ""
+}

@@ -1,0 +1,3012 @@
+{
+  "META-INF/com/android/build/gradle/app-metadata.properties": {
+    "bytes": 57,
+    "sha256": "5d0bec607c73c93023f83bc5751a6dd19212f28acec199db40b3d1515f55cc64",
+    "compression": 8
+  },
+  "META-INF/version-control-info.textproto": {
+    "bytes": 46,
+    "sha256": "38d377afa76b6364e5bf551cf4ffec1a881a46102a0047f523fbf148e0df6928",
+    "compression": 8
+  },
+  "assets/dexopt/baseline.prof": {
+    "bytes": 2092,
+    "sha256": "6edb12d7ee33d9555c3a5d0101c7112ecc77ff129cc8e63918229aa65c59c86b",
+    "compression": 0
+  },
+  "assets/dexopt/baseline.profm": {
+    "bytes": 253,
+    "sha256": "9c6fde638d8ec7c8ab4fca1bbe80ebb341cd4aa7237fadec838fc8c40a1e774c",
+    "compression": 0
+  },
+  "classes.dex": {
+    "bytes": 5903400,
+    "sha256": "c05b0cc8e3ed118b26023440896c946e2722e3dbb6fd017b61e56da581d53d75",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libappmodules.so": {
+    "bytes": 436976,
+    "sha256": "b535e34b66ee3fccf04bb0ea0914a681acdd16070b496c4c016d55624c10f4e5",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-buffer.3.7.1.so": {
+    "bytes": 51672,
+    "sha256": "c8a3ff176344aa12c62c0e225e791307bd580e857402ad3855b65a8acf8f1e14",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-cpu-info.0.1.1.so": {
+    "bytes": 31120,
+    "sha256": "97d42a648cb985af11388e2e635e793af8a74970541941f2bb7cdab2711be9c1",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-crypto.1.15.3.so": {
+    "bytes": 838360,
+    "sha256": "014cd5290dde743d53527bd4971d4d28a546c0af9a58ee633c03afe487e7aacf",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-dns.2.2.0.so": {
+    "bytes": 162416,
+    "sha256": "6b6b32035b34b2a76de2c153cd8d494fc1aa0b0e272a29d2f250d53c9e875b48",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-fs.4.8.1.so": {
+    "bytes": 63936,
+    "sha256": "9171bf37d408d213e47a06f05b2cd610d598fb9dfbd0da8078c382665550215b",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-gpu-info.0.1.1.so": {
+    "bytes": 31120,
+    "sha256": "0fd0c402ab8eff517e5aea619eed09a9d11061fe2ecd50ef2925ee0b5e51a4b2",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-hrtime.2.1.2.so": {
+    "bytes": 14736,
+    "sha256": "4e450bc6cd205369a6ac16ebee6d7372692bb3026e5001f7d45633e8040fcedc",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-inspect.3.1.10.so": {
+    "bytes": 18848,
+    "sha256": "2f399235b76cfe9b2b673711d850d352a5b39344456dadddcf72730cd9f2cbb2",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-kit.so": {
+    "bytes": 63082800,
+    "sha256": "b5708c4df7058402fcb9e0bcfb89d326382b70371389e43bb951f2b2079876a7",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-os.3.9.3.so": {
+    "bytes": 43480,
+    "sha256": "c6a2a41946614764521744065525373ee955ad423005ae21e97934b27e797575",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-path.3.1.2.so": {
+    "bytes": 14736,
+    "sha256": "606fb7b5ee66da8c367c33523e5ffc2cf2e3f0db0946d2bb778df0782226fa9b",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-performance.2.1.1.so": {
+    "bytes": 39488,
+    "sha256": "0b0b2736de1e5ea911955d9e471fa36ebf4b2251124a148a1be36b6304de9091",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-pipe.4.3.1.so": {
+    "bytes": 27040,
+    "sha256": "155f83cb05306bbc95aaf1e8a86b6116546e76f34c665843fe913ddf3656824c",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-signals.4.2.0.so": {
+    "bytes": 18664,
+    "sha256": "d7314b956ffbf9de407b377ce1b9ada479f9e3ace89ff14352b492d0b3ffef91",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-tcp.2.6.1.so": {
+    "bytes": 31152,
+    "sha256": "5d12295b176016e99c303f9188f6fd3ddacb183f41b79b1974c06547fced551b",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-tls.3.1.10.so": {
+    "bytes": 1837920,
+    "sha256": "e402de733a0737075d220473239eabbb1afb2076b361de143e9d664a09e93c29",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-type.1.1.1.so": {
+    "bytes": 22928,
+    "sha256": "66ae19b80bcf399be0dcc410e443d57660bad7b20b7af5ca0f6762128f2c23e8",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-url.2.5.4.so": {
+    "bytes": 236008,
+    "sha256": "e3764be10270d136d75f4c17e64d299432d5438d987db501ec39eb3e0897417f",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libbare-zlib.1.4.1.so": {
+    "bytes": 92696,
+    "sha256": "08e65667df3c527addeb725d30f61f3dfc6c73dbe48ab4dcc85589af6f4bc0df",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libc++_shared.so": {
+    "bytes": 1374336,
+    "sha256": "c4c2fe5cbcb1fba0003a31fc7ab29a9bb12df6cc187ec45a806462540e83d93b",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libcrypto.so": {
+    "bytes": 4978952,
+    "sha256": "da06ab9b38e9e28d2f9ab0040d398ec076d981f3a309325971a978e6135b80b1",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libexpo-modules-core.so": {
+    "bytes": 1315640,
+    "sha256": "3dcc9b70ec37ce0763f1e281ecaecb5fb5017ce024869c9cb793abc1bf18393d",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libexpo-sqlite.so": {
+    "bytes": 1495496,
+    "sha256": "36fde7157dd0c8b8ee9edea95e4d642adf2d376f9c7221c366f72e6fe8521077",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libfbjni.so": {
+    "bytes": 177000,
+    "sha256": "a9e35ba55d3f956920281f519385f8a72475ee24819799cb08375fdd4cce2b22",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libfs-native-extensions.1.5.1.so": {
+    "bytes": 39312,
+    "sha256": "7021082d8769081d99697fdded281f5bd68af049d2dbf8d0db53306c2fb39bdc",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libgifimage.so": {
+    "bytes": 318992,
+    "sha256": "9f605249728da7091569772a38a4dde298ed48e1e73fed3da0e4b662ef38715c",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libhermes.so": {
+    "bytes": 2136264,
+    "sha256": "5705c7e2cf51fcd3befa825ae2a6717524037b368cdac005a7a63c4a92ef4467",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libhermestooling.so": {
+    "bytes": 137456,
+    "sha256": "142247a46e46a9c2b07397b2b69fff61ffe9f635da3c42308d214b134ad73e31",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libimagepipeline.so": {
+    "bytes": 8760,
+    "sha256": "1b377992e4256fa9398ec057722f84a359c7d588e570c8a41f51d930c19ece7d",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libjsi.so": {
+    "bytes": 390736,
+    "sha256": "4473c47c5bd25e2856b6b13f756e39abb299b1c19954830f6efbf13b6b6cf0b4",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libnative-filters.so": {
+    "bytes": 23712,
+    "sha256": "4294b57460e70a6351ce7ae2733a79c088c907dfa54673a657227ec5bb669594",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libnative-imagetranscoder.so": {
+    "bytes": 585376,
+    "sha256": "2aed28298a25afd52ac670cf9682398c6c7ba42a57195c01efd565e7ddfe17ca",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libquickbit-native.2.4.8.so": {
+    "bytes": 84488,
+    "sha256": "011bfd52e1ba5c7ee54c01442580c1234a96fe3b280783628b6d715bc7bb2af2",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.0_1.so": {
+    "bytes": 1481344,
+    "sha256": "281715b42f2fa6ecff283f4b8c23e8130454e714201c1428cac0a749b0f1000b",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.2_1.so": {
+    "bytes": 1500040,
+    "sha256": "896eceadacfbcf2926af59455e83d558648223a1790ea524d4e485f7f1b3f0f2",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.2_2.so": {
+    "bytes": 1500168,
+    "sha256": "7a57c88c6d14585a8d8689a4e65892797963a652fd5cf3cba1465c3021952754",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.6_1.so": {
+    "bytes": 1511984,
+    "sha256": "3a3dc3923e614e3f28bbf090d2cdc2060f02c16c2b316188c24a9e99ec171197",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libqvac-ggml-cpu-android_armv9.0_1.so": {
+    "bytes": 1500696,
+    "sha256": "3c80108fda415e587bf0f29f816adffe99499467f897539d8593d4ca96c36fc6",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libqvac-ggml-cpu-android_armv9.2_1.so": {
+    "bytes": 1500696,
+    "sha256": "16dd4fa34b18fb1b33549bcc3fb25d9c43e23c1890a15760c4ed45802ded619f",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libqvac-ggml-cpu-android_armv9.2_2.so": {
+    "bytes": 1500696,
+    "sha256": "9538af570b38b3888fcbed224af02214ba71f965ba77ae4fd4fd70a28eac13f1",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libqvac-ggml-vulkan.so": {
+    "bytes": 89761008,
+    "sha256": "4ea591ef4460a899ac498100ee3dab1562550e7e56cfabd78fd14766dd037925",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libqvac__llm-llamacpp.0.45.0.so": {
+    "bytes": 9808840,
+    "sha256": "8e2172153999e71212feac3362845775a09a09f723a856f2ae6003ae55675cb5",
+    "compression": 0
+  },
+  "lib/arm64-v8a/librabin-native.2.0.0.so": {
+    "bytes": 18832,
+    "sha256": "bf70c29e57612acc5d1a3958a3826387345ddaadc403c713fe1c64f8cab12312",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libreact_codegen_safeareacontext.so": {
+    "bytes": 160984,
+    "sha256": "59986901efe554da88e26ad745bdc5a54f2d52aa116919856fa36018ddcbc951",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libreactnative.so": {
+    "bytes": 5878432,
+    "sha256": "8fd69e877877a85f768190343e587a5a0238246c2903c4063be9fc05b7c705b7",
+    "compression": 0
+  },
+  "lib/arm64-v8a/librocksdb-native.3.17.4.so": {
+    "bytes": 6208496,
+    "sha256": "2c72b63eb9264aa53573f624ea27b57d80a8faae920c3d953ba32f827dfc763c",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libsimdle-native.1.3.9.so": {
+    "bytes": 182720,
+    "sha256": "b364d87b9de084b7cc5dce154c1149b59d49aab6622f3dd7c51af5ce3fbe7366",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libsodium-native.5.1.0.so": {
+    "bytes": 584544,
+    "sha256": "066e85a75c9f2376a0b033e9f8ca4d010697d814a689797141171fdff198233c",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libstatic-webp.so": {
+    "bytes": 501856,
+    "sha256": "f3e5f9ab4f93f2a0a057285a2de9c93ba0ab59c76c22874d0356493ce283c4c7",
+    "compression": 0
+  },
+  "lib/arm64-v8a/libudx-native.1.21.2.so": {
+    "bytes": 162544,
+    "sha256": "d47c3d374e9fc0405265b199eb91710c5e78c1bf1d2d3f119aab9116475b270b",
+    "compression": 0
+  },
+  "assets/app.config": {
+    "bytes": 1176,
+    "sha256": "9f1505a7cb7bfb1fb916feb3a2edfb7a3e7ec451dd983225bfc5a9c6e7a7e280",
+    "compression": 8
+  },
+  "assets/index.android.bundle": {
+    "bytes": 30746396,
+    "sha256": "fd8b38bcdd42421c18da4a0b69b2d58906ceddd7c4a2044b34faed51490f4653",
+    "compression": 0
+  },
+  "DebugProbesKt.bin": {
+    "bytes": 1738,
+    "sha256": "ae8a082dd609313835ba93c3ef479a3af9903977d7bdc81df45bbd209ec7d0da",
+    "compression": 8
+  },
+  "META-INF/ReactAndroid_release.kotlin_module": {
+    "bytes": 142,
+    "sha256": "b5a6a2cfb2fdad8c1a25c8985997d86ac2d4605744d31bbbf9e52179dbdfe725",
+    "compression": 8
+  },
+  "META-INF/androidx.activity_activity.version": {
+    "bytes": 6,
+    "sha256": "bb7320d831e7a151aa901c35e7326c752fa2ef5024f30768c42319b8bed171ed",
+    "compression": 8
+  },
+  "META-INF/androidx.annotation_annotation-experimental.version": {
+    "bytes": 6,
+    "sha256": "7d072b48526b023950e4c48db01e8c273554a6401119f5691e7589ba9bc65d9d",
+    "compression": 8
+  },
+  "META-INF/androidx.appcompat_appcompat-resources.version": {
+    "bytes": 6,
+    "sha256": "bb7320d831e7a151aa901c35e7326c752fa2ef5024f30768c42319b8bed171ed",
+    "compression": 8
+  },
+  "META-INF/androidx.appcompat_appcompat.version": {
+    "bytes": 6,
+    "sha256": "bb7320d831e7a151aa901c35e7326c752fa2ef5024f30768c42319b8bed171ed",
+    "compression": 8
+  },
+  "META-INF/androidx.arch.core_core-runtime.version": {
+    "bytes": 67,
+    "sha256": "1b7c606370188534dac5561fba2b2988093829697fce9e6e8832e9291d24ed00",
+    "compression": 8
+  },
+  "META-INF/androidx.asynclayoutinflater_asynclayoutinflater.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.autofill_autofill.version": {
+    "bytes": 6,
+    "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8",
+    "compression": 8
+  },
+  "META-INF/androidx.coordinatorlayout_coordinatorlayout.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.core_core-ktx.version": {
+    "bytes": 7,
+    "sha256": "ca0bc79c4cde0ad64e1ec9df2882425197b5ba85704a4ac6bd67f8f99936eb25",
+    "compression": 8
+  },
+  "META-INF/androidx.core_core.version": {
+    "bytes": 7,
+    "sha256": "ca0bc79c4cde0ad64e1ec9df2882425197b5ba85704a4ac6bd67f8f99936eb25",
+    "compression": 8
+  },
+  "META-INF/androidx.cursoradapter_cursoradapter.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.customview_customview.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.documentfile_documentfile.version": {
+    "bytes": 6,
+    "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8",
+    "compression": 8
+  },
+  "META-INF/androidx.drawerlayout_drawerlayout.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.emoji2_emoji2-views-helper.version": {
+    "bytes": 6,
+    "sha256": "64d23f858ef51b0f996e4966d4e27c0371b437e2d2787890b1f7ad22d4ec5663",
+    "compression": 8
+  },
+  "META-INF/androidx.emoji2_emoji2.version": {
+    "bytes": 6,
+    "sha256": "64d23f858ef51b0f996e4966d4e27c0371b437e2d2787890b1f7ad22d4ec5663",
+    "compression": 8
+  },
+  "META-INF/androidx.fragment_fragment.version": {
+    "bytes": 6,
+    "sha256": "879a67a197446479e783c8e22a58681fed324f09eac1ce808f6a5a4c5e1894ad",
+    "compression": 8
+  },
+  "META-INF/androidx.interpolator_interpolator.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.legacy_legacy-support-core-ui.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.legacy_legacy-support-core-utils.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.legacy_legacy-support-v4.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.lifecycle_lifecycle-livedata-core.version": {
+    "bytes": 78,
+    "sha256": "474006d0cc8100f8dfc68d9269f233a347c29eb4a36d859c20a4953aa41d4dfc",
+    "compression": 8
+  },
+  "META-INF/androidx.lifecycle_lifecycle-livedata.version": {
+    "bytes": 73,
+    "sha256": "8fb16c24c98902ba99917588dbfd038df0d9bf8693c9256e2ba9952c78b44b33",
+    "compression": 8
+  },
+  "META-INF/androidx.lifecycle_lifecycle-process.version": {
+    "bytes": 72,
+    "sha256": "ade1aef8b090839ec122c696be949dd1633ccbac22bcb1a0f895bacde74f66fd",
+    "compression": 8
+  },
+  "META-INF/androidx.lifecycle_lifecycle-runtime.version": {
+    "bytes": 72,
+    "sha256": "4257cccbba3f7aea521a40937d1bfdd5949f5f3e1ed689c402a4f2977109030b",
+    "compression": 8
+  },
+  "META-INF/androidx.lifecycle_lifecycle-viewmodel-savedstate.version": {
+    "bytes": 85,
+    "sha256": "421fc63528b574159fbab9883b3767b85c6f073415e4f58a166acd93706db90c",
+    "compression": 8
+  },
+  "META-INF/androidx.lifecycle_lifecycle-viewmodel.version": {
+    "bytes": 74,
+    "sha256": "405e9f0f83651ca097dac96b53a9d149a9b6f1c890d232e1f3e86bc03fcc62b1",
+    "compression": 8
+  },
+  "META-INF/androidx.loader_loader.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.media_media.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.print_print.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.profileinstaller_profileinstaller.version": {
+    "bytes": 6,
+    "sha256": "10e2e117b01523891ca271a615ae36e9d5e52348fd7d642f66727602c1b8dcbe",
+    "compression": 8
+  },
+  "META-INF/androidx.savedstate_savedstate.version": {
+    "bytes": 6,
+    "sha256": "6cf4e084b47f33c9b02ef79279d157833868f8f70514169a768be353ee328fea",
+    "compression": 8
+  },
+  "META-INF/androidx.slidingpanelayout_slidingpanelayout.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.startup_startup-runtime.version": {
+    "bytes": 6,
+    "sha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989",
+    "compression": 8
+  },
+  "META-INF/androidx.swiperefreshlayout_swiperefreshlayout.version": {
+    "bytes": 6,
+    "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8",
+    "compression": 8
+  },
+  "META-INF/androidx.tracing_tracing-ktx.version": {
+    "bytes": 6,
+    "sha256": "1e5b51cde515396a9fa762909cf8ca6584ccc564b325d2eebeea76175fe95c4d",
+    "compression": 8
+  },
+  "META-INF/androidx.tracing_tracing.version": {
+    "bytes": 6,
+    "sha256": "1e5b51cde515396a9fa762909cf8ca6584ccc564b325d2eebeea76175fe95c4d",
+    "compression": 8
+  },
+  "META-INF/androidx.vectordrawable_vectordrawable-animated.version": {
+    "bytes": 6,
+    "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8",
+    "compression": 8
+  },
+  "META-INF/androidx.vectordrawable_vectordrawable.version": {
+    "bytes": 6,
+    "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8",
+    "compression": 8
+  },
+  "META-INF/androidx.versionedparcelable_versionedparcelable.version": {
+    "bytes": 6,
+    "sha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989",
+    "compression": 8
+  },
+  "META-INF/androidx.viewpager_viewpager.version": {
+    "bytes": 6,
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "compression": 8
+  },
+  "META-INF/androidx.webkit_webkit.version": {
+    "bytes": 7,
+    "sha256": "bb0df1bd902faba507c15975eb9973e695f2732f760d851b4f9c7ba17068f5ff",
+    "compression": 8
+  },
+  "META-INF/kotlinx_coroutines_android.version": {
+    "bytes": 5,
+    "sha256": "179f9b723b6508aa1d6ce99991e8cd549ca819ee1b9b6102396c47815beffaaf",
+    "compression": 8
+  },
+  "META-INF/kotlinx_coroutines_core.version": {
+    "bytes": 5,
+    "sha256": "179f9b723b6508aa1d6ce99991e8cd549ca819ee1b9b6102396c47815beffaaf",
+    "compression": 8
+  },
+  "META-INF/services/C4.j": {
+    "bytes": 15,
+    "sha256": "a910a1a92895dbe51ecfbaae9e1dd5a441938ff0f77c3663d293b21ec25148eb",
+    "compression": 8
+  },
+  "META-INF/services/W3.b": {
+    "bytes": 5,
+    "sha256": "7002924094b7bcf5f55316c5780fc77e9e9e11072f776351b3afa107c5578089",
+    "compression": 8
+  },
+  "META-INF/services/f5.E": {
+    "bytes": 5,
+    "sha256": "da3cc3d6f2d6c2eef22bf83ff1dd472a13e0a9a9943e9b73340b0a552e474755",
+    "compression": 8
+  },
+  "META-INF/services/h5.r": {
+    "bytes": 5,
+    "sha256": "4e243539ddfdc775b6aec642e3f5408d19cf446f4362805c85e3441163e23b94",
+    "compression": 8
+  },
+  "META-INF/versions/9/OSGI-INF/MANIFEST.MF": {
+    "bytes": 145,
+    "sha256": "a844d62b02a9eefd9d112e74fd660843d91cd8b81dce6ce60a9eaba605fa939c",
+    "compression": 8
+  },
+  "kotlin-tooling-metadata.json": {
+    "bytes": 627,
+    "sha256": "57f4ffbc169b5ca6a45ac20d63b098d86df8f1dd89616a6182c26fdf694a66e4",
+    "compression": 8
+  },
+  "kotlin/annotation/annotation.kotlin_builtins": {
+    "bytes": 865,
+    "sha256": "f6bf68d4798ece5071900772a4a87150314aed3788e042d9e30ab60a0857b211",
+    "compression": 8
+  },
+  "kotlin/collections/collections.kotlin_builtins": {
+    "bytes": 3635,
+    "sha256": "91d6cd4138e850c100a2dec88a965453b0042bf7f6f51202fe4b1efba38e96c0",
+    "compression": 8
+  },
+  "kotlin/concurrent/atomics/atomics.kotlin_builtins": {
+    "bytes": 2471,
+    "sha256": "ef8b50112968a5e1be21c9c03d68ce6a7a939a057b9bc5d3fab72c95470561bf",
+    "compression": 8
+  },
+  "kotlin/coroutines/coroutines.kotlin_builtins": {
+    "bytes": 137,
+    "sha256": "98ab3a3c18fcb237528dd63fa489815c583e1d6c13debd2a27ac6d74ccf8717b",
+    "compression": 8
+  },
+  "kotlin/internal/internal.kotlin_builtins": {
+    "bytes": 583,
+    "sha256": "7489c6bcec13d048a4ce9d9f3bafa1a11bfa08021bfa0e07166978d0bc5e450a",
+    "compression": 8
+  },
+  "kotlin/kotlin.kotlin_builtins": {
+    "bytes": 18653,
+    "sha256": "d03111a486daaa503eb6c17aa6770daf744a9b668f54a75b419d1de3deb868a0",
+    "compression": 8
+  },
+  "kotlin/ranges/ranges.kotlin_builtins": {
+    "bytes": 3349,
+    "sha256": "ecf5a840ebf529fd9d1fa8216febc191b8559412a1068554266f64bc3b6f8428",
+    "compression": 8
+  },
+  "kotlin/reflect/reflect.kotlin_builtins": {
+    "bytes": 2370,
+    "sha256": "b549fbaa2455d8bd417f44e3df1af2ff6802693a5aa0bb6a740848467b53b69a",
+    "compression": 8
+  },
+  "okhttp3/internal/publicsuffix/NOTICE": {
+    "bytes": 218,
+    "sha256": "8a9c58fbded5ea3474315e4a9824ca8b1486098a1a03e897e0b19419d5e1876a",
+    "compression": 8
+  },
+  "okhttp3/internal/publicsuffix/publicsuffixes.gz": {
+    "bytes": 37730,
+    "sha256": "a1ef3d0e4ec2cbce14c1884ab0f3a4fef46e258de83530dc562ebb805bdb12fd",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_any.txt": {
+    "bytes": 4708,
+    "sha256": "ad6c75e0e50b51f807d73a3d3ef46a6f666a891cb4953cc357a5d305e61e30ab",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_common.txt": {
+    "bytes": 4971,
+    "sha256": "da5b7febc70f860f91bcccca37c29a619a23442cc80b9cd98ad884e16d6c9854",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_cyrillic.txt": {
+    "bytes": 831,
+    "sha256": "a29917ea4c00bdd216db31d36205ef3829d0fb76926d189fcd8260d3700d4c57",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_english.txt": {
+    "bytes": 1489,
+    "sha256": "53739bd27868292338606ef7a1fd209b6253d35e94d7a4afb031769498d60d64",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_french.txt": {
+    "bytes": 1224,
+    "sha256": "19650e4ab69678bb849028900e4c2e867f75229c4447a0fcbf5a5bd6b3bd69c3",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_german.txt": {
+    "bytes": 1852,
+    "sha256": "cfc7c1ef41209af89b676ba46a183060b93dedcab1e7d730f6253f48f5af0ea9",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_hebrew.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_hungarian.txt": {
+    "bytes": 830,
+    "sha256": "6bd249910726949afa4e5a9623ec3999151c3ef43843714a90003cfb11350309",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_polish.txt": {
+    "bytes": 2228,
+    "sha256": "5f56627d50d4ef0e3c8c76225d3e72fd95c8c90ae629d65d32f202f792d5912a",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_romanian.txt": {
+    "bytes": 830,
+    "sha256": "900bcb8b852ce9738f85efacda91bbcaf0192d662f2fa996ebbe34e115801736",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_russian.txt": {
+    "bytes": 1427,
+    "sha256": "b908b81325099091067ecbaab232db0215b61ebd6899d0f7d989a013363a7cb3",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_approx_spanish.txt": {
+    "bytes": 830,
+    "sha256": "6bd249910726949afa4e5a9623ec3999151c3ef43843714a90003cfb11350309",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_any.txt": {
+    "bytes": 1952,
+    "sha256": "bc6b6b423e6af997ce45348e17f3a0d6a18617cfe67b50bdb501cc97258c3d35",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_approx_common.txt": {
+    "bytes": 1736,
+    "sha256": "a1f947e071423aa5c24360484f85b7139f7a3ffe77d2089e367ca152743d1a19",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_common.txt": {
+    "bytes": 1095,
+    "sha256": "fc3558377839a10375bb40146d9d12ec9b37487223023cc0769946aed24f352f",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_cyrillic.txt": {
+    "bytes": 830,
+    "sha256": "265d93b530f2f0b3b2b602afda6e912370c0b01c06df4a2987119f6320bffb44",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_english.txt": {
+    "bytes": 830,
+    "sha256": "265d93b530f2f0b3b2b602afda6e912370c0b01c06df4a2987119f6320bffb44",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_french.txt": {
+    "bytes": 830,
+    "sha256": "265d93b530f2f0b3b2b602afda6e912370c0b01c06df4a2987119f6320bffb44",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_german.txt": {
+    "bytes": 826,
+    "sha256": "32674f342f7c8b73fe831f46b0537df0a2b9d43c45fcded7617ddf28495c0e2a",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_hebrew.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_hungarian.txt": {
+    "bytes": 830,
+    "sha256": "265d93b530f2f0b3b2b602afda6e912370c0b01c06df4a2987119f6320bffb44",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_polish.txt": {
+    "bytes": 875,
+    "sha256": "d04d6e8ea4ed593f478fe1ff150a1f57ac30557c13f9f019fcf2b1658b6ff49e",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_romanian.txt": {
+    "bytes": 830,
+    "sha256": "265d93b530f2f0b3b2b602afda6e912370c0b01c06df4a2987119f6320bffb44",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_russian.txt": {
+    "bytes": 831,
+    "sha256": "34bfa509511f7517a628330cca7c5e51464ab4eef953834054f684d02e11ffc7",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_exact_spanish.txt": {
+    "bytes": 830,
+    "sha256": "265d93b530f2f0b3b2b602afda6e912370c0b01c06df4a2987119f6320bffb44",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_hebrew_common.txt": {
+    "bytes": 2983,
+    "sha256": "ad11a0f537e90b0893e8624e0c997dd8e2ece13dfe8b90b366d3a773f829bee5",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_lang.txt": {
+    "bytes": 5080,
+    "sha256": "74950c1da02012bffced1707342fc5505fdda9e62b555c6798162240c42a4e81",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_languages.txt": {
+    "bytes": 888,
+    "sha256": "ee736888a0725497a11c74cca309ee21d520d5ad64b5541250e8f1da9138fe97",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_any.txt": {
+    "bytes": 9451,
+    "sha256": "bdb60c3901ab057f4c94b384b302a0bdd7a6012ac07cf4edb87bd37b9283d17b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_cyrillic.txt": {
+    "bytes": 2366,
+    "sha256": "361bc87691da6bfda59ff416ce61c922aae811944669fd05f537ac629eefed84",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_english.txt": {
+    "bytes": 2970,
+    "sha256": "7c28986e7dc911d8798ebe9f26b93d0487e632482fc5348363cd8ef94dac1a5e",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_french.txt": {
+    "bytes": 2274,
+    "sha256": "234f4b1eeacea6c814af4494c155799c21387f2b3ce61c47f0f5e90e9592802a",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_german.txt": {
+    "bytes": 2787,
+    "sha256": "00b0a4baf27ff74f992f39ff875df7b694efe7218f228734695b4b0817575758",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_hebrew.txt": {
+    "bytes": 1472,
+    "sha256": "1e36828bd90a0721b6513f6f687eac503dc8c1a37824ae6e6d8d496344620194",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_hungarian.txt": {
+    "bytes": 1960,
+    "sha256": "a247af30ac47cbaa87cc9458fe33a9fa101424d77565c7ca012b4e8b923a369d",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_polish.txt": {
+    "bytes": 4167,
+    "sha256": "047bf7630b038e180ac407dc6bedb45ebbc42c01a7c9be7b17845c4e9b15f250",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_romanian.txt": {
+    "bytes": 1526,
+    "sha256": "212f03c2a1c539a08d4664107b107bddced3a461b6d5362335c0c1039dd88d7c",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_russian.txt": {
+    "bytes": 3980,
+    "sha256": "9d9904d23ec6031ff620967766cf72a06f5aa9ac958ebc9ab6c4956a19c2c76b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/ash_rules_spanish.txt": {
+    "bytes": 2073,
+    "sha256": "c9e410a8a5c0965b39e39362a904bd107239bbfe0176348e003423e5e4812aa0",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_any.txt": {
+    "bytes": 4043,
+    "sha256": "a72bbd45de8a31aa3ceaaa06513896c4abb59bc76ef945811a3edc63b55451d4",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_arabic.txt": {
+    "bytes": 991,
+    "sha256": "838a47e6f968189a4a882b82220654ca219450956d2cf0ae0336d342894c598f",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_common.txt": {
+    "bytes": 5120,
+    "sha256": "edf03e4f49c343d45b63ea9c3d470b6baf95a3688c5723ad1e85bdfb860e3314",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_cyrillic.txt": {
+    "bytes": 831,
+    "sha256": "f9a750d48156d8e8e1d94c8ed34dbf596c24efe945123d6e808af069dee2599a",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_czech.txt": {
+    "bytes": 830,
+    "sha256": "e52b12a250fa593f99ca8a06e02b18a091518a1e6b66fd496e78a7db3888cc43",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_dutch.txt": {
+    "bytes": 830,
+    "sha256": "e52b12a250fa593f99ca8a06e02b18a091518a1e6b66fd496e78a7db3888cc43",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_english.txt": {
+    "bytes": 1489,
+    "sha256": "53739bd27868292338606ef7a1fd209b6253d35e94d7a4afb031769498d60d64",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_french.txt": {
+    "bytes": 942,
+    "sha256": "1d9d34f64e5d8d3009749d9d818c0583463ee89f08c0f7d2b0544a4316acad47",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_german.txt": {
+    "bytes": 1853,
+    "sha256": "4330f43e087759d3616b02eb362074aed94698cb4d4f848a6e58f2532c5b0aeb",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_greek.txt": {
+    "bytes": 830,
+    "sha256": "e52b12a250fa593f99ca8a06e02b18a091518a1e6b66fd496e78a7db3888cc43",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_greeklatin.txt": {
+    "bytes": 845,
+    "sha256": "dffa002d397f85134af0350cc2fa75f1eddfd75a2a18be5a5761e3c80781f12e",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_hebrew.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_hungarian.txt": {
+    "bytes": 831,
+    "sha256": "f827f54af6560a4c6d615618433457e1c9dc06c78c7683dee6d4187cdbcd8c83",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_italian.txt": {
+    "bytes": 831,
+    "sha256": "f827f54af6560a4c6d615618433457e1c9dc06c78c7683dee6d4187cdbcd8c83",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_polish.txt": {
+    "bytes": 2183,
+    "sha256": "d062343f0330e121c684e3e6943f7775855c78e965b043a839a4dba87336d4d8",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_portuguese.txt": {
+    "bytes": 830,
+    "sha256": "e52b12a250fa593f99ca8a06e02b18a091518a1e6b66fd496e78a7db3888cc43",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_romanian.txt": {
+    "bytes": 830,
+    "sha256": "4e35dd86b22d8d011287b19aba8b1d4af9e8c63ebdf27d0899e8d9edf4d4b1ed",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_russian.txt": {
+    "bytes": 1437,
+    "sha256": "15e71e33faf7bb4558fd3f64ec9e38111bb04852343bc4a89b09ae127279caf0",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_spanish.txt": {
+    "bytes": 868,
+    "sha256": "ca9391f883011b749197fbbc79776777d957dd5f55749d9a600c1d229f80b8df",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_approx_turkish.txt": {
+    "bytes": 830,
+    "sha256": "e52b12a250fa593f99ca8a06e02b18a091518a1e6b66fd496e78a7db3888cc43",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_any.txt": {
+    "bytes": 1226,
+    "sha256": "cf8da3ee51d478dce1ff6fa1ccef2f65411308d47703f920423cc1172266623e",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_approx_common.txt": {
+    "bytes": 1769,
+    "sha256": "948f6d4355ac74011cccd7bd54ec3bce4a29ea26c5d4518f019cdc1dcef27285",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_arabic.txt": {
+    "bytes": 816,
+    "sha256": "891a20110c50fd5dd6c34ba71c11207e2e11948c3cca5f1554b3c934644f5a05",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_common.txt": {
+    "bytes": 1093,
+    "sha256": "6a943ca8cf3f7bed1ff516de9a3ecf44f13c801d3dc967803b1b6a95ae45d372",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_cyrillic.txt": {
+    "bytes": 830,
+    "sha256": "fd5517e98eebfbe1f979ec21f9749e9d6cafd3e6798e5f31c173a0be08c025e5",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_czech.txt": {
+    "bytes": 830,
+    "sha256": "fd5517e98eebfbe1f979ec21f9749e9d6cafd3e6798e5f31c173a0be08c025e5",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_dutch.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_english.txt": {
+    "bytes": 830,
+    "sha256": "fd5517e98eebfbe1f979ec21f9749e9d6cafd3e6798e5f31c173a0be08c025e5",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_french.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_german.txt": {
+    "bytes": 826,
+    "sha256": "abe0c2b293dde37d051c84c0a60194b8c3038f399411b60f0706dcddfadb0bdf",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_greek.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_greeklatin.txt": {
+    "bytes": 817,
+    "sha256": "8784c2b1d8b8e206e3dfce6eda4f3dec800a1bc213dc4f4dc0cb09a8132a542c",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_hebrew.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_hungarian.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_italian.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_polish.txt": {
+    "bytes": 874,
+    "sha256": "6d805f7fc3172f02f11240b9043fedc535d0729a105f218205ddbcee3245781a",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_portuguese.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_romanian.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_russian.txt": {
+    "bytes": 831,
+    "sha256": "34bfa509511f7517a628330cca7c5e51464ab4eef953834054f684d02e11ffc7",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_spanish.txt": {
+    "bytes": 832,
+    "sha256": "b3388ed5a9817dfa7172b1061cd2003068623c5b794b4d25a221225c893eddf2",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_exact_turkish.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_hebrew_common.txt": {
+    "bytes": 2845,
+    "sha256": "4a989b869f2293590c21af2305da6588966aee6d3bde431b3e49123904b11bcf",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_lang.txt": {
+    "bytes": 7889,
+    "sha256": "cbc7a4cf7bf28a6bfc4a1804eaae511125f459f2a73da4c1c33b1ca9f58aabdb",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_languages.txt": {
+    "bytes": 951,
+    "sha256": "b3165adaa36026c29338dc8d8f351cebc7423731465e1d6422f27d6778494c7d",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_any.txt": {
+    "bytes": 13059,
+    "sha256": "d23d576829821edd7de13f6734eca746a767dd6d565a4cd18e33d9736df0d0ac",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_arabic.txt": {
+    "bytes": 2208,
+    "sha256": "82b707c79998031bda269fd7c1192ea1a9670c03ead09ee77a77ce4feca12c38",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_cyrillic.txt": {
+    "bytes": 2300,
+    "sha256": "0c8158127f19bd0e683bf883ab2fb7eb4c173a34ee51ab6752f56c932ab125e8",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_czech.txt": {
+    "bytes": 1561,
+    "sha256": "84de9e152412cd6129340590372571fedb14876054b5df3b82a2a36564fcd619",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_dutch.txt": {
+    "bytes": 1867,
+    "sha256": "9921e75dbbc942d2572a8660b0979329639e8707ffa9bb1de6b7d1a7a9955c2b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_english.txt": {
+    "bytes": 3013,
+    "sha256": "bcfb8723cbf3966b09ba0dc6f3dbbdc7882869c4e7af160f803c2f0519785a22",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_french.txt": {
+    "bytes": 2778,
+    "sha256": "b5f12b085cfb4896a91020f901bc16e6f3164f0641e683b0d205a730560274b3",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_german.txt": {
+    "bytes": 2735,
+    "sha256": "453d474ab996523a2f09a1c5897d8e3e1b4c045061227c052792f982e1c3c8b7",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_greek.txt": {
+    "bytes": 2918,
+    "sha256": "6b56c5d8a9b6270f8777cce5f1b0860390aa218f7e2b43eeb1d7cbdb38778830",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_greeklatin.txt": {
+    "bytes": 3041,
+    "sha256": "06122f03fe879f2ef78b0b76bf1412eb170c69fa828f40d7e7b907856656446e",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_hebrew.txt": {
+    "bytes": 1462,
+    "sha256": "a570f37f45f35f2e409b1173d955d83adc878da8187f899db930d5d19f89a5f1",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_hungarian.txt": {
+    "bytes": 1887,
+    "sha256": "16ba7cf79bf85089dc29fd92eff6358c893bc6aef85e6396dd29af7c41a4f611",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_italian.txt": {
+    "bytes": 1873,
+    "sha256": "99155dedf0caeaae4212877d0b90da52e0252812eee4ab06a9aaf5393b94afb0",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_polish.txt": {
+    "bytes": 4112,
+    "sha256": "e4e0eb610a8bccf71d39cd0e10b2c51e4d1f132a052d183c749511464ed51fc9",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_portuguese.txt": {
+    "bytes": 2598,
+    "sha256": "0c51c2cc22988516b03f6afdd5699897b7cafe2b3e5d3676ab101941fbfd92dc",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_romanian.txt": {
+    "bytes": 1509,
+    "sha256": "75ee26f3c6bf6cafc2258be21b820952e2e07c192919e34fd717dd81b0a2f4ad",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_russian.txt": {
+    "bytes": 3042,
+    "sha256": "ded105c857167c2ba8c44ced7cee000d6bcd7823a4851b698f8ea540115a7f37",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_spanish.txt": {
+    "bytes": 2382,
+    "sha256": "e7253c7c1ab7e46d29c85792be68c15a7bdb8937c364043f4c4c658d08f76a6b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/gen_rules_turkish.txt": {
+    "bytes": 1386,
+    "sha256": "1800bab9aee6be5f57838bfaaf071009841c1af93d5dd22789e1a7643d199261",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/lang.txt": {
+    "bytes": 819,
+    "sha256": "05987a68044246aa19eabb6abc5a6d9bd066cb250b7fdc95ae9672b7389dc91e",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_approx_any.txt": {
+    "bytes": 830,
+    "sha256": "47661c92b7bd2a3dbff0b19f2342281076f2877fab2592a0c076a555a813947f",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_approx_common.txt": {
+    "bytes": 3195,
+    "sha256": "7f3ea2985fd4b1b5e0f5a6544a47ab632497a7853b691aef5e6bd7320fcaa3a6",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_approx_french.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_approx_hebrew.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_approx_italian.txt": {
+    "bytes": 830,
+    "sha256": "b6165dbda3d972b5c54b2191409a2c04ac35fc7dba0abf5ddf3c9ae13f9a98a0",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_approx_portuguese.txt": {
+    "bytes": 831,
+    "sha256": "21d632279772ae8983832220505bcf0c6fb500f4ffade0f9908306d018710f13",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_approx_spanish.txt": {
+    "bytes": 831,
+    "sha256": "21d632279772ae8983832220505bcf0c6fb500f4ffade0f9908306d018710f13",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_exact_any.txt": {
+    "bytes": 817,
+    "sha256": "df3f63b3946b8d5f05c4977ee5ab488da8162f4ad8cafa7a81cd8731b4954cb8",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_exact_approx_common.txt": {
+    "bytes": 1685,
+    "sha256": "232f59750f9dedcf0bc2af194d16a1f434a56a0ace0415fe67924b73c7e22a32",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_exact_common.txt": {
+    "bytes": 1109,
+    "sha256": "c3654ad436be18536fef3e3872db7255659c413bfc9b5ad446b1467b68c8b8c0",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_exact_french.txt": {
+    "bytes": 815,
+    "sha256": "9ddcb79875c3a49259e98faf98433c7d8c29e368dedea7155c9ff7171016857d",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_exact_hebrew.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_exact_italian.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_exact_portuguese.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_exact_spanish.txt": {
+    "bytes": 812,
+    "sha256": "d54f26f806ec83a34beaa033cbd110a9204f853045bf9050a3050146b52ec50b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_hebrew_common.txt": {
+    "bytes": 2187,
+    "sha256": "f54d8a4d50ac4331b34a9a6d6466108e8d462f590d83b88130cb439f760a74e8",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_lang.txt": {
+    "bytes": 2536,
+    "sha256": "e63319156c076f8d60e944e5f998729f079316abd8e5c2f63e67b8de57fba69f",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_languages.txt": {
+    "bytes": 849,
+    "sha256": "9cc12d4172e415642b4105d96717d9c9b28abca8abfb61b6443f4e9c47adaf87",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_rules_any.txt": {
+    "bytes": 4632,
+    "sha256": "a334356decf81c182682d8e0d03e1727ab45a068446ed11c96809167aca1877f",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_rules_french.txt": {
+    "bytes": 2224,
+    "sha256": "2a3cbe347fda0df595e3110959c49656c6ec6b6f3b7af69a67d5590f0729699b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_rules_hebrew.txt": {
+    "bytes": 1459,
+    "sha256": "545919eeecaee7301ff14afe69c88faf0277f3568c154032be204d3ff0d9da68",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_rules_italian.txt": {
+    "bytes": 1848,
+    "sha256": "3b4d253710d0c9dd5649594047c8e10763094c10b7b518cfd84048c122255f9b",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_rules_portuguese.txt": {
+    "bytes": 2573,
+    "sha256": "8a1e06755eba82e40de80beecdcabc01d8a0e9a547f1eabb35346e526bcf90b2",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/bm/sep_rules_spanish.txt": {
+    "bytes": 2480,
+    "sha256": "57654b4355e47b908556126a8cf10f9a77dc49e5bf3b179e9797b4e9b47f88ed",
+    "compression": 8
+  },
+  "org/apache/commons/codec/language/dmrules.txt": {
+    "bytes": 3745,
+    "sha256": "2081d3acc1c5b5fc6d619f71fd89e9b00219f3f86a963edd2971dded11393c0d",
+    "compression": 8
+  },
+  "AndroidManifest.xml": {
+    "bytes": 12460,
+    "sha256": "b24ee9859a63c1c27c09fcf7f4d9f96a4bf7e3f1146fb791b6d3bd81399f860f",
+    "compression": 8
+  },
+  "res/-8.xml": {
+    "bytes": 724,
+    "sha256": "ac794657072572ab8c390afd5cc2d89afbc1d5a6f52620f011ab94cd9b87fa1e",
+    "compression": 8
+  },
+  "res/-B.png": {
+    "bytes": 281,
+    "sha256": "43ccf1f0a5e9e9ed9a6df33e1b3d378d49dbc8dc60d83b1cdb985e5e48f52497",
+    "compression": 0
+  },
+  "res/-N.png": {
+    "bytes": 318,
+    "sha256": "6b45aef8bf43767c2c1c83dee2bd9ceb9017994fbef6613891e6bc215e2a5ee3",
+    "compression": 0
+  },
+  "res/-k.xml": {
+    "bytes": 388,
+    "sha256": "fd6c0f7097f537de41898ab2f9e70ce71f1a0ac5d383e30fae7e95c1f1b07c73",
+    "compression": 8
+  },
+  "res/0M.xml": {
+    "bytes": 1064,
+    "sha256": "ccd9984aedd2c8ffc586b83176e88c17bc2ef2b0af4cac83b89dec5fe4f68df9",
+    "compression": 8
+  },
+  "res/0c.9.png": {
+    "bytes": 267,
+    "sha256": "f94e2129180c0ba6924430374402456035dcd6b6fff7d05f6de7e24196a3af35",
+    "compression": 0
+  },
+  "res/0w.xml": {
+    "bytes": 548,
+    "sha256": "9b342043108712fcab4ad4ed3ab382e3438f0347b568779d0fff50b130f7c7e2",
+    "compression": 8
+  },
+  "res/0x.9.png": {
+    "bytes": 209,
+    "sha256": "636d7f24be686e9515f7d6830ce936baa0a5416468220e94e8e257547967e22c",
+    "compression": 0
+  },
+  "res/1I.9.png": {
+    "bytes": 2305,
+    "sha256": "e1a2b864d0114a8471662f8e30ffcbb2eb9ffd414d36239612def8c7792a450a",
+    "compression": 0
+  },
+  "res/1J.9.png": {
+    "bytes": 1731,
+    "sha256": "4d2fe45a8169f368052c921230a268ba9f53ea5fedbcb09ff35107473551e50c",
+    "compression": 0
+  },
+  "res/1e.9.png": {
+    "bytes": 171,
+    "sha256": "49903073ab23abfc11a55e1333eb2905c743e1b382006c27c15434fd76e0207c",
+    "compression": 0
+  },
+  "res/27.xml": {
+    "bytes": 336,
+    "sha256": "1d6d789501f02c91bc839ae4397789fa88b2570d6a3250ac48ce3d7b6669b5eb",
+    "compression": 8
+  },
+  "res/2K.9.png": {
+    "bytes": 225,
+    "sha256": "42aee0b03883e94df5e543348a397d1302c1b8221895871a83b81899f5a9647b",
+    "compression": 0
+  },
+  "res/2P.png": {
+    "bytes": 262,
+    "sha256": "646021cc77e7f4bd68ab59fb32d306f81a2042125e6cdaa16184a062a8183f79",
+    "compression": 0
+  },
+  "res/2d.png": {
+    "bytes": 145,
+    "sha256": "9f856dd00a4f281d1198e6679ac8611fc67d301f28c07aea97504244ba16cb44",
+    "compression": 0
+  },
+  "res/2f.xml": {
+    "bytes": 1388,
+    "sha256": "8888a6ae0998e6282267a0b2e62d610b060b667a7d1b18d0d905ac47a4dd3138",
+    "compression": 8
+  },
+  "res/2f1.xml": {
+    "bytes": 1916,
+    "sha256": "2723e322ca8011aa4386e8a02ad3aa711761a39f7f150f06f98441d3df5635c3",
+    "compression": 8
+  },
+  "res/2j.xml": {
+    "bytes": 2072,
+    "sha256": "599acfe65ec1a67adc17d6f64eaee4b0673d782721305d3d58ff5f15902b4857",
+    "compression": 8
+  },
+  "res/33.9.png": {
+    "bytes": 541,
+    "sha256": "c7954e2bfbd01e5bbc9d774dd4d743d3f8a26613129fac8071b741bab3018ab0",
+    "compression": 0
+  },
+  "res/3J.xml": {
+    "bytes": 956,
+    "sha256": "d78ba216e83997f335ecd2620b9785da15fc0b9a4cd3636fed646dc611a955f4",
+    "compression": 8
+  },
+  "res/3u.9.png": {
+    "bytes": 258,
+    "sha256": "4f186547c3fe5796ef49da96d60a4a9a4b347357eaff3794f38e5f2aade3e400",
+    "compression": 0
+  },
+  "res/42.9.png": {
+    "bytes": 214,
+    "sha256": "727d78fec3f903a271c0476a50e8c064d28b32f7829b016ae0a07da53b83b281",
+    "compression": 0
+  },
+  "res/42.png": {
+    "bytes": 121050,
+    "sha256": "0a9d7542d0fb37f66145fd5765d41b4cda9364fa8d56295fc1e9d938a013f1cc",
+    "compression": 0
+  },
+  "res/46.xml": {
+    "bytes": 780,
+    "sha256": "25b082ee0840b60789f9d3eea00c87a9fd876791e3849e5e136e9040e1850439",
+    "compression": 8
+  },
+  "res/49.png": {
+    "bytes": 595,
+    "sha256": "4f2f8c2a7b042e55aa8f43f4ce8134b3217ee9cda432c5ff8d4c33d09d86df68",
+    "compression": 0
+  },
+  "res/4B.xml": {
+    "bytes": 452,
+    "sha256": "440c234ca8a09188ec558b13771cb29c2da228956bfb58bdade5c1770384acbe",
+    "compression": 8
+  },
+  "res/4_.xml": {
+    "bytes": 692,
+    "sha256": "9793d329cf8449826cbfcd3935d0313ca0ba174a3d307485bc752abec9835764",
+    "compression": 8
+  },
+  "res/4k.png": {
+    "bytes": 201,
+    "sha256": "0e631dbfe2575dd16d3fd6c59641dfa4abb5e162d60f59049e4459f0af29fbf6",
+    "compression": 0
+  },
+  "res/4u.xml": {
+    "bytes": 756,
+    "sha256": "8f6539ead30c41dc3bf30e19b62f72d06c67e6d6b4a4e0f54944e23195bd3bec",
+    "compression": 8
+  },
+  "res/5D.9.png": {
+    "bytes": 272,
+    "sha256": "991f73be600ad8821a6743db54af513f9b047058e95066e22fcdd1d72032bc58",
+    "compression": 0
+  },
+  "res/5T.xml": {
+    "bytes": 852,
+    "sha256": "f56413261b7d8538a0519cb45b797eeb096c2901475644b62ef2c2e8333cb50d",
+    "compression": 8
+  },
+  "res/5U.png": {
+    "bytes": 396,
+    "sha256": "a475594ae7c771092a3a2718981e2710c737844f44a4401f72d3953753649a7a",
+    "compression": 0
+  },
+  "res/5c.png": {
+    "bytes": 138,
+    "sha256": "b44eeda34d7a529c2fe55719eb098fa29707caa91d18de06a7a775d6e6bcf973",
+    "compression": 0
+  },
+  "res/5z.xml": {
+    "bytes": 1128,
+    "sha256": "9149389bd1af0466381ab6260e148de748565add5af0a33119442c2d95827a34",
+    "compression": 8
+  },
+  "res/62.9.png": {
+    "bytes": 210,
+    "sha256": "7656f2f19a84cefc2bf9fafc00760216775d333fc0b08eb85ff1e0006b46fc20",
+    "compression": 0
+  },
+  "res/65.9.png": {
+    "bytes": 235,
+    "sha256": "cc162d4b8c12ee329e37c8d651442f0ef0a9d1c6f88ef352e54da8dfd9a50dfe",
+    "compression": 0
+  },
+  "res/6Q.xml": {
+    "bytes": 688,
+    "sha256": "f01bc746e6a10afa62942038a8671ab76fa9550fdee161df19872a78f11a8c4b",
+    "compression": 8
+  },
+  "res/6t.png": {
+    "bytes": 227,
+    "sha256": "5eca0280bd38a6887b6e41765cf5da573133874625001eb90156eaeb35fbe088",
+    "compression": 0
+  },
+  "res/7C.9.png": {
+    "bytes": 430,
+    "sha256": "2552cd1bcdd9882d6c258833fb70bc081a31a2a093ef9c256f92431370a6e5de",
+    "compression": 0
+  },
+  "res/7G.xml": {
+    "bytes": 1116,
+    "sha256": "f3f3b88897b0447d0dc455f7e49ebf6929aadcbae6a25d242e10f8c41dfb1200",
+    "compression": 8
+  },
+  "res/7H.xml": {
+    "bytes": 464,
+    "sha256": "dbffc8ed2a57a88cbdf73c042eec9b6b25250b7c7d50e8537f5aee2c0e59e87c",
+    "compression": 8
+  },
+  "res/7I.9.png": {
+    "bytes": 345,
+    "sha256": "b0b2dc2cae7811c124ae528d714318bb1043b59d82a640f22c47ace64c283fec",
+    "compression": 0
+  },
+  "res/7N.xml": {
+    "bytes": 372,
+    "sha256": "49f4ee033a368be6286501a7786bb178320100987f959bc33c98e7da1fc861f1",
+    "compression": 8
+  },
+  "res/7Y.xml": {
+    "bytes": 280,
+    "sha256": "5b59df8a3cc4f8cf15cbc2f43637a03478db3b9810c30d4ffd226d5499f15cc1",
+    "compression": 8
+  },
+  "res/7_.9.png": {
+    "bytes": 813,
+    "sha256": "100cc6ae3870dd769a252e44608a81956522e867674f854619ba7c68d314cad7",
+    "compression": 0
+  },
+  "res/7i.png": {
+    "bytes": 464,
+    "sha256": "5080b07eb486ba05ede737b567eb2bb89d7b79a3edb5c2ca8141c6eba012b75d",
+    "compression": 0
+  },
+  "res/7o.9.png": {
+    "bytes": 525,
+    "sha256": "007dbf5fa2dc466a4940b0a6a73dab48cb721f64d358f71ff35aaadb9630b5ec",
+    "compression": 0
+  },
+  "res/80.xml": {
+    "bytes": 2688,
+    "sha256": "c2d4585b382ece8a545149e2677f041f1131e6739dc7545088aa030723693ead",
+    "compression": 8
+  },
+  "res/8h.9.png": {
+    "bytes": 207,
+    "sha256": "e98f192f013a9226010482ab8e14c7f215fb16bda3ccb0ddaec3ed0b27119e7c",
+    "compression": 0
+  },
+  "res/8h.png": {
+    "bytes": 946,
+    "sha256": "53340b0b0f529b26db6af632a0112708233bf312448c5b89a1357b2cd70b3f42",
+    "compression": 0
+  },
+  "res/95.xml": {
+    "bytes": 1260,
+    "sha256": "53a9eba37618ffb4e9395f7315156c2392dbec0bc6cb4258cdea0bdae9765566",
+    "compression": 8
+  },
+  "res/9N.9.png": {
+    "bytes": 187,
+    "sha256": "0caaea0060b3772ba433c0e9e3a5452f26f3421ba5023c855157270bc675b309",
+    "compression": 0
+  },
+  "res/9P.xml": {
+    "bytes": 600,
+    "sha256": "05b5baedcd58fd995fb013f2067c87dbb5f9489d7935723829a8df803d507609",
+    "compression": 8
+  },
+  "res/9T.xml": {
+    "bytes": 932,
+    "sha256": "1d01514fa0d0288a479df7de733e970e0e0debdc997e8d4670fcf474219553a0",
+    "compression": 8
+  },
+  "res/9T1.xml": {
+    "bytes": 1656,
+    "sha256": "1cea1db278d3e121887fc8c12e14c0453d03880c3ab5f75b355964ad4ca36b37",
+    "compression": 8
+  },
+  "res/9T2.xml": {
+    "bytes": 1028,
+    "sha256": "61511d9fd55b6ccae13b40372adda829d4055fae6f5f5ee1746151f2c9d4208d",
+    "compression": 8
+  },
+  "res/9V.xml": {
+    "bytes": 1560,
+    "sha256": "e141898b040a761bb510ca651d3e56fc11f7d07788b46a97d7c53fbb10eef8c3",
+    "compression": 8
+  },
+  "res/9X.9.png": {
+    "bytes": 192,
+    "sha256": "94fe9824714ad94c002fe6219e723c0d80c7cbe3a6130d7aa493730b67e294d1",
+    "compression": 0
+  },
+  "res/9a.xml": {
+    "bytes": 592,
+    "sha256": "54b202a09c0d30d18f114dfdedbda7ef889c0a33d5e776f366ed8a39a7f61483",
+    "compression": 8
+  },
+  "res/9m.xml": {
+    "bytes": 304,
+    "sha256": "b2538216cfc72c57b265993622d3c1b4da8d6c38139209e58b66199471a7a39f",
+    "compression": 8
+  },
+  "res/9n.9.png": {
+    "bytes": 178,
+    "sha256": "1411ae65d8160573c166d2a572106fd1103c12f242f67feec5feaa550197e5f5",
+    "compression": 0
+  },
+  "res/9z.png": {
+    "bytes": 593,
+    "sha256": "71a2ba63a5d4e91f7c14324fa1c3eb9290b73cb7b3c7828018d05adb1cfaab45",
+    "compression": 0
+  },
+  "res/9z.xml": {
+    "bytes": 388,
+    "sha256": "f0eb5961ec6c3f34dd95e59f1150c02321bb8c2184c4fd178e1b490aa61fe041",
+    "compression": 8
+  },
+  "res/A1.xml": {
+    "bytes": 872,
+    "sha256": "7aabe3f321ec6f9ff56a25eb71a322d590c4d0bcd5b5742ec8acb9f029c421fc",
+    "compression": 8
+  },
+  "res/A4.xml": {
+    "bytes": 680,
+    "sha256": "c4932ea45f94229f5d0f96cb951f652a2abfbf8bf03cd7fbf6d2fcebac1cfc38",
+    "compression": 8
+  },
+  "res/AE.xml": {
+    "bytes": 2756,
+    "sha256": "6dc40496ff2ea48c0501e8fed60c870584a0a29178fe5310da804f724d3f29ff",
+    "compression": 8
+  },
+  "res/BG.9.png": {
+    "bytes": 190,
+    "sha256": "aa61229cd70239278109c5ebe725e72484d0252efa4902a17192366942749289",
+    "compression": 0
+  },
+  "res/BJ.xml": {
+    "bytes": 640,
+    "sha256": "6debb975fe8dc84bfde8ee4fea74e2abb9b638ff7906f3ccb7756071bde4d324",
+    "compression": 8
+  },
+  "res/BJ1.xml": {
+    "bytes": 1128,
+    "sha256": "729288b23d36889af30369f75a20f529a148d1116afa0c3014d98d3abcd34b69",
+    "compression": 8
+  },
+  "res/BL.9.png": {
+    "bytes": 229,
+    "sha256": "f65a87efa2f53d6fe2d848cfca1f6c90aea5e9fc67ff47f5949a6dd2a76ebe1b",
+    "compression": 0
+  },
+  "res/BM.png": {
+    "bytes": 159,
+    "sha256": "5a6ca1d0d2fea53813da5b3c9037408087f9f753f58dd2e128a4a48f7689769f",
+    "compression": 0
+  },
+  "res/Be.xml": {
+    "bytes": 2648,
+    "sha256": "b6ca68dcae02af57f1b8cf3bb746f7a15f397743c819f366bb8f93441d9df2b2",
+    "compression": 8
+  },
+  "res/CK.9.png": {
+    "bytes": 244,
+    "sha256": "671d27e5a4b42111174b888d57118e05075a556d703bd54f9335202d2a416791",
+    "compression": 0
+  },
+  "res/C_.9.png": {
+    "bytes": 215,
+    "sha256": "a8676a1793ac8310ffb12986232df66df092d29c242aeedc2b73556c010d38dc",
+    "compression": 0
+  },
+  "res/Cg.xml": {
+    "bytes": 424,
+    "sha256": "21df75316fc079a1e056a215b7c05a6af233924b24dea362baf110358d359a38",
+    "compression": 8
+  },
+  "res/D5.xml": {
+    "bytes": 812,
+    "sha256": "2f1e633ee3292cf5ab09fef452cc3e29b1184172ecd3e7c0d61caf3b064c191b",
+    "compression": 8
+  },
+  "res/DL.9.png": {
+    "bytes": 178,
+    "sha256": "25f25112cc46b285767de7b5b058cfc0a9efd5f21cfe724af031505d66a9eceb",
+    "compression": 0
+  },
+  "res/DM.xml": {
+    "bytes": 868,
+    "sha256": "ceeb3ff3a44806b2a09083925def4b8de9500b89f4b27bc2ff817f1ac4e62b1c",
+    "compression": 8
+  },
+  "res/DZ.xml": {
+    "bytes": 320,
+    "sha256": "a8d7341c20d07c9fdab602e7c39187c9abb9caf5fbf9b2832cd6d9f18a2c86c2",
+    "compression": 8
+  },
+  "res/D_.9.png": {
+    "bytes": 178,
+    "sha256": "9fd37c82f87df00464554344ddddea55e480d09c33b505ac13252036d4d6276e",
+    "compression": 0
+  },
+  "res/EA.9.png": {
+    "bytes": 200,
+    "sha256": "a0d63ec76ec21d40fe96a4b6fb4f4aac5b61a6b63a63472dab055e0d9e9890b1",
+    "compression": 0
+  },
+  "res/EP.png": {
+    "bytes": 310,
+    "sha256": "5358737cb680ea1cdd6ba400d33316fabf872fd44f6a0e127bfc8bdd1632b374",
+    "compression": 0
+  },
+  "res/Eg.xml": {
+    "bytes": 1716,
+    "sha256": "a10af62537f859a947100aadf1f55512f74bf6c9cf7b17048f4643f944b27a35",
+    "compression": 8
+  },
+  "res/FW.png": {
+    "bytes": 307,
+    "sha256": "18620c151330289bba196c1cc1e2699f98061a35be3551876296a8c4d592ba17",
+    "compression": 0
+  },
+  "res/Fu.xml": {
+    "bytes": 1352,
+    "sha256": "a7fe93059e5d5d2e435b61c2dcb9a009ccace65caa688cb982f8fdc30aceee99",
+    "compression": 8
+  },
+  "res/G2.9.png": {
+    "bytes": 1243,
+    "sha256": "ab94afcb2bb325544c0c1103bf5109b827bf070f441faef909f856ae295a1cf0",
+    "compression": 0
+  },
+  "res/G8.xml": {
+    "bytes": 700,
+    "sha256": "8f5d85739d869d38efefef98ab87aca1c19b329f33e14b7fbc2a03667cedc3f1",
+    "compression": 8
+  },
+  "res/GC.xml": {
+    "bytes": 828,
+    "sha256": "088ecb6e055d308b83977f27acdfdaf4ff3f86894bea8c56726d4f5b89fabf98",
+    "compression": 8
+  },
+  "res/GD.xml": {
+    "bytes": 1096,
+    "sha256": "30d56de8667e6cdeefb48d9a2a004b40520bcdbc65a7c0c843679022e17169fb",
+    "compression": 8
+  },
+  "res/GK.xml": {
+    "bytes": 1172,
+    "sha256": "27112da6beb17761d4119d6232f2666d9923cb5a5a600a83b7b59220464c597c",
+    "compression": 8
+  },
+  "res/GR.xml": {
+    "bytes": 1208,
+    "sha256": "3fd7334d79bc08d05f367b48faa29833a6bd659d924ae192e0746cfff8568dee",
+    "compression": 8
+  },
+  "res/Gf.png": {
+    "bytes": 984,
+    "sha256": "0eed99d0a5e36a468b557605e6ccea495c029f3569844a45f4b5d8dadd77d4a7",
+    "compression": 0
+  },
+  "res/Gt.9.png": {
+    "bytes": 202,
+    "sha256": "e7e36c3cbcedc97bc28aff91ed72c4310b16c331713a1698a692c66d46f63227",
+    "compression": 0
+  },
+  "res/Gt.xml": {
+    "bytes": 1012,
+    "sha256": "874a6b3cd909f0cc5d59d3b99c07289794e2d70918920123ebe3272eaf92a492",
+    "compression": 8
+  },
+  "res/H-.png": {
+    "bytes": 203,
+    "sha256": "0fd2f53946eb93b3154f44bdafc8896ea93195a64ce5fc64049e8b7293cd6801",
+    "compression": 0
+  },
+  "res/Hd.xml": {
+    "bytes": 464,
+    "sha256": "e58e2442e23a5e5c7f5128ce2e008a73d8e7240a134921257e3d7a449b58eace",
+    "compression": 8
+  },
+  "res/IX.9.png": {
+    "bytes": 1544,
+    "sha256": "1f7dd8b3521353af473f41850887e9385cf61c390c6e34e4e2bd991921ccfdf8",
+    "compression": 0
+  },
+  "res/In.xml": {
+    "bytes": 468,
+    "sha256": "72447d7e1f54a5d835a0c53cd1cbeb5b83920b07683c889f1f20e43cf2d4e548",
+    "compression": 8
+  },
+  "res/JJ.9.png": {
+    "bytes": 280,
+    "sha256": "a04708369abe0920ded20d87d58aebf6992ebb67efefa248a8421895efc5353f",
+    "compression": 0
+  },
+  "res/JS.xml": {
+    "bytes": 744,
+    "sha256": "a038c6f331c7474ef183cb2252a98aeab76bc8a4ab09e769b1d47219a587c44b",
+    "compression": 8
+  },
+  "res/Jl.xml": {
+    "bytes": 464,
+    "sha256": "3ea724e118328647d6d4a83fee5146d8a2d682c997e3d7b7fda7bcb8d490da80",
+    "compression": 8
+  },
+  "res/K5.xml": {
+    "bytes": 1656,
+    "sha256": "395187ec66f1a9eb1c045bcfb5b0a07feb549315570423d4f3c4c93a997bad66",
+    "compression": 8
+  },
+  "res/KH.9.png": {
+    "bytes": 618,
+    "sha256": "468607601140955b21c6091897bfc65f609d386fa68d56c199201895e03b3fbc",
+    "compression": 0
+  },
+  "res/KM.png": {
+    "bytes": 415,
+    "sha256": "1e3b02e24fa431b1abe0a97ad6723fad43df79fda8176c1060b6fbd31178619f",
+    "compression": 0
+  },
+  "res/K_.9.png": {
+    "bytes": 216,
+    "sha256": "fb71e11c090133a97fe84fa3b76a263b429c9032ec467854b0e32a3157a5eba5",
+    "compression": 0
+  },
+  "res/Ke.xml": {
+    "bytes": 2360,
+    "sha256": "c87557437f158ce5f53183874674d2571a99e85dcb13ed46d6d203975b3dcbff",
+    "compression": 8
+  },
+  "res/L_.xml": {
+    "bytes": 1064,
+    "sha256": "7bf664be91e94f0b9a8ad17bcb31df070d94c1a1dc6327b9cc833d750a34f794",
+    "compression": 8
+  },
+  "res/Lf.xml": {
+    "bytes": 1656,
+    "sha256": "65c5564899708a0935601cfeceed1ab2d7f300e9872ccaf663cede054cfba298",
+    "compression": 8
+  },
+  "res/Li.9.png": {
+    "bytes": 1779,
+    "sha256": "a8252f52638c80df119db031626198a4a8d4b32ee618e96c3a36b9b946e26894",
+    "compression": 0
+  },
+  "res/M7.xml": {
+    "bytes": 1196,
+    "sha256": "991d00a5e4ee0175396e37be6d4382e6552f502f4113cd8c420969b6725ebe69",
+    "compression": 8
+  },
+  "res/MF.9.png": {
+    "bytes": 2816,
+    "sha256": "b4af73e52266be570c2c163d987e64348066db311b41e7a382000529c0136c6b",
+    "compression": 0
+  },
+  "res/MO.webp": {
+    "bytes": 7425,
+    "sha256": "ac33101cd4d5b94421583aebb67601e52a36109de4b4fbb307ad4d4858d000e1",
+    "compression": 0
+  },
+  "res/MO.xml": {
+    "bytes": 424,
+    "sha256": "97211721d392aadf578bfc2b737df7b32aab9a6752487d6eb6bc3aa58a31e49a",
+    "compression": 8
+  },
+  "res/MQ.png": {
+    "bytes": 513,
+    "sha256": "d83543f0c82b62cf499f2618ad99431f9ef50da60b415980ec8e0e50b90e3893",
+    "compression": 0
+  },
+  "res/Ma.9.png": {
+    "bytes": 247,
+    "sha256": "d27af435101ca4cbec0c840bd30687918cd39eb83aab1487420855623a45998b",
+    "compression": 0
+  },
+  "res/Mp.xml": {
+    "bytes": 792,
+    "sha256": "3e37bdf456b082c3dd57522f29b4b30d8bbfb3ad930a37d2971b5a624d89a3fd",
+    "compression": 8
+  },
+  "res/NA.9.png": {
+    "bytes": 2505,
+    "sha256": "c367b73a33a933429e1d57d33fcfbf243f0274e7cdba221a0b983ee15b5baca9",
+    "compression": 0
+  },
+  "res/NF.xml": {
+    "bytes": 328,
+    "sha256": "0ab3bc82b3b9fd8499202cafe3d494a9f66fba248d01e90b90e932c8849947cc",
+    "compression": 8
+  },
+  "res/NG.png": {
+    "bytes": 322,
+    "sha256": "136d08fab0fe416fc7e0eca9c498e63c68357b2caa4241f444bbc3f26f9a74c9",
+    "compression": 0
+  },
+  "res/NM.xml": {
+    "bytes": 484,
+    "sha256": "f99ec74f9f7c788061a7360197922fe01b188ffc1733d812ff4614224dacc563",
+    "compression": 8
+  },
+  "res/NZ.9.png": {
+    "bytes": 182,
+    "sha256": "779a2606a931a399a2c9d3bd01f3c510c412f2916478aa687e430e6003b0a5f3",
+    "compression": 0
+  },
+  "res/Nk.9.png": {
+    "bytes": 776,
+    "sha256": "5c7c682ffb64f4b531de0f9549c0da11c337576e426618522bfd1d35a451a414",
+    "compression": 0
+  },
+  "res/No.9.png": {
+    "bytes": 199,
+    "sha256": "682c466d3e4f39e31f114abc1632d85e734557bd39814e3ba7d7c61eae2d069b",
+    "compression": 0
+  },
+  "res/Nu.xml": {
+    "bytes": 1728,
+    "sha256": "2a12a29193791d349bb512452f54e3d67755ded679c47b4b8e1540e88695e72f",
+    "compression": 8
+  },
+  "res/OI.xml": {
+    "bytes": 708,
+    "sha256": "ab76e8f267d9bc7c440d7c9a00b843a8b49681ded529e21bba51882a2f9df37b",
+    "compression": 8
+  },
+  "res/Ol.xml": {
+    "bytes": 1656,
+    "sha256": "f2c4cdf65caa5981c52511bca1f3e5413695f82445183d6a95d0dd8120dd6a14",
+    "compression": 8
+  },
+  "res/Pa.9.png": {
+    "bytes": 738,
+    "sha256": "8fcf5b9da03c68dff65adfa8713db9ce3b5e423a9f5046f1785ab640c2a647fb",
+    "compression": 0
+  },
+  "res/Pb.png": {
+    "bytes": 631,
+    "sha256": "683691d79ef11e863fe4ec84ddc631696e5984b5584fc4549d6586dbaca220c7",
+    "compression": 0
+  },
+  "res/Pg.9.png": {
+    "bytes": 207,
+    "sha256": "5d4161bf9482b5d2a2346cd3fa2739ec3203d995bebac02e89a732943368bbfc",
+    "compression": 0
+  },
+  "res/QJ.9.png": {
+    "bytes": 189,
+    "sha256": "23439b8899f4b63d68ae9385eaa49286a4b95b95f79b8b8d37de3b0e4fdbc747",
+    "compression": 0
+  },
+  "res/QZ.xml": {
+    "bytes": 124,
+    "sha256": "9b0ac791a3fa953e28b526e020fd2e629b40812ee1bc4693ff5fdfef15044202",
+    "compression": 8
+  },
+  "res/Qd.xml": {
+    "bytes": 796,
+    "sha256": "a3dbfe4e5cb06788f6d57bde7b908ec285643261bd21abf1ae7318d2aca1bc39",
+    "compression": 8
+  },
+  "res/Qt.xml": {
+    "bytes": 980,
+    "sha256": "909f4468b73823cb500570ab47067a41b3730aac73729afdb73ea325d3dda04b",
+    "compression": 8
+  },
+  "res/RH.xml": {
+    "bytes": 832,
+    "sha256": "f5874eb4c3bfbadaca3d4b07623a7be6569bae54ebab55fdeed8a094045bf2c4",
+    "compression": 8
+  },
+  "res/RV.png": {
+    "bytes": 563,
+    "sha256": "7442cda653acbacdf9aef256aa191e5ebb6071a1747312aec45e1db8252a3cfb",
+    "compression": 0
+  },
+  "res/S7.png": {
+    "bytes": 391774,
+    "sha256": "f65324f5fcc941550c911acdd2fad84e73128eef77f7b00f373a98aa3c66d2e8",
+    "compression": 0
+  },
+  "res/S8.xml": {
+    "bytes": 1052,
+    "sha256": "a0fb55a01a620faff49874f9ac9aaca73d70d8d45e43676dc15b7e775f566081",
+    "compression": 8
+  },
+  "res/SN.xml": {
+    "bytes": 3044,
+    "sha256": "0c50a84049d67645488331ca01fc667be6966ba1a0282ae17b443f4c56abaa45",
+    "compression": 8
+  },
+  "res/SV.9.png": {
+    "bytes": 211,
+    "sha256": "dbc0af61f440bb3f5382b8ea3fa578659f76c7a6aef620a68afc43a909f2e0e5",
+    "compression": 0
+  },
+  "res/Sc.xml": {
+    "bytes": 1128,
+    "sha256": "f16acda81e63f75d488e0c6a451e127fa324e52af5cb3a26f799d3af9da13955",
+    "compression": 8
+  },
+  "res/Sh.xml": {
+    "bytes": 1696,
+    "sha256": "a2c3bd419154324f72190bd318d92af60a4a00a395ad02665abef58f22a6736d",
+    "compression": 8
+  },
+  "res/Sn.webp": {
+    "bytes": 23264,
+    "sha256": "ea394011024b42a6ad2b7a277521459e4f388bb4c7e4035adaa4c81650ba085d",
+    "compression": 0
+  },
+  "res/St.png": {
+    "bytes": 243936,
+    "sha256": "df0aaf460fb7bbd42a5249ecd85593e4f92b4487bfadd470b9719ff6ad434d23",
+    "compression": 0
+  },
+  "res/Su.9.png": {
+    "bytes": 178,
+    "sha256": "4bc8f4d13d2acccc1338f73ff90cd97695d9210e04de5da924215243c8950bf3",
+    "compression": 0
+  },
+  "res/Th.png": {
+    "bytes": 785,
+    "sha256": "02ad0ea6ff5a560e947452c7d64f679afa2056b44f86ea3b707a1cb175c2ceb0",
+    "compression": 0
+  },
+  "res/Tj.9.png": {
+    "bytes": 327,
+    "sha256": "0fa17d8754d6d163cc433f087cad6c083173ac87ad7097e76950a25eec5f3e90",
+    "compression": 0
+  },
+  "res/Tn.xml": {
+    "bytes": 768,
+    "sha256": "2cdb73ef0229857b54f07f05652a062672678de2ecf092f772db1e5540ac3d17",
+    "compression": 8
+  },
+  "res/U-.9.png": {
+    "bytes": 223,
+    "sha256": "e17761ed280edd93d7141bd504b70f9e9e15a8652288d9e6333bf4ce964ef844",
+    "compression": 0
+  },
+  "res/U8.xml": {
+    "bytes": 2660,
+    "sha256": "e618d2ffe965ae475f462281a349c0177b76bc95c1d0bac219325873a2b51ad7",
+    "compression": 8
+  },
+  "res/UE.9.png": {
+    "bytes": 222,
+    "sha256": "8436624220fba246ae816a3aab379dfd7ff2a484284ab24c3af4989778705bb3",
+    "compression": 0
+  },
+  "res/UR.png": {
+    "bytes": 422,
+    "sha256": "3cfd0554844896b500c33513b1e89ed62028d0c80df73d3c5935479f49704a3c",
+    "compression": 0
+  },
+  "res/UX.xml": {
+    "bytes": 508,
+    "sha256": "f25d4b975aa08551a2dffb0973bc62feb636ddfe13a5a5aa4558e425d6c14489",
+    "compression": 8
+  },
+  "res/V1.xml": {
+    "bytes": 864,
+    "sha256": "4369acd2da28574d6a126117cab021a5a459c50dc460e8b187bb6e23a00721be",
+    "compression": 8
+  },
+  "res/V7.xml": {
+    "bytes": 304,
+    "sha256": "eab0b1933584952c1dc6737cb90956751e5249190dd450837b3fb1fcd3b20315",
+    "compression": 8
+  },
+  "res/VM.xml": {
+    "bytes": 328,
+    "sha256": "0ab3bc82b3b9fd8499202cafe3d494a9f66fba248d01e90b90e932c8849947cc",
+    "compression": 8
+  },
+  "res/VN.xml": {
+    "bytes": 684,
+    "sha256": "d1e2b9c39d29cc3e4f047f75bde61f90d8efdbd970a52320744bc7f1bb947c63",
+    "compression": 8
+  },
+  "res/VT.xml": {
+    "bytes": 640,
+    "sha256": "15cd88ae98ea13c65338126dbf58a706b393310b0d8c645d4ec59b89bb1fe428",
+    "compression": 8
+  },
+  "res/W4.9.png": {
+    "bytes": 217,
+    "sha256": "7c45e46e405f5b4a3d0c62a22e67010c3327022dd1c1f4bbccea1279a4d1ad74",
+    "compression": 0
+  },
+  "res/Wg.xml": {
+    "bytes": 592,
+    "sha256": "0c4f7e9e7fa6cd426737771f81d5f37b6bd7970717a734be0016dc711b72d674",
+    "compression": 8
+  },
+  "res/Wh.png": {
+    "bytes": 171,
+    "sha256": "239d602c9c65f156fe024613207955ac8fbdd395ae6ec3efa51be98e3a4473f4",
+    "compression": 0
+  },
+  "res/Wr.png": {
+    "bytes": 335,
+    "sha256": "83a46279e2f65d852c9452c86e38326ef9f3def6f5bec2ef1416c72815a5fbfa",
+    "compression": 0
+  },
+  "res/Ws.xml": {
+    "bytes": 1180,
+    "sha256": "3c5d870cf8b47bd1d5fde3efed3679130b19b0093352e9858764e6382b66c307",
+    "compression": 8
+  },
+  "res/Wz.png": {
+    "bytes": 196,
+    "sha256": "c131ab0e2eb9879bd063e736ab81313c5a4f47eaa2f4a0ec9eca93a1a150ed79",
+    "compression": 0
+  },
+  "res/X3.9.png": {
+    "bytes": 221,
+    "sha256": "44c29766b2d88b78a71393b3e3a771ca7eef5f552630c6074f33d6291241d0b9",
+    "compression": 0
+  },
+  "res/X4.9.png": {
+    "bytes": 187,
+    "sha256": "c8d13e5687a34d5b85018ff7a9f0f22870a297b261ff140b3ed041ce7e7f4b81",
+    "compression": 0
+  },
+  "res/XK.xml": {
+    "bytes": 516,
+    "sha256": "e49a3d6549f8ffce9ef6716a1dce006f64797eaae60bc091b16c560e20ee59bd",
+    "compression": 8
+  },
+  "res/XW.xml": {
+    "bytes": 124,
+    "sha256": "9b0ac791a3fa953e28b526e020fd2e629b40812ee1bc4693ff5fdfef15044202",
+    "compression": 8
+  },
+  "res/XY.xml": {
+    "bytes": 264,
+    "sha256": "5c4046ca717bff82a55d3d4d3e5ee8635fbadfe64ac358aa396fd4664085ea60",
+    "compression": 8
+  },
+  "res/Xx.xml": {
+    "bytes": 516,
+    "sha256": "965abe54fd42db2ee2e854b428b0ba1780d1d63425743c64ea7fc5cfa60d7ce0",
+    "compression": 8
+  },
+  "res/Y7.9.png": {
+    "bytes": 212,
+    "sha256": "a77aaa207fd579f64383323b93f048ee9434e345ca8bb641743a77901b4383c2",
+    "compression": 0
+  },
+  "res/YG.9.png": {
+    "bytes": 203,
+    "sha256": "5e3f13ee854fa41354ca7378358b99f8e41f3b1c9968c313b630b02de8704e6e",
+    "compression": 0
+  },
+  "res/YW.xml": {
+    "bytes": 372,
+    "sha256": "cb486473bc0f7d6c90dea564fd61bb612496371b6b0bcab82b95a10cf70db41e",
+    "compression": 8
+  },
+  "res/Yt.9.png": {
+    "bytes": 209,
+    "sha256": "07bf5ce5ff8937257afd146062c9bf5ca1f4115a1643529d81845d0202c7ddef",
+    "compression": 0
+  },
+  "res/Yw.9.png": {
+    "bytes": 186,
+    "sha256": "a933aaebbeae489dea84e78e7fbc4079fdfda576fbdeb339401fda6cdc03e764",
+    "compression": 0
+  },
+  "res/Z-.xml": {
+    "bytes": 1000,
+    "sha256": "b26098f946c7282a4c2f56fde31d873ead6e0ef3e5d89a426dc920f02d1f211a",
+    "compression": 8
+  },
+  "res/Z8.png": {
+    "bytes": 420,
+    "sha256": "afbcaede66a97ddc9b54c4d9891c09415cb6944d79c4c1ae8440cda553963957",
+    "compression": 0
+  },
+  "res/ZL.xml": {
+    "bytes": 756,
+    "sha256": "84dbdf78ad99472866fd7f9f40447fcae377c02e0780935987a960bdb6d69ecc",
+    "compression": 8
+  },
+  "res/ZN.9.png": {
+    "bytes": 229,
+    "sha256": "475f03b3ccff04fce91a7a912142d150a000b1d011da003745dc2c0e3f5fb092",
+    "compression": 0
+  },
+  "res/ZN.xml": {
+    "bytes": 1000,
+    "sha256": "9d0e11f9535d139c913c95fb297a658ae027741622c8e918d960837cf3345eb6",
+    "compression": 8
+  },
+  "res/ZP.xml": {
+    "bytes": 1824,
+    "sha256": "38dfef8a864ba800739f1be092755525f3b6abb8d757994179875ba98f4dcd22",
+    "compression": 8
+  },
+  "res/Zg.xml": {
+    "bytes": 1028,
+    "sha256": "88c140c333248314fd4ba90147908d8c6408cf56cbc029e7f0f55d5ef89d4473",
+    "compression": 8
+  },
+  "res/Zt.png": {
+    "bytes": 74289,
+    "sha256": "e3dbbfc88b9b326ec4e7fd58535cb8e10e2038e72165677b4b807930f55603fc",
+    "compression": 0
+  },
+  "res/_G.xml": {
+    "bytes": 484,
+    "sha256": "7299b083b363c25a5b4c9a30ee3a553be2747321b0e0e5b038aa168f101187c8",
+    "compression": 8
+  },
+  "res/_Y.xml": {
+    "bytes": 2304,
+    "sha256": "a8e10b04c6fb2612bd13ebf1857b9aa393796e2915649608ef54de4d55c19ea9",
+    "compression": 8
+  },
+  "res/_o.xml": {
+    "bytes": 316,
+    "sha256": "68b7fc0e819c526c7e31c1413b1821bc0ccfcf4ab550c356a7f740a9d84917dc",
+    "compression": 8
+  },
+  "res/_q.png": {
+    "bytes": 173,
+    "sha256": "52549a8d0b6c35faf2795efdf6b4c5fe2cb34b7e8b1039cca7aa2769b6cab3d0",
+    "compression": 0
+  },
+  "res/a0.xml": {
+    "bytes": 1228,
+    "sha256": "e1e92ad11b66d2456bdfee6efb1be1cb5eb7ad0da1b17a6a333f04b877d0b75c",
+    "compression": 8
+  },
+  "res/aG.xml": {
+    "bytes": 532,
+    "sha256": "f12dd810ab1a16c6654088bd2c8e9c6a0f9146d69105a0dc6b51cb717b65fb36",
+    "compression": 8
+  },
+  "res/aM.xml": {
+    "bytes": 852,
+    "sha256": "6617150e65368e03ae9b705f29c3fb6c04ed6e978825ed2aafe2bc27d5efe28c",
+    "compression": 8
+  },
+  "res/aU.9.png": {
+    "bytes": 448,
+    "sha256": "c63a94e7136ceeef43b0ade8b49e8e1ef4d1060d584f6cb9ab58b7d6eaa16312",
+    "compression": 0
+  },
+  "res/aW.xml": {
+    "bytes": 124,
+    "sha256": "9b0ac791a3fa953e28b526e020fd2e629b40812ee1bc4693ff5fdfef15044202",
+    "compression": 8
+  },
+  "res/ar.png": {
+    "bytes": 391,
+    "sha256": "29953bd8019dd96b7701329b9a203cff63460519549b9cca9a5eb74f9b1b0930",
+    "compression": 0
+  },
+  "res/b2.png": {
+    "bytes": 422,
+    "sha256": "afa79e5665050f16d1dbb29d4b80c6500a58b7c8e9b6f96662d0d6d409b4fbdd",
+    "compression": 0
+  },
+  "res/bL.xml": {
+    "bytes": 1408,
+    "sha256": "7dde405a8b87a45cfe7db91fe77f81e13c34f6e70bbe6a5abc14f34f7ba6c374",
+    "compression": 8
+  },
+  "res/bX.9.png": {
+    "bytes": 244,
+    "sha256": "a2f1a37af8e699320a2fadbe54eeaa6112d5a3522d57d682edf04fe97be3b47e",
+    "compression": 0
+  },
+  "res/bb.xml": {
+    "bytes": 516,
+    "sha256": "976c8b16e6a0728e6389e244e8f8e27d2c5dc8b55a4d20e6d4735a49a1058743",
+    "compression": 8
+  },
+  "res/bt.xml": {
+    "bytes": 840,
+    "sha256": "3cf869f5d4d22388155d728fffaa86c3a176ec14839263df7c1829ebf78ac69f",
+    "compression": 8
+  },
+  "res/c5.xml": {
+    "bytes": 316,
+    "sha256": "68b7fc0e819c526c7e31c1413b1821bc0ccfcf4ab550c356a7f740a9d84917dc",
+    "compression": 8
+  },
+  "res/c6.xml": {
+    "bytes": 372,
+    "sha256": "3f2b2e3232b44e36cc0538274dc998ebc32957b4a8444be6bdec1928a715e051",
+    "compression": 8
+  },
+  "res/cL.xml": {
+    "bytes": 640,
+    "sha256": "74f13910c634a6b4730de4fa99c5a595cd4939df021fbe79a5a4f73f6094565a",
+    "compression": 8
+  },
+  "res/cV.xml": {
+    "bytes": 440,
+    "sha256": "26e98a53c41e7273619e52600e1e637d3d4cadb0a963b1c1dee8dd573c94847e",
+    "compression": 8
+  },
+  "res/cm.xml": {
+    "bytes": 920,
+    "sha256": "3816c83d42d23c0dc86b97f887b3152009180c452cf3bbe51abd6990d44529a5",
+    "compression": 8
+  },
+  "res/color-v23/abc_color_highlight_material.xml": {
+    "bytes": 544,
+    "sha256": "7f569a8705f49a16ea17aaf6fdb6a45115db6f6f1e469d66e9b3feab29e19c10",
+    "compression": 8
+  },
+  "res/color-v23/abc_tint_btn_checkable.xml": {
+    "bytes": 624,
+    "sha256": "42e6031e0e7320d900415964ef82527c2769161652cbbd7a96438cd54cf30d39",
+    "compression": 8
+  },
+  "res/color-v23/abc_tint_default.xml": {
+    "bytes": 1120,
+    "sha256": "8dac341f67ad4842bc9ce2d3660246c2b5146d557c27aa4098f709c26d671e2d",
+    "compression": 8
+  },
+  "res/color-v23/abc_tint_edittext.xml": {
+    "bytes": 668,
+    "sha256": "dc1b41af96f59950e8211c42483412bc770b673368416d2bff23ef3a5a4b6ec4",
+    "compression": 8
+  },
+  "res/color-v23/abc_tint_seek_thumb.xml": {
+    "bytes": 500,
+    "sha256": "52c2dd1e593568a7d6155ae13489231c9bcbbd4312e46706faf5c106e0f31d73",
+    "compression": 8
+  },
+  "res/color-v23/abc_tint_spinner.xml": {
+    "bytes": 668,
+    "sha256": "dc1b41af96f59950e8211c42483412bc770b673368416d2bff23ef3a5a4b6ec4",
+    "compression": 8
+  },
+  "res/color-v23/abc_tint_switch_track.xml": {
+    "bytes": 664,
+    "sha256": "09a25ea6be6c385e535570b93cebfbdc9d3a5cc35a67798a1b5529bb016c597c",
+    "compression": 8
+  },
+  "res/color/abc_primary_text_material_dark.xml": {
+    "bytes": 464,
+    "sha256": "fe63bf14d5415ca4f9bb100f64b4a7ec2ddf7482b5d0a3175924e547ffe0edf2",
+    "compression": 8
+  },
+  "res/color/abc_primary_text_material_light.xml": {
+    "bytes": 464,
+    "sha256": "e96e2407aa9061f39d2c8c5855afe42259e144c466b8f0ab2075a0e2b91f6d86",
+    "compression": 8
+  },
+  "res/color/abc_search_url_text.xml": {
+    "bytes": 588,
+    "sha256": "1e4171edfe1875ea4887fcbb8d04c78b72de421b3367df8f715e4941ba5f1b94",
+    "compression": 8
+  },
+  "res/color/switch_thumb_material_dark.xml": {
+    "bytes": 464,
+    "sha256": "3d2b5ac70a2768c925e809725d5ee7cadcb1dc39108c9b4df4a1dd4d11d827e5",
+    "compression": 8
+  },
+  "res/color/switch_thumb_material_light.xml": {
+    "bytes": 464,
+    "sha256": "32e397fccc76fdccdee0d91865c15fdaefe96985938e66336f83aa026f2bdad1",
+    "compression": 8
+  },
+  "res/d2.webp": {
+    "bytes": 3825,
+    "sha256": "61f9eafa7322232df5097dc2f5b1ca11caf0d63449459b319b3d68d053a24b97",
+    "compression": 0
+  },
+  "res/d3.png": {
+    "bytes": 432,
+    "sha256": "2fa524cda78d7ebd66164a896a042277b7a56b8658fb318fc700a114cb04f7b2",
+    "compression": 0
+  },
+  "res/d5.9.png": {
+    "bytes": 851,
+    "sha256": "bb4b092ae69c429e9d4f7ff97c60ba10c2e443a2b0ca19a9f6c77854bf32e293",
+    "compression": 0
+  },
+  "res/dO.xml": {
+    "bytes": 3472,
+    "sha256": "b374bb290cf447ecf6349ea598616dc0963c7d36baa8e3f261034a3b073f8111",
+    "compression": 8
+  },
+  "res/dW.png": {
+    "bytes": 267,
+    "sha256": "4133830f43f9baa0b0ed3cc80d798b20071da9f51fe12ef6b0bd09abc8d5d33a",
+    "compression": 0
+  },
+  "res/dY.png": {
+    "bytes": 404,
+    "sha256": "5ced2ab774853050255d7309e10b76217813d56f3f8ab8fb73ac3f635d90c676",
+    "compression": 0
+  },
+  "res/df.xml": {
+    "bytes": 532,
+    "sha256": "577e53458d2386cd6ea52658d73a5b2cc5c5e028301f703fa64db6598d56da36",
+    "compression": 8
+  },
+  "res/e2.png": {
+    "bytes": 566,
+    "sha256": "869fb30341e00b3d5ff3b9fe03e0d52e3eaa0e0668554671429f42032d8b0b8e",
+    "compression": 0
+  },
+  "res/eA.xml": {
+    "bytes": 1868,
+    "sha256": "526ecee34a5cda001f01b63e50fb3f0f315b1597f11a79688af0b3028ba15415",
+    "compression": 8
+  },
+  "res/eR.png": {
+    "bytes": 356,
+    "sha256": "c8825cd637e59a02500d8b7518562f0c91bef2edd971ba3e5ad0f416794d618e",
+    "compression": 0
+  },
+  "res/eT.9.png": {
+    "bytes": 318,
+    "sha256": "80502979302dee7353f475f558c497ae6697f77181a51f7cc80b40d72c2e0c4c",
+    "compression": 0
+  },
+  "res/ej.9.png": {
+    "bytes": 167,
+    "sha256": "378694706fb7256dd2248e2af854efd71ec7e8885f61da2e16a2bd32fcf3d0a9",
+    "compression": 0
+  },
+  "res/ev.9.png": {
+    "bytes": 228,
+    "sha256": "89c28e887b0d60c01b35dcd2be654f416bffb66e8565716dc983e3b0204967e8",
+    "compression": 0
+  },
+  "res/ew.png": {
+    "bytes": 584,
+    "sha256": "c6c651f9782a4b8f24416b28412f433a6c2d285f51146a359aa9b2d7af402a8a",
+    "compression": 0
+  },
+  "res/fM.9.png": {
+    "bytes": 825,
+    "sha256": "b52228a35520e2d786e962e85013fe7f7c97ffb42677f3bdabc032fbb709952a",
+    "compression": 0
+  },
+  "res/fY.xml": {
+    "bytes": 3216,
+    "sha256": "d56f75d8c84549af060d5436d106a2ff240e0c9155bd316a1525646a9c07636b",
+    "compression": 8
+  },
+  "res/g-.png": {
+    "bytes": 585,
+    "sha256": "3dbbad926d540586d6bd1230f3293108774c95e73f6604f0bbf88c3a11530223",
+    "compression": 0
+  },
+  "res/g-.xml": {
+    "bytes": 2872,
+    "sha256": "6ab1dbd0425e7dc33d910c1a3301e4949ada9f74d77da9a8ef9184717b927125",
+    "compression": 8
+  },
+  "res/gK.9.png": {
+    "bytes": 215,
+    "sha256": "2f7fbda0ba6e53e9a47e2fc0e24e32c447c613a5808c2d6285dc651e83a07ad7",
+    "compression": 0
+  },
+  "res/gV.png": {
+    "bytes": 38298,
+    "sha256": "b5b90c854ce8ecfeabdbe61bb8dfcc1d2bc56971a46119c61f48c264686c18bf",
+    "compression": 0
+  },
+  "res/gZ.9.png": {
+    "bytes": 524,
+    "sha256": "bd893783c8d2bebb167ac05a27cdaea5dfd651fe8d64bcb30c14e7b925380c79",
+    "compression": 0
+  },
+  "res/gj.9.png": {
+    "bytes": 237,
+    "sha256": "d68d03967fb222f7e35772a2e0637f73b4dd0d6cbb9ee3f2b4432d2f90c257db",
+    "compression": 0
+  },
+  "res/gt.9.png": {
+    "bytes": 205,
+    "sha256": "9a1a48038a8d1dc041035b49cc732db23e008d126c8b2e680749dd29616a37b3",
+    "compression": 0
+  },
+  "res/h4.xml": {
+    "bytes": 2124,
+    "sha256": "2d27fd6517f1de6cf34e19cba2917fb28750a3c6bd5ad365267c416aa13489d6",
+    "compression": 8
+  },
+  "res/h7.9.png": {
+    "bytes": 1096,
+    "sha256": "9f849bcd788adceb32f4c1a5aa892749bd1e244a3787bfbfbd30d3b6f5d8e9db",
+    "compression": 0
+  },
+  "res/hP.xml": {
+    "bytes": 864,
+    "sha256": "887c8c1ad39a7ed5c2cf8157a54de7349fb36a5c0ce99c102699944279ab52de",
+    "compression": 8
+  },
+  "res/hP1.xml": {
+    "bytes": 1584,
+    "sha256": "54138ee76bcf1c3c8d5d0e429b589be76d266395e1cb1625fd205e9e4158d0b0",
+    "compression": 8
+  },
+  "res/hZ.9.png": {
+    "bytes": 167,
+    "sha256": "378694706fb7256dd2248e2af854efd71ec7e8885f61da2e16a2bd32fcf3d0a9",
+    "compression": 0
+  },
+  "res/ha.xml": {
+    "bytes": 564,
+    "sha256": "6861082f39e3f0d282bbf5b7ee6412bf70adc2237c61b5c4e82f4bf202b4ffcf",
+    "compression": 8
+  },
+  "res/hh.9.png": {
+    "bytes": 212,
+    "sha256": "d5c644b00ee79bd4f1fcb789ebbf89e79c0c6fea878dfbc4a8c64c3be34b5b03",
+    "compression": 0
+  },
+  "res/hn.png": {
+    "bytes": 251,
+    "sha256": "28ac0848f8d3ffb62fb12d5070c9cd6895f8e341cc2ab4b968bab2e4ab32eb2f",
+    "compression": 0
+  },
+  "res/hq.xml": {
+    "bytes": 612,
+    "sha256": "b2b8eab570357610a73322e777914936a1eb6399ade30906783eae1a0d632564",
+    "compression": 8
+  },
+  "res/hs.xml": {
+    "bytes": 388,
+    "sha256": "0da55d46a95f339589841cd11ad1dca5a2e0593dfeefc300027674936da1740d",
+    "compression": 8
+  },
+  "res/i6.9.png": {
+    "bytes": 186,
+    "sha256": "f62d7aa1f9297302a43332a59834755edbd3a38670b8c523614ae1366b5f947f",
+    "compression": 0
+  },
+  "res/iO.png": {
+    "bytes": 228,
+    "sha256": "b84a277807f8f3bb5378e6353d99d1344aee10bd9a05f47c30afe3832d9ca7f0",
+    "compression": 0
+  },
+  "res/iQ.xml": {
+    "bytes": 988,
+    "sha256": "eecdca5402bda4667f58a730ec3f0f90d38a38ced45b32faa37c3e7cb7d3b442",
+    "compression": 8
+  },
+  "res/iR.9.png": {
+    "bytes": 484,
+    "sha256": "2e3d70230977af37c6d7739899a73e63937eebdfe6d802f1a957c43c2f2ab131",
+    "compression": 0
+  },
+  "res/io.9.png": {
+    "bytes": 1526,
+    "sha256": "1417574134c5e9321c0b18fea711a08448ccf49957f55e10cedafb13237510f7",
+    "compression": 0
+  },
+  "res/j3.xml": {
+    "bytes": 1100,
+    "sha256": "6be11e7513695f109febb9aaec1e9aaab99be3264789d88beab81f64e9751904",
+    "compression": 8
+  },
+  "res/j4.png": {
+    "bytes": 785,
+    "sha256": "6002eb56783b956b5f91e6ddffaf36cc867402a01a225e627b4c25c8d21a4e23",
+    "compression": 0
+  },
+  "res/jS.9.png": {
+    "bytes": 236,
+    "sha256": "fd719e497aaf091c3166cb51bf4404ca4bc3b6545dfbefbfaa0cf31f0790b7d1",
+    "compression": 0
+  },
+  "res/jS1.9.png": {
+    "bytes": 167,
+    "sha256": "378694706fb7256dd2248e2af854efd71ec7e8885f61da2e16a2bd32fcf3d0a9",
+    "compression": 0
+  },
+  "res/jW.png": {
+    "bytes": 753,
+    "sha256": "24f5db226f1cd56e5e775f82c37f65f3d1eec9091b26b74861629caf0019c3bd",
+    "compression": 0
+  },
+  "res/je.9.png": {
+    "bytes": 212,
+    "sha256": "21f0b55280be10b187ceff8edef4a5a7047683e6e9fcf47de410aa3839f41094",
+    "compression": 0
+  },
+  "res/k1.xml": {
+    "bytes": 352,
+    "sha256": "2f04da7a2757aafb68d2b0b81a55d4d760cf21a18115dbdb9b21a05d643f9773",
+    "compression": 8
+  },
+  "res/k8.xml": {
+    "bytes": 1560,
+    "sha256": "528dede5c4165c1e9c04e9e4e304c9f75ed57ae617376047d6f45a1e45e7bb57",
+    "compression": 8
+  },
+  "res/kJ.9.png": {
+    "bytes": 208,
+    "sha256": "c0f930a722a16df986923bf419081d1090f9476a7287c8b655ab36ffc08064cb",
+    "compression": 0
+  },
+  "res/k_.xml": {
+    "bytes": 508,
+    "sha256": "a2941ba3c10cfb81f9c557be7eb07ff2bc2773b6203fe66a1641023bce9831cb",
+    "compression": 8
+  },
+  "res/kj.xml": {
+    "bytes": 2520,
+    "sha256": "b880f31abaed0e63e6501ae40b408503f16050ada7033ed2d51de3078b603733",
+    "compression": 8
+  },
+  "res/kn.xml": {
+    "bytes": 816,
+    "sha256": "40797920eb61e48ce4cd4cf5d8562347c0d95c910abcc3ffdc8186612f0e4097",
+    "compression": 8
+  },
+  "res/kp.png": {
+    "bytes": 224,
+    "sha256": "f5f349c1e949f0e66374f83b667fc0d0f477379614f36912ade22a299f2194d5",
+    "compression": 0
+  },
+  "res/lN.xml": {
+    "bytes": 320,
+    "sha256": "a8d7341c20d07c9fdab602e7c39187c9abb9caf5fbf9b2832cd6d9f18a2c86c2",
+    "compression": 8
+  },
+  "res/lP.9.png": {
+    "bytes": 194,
+    "sha256": "b8b26708d71b4c7a5cf5311abcdfa741fee39c9f5e1383d49ca0c677fcdb03cd",
+    "compression": 0
+  },
+  "res/lR.xml": {
+    "bytes": 440,
+    "sha256": "a150041286be0aa320acb19fb605612622ddbab4cbb2080beccb7829306afb5b",
+    "compression": 8
+  },
+  "res/ls.xml": {
+    "bytes": 1292,
+    "sha256": "a8d8d83a0d30271ddb4aeb13656ce2d351024f42b078f2228ac6987df3033036",
+    "compression": 8
+  },
+  "res/ly.png": {
+    "bytes": 272,
+    "sha256": "dc08af9d14e6b673bf9f31c248236f0457b322464036647473e3a32a23773f0e",
+    "compression": 0
+  },
+  "res/m0.png": {
+    "bytes": 267,
+    "sha256": "777a1cf53820aa467267d1f64e5f923656f93047038ea6375bcce257b517930e",
+    "compression": 0
+  },
+  "res/mm.9.png": {
+    "bytes": 345,
+    "sha256": "d4d2b0dbb039f1c6395183abe945b39470ad9a8a7b680a40fa790df6c645bb43",
+    "compression": 0
+  },
+  "res/nI.9.png": {
+    "bytes": 207,
+    "sha256": "c56ab9375b149ba1c5ee268f22b3cf6507bb47986f628391500fba38147dab28",
+    "compression": 0
+  },
+  "res/nT.xml": {
+    "bytes": 1160,
+    "sha256": "9d98cb0d63a06334757b678a1e9bd5766511b69b5631de72f14d31af74c03891",
+    "compression": 8
+  },
+  "res/nf.png": {
+    "bytes": 1208,
+    "sha256": "5e0799a0d0b5d43ed5ae3a378aaa0847a810ceeff58db9a0f7836ebf4ef17146",
+    "compression": 0
+  },
+  "res/nz.xml": {
+    "bytes": 532,
+    "sha256": "2aad0d2415cd6525647d5630eee7bd9aea98c00cd5264947d11dbf3454d25d29",
+    "compression": 8
+  },
+  "res/o9.9.png": {
+    "bytes": 260,
+    "sha256": "94ae2273a335672c1c67988e7af595d42e80526edb7f5654ee130dce06fd40d7",
+    "compression": 0
+  },
+  "res/oP.xml": {
+    "bytes": 816,
+    "sha256": "8755c9357f807c91371aa1707a81cea326b07e9b2b53db9bd60a02e2ca942878",
+    "compression": 8
+  },
+  "res/oR.xml": {
+    "bytes": 912,
+    "sha256": "a9a26b3416b0f975ef11b1183618da7234bf2a65fcca072515181f9716977839",
+    "compression": 8
+  },
+  "res/o_.9.png": {
+    "bytes": 252,
+    "sha256": "20343222f9f79dd565c3a2248494d452e70820ac1c437173c38badd45f962afd",
+    "compression": 0
+  },
+  "res/o_.png": {
+    "bytes": 651,
+    "sha256": "d19092254aa4133fba8b7795fb5db560ad5dcd16c6f79201bec31b0f1e9b608b",
+    "compression": 0
+  },
+  "res/op.9.png": {
+    "bytes": 286,
+    "sha256": "f81412c5131046a83f5d9de1d10e2b4b31f6e2657c4c08743825cd40f605fdd3",
+    "compression": 0
+  },
+  "res/pT.xml": {
+    "bytes": 424,
+    "sha256": "9b0374e8778146b63d441797434b01ec2364d79ebd8e5d42bdbdefc93333ab9b",
+    "compression": 8
+  },
+  "res/pU.xml": {
+    "bytes": 364,
+    "sha256": "650c54c5eff734092ee09354ffa1d833931b7706f2797e801f825604c47c2dd3",
+    "compression": 8
+  },
+  "res/pY.png": {
+    "bytes": 107,
+    "sha256": "8430ec003e003f3f2ba2f78d48fd150e25407667e530e82e87a7d4841c0fd676",
+    "compression": 0
+  },
+  "res/pk.png": {
+    "bytes": 275,
+    "sha256": "b0aa010e7a885e4b7a669c16c7ba10fcd862a12dff3f142c7354778442a63fde",
+    "compression": 0
+  },
+  "res/ps.9.png": {
+    "bytes": 178,
+    "sha256": "b800fac7d2f0a75b17fad7009707ea49134919e48984e89815a9d24c0fa704d8",
+    "compression": 0
+  },
+  "res/pu.png": {
+    "bytes": 909,
+    "sha256": "aa00088d0d9fd97bd92ed9ffd29b54bb69a48a984aa73448ce553fb9d812be41",
+    "compression": 0
+  },
+  "res/py.9.png": {
+    "bytes": 217,
+    "sha256": "a15171ead4b1cd9b80c58b93c0efb453b0cf889b714cc859ee2c9b937f4b37d0",
+    "compression": 0
+  },
+  "res/q6.xml": {
+    "bytes": 1128,
+    "sha256": "9a4bd279aa526619f9047ef4f01297808e58af0ff8e66117bbc439e87bec13e0",
+    "compression": 8
+  },
+  "res/qA.xml": {
+    "bytes": 452,
+    "sha256": "0b51013fc0f5e916a727b75512c1ee9206178bd134509b7b4be6a397fa4d9a6b",
+    "compression": 8
+  },
+  "res/qD.9.png": {
+    "bytes": 2834,
+    "sha256": "1f9538745cfd3209cc09ed451c198302aac3a1c5da41e87394377814b1bcc5ee",
+    "compression": 0
+  },
+  "res/qp.png": {
+    "bytes": 197,
+    "sha256": "6151450ece3ab9667213c3987b6d8fffa25baf9ff43d53bcd9c94fd8ea7616d0",
+    "compression": 0
+  },
+  "res/qs.webp": {
+    "bytes": 11916,
+    "sha256": "76a4e8e17e8d180db5d5b44f573aa7c3cda7adf69c64a0e0659cdc7cbba768ba",
+    "compression": 0
+  },
+  "res/qx.xml": {
+    "bytes": 2780,
+    "sha256": "9ab7efb5c7f05c543c384e9f2f04686298dbe1586d469c86ca258e7074947527",
+    "compression": 8
+  },
+  "res/qz.xml": {
+    "bytes": 1656,
+    "sha256": "89ec2b3c9369e347bd6d77d4ff1be743ecbd955193cc00b368744f58e9e2e626",
+    "compression": 8
+  },
+  "res/rW.xml": {
+    "bytes": 688,
+    "sha256": "816efb32497fa7a2561bb9bff4b85a26fa8e8d8d702abc1152b45af69964b21b",
+    "compression": 8
+  },
+  "res/rY.xml": {
+    "bytes": 548,
+    "sha256": "0c3867177080419eaa05f197a47500c68e7ccbbfb968bec1fdc42b0867b9a0d1",
+    "compression": 8
+  },
+  "res/rb.xml": {
+    "bytes": 352,
+    "sha256": "c16c6a09acbb573d30c5bb34f9029d71708ab1c6f9e05d53bc8e8638c72de4c7",
+    "compression": 8
+  },
+  "res/rj.9.png": {
+    "bytes": 1098,
+    "sha256": "00a1ac74d8164cb5c4749a0b2e77e2c6da4a90abe873d8604f29841c19357c66",
+    "compression": 0
+  },
+  "res/rx.xml": {
+    "bytes": 680,
+    "sha256": "bf7a21d6242decbbac2cc89ee64c7d54133af150006994c048ec37f497288b6a",
+    "compression": 8
+  },
+  "res/s0.png": {
+    "bytes": 403,
+    "sha256": "63fad0a19cb9e416586049d40b62161b0cc4c2513d83931d3852e2f5a72e6d13",
+    "compression": 0
+  },
+  "res/s3.9.png": {
+    "bytes": 245,
+    "sha256": "8c6846f4105ef1c02107e842142e9ce60b08819296e9510b2d0c12cf4560c5e1",
+    "compression": 0
+  },
+  "res/s4.png": {
+    "bytes": 98,
+    "sha256": "0d773e62c756422313262846c787e58f67e0ee87e45e1ae9942002e816c4cb9e",
+    "compression": 0
+  },
+  "res/sA.9.png": {
+    "bytes": 212,
+    "sha256": "0c6328c7b2420570a7ec38b3beb3bac9a29d895ac1ab7239315aba7266418593",
+    "compression": 0
+  },
+  "res/sA.xml": {
+    "bytes": 464,
+    "sha256": "97c60161f8e9396a70e993ffbbbe6a9d7096b62b639d00392e9b9f3dbcc072a2",
+    "compression": 8
+  },
+  "res/sK.webp": {
+    "bytes": 37363,
+    "sha256": "4213c7364b9bcd438ad54110fb94f45233700ac3f5c07ce0ecfab03a89916a53",
+    "compression": 0
+  },
+  "res/sg.9.png": {
+    "bytes": 226,
+    "sha256": "67e701476927078d89ab0bbb39fff12d69702592a7a428237a21168a21ec1038",
+    "compression": 0
+  },
+  "res/sn.xml": {
+    "bytes": 400,
+    "sha256": "8237d47bafc3bab9098bd9344b12dc6c87fdd879a4e1f01c856400c595f298f0",
+    "compression": 8
+  },
+  "res/t3.xml": {
+    "bytes": 588,
+    "sha256": "668c2a4967a3b7e41cb8790827dca060c51229b726e19dd69747c6bdf297ae45",
+    "compression": 8
+  },
+  "res/t8.xml": {
+    "bytes": 1012,
+    "sha256": "9e23db4a5c99e14671e16abd07722108e724558bfa67b0b42ec542ff793684aa",
+    "compression": 8
+  },
+  "res/tG.png": {
+    "bytes": 476,
+    "sha256": "52a0358e54439373ca39f99cd83cf3a7be73c257f07fae83edd83c9b4891895d",
+    "compression": 0
+  },
+  "res/tL.xml": {
+    "bytes": 716,
+    "sha256": "a2bcb698f8371bf8715e10d75720335ff898d19aea63a15e8c9cf57b8acb0f1f",
+    "compression": 8
+  },
+  "res/tS.png": {
+    "bytes": 321,
+    "sha256": "caf1e473df6702c2a6a95d738f1d6f2b73196766b504e5ff333b3c8e747e047b",
+    "compression": 0
+  },
+  "res/tU.9.png": {
+    "bytes": 208,
+    "sha256": "91b8358e22ac1b8554c71a528414acf30088d9ad562bdac3814844771c14c8a9",
+    "compression": 0
+  },
+  "res/tZ.9.png": {
+    "bytes": 198,
+    "sha256": "6b2372b414abc1cfcfd71c98f51901a84c46c5b712046aae019b6110de265175",
+    "compression": 0
+  },
+  "res/te.png": {
+    "bytes": 278,
+    "sha256": "498b0cbd09b6b4feed8aca9ed77d235f5bb272c53d21b332649a00e942d989da",
+    "compression": 0
+  },
+  "res/u0.xml": {
+    "bytes": 1196,
+    "sha256": "6bd6c250d723381fc0d9928593d86103e7c2bf09c786349566d935d2327278b5",
+    "compression": 8
+  },
+  "res/u3.png": {
+    "bytes": 513,
+    "sha256": "55bc27772f6d35be9334fb80c371b327db25faa9a6098c3c14049e92654ac1bf",
+    "compression": 0
+  },
+  "res/uJ.xml": {
+    "bytes": 848,
+    "sha256": "ae7d5ed17be53e03391dbaee355ca3708ebba9a10b4ad82f510bf269bbd6aeb6",
+    "compression": 8
+  },
+  "res/uL.9.png": {
+    "bytes": 966,
+    "sha256": "006f2dc25bacc39e736bc720e26a6545df7427b6c103b2dd77c1eb872c3f3306",
+    "compression": 0
+  },
+  "res/uj.9.png": {
+    "bytes": 196,
+    "sha256": "c86d934a5809f32599e42143e306ed6e066b224fe1fa3f32ade1603074e5b136",
+    "compression": 0
+  },
+  "res/ut.9.png": {
+    "bytes": 754,
+    "sha256": "562cba1ad1b9abd502da9c03f4c10bb2bd728022c546f18059319f2ad293280e",
+    "compression": 0
+  },
+  "res/uu.9.png": {
+    "bytes": 204,
+    "sha256": "3633ec99d66aae4332f9a6b2dbd3480513433001a8eec0e796d2bcb69d75b73f",
+    "compression": 0
+  },
+  "res/v4.9.png": {
+    "bytes": 208,
+    "sha256": "a7523ccf037f7c31cf87a186feecb9139ef92d87e0702cabb08a31914b2b503e",
+    "compression": 0
+  },
+  "res/vG.xml": {
+    "bytes": 1396,
+    "sha256": "9f06cdd92a88501075eaad057bd6b81249d2f805e7684559740949407ff81f9a",
+    "compression": 8
+  },
+  "res/vJ.xml": {
+    "bytes": 528,
+    "sha256": "183bb3698f6a4cba468fb22c6f58bb2c25b5836bd94c8d6eb5429deeb0aed3dd",
+    "compression": 8
+  },
+  "res/vL.9.png": {
+    "bytes": 223,
+    "sha256": "99c14d6855b8be296d58017d3751b8dc849c47b6d1d80ab614ff9075080e461b",
+    "compression": 0
+  },
+  "res/vq.xml": {
+    "bytes": 1020,
+    "sha256": "d8f9517ea070edc35bd6ef951d97ae60b54cc173fce231d038bf2ff368e0e28b",
+    "compression": 8
+  },
+  "res/vz.9.png": {
+    "bytes": 181,
+    "sha256": "fa50162bdb3501c6b50cfa36c14dab9c94e48d57f558607ec9858124d70412f9",
+    "compression": 0
+  },
+  "res/wL.9.png": {
+    "bytes": 437,
+    "sha256": "8c3de5389a4fedf23b1efdf1c7737ca7eb44f381c22369153dfa972613a4c448",
+    "compression": 0
+  },
+  "res/wN.9.png": {
+    "bytes": 225,
+    "sha256": "18b328d8017e677d5aad3dbd66bae356b5cac978c6f0670938ea648e51d0eb66",
+    "compression": 0
+  },
+  "res/w_.png": {
+    "bytes": 214,
+    "sha256": "055d5f87b1bbb6677096bc7eb7eace57e40216cb97f2b2b926d26c1263f9abce",
+    "compression": 0
+  },
+  "res/wa.xml": {
+    "bytes": 920,
+    "sha256": "9c9093aa8b1f48125a4f008ef3023263c7cb0c93a1e5c7e6ef0f36494d4981d4",
+    "compression": 8
+  },
+  "res/x3.9.png": {
+    "bytes": 212,
+    "sha256": "93b7657184473d5881669b80e3d43fd64e442d1ed71be4ced3518380b6cec69d",
+    "compression": 0
+  },
+  "res/xH.png": {
+    "bytes": 186,
+    "sha256": "7c8472b72441cc28a1ac53a08b4f0c14f310af338175ba6c46fd6342ac8ce2ff",
+    "compression": 0
+  },
+  "res/xN.xml": {
+    "bytes": 2456,
+    "sha256": "c3a38e7e460a4d64c2a73a2632478a3b702ba9627e49a8058fe04ceb1a7483e1",
+    "compression": 8
+  },
+  "res/xR.9.png": {
+    "bytes": 194,
+    "sha256": "9a9c940ea133f7e0ac8db6f06e13e852508633c21f8c71f297483165a06d92eb",
+    "compression": 0
+  },
+  "res/xR.png": {
+    "bytes": 337,
+    "sha256": "91bd18c30aef02aebe2668e40a7b8061bc5ccd8adda4efaaf9d57d656f0d7edb",
+    "compression": 0
+  },
+  "res/xa.9.png": {
+    "bytes": 221,
+    "sha256": "3e09afa21c45372c035598c017c8fb405a6d678e6cb84dc857581cb3b40e482d",
+    "compression": 0
+  },
+  "res/xj.xml": {
+    "bytes": 588,
+    "sha256": "008ab99ec5591cf6e37a9826ee9451566ba2e3e8821905f017506c34c02dc7aa",
+    "compression": 8
+  },
+  "res/yH.9.png": {
+    "bytes": 184,
+    "sha256": "5ae9594240ada5e53500e2524215b3e2b3c91e6dd95b05e0acdd27d9d8c57e72",
+    "compression": 0
+  },
+  "res/yV.xml": {
+    "bytes": 576,
+    "sha256": "db569410e1358c93232ab9665e0c5a94833bd2138dd55e8645fbc5541556ba3e",
+    "compression": 8
+  },
+  "res/yY.9.png": {
+    "bytes": 186,
+    "sha256": "f232714ccbecca97adc63b0811d62629057c77dcbd0b062c82e26754cb744831",
+    "compression": 0
+  },
+  "res/yg.9.png": {
+    "bytes": 395,
+    "sha256": "62477adc74d4e6836e3c0e4b5337c37d748cb3f94033f42c629938ef18d38b41",
+    "compression": 0
+  },
+  "res/z-.9.png": {
+    "bytes": 221,
+    "sha256": "559bf783d765c02338e97952bdc9c6689c7ff99090b8c9813369118da8b080f0",
+    "compression": 0
+  },
+  "res/z9.9.png": {
+    "bytes": 417,
+    "sha256": "77f0ebab2416404eb1d562342e431541d885686dd1e49d6dc93be1a86c2273c4",
+    "compression": 0
+  },
+  "res/zE.png": {
+    "bytes": 324,
+    "sha256": "a547431febf108ccfa9588ab89b1078e387bb351eb54d772394332187f770b74",
+    "compression": 0
+  },
+  "res/zV.9.png": {
+    "bytes": 2463,
+    "sha256": "0f8db605d63bf1d6d35fd647d592ac4e70c9a712ff5d1c2114c8d58a88b8228a",
+    "compression": 0
+  },
+  "res/zp.xml": {
+    "bytes": 448,
+    "sha256": "ff8df6b1ef394d875c5c401a0c0e2ffff59c175efc9aac0d3ca28cb210d1bd0e",
+    "compression": 8
+  },
+  "res/zq.xml": {
+    "bytes": 464,
+    "sha256": "3376cd54cb58e0e3f53e59bfb2542c0fb80d6c03975a6afb0f85d5b6d9344701",
+    "compression": 8
+  },
+  "resources.arsc": {
+    "bytes": 298316,
+    "sha256": "77d7e92ce3ee6b37b573e24efc4b468f350d50f698ca55b708bbf153bc0e474b",
+    "compression": 0
+  }
+}

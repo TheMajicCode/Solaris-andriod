@@ -1,0 +1,50 @@
+{
+  "format": "solaris-android-artifacts/1",
+  "updated": "2026-09-17",
+  "scope": "Curated artifact metadata only. This file never contains bytes, credentials or expiring signed URLs.",
+  "state": "empty",
+  "note": "No release, tag or artifact asset has been created for this repository. Populating this manifest is task AND-00b, which is blocked until the full 604 reference is restored and a licensing review is completed. See docs/ARTIFACTS.md.",
+  "rules": [
+    "SHA-256 is content identity. A tag or asset URL is not immutable.",
+    "Never record an expiring signed URL, token or credential here.",
+    "Review each archive's complete entry list for privacy, secrets, license and restoration safety before upload, and verify hashes again after upload.",
+    "Separate the model experiment input from the minimum test/tool input so no one is forced into a large download they do not need.",
+    "If redistribution rights are not established, retain the hash and authorized acquisition instructions and report the restore path blocked.",
+    "Never upload the complete 604 handoff or the four original transport ZIPs unchanged; they contain private phone evidence.",
+    "Restoration is manual and checksum-checked: reject unsafe paths and unexpected files, and never overwrite newer working source."
+  ],
+  "required_entry_fields": [
+    "name", "bytes", "sha256", "origin", "license_status", "role",
+    "restoration_path", "platform_requirements", "release_tag", "commit", "asset_id"
+  ],
+  "assets": [],
+  "known_reference_inputs_not_hosted_here": [
+    {
+      "name": "Solaris-Android-604-Handoff-Part-N-of-4.zip",
+      "role": "complete private backup",
+      "hosted": false,
+      "reason": "Contains private phone evidence. Preserved privately outside Git and never uploaded unchanged."
+    },
+    {
+      "name": "reassembled 604 handoff ZIP",
+      "bytes": 1518762347,
+      "sha256": "b31177db52d0b041d8dd66ed5e3d3b504ef2448e60b54f8e6a8a436f9a8c0e3d",
+      "role": "immutable reference for full-reference reproduction",
+      "hosted": false
+    },
+    {
+      "name": "Solaris-603-Build-Inputs.zip",
+      "sha256": "0745458668eb3ff149fa881b647095a74865b97fba84f39fc88297becb49019d",
+      "role": "unchanged tools and runtime for HBC reconstruction",
+      "hosted": false,
+      "license_status": "unreviewed"
+    },
+    {
+      "name": "Solaris-603-Model-Test-Input.zip",
+      "sha256": "d6a1d5640ce37e9aa2ff2aee56d1f78534ebd6b93e80dc6fe262c851a122f9da",
+      "role": "optional, model experiments only",
+      "hosted": false,
+      "license_status": "unreviewed"
+    }
+  ]
+}

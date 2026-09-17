@@ -1,0 +1,42 @@
+[
+  {
+    "path": "reconstruction-work/r2-tools/react-native-0.81.5.tgz",
+    "bytes": 24766674,
+    "sha256": "e31721654764d1ca040bdddc5d6343376cef799f65115098ba250340af7e18b2"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+    "bytes": 3787344,
+    "sha256": "b4c37f09410c6c6c0ce90df00eb270dc257d2184c85ca320382ebe06057f2a14"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/hermes-build/bin/hermes",
+    "bytes": 5200800,
+    "sha256": "3df60d77080aa9b5a0d241ef54121b6c1a88be9d8fbe945c6d580e6360756c99"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/hermes-build/bin/hvm",
+    "bytes": 4409688,
+    "sha256": "edd80fcabd3223d58af552e08dea7de56b403504df97b24c0a920f4c6e888055"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/hermes-build/bin/hbcdump",
+    "bytes": 723008,
+    "sha256": "34d9deb1f15790b5ae4d58f3557b1fbd70997c95dac9d4f1aa20c0653f5b76e5"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/hermes-build/API/hermes/libhermes.so",
+    "bytes": 5979112,
+    "sha256": "9ce7da717413ac6e15009baf8fc9fd313f14fb5fc860e6e5fedbf1d5191696dc"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/hermes-build/jsi/libjsi.so",
+    "bytes": 114776,
+    "sha256": "e342cf142c52101e1ab079934d3b9a908516853e7ca6aa8bb627e6bf187606ad"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/hermes-runner",
+    "bytes": 46488,
+    "sha256": "975e603f58329a5e4b1daba3bf14562c002f38aee22144ea69683883d6640a3c"
+  }
+]

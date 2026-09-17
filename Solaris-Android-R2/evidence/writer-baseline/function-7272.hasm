@@ -1,0 +1,11 @@
+=> [Function #7272 "" of 9 bytes]: 2 params, frame size=1, strict=1, exc handler=0, debug info=0  @ offset 0x01c30588
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 0>
+==> 00000002: <CreateGenerator>: <Reg8: 0, Reg8: 0, function_id: 7273>  # Function: [#7273 ?anon_0_ of 49 bytes]: 2 params @ offset 0x01c30591
+==> 00000007: <Ret>: <Reg8: 0>
+
+
+===============
+

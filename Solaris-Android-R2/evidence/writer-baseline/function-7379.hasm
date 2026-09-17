@@ -1,0 +1,15 @@
+=> [Function #7379 "" of 22 bytes]: 2 params, frame size=2, strict=0, exc handler=0, debug info=0  @ offset 0x01c32ccd
+
+Bytecode listing:
+
+==> 00000000: <NewObject>: <Reg8: 0>
+==> 00000002: <LoadParam>: <Reg8: 1, UInt8: 1>
+==> 00000005: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 1, string_id: 249>  # String: 'value' (Identifier)
+==> 00000009: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 0000000c: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 0>
+==> 00000010: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 1, string_id: 109>  # String: 'done' (Identifier)
+==> 00000014: <Ret>: <Reg8: 0>
+
+
+===============
+

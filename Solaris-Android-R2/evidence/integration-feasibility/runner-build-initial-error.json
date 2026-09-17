@@ -1,0 +1,19 @@
+{
+  "args": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/hermes-runner.cpp",
+    "-I/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/API",
+    "-I/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/API/jsi",
+    "-I/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/public",
+    "-L/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/API/hermes",
+    "-Wl,-rpath,/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/API/hermes",
+    "-lhermes",
+    "-o",
+    "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-runner"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/hermes-runner.cpp: In function \u2018int main(int, char**)\u2019:\n/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/hermes-runner.cpp:12:20: error: reference to \u2018hermes\u2019 is ambiguous\n   12 |     auto runtime = hermes::makeHermesRuntime();\n      |                    ^~~~~~\nIn file included from /workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/API/hermes/hermes.h:20,\n                 from /workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/hermes-runner.cpp:3:\n/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/public/hermes/Public/SamplingProfiler.h:21:11: note: candidates are: \u2018namespace facebook::hermes { }\u2019\n   21 | namespace hermes {\n      |           ^~~~~~\nIn file included from /workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/public/hermes/Public/RuntimeConfig.h:11,\n                 from /workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/API/hermes/hermes.h:19:\n/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/public/hermes/Public/CrashManager.h:16:11: note:                 \u2018namespace hermes { }\u2019\n   16 | namespace hermes {\n      |           ^~~~~~\n"
+}

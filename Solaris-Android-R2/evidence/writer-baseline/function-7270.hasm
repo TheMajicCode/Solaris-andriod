@@ -1,0 +1,25 @@
+=> [Function #7270 "?anon_0_" of 52 bytes]: 2 params, frame size=16, strict=1, exc handler=0, debug info=0  @ offset 0x01c3052f
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 5, UInt8: 0>
+==> 00000004: <CreateEnvironment>: <Reg8: 1>
+==> 00000006: <ResumeGenerator>: <Reg8: 0, Reg8: 2>
+==> 00000009: <JmpTrue>: <Addr8: 40, Reg8: 2>  # Address: 00000031
+==> 0000000c: <StoreToEnvironment>: <Reg8: 1, UInt8: 0, Reg8: 5>
+==> 00000010: <GetByIdShort>: <Reg8: 4, Reg8: 5, UInt8: 1, string_id: 217>  # String: 'run' (Identifier)
+==> 00000015: <CreateClosure>: <Reg8: 2, Reg8: 1, function_id: 7271>  # Function: [#7271  of 37 bytes]: 1 params @ offset 0x01c30563
+==> 0000001a: <LoadConstUndefined>: <Reg8: 1>
+==> 0000001c: <Call1>: <Reg8: 3, Reg8: 2, Reg8: 1>
+==> 00000020: <LoadConstString>: <Reg8: 2, string_id: 14103>  # String: 'loadModel' (Identifier)
+==> 00000024: <LoadParam>: <Reg8: 1, UInt8: 1>
+==> 00000027: <Call4>: <Reg8: 1, Reg8: 4, Reg8: 5, Reg8: 2, Reg8: 3, Reg8: 1>
+==> 0000002e: <CompleteGenerator>: <>
+==> 0000002f: <Ret>: <Reg8: 1>
+==> 00000031: <CompleteGenerator>: <>
+==> 00000032: <Ret>: <Reg8: 0>
+
+
+===============
+

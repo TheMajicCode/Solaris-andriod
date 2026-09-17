@@ -1,0 +1,37 @@
+=> [Function #7367 "?anon_0_" of 95 bytes]: 1 params, frame size=11, strict=1, exc handler=0, debug info=0  @ offset 0x01c328a1
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000004: <JmpTrue>: <Addr8: 88, Reg8: 1>  # Address: 0000005c
+==> 00000007: <GetEnvironment>: <Reg8: 3, UInt8: 1>
+==> 0000000a: <LoadFromEnvironment>: <Reg8: 1, Reg8: 3, UInt8: 0>
+==> 0000000e: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 1, string_id: 15271>  # String: 'guard' (Identifier)
+==> 00000014: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 1>
+==> 00000018: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 2, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 0000001e: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 3, string_id: 15553>  # String: 'refresh' (Identifier)
+==> 00000024: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 2>
+==> 00000028: <SaveGenerator>: <Addr8: 4>  # Address: 0000002c
+==> 0000002a: <Ret>: <Reg8: 1>
+==> 0000002c: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 0000002f: <JmpTrue>: <Addr8: 42, Reg8: 2>  # Address: 00000059
+==> 00000032: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 4, string_id: 15099>  # String: 'cached' (Identifier)
+==> 00000038: <LoadFromEnvironment>: <Reg8: 3, Reg8: 3, UInt8: 0>
+==> 0000003c: <JmpTrue>: <Addr8: 16, Reg8: 2>  # Address: 0000004c
+==> 0000003f: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 5, string_id: 20764>  # String: 'getStatus' (Identifier)
+==> 00000045: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 00000049: <CompleteGenerator>: <>
+==> 0000004a: <Ret>: <Reg8: 2>
+==> 0000004c: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 6, string_id: 14103>  # String: 'loadModel' (Identifier)
+==> 00000052: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 00000056: <CompleteGenerator>: <>
+==> 00000057: <Ret>: <Reg8: 2>
+==> 00000059: <CompleteGenerator>: <>
+==> 0000005a: <Ret>: <Reg8: 1>
+==> 0000005c: <CompleteGenerator>: <>
+==> 0000005d: <Ret>: <Reg8: 0>
+
+
+===============
+

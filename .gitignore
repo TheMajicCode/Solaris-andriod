@@ -1,0 +1,82 @@
+# This full handoff preserves inputs/evidence that do not belong in normal Git.
+# Review `git status --short` and the handoff/GIT-IMPORT.md before staging.
+.handoff-output/
+audit-output/
+__pycache__/
+*.py[cod]
+.DS_Store
+.*.??????
+
+# Local credentials and personal state are never repository inputs.
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.key
+*.pem
+local.properties
+key.properties
+.npmrc
+.pypirc
+
+# Retained offline dependencies and executables stay in the full handoff.
+node_modules/
+/reconstruction-work/
+/reconstruction-inputs/
+/solaris-603-native-probe/runtime/
+/solaris-603-native-probe/acquired/
+/Solaris-Android-Reconstruction/build-inputs/
+*.apk
+*.aab
+*.hbc
+*.bundle
+*.dex
+*.so
+*.bare
+*.o
+*.a
+*.gguf
+*.zip
+*.tgz
+*.gz
+*.xz
+*.whl
+*.deb
+/releases/.*
+
+# Supplied phone frames can expose personal records. Preserved privately in ZIP.
+/Solaris-Android-R4/evidence/phone604/
+# Bulky generated host views remain available in the archive and hash inventory.
+/Solaris-Android-Reconstruction/reference/host-disassembly/
+
+# One-time source transport is removed from final working tree.
+*.tar.xz
+.import-output/
+
+# --- Repository projection additions (new setup work, 2026-09-17) ---
+# The frozen import pack's rules above are preserved verbatim. The rules below
+# belong to this repository projection only.
+
+# Local check output from tools/repo-check.py.
+/.repo-check-output/
+
+# Restored reference inputs must never land in ordinary Git history. Keep the
+# immutable 604 reference outside this working tree (see docs/ARTIFACTS.md).
+/reference-604/
+/SOLARIS_604_REFERENCE_DIR/
+
+# The frozen pack's `/Solaris-Android-Reconstruction/build-inputs/` rule was
+# written for the complete handoff, where that directory held tool binaries.
+# This source projection retains only its five JSON descriptors, which must stay
+# tracked so the import remains byte-verifiable. Binaries there stay ignored.
+!/Solaris-Android-Reconstruction/build-inputs/
+/Solaris-Android-Reconstruction/build-inputs/**
+!/Solaris-Android-Reconstruction/build-inputs/ui-toolchain/
+!/Solaris-Android-Reconstruction/build-inputs/BUILD-INPUTS.json
+!/Solaris-Android-Reconstruction/build-inputs/TOOL-PROVENANCE.json
+!/Solaris-Android-Reconstruction/build-inputs/packaged-dependencies.json
+!/Solaris-Android-Reconstruction/build-inputs/ui-toolchain/package.json
+!/Solaris-Android-Reconstruction/build-inputs/ui-toolchain/package-lock.json

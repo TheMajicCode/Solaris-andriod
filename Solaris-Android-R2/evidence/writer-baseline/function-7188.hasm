@@ -1,0 +1,121 @@
+=> [Function #7188 "?anon_0_" of 455 bytes]: 5 params, frame size=25, strict=1, exc handler=0, debug info=0  @ offset 0x01c2f1fb
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 3, UInt8: 1>
+==> 00000004: <LoadParam>: <Reg8: 8, UInt8: 2>
+==> 00000007: <LoadParam>: <Reg8: 4, UInt8: 0>
+==> 0000000a: <CreateEnvironment>: <Reg8: 6>
+==> 0000000c: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 0000000f: <JmpTrueLong>: <Addr32: 437, Reg8: 1>  # Address: 000001c4
+==> 00000015: <LoadConstUndefined>: <Reg8: 10>
+==> 00000017: <LoadConstUndefined>: <Reg8: 9>
+==> 00000019: <StoreToEnvironment>: <Reg8: 6, UInt8: 0, Reg8: 3>
+==> 0000001d: <GetArgumentsLength>: <Reg8: 1, Reg8: 9>
+==> 00000020: <LoadConstUInt8>: <Reg8: 2, UInt8: 4>
+==> 00000023: <Greater>: <Reg8: 7, Reg8: 1, Reg8: 2>
+==> 00000027: <LoadConstFalse>: <Reg8: 1>
+==> 00000029: <LoadConstFalse>: <Reg8: 5>
+==> 0000002b: <JmpFalse>: <Addr8: 17, Reg8: 7>  # Address: 0000003c
+==> 0000002e: <GetArgumentsPropByVal>: <Reg8: 7, Reg8: 2, Reg8: 9>
+==> 00000032: <LoadConstFalse>: <Reg8: 5>
+==> 00000034: <JStrictEqual>: <Addr8: 8, Reg8: 7, Reg8: 10>  # Address: 0000003c
+==> 00000038: <GetArgumentsPropByVal>: <Reg8: 5, Reg8: 2, Reg8: 9>
+==> 0000003c: <GetArgumentsLength>: <Reg8: 7, Reg8: 9>
+==> 0000003f: <LoadConstUInt8>: <Reg8: 2, UInt8: 5>
+==> 00000042: <Greater>: <Reg8: 11, Reg8: 7, Reg8: 2>
+==> 00000046: <LoadConstUndefined>: <Reg8: 7>
+==> 00000048: <JmpFalse>: <Addr8: 7, Reg8: 11>  # Address: 0000004f
+==> 0000004b: <GetArgumentsPropByVal>: <Reg8: 7, Reg8: 2, Reg8: 9>
+==> 0000004f: <GetByIdShort>: <Reg8: 2, Reg8: 4, UInt8: 1, string_id: 73>  # String: 'check' (Identifier)
+==> 00000054: <Call2>: <Reg8: 2, Reg8: 2, Reg8: 4, Reg8: 3>
+==> 00000059: <PutById>: <Reg8: 4, Reg8: 8, UInt8: 1, string_id: 195>  # String: 'phase' (Identifier)
+==> 0000005f: <GetByIdShort>: <Reg8: 2, Reg8: 4, UInt8: 2, string_id: 72>  # String: 'changed' (Identifier)
+==> 00000064: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 4>
+==> 00000068: <JmpFalse>: <Addr8: 48, Reg8: 5>  # Address: 00000098
+==> 0000006b: <GetById>: <Reg8: 12, Reg8: 4, UInt8: 3, string_id: 15384>  # String: 'trace' (Identifier)
+==> 00000071: <GetByIdShort>: <Reg8: 11, Reg8: 12, UInt8: 4, string_id: 44>  # String: 'add' (Identifier)
+==> 00000076: <NewObject>: <Reg8: 9>
+==> 00000078: <GetById>: <Reg8: 16, Reg8: 3, UInt8: 5, string_id: 17234>  # String: 'ctx' (Identifier)
+==> 0000007e: <Mov>: <Reg8: 17, Reg8: 9>
+==> 00000081: <CallBuiltin>: <Reg8: 2, UInt8: 44, UInt8: 3>  # Built-in function: [#44 copyDataProperties]
+==> 00000085: <LoadConstString>: <Reg8: 2, string_id: 195>  # String: 'phase' (Identifier)
+==> 00000089: <PutOwnByVal>: <Reg8: 9, Reg8: 8, Reg8: 2, UInt8: 1>
+==> 0000008e: <LoadConstString>: <Reg8: 2, string_id: 5441>  # String: 'sdk-dispatch' (String)
+==> 00000092: <Call3>: <Reg8: 2, Reg8: 11, Reg8: 12, Reg8: 9, Reg8: 2>
+==> 00000098: <PutById>: <Reg8: 3, Reg8: 1, UInt8: 2, string_id: 18712>  # String: 'pendingSettled' (Identifier)
+==> 0000009e: <GetGlobalObject>: <Reg8: 1>
+==> 000000a0: <TryGetById>: <Reg8: 9, Reg8: 1, UInt8: 6, string_id: 19>  # String: 'Promise' (Identifier)
+==> 000000a6: <GetByIdShort>: <Reg8: 2, Reg8: 9, UInt8: 7, string_id: 215>  # String: 'resolve' (Identifier)
+==> 000000ab: <Call1>: <Reg8: 11, Reg8: 2, Reg8: 9>
+==> 000000af: <GetByIdShort>: <Reg8: 9, Reg8: 11, UInt8: 8, string_id: 149>  # String: 'then' (Identifier)
+==> 000000b4: <LoadParam>: <Reg8: 2, UInt8: 3>
+==> 000000b7: <Call2>: <Reg8: 9, Reg8: 9, Reg8: 11, Reg8: 2>
+==> 000000bc: <LoadConstNull>: <Reg8: 2>
+==> 000000be: <JNotEqual>: <Addr8: 7, Reg8: 7, Reg8: 2>  # Address: 000000c5
+==> 000000c2: <Mov>: <Reg8: 7, Reg8: 9>
+==> 000000c5: <PutById>: <Reg8: 3, Reg8: 7, UInt8: 3, string_id: 193>  # String: 'pending' (Identifier)
+==> 000000cb: <GetByIdShort>: <Reg8: 12, Reg8: 3, UInt8: 9, string_id: 193>  # String: 'pending' (Identifier)
+==> 000000d0: <GetByIdShort>: <Reg8: 11, Reg8: 12, UInt8: 8, string_id: 149>  # String: 'then' (Identifier)
+==> 000000d5: <CreateClosure>: <Reg8: 7, Reg8: 6, function_id: 7189>  # Function: [#7189  of 19 bytes]: 1 params @ offset 0x01c2f3c2
+==> 000000da: <CreateClosure>: <Reg8: 6, Reg8: 6, function_id: 7190>  # Function: [#7190  of 19 bytes]: 1 params @ offset 0x01c2f3c2
+==> 000000df: <Call3>: <Reg8: 6, Reg8: 11, Reg8: 12, Reg8: 7, Reg8: 6>
+==> 000000e5: <GetEnvironment>: <Reg8: 6, UInt8: 3>
+==> 000000e8: <LoadFromEnvironment>: <Reg8: 6, Reg8: 6, UInt8: 12>
+==> 000000ec: <GetById>: <Reg8: 7, Reg8: 6, UInt8: 10, string_id: 17526>  # String: 'bounded' (Identifier)
+==> 000000f2: <GetById>: <Reg8: 6, Reg8: 8, UInt8: 11, string_id: 14747>  # String: 'toUpperCase' (Identifier)
+==> 000000f8: <Call1>: <Reg8: 13, Reg8: 6, Reg8: 8>
+==> 000000fc: <GetByIdShort>: <Reg8: 12, Reg8: 13, UInt8: 12, string_id: 212>  # String: 'replace' (Identifier)
+==> 00000101: <CreateRegExp>: <Reg8: 11, string_id: 1318, string_id: 14041, UInt32: 95>  # String: '-' (String)  # String: 'g' (Identifier)
+==> 0000010f: <LoadConstString>: <Reg8: 6, string_id: 426>  # String: '_' (String)
+==> 00000113: <Call3>: <Reg8: 12, Reg8: 12, Reg8: 13, Reg8: 11, Reg8: 6>
+==> 00000119: <TryGetById>: <Reg8: 1, Reg8: 1, UInt8: 13, string_id: 9>  # String: 'HermesInternal' (Identifier)
+==> 0000011f: <GetByIdShort>: <Reg8: 11, Reg8: 1, UInt8: 14, string_id: 82>  # String: 'concat' (Identifier)
+==> 00000124: <LoadConstString>: <Reg8: 6, string_id: 13965>  # String: '' (Identifier)
+==> 00000128: <LoadConstString>: <Reg8: 1, string_id: 6000>  # String: '_TIMEOUT' (String)
+==> 0000012c: <Call3>: <Reg8: 15, Reg8: 11, Reg8: 6, Reg8: 12, Reg8: 1>
+==> 00000132: <LoadParam>: <Reg8: 16, UInt8: 4>
+==> 00000135: <LoadConstUndefined>: <Reg8: 18>
+==> 00000137: <Mov>: <Reg8: 17, Reg8: 9>
+==> 0000013a: <Mov>: <Reg8: 14, Reg8: 8>
+==> 0000013d: <Call>: <Reg8: 1, Reg8: 7, UInt8: 5>
+==> 00000141: <SaveGenerator>: <Addr8: 4>  # Address: 00000145
+==> 00000143: <Ret>: <Reg8: 1>
+==> 00000145: <ResumeGenerator>: <Reg8: 1, Reg8: 6>
+==> 00000148: <JmpTrue>: <Addr8: 121, Reg8: 6>  # Address: 000001c1
+==> 0000014b: <JmpFalse>: <Addr8: 48, Reg8: 5>  # Address: 0000017b
+==> 0000014e: <GetById>: <Reg8: 9, Reg8: 4, UInt8: 3, string_id: 15384>  # String: 'trace' (Identifier)
+==> 00000154: <GetByIdShort>: <Reg8: 7, Reg8: 9, UInt8: 4, string_id: 44>  # String: 'add' (Identifier)
+==> 00000159: <NewObject>: <Reg8: 6>
+==> 0000015b: <GetById>: <Reg8: 16, Reg8: 3, UInt8: 5, string_id: 17234>  # String: 'ctx' (Identifier)
+==> 00000161: <Mov>: <Reg8: 17, Reg8: 6>
+==> 00000164: <CallBuiltin>: <Reg8: 5, UInt8: 44, UInt8: 3>  # Built-in function: [#44 copyDataProperties]
+==> 00000168: <LoadConstString>: <Reg8: 5, string_id: 195>  # String: 'phase' (Identifier)
+==> 0000016c: <PutOwnByVal>: <Reg8: 6, Reg8: 8, Reg8: 5, UInt8: 1>
+==> 00000171: <LoadConstString>: <Reg8: 5, string_id: 2658>  # String: 'sdk-reply' (String)
+==> 00000175: <Call3>: <Reg8: 5, Reg8: 7, Reg8: 9, Reg8: 6, Reg8: 5>
+==> 0000017b: <GetByIdShort>: <Reg8: 5, Reg8: 4, UInt8: 1, string_id: 73>  # String: 'check' (Identifier)
+==> 00000180: <Call2>: <Reg8: 5, Reg8: 5, Reg8: 4, Reg8: 3>
+==> 00000185: <GetById>: <Reg8: 7, Reg8: 4, UInt8: 3, string_id: 15384>  # String: 'trace' (Identifier)
+==> 0000018b: <GetByIdShort>: <Reg8: 6, Reg8: 7, UInt8: 4, string_id: 44>  # String: 'add' (Identifier)
+==> 00000190: <NewObject>: <Reg8: 5>
+==> 00000192: <GetById>: <Reg8: 16, Reg8: 3, UInt8: 5, string_id: 17234>  # String: 'ctx' (Identifier)
+==> 00000198: <Mov>: <Reg8: 17, Reg8: 5>
+==> 0000019b: <CallBuiltin>: <Reg8: 4, UInt8: 44, UInt8: 3>  # Built-in function: [#44 copyDataProperties]
+==> 0000019f: <LoadConstString>: <Reg8: 4, string_id: 195>  # String: 'phase' (Identifier)
+==> 000001a3: <PutOwnByVal>: <Reg8: 5, Reg8: 8, Reg8: 4, UInt8: 1>
+==> 000001a8: <LoadConstString>: <Reg8: 4, string_id: 4518>  # String: 'operation-settled' (String)
+==> 000001ac: <Call3>: <Reg8: 4, Reg8: 6, Reg8: 7, Reg8: 5, Reg8: 4>
+==> 000001b2: <PutById>: <Reg8: 3, Reg8: 2, UInt8: 4, string_id: 20441>  # String: 'cancelAction' (Identifier)
+==> 000001b8: <PutById>: <Reg8: 3, Reg8: 2, UInt8: 5, string_id: 20448>  # String: 'cancelPromise' (Identifier)
+==> 000001be: <CompleteGenerator>: <>
+==> 000001bf: <Ret>: <Reg8: 1>
+==> 000001c1: <CompleteGenerator>: <>
+==> 000001c2: <Ret>: <Reg8: 1>
+==> 000001c4: <CompleteGenerator>: <>
+==> 000001c5: <Ret>: <Reg8: 0>
+
+
+===============
+

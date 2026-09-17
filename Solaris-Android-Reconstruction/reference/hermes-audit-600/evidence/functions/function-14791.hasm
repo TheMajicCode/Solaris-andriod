@@ -1,0 +1,16 @@
+=> [Function #14791 "" of 31 bytes]: 2 params, frame size=11, strict=1, exc handler=0, debug info=0  @ offset 0x01d3537e
+
+Bytecode listing:
+
+==> 00000000: <GetEnvironment>: <Reg8: 0, UInt8: 0>
+==> 00000003: <LoadFromEnvironment>: <Reg8: 0, Reg8: 0, UInt8: 0>
+==> 00000007: <GetById>: <Reg8: 2, Reg8: 0, UInt8: 1, string_id: 20784>  # String: 'grantedScopes' (Identifier)
+==> 0000000d: <GetByIdShort>: <Reg8: 1, Reg8: 2, UInt8: 2, string_id: 102>  # String: 'includes' (Identifier)
+==> 00000012: <LoadParam>: <Reg8: 0, UInt8: 1>
+==> 00000015: <Call2>: <Reg8: 0, Reg8: 1, Reg8: 2, Reg8: 0>
+==> 0000001a: <Not>: <Reg8: 0, Reg8: 0>
+==> 0000001d: <Ret>: <Reg8: 0>
+
+
+===============
+

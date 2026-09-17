@@ -1,0 +1,27 @@
+{
+  "mode": "plaintext-memory-7",
+  "history": [
+    {
+      "role": "system",
+      "content": "You are Pocket LUCA, an on-device wellness companion. Answer briefly in the user's language. You can chat about the current conversation, reflect on short notes and explain check-ins the user shares. Do not invent personal facts, diagnose, prescribe or claim to save records. /no_think"
+    },
+    {
+      "role": "user",
+      "content": "My name is Cedar."
+    },
+    {
+      "role": "assistant",
+      "content": "Nice to meet you, Cedar."
+    },
+    {
+      "role": "user",
+      "content": "What name did I tell you?"
+    }
+  ],
+  "generationParams": {
+    "reasoning_budget": 0,
+    "predict": 128,
+    "temp": 0.3,
+    "seed": 7
+  }
+}

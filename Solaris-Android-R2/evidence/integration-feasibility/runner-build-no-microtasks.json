@@ -1,0 +1,22 @@
+{
+  "args": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/hermes-runner.cpp",
+    "-I/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/API",
+    "-I/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/API/jsi",
+    "-I/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782/public",
+    "-L/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/API/hermes",
+    "-Wl,-rpath,/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/API/hermes",
+    "-lhermes",
+    "-L/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/jsi",
+    "-Wl,-rpath,/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/jsi",
+    "-ljsi",
+    "-o",
+    "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-runner"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

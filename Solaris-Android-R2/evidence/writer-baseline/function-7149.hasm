@@ -1,0 +1,88 @@
+=> [Function #7149 "snapshot" of 370 bytes]: 1 params, frame size=15, strict=1, exc handler=0, debug info=0  @ offset 0x01c2df5b
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 1, UInt8: 0>
+==> 00000003: <NewObject>: <Reg8: 0>
+==> 00000005: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 1, string_id: 19139>  # String: 'preparation' (Identifier)
+==> 0000000b: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 1>
+==> 0000000f: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 19139>  # String: 'preparation' (Identifier)
+==> 00000014: <NewObject>: <Reg8: 2>
+==> 00000016: <GetById>: <Reg8: 6, Reg8: 1, UInt8: 2, string_id: 21018>  # String: 'preparationChoice' (Identifier)
+==> 0000001c: <Mov>: <Reg8: 7, Reg8: 2>
+==> 0000001f: <CallBuiltin>: <Reg8: 3, UInt8: 44, UInt8: 3>  # Built-in function: [#44 copyDataProperties]
+==> 00000023: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 21018>  # String: 'preparationChoice' (Identifier)
+==> 00000028: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 3, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 0000002e: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 4, string_id: 35>  # String: 'state' (Identifier)
+==> 00000033: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 14303>  # String: 'transfer' (Identifier)
+==> 00000038: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 5, string_id: 17483>  # String: 'recoveryInfo' (Identifier)
+==> 0000003e: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 15811>  # String: 'recovery' (Identifier)
+==> 00000043: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 6, string_id: 16498>  # String: 'transferImport' (Identifier)
+==> 00000049: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 18690>  # String: 'importing' (Identifier)
+==> 0000004e: <GetByIdShort>: <Reg8: 2, Reg8: 1, UInt8: 7, string_id: 225>  # String: 'status' (Identifier)
+==> 00000053: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 2, string_id: 225>  # String: 'status' (Identifier)
+==> 00000057: <GetByIdShort>: <Reg8: 2, Reg8: 1, UInt8: 8, string_id: 195>  # String: 'phase' (Identifier)
+==> 0000005c: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 2, string_id: 195>  # String: 'phase' (Identifier)
+==> 00000060: <GetByIdShort>: <Reg8: 3, Reg8: 1, UInt8: 9, string_id: 122>  # String: 'error' (Identifier)
+==> 00000065: <LoadConstNull>: <Reg8: 2>
+==> 00000067: <JmpFalse>: <Addr8: 38, Reg8: 3>  # Address: 0000008d
+==> 0000006a: <NewObject>: <Reg8: 3>
+==> 0000006c: <GetByIdShort>: <Reg8: 4, Reg8: 1, UInt8: 9, string_id: 122>  # String: 'error' (Identifier)
+==> 00000071: <GetByIdShort>: <Reg8: 4, Reg8: 4, UInt8: 10, string_id: 80>  # String: 'code' (Identifier)
+==> 00000076: <PutNewOwnByIdShort>: <Reg8: 3, Reg8: 4, string_id: 80>  # String: 'code' (Identifier)
+==> 0000007a: <GetByIdShort>: <Reg8: 4, Reg8: 1, UInt8: 9, string_id: 122>  # String: 'error' (Identifier)
+==> 0000007f: <GetById>: <Reg8: 4, Reg8: 4, UInt8: 11, string_id: 15897>  # String: 'stage' (Identifier)
+==> 00000085: <PutNewOwnById>: <Reg8: 3, Reg8: 4, string_id: 15897>  # String: 'stage' (Identifier)
+==> 0000008a: <Mov>: <Reg8: 2, Reg8: 3>
+==> 0000008d: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 2, string_id: 122>  # String: 'error' (Identifier)
+==> 00000091: <GetGlobalObject>: <Reg8: 2>
+==> 00000093: <TryGetById>: <Reg8: 5, Reg8: 2, UInt8: 12, string_id: 15800>  # String: 'Boolean' (Identifier)
+==> 00000099: <GetByIdShort>: <Reg8: 3, Reg8: 1, UInt8: 13, string_id: 96>  # String: 'current' (Identifier)
+==> 0000009e: <LoadConstUndefined>: <Reg8: 4>
+==> 000000a0: <Call2>: <Reg8: 3, Reg8: 5, Reg8: 4, Reg8: 3>
+==> 000000a5: <PutNewOwnById>: <Reg8: 0, Reg8: 3, string_id: 15174>  # String: 'busy' (Identifier)
+==> 000000aa: <GetById>: <Reg8: 3, Reg8: 1, UInt8: 14, string_id: 14465>  # String: 'blocked' (Identifier)
+==> 000000b0: <PutNewOwnById>: <Reg8: 0, Reg8: 3, string_id: 14465>  # String: 'blocked' (Identifier)
+==> 000000b5: <TryGetById>: <Reg8: 3, Reg8: 2, UInt8: 12, string_id: 15800>  # String: 'Boolean' (Identifier)
+==> 000000bb: <GetByIdShort>: <Reg8: 2, Reg8: 1, UInt8: 15, string_id: 176>  # String: 'modelId' (Identifier)
+==> 000000c0: <JmpFalse>: <Addr8: 9, Reg8: 2>  # Address: 000000c9
+==> 000000c3: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 16, string_id: 21209>  # String: 'workerReady' (Identifier)
+==> 000000c9: <JmpFalse>: <Addr8: 12, Reg8: 2>  # Address: 000000d5
+==> 000000cc: <GetById>: <Reg8: 5, Reg8: 1, UInt8: 14, string_id: 14465>  # String: 'blocked' (Identifier)
+==> 000000d2: <Not>: <Reg8: 2, Reg8: 5>
+==> 000000d5: <JmpFalse>: <Addr8: 9, Reg8: 2>  # Address: 000000de
+==> 000000d8: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 17, string_id: 14370>  # String: 'active' (Identifier)
+==> 000000de: <Call2>: <Reg8: 2, Reg8: 3, Reg8: 4, Reg8: 2>
+==> 000000e3: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 14377>  # String: 'loaded' (Identifier)
+==> 000000e8: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 3, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 000000ee: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 4, string_id: 35>  # String: 'state' (Identifier)
+==> 000000f3: <GetById>: <Reg8: 3, Reg8: 2, UInt8: 18, string_id: 15989>  # String: 'verified' (Identifier)
+==> 000000f9: <LoadConstTrue>: <Reg8: 2>
+==> 000000fb: <StrictEq>: <Reg8: 2, Reg8: 3, Reg8: 2>
+==> 000000ff: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 15989>  # String: 'verified' (Identifier)
+==> 00000104: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 19, string_id: 16139>  # String: 'progress' (Identifier)
+==> 0000010a: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 16139>  # String: 'progress' (Identifier)
+==> 0000010f: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 20, string_id: 16527>  # String: 'receivedBytes' (Identifier)
+==> 00000115: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 16527>  # String: 'receivedBytes' (Identifier)
+==> 0000011a: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 21, string_id: 15809>  # String: 'runtimeState' (Identifier)
+==> 00000120: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 14467>  # String: 'runtime' (Identifier)
+==> 00000125: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 22, string_id: 17466>  # String: 'catalog' (Identifier)
+==> 0000012b: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 17466>  # String: 'catalog' (Identifier)
+==> 00000130: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 23, string_id: 20452>  # String: 'cancellation' (Identifier)
+==> 00000136: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 20452>  # String: 'cancellation' (Identifier)
+==> 0000013b: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 24, string_id: 14535>  # String: 'output' (Identifier)
+==> 00000141: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 14535>  # String: 'output' (Identifier)
+==> 00000146: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 25, string_id: 14860>  # String: 'receipt' (Identifier)
+==> 0000014c: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 14860>  # String: 'receipt' (Identifier)
+==> 00000151: <NewObject>: <Reg8: 2>
+==> 00000153: <GetById>: <Reg8: 6, Reg8: 1, UInt8: 26, string_id: 15634>  # String: 'inference' (Identifier)
+==> 00000159: <Mov>: <Reg8: 7, Reg8: 2>
+==> 0000015c: <CallBuiltin>: <Reg8: 3, UInt8: 44, UInt8: 3>  # Built-in function: [#44 copyDataProperties]
+==> 00000160: <PutNewOwnById>: <Reg8: 0, Reg8: 2, string_id: 15634>  # String: 'inference' (Identifier)
+==> 00000165: <GetById>: <Reg8: 1, Reg8: 1, UInt8: 27, string_id: 16342>  # String: 'localStatus' (Identifier)
+==> 0000016b: <PutNewOwnById>: <Reg8: 0, Reg8: 1, string_id: 13982>  # String: 'local' (Identifier)
+==> 00000170: <Ret>: <Reg8: 0>
+
+
+===============
+

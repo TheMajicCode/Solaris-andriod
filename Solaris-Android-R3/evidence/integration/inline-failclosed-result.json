@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "unmapped parameter",
+      "result": "REJECT",
+      "reason": "Unmapped donor parameter: 1"
+    },
+    {
+      "name": "unallocated original register destination",
+      "result": "REJECT",
+      "reason": "Return destination must be an original caller register"
+    },
+    {
+      "name": "scratch overlaps original frame",
+      "result": "REJECT",
+      "reason": "Scratch registers must be outside original frame"
+    },
+    {
+      "name": "oversized frame",
+      "result": "REJECT",
+      "reason": "Inlined frame exceeds compact limit"
+    },
+    {
+      "name": "new donor string",
+      "result": "REJECT",
+      "reason": "New string table entry required"
+    },
+    {
+      "name": "donor literal buffer",
+      "result": "REJECT",
+      "reason": "Unsupported donor opcode: NewObjectWithBuffer"
+    },
+    {
+      "name": "donor lexical closure",
+      "result": "REJECT",
+      "reason": "Donor must have no lexical environment"
+    },
+    {
+      "name": "donor regexp table",
+      "result": "REJECT",
+      "reason": "Unsupported donor opcode: CreateRegExp"
+    }
+  ],
+  "baseline_sha256": "fd8b38bcdd42421c18da4a0b69b2d58906ceddd7c4a2044b34faed51490f4653"
+}

@@ -1,0 +1,33 @@
+{
+  "hermes_sha256": "3df60d77080aa9b5a0d241ef54121b6c1a88be9d8fbe945c6d580e6360756c99",
+  "hvm_sha256": "edd80fcabd3223d58af552e08dea7de56b403504df97b24c0a920f4c6e888055",
+  "results": [
+    {
+      "args": [
+        "reconstruction-work/r2-tools/hermes-build/bin/hermes",
+        "-version"
+      ],
+      "returncode": 0,
+      "stdout": "LLVM (http://llvm.org/):\n  LLVH version 8.0.0svn\n  Optimized build\n\nHermes JavaScript compiler and Virtual Machine.\n  Hermes release version: 0.12.0\n  HBC bytecode version: 96\n\n  Features:\n    Debugger\n    Contiguous Heap\n    Unicode RegExp Property Escapes\n    Zip file input\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "reconstruction-work/r2-tools/hermes-build/bin/hvm",
+        "Solaris-Android-R2/evidence/integration-feasibility/probe.hbc"
+      ],
+      "returncode": 0,
+      "stdout": "{\"answer\":42,\"bytecodeVersion\":96}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "reconstruction-work/r2-tools/hermes-build/bin/hermes",
+        "Solaris-Android-R2/evidence/integration-feasibility/probe.js"
+      ],
+      "returncode": 0,
+      "stdout": "{\"answer\":42,\"bytecodeVersion\":96}\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+# Source-only checks for the Solaris Android repository projection.
+#
+# This workflow deliberately does NOT build, sign, install or test an Android
+# application, and it is NOT the full-reference 604 verification. A green run
+# here proves imported bytes are intact and tracked text parses. It proves
+# nothing about security, licensing, native build completeness or release
+# readiness. See docs/BUILD-AND-TEST.md.
+name: source-checks
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+# Ordinary checks need read access only. No secrets are referenced anywhere in
+# this workflow, and no signing material may ever be added to it.
+permissions:
+  contents: read
+
+concurrency:
+  group: source-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-checks:
+    name: Source-only repository checks
+    runs-on: ubuntu-latest
+    steps:
+      # First-party actions only. Any third-party action added here must be
+      # pinned to a full verified commit SHA.
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run repository source checks
+        run: python3 tools/repo-check.py
+
+      - name: Machine-readable report
+        if: always()
+        run: python3 tools/repo-check.py --json > repo-check-report.json || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: repo-check-report
+          path: repo-check-report.json
+          retention-days: 14

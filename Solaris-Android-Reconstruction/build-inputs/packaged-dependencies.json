@@ -1,0 +1,818 @@
+[
+  {
+    "path": "node_modules/@hyperswarm/secret-stream/package.json",
+    "name": "@hyperswarm/secret-stream",
+    "version": "6.9.1",
+    "sha256": "3b696730ec360c32a7f2ce39c7dbb0dd53295defe71d675a32123d597034bd57"
+  },
+  {
+    "path": "node_modules/@qvac/decoder-audio/package.json",
+    "name": "@qvac/decoder-audio",
+    "version": "0.5.0",
+    "sha256": "830c768b828b00ac9fc16dccf099228bc24e136b69eeb0d837ff4e47070f1252"
+  },
+  {
+    "path": "node_modules/@qvac/error/package.json",
+    "name": "@qvac/error",
+    "version": "0.1.1",
+    "sha256": "8944b5a3bd51eed86ee350b816af89b5f11a009c115093a88a50730bfe0193f6"
+  },
+  {
+    "path": "node_modules/@qvac/infer-base/package.json",
+    "name": "@qvac/infer-base",
+    "version": "0.6.2",
+    "sha256": "a6a02446c053fbce1d4aafe7282b984686f438237cda6d704b9e77504a24c11b"
+  },
+  {
+    "path": "node_modules/@qvac/langdetect-text/package.json",
+    "name": "@qvac/langdetect-text",
+    "version": "0.1.2",
+    "sha256": "d026b8c97b3cb1c6f793c6861281fee097c171eb31ba93a44c0094fc4f845581"
+  },
+  {
+    "path": "node_modules/@qvac/llm-llamacpp/package.json",
+    "name": "@qvac/llm-llamacpp",
+    "version": "0.45.0",
+    "sha256": "78416093ce36b5646d8a35b7ee205f924ea280333f37b7ca354e52cb3627877e"
+  },
+  {
+    "path": "node_modules/@qvac/logging/package.json",
+    "name": "@qvac/logging",
+    "version": "0.1.1",
+    "sha256": "dbefe8ab3e679828dbd60060b9fa44ceb26136047073acb821af23164955a7f8"
+  },
+  {
+    "path": "node_modules/@qvac/rag/package.json",
+    "name": "@qvac/rag",
+    "version": "0.6.4",
+    "sha256": "a74b09bd05df84b827f21007b4eb38b529044e7b83435cce478c09978b7b6c86"
+  },
+  {
+    "path": "node_modules/@qvac/registry-client/package.json",
+    "name": "@qvac/registry-client",
+    "version": "0.6.1",
+    "sha256": "0643f22878a284e343baaa5462cde7af886e0eaf0b07cc10a35e25d1a305f943"
+  },
+  {
+    "path": "node_modules/@qvac/registry-schema/package.json",
+    "name": "@qvac/registry-schema",
+    "version": "0.3.0",
+    "sha256": "db21b98ab074a3a8fd118a4315b4bd44a745915794fc46bf428cce0e4d27da29"
+  },
+  {
+    "path": "node_modules/@qvac/sdk/package.json",
+    "name": "@qvac/sdk",
+    "version": "0.18.2",
+    "sha256": "f04d6b5148124451a2844ce84564bafda697c1bb8d71cf7f822633ca5c24c3d2"
+  },
+  {
+    "path": "node_modules/adaptive-timeout/package.json",
+    "name": "adaptive-timeout",
+    "version": "1.0.1",
+    "sha256": "753871e4b3aefd33a4e2ea536679069fb680cbdf26e704145b876e07e7c3593a"
+  },
+  {
+    "path": "node_modules/b4a/package.json",
+    "name": "b4a",
+    "version": "1.8.1",
+    "sha256": "8bca7126107a091957db1d7f091d636fa54d634f38e3b9f0c66c7c571945bd0a"
+  },
+  {
+    "path": "node_modules/bare-abort-controller/package.json",
+    "name": "bare-abort-controller",
+    "version": "1.1.2",
+    "sha256": "6885dcbeac11efacdc8df5dd3fdf02568ddd130c56dbeafac5883feb5d9e45e7"
+  },
+  {
+    "path": "node_modules/bare-ansi-escapes/package.json",
+    "name": "bare-ansi-escapes",
+    "version": "2.2.3",
+    "sha256": "de9f6257f816d49ca1cd69c4640a2eb883f826413765662f6661c237fa5f90df"
+  },
+  {
+    "path": "node_modules/bare-assert/package.json",
+    "name": "bare-assert",
+    "version": "1.2.0",
+    "sha256": "4011f0af56acba4207e341422c113c074beaed9dc8dec64d0f343e903d97be69"
+  },
+  {
+    "path": "node_modules/bare-buffer/package.json",
+    "name": "bare-buffer",
+    "version": "3.7.1",
+    "sha256": "112e843969dffa548af01d9a01a49241ca198ada1ae6ab48c709c391857fe337"
+  },
+  {
+    "path": "node_modules/bare-cpu-info/package.json",
+    "name": "bare-cpu-info",
+    "version": "0.1.1",
+    "sha256": "3e62452cc79306ac92e92f570e8a59f2ba985b251110d03b2be2405c6e88890d"
+  },
+  {
+    "path": "node_modules/bare-crypto/package.json",
+    "name": "bare-crypto",
+    "version": "1.15.3",
+    "sha256": "764111d062f24740dbceecff0c77fc3ca4a741c39b0c555e977a99ba2b29f0d8"
+  },
+  {
+    "path": "node_modules/bare-dns/package.json",
+    "name": "bare-dns",
+    "version": "2.2.0",
+    "sha256": "35425ea922848b3807725538b77fac5151f322272554b4263963e15304a22503"
+  },
+  {
+    "path": "node_modules/bare-env/package.json",
+    "name": "bare-env",
+    "version": "3.0.1",
+    "sha256": "88ebddf75a76d50cfd748cb28c51cb280e5a57951149ee4bbf32c22652822026"
+  },
+  {
+    "path": "node_modules/bare-events/package.json",
+    "name": "bare-events",
+    "version": "2.9.2",
+    "sha256": "90c61548ae5e1ea229a0b8199b82b80e2b99dadf50b07ffc66d96e75949e6ecb"
+  },
+  {
+    "path": "node_modules/bare-fetch/package.json",
+    "name": "bare-fetch",
+    "version": "3.2.1",
+    "sha256": "374c3077428c0b59e6120b81869678875016e7088bc78af4a67844af80e693f6"
+  },
+  {
+    "path": "node_modules/bare-form-data/package.json",
+    "name": "bare-form-data",
+    "version": "1.2.2",
+    "sha256": "33780e90c8a000a055b5d51401e434edf8932138680477f6f8d005764ba97f7b"
+  },
+  {
+    "path": "node_modules/bare-fs/package.json",
+    "name": "bare-fs",
+    "version": "4.8.1",
+    "sha256": "052daf587b2cbfe1bb5d36b19f2f40f22edf0f3c81ccf54aeac7d7bd53617cb6"
+  },
+  {
+    "path": "node_modules/bare-gpu-info/package.json",
+    "name": "bare-gpu-info",
+    "version": "0.1.1",
+    "sha256": "81096b99eef7aee28c1cce4dcf3985267379cf5f618ef42941c68929f29ca3a7"
+  },
+  {
+    "path": "node_modules/bare-hrtime/package.json",
+    "name": "bare-hrtime",
+    "version": "2.1.2",
+    "sha256": "09fc758cfcd32f050bb4a22fe70775fc883820fd3995dba280c7c1ca1b3d24ed"
+  },
+  {
+    "path": "node_modules/bare-http-parser/package.json",
+    "name": "bare-http-parser",
+    "version": "2.1.4",
+    "sha256": "56adca6012d1c075ca38b1e9dd58cdfc89b99e8787a1d6eec76b5a3c0014ed31"
+  },
+  {
+    "path": "node_modules/bare-http1/package.json",
+    "name": "bare-http1",
+    "version": "4.6.1",
+    "sha256": "5271c0155522b364cad72af7a3a5c78adaa853f615921de58f96a81780da9366"
+  },
+  {
+    "path": "node_modules/bare-https/package.json",
+    "name": "bare-https",
+    "version": "3.1.0",
+    "sha256": "8849e730fea007389d51dc643522286cc6c44d2df8490da432d9308703e0b683"
+  },
+  {
+    "path": "node_modules/bare-inspect/package.json",
+    "name": "bare-inspect",
+    "version": "3.1.10",
+    "sha256": "c9d0ecef49d6aa3410de1169eaf0a101cdab73dab1101fd0de10ae921a1ae890"
+  },
+  {
+    "path": "node_modules/bare-mime/package.json",
+    "name": "bare-mime",
+    "version": "1.0.0",
+    "sha256": "ca196cfe491508993c440235fcab836540b37d3553bd940a7aa422693e95cc71"
+  },
+  {
+    "path": "node_modules/bare-net/package.json",
+    "name": "bare-net",
+    "version": "2.3.3",
+    "sha256": "6a523cc879f72088d8c66991ede1b56b5fad14ded7d5085153035a26087fb68d"
+  },
+  {
+    "path": "node_modules/bare-os/package.json",
+    "name": "bare-os",
+    "version": "3.9.3",
+    "sha256": "42fb73ee8c50eabf19409c737f375887e648b4b48bd53794415484a3105ae4f8"
+  },
+  {
+    "path": "node_modules/bare-path/package.json",
+    "name": "bare-path",
+    "version": "3.1.2",
+    "sha256": "c1f20c1714e9e8957a617e9a3c25c115f31ba6cedc1e03eba43c4e7f86556254"
+  },
+  {
+    "path": "node_modules/bare-performance/package.json",
+    "name": "bare-performance",
+    "version": "2.1.1",
+    "sha256": "72c3119fc61afc42bdda1af61117b1718af5e320a59c55108d7aeefbe6a4dff1"
+  },
+  {
+    "path": "node_modules/bare-pipe/package.json",
+    "name": "bare-pipe",
+    "version": "4.3.1",
+    "sha256": "39c41a7af7d5fb91c2c913fb9f1b9ccb9471dafbdb00a11167428bde39861f87"
+  },
+  {
+    "path": "node_modules/bare-rpc/package.json",
+    "name": "bare-rpc",
+    "version": "1.3.8",
+    "sha256": "c1e528c2e9f732f4784dba1424cb1ed3385c4ef44e7a748692a3c226a70080ed"
+  },
+  {
+    "path": "node_modules/bare-signals/package.json",
+    "name": "bare-signals",
+    "version": "4.2.0",
+    "sha256": "58e070e11456e7e92b2a39a6090e6cdce327f5107a4d629948803930666f0184"
+  },
+  {
+    "path": "node_modules/bare-stream/package.json",
+    "name": "bare-stream",
+    "version": "2.13.4",
+    "sha256": "be6d9ae85669929bedb1f5fb52d6948519452e226041b39f8eb832ee1935fa14"
+  },
+  {
+    "path": "node_modules/bare-tcp/package.json",
+    "name": "bare-tcp",
+    "version": "2.6.1",
+    "sha256": "b81824b76ff4d2cf52ce36dfb7c86c6e8d61f127b1db5c6aff741f8b2e2e4450"
+  },
+  {
+    "path": "node_modules/bare-tls/package.json",
+    "name": "bare-tls",
+    "version": "3.1.10",
+    "sha256": "b6c03431dad550a9c3077a64b1c3265d63a4733d9688a7dfabd329804af0f9bd"
+  },
+  {
+    "path": "node_modules/bare-type/package.json",
+    "name": "bare-type",
+    "version": "1.1.1",
+    "sha256": "db0a75d497041b3665303a3c4c10f66b1de00193b647f5ae4391c70e706e84de"
+  },
+  {
+    "path": "node_modules/bare-url/package.json",
+    "name": "bare-url",
+    "version": "2.5.4",
+    "sha256": "1851b50ce08efffb3120032ad07a97b9fed467a94a0abde572a9595f30aa4ec9"
+  },
+  {
+    "path": "node_modules/bare-zlib/package.json",
+    "name": "bare-zlib",
+    "version": "1.4.1",
+    "sha256": "7c91024d394b94e846db448d1616be5b643bc5caf542edd662700306dcbb0aa4"
+  },
+  {
+    "path": "node_modules/big-sparse-array/package.json",
+    "name": "big-sparse-array",
+    "version": "1.0.3",
+    "sha256": "f7d6175438e0cccf5287f6df90fa6a734471ede43b08b9df039dc0426d62fb2a"
+  },
+  {
+    "path": "node_modules/binary-stream-equals/package.json",
+    "name": "binary-stream-equals",
+    "version": "1.0.0",
+    "sha256": "d00c1ffa2ecec371ffafdc8e0b73700a5df1a67554a8698c382c449564a4fe9b"
+  },
+  {
+    "path": "node_modules/bits-to-bytes/package.json",
+    "name": "bits-to-bytes",
+    "version": "1.3.0",
+    "sha256": "9e4a1034276ee6de175917681f30ae835d8bbcf28cb022f2a55cc70dbe1c8ea4"
+  },
+  {
+    "path": "node_modules/blind-relay/package.json",
+    "name": "blind-relay",
+    "version": "1.6.1",
+    "sha256": "5b6ee53db7cd8059c9b9d4161241157aabb356ec1fd2b3b180aa33c5173f266e"
+  },
+  {
+    "path": "node_modules/bogon/package.json",
+    "name": "bogon",
+    "version": "1.3.0",
+    "sha256": "a3e69eda94b2c1b89f54a030c105191316dd24296fa259d6ddd738f5983e2fa9"
+  },
+  {
+    "path": "node_modules/codecs/package.json",
+    "name": "codecs",
+    "version": "3.1.0",
+    "sha256": "8601e269ef404b0555ca52e0365724447fab5b8177d42ea87d2c72f0d9d66429"
+  },
+  {
+    "path": "node_modules/compact-encoding/package.json",
+    "name": "compact-encoding",
+    "version": "3.4.0",
+    "sha256": "373e142b849a3d2884a0f711bc73ee2ec7d13402d0656fd952812c16124d2a13"
+  },
+  {
+    "path": "node_modules/compact-encoding-bitfield/package.json",
+    "name": "compact-encoding-bitfield",
+    "version": "1.1.0",
+    "sha256": "a631e27a20aba27e037ef81643cd34411facc98487467f3f4fe81c9394a8d553"
+  },
+  {
+    "path": "node_modules/corestore/package.json",
+    "name": "corestore",
+    "version": "7.12.4",
+    "sha256": "b89dcf649c2c4450916813aed856981ec806c5f3e7a2d7657d7089038f55d870"
+  },
+  {
+    "path": "node_modules/debounceify/package.json",
+    "name": "debounceify",
+    "version": "1.1.0",
+    "sha256": "194b9806f8e912dfcc10cf9c056988dd39a79803b8591cfa9935c5465ae9db76"
+  },
+  {
+    "path": "node_modules/device-file/package.json",
+    "name": "device-file",
+    "version": "2.3.1",
+    "sha256": "1c3c27264ca31bf262b9360617266221fa201e93b2152136a6a651f52bbf1ad9"
+  },
+  {
+    "path": "node_modules/dht-rpc/package.json",
+    "name": "dht-rpc",
+    "version": "6.27.0",
+    "sha256": "11bddd422b550fad556a87621dbf1a9f909b777979d5cb0d0e0111cbb13e20c8"
+  },
+  {
+    "path": "node_modules/events-universal/package.json",
+    "name": "events-universal",
+    "version": "1.0.1",
+    "sha256": "8f495538444b4876e5d075b0b7c4156832bf55042ec620dd12bfdc402b7ba11c"
+  },
+  {
+    "path": "node_modules/fast-fifo/package.json",
+    "name": "fast-fifo",
+    "version": "1.3.2",
+    "sha256": "06832be0af1f0e41e83328da56c26db94b95eddc4aee5c4789cfd6ab99296a7e"
+  },
+  {
+    "path": "node_modules/fast-safe-stringify/package.json",
+    "name": "fast-safe-stringify",
+    "version": "2.1.1",
+    "sha256": "7b85852566b84d312a5b11dfcb4ed3892ea2e4af01d904d344d97efb72181c09"
+  },
+  {
+    "path": "node_modules/fd-lock/package.json",
+    "name": "fd-lock",
+    "version": "2.2.0",
+    "sha256": "0126320f730b2d0b186993b12e85ba56f89f258d62ddcfd8c50c8895c6d7cf72"
+  },
+  {
+    "path": "node_modules/flat-tree/package.json",
+    "name": "flat-tree",
+    "version": "1.13.0",
+    "sha256": "ecba703b846822230b87e755397ff43901fec8353cb83dcc6aceeb5a82948dae"
+  },
+  {
+    "path": "node_modules/fs-native-extensions/package.json",
+    "name": "fs-native-extensions",
+    "version": "1.5.1",
+    "sha256": "d23dd712121d3d2faaf54b81c4e45c18d7cc273463d56dea521af4568b8e4c00"
+  },
+  {
+    "path": "node_modules/hyperbee/package.json",
+    "name": "hyperbee",
+    "version": "2.27.3",
+    "sha256": "c81fcbef1fcef3e4dbeb6504bfec513649002e19c31a589408f2e1261b328b95"
+  },
+  {
+    "path": "node_modules/hyperblobs/package.json",
+    "name": "hyperblobs",
+    "version": "2.12.1",
+    "sha256": "778f5dac1917a6c932cf78ff96bc79966b919ebba4c1e3eaa8781cfa44e95488"
+  },
+  {
+    "path": "node_modules/hypercore/package.json",
+    "name": "hypercore",
+    "version": "11.35.5",
+    "sha256": "a825e2d5ce3b6ac5abf1697aacbb3e7c5b289e5572b949883dd57ac047f31ba0"
+  },
+  {
+    "path": "node_modules/hypercore-crypto/package.json",
+    "name": "hypercore-crypto",
+    "version": "3.7.0",
+    "sha256": "0419047783f8f34099e6f69e6f963240296a58f7e4641725447c4e9a2527ffb7"
+  },
+  {
+    "path": "node_modules/hypercore-errors/package.json",
+    "name": "hypercore-errors",
+    "version": "1.5.0",
+    "sha256": "037e0aac47d849cde44b2158e90e9b377a283de593fd4f24226259a1ad98dfcc"
+  },
+  {
+    "path": "node_modules/hypercore-id-encoding/package.json",
+    "name": "hypercore-id-encoding",
+    "version": "1.3.0",
+    "sha256": "de7f47c0cbe99d9f2348db02e77cbcb71de20da023ddd791cd2446d726db2c38"
+  },
+  {
+    "path": "node_modules/hypercore-storage/package.json",
+    "name": "hypercore-storage",
+    "version": "3.2.1",
+    "sha256": "0ab3c2ca508ce107a7e4a995a947bb7adcd0260d61b421ead5ec90807f735244"
+  },
+  {
+    "path": "node_modules/hyperdb/package.json",
+    "name": "hyperdb",
+    "version": "6.9.0",
+    "sha256": "7977f2ab1eaa5c69e688985b8b9a6aaada07a6ab48a93c1601606be1fee1c1ed"
+  },
+  {
+    "path": "node_modules/hyperdht/package.json",
+    "name": "hyperdht",
+    "version": "6.34.0",
+    "sha256": "522751590fa8da180ca5285c65c6fe1068a13c1b16d4c8772dce22eeaeb43e70"
+  },
+  {
+    "path": "node_modules/hyperdht-address/package.json",
+    "name": "hyperdht-address",
+    "version": "1.1.1",
+    "sha256": "e8fb80916689c2043e4cea989f99cf2b93bed17dab92d11d95ac5cc071b56917"
+  },
+  {
+    "path": "node_modules/hyperdispatch/package.json",
+    "name": "hyperdispatch",
+    "version": "1.6.0",
+    "sha256": "1ae89df552524ff027ba35f910493bd4dd2be085ac6e6f63fc6bfa089f1d9ec8"
+  },
+  {
+    "path": "node_modules/hyperdrive/package.json",
+    "name": "hyperdrive",
+    "version": "13.3.3",
+    "sha256": "141165a3d835f145d758f7640ce1cbbafdb652c08fdfb1956dfb4b93c22d4111"
+  },
+  {
+    "path": "node_modules/hyperschema/package.json",
+    "name": "hyperschema",
+    "version": "1.23.0",
+    "sha256": "74db93859eadd9ba7be1863ae2fe94f521ab1792f7ebd944eb8995fe7d919a31"
+  },
+  {
+    "path": "node_modules/hyperswarm/package.json",
+    "name": "hyperswarm",
+    "version": "4.17.1",
+    "sha256": "49d51cf2330d07794098f23bdc20af47717a3c16a30032dd7ad3e9e936ab8889"
+  },
+  {
+    "path": "node_modules/index-encoder/package.json",
+    "name": "index-encoder",
+    "version": "3.5.0",
+    "sha256": "440e97d5a757bc1105bd33299f0acf029ed23bf853a3bf04f0bf3cb943c85716"
+  },
+  {
+    "path": "node_modules/is-options/package.json",
+    "name": "is-options",
+    "version": "1.0.2",
+    "sha256": "6b57e66ca69f875b9ff9c185dc4cd7229da0a18166df3f3f91231576d42d8b2c"
+  },
+  {
+    "path": "node_modules/kademlia-routing-table/package.json",
+    "name": "kademlia-routing-table",
+    "version": "1.0.6",
+    "sha256": "d8c5ea61287cf4b8c99822faf72a9a00fd4358974b3972d97c7728516f1820e0"
+  },
+  {
+    "path": "node_modules/llm-splitter/package.json",
+    "name": "llm-splitter",
+    "version": "0.2.0",
+    "sha256": "0ef610cfe8c249f7b61349f1df642bbfc0587d4ae05a21f21ec106543db42b9b"
+  },
+  {
+    "path": "node_modules/mirror-drive/package.json",
+    "name": "mirror-drive",
+    "version": "1.14.2",
+    "sha256": "09c082dd5b4e08c7884648409758688ed4b0071a79de8a057d75fae713924d58"
+  },
+  {
+    "path": "node_modules/mutexify/package.json",
+    "name": "mutexify",
+    "version": "1.4.0",
+    "sha256": "6119dafaf61776724bab38043cce72d4155314ee99222b907b0a83bebac7f0b8"
+  },
+  {
+    "path": "node_modules/nanoassert/package.json",
+    "name": "nanoassert",
+    "version": "2.0.0",
+    "sha256": "2152421c559e2aeb7c002ecfeac306340d23cf3783446cea607a284658df30bd"
+  },
+  {
+    "path": "node_modules/nat-sampler/package.json",
+    "name": "nat-sampler",
+    "version": "1.0.1",
+    "sha256": "5d23b0d9b4664762d20611c8bf5ee8e9c8b678833ebfefbb7626935fc4bbf268"
+  },
+  {
+    "path": "node_modules/noise-curve-ed/package.json",
+    "name": "noise-curve-ed",
+    "version": "2.1.0",
+    "sha256": "00fa9df6d42431ee9ca1837e4599e3c7607a610c8d68d31e2f1fd1a636d644be"
+  },
+  {
+    "path": "node_modules/noise-handshake/package.json",
+    "name": "noise-handshake",
+    "version": "4.2.0",
+    "sha256": "d1857ba90811728c33b1389f09836f2e96127b5ac352c60e7b1cdd7a2d13e1e3"
+  },
+  {
+    "path": "node_modules/protocol-buffers-encodings/package.json",
+    "name": "protocol-buffers-encodings",
+    "version": "1.2.0",
+    "sha256": "b6e3d40dccc2b52e03b692799b099240c75eed6de98345050cce76364eec7d20"
+  },
+  {
+    "path": "node_modules/protomux/package.json",
+    "name": "protomux",
+    "version": "3.11.0",
+    "sha256": "06f4d978e7c83e8b9b94dbbe9c99ad5e3ae8d1c4bc20c55cf63781fa6464a760"
+  },
+  {
+    "path": "node_modules/queue-tick/package.json",
+    "name": "queue-tick",
+    "version": "1.0.1",
+    "sha256": "464dc5de150a6f9b136b4fe2f60496669c5b4df63c6684f272c9f5707bd5a988"
+  },
+  {
+    "path": "node_modules/quickbit-native/package.json",
+    "name": "quickbit-native",
+    "version": "2.4.8",
+    "sha256": "e6da286dbdbc2d9bd5c2694e7278e35cb57b2246d348eed31aeb88262ebfa8b7"
+  },
+  {
+    "path": "node_modules/quickbit-universal/package.json",
+    "name": "quickbit-universal",
+    "version": "2.2.0",
+    "sha256": "3aa2ddc079f4b71692076575456c2b0c2862c7c61d03ff37966347d24b3ba1e0"
+  },
+  {
+    "path": "node_modules/rabin-native/package.json",
+    "name": "rabin-native",
+    "version": "2.0.0",
+    "sha256": "5dcb940430789a84b1db1846fce2a038061c4b7f746b618c79fda4aad368ffaf"
+  },
+  {
+    "path": "node_modules/rabin-stream/package.json",
+    "name": "rabin-stream",
+    "version": "2.0.0",
+    "sha256": "e90dbb4db4687d190ab87b28ada990ea4054d6e8d8e7f09fd0f6e0d06d3bbd5b"
+  },
+  {
+    "path": "node_modules/rache/package.json",
+    "name": "rache",
+    "version": "1.0.0",
+    "sha256": "8aef2fcce33b70c5263e970a8de3c14b3dd36884ce3ceba00396ff2adf0068cf"
+  },
+  {
+    "path": "node_modules/random-array-iterator/package.json",
+    "name": "random-array-iterator",
+    "version": "1.0.0",
+    "sha256": "f68705dde028a38f899479b910d861f094fb12b065ce2a16980c725ee64dc88a"
+  },
+  {
+    "path": "node_modules/ready-resource/package.json",
+    "name": "ready-resource",
+    "version": "1.2.0",
+    "sha256": "c6c33158e4502a4eb511adbfebfa8866af255463a1fea4948489f8e26446439a"
+  },
+  {
+    "path": "node_modules/record-cache/package.json",
+    "name": "record-cache",
+    "version": "1.2.0",
+    "sha256": "517cccd1f69296c849685a6c2741196b90afd26df8ad788d9c2fa7543e2a841f"
+  },
+  {
+    "path": "node_modules/refcounter/package.json",
+    "name": "refcounter",
+    "version": "1.0.0",
+    "sha256": "e858cbe5242c52916dbd8c304077f5f0d7b138bf141753cbad9b414a943f4b83"
+  },
+  {
+    "path": "node_modules/require-addon/package.json",
+    "name": "require-addon",
+    "version": "1.2.0",
+    "sha256": "92b7ed830ce3a41d170603c7f432eaadac21892aa58b52aee14c3fade9d20950"
+  },
+  {
+    "path": "node_modules/resolve-reject-promise/package.json",
+    "name": "resolve-reject-promise",
+    "version": "1.1.0",
+    "sha256": "dfa7c86944a38e9a9527dc5903d5d13061b4ae4696b16e03230f9dd7ec5dd1a2"
+  },
+  {
+    "path": "node_modules/resource-on-exit/package.json",
+    "name": "resource-on-exit",
+    "version": "1.0.0",
+    "sha256": "fcbd1268e43d1c1d7fcfc58aaa3b82a41bc806dfe74d8306a803256cb4018caf"
+  },
+  {
+    "path": "node_modules/rocksdb-native/package.json",
+    "name": "rocksdb-native",
+    "version": "3.17.4",
+    "sha256": "3ac8b35991e7e8ae75a54ba8645792435cd6b15817961cb84c4283726cee8fac"
+  },
+  {
+    "path": "node_modules/safety-catch/package.json",
+    "name": "safety-catch",
+    "version": "1.0.3",
+    "sha256": "36e343d961bb1de499131dd99b41dd714569ab8810158e606e5e8bfbc711ce4c"
+  },
+  {
+    "path": "node_modules/same-data/package.json",
+    "name": "same-data",
+    "version": "1.0.0",
+    "sha256": "508e1c2460430030e1564696c71eddc83dff653687c9d97c3a4af59dcebb0ec2"
+  },
+  {
+    "path": "node_modules/scope-lock/package.json",
+    "name": "scope-lock",
+    "version": "1.2.4",
+    "sha256": "94e72ecd069da07ebe17e201fe52532f70d55a1d37c8619f4d2edc6db4a3f7d5"
+  },
+  {
+    "path": "node_modules/shuffled-priority-queue/package.json",
+    "name": "shuffled-priority-queue",
+    "version": "2.1.0",
+    "sha256": "909a1a986380c9f50dd20c078a4bd20bbab0b873233fbfe2f35dbdf8de80f62d"
+  },
+  {
+    "path": "node_modules/signal-promise/package.json",
+    "name": "signal-promise",
+    "version": "1.0.3",
+    "sha256": "25d9605684637900b3c2fa9166c397c15fe78106234ab2a6fb3c99885d9ef898"
+  },
+  {
+    "path": "node_modules/signed-varint/package.json",
+    "name": "signed-varint",
+    "version": "2.0.1",
+    "sha256": "ad84fc8f755a53248b3024f92cc226b98642debe57b322abbf67e13010a25464"
+  },
+  {
+    "path": "node_modules/simdle-native/package.json",
+    "name": "simdle-native",
+    "version": "1.3.9",
+    "sha256": "579e48c14800c76ef5b72ad8d05f4b37c12e11dc98c9c9510f93841b4da7f7f5"
+  },
+  {
+    "path": "node_modules/simdle-universal/package.json",
+    "name": "simdle-universal",
+    "version": "1.1.2",
+    "sha256": "ab61bd72055c5ed21d4b98022a9b9efc48d3c3d042eb39bf8325262f3508de4d"
+  },
+  {
+    "path": "node_modules/sodium-native/package.json",
+    "name": "sodium-native",
+    "version": "5.1.0",
+    "sha256": "1e6fd2661b353874fd87f8cc845e1475828670989c661162042a94cc250ccccf"
+  },
+  {
+    "path": "node_modules/sodium-secretstream/package.json",
+    "name": "sodium-secretstream",
+    "version": "1.2.0",
+    "sha256": "1b9c8ab622798b75dc7dd838cda955ea24489f4bab43c6037dbad8c029f85c59"
+  },
+  {
+    "path": "node_modules/sodium-universal/package.json",
+    "name": "sodium-universal",
+    "version": "5.0.1",
+    "sha256": "ca0852fe314c4736d6c0ebf880e637436ac477388ab31e5c942552381ba5b725"
+  },
+  {
+    "path": "node_modules/speedometer/package.json",
+    "name": "speedometer",
+    "version": "1.1.0",
+    "sha256": "d1227b3a4eaa7e9ddecd6ac1ce5cf268b51c1e8879b76212e09bfb28d2b95bf1"
+  },
+  {
+    "path": "node_modules/streamx/package.json",
+    "name": "streamx",
+    "version": "2.28.1",
+    "sha256": "59851cb46943a4eb8ac8bce1c30bff55aad5a178ab5619be1ad625c97c4e0172"
+  },
+  {
+    "path": "node_modules/sub-encoder/package.json",
+    "name": "sub-encoder",
+    "version": "2.1.3",
+    "sha256": "0443beafb50c153fe43a494c6906ae625e588c4e0dbd81031490afe37853e593"
+  },
+  {
+    "path": "node_modules/tar-stream/package.json",
+    "name": "tar-stream",
+    "version": "3.2.1",
+    "sha256": "1cc0f028c086c697b40636b530ed1006923631df813e13f1d717f2ebd5e0ff47"
+  },
+  {
+    "path": "node_modules/teex/package.json",
+    "name": "teex",
+    "version": "1.0.1",
+    "sha256": "b37a78b9a1e3339c1267a738131066b71125866823df6cc704fdb5fbaa923337"
+  },
+  {
+    "path": "node_modules/text-decoder/package.json",
+    "name": "text-decoder",
+    "version": "1.2.7",
+    "sha256": "a5ceb9918cdaad08ce57e7dcd9424525b6923b785b4167ecf04a62b9fa308155"
+  },
+  {
+    "path": "node_modules/time-ordered-set/package.json",
+    "name": "time-ordered-set",
+    "version": "2.0.1",
+    "sha256": "088852e690664c7c77a9b52773681174d8526a883e02c2200ec5ca9fdda656bf"
+  },
+  {
+    "path": "node_modules/timeout-refresh/package.json",
+    "name": "timeout-refresh",
+    "version": "2.0.1",
+    "sha256": "febbd0665f562040c0a2e4797a196a7d6186d01b66758a4dc2f34a6650a7518c"
+  },
+  {
+    "path": "node_modules/tinyld/package.json",
+    "name": "tinyld",
+    "version": "1.3.4",
+    "sha256": "bbeb4de148d3713a78819de8c806b9eeeb600a59079a9bb92eff709ece9ccf88"
+  },
+  {
+    "path": "node_modules/udx-native/package.json",
+    "name": "udx-native",
+    "version": "1.21.2",
+    "sha256": "fc28f8ca81b9c1f0675510f9119475c8102ce4209851925835b1c82c63e7bd9f"
+  },
+  {
+    "path": "node_modules/unix-path-resolve/package.json",
+    "name": "unix-path-resolve",
+    "version": "1.0.2",
+    "sha256": "24cf7a73b0044d64a8e2318a92740c4a81a139cabd5fc1b388b34cac05354a4d"
+  },
+  {
+    "path": "node_modules/unordered-set/package.json",
+    "name": "unordered-set",
+    "version": "2.0.1",
+    "sha256": "d7b16c7858e54b8559edd25670941aa6b26e0d19aa5b5675eb370ca9375f30c5"
+  },
+  {
+    "path": "node_modules/unslab/package.json",
+    "name": "unslab",
+    "version": "1.3.0",
+    "sha256": "993ca57fac83243af97b3954567ae5d4cb94263e38feee8906ca896a0e02f1aa"
+  },
+  {
+    "path": "node_modules/varint/package.json",
+    "name": "varint",
+    "version": "5.0.0",
+    "sha256": "66cb1a07ae170217dfe8a159bf092f549d0c809b5f904bc2898ba775bb301dff"
+  },
+  {
+    "path": "node_modules/which-runtime/package.json",
+    "name": "which-runtime",
+    "version": "1.4.0",
+    "sha256": "0f66f520c39af77fdc3ca898fcdc27c7c0cb90f5e9ee48c6c5a7dc4cec1cf2f3"
+  },
+  {
+    "path": "node_modules/xache/package.json",
+    "name": "xache",
+    "version": "1.3.0",
+    "sha256": "f875b52724866580fc2865d17916d2f3f1fbbaaf867407a43f50631927dcb60a"
+  },
+  {
+    "path": "node_modules/z32/package.json",
+    "name": "z32",
+    "version": "1.1.0",
+    "sha256": "79bb2fa9992dcbcf880bf58228b7f81aaaec3e82017f31e9a284074b679e062e"
+  },
+  {
+    "path": "node_modules/zod/package.json",
+    "name": "zod",
+    "version": "4.5.4",
+    "sha256": "5a1983857f982cc7d69336f32053ac7e38780de313d9e18ca3f7b9b7f2f94298"
+  },
+  {
+    "path": "node_modules/zod/v4/classic/package.json",
+    "name": null,
+    "version": null,
+    "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+  },
+  {
+    "path": "node_modules/zod/v4/core/package.json",
+    "name": null,
+    "version": null,
+    "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+  },
+  {
+    "path": "node_modules/zod/v4/locales/package.json",
+    "name": null,
+    "version": null,
+    "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+  },
+  {
+    "path": "package.json",
+    "name": "solaris-edge-v5-runtime-preview",
+    "version": "6.0.0-preview.sanctuary",
+    "sha256": "6102bbdef298357d3303fd88cc7d09508b2f9c3deaed03bdad098cd0d347d8e4"
+  }
+]

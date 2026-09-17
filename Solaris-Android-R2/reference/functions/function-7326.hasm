@@ -1,0 +1,21 @@
+=> [Function #7326 "?anon_0_" of 37 bytes]: 3 params, frame size=16, strict=1, exc handler=0, debug info=0  @ offset 0x01c317ad
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 5, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrue>: <Addr8: 27, Reg8: 1>  # Address: 00000022
+==> 0000000a: <GetById>: <Reg8: 4, Reg8: 5, UInt8: 1, string_id: 15994>  # String: 'completePrivate' (Identifier)
+==> 00000010: <LoadParam>: <Reg8: 3, UInt8: 1>
+==> 00000013: <LoadParam>: <Reg8: 2, UInt8: 2>
+==> 00000016: <LoadConstFalse>: <Reg8: 1>
+==> 00000018: <Call4>: <Reg8: 1, Reg8: 4, Reg8: 5, Reg8: 3, Reg8: 2, Reg8: 1>
+==> 0000001f: <CompleteGenerator>: <>
+==> 00000020: <Ret>: <Reg8: 1>
+==> 00000022: <CompleteGenerator>: <>
+==> 00000023: <Ret>: <Reg8: 0>
+
+
+===============
+

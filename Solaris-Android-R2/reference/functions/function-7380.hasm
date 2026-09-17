@@ -1,0 +1,15 @@
+=> [Function #7380 "AsyncFromSyncIterator" of 26 bytes]: 2 params, frame size=3, strict=0, exc handler=0, debug info=0  @ offset 0x01c32ce3
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 0, UInt8: 1>
+==> 00000003: <LoadThisNS>: <Reg8: 1>
+==> 00000005: <PutById>: <Reg8: 1, Reg8: 0, UInt8: 1, string_id: 13971>  # String: 's' (Identifier)
+==> 0000000b: <GetByIdShort>: <Reg8: 0, Reg8: 0, UInt8: 1, string_id: 180>  # String: 'next' (Identifier)
+==> 00000010: <PutById>: <Reg8: 1, Reg8: 0, UInt8: 2, string_id: 14040>  # String: 'n' (Identifier)
+==> 00000016: <LoadConstUndefined>: <Reg8: 0>
+==> 00000018: <Ret>: <Reg8: 0>
+
+
+===============
+

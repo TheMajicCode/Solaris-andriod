@@ -1,0 +1,19 @@
+=> [Function #7220 "" of 43 bytes]: 1 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c2fbad
+
+Bytecode listing:
+
+==> 00000000: <GetEnvironment>: <Reg8: 0, UInt8: 4>
+==> 00000003: <LoadFromEnvironment>: <Reg8: 3, Reg8: 0, UInt8: 7>
+==> 00000007: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 1, string_id: 14698>  # String: 'makeDirectoryAsync' (Identifier)
+==> 0000000d: <GetEnvironment>: <Reg8: 0, UInt8: 0>
+==> 00000010: <LoadFromEnvironment>: <Reg8: 0, Reg8: 0, UInt8: 0>
+==> 00000014: <GetById>: <Reg8: 1, Reg8: 0, UInt8: 2, string_id: 19262>  # String: 'modelRoot' (Identifier)
+==> 0000001a: <NewObject>: <Reg8: 0>
+==> 0000001c: <LoadConstTrue>: <Reg8: 4>
+==> 0000001e: <PutNewOwnById>: <Reg8: 0, Reg8: 4, string_id: 18897>  # String: 'intermediates' (Identifier)
+==> 00000023: <Call3>: <Reg8: 0, Reg8: 2, Reg8: 3, Reg8: 1, Reg8: 0>
+==> 00000029: <Ret>: <Reg8: 0>
+
+
+===============
+

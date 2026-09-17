@@ -1,0 +1,70 @@
+=> [Function #6957 "" of 265 bytes]: 2 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c29dca
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 2>
+==> 00000002: <GetEnvironment>: <Reg8: 1, UInt8: 1>
+==> 00000005: <LoadFromEnvironment>: <Reg8: 3, Reg8: 1, UInt8: 11>
+==> 00000009: <LoadParam>: <Reg8: 4, UInt8: 1>
+==> 0000000c: <LoadConstString>: <Reg8: 0, string_id: 14370>  # String: 'active' (Identifier)
+==> 00000010: <StrictEq>: <Reg8: 0, Reg8: 4, Reg8: 0>
+==> 00000014: <PutById>: <Reg8: 3, Reg8: 0, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 0000001a: <LoadFromEnvironment>: <Reg8: 4, Reg8: 1, UInt8: 7>
+==> 0000001e: <LoadFromEnvironment>: <Reg8: 0, Reg8: 1, UInt8: 11>
+==> 00000022: <GetByIdShort>: <Reg8: 0, Reg8: 0, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 00000027: <Not>: <Reg8: 3, Reg8: 0>
+==> 0000002a: <LoadConstUndefined>: <Reg8: 0>
+==> 0000002c: <Call2>: <Reg8: 3, Reg8: 4, Reg8: 0, Reg8: 3>
+==> 00000031: <LoadFromEnvironment>: <Reg8: 5, Reg8: 1, UInt8: 1>
+==> 00000035: <GetById>: <Reg8: 4, Reg8: 5, UInt8: 2, string_id: 16437>  # String: 'lifecycle' (Identifier)
+==> 0000003b: <LoadFromEnvironment>: <Reg8: 3, Reg8: 1, UInt8: 11>
+==> 0000003f: <GetByIdShort>: <Reg8: 3, Reg8: 3, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 00000044: <Call2>: <Reg8: 3, Reg8: 4, Reg8: 5, Reg8: 3>
+==> 00000049: <LoadFromEnvironment>: <Reg8: 3, Reg8: 1, UInt8: 11>
+==> 0000004d: <GetByIdShort>: <Reg8: 3, Reg8: 3, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 00000052: <JmpTrueLong>: <Addr32: 149, Reg8: 3>  # Address: 000000e7
+==> 00000058: <LoadFromEnvironment>: <Reg8: 4, Reg8: 1, UInt8: 12>
+==> 0000005c: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 00000061: <Inc>: <Reg8: 3, Reg8: 3>
+==> 00000064: <PutById>: <Reg8: 4, Reg8: 3, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 0000006a: <LoadFromEnvironment>: <Reg8: 4, Reg8: 1, UInt8: 20>
+==> 0000006e: <LoadConstString>: <Reg8: 3, string_id: 6704>  # String: 'window.__solarisPrivateHide?.()' (String)
+==> 00000072: <Call2>: <Reg8: 3, Reg8: 4, Reg8: 0, Reg8: 3>
+==> 00000077: <LoadFromEnvironment>: <Reg8: 4, Reg8: 1, UInt8: 15>
+==> 0000007b: <GetById>: <Reg8: 3, Reg8: 4, UInt8: 3, string_id: 14752>  # String: 'cancel' (Identifier)
+==> 00000081: <Call1>: <Reg8: 5, Reg8: 3, Reg8: 4>
+==> 00000085: <GetByIdShort>: <Reg8: 4, Reg8: 5, UInt8: 4, string_id: 71>  # String: 'catch' (Identifier)
+==> 0000008a: <CreateClosure>: <Reg8: 3, Reg8: 2, function_id: 6958>  # Function: [#6958  of 4 bytes]: 1 params @ offset 0x01b759c5
+==> 0000008f: <Call2>: <Reg8: 3, Reg8: 4, Reg8: 5, Reg8: 3>
+==> 00000094: <LoadFromEnvironment>: <Reg8: 4, Reg8: 1, UInt8: 16>
+==> 00000098: <GetById>: <Reg8: 3, Reg8: 4, UInt8: 3, string_id: 14752>  # String: 'cancel' (Identifier)
+==> 0000009e: <Call1>: <Reg8: 4, Reg8: 3, Reg8: 4>
+==> 000000a2: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 4, string_id: 71>  # String: 'catch' (Identifier)
+==> 000000a7: <CreateClosure>: <Reg8: 2, Reg8: 2, function_id: 6959>  # Function: [#6959  of 4 bytes]: 1 params @ offset 0x01b759c5
+==> 000000ac: <Call2>: <Reg8: 2, Reg8: 3, Reg8: 4, Reg8: 2>
+==> 000000b1: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 2>
+==> 000000b5: <GetById>: <Reg8: 2, Reg8: 2, UInt8: 5, string_id: 14393>  # String: 'ceremony' (Identifier)
+==> 000000bb: <JmpTrue>: <Addr8: 76, Reg8: 2>  # Address: 00000107
+==> 000000be: <LoadFromEnvironment>: <Reg8: 3, Reg8: 1, UInt8: 4>
+==> 000000c2: <LoadConstFalse>: <Reg8: 2>
+==> 000000c4: <Call2>: <Reg8: 2, Reg8: 3, Reg8: 0, Reg8: 2>
+==> 000000c9: <LoadFromEnvironment>: <Reg8: 3, Reg8: 1, UInt8: 17>
+==> 000000cd: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 6, string_id: 17485>  # String: 'invalidate' (Identifier)
+==> 000000d3: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 000000d7: <LoadFromEnvironment>: <Reg8: 3, Reg8: 1, UInt8: 2>
+==> 000000db: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 7, string_id: 14133>  # String: 'lock' (Identifier)
+==> 000000e1: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 000000e5: <Jmp>: <Addr8: 34>  # Address: 00000107
+==> 000000e7: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 21>
+==> 000000eb: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 0>
+==> 000000ef: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 2>
+==> 000000f3: <GetById>: <Reg8: 2, Reg8: 2, UInt8: 5, string_id: 14393>  # String: 'ceremony' (Identifier)
+==> 000000f9: <JmpTrue>: <Addr8: 14, Reg8: 2>  # Address: 00000107
+==> 000000fc: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 30>
+==> 00000100: <LoadConstTrue>: <Reg8: 1>
+==> 00000102: <Call2>: <Reg8: 1, Reg8: 2, Reg8: 0, Reg8: 1>
+==> 00000107: <Ret>: <Reg8: 0>
+
+
+===============
+

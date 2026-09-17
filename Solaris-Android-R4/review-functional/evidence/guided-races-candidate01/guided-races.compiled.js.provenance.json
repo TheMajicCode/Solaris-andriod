@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/guided-races.js",
+  "output": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/guided-races.compiled.js",
+  "inputSha256": "6a67f0df2e1e48e907c640d09fac9045e74b8e7f5dbc4d2c7a7474fc38e3875c",
+  "outputSha256": "fe0e2c5033f4629ff0f0e26d8f84389ca60c1aaf6ca33c725b2bce9938f6de89",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "guided-races.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

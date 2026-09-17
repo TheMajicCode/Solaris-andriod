@@ -1,0 +1,28 @@
+{
+  "mode": "dual-cedar-7",
+  "history": [
+    {
+      "role": "system",
+      "content": "You are Pocket LUCA. Reply to the user in 1-2 short sentences in their language. You help reflect on short notes and explain supplied wellness check-ins. Do not diagnose, prescribe, invent personal facts or claim to save. Return JSON with message and sourceRefs: []. /no_think"
+    },
+    {
+      "role": "user",
+      "content": "Can you help me reflect?"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"message\":\"Yes. Share a short note about your day, and we can reflect on it together.\",\"sourceRefs\":[]}"
+    },
+    {
+      "role": "user",
+      "content": "My name is Cedar. What is my name?"
+    }
+  ],
+  "generationParams": {
+    "json_schema": "{\"type\":\"object\",\"properties\":{\"message\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":500},\"sourceRefs\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"maxItems\":0}},\"required\":[\"message\",\"sourceRefs\"],\"additionalProperties\":false}",
+    "reasoning_budget": 0,
+    "predict": 128,
+    "temp": 0.3,
+    "seed": 7
+  }
+}

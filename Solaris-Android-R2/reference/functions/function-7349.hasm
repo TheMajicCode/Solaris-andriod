@@ -1,0 +1,50 @@
+=> [Function #7349 "?anon_0_" of 143 bytes]: 1 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c3219a
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 2, UInt8: 0>
+==> 00000004: <CreateEnvironment>: <Reg8: 1>
+==> 00000006: <ResumeGenerator>: <Reg8: 0, Reg8: 3>
+==> 00000009: <JmpTrueLong>: <Addr32: 131, Reg8: 3>  # Address: 0000008c
+==> 0000000f: <LoadConstUndefined>: <Reg8: 3>
+==> 00000011: <StoreNPToEnvironment>: <Reg8: 1, UInt8: 1, Reg8: 3>
+==> 00000015: <StoreToEnvironment>: <Reg8: 1, UInt8: 0, Reg8: 2>
+==> 00000019: <GetById>: <Reg8: 4, Reg8: 2, UInt8: 1, string_id: 16704>  # String: 'choiceLoaded' (Identifier)
+==> 0000001f: <JmpTrue>: <Addr8: 91, Reg8: 4>  # Address: 0000007a
+==> 00000022: <GetById>: <Reg8: 4, Reg8: 2, UInt8: 2, string_id: 18070>  # String: 'choiceRead' (Identifier)
+==> 00000028: <JmpTrue>: <Addr8: 45, Reg8: 4>  # Address: 00000055
+==> 0000002b: <GetById>: <Reg8: 4, Reg8: 2, UInt8: 3, string_id: 19140>  # String: 'choiceEpoch' (Identifier)
+==> 00000031: <StoreToEnvironment>: <Reg8: 1, UInt8: 1, Reg8: 4>
+==> 00000035: <GetEnvironment>: <Reg8: 4, UInt8: 3>
+==> 00000038: <LoadFromEnvironment>: <Reg8: 4, Reg8: 4, UInt8: 3>
+==> 0000003c: <GetByIdShort>: <Reg8: 4, Reg8: 4, UInt8: 4, string_id: 101>  # String: 'default' (Identifier)
+==> 00000041: <CreateGeneratorClosure>: <Reg8: 1, Reg8: 1, function_id: 7350>  # Function: [#7350  of 9 bytes]: 1 params @ offset 0x01c32229
+==> 00000046: <Call2>: <Reg8: 1, Reg8: 4, Reg8: 3, Reg8: 1>
+==> 0000004b: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 3>
+==> 0000004f: <PutById>: <Reg8: 2, Reg8: 1, UInt8: 1, string_id: 18070>  # String: 'choiceRead' (Identifier)
+==> 00000055: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 2, string_id: 18070>  # String: 'choiceRead' (Identifier)
+==> 0000005b: <SaveGenerator>: <Addr8: 4>  # Address: 0000005f
+==> 0000005d: <Ret>: <Reg8: 1>
+==> 0000005f: <ResumeGenerator>: <Reg8: 1, Reg8: 3>
+==> 00000062: <JmpTrue>: <Addr8: 21, Reg8: 3>  # Address: 00000077
+==> 00000065: <NewObject>: <Reg8: 3>
+==> 00000067: <GetById>: <Reg8: 5, Reg8: 2, UInt8: 5, string_id: 21018>  # String: 'preparationChoice' (Identifier)
+==> 0000006d: <Mov>: <Reg8: 6, Reg8: 3>
+==> 00000070: <CallBuiltin>: <Reg8: 4, UInt8: 44, UInt8: 3>  # Built-in function: [#44 copyDataProperties]
+==> 00000074: <CompleteGenerator>: <>
+==> 00000075: <Ret>: <Reg8: 3>
+==> 00000077: <CompleteGenerator>: <>
+==> 00000078: <Ret>: <Reg8: 1>
+==> 0000007a: <NewObject>: <Reg8: 1>
+==> 0000007c: <GetById>: <Reg8: 5, Reg8: 2, UInt8: 5, string_id: 21018>  # String: 'preparationChoice' (Identifier)
+==> 00000082: <Mov>: <Reg8: 6, Reg8: 1>
+==> 00000085: <CallBuiltin>: <Reg8: 2, UInt8: 44, UInt8: 3>  # Built-in function: [#44 copyDataProperties]
+==> 00000089: <CompleteGenerator>: <>
+==> 0000008a: <Ret>: <Reg8: 1>
+==> 0000008c: <CompleteGenerator>: <>
+==> 0000008d: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,391 @@
+{
+  "scope": "TEST ONLY lexical wrapper; F6928/F6929 headers, bodies and exception tables unchanged from candidate. Bootstrap F0/F1/F2 synthetic, do not ship.",
+  "candidate": "../evidence/candidate-02/candidate604.hbc",
+  "candidateSHA256": "30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3",
+  "testCloneSHA256": "550d7df2eaf5fe6d26bc8f37eb52d8e83c15907acf05049fa811485a153ea3aa",
+  "changed": [
+    {
+      "fid": 0,
+      "before": {
+        "offset": 28759016,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 30194,
+        "functionName": 14042,
+        "infoOffset": 30723192,
+        "frameSize": 20,
+        "environmentSize": 0,
+        "highestReadCacheIndex": 11,
+        "highestWriteCacheIndex": 6,
+        "prohibitInvoke": 2,
+        "strictMode": 0,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "after": {
+        "offset": 30800768,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 257,
+        "functionName": 14042,
+        "infoOffset": 30801028,
+        "frameSize": 20,
+        "environmentSize": 20,
+        "highestReadCacheIndex": 2,
+        "highestWriteCacheIndex": 1,
+        "prohibitInvoke": 2,
+        "strictMode": 0,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      }
+    },
+    {
+      "fid": 1,
+      "before": {
+        "offset": 28789210,
+        "paramCount": 2,
+        "bytecodeSizeInBytes": 346,
+        "functionName": 13965,
+        "infoOffset": 30723192,
+        "frameSize": 20,
+        "environmentSize": 15,
+        "highestReadCacheIndex": 8,
+        "highestWriteCacheIndex": 10,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "after": {
+        "offset": 30801028,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 403,
+        "functionName": 13965,
+        "infoOffset": 30801432,
+        "frameSize": 20,
+        "environmentSize": 34,
+        "highestReadCacheIndex": 2,
+        "highestWriteCacheIndex": 1,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      }
+    },
+    {
+      "fid": 2,
+      "before": {
+        "offset": 28789556,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 37,
+        "functionName": 16370,
+        "infoOffset": 30723192,
+        "frameSize": 9,
+        "environmentSize": 0,
+        "highestReadCacheIndex": 2,
+        "highestWriteCacheIndex": 0,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "after": {
+        "offset": 30801432,
+        "paramCount": 1,
+        "bytecodeSizeInBytes": 9,
+        "functionName": 16370,
+        "infoOffset": 30801444,
+        "frameSize": 20,
+        "environmentSize": 0,
+        "highestReadCacheIndex": 2,
+        "highestWriteCacheIndex": 1,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 0,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      }
+    }
+  ],
+  "F6929_bodySHA256": "92212b842e6e0f539a74643644f392efcca663840051d6f1f13bd7e363427099",
+  "result": {
+    "scope": "Actual candidate F6929 and F6928 bytecode with synthetic lexical dependencies. No React mount, Android model or phone timing claim.",
+    "pass": true,
+    "total": 13,
+    "cases": [
+      {
+        "name": "Guided preflight skips model snapshot and prepare but reaches converse",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 0,
+          "prepare": 0,
+          "preflight": 1,
+          "converse": 1,
+          "eligible": 1
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": true,
+            "result": {
+              "synthetic": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "Open chat with unloaded model still prepares",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 1,
+          "prepare": 1,
+          "preflight": 1,
+          "converse": 1,
+          "eligible": 2
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": true,
+            "result": {
+              "synthetic": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "Open chat with loaded model does not reload",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 1,
+          "prepare": 0,
+          "preflight": 1,
+          "converse": 1,
+          "eligible": 1
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": true,
+            "result": {
+              "synthetic": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "AI disabled retains original no-load path",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 0,
+          "prepare": 0,
+          "preflight": 1,
+          "converse": 1,
+          "eligible": 1
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": true,
+            "result": {
+              "synthetic": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "Rejected preflight cannot load model or converse",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 0,
+          "prepare": 0,
+          "preflight": 1,
+          "converse": 0,
+          "eligible": 0
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": false,
+            "error": "LOCAL_PERMISSION_REQUIRED",
+            "stage": "synthetic-test"
+          }
+        ]
+      },
+      {
+        "name": "Guided preflight still checks post-preflight input eligibility",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 0,
+          "prepare": 0,
+          "preflight": 1,
+          "converse": 0,
+          "eligible": 1
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": false,
+            "error": "CANCELLED",
+            "stage": "synthetic-test"
+          }
+        ]
+      },
+      {
+        "name": "Guided preflight still honors superseded request token",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 0,
+          "prepare": 0,
+          "preflight": 1,
+          "converse": 0,
+          "eligible": 0
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": false,
+            "error": "CANCELLED",
+            "stage": "synthetic-test"
+          }
+        ]
+      },
+      {
+        "name": "Guided preflight still rejects concurrent voice recording",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 0,
+          "prepare": 0,
+          "preflight": 0,
+          "converse": 0,
+          "eligible": 0
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": false,
+            "error": "VOICE_BUSY",
+            "stage": "synthetic-test"
+          }
+        ]
+      },
+      {
+        "name": "Invalid origin never calls conversation preflight",
+        "pass": true,
+        "counts": {
+          "trace": 1,
+          "snapshot": 0,
+          "prepare": 0,
+          "preflight": 0,
+          "converse": 0,
+          "eligible": 0
+        },
+        "replies": []
+      },
+      {
+        "name": "Closed input gate rejects before preflight",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 0,
+          "prepare": 0,
+          "preflight": 0,
+          "converse": 0,
+          "eligible": 0
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": false,
+            "error": "VAULT_LOCKED",
+            "stage": "synthetic-test"
+          }
+        ]
+      },
+      {
+        "name": "Preparation failure does not call converse",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 1,
+          "prepare": 1,
+          "preflight": 1,
+          "converse": 0,
+          "eligible": 0
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": false,
+            "error": "QVAC_MODEL_LOAD_FAILED",
+            "stage": "synthetic-test"
+          }
+        ]
+      },
+      {
+        "name": "Input eligibility loss while preparing prevents converse",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 1,
+          "prepare": 1,
+          "preflight": 1,
+          "converse": 0,
+          "eligible": 1
+        },
+        "replies": [
+          {
+            "id": "fixture_01",
+            "ok": false,
+            "error": "VAULT_LOCKED",
+            "stage": "synthetic-test"
+          }
+        ]
+      },
+      {
+        "name": "Changed bridge epoch suppresses successful late reply",
+        "pass": true,
+        "counts": {
+          "trace": 0,
+          "snapshot": 0,
+          "prepare": 0,
+          "preflight": 1,
+          "converse": 1,
+          "eligible": 1
+        },
+        "replies": []
+      }
+    ]
+  },
+  "sourceHashes": {
+    "make-bridge-fixture.py": "d328bdbd62944cd6afe8725aa8e50ab597ef88299117e9370ab7b462adc57c56",
+    "bridge-prelude.js": "8b3d9a5e937f8978c23c4a2348734ae9304730b438da918f3373729dd0f74e57",
+    "bridge-postlude.js": "7a71ecc97021e0eb5c88157cca22d69385497819414df3f548e97d1c6b1edbd7",
+    "bridge-postlude.compiled.js": "50d410b2d64298b9d427a83ce9c1a100f8527f10ab1bf4e20ac3d8392bed8cf1",
+    "BRIDGE-RESULT.json": "da79202b14bd719d10292da41f7f7bcce0c554aa9a2068684fdd119995d40bdd"
+  },
+  "commands": [
+    "python3 make-bridge-fixture.py ../evidence/candidate-02/candidate604.hbc bridge-fixture.hbc",
+    "node ../../Solaris-Android-R2/evidence/integration-feasibility/transpile-hermes-fixture.cjs bridge-postlude.js bridge-postlude.compiled.js",
+    "python3 ../../Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py --tools ../../reconstruction-work/r2-tools bridge-prelude.js bridge-fixture.hbc bridge-postlude.compiled.js > BRIDGE-RESULT.json"
+  ],
+  "runnerPinning": "run-hermes-reference.py verified-tool-binaries.json validates hermes-runner/libhermes.so/libjsi.so before execution",
+  "earlierHarnessFailure": "Initial wrapper crashed before bridge invocation while publishing the generator through PutById; final wrapper publishes through PutByVal. F6928/F6929 and release bundle unchanged."
+}

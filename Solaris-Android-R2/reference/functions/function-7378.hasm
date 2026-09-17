@@ -1,0 +1,37 @@
+=> [Function #7378 "AsyncFromSyncIteratorContinuation" of 124 bytes]: 2 params, frame size=14, strict=0, exc handler=0, debug info=0  @ offset 0x01c32c51
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 1>
+==> 00000002: <LoadParam>: <Reg8: 3, UInt8: 1>
+==> 00000005: <GetGlobalObject>: <Reg8: 0>
+==> 00000007: <TryGetById>: <Reg8: 4, Reg8: 0, UInt8: 1, string_id: 18>  # String: 'Object' (Identifier)
+==> 0000000d: <LoadConstUndefined>: <Reg8: 2>
+==> 0000000f: <Call2>: <Reg8: 2, Reg8: 4, Reg8: 2, Reg8: 3>
+==> 00000014: <JStrictNotEqual>: <Addr8: 51, Reg8: 2, Reg8: 3>  # Address: 00000047
+==> 00000018: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 2, string_id: 109>  # String: 'done' (Identifier)
+==> 0000001d: <StoreToEnvironment>: <Reg8: 1, UInt8: 0, Reg8: 2>
+==> 00000021: <TryGetById>: <Reg8: 5, Reg8: 0, UInt8: 3, string_id: 19>  # String: 'Promise' (Identifier)
+==> 00000027: <GetByIdShort>: <Reg8: 4, Reg8: 5, UInt8: 4, string_id: 215>  # String: 'resolve' (Identifier)
+==> 0000002c: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 5, string_id: 249>  # String: 'value' (Identifier)
+==> 00000031: <Call2>: <Reg8: 4, Reg8: 4, Reg8: 5, Reg8: 2>
+==> 00000036: <GetByIdShort>: <Reg8: 2, Reg8: 4, UInt8: 6, string_id: 149>  # String: 'then' (Identifier)
+==> 0000003b: <CreateClosure>: <Reg8: 1, Reg8: 1, function_id: 7379>  # Function: [#7379  of 22 bytes]: 2 params @ offset 0x01c32ccd
+==> 00000040: <Call2>: <Reg8: 1, Reg8: 2, Reg8: 4, Reg8: 1>
+==> 00000045: <Ret>: <Reg8: 1>
+==> 00000047: <TryGetById>: <Reg8: 2, Reg8: 0, UInt8: 3, string_id: 19>  # String: 'Promise' (Identifier)
+==> 0000004d: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 7, string_id: 14019>  # String: 'reject' (Identifier)
+==> 00000053: <TryGetById>: <Reg8: 4, Reg8: 0, UInt8: 8, string_id: 30>  # String: 'TypeError' (Identifier)
+==> 00000059: <LoadConstString>: <Reg8: 0, string_id: 2026>  # String: ' is not an object.' (String)
+==> 0000005d: <Add>: <Reg8: 6, Reg8: 3, Reg8: 0>
+==> 00000061: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 9, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000066: <CreateThis>: <Reg8: 3, Reg8: 3, Reg8: 4>
+==> 0000006a: <Mov>: <Reg8: 7, Reg8: 3>
+==> 0000006d: <Construct>: <Reg8: 0, Reg8: 4, UInt8: 2>
+==> 00000071: <SelectObject>: <Reg8: 0, Reg8: 3, Reg8: 0>
+==> 00000075: <Call2>: <Reg8: 0, Reg8: 1, Reg8: 2, Reg8: 0>
+==> 0000007a: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,26 @@
+{
+  "bundle": "Solaris-Android-R2/evidence/guard-patch/completion-guards.hbc",
+  "bundleSha256": "fd8b38bcdd42421c18da4a0b69b2d58906ceddd7c4a2044b34faed51490f4653",
+  "preludeSha256": "88c7cb3f85637a06435056eaf4a6693dd0aa604a8fa9293fc2b0927dff9d6e46",
+  "testSha256": "5e20181042e670639ea4023452e4d1ae74e9cde3481a96dc491fb52a448a56d4",
+  "compiledSha256": "9f00de76eb5bf987e095869f9e50ac1e4aa87285188c87fc2f85003b88be20a6",
+  "patchedExpected": false,
+  "command": [
+    "python3",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py",
+    "--tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/reconstruction-work/r2-tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/tests/hermes/capture-prelude.js",
+    "Solaris-Android-R2/evidence/guard-patch/completion-guards.hbc",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/daily-tests-baseline-probe/run-ccv3ejxc/mode.js",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/daily-tests-baseline-probe/run-ccv3ejxc/daily.compiled.js"
+  ],
+  "exitCode": 0,
+  "limitations": [
+    "synthetic model output",
+    "synthetic VaultStore/nativeVault boundary",
+    "presentation view projection simplified",
+    "no Android or native QVAC execution",
+    "no real timers"
+  ]
+}

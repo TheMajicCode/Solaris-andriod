@@ -1,0 +1,85 @@
+{
+  "pass": true,
+  "baseSha256": "b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990",
+  "candidateSha256": "30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3",
+  "candidateBytes": 30800788,
+  "changedFunctionIds": [
+    6929,
+    14890,
+    14894,
+    14904
+  ],
+  "changedStringIds": [
+    12364
+  ],
+  "unchangedFunctions": 15509,
+  "originalBytesOutsideApprovedRangesIdentical": true,
+  "functionChecks": [
+    {
+      "functionId": 6929,
+      "frameBefore": 38,
+      "frameAfter": 38,
+      "registerOperandsChecked": 1805,
+      "branchTargetsChecked": 177,
+      "exceptionHandlersChecked": 37,
+      "bodySha256": "92212b842e6e0f539a74643644f392efcca663840051d6f1f13bd7e363427099"
+    },
+    {
+      "functionId": 14890,
+      "frameBefore": 20,
+      "frameAfter": 108,
+      "registerOperandsChecked": 10482,
+      "branchTargetsChecked": 132,
+      "exceptionHandlersChecked": 0,
+      "bodySha256": "e97c9398aa5dff757944a640a14e46969b2f3cf871c3c893f9d4b2acefa9bd5f"
+    },
+    {
+      "functionId": 14894,
+      "frameBefore": 39,
+      "frameAfter": 127,
+      "registerOperandsChecked": 11391,
+      "branchTargetsChecked": 210,
+      "exceptionHandlersChecked": 6,
+      "bodySha256": "7877f8babc28c2b1b2c299990f737c84d781e28aefc20e6a1f9f6e0e6f428097"
+    },
+    {
+      "functionId": 14904,
+      "frameBefore": 25,
+      "frameAfter": 25,
+      "registerOperandsChecked": 482,
+      "branchTargetsChecked": 23,
+      "exceptionHandlersChecked": 0,
+      "bodySha256": "bb361aad4bfcba3ebc74fd09cd7eafaed2f6368753c8d3fe36932d7161b55aa5"
+    }
+  ],
+  "mutableOriginalRanges": [
+    [
+      32,
+      36
+    ],
+    [
+      110992,
+      111008
+    ],
+    [
+      238368,
+      238384
+    ],
+    [
+      238432,
+      238448
+    ],
+    [
+      238592,
+      238608
+    ],
+    [
+      18085610,
+      28554454
+    ]
+  ],
+  "limitations": [
+    "Same pinned HBC parser as build tooling; independent comparison/assertion code.",
+    "Structural check supplements execution tests and cannot prove all Android behavior."
+  ]
+}

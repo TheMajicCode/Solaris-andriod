@@ -1,0 +1,62 @@
+=> [Function #7134 "" of 237 bytes]: 8 params, frame size=18, strict=1, exc handler=0, debug info=0  @ offset 0x01c2d4f8
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 2>
+==> 00000002: <LoadParam>: <Reg8: 5, UInt8: 6>
+==> 00000005: <GetGlobalObject>: <Reg8: 1>
+==> 00000007: <TryGetById>: <Reg8: 7, Reg8: 1, UInt8: 1, string_id: 18>  # String: 'Object' (Identifier)
+==> 0000000d: <GetByIdShort>: <Reg8: 6, Reg8: 7, UInt8: 2, string_id: 103>  # String: 'defineProperty' (Identifier)
+==> 00000012: <NewObject>: <Reg8: 4>
+==> 00000014: <LoadConstTrue>: <Reg8: 0>
+==> 00000016: <PutNewOwnByIdShort>: <Reg8: 4, Reg8: 0, string_id: 249>  # String: 'value' (Identifier)
+==> 0000001a: <LoadConstString>: <Reg8: 3, string_id: 32>  # String: '__esModule' (Identifier)
+==> 0000001e: <Call4>: <Reg8: 3, Reg8: 6, Reg8: 7, Reg8: 5, Reg8: 3, Reg8: 4>
+==> 00000025: <TryGetById>: <Reg8: 4, Reg8: 1, UInt8: 1, string_id: 18>  # String: 'Object' (Identifier)
+==> 0000002b: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 2, string_id: 103>  # String: 'defineProperty' (Identifier)
+==> 00000030: <NewObject>: <Reg8: 1>
+==> 00000032: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 0, string_id: 120>  # String: 'enumerable' (Identifier)
+==> 00000036: <CreateClosure>: <Reg8: 0, Reg8: 2, function_id: 7135>  # Function: [#7135 get of 9 bytes]: 1 params @ offset 0x01b7547d
+==> 0000003b: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 0, string_id: 136>  # String: 'get' (Identifier)
+==> 0000003f: <LoadConstString>: <Reg8: 0, string_id: 101>  # String: 'default' (Identifier)
+==> 00000043: <Call4>: <Reg8: 0, Reg8: 3, Reg8: 4, Reg8: 5, Reg8: 0, Reg8: 1>
+==> 0000004a: <LoadParam>: <Reg8: 1, UInt8: 7>
+==> 0000004d: <LoadConstZero>: <Reg8: 0>
+==> 0000004f: <GetByVal>: <Reg8: 3, Reg8: 1, Reg8: 0>
+==> 00000053: <LoadParam>: <Reg8: 1, UInt8: 2>
+==> 00000056: <LoadConstUndefined>: <Reg8: 0>
+==> 00000058: <Call2>: <Reg8: 1, Reg8: 1, Reg8: 0, Reg8: 3>
+==> 0000005d: <GetById>: <Reg8: 4, Reg8: 1, UInt8: 3, string_id: 18601>  # String: 'StyleSheet' (Identifier)
+==> 00000063: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 4, string_id: 87>  # String: 'create' (Identifier)
+==> 00000068: <NewObject>: <Reg8: 1>
+==> 0000006a: <NewObjectWithBuffer>: <Reg8: 5, UInt16: 2, UInt16: 2, UInt16: 2448, UInt16: 2143>  # Object: {'flex': 1, 'overflow': 'hidden'}
+==> 00000074: <PutNewOwnById>: <Reg8: 1, Reg8: 5, string_id: 18464>  # String: 'container' (Identifier)
+==> 00000079: <NewObjectWithBuffer>: <Reg8: 5, UInt16: 7, UInt16: 7, UInt16: 2453, UInt16: 1516>  # Object: {'position': 'absolute', 'flex': 1, 'justifyContent': 'center', 'alignItems': 'center', 'height': '100%', 'width': '100%', 'backgroundColor': 'white'}
+==> 00000083: <PutNewOwnById>: <Reg8: 1, Reg8: 5, string_id: 19457>  # String: 'loadingOrErrorView' (Identifier)
+==> 00000088: <NewObject>: <Reg8: 5>
+==> 0000008a: <LoadConstUInt8>: <Reg8: 6, UInt8: 20>
+==> 0000008d: <PutNewOwnByIdShort>: <Reg8: 5, Reg8: 6, string_id: 142>  # String: 'height' (Identifier)
+==> 00000091: <PutNewOwnById>: <Reg8: 1, Reg8: 5, string_id: 15646>  # String: 'loadingProgressBar' (Identifier)
+==> 00000096: <NewObjectWithBuffer>: <Reg8: 5, UInt16: 3, UInt16: 3, UInt16: 2466, UInt16: 2151>  # Object: {'fontSize': 14, 'textAlign': 'center', 'marginBottom': 2}
+==> 000000a0: <PutNewOwnById>: <Reg8: 1, Reg8: 5, string_id: 20090>  # String: 'errorText' (Identifier)
+==> 000000a5: <NewObjectWithBuffer>: <Reg8: 5, UInt16: 3, UInt16: 3, UInt16: 2473, UInt16: 2164>  # Object: {'fontSize': 15, 'fontWeight': '500', 'marginBottom': 10}
+==> 000000af: <PutNewOwnById>: <Reg8: 1, Reg8: 5, string_id: 20091>  # String: 'errorTextTitle' (Identifier)
+==> 000000b4: <NewObject>: <Reg8: 5>
+==> 000000b6: <LoadConstString>: <Reg8: 6, string_id: 2485>  # String: '#ffffff' (String)
+==> 000000ba: <PutNewOwnByIdShort>: <Reg8: 5, Reg8: 6, string_id: 54>  # String: 'backgroundColor' (Identifier)
+==> 000000be: <PutNewOwnById>: <Reg8: 1, Reg8: 5, string_id: 17460>  # String: 'webView' (Identifier)
+==> 000000c3: <NewObject>: <Reg8: 5>
+==> 000000c5: <LoadConstString>: <Reg8: 6, string_id: 4170>  # String: 'flex-start' (String)
+==> 000000c9: <PutNewOwnById>: <Reg8: 5, Reg8: 6, string_id: 18090>  # String: 'alignSelf' (Identifier)
+==> 000000ce: <PutNewOwnById>: <Reg8: 1, Reg8: 5, string_id: 19003>  # String: 'flexStart' (Identifier)
+==> 000000d3: <NewObject>: <Reg8: 5>
+==> 000000d5: <LoadConstString>: <Reg8: 6, string_id: 1243>  # String: 'red' (String)
+==> 000000d9: <PutNewOwnByIdShort>: <Reg8: 5, Reg8: 6, string_id: 81>  # String: 'color' (Identifier)
+==> 000000dd: <PutNewOwnById>: <Reg8: 1, Reg8: 5, string_id: 17203>  # String: 'colorRed' (Identifier)
+==> 000000e2: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 4, Reg8: 1>
+==> 000000e7: <StoreToEnvironment>: <Reg8: 2, UInt8: 0, Reg8: 1>
+==> 000000eb: <Ret>: <Reg8: 0>
+
+
+===============
+

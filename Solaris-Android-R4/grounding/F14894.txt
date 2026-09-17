@@ -1,0 +1,535 @@
+0: StartGenerator 
+1: LoadParam 11, 1
+4: LoadParam 4, 3
+7: LoadParam 22, 4
+10: LoadParam 2, 0
+13: CreateEnvironment 9
+15: ResumeGenerator 0, 3
+18: JmpTrueLong 2315, 3
+24: LoadConstUndefined 3
+26: LoadConstUndefined 19
+28: StoreToEnvironment 9, 0, 2
+32: Mov 8, 11
+35: StoreToEnvironment 9, 1, 11
+39: LoadParam 1, 2
+42: Mov 10, 4
+45: StoreToEnvironment 9, 2, 4
+49: StoreToEnvironment 9, 3, 22
+53: StoreNPToEnvironment 9, 5, 3
+57: StoreNPToEnvironment 9, 6, 3
+61: LoadConstUndefined 17
+63: StoreNPToEnvironment 9, 7, 3
+67: LoadConstUndefined 7
+69: StoreNPToEnvironment 9, 8, 3
+73: LoadConstUndefined 18
+75: StoreNPToEnvironment 9, 9, 3
+79: LoadConstUndefined 13
+81: StoreNPToEnvironment 9, 10, 3
+85: StoreNPToEnvironment 9, 11, 3
+89: StoreNPToEnvironment 9, 12, 3
+93: LoadConstUndefined 12
+95: StoreNPToEnvironment 9, 13, 3
+99: LoadConstUndefined 14
+101: StoreNPToEnvironment 9, 14, 3
+105: StoreNPToEnvironment 9, 15, 3
+109: LoadConstUndefined 6
+111: StoreNPToEnvironment 9, 16, 3
+115: LoadConstUndefined 16
+117: StoreNPToEnvironment 9, 17, 3
+121: LoadConstUndefined 21
+123: StoreNPToEnvironment 9, 18, 3
+127: StoreToEnvironment 9, 4, 2
+131: GetArgumentsLength 4, 19
+134: LoadConstUInt8 15, 4
+137: Greater 23, 4, 15
+141: LoadConstFalse 4
+143: LoadConstFalse 11
+145: JmpFalse 17, 23
+148: GetArgumentsPropByVal 23, 15, 19
+152: LoadConstFalse 11
+154: JStrictEqual 8, 23, 3
+158: GetArgumentsPropByVal 11, 15, 19
+162: StoreToEnvironment 9, 5, 11
+166: GetById 11, 2, 1, 17606='session'
+172: StoreToEnvironment 9, 6, 11
+176: GetById 11, 2, 2, 15174='busy'
+182: JmpTrueLong 2132, 11
+188: GetById 11, 2, 3, 14393='ceremony'
+194: JmpTrueLong 2120, 11
+200: GetEnvironment 11, 3
+203: LoadFromEnvironment 15, 11, 12
+207: GetById 15, 15, 4, 17527='boundedText'
+213: Mov 19, 8
+216: Call2 15, 15, 3, 19
+221: GetByIdShort 15, 19, 5, 240='trim'
+226: Call1 15, 15, 19
+230: JmpTrue 22, 15
+233: GetGlobalObject 15
+235: TryGetById 19, 15, 6, 8='Error'
+241: LoadConstString 15, 7191='MESSAGE_EMPTY'
+245: Call2 15, 19, 3, 15
+250: Throw 15
+252: CreateRegExp 19, 9167='^[a-zA-Z0-9_-]{8,100}$', 13965='', 200
+266: GetByIdShort 15, 19, 7, 182='test'
+271: Call2 15, 15, 19, 22
+276: JmpTrue 22, 15
+279: GetGlobalObject 15
+281: TryGetById 19, 15, 6, 8='Error'
+287: LoadConstString 15, 375='OPERATION_INVALID'
+291: Call2 15, 19, 3, 15
+296: Throw 15
+298: GetById 15, 2, 8, 18141='requireState'
+304: Call1 15, 15, 2
+308: Mov 17, 15
+311: StoreToEnvironment 9, 7, 15
+315: GetById 15, 15, 9, 19207='migration'
+321: GetById 15, 15, 10, 20506='committed'
+327: JmpTrue 22, 15
+330: GetGlobalObject 15
+332: TryGetById 19, 15, 6, 8='Error'
+338: LoadConstString 15, 5663='MIGRATION_REQUIRED'
+342: Call2 15, 19, 3, 15
+347: Throw 15
+349: Mov 15, 17
+352: GetById 19, 15, 11, 14345='operations'
+358: GetByIdShort 15, 19, 12, 102='includes'
+363: Call2 15, 15, 19, 22
+368: JmpTrueLong 1933, 15
+374: GetByIdShort 15, 2, 13, 121='epoch'
+379: Inc 15, 15
+382: PutById 2, 15, 1, 121='epoch'
+388: Mov 7, 15
+391: StoreToEnvironment 9, 8, 15
+395: Mov 15, 17
+398: GetById 15, 15, 14, 17238='authorityEpoch'
+404: Mov 18, 15
+407: StoreToEnvironment 9, 9, 15
+411: LoadFromEnvironment 15, 11, 16
+415: GetById 19, 15, 15, 14746='inferIntent'
+421: Mov 15, 8
+424: Call2 13, 19, 3, 15
+429: LoadConstString 15, 6535='rules'
+433: StoreToEnvironment 9, 10, 15
+437: LoadConstZero 15
+439: StoreNPToEnvironment 9, 11, 15
+443: LoadConstNull 15
+445: StoreNPToEnvironment 9, 12, 15
+449: NewArray 19, 0
+453: Mov 12, 19
+456: StoreToEnvironment 9, 13, 19
+460: LoadConstNull 14
+462: StoreNPToEnvironment 9, 14, 15
+466: CreateClosure 19, 9, 14895
+471: Mov 6, 19
+474: StoreToEnvironment 9, 16, 19
+478: LoadConstTrue 19
+480: PutById 2, 19, 2, 15174='busy'
+486: GetByIdShort 19, 2, 16, 72='changed'
+491: Call1 19, 19, 2
+495: Mov 19, 10
+498: JmpFalse 22, 19
+501: Mov 19, 17
+504: GetByIdShort 22, 19, 17, 134='format'
+509: LoadConstString 19, 7166='solaris-daily-state/3'
+513: JStrictEqualLong 336, 22, 19
+520: Mov 19, 10
+523: JmpFalseLong 631, 19
+529: LoadFromEnvironment 19, 11, 16
+533: GetById 26, 19, 18, 20511='compileTask'
+539: Mov 31, 17
+542: Mov 30, 8
+545: Mov 29, 1
+548: GetGlobalObject 19
+550: TryGetById 22, 19, 19, 6='Date'
+556: GetByIdShort 27, 22, 20, 203='prototype'
+561: CreateThis 27, 27, 22
+565: Mov 32, 27
+568: Construct 22, 22, 1
+572: SelectObject 27, 27, 22
+576: GetById 22, 27, 21, 17366='toISOString'
+582: Call1 28, 22, 27
+586: LoadConstUndefined 32
+588: Call 22, 26, 5
+592: Mov 21, 22
+595: GetById 23, 22, 22, 14310='manifest'
+601: StoreToEnvironment 9, 12, 23
+605: GetById 22, 22, 23, 17490='sourceIds'
+611: Mov 12, 22
+614: StoreToEnvironment 9, 13, 22
+618: GetById 23, 2, 24, 14330='qvac'
+624: GetById 22, 23, 25, 17693='snapshot'
+630: Call1 22, 22, 23
+634: GetById 22, 22, 26, 14377='loaded'
+640: JmpFalseLong 514, 22
+646: GetById 24, 2, 24, 14330='qvac'
+652: GetById 23, 24, 27, 17481='completeLocalTask'
+658: GetById 22, 21, 28, 14844='prompt'
+664: CreateClosure 21, 9, 14902
+669: Call3 21, 23, 24, 22, 21
+675: SaveGenerator 4
+677: Ret 21
+679: ResumeGenerator 21, 22
+682: JmpTrue 56, 22
+685: LoadFromEnvironment 22, 11, 16
+689: GetById 24, 22, 29, 20974='parseCandidate'
+695: GetByIdShort 23, 21, 30, 86='text'
+700: Mov 22, 13
+703: Call3 22, 24, 3, 23, 22
+709: GetById 13, 22, 31, 15815='intent'
+715: LoadConstString 22, 5922='qvac-device'
+719: StoreToEnvironment 9, 10, 22
+723: GetById 22, 21, 32, 20537='contentEvents'
+729: StoreToEnvironment 9, 11, 22
+733: JmpLong 421
+738: PutById 2, 4, 2, 15174='busy'
+744: GetByIdShort 22, 2, 16, 72='changed'
+749: Call1 22, 22, 2
+753: CompleteGenerator 
+754: Ret 21
+756: Catch 20
+758: Mov 22, 7
+761: GetByIdShort 21, 2, 13, 121='epoch'
+766: JStrictNotEqual 66, 22, 21
+770: Mov 22, 20
+773: TryGetById 21, 19, 6, 8='Error'
+779: InstanceOf 21, 22, 21
+783: LoadConstString 22, 13965=''
+787: JmpFalse 8, 21
+790: GetByIdShort 22, 20, 33, 91='message'
+795: GetByIdShort 21, 22, 12, 102='includes'
+800: LoadConstString 20, 1858='CANCEL'
+804: Call2 20, 21, 22, 20
+809: JmpFalseLong 345, 20
+815: TryGetById 21, 19, 6, 8='Error'
+821: LoadConstString 20, 15290='CANCELLED'
+825: Call2 20, 21, 3, 20
+830: Throw 20
+832: TryGetById 20, 19, 6, 8='Error'
+838: LoadConstString 19, 15290='CANCELLED'
+842: Call2 19, 20, 3, 19
+847: Throw 19
+849: GetById 22, 2, 34, 15681='conversationContext'
+855: Mov 31, 17
+858: Mov 30, 8
+861: Mov 29, 1
+864: GetGlobalObject 1
+866: TryGetById 8, 1, 19, 6='Date'
+872: GetByIdShort 23, 8, 20, 203='prototype'
+877: CreateThis 23, 23, 8
+881: Mov 32, 23
+884: Construct 8, 8, 1
+888: SelectObject 23, 23, 8
+892: GetById 8, 23, 21, 17366='toISOString'
+898: Call1 28, 8, 23
+902: Mov 32, 2
+905: Call 19, 22, 5
+909: GetById 8, 19, 35, 16292='task'
+915: Mov 16, 8
+918: GetById 20, 19, 36, 16684='sources'
+924: StoreToEnvironment 9, 17, 20
+928: GetById 8, 8, 22, 14310='manifest'
+934: StoreToEnvironment 9, 12, 8
+938: GetByIdShort 19, 20, 37, 27='map'
+943: CreateClosure 8, 9, 14896
+948: Call2 8, 19, 20, 8
+953: Mov 12, 8
+956: StoreToEnvironment 9, 13, 8
+960: CreateClosure 8, 9, 14897
+965: Mov 6, 8
+968: StoreToEnvironment 9, 16, 8
+972: GetById 19, 2, 24, 14330='qvac'
+978: GetById 8, 19, 25, 17693='snapshot'
+984: Call1 8, 8, 19
+988: GetById 8, 8, 26, 14377='loaded'
+994: JmpTrue 20, 8
+997: TryGetById 19, 1, 6, 8='Error'
+1003: LoadConstString 8, 773='QVAC_NOT_READY'
+1007: Call2 8, 19, 3, 8
+1012: Throw 8
+1014: GetById 21, 2, 24, 14330='qvac'
+1020: GetById 20, 21, 38, 17470='completeConversationTask'
+1026: Mov 8, 16
+1029: GetById 19, 8, 28, 14844='prompt'
+1035: CreateClosure 8, 9, 14901
+1040: Call3 8, 20, 21, 19, 8
+1046: SaveGenerator 4
+1048: Ret 8
+1050: ResumeGenerator 8, 19
+1053: JmpTrueLong 354, 19
+1059: LoadFromEnvironment 19, 11, 16
+1063: GetById 20, 19, 39, 20976='parseConversation'
+1069: GetByIdShort 19, 8, 30, 86='text'
+1074: Call3 19, 20, 3, 19, 16
+1080: GetByIdShort 16, 19, 33, 91='message'
+1085: Mov 14, 16
+1088: StoreToEnvironment 9, 14, 16
+1092: NewObject 16
+1094: GetById 19, 19, 40, 14210='sourceRefs'
+1100: PutNewOwnById 16, 19, 14210='sourceRefs'
+1105: PutNewOwnById 16, 18, 17238='authorityEpoch'
+1110: GetById 17, 17, 41, 18503='experience'
+1116: GetById 17, 17, 42, 18528='localContext'
+1122: GetByIdShort 17, 17, 43, 36='revision'
+1127: PutNewOwnById 16, 17, 18716='permissionRevision'
+1132: StoreToEnvironment 9, 15, 16
+1136: LoadConstString 16, 5922='qvac-device'
+1140: StoreToEnvironment 9, 10, 16
+1144: GetById 16, 8, 32, 20537='contentEvents'
+1150: StoreToEnvironment 9, 11, 16
+1154: Mov 17, 7
+1157: GetByIdShort 16, 2, 13, 121='epoch'
+1162: JStrictNotEqualLong 226, 17, 16
+1169: JmpFalse 73, 10
+1172: LoadFromEnvironment 10, 11, 15
+1176: GetById 17, 10, 44, 16853='localAllowed'
+1182: GetById 10, 2, 8, 18141='requireState'
+1188: Call1 16, 10, 2
+1192: GetGlobalObject 10
+1194: TryGetById 10, 10, 19, 6='Date'
+1200: GetByIdShort 18, 10, 20, 203='prototype'
+1205: CreateThis 18, 18, 10
+1209: Mov 32, 18
+1212: Construct 10, 10, 1
+1216: SelectObject 18, 18, 10
+1220: GetById 10, 18, 21, 17366='toISOString'
+1226: Call1 10, 10, 18
+1230: Call3 10, 17, 3, 16, 10
+1236: JmpFalseLong 152, 10
+1242: Mov 10, 6
+1245: Call1 10, 10, 3
+1249: JmpTrue 22, 10
+1252: GetGlobalObject 10
+1254: TryGetById 16, 10, 6, 8='Error'
+1260: LoadConstString 10, 15290='CANCELLED'
+1264: Call2 10, 16, 3, 10
+1269: Throw 10
+1271: Mov 10, 14
+1274: JNotEqual 34, 14, 15
+1278: LoadFromEnvironment 14, 11, 16
+1282: GetById 15, 14, 45, 16259='replyFor'
+1288: Mov 14, 13
+1291: GetById 13, 2, 8, 18141='requireState'
+1297: Call1 13, 13, 2
+1301: Call4 10, 15, 3, 14, 13, 12
+1308: StoreToEnvironment 9, 18, 10
+1312: GetById 10, 2, 46, 14853='queue'
+1318: LoadFromEnvironment 11, 11, 5
+1322: GetByIdShort 11, 11, 47, 101='default'
+1327: CreateGeneratorClosure 9, 9, 14903
+1332: Call2 9, 11, 3, 9
+1337: Call2 9, 10, 2, 9
+1342: SaveGenerator 4
+1344: Ret 9
+1346: ResumeGenerator 9, 10
+1349: JmpTrue 21, 10
+1352: PutById 2, 4, 2, 15174='busy'
+1358: GetByIdShort 10, 2, 16, 72='changed'
+1363: Call1 10, 10, 2
+1367: CompleteGenerator 
+1368: Ret 9
+1370: PutById 2, 4, 2, 15174='busy'
+1376: GetByIdShort 10, 2, 16, 72='changed'
+1381: Call1 10, 10, 2
+1385: CompleteGenerator 
+1386: Ret 9
+1388: GetGlobalObject 9
+1390: TryGetById 10, 9, 6, 8='Error'
+1396: LoadConstString 9, 15290='CANCELLED'
+1400: Call2 9, 10, 3, 9
+1405: Throw 9
+1407: PutById 2, 4, 2, 15174='busy'
+1413: GetByIdShort 9, 2, 16, 72='changed'
+1418: Call1 9, 9, 2
+1422: CompleteGenerator 
+1423: Ret 8
+1425: Catch 5
+1427: Mov 8, 7
+1430: GetByIdShort 7, 2, 13, 121='epoch'
+1435: JStrictNotEqualLong 830, 8, 7
+1442: Call1 6, 6, 3
+1446: JmpFalseLong 819, 6
+1452: Mov 7, 5
+1455: TryGetById 6, 1, 6, 8='Error'
+1461: InstanceOf 6, 7, 6
+1465: JmpFalse 28, 6
+1468: GetByIdShort 7, 5, 33, 91='message'
+1473: GetByIdShort 6, 7, 12, 102='includes'
+1478: LoadConstString 5, 1858='CANCEL'
+1482: Call2 5, 6, 7, 5
+1487: JmpTrueLong 761, 5
+1493: LoadConstString 5, 5999='FIRST_TOKEN_TIMEOUT'
+1497: JStrictEqualLong 721, 7, 5
+1504: LoadConstString 5, 5166='EMPTY_COMPLETION'
+1508: JStrictEqualLong 710, 7, 5
+1515: LoadConstString 5, 7567='OUTPUT_LIMIT'
+1519: JStrictEqualLong 699, 7, 5
+1526: LoadConstString 5, 773='QVAC_NOT_READY'
+1530: JStrictEqualLong 688, 7, 5
+1537: LoadConstString 5, 7869='QVAC_BUSY'
+1541: JStrictEqualLong 677, 7, 5
+1548: LoadConstString 5, 4460='RUNTIME_RESTART_REQUIRED'
+1552: JStrictEqualLong 666, 7, 5
+1559: LoadConstString 5, 5625='FOREGROUND_REQUIRED'
+1563: JStrictEqualLong 655, 7, 5
+1570: LoadConstString 5, 19724='WORKER_RECOVERY_REQUIRED'
+1574: JStrictEqualLong 644, 7, 5
+1581: LoadConstString 5, 439='QVAC_WORKER_CRASHED'
+1585: JStrictEqualLong 633, 7, 5
+1592: LoadConstString 5, 5586='QVAC_WORKER_SHUTDOWN'
+1596: JStrictEqualLong 622, 7, 5
+1603: LoadConstString 5, 5180='CONTEXT_BUDGET'
+1607: JStrictEqualLong 611, 7, 5
+1614: LoadConstString 5, 5183='CONTEXT_INVALID'
+1618: JStrictEqualLong 600, 7, 5
+1625: LoadConstString 5, 5188='CONTEXT_NOT_APPROVED'
+1629: JStrictEqualLong 589, 7, 5
+1636: LoadConstString 5, 5648='LOCAL_PERMISSION_REQUIRED'
+1640: JStrictEqualLong 578, 7, 5
+1647: LoadConstString 5, 4122='PERMISSION_CHANGED'
+1651: JStrictEqualLong 567, 7, 5
+1658: LoadConstString 5, 1602='CANDIDATE_INVALID'
+1662: JStrictEqualLong 556, 7, 5
+1669: LoadConstString 5, 1631='CANDIDATE_UNGROUNDED'
+1673: JStrictEqualLong 545, 7, 5
+1680: LoadConstString 5, 5056='CANDIDATE_UNSAFE'
+1684: JStrictEqualLong 534, 7, 5
+1691: LoadConstString 5, 5154='CANDIDATE_NEGATION'
+1695: JStrictEqualLong 523, 7, 5
+1702: LoadConstString 5, 4111='OPERATION_FAILED'
+1706: JStrictEqualLong 512, 7, 5
+1713: LoadConstString 5, 7560='STATUS_TIMEOUT'
+1717: JStrictEqualLong 501, 7, 5
+1724: LoadConstString 5, 7566='RECOVERY_STATE_TIMEOUT'
+1728: JStrictEqualLong 490, 7, 5
+1735: LoadConstString 5, 5719='LIFECYCLE_TIMEOUT'
+1739: JStrictEqualLong 479, 7, 5
+1746: LoadConstString 5, 8437='UNLOAD_TIMEOUT'
+1750: JStrictEqualLong 468, 7, 5
+1757: LoadConstString 5, 19676='STREAM'
+1761: LoadConstString 8, 6000='_TIMEOUT'
+1765: Add 5, 5, 8
+1769: JStrictEqualLong 449, 7, 5
+1776: LoadConstString 5, 7868='QVAC_'
+1780: LoadConstString 8, 19618='REQUEST_VALIDATION_FAILED'
+1784: Add 5, 5, 8
+1788: JStrictEqualLong 430, 7, 5
+1795: LoadConstString 5, 7868='QVAC_'
+1799: LoadConstString 8, 19673='RPC_CONNECTION_FAILED'
+1803: Add 5, 5, 8
+1807: JStrictEqualLong 411, 7, 5
+1814: LoadConstString 5, 7868='QVAC_'
+1818: LoadConstString 8, 17424='RPC_INIT_TIMEOUT'
+1822: Add 5, 5, 8
+1826: JStrictEqualLong 392, 7, 5
+1833: LoadConstString 5, 7868='QVAC_'
+1837: LoadConstString 8, 14076='WORKER_CRASHED'
+1841: Add 5, 5, 8
+1845: JStrictEqualLong 373, 7, 5
+1852: LoadConstString 5, 7868='QVAC_'
+1856: LoadConstString 8, 15917='WORKER_SHUTDOWN'
+1860: Add 5, 5, 8
+1864: JStrictEqualLong 354, 7, 5
+1871: LoadConstString 5, 7868='QVAC_'
+1875: LoadConstString 8, 19492='CONFIG_FILE_INVALID'
+1879: Add 5, 5, 8
+1883: JStrictEqualLong 335, 7, 5
+1890: LoadConstString 5, 7868='QVAC_'
+1894: LoadConstString 8, 19494='CONFIG_FILE_PARSE_FAILED'
+1898: Add 5, 5, 8
+1902: JStrictEqualLong 316, 7, 5
+1909: LoadConstString 5, 7868='QVAC_'
+1913: LoadConstString 8, 19496='CONFIG_VALIDATION_FAILED'
+1917: Add 5, 5, 8
+1921: JStrictEqualLong 297, 7, 5
+1928: LoadConstString 5, 7868='QVAC_'
+1932: LoadConstString 8, 19723='WORKER_PLUGINS_NOT_REGISTERED'
+1936: Add 5, 5, 8
+1940: JStrictEqualLong 278, 7, 5
+1947: LoadConstString 5, 7868='QVAC_'
+1951: LoadConstString 8, 19575='MODEL_NOT_LOADED'
+1955: Add 5, 5, 8
+1959: JStrictEqualLong 259, 7, 5
+1966: LoadConstString 5, 7868='QVAC_'
+1970: LoadConstString 8, 19572='MODEL_LOAD_FAILED'
+1974: Add 5, 5, 8
+1978: JStrictEqualLong 240, 7, 5
+1985: LoadConstString 5, 7868='QVAC_'
+1989: LoadConstString 8, 16495='MODEL_FILE_NOT_FOUND'
+1993: Add 5, 5, 8
+1997: JStrictEqualLong 221, 7, 5
+2004: LoadConstString 5, 7868='QVAC_'
+2008: LoadConstString 8, 16496='MODEL_FILE_NOT_FOUND_IN_DIR'
+2012: Add 5, 5, 8
+2016: JStrictEqualLong 202, 7, 5
+2023: LoadConstString 5, 7868='QVAC_'
+2027: LoadConstString 8, 19569='MODEL_FILE_LOCATE_FAILED'
+2031: Add 5, 5, 8
+2035: JStrictEqualLong 183, 7, 5
+2042: LoadConstString 5, 7868='QVAC_'
+2046: LoadConstString 8, 19577='MODEL_UNLOAD_FAILED'
+2050: Add 5, 5, 8
+2054: JStrictEqualLong 164, 7, 5
+2061: LoadConstString 5, 7868='QVAC_'
+2065: LoadConstString 8, 15705='COMPLETION_FAILED'
+2069: Add 5, 5, 8
+2073: JStrictEqualLong 145, 7, 5
+2080: LoadConstString 5, 7868='QVAC_'
+2084: LoadConstString 8, 17674='CONTEXT_OVERFLOW'
+2088: Add 5, 5, 8
+2092: JStrictEqualLong 126, 7, 5
+2099: LoadConstString 5, 7868='QVAC_'
+2103: LoadConstString 8, 14829='CACHE_DIR_NOT_WRITABLE'
+2107: Add 5, 5, 8
+2111: JStrictEqualLong 107, 7, 5
+2118: LoadConstString 5, 7868='QVAC_'
+2122: LoadConstString 8, 19558='LIFECYCLE_SUSPEND_FAILED'
+2126: Add 5, 5, 8
+2130: JStrictEqualLong 88, 7, 5
+2137: LoadConstString 5, 7868='QVAC_'
+2141: LoadConstString 8, 19557='LIFECYCLE_RESUME_FAILED'
+2145: Add 5, 5, 8
+2149: JStrictEqualLong 69, 7, 5
+2156: LoadConstString 5, 7868='QVAC_'
+2160: LoadConstString 8, 19556='LIFECYCLE_OPERATION_BLOCKED'
+2164: Add 5, 5, 8
+2168: JStrictEqualLong 50, 7, 5
+2175: LoadConstString 5, 7868='QVAC_'
+2179: LoadConstString 8, 19616='PLUGIN_NOT_FOUND'
+2183: Add 5, 5, 8
+2187: JStrictEqualLong 31, 7, 5
+2194: LoadConstString 5, 7868='QVAC_'
+2198: LoadConstString 8, 19495='PLUGIN_LOAD_CONFIG_VALIDATION_FAILED'
+2202: Add 5, 5, 8
+2206: JStrictEqualLong 12, 7, 5
+2213: JmpLong 18
+2218: TryGetById 6, 1, 6, 8='Error'
+2224: Call2 5, 6, 3, 5
+2229: Throw 5
+2231: TryGetById 6, 1, 6, 8='Error'
+2237: LoadConstString 5, 1980='LUCA_RESPONSE_UNAVAILABLE'
+2241: Call2 5, 6, 3, 5
+2246: Throw 5
+2248: TryGetById 6, 1, 6, 8='Error'
+2254: LoadConstString 5, 15290='CANCELLED'
+2258: Call2 5, 6, 3, 5
+2263: Throw 5
+2265: TryGetById 5, 1, 6, 8='Error'
+2271: LoadConstString 1, 15290='CANCELLED'
+2275: Call2 1, 5, 3, 1
+2280: Throw 1
+2282: Catch 1
+2284: PutById 2, 4, 2, 15174='busy'
+2290: GetByIdShort 4, 2, 16, 72='changed'
+2295: Call1 4, 4, 2
+2299: Throw 1
+2301: GetById 1, 2, 48, 15253='view'
+2307: Call1 1, 1, 2
+2311: CompleteGenerator 
+2312: Ret 1
+2314: GetGlobalObject 1
+2316: TryGetById 2, 1, 6, 8='Error'
+2322: LoadConstString 1, 1494='LUCA_BUSY'
+2326: Call2 1, 2, 3, 1
+2331: Throw 1
+2333: CompleteGenerator 
+2334: Ret 0

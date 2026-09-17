@@ -1,0 +1,47 @@
+=> [Function #7232 "?anon_0_" of 140 bytes]: 1 params, frame size=17, strict=1, exc handler=0, debug info=0  @ offset 0x01c2fd83
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 5, UInt8: 0>
+==> 00000004: <CreateEnvironment>: <Reg8: 2>
+==> 00000006: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000009: <JmpTrueLong>: <Addr32: 128, Reg8: 1>  # Address: 00000089
+==> 0000000f: <LoadConstUndefined>: <Reg8: 6>
+==> 00000011: <StoreNPToEnvironment>: <Reg8: 2, UInt8: 1, Reg8: 6>
+==> 00000015: <StoreToEnvironment>: <Reg8: 2, UInt8: 0, Reg8: 5>
+==> 00000019: <GetById>: <Reg8: 1, Reg8: 5, UInt8: 1, string_id: 15271>  # String: 'guard' (Identifier)
+==> 0000001f: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 5>
+==> 00000023: <GetEnvironment>: <Reg8: 3, UInt8: 3>
+==> 00000026: <LoadFromEnvironment>: <Reg8: 7, Reg8: 3, UInt8: 0>
+==> 0000002a: <LoadFromEnvironment>: <Reg8: 1, Reg8: 3, UInt8: 1>
+==> 0000002e: <LoadConstUInt8>: <Reg8: 4, UInt8: 14>
+==> 00000031: <GetByVal>: <Reg8: 4, Reg8: 1, Reg8: 4>
+==> 00000035: <Call2>: <Reg8: 7, Reg8: 7, Reg8: 6, Reg8: 4>
+==> 0000003a: <LoadConstUInt8>: <Reg8: 4, UInt8: 13>
+==> 0000003d: <GetByVal>: <Reg8: 4, Reg8: 1, Reg8: 4>
+==> 00000041: <GetById>: <Reg8: 1, Reg8: 1, UInt8: 2, string_id: 15873>  # String: 'paths' (Identifier)
+==> 00000047: <Call3>: <Reg8: 1, Reg8: 7, Reg8: 6, Reg8: 4, Reg8: 1>
+==> 0000004d: <SaveGenerator>: <Addr8: 4>  # Address: 00000051
+==> 0000004f: <Ret>: <Reg8: 1>
+==> 00000051: <ResumeGenerator>: <Reg8: 1, Reg8: 4>
+==> 00000054: <JmpTrue>: <Addr8: 50, Reg8: 4>  # Address: 00000086
+==> 00000057: <GetById>: <Reg8: 4, Reg8: 1, UInt8: 3, string_id: 15636>  # String: 'probeBare' (Identifier)
+==> 0000005d: <StoreToEnvironment>: <Reg8: 2, UInt8: 1, Reg8: 4>
+==> 00000061: <GetByIdShort>: <Reg8: 4, Reg8: 5, UInt8: 4, string_id: 217>  # String: 'run' (Identifier)
+==> 00000066: <LoadFromEnvironment>: <Reg8: 3, Reg8: 3, UInt8: 3>
+==> 0000006a: <GetByIdShort>: <Reg8: 3, Reg8: 3, UInt8: 5, string_id: 101>  # String: 'default' (Identifier)
+==> 0000006f: <CreateGeneratorClosure>: <Reg8: 2, Reg8: 2, function_id: 7233>  # Function: [#7233  of 9 bytes]: 1 params @ offset 0x01c2fe0f
+==> 00000074: <Call2>: <Reg8: 3, Reg8: 3, Reg8: 6, Reg8: 2>
+==> 00000079: <LoadConstString>: <Reg8: 2, string_id: 17270>  # String: 'probeRuntime' (Identifier)
+==> 0000007d: <Call3>: <Reg8: 2, Reg8: 4, Reg8: 5, Reg8: 2, Reg8: 3>
+==> 00000083: <CompleteGenerator>: <>
+==> 00000084: <Ret>: <Reg8: 2>
+==> 00000086: <CompleteGenerator>: <>
+==> 00000087: <Ret>: <Reg8: 1>
+==> 00000089: <CompleteGenerator>: <>
+==> 0000008a: <Ret>: <Reg8: 0>
+
+
+===============
+

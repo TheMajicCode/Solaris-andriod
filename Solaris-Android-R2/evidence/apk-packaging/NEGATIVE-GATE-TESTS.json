@@ -1,0 +1,20 @@
+{
+  "format": "solaris-packaging-negative-tests/1",
+  "tests": [
+    {
+      "test": "unreviewed HBC rejected before creating candidate directory",
+      "passed": true
+    },
+    {
+      "test": "unapproved gate rejected before fixture access or output creation",
+      "passed": true
+    },
+    {
+      "test": "changed review gate rejected before output creation",
+      "passed": true
+    }
+  ],
+  "allPassed": true,
+  "signingPerformed": false,
+  "deviceUsed": false
+}

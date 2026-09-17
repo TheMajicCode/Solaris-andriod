@@ -1,0 +1,19 @@
+=> [Function #7344 "" of 44 bytes]: 1 params, frame size=13, strict=1, exc handler=0, debug info=0  @ offset 0x01c32140
+
+Bytecode listing:
+
+==> 00000000: <GetGlobalObject>: <Reg8: 0>
+==> 00000002: <TryGetById>: <Reg8: 2, Reg8: 0, UInt8: 1, string_id: 19>  # String: 'Promise' (Identifier)
+==> 00000008: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 2, string_id: 15385>  # String: 'race' (Identifier)
+==> 0000000e: <GetEnvironment>: <Reg8: 3, UInt8: 0>
+==> 00000011: <LoadFromEnvironment>: <Reg8: 4, Reg8: 3, UInt8: 10>
+==> 00000015: <NewArray>: <Reg8: 0, UInt16: 2>
+==> 00000019: <PutOwnByIndex>: <Reg8: 0, Reg8: 4, UInt8: 0>
+==> 0000001d: <LoadFromEnvironment>: <Reg8: 3, Reg8: 3, UInt8: 9>
+==> 00000021: <PutOwnByIndex>: <Reg8: 0, Reg8: 3, UInt8: 1>
+==> 00000025: <Call2>: <Reg8: 0, Reg8: 1, Reg8: 2, Reg8: 0>
+==> 0000002a: <Ret>: <Reg8: 0>
+
+
+===============
+

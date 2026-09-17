@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-09-13T09:45:03.845314+00:00",
+  "files": [
+    {
+      "path": "/workspace/scratch/768f612cf893/upload/Solaris-V6-Sanctuary.apk",
+      "bytes": 242584391,
+      "sha256": "4ac6a72c864118ec548ee5c05738c814b6e519f82b01a7d358d24952b900c518"
+    },
+    {
+      "path": "/workspace/scratch/768f612cf893/v6-next-repair/baseline/sanctuary.html",
+      "bytes": 5235340,
+      "sha256": "d8192125d041ac8521029dc9b348c2760fafce91e5cb9a5e12d7d91ba2897962"
+    },
+    {
+      "path": "/workspace/scratch/768f612cf893/v6-next-repair/candidate/sanctuary.html",
+      "bytes": 5251540,
+      "sha256": "be5c43771f1e1a1b1c409e5aba24804a746699789591b0185c19f3794ad24693"
+    },
+    {
+      "path": "/workspace/scratch/768f612cf893/v6-apk-deliverables/Solaris-V6-APK-Recovered-Assets-and-Evidence.zip",
+      "bytes": 23761791,
+      "sha256": "44def3c89020e499564eeda41f8a659f840128a2b48625632184e1a6372b62c9"
+    },
+    {
+      "path": "/workspace/scratch/768f612cf893/v6-repair-deliverables/Solaris-V6-Recovered-UI-Repair-and-Evidence.zip",
+      "bytes": 13023096,
+      "sha256": "61ab3c8a31a50dd3bd5fc751a25af9fc37829b43f38196fcf1280bfe557d5da3"
+    },
+    {
+      "path": "/workspace/scratch/768f612cf893/v61-deliverables/Solaris-V6-Continuation-Recovery-and-Protocol.zip",
+      "bytes": 96224,
+      "sha256": "d0b5486e5296e58ffae5a1166885ca53bbf57d9eba7432467dcf361d0b93729b"
+    }
+  ]
+}

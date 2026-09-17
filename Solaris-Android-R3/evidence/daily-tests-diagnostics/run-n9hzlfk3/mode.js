@@ -1,0 +1,2 @@
+globalThis.__solarisExpectedDiagnostics=true;
+globalThis.__solarisExpectedRecent=false;

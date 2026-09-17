@@ -1,0 +1,140 @@
+{
+  "pass": false,
+  "total": 15,
+  "cases": [
+    {
+      "name": "guided no-model receipt remains truthful and ignores an unselected profile",
+      "pass": true,
+      "details": {
+        "nativeCompletionCalls": 0,
+        "writes": 1,
+        "mode": "rules",
+        "result": "validated-template",
+        "sourceCount": 0
+      }
+    },
+    {
+      "name": "guided selected checkin excludes instructions in note and missing rating",
+      "pass": true,
+      "details": {
+        "message": "In the selected check-in dated 2026-09-15, you recorded vitality: 2/5, balance: 3/5, alignment: 4/5. These are your own impressions. What was happening when you rated vitality? You can start with one of those aspects.",
+        "sourceId": "source_ffffffffffffffffffffffffffffffff"
+      }
+    },
+    {
+      "name": "guided await MAC then revoke authority",
+      "pass": false,
+      "error": "Error: revocation not enforced: null\n    at assert (/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/guided-races.compiled.js:9:24)\n    at ?anon_0_ (/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/guided-races.compiled.js:181:15)\n    at next (native)\n    at asyncGeneratorStep (/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/guided-races.compiled.js:1:70)\n    at _next (/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/guided-races.compiled.js:2:181)\n    at tryCallOne (address at InternalBytecode.js:1:1180)\n    at anonymous (address at InternalBytecode.js:1:1874)"
+    },
+    {
+      "name": "guided await MAC then revoke epoch",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke session",
+      "pass": true,
+      "details": {
+        "error": "VAULT_LOCKED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke context revision",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke context category",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke context expiration",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke local grant",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke local expiration",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke source content",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke source revision",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke source approval",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "guided await MAC then revoke vault lock",
+      "pass": true,
+      "details": {
+        "error": "VAULT_LOCKED",
+        "nativeCompletionCalls": 0,
+        "writes": 0
+      }
+    },
+    {
+      "name": "model receipt await MAC then authority changes cannot save",
+      "pass": false,
+      "error": "Error: model stale authority committed null\n    at assert (/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/guided-races.compiled.js:9:24)\n    at ?anon_0_ (/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/guided-races.compiled.js:207:13)\n    at next (native)\n    at asyncGeneratorStep (/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/guided-races.compiled.js:1:70)\n    at _next (/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate01/guided-races.compiled.js:2:181)\n    at tryCallOne (address at InternalBytecode.js:1:1180)\n    at anonymous (address at InternalBytecode.js:1:1874)"
+    }
+  ],
+  "capturedModules": 966,
+  "suppressedEntrypoints": [
+    191,
+    3,
+    0
+  ]
+}

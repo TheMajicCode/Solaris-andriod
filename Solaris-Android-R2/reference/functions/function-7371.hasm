@@ -1,0 +1,50 @@
+=> [Function #7371 "?anon_0_" of 147 bytes]: 2 params, frame size=16, strict=1, exc handler=0, debug info=0  @ offset 0x01c3292e
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 5, UInt8: 1>
+==> 00000004: <LoadParam>: <Reg8: 4, UInt8: 0>
+==> 00000007: <CreateEnvironment>: <Reg8: 3>
+==> 00000009: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 0000000c: <JmpTrueLong>: <Addr32: 132, Reg8: 1>  # Address: 00000090
+==> 00000012: <LoadConstUndefined>: <Reg8: 2>
+==> 00000014: <StoreNPToEnvironment>: <Reg8: 3, UInt8: 1, Reg8: 2>
+==> 00000018: <StoreToEnvironment>: <Reg8: 3, UInt8: 0, Reg8: 4>
+==> 0000001c: <PutById>: <Reg8: 4, Reg8: 5, UInt8: 1, string_id: 14370>  # String: 'active' (Identifier)
+==> 00000022: <LoadConstNull>: <Reg8: 1>
+==> 00000024: <JmpTrue>: <Addr8: 29, Reg8: 5>  # Address: 00000041
+==> 00000027: <GetByIdShort>: <Reg8: 5, Reg8: 4, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 0000002c: <LoadConstNull>: <Reg8: 1>
+==> 0000002e: <JmpFalse>: <Addr8: 19, Reg8: 5>  # Address: 00000041
+==> 00000031: <GetById>: <Reg8: 5, Reg8: 4, UInt8: 2, string_id: 18715>  # String: 'picking' (Identifier)
+==> 00000037: <LoadConstNull>: <Reg8: 1>
+==> 00000039: <JmpTrue>: <Addr8: 8, Reg8: 5>  # Address: 00000041
+==> 0000003c: <GetByIdShort>: <Reg8: 1, Reg8: 4, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 00000041: <StoreToEnvironment>: <Reg8: 3, UInt8: 1, Reg8: 1>
+==> 00000045: <GetById>: <Reg8: 6, Reg8: 4, UInt8: 3, string_id: 17276>  # String: 'lifecycleWork' (Identifier)
+==> 0000004b: <GetByIdShort>: <Reg8: 5, Reg8: 6, UInt8: 4, string_id: 149>  # String: 'then' (Identifier)
+==> 00000050: <GetEnvironment>: <Reg8: 1, UInt8: 3>
+==> 00000053: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 3>
+==> 00000057: <GetByIdShort>: <Reg8: 7, Reg8: 1, UInt8: 5, string_id: 101>  # String: 'default' (Identifier)
+==> 0000005c: <CreateGeneratorClosure>: <Reg8: 1, Reg8: 3, function_id: 7372>  # Function: [#7372  of 9 bytes]: 1 params @ offset 0x01c329c1
+==> 00000061: <Call2>: <Reg8: 1, Reg8: 7, Reg8: 2, Reg8: 1>
+==> 00000066: <Call2>: <Reg8: 1, Reg8: 5, Reg8: 6, Reg8: 1>
+==> 0000006b: <GetByIdShort>: <Reg8: 5, Reg8: 1, UInt8: 6, string_id: 71>  # String: 'catch' (Identifier)
+==> 00000070: <CreateClosure>: <Reg8: 3, Reg8: 3, function_id: 7374>  # Function: [#7374  of 4 bytes]: 1 params @ offset 0x01b759c5
+==> 00000075: <Call2>: <Reg8: 3, Reg8: 5, Reg8: 1, Reg8: 3>
+==> 0000007a: <PutById>: <Reg8: 4, Reg8: 3, UInt8: 2, string_id: 17276>  # String: 'lifecycleWork' (Identifier)
+==> 00000080: <SaveGenerator>: <Addr8: 4>  # Address: 00000084
+==> 00000082: <Ret>: <Reg8: 1>
+==> 00000084: <ResumeGenerator>: <Reg8: 1, Reg8: 3>
+==> 00000087: <JmpTrue>: <Addr8: 6, Reg8: 3>  # Address: 0000008d
+==> 0000008a: <CompleteGenerator>: <>
+==> 0000008b: <Ret>: <Reg8: 2>
+==> 0000008d: <CompleteGenerator>: <>
+==> 0000008e: <Ret>: <Reg8: 1>
+==> 00000090: <CompleteGenerator>: <>
+==> 00000091: <Ret>: <Reg8: 0>
+
+
+===============
+

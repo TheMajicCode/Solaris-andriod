@@ -1,0 +1,17 @@
+=> [Function #7131 "" of 27 bytes]: 2 params, frame size=11, strict=1, exc handler=0, debug info=0  @ offset 0x01c2d45d
+
+Bytecode listing:
+
+==> 00000000: <GetEnvironment>: <Reg8: 0, UInt8: 0>
+==> 00000003: <LoadFromEnvironment>: <Reg8: 2, Reg8: 0, UInt8: 8>
+==> 00000007: <LoadConstNull>: <Reg8: 0>
+==> 00000009: <JEqual>: <Addr8: 14, Reg8: 2, Reg8: 0>  # Address: 00000017
+==> 0000000d: <LoadConstUndefined>: <Reg8: 1>
+==> 0000000f: <LoadParam>: <Reg8: 0, UInt8: 1>
+==> 00000012: <Call2>: <Reg8: 0, Reg8: 2, Reg8: 1, Reg8: 0>
+==> 00000017: <LoadConstUndefined>: <Reg8: 0>
+==> 00000019: <Ret>: <Reg8: 0>
+
+
+===============
+

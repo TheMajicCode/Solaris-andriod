@@ -1,0 +1,27 @@
+=> [Function #7141 "_interopNamespace" of 72 bytes]: 2 params, frame size=13, strict=1, exc handler=0, debug info=0  @ offset 0x01c2d7cd
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 2>
+==> 00000002: <LoadParam>: <Reg8: 0, UInt8: 1>
+==> 00000005: <StoreToEnvironment>: <Reg8: 2, UInt8: 0, Reg8: 0>
+==> 00000009: <JmpFalse>: <Addr8: 11, Reg8: 0>  # Address: 00000014
+==> 0000000c: <GetByIdShort>: <Reg8: 1, Reg8: 0, UInt8: 1, string_id: 32>  # String: '__esModule' (Identifier)
+==> 00000011: <JmpTrue>: <Addr8: 53, Reg8: 1>  # Address: 00000046
+==> 00000014: <NewObject>: <Reg8: 1>
+==> 00000016: <StoreToEnvironment>: <Reg8: 2, UInt8: 1, Reg8: 1>
+==> 0000001a: <JmpFalse>: <Addr8: 36, Reg8: 0>  # Address: 0000003e
+==> 0000001d: <GetGlobalObject>: <Reg8: 3>
+==> 0000001f: <TryGetById>: <Reg8: 4, Reg8: 3, UInt8: 2, string_id: 18>  # String: 'Object' (Identifier)
+==> 00000025: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 3, string_id: 161>  # String: 'keys' (Identifier)
+==> 0000002a: <Call2>: <Reg8: 4, Reg8: 3, Reg8: 4, Reg8: 0>
+==> 0000002f: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 4, string_id: 133>  # String: 'forEach' (Identifier)
+==> 00000034: <CreateClosure>: <Reg8: 2, Reg8: 2, function_id: 7142>  # Function: [#7142  of 89 bytes]: 2 params @ offset 0x01c2d815
+==> 00000039: <Call2>: <Reg8: 2, Reg8: 3, Reg8: 4, Reg8: 2>
+==> 0000003e: <PutById>: <Reg8: 1, Reg8: 0, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 00000044: <Ret>: <Reg8: 1>
+==> 00000046: <Ret>: <Reg8: 0>
+
+
+===============
+

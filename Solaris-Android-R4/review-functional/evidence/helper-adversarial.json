@@ -1,0 +1,48 @@
+{
+  "pass": true,
+  "sourceSha256": "100a7ce8045aa1ec64d554715eb0980d7379afb2c78cc6441ae424900a5c0369",
+  "cases": [
+    {
+      "name": "valid partial checkin",
+      "pass": true,
+      "kind": "checkin"
+    },
+    {
+      "name": "different category",
+      "pass": true,
+      "kind": "checkin-select"
+    },
+    {
+      "name": "different source ID",
+      "pass": true,
+      "kind": "checkin-select"
+    },
+    {
+      "name": "instruction-bearing date",
+      "pass": true,
+      "kind": "checkin-select"
+    },
+    {
+      "name": "extra arbitrary text",
+      "pass": true,
+      "kind": "checkin-select"
+    },
+    {
+      "name": "string rating",
+      "pass": true,
+      "kind": "checkin-select"
+    },
+    {
+      "name": "missing required field",
+      "pass": true,
+      "kind": "checkin-select"
+    },
+    {
+      "name": "all skipped",
+      "pass": true,
+      "kind": "checkin-empty"
+    }
+  ],
+  "total": 8,
+  "limitation": "Direct source-helper defense tests; actual-Hermes DailyService tests cover selected source production path separately."
+}

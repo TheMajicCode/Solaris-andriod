@@ -1,0 +1,275 @@
+{
+  "status": "STRUCTURAL_PASS_NOT_RELEASE_APPROVAL",
+  "original_sha256": "ac973292961cc7a1505a47a416ecafdff2e1688b7eac31f20571e503d74ec177",
+  "output_sha256": "fd8b38bcdd42421c18da4a0b69b2d58906ceddd7c4a2044b34faed51490f4653",
+  "original_length": 30744132,
+  "output_length": 30746396,
+  "appended_bytes": 2264,
+  "original_debug_offset": 30744084,
+  "immutable_original_byte_ranges_verified": true,
+  "original_bodies_tables_literals_debug_preserved": true,
+  "function_ids_preserved": true,
+  "changed_original_ranges": [
+    {
+      "start": 32,
+      "end": 36
+    },
+    {
+      "start": 117152,
+      "end": 117168
+    },
+    {
+      "start": 117520,
+      "end": 117536
+    }
+  ],
+  "repairs": [
+    {
+      "function_id": 7314,
+      "old_header": {
+        "offset": 29560571,
+        "paramCount": 2,
+        "bytecodeSizeInBytes": 1150,
+        "functionName": 2113,
+        "infoOffset": 30729532,
+        "frameSize": 33,
+        "environmentSize": 10,
+        "highestReadCacheIndex": 30,
+        "highestWriteCacheIndex": 9,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 1,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "old_body_sha256": "78d4ee4c3ed09c3319b374771b0aec6c47ca94238df4beceab6b3e4c561eb27f",
+      "insertion_offset": 355,
+      "inserted_bytes": 14,
+      "inserted_instructions": [
+        {
+          "instruction": "LoadFromEnvironment",
+          "operands": [
+            9,
+            13,
+            1
+          ],
+          "size": 4
+        },
+        {
+          "instruction": "GetByIdShort",
+          "operands": [
+            12,
+            9,
+            31,
+            73
+          ],
+          "size": 5
+        },
+        {
+          "instruction": "Call2",
+          "operands": [
+            12,
+            12,
+            9,
+            7
+          ],
+          "size": 5
+        }
+      ],
+      "relocated_branches": [
+        {
+          "instruction": "JmpTrueLong",
+          "old_source": 9,
+          "new_source": 9,
+          "old_target": 1147,
+          "new_target": 1161,
+          "old_delta": 1138,
+          "new_delta": 1152
+        },
+        {
+          "instruction": "JmpTrueLong",
+          "old_source": 349,
+          "new_source": 349,
+          "old_target": 1144,
+          "new_target": 1158,
+          "old_delta": 795,
+          "new_delta": 809
+        }
+      ],
+      "old_exception_table": [
+        [
+          575,
+          1043,
+          1118
+        ]
+      ],
+      "new_exception_table": [
+        [
+          589,
+          1057,
+          1132
+        ]
+      ],
+      "new_header": {
+        "offset": 30744112,
+        "paramCount": 2,
+        "bytecodeSizeInBytes": 1164,
+        "functionName": 2113,
+        "infoOffset": 30745276,
+        "frameSize": 33,
+        "environmentSize": 10,
+        "highestReadCacheIndex": 31,
+        "highestWriteCacheIndex": 9,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 1,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "new_body_sha256": "a80fc3349ed1f6d9d8173c4550421345638a4825a72cdbfc9e7287496bce58d7",
+      "instruction_count_after": 277
+    },
+    {
+      "function_id": 7337,
+      "old_header": {
+        "offset": 29563214,
+        "paramCount": 2,
+        "bytecodeSizeInBytes": 1037,
+        "functionName": 2113,
+        "infoOffset": 30729636,
+        "frameSize": 30,
+        "environmentSize": 11,
+        "highestReadCacheIndex": 23,
+        "highestWriteCacheIndex": 6,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 1,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "old_body_sha256": "0bae059e3aeb28b62fd81f4f1a6365278a6366add782cb18e973fe5c56db9867",
+      "insertion_offset": 316,
+      "inserted_bytes": 28,
+      "inserted_instructions": [
+        {
+          "instruction": "LoadFromEnvironment",
+          "operands": [
+            1,
+            9,
+            1
+          ],
+          "size": 4
+        },
+        {
+          "instruction": "Call1",
+          "operands": [
+            1,
+            1,
+            7
+          ],
+          "size": 4
+        },
+        {
+          "instruction": "JmpFalseLong",
+          "operands": [
+            -240,
+            1
+          ],
+          "size": 6
+        },
+        {
+          "instruction": "LoadFromEnvironment",
+          "operands": [
+            11,
+            9,
+            3
+          ],
+          "size": 4
+        },
+        {
+          "instruction": "GetByIdShort",
+          "operands": [
+            12,
+            11,
+            24,
+            73
+          ],
+          "size": 5
+        },
+        {
+          "instruction": "Call2",
+          "operands": [
+            12,
+            12,
+            11,
+            6
+          ],
+          "size": 5
+        }
+      ],
+      "relocated_branches": [
+        {
+          "instruction": "JmpTrueLong",
+          "old_source": 9,
+          "new_source": 9,
+          "old_target": 1034,
+          "new_target": 1062,
+          "old_delta": 1025,
+          "new_delta": 1053
+        },
+        {
+          "instruction": "JmpTrueLong",
+          "old_source": 310,
+          "new_source": 310,
+          "old_target": 1031,
+          "new_target": 1059,
+          "old_delta": 721,
+          "new_delta": 749
+        }
+      ],
+      "old_exception_table": [
+        [
+          515,
+          914,
+          1001
+        ]
+      ],
+      "new_exception_table": [
+        [
+          543,
+          942,
+          1029
+        ]
+      ],
+      "new_header": {
+        "offset": 30745292,
+        "paramCount": 2,
+        "bytecodeSizeInBytes": 1065,
+        "functionName": 2113,
+        "infoOffset": 30746360,
+        "frameSize": 30,
+        "environmentSize": 11,
+        "highestReadCacheIndex": 24,
+        "highestWriteCacheIndex": 6,
+        "prohibitInvoke": 2,
+        "strictMode": 1,
+        "hasExceptionHandler": 1,
+        "hasDebugInfo": 0,
+        "overflowed": 0,
+        "kind": 0
+      },
+      "new_body_sha256": "51a2bd8bd6b6cc05b8466ca4a5d37fd33c7eff561353cc5ef7c2b2d7c145feb2",
+      "instruction_count_after": 260
+    }
+  ],
+  "limits": [
+    "No APK produced, changed, installed, signed or deployed.",
+    "Structural validation requires independent review and official-VM behavioral tests.",
+    "Original sourceHash retained as legacy provenance; this is a bounded binary repair, not a full source rebuild."
+  ],
+  "input_path": "/workspace/scratch/7a1f5a13b137/Solaris-Android-Reconstruction/src/recovered-601/compiled-reference/assets/index.android.bundle",
+  "output_path": "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/guard-patch/completion-guards-analysis.hbc"
+}

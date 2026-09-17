@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/lifecycle/tests/lifecycle-postlude.js",
+  "output": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/lifecycle/evidence/candidate02-reviewed/lifecycle.compiled.js",
+  "inputSha256": "e750719089388ba3061cde490d4e269c81edf2152008f30c3fa54faefc695f1f",
+  "outputSha256": "09986f513fdae5c09585e373a9630714e56e9e9f8a297e48c962e7346c3a895a",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "lifecycle-postlude.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

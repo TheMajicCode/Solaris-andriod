@@ -1,0 +1,13 @@
+=> [Function #7286 "" of 18 bytes]: 2 params, frame size=2, strict=1, exc handler=0, debug info=0  @ offset 0x01c30ae2
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 0, UInt8: 1>
+==> 00000003: <GetEnvironment>: <Reg8: 1, UInt8: 1>
+==> 00000006: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 0>
+==> 0000000a: <PutById>: <Reg8: 1, Reg8: 0, UInt8: 1, string_id: 176>  # String: 'modelId' (Identifier)
+==> 00000010: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/tests/hermes/compare-postlude.js",
+  "output": "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/hermes-comparison-3udcpfwy/comparison.compiled.js",
+  "inputSha256": "871ec40cbf93445e7b4d2bfbbece140278e5e6515907f5a89bc749c0c7a54278",
+  "outputSha256": "cfb266e1f3d669fa517b80a1bf5c65673d8472a818cf90f0a516de3d85121746",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "compare-postlude.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

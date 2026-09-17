@@ -1,0 +1,539 @@
+{
+  "scope": "Linux native addon only; exact pinned model; no Android RPC or phone performance claim",
+  "results": [
+    {
+      "name": "base603-long",
+      "exitCode": 0,
+      "wallSeconds": 2.116,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1031
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-long",
+        "ms": 2010,
+        "firstTokenMs": 1227,
+        "output": "{\"message\":\"A child named Lily learned to be kind by helping her classmates with their homework, listening to her stories, and sharing her favorite book with a friend. Through these small acts, she grew into a kind and compassionate person who helped others in her community.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 134.808,
+          "TPS": 76.60042050989466,
+          "ppTPS": 586.0186339089669,
+          "CacheTokens": 0,
+          "generatedTokens": 58,
+          "promptTokens": 79,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "A child named Lily learned to be kind by helping her classmates with their homework, listening to her stories, and sharing her favorite book with a friend. Through these small acts, she grew into a kind and compassionate person who helped others in her community.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "base603-many",
+      "exitCode": 0,
+      "wallSeconds": 3.003,
+      "loaded": {
+        "type": "loaded",
+        "ms": 970
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-many",
+        "ms": 2921,
+        "firstTokenMs": 1126,
+        "output": "{\"message\":\"Your day can be filled with moments of reflection and learning. Here are some detailed ways to reflect on your day: 1. Review your tasks and set goals for the next day. 2. Reflect on your interactions and build future relationships. 3. Reflect on your personal growth and set goals for the future. 4. Reflect on your achievements and set goals for the future. 5. Reflect on your emotions and set goals for the future. 6. Reflect on your thoughts and set goals for the future. 7. Reflect on your work,\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 134.352,
+          "TPS": 83.08697598250349,
+          "ppTPS": 588.0076217696796,
+          "CacheTokens": 0,
+          "generatedTokens": 124,
+          "promptTokens": 79,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Your day can be filled with moments of reflection and learning. Here are some detailed ways to reflect on your day: 1. Review your tasks and set goals for the next day. 2. Reflect on your interactions and build future relationships. 3. Reflect on your personal growth and set goals for the future. 4. Reflect on your achievements and set goals for the future. 5. Reflect on your emotions and set goals for the future. 6. Reflect on your thoughts and set goals for the future. 7. Reflect on your work,",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "base603-spanish",
+      "exitCode": 0,
+      "wallSeconds": 1.72,
+      "loaded": {
+        "type": "loaded",
+        "ms": 868
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-spanish",
+        "ms": 1634,
+        "firstTokenMs": 1030,
+        "output": "{\"message\":\"Reflexionar sobre un d\u00eda dif\u00edcil puede ayudarte a descubrir qu\u00e9 te pas\u00f3 y c\u00f3mo te sientes, lo cual puede ser \u00fatil para mejorar tu bienestar y sentirte mejor en el futuro.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 142.155,
+          "TPS": 86.55848553200373,
+          "ppTPS": 555.7314199289508,
+          "CacheTokens": 0,
+          "generatedTokens": 51,
+          "promptTokens": 79,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Reflexionar sobre un d\u00eda dif\u00edcil puede ayudarte a descubrir qu\u00e9 te pas\u00f3 y c\u00f3mo te sientes, lo cual puede ser \u00fatil para mejorar tu bienestar y sentirte mejor en el futuro.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-capabilities",
+      "exitCode": 0,
+      "wallSeconds": 1.717,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1035
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-capabilities",
+        "ms": 1623,
+        "firstTokenMs": 1300,
+        "output": "{\"message\":\"What can you help me with?\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 170.092,
+          "TPS": 49.97829067998588,
+          "ppTPS": 429.1795028572772,
+          "CacheTokens": 0,
+          "generatedTokens": 16,
+          "promptTokens": 73,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "What can you help me with?",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-checkin",
+      "exitCode": 0,
+      "wallSeconds": 1.672,
+      "loaded": {
+        "type": "loaded",
+        "ms": 534
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-checkin",
+        "ms": 1565,
+        "firstTokenMs": 871,
+        "output": "{\"message\":\"I recorded vitality 4/5, clarity 4/5, balance 3/5 and alignment 3/5. These are my own wellness impressions, not clinical measurements.\",\"sourceRefs\":[\"s1\"]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 317.744,
+          "TPS": 72.86815115283487,
+          "ppTPS": 494.10846467596554,
+          "CacheTokens": 0,
+          "generatedTokens": 48,
+          "promptTokens": 157,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "I recorded vitality 4/5, clarity 4/5, balance 3/5 and alignment 3/5. These are my own wellness impressions, not clinical measurements.",
+        "sourceRefs": [
+          "s1"
+        ]
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-focus",
+      "exitCode": 0,
+      "wallSeconds": 1.347,
+      "loaded": {
+        "type": "loaded",
+        "ms": 605
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-focus",
+        "ms": 1250,
+        "firstTokenMs": 820,
+        "output": "{\"message\":\"Choose a small step that aligns with your goals and values today, such as taking a short walk or practicing one thing you love.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 156.12,
+          "TPS": 82.89595846675635,
+          "ppTPS": 486.8050217781194,
+          "CacheTokens": 0,
+          "generatedTokens": 35,
+          "promptTokens": 76,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Choose a small step that aligns with your goals and values today, such as taking a short walk or practicing one thing you love.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-hello",
+      "exitCode": 0,
+      "wallSeconds": 1.593,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1072
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-hello",
+        "ms": 1513,
+        "firstTokenMs": 1313,
+        "output": "{\"message\":\"Hello! How can I assist you today?\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 141.71,
+          "TPS": 96.9347090881675,
+          "ppTPS": 472.7965563474702,
+          "CacheTokens": 0,
+          "generatedTokens": 18,
+          "promptTokens": 67,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Hello! How can I assist you today?",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-hola",
+      "exitCode": 0,
+      "wallSeconds": 1.547,
+      "loaded": {
+        "type": "loaded",
+        "ms": 949
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-hola",
+        "ms": 1424,
+        "firstTokenMs": 1127,
+        "output": "{\"message\":\"Hola! \u00bfQuieres algo espec\u00edfico?\", \"sourceRefs\": []}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 115.342,
+          "TPS": 54.70301091807742,
+          "ppTPS": 580.8812054585494,
+          "CacheTokens": 0,
+          "generatedTokens": 17,
+          "promptTokens": 67,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Hola! \u00bfQuieres algo espec\u00edfico?",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-long",
+      "exitCode": 0,
+      "wallSeconds": 1.688,
+      "loaded": {
+        "type": "loaded",
+        "ms": 769
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-long",
+        "ms": 1588,
+        "firstTokenMs": 934,
+        "output": "{\"message\":\"A child named Lily learned to be kind by helping her classmates with their homework, listening to her stories, and sharing her favorite book with a friend. Through these small acts, she grew into a kind and compassionate person who helped others in her community.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 120.789,
+          "TPS": 91.42410380734103,
+          "ppTPS": 654.0330659248773,
+          "CacheTokens": 0,
+          "generatedTokens": 58,
+          "promptTokens": 79,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "A child named Lily learned to be kind by helping her classmates with their homework, listening to her stories, and sharing her favorite book with a friend. Through these small acts, she grew into a kind and compassionate person who helped others in her community.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-many",
+      "exitCode": 0,
+      "wallSeconds": 2.733,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1227
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-many",
+        "ms": 2635,
+        "firstTokenMs": 1369,
+        "output": "{\"message\":\"Your day can be filled with moments of reflection and learning. Here are some detailed ways to reflect on your day: 1. Review your tasks and set goals for the next day. 2. Reflect on your interactions and build future relationships. 3. Reflect on your personal growth and set goals for the future. 4. Reflect on your day\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 122.09,
+          "TPS": 73.03073963008578,
+          "ppTPS": 647.0636415758867,
+          "CacheTokens": 0,
+          "generatedTokens": 81,
+          "promptTokens": 79,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Your day can be filled with moments of reflection and learning. Here are some detailed ways to reflect on your day: 1. Review your tasks and set goals for the next day. 2. Reflect on your interactions and build future relationships. 3. Reflect on your personal growth and set goals for the future. 4. Reflect on your day",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-memory",
+      "exitCode": 0,
+      "wallSeconds": 1.655,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1104
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-memory",
+        "ms": 1542,
+        "firstTokenMs": 1329,
+        "output": "{\"message\":\"I told you Cedar\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 191.93200000000002,
+          "TPS": 57.86109775855009,
+          "ppTPS": 494.96696746764474,
+          "CacheTokens": 0,
+          "generatedTokens": 13,
+          "promptTokens": 95,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "I told you Cedar",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-name",
+      "exitCode": 0,
+      "wallSeconds": 0.993,
+      "loaded": {
+        "type": "loaded",
+        "ms": 569
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-name",
+        "ms": 887,
+        "firstTokenMs": 747,
+        "output": "{\"message\":\"Cedar\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 162.79500000000002,
+          "TPS": 79.68704723268618,
+          "ppTPS": 466.84480481587264,
+          "CacheTokens": 0,
+          "generatedTokens": 11,
+          "promptTokens": 76,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Cedar",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-reflection",
+      "exitCode": 0,
+      "wallSeconds": 1.775,
+      "loaded": {
+        "type": "loaded",
+        "ms": 964
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-reflection",
+        "ms": 1667,
+        "firstTokenMs": 1148,
+        "output": "{\"message\":\"Reflect on a challenging workday by acknowledging the effort and growth it may bring, and consider how it can contribute to your personal and professional development.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 150.834,
+          "TPS": 73.76410240052313,
+          "ppTPS": 497.23537133537525,
+          "CacheTokens": 0,
+          "generatedTokens": 37,
+          "promptTokens": 75,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Reflect on a challenging workday by acknowledging the effort and growth it may bring, and consider how it can contribute to your personal and professional development.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "caps604-spanish",
+      "exitCode": 0,
+      "wallSeconds": 2.213,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1252
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "caps604-spanish",
+        "ms": 2081,
+        "firstTokenMs": 1442,
+        "output": "{\"message\":\"Reflexionar sobre un d\u00eda dif\u00edcil puede ayudarte a descubrir qu\u00e9 te pas\u00f3 y c\u00f3mo te sientes, lo cual puede ser \u00fatil para mejorar tu bienestar y sentirte mejor en el futuro.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 154.867,
+          "TPS": 81.4883934962675,
+          "ppTPS": 510.11513104793147,
+          "CacheTokens": 0,
+          "generatedTokens": 51,
+          "promptTokens": 79,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Reflexionar sobre un d\u00eda dif\u00edcil puede ayudarte a descubrir qu\u00e9 te pas\u00f3 y c\u00f3mo te sientes, lo cual puede ser \u00fatil para mejorar tu bienestar y sentirte mejor en el futuro.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    }
+  ]
+}

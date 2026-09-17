@@ -1,0 +1,574 @@
+{
+  "status": "SYNTHETIC_VM_PASS_NOT_SOLARIS_BEHAVIOR_PROOF",
+  "baseline": "34\n62\n",
+  "patched": "43\n71\n",
+  "inline": {
+    "caller_fid": 1,
+    "donor_fid": 1,
+    "donor_header": {
+      "offset": 348,
+      "paramCount": 2,
+      "bytecodeSizeInBytes": 110,
+      "functionName": 11,
+      "infoOffset": 460,
+      "frameSize": 23,
+      "environmentSize": 0,
+      "highestReadCacheIndex": 8,
+      "highestWriteCacheIndex": 0,
+      "prohibitInvoke": 2,
+      "strictMode": 0,
+      "hasExceptionHandler": 0,
+      "hasDebugInfo": 0,
+      "overflowed": 0,
+      "kind": 0
+    },
+    "parameter_registers": {
+      "1": 0
+    },
+    "result_register": 0,
+    "register_start": 24,
+    "header_updates": {
+      "frameSize": 47,
+      "highestReadCacheIndex": 14,
+      "highestWriteCacheIndex": 1
+    },
+    "used_string_ids": [
+      1,
+      2,
+      3,
+      4,
+      7,
+      8,
+      9,
+      10
+    ],
+    "no_new_function_ids": true,
+    "no_new_strings": true,
+    "no_external_closures": true,
+    "implicit_caller_argument_fixups": [
+      26,
+      69
+    ]
+  },
+  "functions": {
+    "function_id": 1,
+    "original_header": {
+      "offset": 407,
+      "paramCount": 2,
+      "bytecodeSizeInBytes": 88,
+      "functionName": 6,
+      "infoOffset": 496,
+      "frameSize": 24,
+      "environmentSize": 0,
+      "highestReadCacheIndex": 5,
+      "highestWriteCacheIndex": 0,
+      "prohibitInvoke": 2,
+      "strictMode": 0,
+      "hasExceptionHandler": 0,
+      "hasDebugInfo": 0,
+      "overflowed": 0,
+      "kind": 0
+    },
+    "old_body_sha256": "cb573051dd7e46e6eb33569e9ba672c9ef67464a843d740143096b894eb882c2",
+    "new_body_sha256": "92ea1c83aedc725fdcbd1c3946a18c54344b659bc5e1c64b247762aaf6c8c72e",
+    "old_length": 88,
+    "new_length": 234,
+    "old_exceptions": [],
+    "new_exceptions": [],
+    "edits": [
+      {
+        "start": 26,
+        "end": 26,
+        "instructions": [
+          {
+            "name": "Mov",
+            "args": [
+              40,
+              17
+            ]
+          },
+          {
+            "name": "Mov",
+            "args": [
+              39,
+              16
+            ]
+          }
+        ]
+      },
+      {
+        "start": 69,
+        "end": 69,
+        "instructions": [
+          {
+            "name": "Mov",
+            "args": [
+              40,
+              17
+            ]
+          },
+          {
+            "name": "Mov",
+            "args": [
+              39,
+              16
+            ]
+          },
+          {
+            "name": "Mov",
+            "args": [
+              38,
+              15
+            ]
+          },
+          {
+            "name": "Mov",
+            "args": [
+              37,
+              14
+            ]
+          },
+          {
+            "name": "Mov",
+            "args": [
+              36,
+              13
+            ]
+          },
+          {
+            "name": "Mov",
+            "args": [
+              35,
+              12
+            ]
+          },
+          {
+            "name": "Mov",
+            "args": [
+              34,
+              11
+            ]
+          },
+          {
+            "name": "Mov",
+            "args": [
+              33,
+              10
+            ]
+          }
+        ]
+      },
+      {
+        "start": 86,
+        "end": 86,
+        "instructions": [
+          {
+            "label": "synthetic:0"
+          },
+          {
+            "name": "Mov",
+            "args": [
+              28,
+              0
+            ]
+          },
+          {
+            "label": "synthetic:3"
+          },
+          {
+            "name": "GetGlobalObject",
+            "args": [
+              25
+            ]
+          },
+          {
+            "label": "synthetic:5"
+          },
+          {
+            "name": "TryGetById",
+            "args": [
+              24,
+              25,
+              7,
+              2
+            ]
+          },
+          {
+            "label": "synthetic:11"
+          },
+          {
+            "name": "GetByIdShort",
+            "args": [
+              26,
+              24,
+              8,
+              9
+            ]
+          },
+          {
+            "label": "synthetic:16"
+          },
+          {
+            "name": "CreateThis",
+            "args": [
+              26,
+              26,
+              24
+            ]
+          },
+          {
+            "label": "synthetic:20"
+          },
+          {
+            "name": "Mov",
+            "args": [
+              40,
+              26
+            ]
+          },
+          {
+            "label": "synthetic:23"
+          },
+          {
+            "name": "Mov",
+            "args": [
+              39,
+              28
+            ]
+          },
+          {
+            "label": "synthetic:26"
+          },
+          {
+            "name": "Construct",
+            "args": [
+              24,
+              24,
+              2
+            ]
+          },
+          {
+            "label": "synthetic:30"
+          },
+          {
+            "name": "SelectObject",
+            "args": [
+              27,
+              26,
+              24
+            ]
+          },
+          {
+            "label": "synthetic:34"
+          },
+          {
+            "name": "TryGetById",
+            "args": [
+              26,
+              25,
+              9,
+              3
+            ]
+          },
+          {
+            "label": "synthetic:40"
+          },
+          {
+            "name": "GetByIdShort",
+            "args": [
+              24,
+              26,
+              10,
+              10
+            ]
+          },
+          {
+            "label": "synthetic:45"
+          },
+          {
+            "name": "Call2",
+            "args": [
+              24,
+              24,
+              26,
+              28
+            ]
+          },
+          {
+            "label": "synthetic:50"
+          },
+          {
+            "name": "TryGetById",
+            "args": [
+              33,
+              25,
+              11,
+              4
+            ]
+          },
+          {
+            "label": "synthetic:56"
+          },
+          {
+            "name": "GetByIdShort",
+            "args": [
+              32,
+              33,
+              12,
+              8
+            ]
+          },
+          {
+            "label": "synthetic:61"
+          },
+          {
+            "name": "LoadConstUInt8",
+            "args": [
+              39,
+              2
+            ]
+          },
+          {
+            "label": "synthetic:64"
+          },
+          {
+            "name": "LoadConstUInt8",
+            "args": [
+              38,
+              3
+            ]
+          },
+          {
+            "label": "synthetic:67"
+          },
+          {
+            "name": "LoadConstUInt8",
+            "args": [
+              37,
+              4
+            ]
+          },
+          {
+            "label": "synthetic:70"
+          },
+          {
+            "name": "LoadConstUInt8",
+            "args": [
+              36,
+              5
+            ]
+          },
+          {
+            "label": "synthetic:73"
+          },
+          {
+            "name": "LoadConstUInt8",
+            "args": [
+              35,
+              6
+            ]
+          },
+          {
+            "label": "synthetic:76"
+          },
+          {
+            "name": "LoadConstUInt8",
+            "args": [
+              34,
+              7
+            ]
+          },
+          {
+            "label": "synthetic:79"
+          },
+          {
+            "name": "Mov",
+            "args": [
+              40,
+              33
+            ]
+          },
+          {
+            "label": "synthetic:82"
+          },
+          {
+            "name": "Call",
+            "args": [
+              26,
+              32,
+              7
+            ]
+          },
+          {
+            "label": "synthetic:86"
+          },
+          {
+            "name": "GetByIdShort",
+            "args": [
+              25,
+              27,
+              13,
+              7
+            ]
+          },
+          {
+            "label": "synthetic:91"
+          },
+          {
+            "name": "Call1",
+            "args": [
+              25,
+              25,
+              27
+            ]
+          },
+          {
+            "label": "synthetic:95"
+          },
+          {
+            "name": "Add",
+            "args": [
+              25,
+              26,
+              25
+            ]
+          },
+          {
+            "label": "synthetic:99"
+          },
+          {
+            "name": "GetByIdShort",
+            "args": [
+              24,
+              24,
+              14,
+              1
+            ]
+          },
+          {
+            "label": "synthetic:104"
+          },
+          {
+            "name": "Add",
+            "args": [
+              24,
+              25,
+              24
+            ]
+          },
+          {
+            "label": "synthetic:108"
+          },
+          {
+            "name": "Mov",
+            "args": [
+              0,
+              24
+            ]
+          },
+          {
+            "name": "JmpLong",
+            "args": [
+              "synthetic:end"
+            ]
+          },
+          {
+            "label": "synthetic:110"
+          },
+          {
+            "label": "synthetic:end"
+          }
+        ]
+      }
+    ],
+    "boundary_map": {
+      "old:0": 0,
+      "old:3": 3,
+      "old:5": 5,
+      "old:11": 11,
+      "old:16": 16,
+      "old:20": 20,
+      "old:23": 23,
+      "old:26": 26,
+      "old:30": 36,
+      "old:34": 40,
+      "old:40": 46,
+      "old:45": 51,
+      "old:48": 54,
+      "old:51": 57,
+      "old:54": 60,
+      "old:57": 63,
+      "old:60": 66,
+      "old:63": 69,
+      "old:66": 72,
+      "old:69": 75,
+      "old:73": 103,
+      "old:78": 108,
+      "old:82": 112,
+      "old:86": 116,
+      "old:88": 234
+    },
+    "header_updates": {
+      "frameSize": 47,
+      "highestReadCacheIndex": 14,
+      "highestWriteCacheIndex": 1
+    }
+  },
+  "host_sha256": "89c76f3835c27b61b415aa7829504a0f9dbd43d221e2404fcfa442d940c15a91",
+  "donor_sha256": "ce8d6e69c3483c680615dcac0beb62c25a9113155edea4997eb9677ecbc13d3d",
+  "patched_sha256": "6e0771d2a6d3ac91b19d071537f1a7cf4f4b9f26cb24b461e1bccf35d672e83e",
+  "commands": [
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/solaris-603-work/reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+        "-O",
+        "-g0",
+        "-emit-binary",
+        "-out=/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/integration/inline-host.hbc",
+        "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/integration/inline-host.js"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/solaris-603-work/reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+        "-O",
+        "-g0",
+        "-emit-binary",
+        "-base-bytecode=/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/integration/inline-host.hbc",
+        "-out=/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/integration/inline-donor.hbc",
+        "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/integration/inline-donor.js"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/solaris-603-work/reconstruction-work/r2-tools/hermes-build/bin/hvm",
+        "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/integration/inline-host.hbc"
+      ],
+      "code": 0,
+      "stdout": "34\n62\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/solaris-603-work/reconstruction-work/r2-tools/hermes-build/bin/hvm",
+        "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/integration/inline-patched.hbc"
+      ],
+      "code": 0,
+      "stdout": "43\n71\n",
+      "stderr": ""
+    }
+  ],
+  "verified": [
+    "Original Construct argument preserved after caller frame growth",
+    "Original generic Math.max argument list preserved",
+    "Donor Construct and generic Math.max relative argument positions preserved",
+    "Donor explicit calls JSON.stringify/getTime preserved",
+    "Returned value reaches original Ret"
+  ]
+}

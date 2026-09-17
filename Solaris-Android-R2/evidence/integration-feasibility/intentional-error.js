@@ -1,0 +1,1 @@
+throw new Error("EXPECTED_HARNESS_EXCEPTION");

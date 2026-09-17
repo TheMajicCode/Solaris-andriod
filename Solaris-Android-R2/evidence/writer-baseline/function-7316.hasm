@@ -1,0 +1,23 @@
+=> [Function #7316 "" of 58 bytes]: 3 params, frame size=13, strict=1, exc handler=0, debug info=0  @ offset 0x01c3139c
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 1>
+==> 00000002: <LoadParam>: <Reg8: 0, UInt8: 2>
+==> 00000005: <StoreToEnvironment>: <Reg8: 1, UInt8: 0, Reg8: 0>
+==> 00000009: <GetGlobalObject>: <Reg8: 0>
+==> 0000000b: <TryGetById>: <Reg8: 3, Reg8: 0, UInt8: 1, string_id: 18135>  # String: 'setTimeout' (Identifier)
+==> 00000011: <GetEnvironment>: <Reg8: 0, UInt8: 3>
+==> 00000014: <LoadFromEnvironment>: <Reg8: 0, Reg8: 0, UInt8: 1>
+==> 00000018: <GetById>: <Reg8: 0, Reg8: 0, UInt8: 2, string_id: 20409>  # String: 'budgets' (Identifier)
+==> 0000001e: <GetById>: <Reg8: 2, Reg8: 0, UInt8: 3, string_id: 18831>  # String: 'firstToken' (Identifier)
+==> 00000024: <LoadConstUndefined>: <Reg8: 0>
+==> 00000026: <CreateClosure>: <Reg8: 1, Reg8: 1, function_id: 7317>  # Function: [#7317  of 57 bytes]: 1 params @ offset 0x01c313d6
+==> 0000002b: <Call3>: <Reg8: 2, Reg8: 3, Reg8: 0, Reg8: 1, Reg8: 2>
+==> 00000031: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 00000034: <StoreToEnvironment>: <Reg8: 1, UInt8: 6, Reg8: 2>
+==> 00000038: <Ret>: <Reg8: 0>
+
+
+===============
+

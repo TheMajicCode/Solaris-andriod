@@ -1,0 +1,22 @@
+{
+  "scope": "Independent cases executing actual UI script through the author synthetic-DOM setup, no real browser or Android validation.",
+  "htmlSha256": "82f96bdb87f16cd40cf84e51987ed4442fe444bd39ec82de29fff75eac334831",
+  "passed": 15,
+  "checks": [
+    "Duplicate send does not dispatch a second request or replace pending input",
+    "Active request uses selected source snapshot; later choices do not change it",
+    "Guided completion leaves newer user edits intact and does not attest model inference",
+    "Failure does not automatically retry or overwrite draft on polling",
+    "Completion refreshes pending controls after route changes with source picker still open",
+    "Unchanged result cannot be confused with a newly finished request",
+    "Private hide clears private draft and selected IDs immediately",
+    "Unlock returns to saved chat without re-dispatching the interrupted request",
+    "Late bridge response from locked session cannot settle current request",
+    "New explicit completion settles itself and dismisses interruption notice",
+    "Guided mode does not enable local AI permission",
+    "Guided reply completes with AI permission off without inventing inference proof",
+    "Spanish context guidance is visible with zero selected sources",
+    "Delayed progress timer cannot replace an intervening permission error",
+    "Finished action preserves intervening permission error"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "baselineSha256": "ef223edffb22dbbcafded33f94c54ec2c784121ecba006ac9cea29c9325642e2",
+  "outputSha256": "1dd45155ee400b7316d32c30856d2b3394680e98af7148bca29e5610879dbab4",
+  "changes": [
+    {
+      "change": "Track transient notice ownership",
+      "old": "errorAction='',methodSaving=false;",
+      "new": "errorAction='',errorOwner=null,methodSaving=false;"
+    },
+    {
+      "change": "Real errors supersede transient notice ownership",
+      "old": "function showError(code,action=''){",
+      "new": "function showError(code,action=''){errorOwner=null;"
+    },
+    {
+      "change": "Clearing an error clears ownership",
+      "old": "function updateError(){if(!error){errorCode='';errorAction='';}",
+      "new": "function updateError(){if(!error){errorCode='';errorAction='';errorOwner=null;}"
+    },
+    {
+      "change": "Chat shortcuts use chat progress only; late notices cannot replace errors",
+      "old": "const notice=setTimeout(()=>{if(actionJobs.get(group)===job&&isCurrent()){error=",
+      "new": "const notice=action.startsWith('ask:')?null:setTimeout(()=>{if(actionJobs.get(group)===job&&isCurrent()&&!error){errorOwner=job;error="
+    },
+    {
+      "change": "Finished actions clear only their own transient notice",
+      "old": "finally{clearTimeout(notice);if(actionJobs.get(group)===job)actionJobs.delete(group);updatePendingControls();}",
+      "new": "finally{clearTimeout(notice);if(errorOwner===job){error='';updateError();}if(actionJobs.get(group)===job)actionJobs.delete(group);updatePendingControls();}"
+    },
+    {
+      "change": "Completion receipt is distinct from model-inference proof",
+      "old": "function recordChatResult(result,beforeIds,message,session){\n // Only the completed result of this normal-chat request can establish proof.\n // Historical replies, setup-test status, empty replies and unchanged state cannot.\n if(session!==privateEpoch||state.locked||result!==state||!permitted())return;\n const list=Array.isArray(result.conversation)?result.conversation:[],reply=list.at(-1),user=list.at(-2);\n if(!reply||!user||reply.role!=='assistant'||reply.mode!=='qvac-device'||typeof reply.id!=='string'||beforeIds.has(reply.id)||typeof reply.text!=='string'||!reply.text.trim()||user.role!=='user'||typeof user.id!=='string'||beforeIds.has(user.id)||user.text!==message)return;\n const contextExpiry=state.experience?.localContext?.expiresAt;chatProof={epoch:session,owner:state.ownerId,expires:state.grants.expiresAt,reply:reply.id,context:chatContextGrant(),contextExpiry:Date.parse(contextExpiry)>Date.now()?contextExpiry:null};\n}\n",
+      "new": "function completedChat(result,beforeIds,message,session){\n if(session!==privateEpoch||state.locked||result!==state)return false;\n const list=Array.isArray(result.conversation)?result.conversation:[],reply=list.at(-1),user=list.at(-2);\n return !!(reply&&user&&reply.role==='assistant'&&typeof reply.id==='string'&&!beforeIds.has(reply.id)&&typeof reply.text==='string'&&reply.text.trim()&&user.role==='user'&&typeof user.id==='string'&&!beforeIds.has(user.id)&&user.text===message);\n}\nfunction recordChatResult(result,beforeIds,message,session){\n if(!completedChat(result,beforeIds,message,session)||!permitted()||result.conversation.at(-1).mode!=='qvac-device')return;\n const contextExpiry=state.experience?.localContext?.expiresAt;chatProof={epoch:session,owner:state.ownerId,expires:state.grants.expiresAt,reply:result.conversation.at(-1).id,context:chatContextGrant(),contextExpiry:Date.parse(contextExpiry)>Date.now()?contextExpiry:null};\n}\n"
+    },
+    {
+      "change": "Only a confirmed new reply clears the submitted draft and same-chat error",
+      "old": "if(accepted.revision===result.revision)recordChatResult(accepted,beforeIds,text,session);if(chatDraft===text){chatDraft='';const input=document.getElementById('chat-draft');if(input?.value===text)input.value='';}",
+      "new": "if(accepted.revision===result.revision&&completedChat(accepted,beforeIds,text,session)){recordChatResult(accepted,beforeIds,text,session);if(errorAction==='converse'){error='';updateError();}if(chatDraft===text){chatDraft='';const input=document.getElementById('chat-draft');if(input?.value===text)input.value='';}}"
+    },
+    {
+      "change": "Settled controls update after navigation back to chat",
+      "old": "if(ticket===navigationEpoch&&session===privateEpoch&&route==='luca'&&(!sub||sub==='sourcePicker'))",
+      "new": "if(session===privateEpoch&&route==='luca'&&(!sub||sub==='sourcePicker'))"
+    },
+    {
+      "change": "Progress is observational, not a claim about engine activity",
+      "old": "Date.now()-chatStartedAt<15000?'Preparing your local reply\u2026':'Still waiting for a completed local reply\u2026',Date.now()-chatStartedAt<15000?'Preparando tu respuesta local\u2026':'A\u00fan esperando una respuesta local completa\u2026'",
+      "new": "Date.now()-chatStartedAt<15000?'Waiting for your reply\u2026':'Your reply is taking longer\u2026',Date.now()-chatStartedAt<15000?'Esperando tu respuesta\u2026':'Tu respuesta est\u00e1 tardando m\u00e1s\u2026'"
+    },
+    {
+      "change": "Zero-source selection is an explicit choice",
+      "old": "${btn(selected.size+' '+tr('selected sources'),'sourcePicker','plain')}",
+      "new": "${btn(selected.size?selected.size+' '+tr('selected sources'):repairText('Choose sources','Elegir fuentes'),'sourcePicker','plain')}"
+    },
+    {
+      "change": "Visible zero-source context explanation",
+      "old": "${sub==='sourcePicker'?`<div class=\"sources\">",
+      "new": "${!selected.size?`<small class=\"muted\">${repairText('No records selected. Choose sources for personal answers.','Sin registros seleccionados. Elige fuentes para respuestas personales.')}</small>`:''}${sub==='sourcePicker'?`<div class=\"sources\">"
+    },
+    {
+      "change": "Source picker offers existing category permission control",
+      "old": "${btn('Done','sourcePickerDone','plain')}</div>`:''}</section>`}",
+      "new": "${btn('Choose context categories','contextSettings','plain')}${btn('Done','sourcePickerDone','plain')}</div>`:''}</section>`}"
+    },
+    {
+      "change": "Public return marker contains no private message or source",
+      "old": "let chatProof=null,chatStartedAt=null,chatPendingId=null;",
+      "new": "let chatProof=null,chatStartedAt=null,chatPendingId=null,chatReturn=0;"
+    },
+    {
+      "change": "Background hide records only destination and interrupted status",
+      "old": "window.__solarisPrivateHide=()=>{navigationEpoch++;",
+      "new": "window.__solarisPrivateHide=()=>{if(!state.locked&&chatReturn!==-1)chatReturn=route==='luca'?(waiting?2:1):0;navigationEpoch++;"
+    },
+    {
+      "change": "Unlock home callback returns to chat without inference or replay",
+      "old": "window.__solarisDailyRoute=r=>{navigationEpoch++;route=r;sub=null;render()};",
+      "new": "window.__solarisDailyRoute=r=>{navigationEpoch++;if(chatReturn===1||chatReturn===2){if(r==='home')r='luca';chatReturn=chatReturn===2?3:0;}route=r;sub=null;render()};"
+    },
+    {
+      "change": "Explicit lock clears the public return marker",
+      "old": "if(a==='lock'){await request('lock');",
+      "new": "if(a==='lock'){chatReturn=-1;try{await request('lock');}finally{chatReturn=0;}"
+    },
+    {
+      "change": "Fresh explicit lock clears the old interruption notice",
+      "old": "if(state.locked){privateEpoch++;",
+      "new": "if(state.locked){if(chatReturn===3)chatReturn=0;privateEpoch++;"
+    },
+    {
+      "change": "Interruption explanation does not claim an unsaved draft survived",
+      "old": "<div class=\"messages\" aria-label=\"Conversation\">",
+      "new": "${chatReturn===3?`<p class=\"muted\" role=\"status\">${repairText('Your saved chat is below. Leaving Solaris stopped the reply and cleared the draft. Type your question again to retry.','Tu chat guardado sigue abajo. Salir de Solaris detuvo la respuesta y borr\u00f3 el borrador. Escr\u00edbelo de nuevo para reintentar.')}</p>`:''}<div class=\"messages\" aria-label=\"Conversation\">"
+    },
+    {
+      "change": "Only explicit send dismisses interruption state",
+      "old": "if(waiting||!message.trim())return;useAI=permitted();",
+      "new": "if(waiting||!message.trim())return;chatReturn=0;useAI=permitted();"
+    }
+  ]
+}

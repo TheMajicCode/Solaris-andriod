@@ -1,0 +1,96 @@
+=> [Function #7139 "" of 357 bytes]: 8 params, frame size=22, strict=1, exc handler=0, debug info=0  @ offset 0x01c2d668
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 2>
+==> 00000002: <LoadParam>: <Reg8: 3, UInt8: 2>
+==> 00000005: <LoadParam>: <Reg8: 9, UInt8: 6>
+==> 00000008: <LoadParam>: <Reg8: 4, UInt8: 7>
+==> 0000000b: <StoreToEnvironment>: <Reg8: 2, UInt8: 0, Reg8: 3>
+==> 0000000f: <StoreToEnvironment>: <Reg8: 2, UInt8: 1, Reg8: 4>
+==> 00000013: <CreateClosure>: <Reg8: 6, Reg8: 2, function_id: 7140>  # Function: [#7140 _interopDefault of 28 bytes]: 2 params @ offset 0x01b82a2b
+==> 00000018: <CreateClosure>: <Reg8: 5, Reg8: 2, function_id: 7141>  # Function: [#7141 _interopNamespace of 72 bytes]: 2 params @ offset 0x01c2d7cd
+==> 0000001d: <GetGlobalObject>: <Reg8: 1>
+==> 0000001f: <TryGetById>: <Reg8: 11, Reg8: 1, UInt8: 1, string_id: 18>  # String: 'Object' (Identifier)
+==> 00000025: <GetByIdShort>: <Reg8: 10, Reg8: 11, UInt8: 2, string_id: 103>  # String: 'defineProperty' (Identifier)
+==> 0000002a: <NewObject>: <Reg8: 8>
+==> 0000002c: <LoadConstTrue>: <Reg8: 0>
+==> 0000002e: <PutNewOwnByIdShort>: <Reg8: 8, Reg8: 0, string_id: 249>  # String: 'value' (Identifier)
+==> 00000032: <LoadConstString>: <Reg8: 7, string_id: 32>  # String: '__esModule' (Identifier)
+==> 00000036: <Call4>: <Reg8: 7, Reg8: 10, Reg8: 11, Reg8: 9, Reg8: 7, Reg8: 8>
+==> 0000003d: <TryGetById>: <Reg8: 8, Reg8: 1, UInt8: 1, string_id: 18>  # String: 'Object' (Identifier)
+==> 00000043: <GetByIdShort>: <Reg8: 7, Reg8: 8, UInt8: 2, string_id: 103>  # String: 'defineProperty' (Identifier)
+==> 00000048: <NewObject>: <Reg8: 1>
+==> 0000004a: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 0, string_id: 120>  # String: 'enumerable' (Identifier)
+==> 0000004e: <CreateClosure>: <Reg8: 0, Reg8: 2, function_id: 7144>  # Function: [#7144 get of 9 bytes]: 1 params @ offset 0x01b996e2
+==> 00000053: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 0, string_id: 136>  # String: 'get' (Identifier)
+==> 00000057: <LoadConstString>: <Reg8: 0, string_id: 19631>  # String: 'QvacService' (Identifier)
+==> 0000005b: <Call4>: <Reg8: 0, Reg8: 7, Reg8: 8, Reg8: 9, Reg8: 0, Reg8: 1>
+==> 00000062: <LoadConstZero>: <Reg8: 0>
+==> 00000064: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 0>
+==> 00000068: <LoadConstUndefined>: <Reg8: 0>
+==> 0000006a: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 0000006f: <Call2>: <Reg8: 1, Reg8: 6, Reg8: 0, Reg8: 1>
+==> 00000074: <StoreToEnvironment>: <Reg8: 2, UInt8: 2, Reg8: 1>
+==> 00000078: <LoadConstUInt8>: <Reg8: 1, UInt8: 1>
+==> 0000007b: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 0000007f: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000084: <Call2>: <Reg8: 1, Reg8: 6, Reg8: 0, Reg8: 1>
+==> 00000089: <StoreToEnvironment>: <Reg8: 2, UInt8: 3, Reg8: 1>
+==> 0000008d: <LoadConstUInt8>: <Reg8: 1, UInt8: 2>
+==> 00000090: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 00000094: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000099: <Call2>: <Reg8: 1, Reg8: 6, Reg8: 0, Reg8: 1>
+==> 0000009e: <StoreToEnvironment>: <Reg8: 2, UInt8: 4, Reg8: 1>
+==> 000000a2: <LoadConstUInt8>: <Reg8: 1, UInt8: 3>
+==> 000000a5: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 000000a9: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 000000ae: <Call2>: <Reg8: 1, Reg8: 6, Reg8: 0, Reg8: 1>
+==> 000000b3: <StoreToEnvironment>: <Reg8: 2, UInt8: 5, Reg8: 1>
+==> 000000b7: <LoadConstUInt8>: <Reg8: 1, UInt8: 4>
+==> 000000ba: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 000000be: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 000000c3: <Call2>: <Reg8: 1, Reg8: 6, Reg8: 0, Reg8: 1>
+==> 000000c8: <StoreToEnvironment>: <Reg8: 2, UInt8: 6, Reg8: 1>
+==> 000000cc: <LoadConstUInt8>: <Reg8: 1, UInt8: 5>
+==> 000000cf: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 000000d3: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 000000d8: <Call2>: <Reg8: 1, Reg8: 5, Reg8: 0, Reg8: 1>
+==> 000000dd: <StoreToEnvironment>: <Reg8: 2, UInt8: 7, Reg8: 1>
+==> 000000e1: <LoadConstUInt8>: <Reg8: 1, UInt8: 6>
+==> 000000e4: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 000000e8: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 000000ed: <Call2>: <Reg8: 1, Reg8: 5, Reg8: 0, Reg8: 1>
+==> 000000f2: <StoreToEnvironment>: <Reg8: 2, UInt8: 8, Reg8: 1>
+==> 000000f6: <LoadConstUInt8>: <Reg8: 1, UInt8: 7>
+==> 000000f9: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 000000fd: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000102: <StoreToEnvironment>: <Reg8: 2, UInt8: 9, Reg8: 1>
+==> 00000106: <LoadConstUInt8>: <Reg8: 1, UInt8: 8>
+==> 00000109: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 0000010d: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000112: <StoreToEnvironment>: <Reg8: 2, UInt8: 10, Reg8: 1>
+==> 00000116: <LoadConstUInt8>: <Reg8: 1, UInt8: 9>
+==> 00000119: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 0000011d: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000122: <StoreToEnvironment>: <Reg8: 2, UInt8: 11, Reg8: 1>
+==> 00000126: <LoadConstUInt8>: <Reg8: 1, UInt8: 10>
+==> 00000129: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 0000012d: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000132: <StoreToEnvironment>: <Reg8: 2, UInt8: 12, Reg8: 1>
+==> 00000136: <LoadConstUInt8>: <Reg8: 1, UInt8: 11>
+==> 00000139: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 0000013d: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000142: <StoreToEnvironment>: <Reg8: 2, UInt8: 13, Reg8: 1>
+==> 00000146: <LoadConstUInt8>: <Reg8: 1, UInt8: 12>
+==> 00000149: <GetByVal>: <Reg8: 1, Reg8: 4, Reg8: 1>
+==> 0000014d: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000152: <StoreToEnvironment>: <Reg8: 2, UInt8: 14, Reg8: 1>
+==> 00000156: <CreateClosure>: <Reg8: 1, Reg8: 2, function_id: 7145>  # Function: [#7145  of 1062 bytes]: 1 params @ offset 0x01c2d86e
+==> 0000015b: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 0>
+==> 0000015f: <StoreToEnvironment>: <Reg8: 2, UInt8: 15, Reg8: 1>
+==> 00000163: <Ret>: <Reg8: 0>
+
+
+===============
+

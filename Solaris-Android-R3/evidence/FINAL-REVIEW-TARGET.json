@@ -1,0 +1,8 @@
+{
+  "bundle": "Solaris-Android-R3/evidence/candidate-06/candidate603.hbc",
+  "hbcSha256": "b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990",
+  "unsignedApkSha256": "696333f57c630df950bdb369bc9bec339e44ec332ab3f2617d4b8a82896f4292",
+  "unsignedApkBytes": 242582583,
+  "buildManifestSha256": "045dab7fd48ab09c169ed45ce498088fb57de33c40b6a749d4358b1e3cf7a9c3",
+  "note": "Only this final bundle/unsigned artifact may be approved. Earlier candidate03-05 artifacts and truncated workspace copy are not release artifacts."
+}

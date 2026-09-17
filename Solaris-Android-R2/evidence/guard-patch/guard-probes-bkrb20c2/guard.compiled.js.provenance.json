@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/tests/hermes/guard-postlude.js",
+  "output": "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/guard-patch/guard-probes-bkrb20c2/guard.compiled.js",
+  "inputSha256": "dc575e4ebb547c312b0111cdc059d9ae61f9eecacf4c34af8b5dc56b5ab44e79",
+  "outputSha256": "f96951bdcc7185973b2dfb2ebdd14cd50fd461c8e075b68308c79e9a62b0f5c6",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "guard-postlude.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

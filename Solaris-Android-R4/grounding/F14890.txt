@@ -1,0 +1,59 @@
+0: LoadParam 6, 1
+3: LoadParam 5, 2
+6: LoadParam 4, 0
+9: GetById 0, 4, 1, 18141='requireState'
+15: Call1 3, 0, 4
+19: GetById 0, 3, 2, 19207='migration'
+25: GetById 0, 0, 3, 20506='committed'
+31: JmpTrue 24, 0
+34: GetGlobalObject 0
+36: TryGetById 2, 0, 4, 8='Error'
+42: LoadConstUndefined 1
+44: LoadConstString 0, 5663='MIGRATION_REQUIRED'
+48: Call2 0, 2, 1, 0
+53: Throw 0
+55: GetEnvironment 1, 1
+58: LoadFromEnvironment 0, 1, 12
+62: GetById 2, 0, 5, 17527='boundedText'
+68: LoadConstUndefined 0
+70: Call2 2, 2, 0, 6
+75: GetByIdShort 2, 6, 6, 240='trim'
+80: Call1 2, 2, 6
+84: JmpTrue 22, 2
+87: GetGlobalObject 2
+89: TryGetById 7, 2, 4, 8='Error'
+95: LoadConstString 2, 7191='MESSAGE_EMPTY'
+99: Call2 2, 7, 0, 2
+104: Throw 2
+106: LoadParam 2, 3
+109: JmpTrue 5, 2
+112: Ret 0
+114: GetGlobalObject 2
+116: TryGetById 2, 2, 7, 6='Date'
+122: GetByIdShort 7, 2, 8, 203='prototype'
+127: CreateThis 7, 7, 2
+131: Mov 13, 7
+134: Construct 2, 2, 1
+138: SelectObject 7, 7, 2
+142: GetById 2, 7, 9, 17366='toISOString'
+148: Call1 2, 2, 7
+152: GetByIdShort 8, 3, 10, 134='format'
+157: LoadConstString 7, 7166='solaris-daily-state/3'
+161: JStrictEqual 34, 8, 7
+165: LoadFromEnvironment 1, 1, 16
+169: GetById 1, 1, 11, 20511='compileTask'
+175: LoadConstUndefined 13
+177: Mov 12, 3
+180: Mov 11, 6
+183: Mov 10, 5
+186: Mov 9, 2
+189: Call 1, 1, 5
+193: Jmp 27
+195: GetById 1, 4, 12, 15681='conversationContext'
+201: Mov 13, 4
+204: Mov 12, 3
+207: Mov 11, 6
+210: Mov 10, 5
+213: Mov 9, 2
+216: Call 1, 1, 5
+220: Ret 0

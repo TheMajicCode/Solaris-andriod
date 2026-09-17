@@ -1,0 +1,45 @@
+{
+  "compiler_sha256": "b4c37f09410c6c6c0ce90df00eb270dc257d2184c85ca320382ebe06057f2a14",
+  "results": [
+    {
+      "args": [
+        "reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+        "-version"
+      ],
+      "returncode": 0,
+      "stdout": "LLVM (http://llvm.org/):\n  LLVH version 8.0.0svn\n  Optimized build\n\nHermes JavaScript compiler.\n  Hermes release version: 0.12.0\n  HBC bytecode version: 96\n\n  Features:\n    Debugger\n    Contiguous Heap\n    Unicode RegExp Property Escapes\n    Zip file input\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+        "-help"
+      ],
+      "returncode": 0,
+      "stdout": "OVERVIEW: Hermes driver\n\nUSAGE: hermesc [options] <file1> <file2>...\n\nOPTIONS:\n\nCompiler Options:\nThese options change how JS is compiled.\n\n  Choose optimization level:\n    -O0                              - No optimizations\n    -Og                              - Optimizations suitable for debugging\n    -O                               - Expensive optimizations\n  -Wdirect-eval                      - Enable Warning when attempting a direct (local) eval\n  -Werror                            - Treat all warnings as errors, or treat warnings of a particular category as errors\n    =                                -   All warnings\n    =undefined-variable              -   Warning when an undefined variable is referenced\n    =direct-eval                     -   Warning when attempting a direct (local) eval\n    =unresolved-static-require       -   Warning when require calls cannot be resolved statically\n    =misc                            -   Miscellaneous warnings\n  -Wundefined-variable               - Enable Warning when an undefined variable is referenced\n  -Wunresolved-static-require        - Enable Warning when require calls cannot be resolved statically\n  -base-bytecode=<string>            - input base bytecode for delta optimizing mode\n  -bytecode-output-manifest=<string> - Name of the manifest file generated when compiling multiple segments to bytecode\n  -commonjs                          - Use CommonJS modules\n  -dump-instr-uselist                - Print the use list if the instruction has any users.\n  -dump-operand-registers            - Dump registers assigned to instruction operands\n  -dump-source-level-scope           - Print the instruction's source-level scope.\n  -dump-source-location              - Print source location information in IR/AST/bytecode dumps.\n    =both                            -   Print both source location and byte range\n    =loc                             -   Print only source location\n    =range                           -   Print only byte range\n  -dump-textified-callee             - Print the Call instruction's textified callee.\n  -eager                             - Force fully eager compilation\n  -emit-async-break-check            - Emit instruction to check async break request\n  Choose output:\n    -exec                            - Execute the provided script (default)\n    -dump-ast                        - Dump the AST as text in JSON\n    -dump-transformed-ast            - Dump the transformed AST as text after validation\n    -dump-js                         - Dump the AST as JS\n    -dump-transformed-js             - Dump the transformed AST as JS after validation\n    -dump-ir                         - Dump the IR as text\n    -dump-lir                        - Dump the Lowered IR as text\n    -dump-ra                         - Dump the register-allocated IR as text\n    -dump-lra                        - Dump register-allocated Lowered IR as text\n    -dump-postra                     - Dump the Lowered IR after register allocation\n    -dump-bytecode                   - Dump bytecode as text\n    -emit-binary                     - Emit compiled binary\n  -ferror-limit=<uint>               - Maximum number of errors (0 means unlimited)\n  -finline                           - Enable inlining of functions\n  recognizing of calls to global functions like Object.keys() statically\n    -fstatic-builtins                - Enable static builtins.\n    -fno-static-builtins             - Disable static builtins.\n    -fauto-detect-static-builtins    - Automatically detect 'use static builtin' directive from the source.\n  -fstatic-require                   - Enable resolving of CommonJS require() calls at compile time\n  -fstrip-function-names             - Enable Strip function names to reduce string table size\n  -funsafe-intrinsics                - Enable Recognize and lower Asm.js/Wasm unsafe compiler intrinsics.\n  Choose debug info level:\n    -g                               - Equivalent to -g3\n    -g0                              - Do not emit debug info\n    -g1                              - Emit location info for backtraces\n    -g2                              - Emit location info for all instructions\n    -g3                              - Emit full info for debugging\n  -lazy                              - Force fully lazy compilation\n  -max-diagnostic-width=<int>        - Preferred diagnostic maximum width\n  -non-strict                        - Enable non-strict mode.\n  -out=<string>                      - Output file name\n  -output-source-map                 - Emit a source map to the output filename with .map extension\n  -parse-flow                        - Parse Flow\n  -parse-jsx                         - Parse JSX\n  -parse-ts                          - Parse TypeScript\n  -pretty                            - Pretty print JSON, JS or disassembled bytecode\n  -source-map=<string>               - Specify a matching source map for the input JS file\n  -strict                            - Enable strict mode.\n  -target                            - Set the bytecode format:\n    =HBC                             -   Emit HBC bytecode (default)\n  -w                                 - Disable all warnings\n\nGeneral options:\n\n  -b                                 - Treat the input as executable bytecode\n  -basic-block-profiling             - Enable basic block profiling (HBC only)\n  -enable-eval                       - Enable support for eval()\n  -include-globals=<filename>        - Include the definitions of global properties (can be specified more than once)\n  -optimized-eval                    - Turn on compiler optimizations in eval.\n  -reuse-prop-cache                  - Reuse property cache entries for same property name\n\nGeneric Options:\n\n  -help                              - Display available options (-help-hidden for more)\n  -help-list                         - Display list of available options (-help-list-hidden for more)\n  -version                           - Display the version of this program\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+        "-emit-binary",
+        "-O",
+        "-out=Solaris-Android-R2/evidence/integration-feasibility/probe.hbc",
+        "Solaris-Android-R2/evidence/integration-feasibility/probe.js"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+        "-exec",
+        "Solaris-Android-R2/evidence/integration-feasibility/probe.js"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Please choose output, e.g. -emit-binary. hermesc does not support -exec.\nExample: hermesc -emit-binary -out myfile.hbc myfile.js\n"
+    }
+  ]
+}

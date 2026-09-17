@@ -1,0 +1,10 @@
+{
+  "format": "solaris-v6-603-build-manifest/1",
+  "baselineApkSha256": "01da9f5281f5f92230dcbd64da62484557cc7a0a15e876cc2d99ec7ec3bcd2cd",
+  "patchedHbcSha256": "2477ad2cd24c957ccfb3415a5a39d397bf6bc1d9139e0f4d86861fbc89cfc12a",
+  "patchedHbcBytes": 30748808,
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 603,
+  "versionName": "6.0.3-preview.pocket-chat",
+  "scope": "Packaging structural probe using interim diagnostics bundle only. Not reviewed for signing or release."
+}

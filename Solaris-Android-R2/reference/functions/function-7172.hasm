@@ -1,0 +1,61 @@
+=> [Function #7172 "?anon_0_" of 207 bytes]: 2 params, frame size=17, strict=1, exc handler=0, debug info=0  @ offset 0x01c2e9d7
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 1, UInt8: 1>
+==> 00000004: <LoadParam>: <Reg8: 4, UInt8: 0>
+==> 00000007: <CreateEnvironment>: <Reg8: 2>
+==> 00000009: <ResumeGenerator>: <Reg8: 0, Reg8: 3>
+==> 0000000c: <JmpTrueLong>: <Addr32: 192, Reg8: 3>  # Address: 000000cc
+==> 00000012: <StoreToEnvironment>: <Reg8: 2, UInt8: 0, Reg8: 1>
+==> 00000016: <StoreToEnvironment>: <Reg8: 2, UInt8: 1, Reg8: 4>
+==> 0000001a: <GetById>: <Reg8: 3, Reg8: 1, UInt8: 1, string_id: 20448>  # String: 'cancelPromise' (Identifier)
+==> 00000020: <JmpTrueLong>: <Addr32: 163, Reg8: 3>  # Address: 000000c3
+==> 00000026: <LoadConstTrue>: <Reg8: 3>
+==> 00000028: <PutById>: <Reg8: 1, Reg8: 3, UInt8: 1, string_id: 14914>  # String: 'cancelled' (Identifier)
+==> 0000002e: <LoadConstString>: <Reg8: 3, string_id: 1330>  # String: 'requested' (String)
+==> 00000032: <PutById>: <Reg8: 4, Reg8: 3, UInt8: 2, string_id: 20452>  # String: 'cancellation' (Identifier)
+==> 00000038: <GetById>: <Reg8: 7, Reg8: 4, UInt8: 2, string_id: 15384>  # String: 'trace' (Identifier)
+==> 0000003e: <GetByIdShort>: <Reg8: 6, Reg8: 7, UInt8: 3, string_id: 44>  # String: 'add' (Identifier)
+==> 00000043: <GetById>: <Reg8: 5, Reg8: 1, UInt8: 4, string_id: 17234>  # String: 'ctx' (Identifier)
+==> 00000049: <LoadConstString>: <Reg8: 3, string_id: 5026>  # String: 'cancel-requested' (String)
+==> 0000004d: <Call3>: <Reg8: 3, Reg8: 6, Reg8: 7, Reg8: 5, Reg8: 3>
+==> 00000053: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 5, string_id: 72>  # String: 'changed' (Identifier)
+==> 00000058: <Call1>: <Reg8: 3, Reg8: 3, Reg8: 4>
+==> 0000005c: <GetById>: <Reg8: 3, Reg8: 1, UInt8: 6, string_id: 20441>  # String: 'cancelAction' (Identifier)
+==> 00000062: <JmpTrue>: <Addr8: 54, Reg8: 3>  # Address: 00000098
+==> 00000065: <GetByIdShort>: <Reg8: 5, Reg8: 1, UInt8: 7, string_id: 193>  # String: 'pending' (Identifier)
+==> 0000006a: <LoadConstString>: <Reg8: 6, string_id: 5356>  # String: 'cooperative' (String)
+==> 0000006e: <Mov>: <Reg8: 3, Reg8: 6>
+==> 00000071: <JmpFalse>: <Addr8: 19, Reg8: 5>  # Address: 00000084
+==> 00000074: <GetById>: <Reg8: 5, Reg8: 1, UInt8: 8, string_id: 18712>  # String: 'pendingSettled' (Identifier)
+==> 0000007a: <Mov>: <Reg8: 3, Reg8: 6>
+==> 0000007d: <JmpTrue>: <Addr8: 7, Reg8: 5>  # Address: 00000084
+==> 00000080: <LoadConstString>: <Reg8: 3, string_id: 11648>  # String: 'unconfirmed' (String)
+==> 00000084: <PutById>: <Reg8: 4, Reg8: 3, UInt8: 2, string_id: 20452>  # String: 'cancellation' (Identifier)
+==> 0000008a: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 5, string_id: 72>  # String: 'changed' (Identifier)
+==> 0000008f: <Call1>: <Reg8: 3, Reg8: 3, Reg8: 4>
+==> 00000093: <LoadConstUndefined>: <Reg8: 3>
+==> 00000095: <CompleteGenerator>: <>
+==> 00000096: <Ret>: <Reg8: 3>
+==> 00000098: <GetEnvironment>: <Reg8: 3, UInt8: 3>
+==> 0000009b: <LoadFromEnvironment>: <Reg8: 3, Reg8: 3, UInt8: 3>
+==> 0000009f: <GetByIdShort>: <Reg8: 4, Reg8: 3, UInt8: 9, string_id: 101>  # String: 'default' (Identifier)
+==> 000000a4: <LoadConstUndefined>: <Reg8: 3>
+==> 000000a6: <CreateGeneratorClosure>: <Reg8: 2, Reg8: 2, function_id: 7173>  # Function: [#7173  of 9 bytes]: 1 params @ offset 0x01c2eaa6
+==> 000000ab: <Call2>: <Reg8: 2, Reg8: 4, Reg8: 3, Reg8: 2>
+==> 000000b0: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 000000b4: <PutById>: <Reg8: 1, Reg8: 2, UInt8: 3, string_id: 20448>  # String: 'cancelPromise' (Identifier)
+==> 000000ba: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 1, string_id: 20448>  # String: 'cancelPromise' (Identifier)
+==> 000000c0: <CompleteGenerator>: <>
+==> 000000c1: <Ret>: <Reg8: 2>
+==> 000000c3: <GetById>: <Reg8: 1, Reg8: 1, UInt8: 1, string_id: 20448>  # String: 'cancelPromise' (Identifier)
+==> 000000c9: <CompleteGenerator>: <>
+==> 000000ca: <Ret>: <Reg8: 1>
+==> 000000cc: <CompleteGenerator>: <>
+==> 000000cd: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,24 @@
+=> [Function #6931 "" of 55 bytes]: 1 params, frame size=11, strict=1, exc handler=0, debug info=0  @ offset 0x01c29851
+
+Bytecode listing:
+
+==> 00000000: <GetEnvironment>: <Reg8: 1, UInt8: 3>
+==> 00000003: <LoadFromEnvironment>: <Reg8: 0, Reg8: 1, UInt8: 14>
+==> 00000007: <LoadConstUndefined>: <Reg8: 2>
+==> 00000009: <Call1>: <Reg8: 0, Reg8: 0, Reg8: 2>
+==> 0000000d: <JmpFalse>: <Addr8: 40, Reg8: 0>  # Address: 00000035
+==> 00000010: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 2>
+==> 00000014: <GetByIdShort>: <Reg8: 1, Reg8: 1, UInt8: 1, string_id: 35>  # String: 'state' (Identifier)
+==> 00000019: <LoadConstNull>: <Reg8: 3>
+==> 0000001b: <Eq>: <Reg8: 3, Reg8: 1, Reg8: 3>
+==> 0000001f: <LoadConstUndefined>: <Reg8: 2>
+==> 00000021: <JmpTrue>: <Addr8: 9, Reg8: 3>  # Address: 0000002a
+==> 00000024: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 2, string_id: 17826>  # String: 'ownerId' (Identifier)
+==> 0000002a: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 0000002d: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 0>
+==> 00000031: <StrictEq>: <Reg8: 0, Reg8: 2, Reg8: 1>
+==> 00000035: <Ret>: <Reg8: 0>
+
+
+===============
+

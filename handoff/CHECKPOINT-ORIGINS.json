@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-17",
+  "inputs": [
+    {
+      "name": "Solaris-604-Editable-Reconstruction.zip",
+      "bytes": 493166214,
+      "sha256": "2410c21bfdd7634b4fa19ce7538f03c95728e120faae008aa09d96d804d07ce9"
+    },
+    {
+      "name": "Solaris-603-Build-Inputs.zip",
+      "bytes": 483613456,
+      "sha256": "0745458668eb3ff149fa881b647095a74865b97fba84f39fc88297becb49019d"
+    },
+    {
+      "name": "Solaris-604-Build-Inputs.zip",
+      "bytes": 78295784,
+      "sha256": "22054782341cf8835c0a289946d94f09d14fffe43970c30a413b7645faba97ef"
+    },
+    {
+      "name": "Solaris-603-Model-Test-Input.zip",
+      "bytes": 365164918,
+      "sha256": "d6a1d5640ce37e9aa2ff2aee56d1f78534ebd6b93e80dc6fe262c851a122f9da"
+    },
+    {
+      "name": "Solaris-V6.0.4-Grounded-Chat-Candidate.apk",
+      "bytes": 242638023,
+      "sha256": "0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827"
+    }
+  ],
+  "scope": "Merged available saved Android work through604, including optional model experiment input; original missing native source is not supplied."
+}

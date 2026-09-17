@@ -1,0 +1,9 @@
+{
+  "url": "https://registry.npmjs.org/react-native/-/react-native-0.81.5.tgz",
+  "metadata_url": "https://registry.npmjs.org/react-native/0.81.5",
+  "bytes": 24766674,
+  "sha256": "e31721654764d1ca040bdddc5d6343376cef799f65115098ba250340af7e18b2",
+  "npm_sha512_integrity_verified": "sha512-1w+/oSjEXZjMqsIvmkCRsOc8UBYv163bTWKTI8+1mxztvQPhCRYGTvZ/PL1w16xXHneIj/SLGfxWg2GWN2uexw==",
+  "gitHead": "57ff54492f4a5a0e9d331e880b3c2264a2bd81f7",
+  "purpose": "Analysis-only pinned compiler acquisition; no dependency or application upgrade"
+}

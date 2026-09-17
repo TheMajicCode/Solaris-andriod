@@ -1,0 +1,30 @@
+=> [Function #7133 "" of 108 bytes]: 2 params, frame size=13, strict=1, exc handler=0, debug info=0  @ offset 0x01c2d48c
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 3, UInt8: 1>
+==> 00000003: <TypeOf>: <Reg8: 1, Reg8: 3>
+==> 00000006: <LoadConstString>: <Reg8: 0, string_id: 228>  # String: 'string' (Identifier)
+==> 0000000a: <JStrictNotEqual>: <Addr8: 64, Reg8: 1, Reg8: 0>  # Address: 0000004a
+==> 0000000e: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 1, string_id: 212>  # String: 'replace' (Identifier)
+==> 00000013: <CreateRegExp>: <Reg8: 1, string_id: 9271, string_id: 14041, UInt32: 94>  # String: '[|\\\\{}()[\\]^$+*?.]' (String)  # String: 'g' (Identifier)
+==> 00000021: <LoadConstString>: <Reg8: 0, string_id: 2490>  # String: '\\$&' (String)
+==> 00000025: <Call3>: <Reg8: 3, Reg8: 2, Reg8: 3, Reg8: 1, Reg8: 0>
+==> 0000002b: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 1, string_id: 212>  # String: 'replace' (Identifier)
+==> 00000030: <CreateRegExp>: <Reg8: 1, string_id: 1318, string_id: 14041, UInt32: 95>  # String: '-' (String)  # String: 'g' (Identifier)
+==> 0000003e: <LoadConstString>: <Reg8: 0, string_id: 1278>  # String: '\\x2d' (String)
+==> 00000042: <Call3>: <Reg8: 0, Reg8: 2, Reg8: 3, Reg8: 1, Reg8: 0>
+==> 00000048: <Ret>: <Reg8: 0>
+==> 0000004a: <GetGlobalObject>: <Reg8: 0>
+==> 0000004c: <TryGetById>: <Reg8: 2, Reg8: 0, UInt8: 2, string_id: 30>  # String: 'TypeError' (Identifier)
+==> 00000052: <GetByIdShort>: <Reg8: 0, Reg8: 2, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000057: <CreateThis>: <Reg8: 1, Reg8: 0, Reg8: 2>
+==> 0000005b: <LoadConstString>: <Reg8: 5, string_id: 5968>  # String: 'Expected a string' (String)
+==> 0000005f: <Mov>: <Reg8: 6, Reg8: 1>
+==> 00000062: <Construct>: <Reg8: 0, Reg8: 2, UInt8: 2>
+==> 00000066: <SelectObject>: <Reg8: 0, Reg8: 1, Reg8: 0>
+==> 0000006a: <Throw>: <Reg8: 0>
+
+
+===============
+

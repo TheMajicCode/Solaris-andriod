@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "acorn": "8.15.0",
+    "css-tree": "3.1.0",
+    "eslint-scope": "8.4.0",
+    "terser": "5.44.0"
+  }
+}

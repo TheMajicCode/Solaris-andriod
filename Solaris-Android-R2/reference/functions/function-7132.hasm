@@ -1,0 +1,14 @@
+=> [Function #7132 "" of 20 bytes]: 8 params, frame size=2, strict=1, exc handler=0, debug info=0  @ offset 0x01c2d478
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 0>
+==> 00000002: <CreateClosure>: <Reg8: 1, Reg8: 0, function_id: 7133>  # Function: [#7133  of 108 bytes]: 2 params @ offset 0x01c2d48c
+==> 00000007: <LoadParam>: <Reg8: 0, UInt8: 5>
+==> 0000000a: <PutById>: <Reg8: 0, Reg8: 1, UInt8: 1, string_id: 125>  # String: 'exports' (Identifier)
+==> 00000010: <LoadConstUndefined>: <Reg8: 0>
+==> 00000012: <Ret>: <Reg8: 0>
+
+
+===============
+

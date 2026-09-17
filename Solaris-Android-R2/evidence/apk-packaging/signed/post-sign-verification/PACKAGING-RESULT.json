@@ -1,0 +1,40 @@
+{
+  "format": "solaris-v6-602-unsigned-packaging-or-verification/1",
+  "baselineApkSha256": "228c3d9f282d716515e3640de2b13478a29e21c607293eaf589741ec6d34f183",
+  "candidatePath": "Solaris-Android-R2/evidence/apk-packaging/signed/Solaris-V6.0.2-Sanctuary-Guards-Candidate.apk",
+  "candidateSha256": "01da9f5281f5f92230dcbd64da62484557cc7a0a15e876cc2d99ec7ec3bcd2cd",
+  "candidateBytes": 242580679,
+  "patchedHbcSha256": "fd8b38bcdd42421c18da4a0b69b2d58906ceddd7c4a2044b34faed51490f4653",
+  "manifestSha256": "b24ee9859a63c1c27c09fcf7f4d9f96a4bf7e3f1146fb791b6d3bd81399f860f",
+  "configSha256": "9f1505a7cb7bfb1fb916feb3a2edfb7a3e7ec451dd983225bfc5a9c6e7a7e280",
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 602,
+  "versionName": "6.0.2-preview.sanctuary-guards",
+  "changedPayloadEntries": [
+    "AndroidManifest.xml",
+    "assets/app.config",
+    "assets/index.android.bundle"
+  ],
+  "preservedPayloadEntries": 599,
+  "removedObsoleteSignatureEntries": [],
+  "nativeLibraryCount": 51,
+  "allNativePayloadsUnchanged": true,
+  "allNativeLibrariesStoredAnd16KiBAligned": true,
+  "manifestChange": {
+    "stringIndex": 35,
+    "originalStringOffset": 1452,
+    "stringGrowthBytes": 14,
+    "poolGrowthBytes": 16,
+    "newVersionCodeOffset": 6728,
+    "allOtherStringsUnchanged": true,
+    "allOtherXmlNodeBytesUnchanged": true
+  },
+  "allOtherManifestSemanticsUnchanged": true,
+  "signatureVerified": true,
+  "expectedCertificateSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+  "signingPerformedByThisTool": false,
+  "phoneInstalled": false,
+  "phoneTested": false,
+  "buildKind": "APK-derived binary patch; not a complete native source rebuild",
+  "scope": "Two existing operation completion guards; full LUCA resume repair remains out of scope"
+}

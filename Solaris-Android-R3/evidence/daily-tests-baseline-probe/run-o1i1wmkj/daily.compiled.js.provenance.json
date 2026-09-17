@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/tests/daily-postlude.js",
+  "output": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/daily-tests-baseline-probe/run-o1i1wmkj/daily.compiled.js",
+  "inputSha256": "b3939a23614af230850bf0abba7069c731f8c51647a813eae9ae35f85fb46375",
+  "outputSha256": "f476ec92a8b0e76a452b92303643ab32be85f9310d5a57af8e946c49b0b79ce0",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "daily-postlude.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+=> [Function #7374 "" of 4 bytes]: 1 params, frame size=1, strict=1, exc handler=0, debug info=0  @ offset 0x01b759c5
+
+Bytecode listing:
+
+==> 00000000: <LoadConstUndefined>: <Reg8: 0>
+==> 00000002: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,63 @@
+{
+  "format": "solaris-reconstruction-release-gates/1",
+  "baselineCode": 601,
+  "signedCandidateAllowed": false,
+  "apkBuildPerformed": false,
+  "apkSigningPerformed": false,
+  "installed": false,
+  "keysChanged": false,
+  "ownerDataAccessed": false,
+  "pushOrDeployPerformed": false,
+  "gates": [
+    {
+      "gate": "reference_identity_and_signature",
+      "status": "verified",
+      "evidenceOrReason": "evidence/apksigner-601.txt"
+    },
+    {
+      "gate": "packaged_source_recovery",
+      "status": "verified",
+      "evidenceOrReason": "evidence/R0-INDEPENDENT-REVIEW.md"
+    },
+    {
+      "gate": "readable_ui_reproduction",
+      "status": "verified",
+      "evidenceOrReason": "evidence/UI-REPRODUCTION.json"
+    },
+    {
+      "gate": "portable_envelope_conformance",
+      "status": "verified_component_only",
+      "evidenceOrReason": "tests/recovery-codec/evidence/RUN-RESULTS.json"
+    },
+    {
+      "gate": "actual_host_coordinator_equivalence",
+      "status": "blocked",
+      "evidenceOrReason": "Pseudocode is not executable; actual lifecycle owner reconstruction absent"
+    },
+    {
+      "gate": "vault_database_payload_roundtrip",
+      "status": "blocked",
+      "evidenceOrReason": "No complete schema/transaction/payload cross-reader evidence"
+    },
+    {
+      "gate": "attachment_and_strict_json_semantics",
+      "status": "blocked",
+      "evidenceOrReason": "Native decompiler uncertainties retained"
+    },
+    {
+      "gate": "native_application_build_graph",
+      "status": "blocked",
+      "evidenceOrReason": "Original source/build/lock graph unavailable and no verified reconstructed graph"
+    },
+    {
+      "gate": "android_integration_tests",
+      "status": "not_run",
+      "evidenceOrReason": "No app installation or execution"
+    },
+    {
+      "gate": "phone_upgrade_acceptance",
+      "status": "prohibited_current_scope",
+      "evidenceOrReason": "User explicitly prohibits installation"
+    }
+  ]
+}

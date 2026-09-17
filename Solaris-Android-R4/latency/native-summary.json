@@ -1,0 +1,617 @@
+{
+  "scope": "Linux native addon only; exact pinned model; no Android RPC or phone performance claim",
+  "results": [
+    {
+      "name": "base603-capabilities",
+      "exitCode": 0,
+      "wallSeconds": 2.217,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1593
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-capabilities",
+        "ms": 2110,
+        "firstTokenMs": 1833,
+        "output": "{\"message\":\"What can you help me with?\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 134.034,
+          "TPS": 59.15759583530525,
+          "ppTPS": 544.6379276899892,
+          "CacheTokens": 0,
+          "generatedTokens": 16,
+          "promptTokens": 73,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "What can you help me with?",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "base603-checkin",
+      "exitCode": 0,
+      "wallSeconds": 1.635,
+      "loaded": {
+        "type": "loaded",
+        "ms": 542
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-checkin",
+        "ms": 1546,
+        "firstTokenMs": 865,
+        "output": "{\"message\":\"I recorded vitality 4/5, clarity 4/5, balance 3/5 and alignment 3/5. These are my own wellness impressions, not clinical measurements.\",\"sourceRefs\":[\"s1\"]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 306.241,
+          "TPS": 73.21169007661298,
+          "ppTPS": 512.6681273898662,
+          "CacheTokens": 0,
+          "generatedTokens": 48,
+          "promptTokens": 157,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "I recorded vitality 4/5, clarity 4/5, balance 3/5 and alignment 3/5. These are my own wellness impressions, not clinical measurements.",
+        "sourceRefs": [
+          "s1"
+        ]
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "base603-focus",
+      "exitCode": 0,
+      "wallSeconds": 2.718,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1796
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-focus",
+        "ms": 2606,
+        "firstTokenMs": 2080,
+        "output": "{\"message\":\"Choose a small step that aligns with your goals and values today, such as taking a short walk or practicing one thing you love.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 156.708,
+          "TPS": 67.41932314852092,
+          "ppTPS": 484.9784312224009,
+          "CacheTokens": 0,
+          "generatedTokens": 35,
+          "promptTokens": 76,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Choose a small step that aligns with your goals and values today, such as taking a short walk or practicing one thing you love.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "base603-hello",
+      "exitCode": 0,
+      "wallSeconds": 1.491,
+      "loaded": {
+        "type": "loaded",
+        "ms": 967
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-hello",
+        "ms": 1389,
+        "firstTokenMs": 1159,
+        "output": "{\"message\":\"Hello! How can I assist you today?\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 155.731,
+          "TPS": 90.16545360736951,
+          "ppTPS": 430.2290488085224,
+          "CacheTokens": 0,
+          "generatedTokens": 18,
+          "promptTokens": 67,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Hello! How can I assist you today?",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "base603-hola",
+      "exitCode": 0,
+      "wallSeconds": 1.027,
+      "loaded": {
+        "type": "loaded",
+        "ms": 559
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-hola",
+        "ms": 925,
+        "firstTokenMs": 732,
+        "output": "{\"message\":\"Hola! \u00bfQuieres algo espec\u00edfico?\", \"sourceRefs\": []}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 149.91,
+          "TPS": 90.95919142629364,
+          "ppTPS": 446.9348275632046,
+          "CacheTokens": 0,
+          "generatedTokens": 17,
+          "promptTokens": 67,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Hola! \u00bfQuieres algo espec\u00edfico?",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "base603-memory",
+      "exitCode": 0,
+      "wallSeconds": 1.628,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1122
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-memory",
+        "ms": 1525,
+        "firstTokenMs": 1349,
+        "output": "{\"message\":\"I told you Cedar\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 179.487,
+          "TPS": 77.0694633001144,
+          "ppTPS": 529.2862435719579,
+          "CacheTokens": 0,
+          "generatedTokens": 13,
+          "promptTokens": 95,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "I told you Cedar",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "base603-name",
+      "exitCode": 0,
+      "wallSeconds": 1.396,
+      "loaded": {
+        "type": "loaded",
+        "ms": 975
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-name",
+        "ms": 1292,
+        "firstTokenMs": 1139,
+        "output": "{\"message\":\"Cedar\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 137.791,
+          "TPS": 74.42842353832725,
+          "ppTPS": 551.5599712608226,
+          "CacheTokens": 0,
+          "generatedTokens": 11,
+          "promptTokens": 76,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Cedar",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "base603-reflection",
+      "exitCode": 0,
+      "wallSeconds": 2.418,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1562
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "base603-reflection",
+        "ms": 2206,
+        "firstTokenMs": 1711,
+        "output": "{\"message\":\"Reflect on a challenging workday by acknowledging the effort and growth it may bring, and consider how it can contribute to your personal and professional development.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 136.921,
+          "TPS": 76.32312322471384,
+          "ppTPS": 547.7611177248194,
+          "CacheTokens": 0,
+          "generatedTokens": 37,
+          "promptTokens": 75,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Reflect on a challenging workday by acknowledging the effort and growth it may bring, and consider how it can contribute to your personal and professional development.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "short604-capabilities",
+      "exitCode": 0,
+      "wallSeconds": 1.561,
+      "loaded": {
+        "type": "loaded",
+        "ms": 979
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "short604-capabilities",
+        "ms": 1458,
+        "firstTokenMs": 1234,
+        "output": "{\"message\":\"Can you help me with something?\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 197.34300000000002,
+          "TPS": 72.74049827241316,
+          "ppTPS": 385.1162696421965,
+          "CacheTokens": 0,
+          "generatedTokens": 16,
+          "promptTokens": 76,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Can you help me with something?",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "short604-checkin",
+      "exitCode": 0,
+      "wallSeconds": 1.743,
+      "loaded": {
+        "type": "loaded",
+        "ms": 550
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "short604-checkin",
+        "ms": 1621,
+        "firstTokenMs": 811,
+        "output": "{\"message\":\"I recorded vitality 4/5, clarity 4/5, balance 3/5 and alignment 3/5. These are my own wellness impressions, not clinical measurements.\",\"sourceRefs\":[\"s1\"]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 253.92600000000002,
+          "TPS": 63.099112931637364,
+          "ppTPS": 618.290368059986,
+          "CacheTokens": 0,
+          "generatedTokens": 48,
+          "promptTokens": 157,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "I recorded vitality 4/5, clarity 4/5, balance 3/5 and alignment 3/5. These are my own wellness impressions, not clinical measurements.",
+        "sourceRefs": [
+          "s1"
+        ]
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "short604-focus",
+      "exitCode": 0,
+      "wallSeconds": 2.054,
+      "loaded": {
+        "type": "loaded",
+        "ms": 966
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "short604-focus",
+        "ms": 1925,
+        "firstTokenMs": 1193,
+        "output": "{\"message\":\"Choose a small step that aligns with your goals and values today, such as a short commute or a new hobby. This helps you build momentum and stay focused on your journey.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 149.386,
+          "TPS": 64.50090227966712,
+          "ppTPS": 528.8313496579332,
+          "CacheTokens": 0,
+          "generatedTokens": 44,
+          "promptTokens": 79,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Choose a small step that aligns with your goals and values today, such as a short commute or a new hobby. This helps you build momentum and stay focused on your journey.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "short604-hello",
+      "exitCode": 0,
+      "wallSeconds": 1.163,
+      "loaded": {
+        "type": "loaded",
+        "ms": 663
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "short604-hello",
+        "ms": 1062,
+        "firstTokenMs": 830,
+        "output": "{\"message\":\"Hello! How can I assist you today?\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 137.369,
+          "TPS": 83.14817466659892,
+          "ppTPS": 509.5763964213178,
+          "CacheTokens": 0,
+          "generatedTokens": 18,
+          "promptTokens": 70,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Hello! How can I assist you today?",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "short604-hola",
+      "exitCode": 0,
+      "wallSeconds": 1.865,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1308
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "short604-hola",
+        "ms": 1771,
+        "firstTokenMs": 1491,
+        "output": "{\"message\":\"Hola bienvenido, \u00bfc\u00f3mo est\u00e1s?\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 150.88400000000001,
+          "TPS": 75.21313522193516,
+          "ppTPS": 463.932557461361,
+          "CacheTokens": 0,
+          "generatedTokens": 20,
+          "promptTokens": 70,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Hola bienvenido, \u00bfc\u00f3mo est\u00e1s?",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "short604-memory",
+      "exitCode": 0,
+      "wallSeconds": 1.706,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1130
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "short604-memory",
+        "ms": 1606,
+        "firstTokenMs": 1378,
+        "output": "{\"message\":\"Cedar told you 'my name is Cedar'\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 216.824,
+          "TPS": 89.08894828152108,
+          "ppTPS": 451.97948566579345,
+          "CacheTokens": 0,
+          "generatedTokens": 19,
+          "promptTokens": 98,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Cedar told you 'my name is Cedar'",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "short604-name",
+      "exitCode": 0,
+      "wallSeconds": 0.996,
+      "loaded": {
+        "type": "loaded",
+        "ms": 553
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "short604-name",
+        "ms": 902,
+        "firstTokenMs": 757,
+        "output": "{\"message\":\"Cedar\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 184.403,
+          "TPS": 74.87118752509886,
+          "ppTPS": 428.409516114163,
+          "CacheTokens": 0,
+          "generatedTokens": 11,
+          "promptTokens": 79,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Cedar",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    },
+    {
+      "name": "short604-reflection",
+      "exitCode": 0,
+      "wallSeconds": 2.263,
+      "loaded": {
+        "type": "loaded",
+        "ms": 1507
+      },
+      "nativeTerminal": {
+        "type": "done",
+        "mode": "short604-reflection",
+        "ms": 2165,
+        "firstTokenMs": 1699,
+        "output": "{\"message\":\"Reflect on the day with gratitude and appreciation for the effort and lessons learned, and consider how to move forward with a positive mindset.\",\"sourceRefs\":[]}",
+        "event": "NSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_7variantIJdlEEEEENS5_ISA_EEEE",
+        "data": {
+          "TTFT": 148.986,
+          "TPS": 76.56398835326624,
+          "ppTPS": 523.5391244814949,
+          "CacheTokens": 0,
+          "generatedTokens": 34,
+          "promptTokens": 78,
+          "contextSlides": 0,
+          "thinkingBlockDiscards": 0,
+          "stopReason": 1,
+          "visionEncodeMs": 0,
+          "visionEncodeTiles": 0,
+          "avgConcurrentSeq": 1,
+          "backendDevice": 0
+        },
+        "jobId": 1
+      },
+      "parsed": {
+        "message": "Reflect on the day with gratitude and appreciation for the effort and lessons learned, and consider how to move forward with a positive mindset.",
+        "sourceRefs": []
+      },
+      "requiredKeysPresent": true
+    }
+  ]
+}

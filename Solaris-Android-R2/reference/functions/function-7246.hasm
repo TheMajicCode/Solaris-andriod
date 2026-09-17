@@ -1,0 +1,21 @@
+=> [Function #7246 "?anon_0_" of 42 bytes]: 1 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c2ffec
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 4, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrue>: <Addr8: 32, Reg8: 1>  # Address: 00000027
+==> 0000000a: <GetById>: <Reg8: 3, Reg8: 4, UInt8: 1, string_id: 16380>  # String: 'choosePreparation' (Identifier)
+==> 00000010: <GetById>: <Reg8: 1, Reg8: 4, UInt8: 2, string_id: 21018>  # String: 'preparationChoice' (Identifier)
+==> 00000016: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 3, string_id: 19244>  # String: 'mobileData' (Identifier)
+==> 0000001c: <LoadConstFalse>: <Reg8: 1>
+==> 0000001e: <Call3>: <Reg8: 1, Reg8: 3, Reg8: 4, Reg8: 1, Reg8: 2>
+==> 00000024: <CompleteGenerator>: <>
+==> 00000025: <Ret>: <Reg8: 1>
+==> 00000027: <CompleteGenerator>: <>
+==> 00000028: <Ret>: <Reg8: 0>
+
+
+===============
+

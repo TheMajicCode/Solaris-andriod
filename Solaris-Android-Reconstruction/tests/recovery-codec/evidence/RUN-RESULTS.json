@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "scope": "Isolated JVM envelope conformance with synthetic data; not Android/app compatibility",
+  "java_checks": 112,
+  "python_checks": 4,
+  "python_version": "3.12.14",
+  "cryptography_version": "46.0.0",
+  "jca_algorithms": [
+    "PBKDF2WithHmacSHA256",
+    "AES/GCM/NoPadding",
+    "HmacSHA256"
+  ],
+  "python_algorithms": [
+    "hashlib.pbkdf2_hmac(sha256)",
+    "cryptography.AESGCM",
+    "hmac(sha256)"
+  ],
+  "inputs": [
+    {
+      "path": "src/reconstructed/RecoveryEnvelope.java",
+      "sha256": "5acb764001ec0f1be2bc9c1221184a14941532bf8c3d9d0928c9a9f3233af253"
+    },
+    {
+      "path": "tests/recovery-codec/RecoveryEnvelopeConformance.java",
+      "sha256": "3608439897eadfaf44311473cb8eb4202a82f2101f618549eec246d368da62a2"
+    },
+    {
+      "path": "tests/recovery-codec/run.py",
+      "sha256": "866f84c0602fdd10657a1c9b1c0b809f5f7eb7a5d9bd47a68434cb7436944eb8"
+    },
+    {
+      "path": "reference/native-decompiled/L5/b.java",
+      "sha256": "de02325045b043144146197e4753011954d25472ca58829a7e45abf54f581405"
+    },
+    {
+      "path": "reference/native-decompiled/dependencies/p027d5/C0681d.java",
+      "sha256": "43734bfb1f07d3a2c81e54ac99106fc24aa6befe7fdfaeb22ce066bbdcb5cd77"
+    },
+    {
+      "path": "reference/native-decompiled/dependencies/com/facebook/react/fabric/mounting/mountitems/IntBufferBatchMountItem.java",
+      "sha256": "689bd40ca2cd99c5de8d7c4fb5db032684ae1645fdec7121457aa58371c0a64e"
+    }
+  ],
+  "java_exports": [
+    {
+      "name": "minimum",
+      "envelope_bytes": 73,
+      "envelope_sha256": "1e55b49c01db9a043b01d076081a3deb71d8f1854790c373c7b66e9682d2d057"
+    },
+    {
+      "name": "unicode",
+      "envelope_bytes": 103,
+      "envelope_sha256": "3063890756e1a15ea8c491ee79cd15be9db56399cf35fe2c7c4eb157a24467d0"
+    },
+    {
+      "name": "binary",
+      "envelope_bytes": 79,
+      "envelope_sha256": "2dd5aaa3074ad36c09af853fca96493d553565816dc5698b88abf19479a7f840"
+    },
+    {
+      "name": "maximum",
+      "envelope_bytes": 16777288,
+      "envelope_sha256": "687ade24d014314eae4a6fe948ac54ba547ee1eaacd35d2ff0abcf7feb37ae4f",
+      "plaintext_sha256": "341aacac661ccb210720bedaa9ead5d668fe5ea41a73532fc147c71e34040df1",
+      "retained": false,
+      "reproduce": "Run this script; pattern bytes(range(256)) * 65536"
+    }
+  ],
+  "limitations": [
+    "No execution on the Android provider or the original APK; malformed UTF-16 PBKDF2 behavior may be provider dependent.",
+    "No real recovery payload, vault data, key material, signing key, app integration or JSON schema used.",
+    "Random salt/nonce nonidentity is a smoke check, not a proof of RNG security."
+  ]
+}

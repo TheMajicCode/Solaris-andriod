@@ -1,0 +1,23 @@
+[
+  "java",
+  "-jar",
+  "reconstruction-work/toolchain/android-tools/lib/apksigner.jar",
+  "sign",
+  "--ks",
+  "reconstruction-work/r2-signing-inputs/expo-sdk54-template-debug.keystore",
+  "--ks-pass",
+  "stdin",
+  "--key-pass",
+  "stdin",
+  "--v1-signing-enabled",
+  "false",
+  "--v2-signing-enabled",
+  "true",
+  "--v3-signing-enabled",
+  "false",
+  "--v4-signing-enabled",
+  "false",
+  "--out",
+  "Solaris-Android-R2/evidence/apk-packaging/signed/Solaris-V6.0.2-Sanctuary-Guards-Candidate.apk",
+  "Solaris-Android-R2/evidence/apk-packaging/unsigned/candidate-aligned-unsigned.apk"
+]

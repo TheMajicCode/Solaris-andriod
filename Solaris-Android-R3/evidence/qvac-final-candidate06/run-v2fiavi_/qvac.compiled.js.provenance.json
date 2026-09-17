@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/tests/qvac-postlude.js",
+  "output": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/qvac-final-candidate06/run-v2fiavi_/qvac.compiled.js",
+  "inputSha256": "46d5916a7df7b1353772d188e2ac18d6b16d84b095eead7713f082ac7ef26bce",
+  "outputSha256": "9597fb3cb39905c8257d13de79c93e18d8ec3fce589504da433d67a7f019c7cd",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "qvac-postlude.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

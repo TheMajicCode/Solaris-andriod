@@ -1,0 +1,257 @@
+[
+  {
+    "path": "lib/arm64-v8a/libappmodules.so",
+    "dataOffset": 5914624,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-buffer.3.7.1.so",
+    "dataOffset": 6356992,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-cpu-info.0.1.1.so",
+    "dataOffset": 6422528,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-crypto.1.15.3.so",
+    "dataOffset": 6455296,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-dns.2.2.0.so",
+    "dataOffset": 7307264,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-fs.4.8.1.so",
+    "dataOffset": 7471104,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-gpu-info.0.1.1.so",
+    "dataOffset": 7536640,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-hrtime.2.1.2.so",
+    "dataOffset": 7569408,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-inspect.3.1.10.so",
+    "dataOffset": 7585792,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-kit.so",
+    "dataOffset": 7618560,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-os.3.9.3.so",
+    "dataOffset": 70713344,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-path.3.1.2.so",
+    "dataOffset": 70762496,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-performance.2.1.1.so",
+    "dataOffset": 70778880,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-pipe.4.3.1.so",
+    "dataOffset": 70828032,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-signals.4.2.0.so",
+    "dataOffset": 70860800,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-tcp.2.6.1.so",
+    "dataOffset": 70893568,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-tls.3.1.10.so",
+    "dataOffset": 70926336,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-type.1.1.1.so",
+    "dataOffset": 72777728,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-url.2.5.4.so",
+    "dataOffset": 72810496,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libbare-zlib.1.4.1.so",
+    "dataOffset": 73056256,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libc++_shared.so",
+    "dataOffset": 73154560,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libcrypto.so",
+    "dataOffset": 74530816,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libexpo-modules-core.so",
+    "dataOffset": 79511552,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libexpo-sqlite.so",
+    "dataOffset": 80838656,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libfbjni.so",
+    "dataOffset": 82345984,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libfs-native-extensions.1.5.1.so",
+    "dataOffset": 82526208,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libgifimage.so",
+    "dataOffset": 82575360,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libhermes.so",
+    "dataOffset": 82903040,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libhermestooling.so",
+    "dataOffset": 85049344,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libimagepipeline.so",
+    "dataOffset": 85196800,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libjsi.so",
+    "dataOffset": 85213184,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libnative-filters.so",
+    "dataOffset": 85606400,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libnative-imagetranscoder.so",
+    "dataOffset": 85639168,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libquickbit-native.2.4.8.so",
+    "dataOffset": 86228992,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.0_1.so",
+    "dataOffset": 86327296,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.2_1.so",
+    "dataOffset": 87818240,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.2_2.so",
+    "dataOffset": 89325568,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.6_1.so",
+    "dataOffset": 90832896,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv9.0_1.so",
+    "dataOffset": 92356608,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv9.2_1.so",
+    "dataOffset": 93863936,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv9.2_2.so",
+    "dataOffset": 95371264,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libqvac-ggml-vulkan.so",
+    "dataOffset": 96878592,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libqvac__llm-llamacpp.0.45.0.so",
+    "dataOffset": 186646528,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/librabin-native.2.0.0.so",
+    "dataOffset": 196460544,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libreact_codegen_safeareacontext.so",
+    "dataOffset": 196493312,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libreactnative.so",
+    "dataOffset": 196657152,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/librocksdb-native.3.17.4.so",
+    "dataOffset": 202539008,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libsimdle-native.1.3.9.so",
+    "dataOffset": 208748544,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libsodium-native.5.1.0.so",
+    "dataOffset": 208945152,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libstatic-webp.so",
+    "dataOffset": 209534976,
+    "compression": 0
+  },
+  {
+    "path": "lib/arm64-v8a/libudx-native.1.21.2.so",
+    "dataOffset": 210042880,
+    "compression": 0
+  }
+]

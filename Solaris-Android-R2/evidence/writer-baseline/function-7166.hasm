@@ -1,0 +1,22 @@
+=> [Function #7166 "?anon_0_" of 43 bytes]: 1 params, frame size=12, strict=1, exc handler=0, debug info=0  @ offset 0x01c2e873
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000004: <JmpTrue>: <Addr8: 36, Reg8: 1>  # Address: 00000028
+==> 00000007: <GetEnvironment>: <Reg8: 1, UInt8: 7>
+==> 0000000a: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 12>
+==> 0000000e: <GetById>: <Reg8: 3, Reg8: 2, UInt8: 1, string_id: 18749>  # String: 'finiteBytes' (Identifier)
+==> 00000014: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 8>
+==> 00000018: <GetById>: <Reg8: 2, Reg8: 1, UInt8: 2, string_id: 15055>  # String: 'totalMemory' (Identifier)
+==> 0000001e: <LoadConstUndefined>: <Reg8: 1>
+==> 00000020: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 1, Reg8: 2>
+==> 00000025: <CompleteGenerator>: <>
+==> 00000026: <Ret>: <Reg8: 1>
+==> 00000028: <CompleteGenerator>: <>
+==> 00000029: <Ret>: <Reg8: 0>
+
+
+===============
+

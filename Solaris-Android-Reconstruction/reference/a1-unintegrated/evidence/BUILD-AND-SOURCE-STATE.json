@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-09-13T09:45:03.863784+00:00",
+  "nativeBuild": "NOT_RUN_SOURCE_AND_SIGNER_UNAVAILABLE",
+  "newApk": false,
+  "phoneTestsRun": false,
+  "nativeSourceRecovered": false,
+  "originalNativeLockfileRecovered": false,
+  "nativeDependenciesInstalled": false,
+  "frameworkUpgrade": false,
+  "git": [
+    {
+      "command": [
+        "git",
+        "symbolic-ref",
+        "--short",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdout": "codex/a1-recovered-lifecycle\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "HEAD"
+      ],
+      "exitCode": 128,
+      "stdout": "",
+      "stderr": "fatal: Needed a single revision\n"
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--short",
+        "--branch"
+      ],
+      "exitCode": 0,
+      "stdout": "## No commits yet on codex/a1-recovered-lifecycle\n?? CONTRACT-A1-RECOVERED-LIFECYCLE.md\n?? INTEGRATION.md\n?? MASTER-START-HERE.md\n?? README.md\n?? evidence/\n?? fixtures/\n?? review/\n?? scripts/\n?? src/\n?? test/\n?? ui-followup/\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "remote"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

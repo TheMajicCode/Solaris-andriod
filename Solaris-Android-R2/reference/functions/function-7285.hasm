@@ -1,0 +1,18 @@
+=> [Function #7285 "" of 38 bytes]: 1 params, frame size=12, strict=1, exc handler=0, debug info=0  @ offset 0x01c30abc
+
+Bytecode listing:
+
+==> 00000000: <GetEnvironment>: <Reg8: 0, UInt8: 1>
+==> 00000003: <LoadFromEnvironment>: <Reg8: 2, Reg8: 0, UInt8: 3>
+==> 00000007: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 1, string_id: 14752>  # String: 'cancel' (Identifier)
+==> 0000000d: <NewObject>: <Reg8: 0>
+==> 0000000f: <GetEnvironment>: <Reg8: 3, UInt8: 0>
+==> 00000012: <LoadFromEnvironment>: <Reg8: 3, Reg8: 3, UInt8: 0>
+==> 00000016: <GetByIdShort>: <Reg8: 3, Reg8: 3, UInt8: 2, string_id: 213>  # String: 'requestId' (Identifier)
+==> 0000001b: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 3, string_id: 213>  # String: 'requestId' (Identifier)
+==> 0000001f: <Call2>: <Reg8: 0, Reg8: 1, Reg8: 2, Reg8: 0>
+==> 00000024: <Ret>: <Reg8: 0>
+
+
+===============
+

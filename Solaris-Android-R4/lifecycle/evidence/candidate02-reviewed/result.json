@@ -1,0 +1,107 @@
+{
+  "pass": true,
+  "total": 10,
+  "cases": [
+    {
+      "name": "pending model turn is not yet a saved user message",
+      "pass": true,
+      "details": {
+        "writesBeforeReply": 0,
+        "writesAfterReply": 1,
+        "limitation": "An interrupted pending send has no saved user message to recover."
+      }
+    },
+    {
+      "name": "explicit lock revokes epoch and session synchronously",
+      "pass": true,
+      "details": {
+        "stateCleared": true,
+        "epochIncrement": 1,
+        "sessionIncrement": 1,
+        "cancelCalls": 1,
+        "lockCalls": 1
+      }
+    },
+    {
+      "name": "reply completed after lock cannot save records or receipt",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "writes": 0,
+        "receipts": 0,
+        "stateRemainsNull": true,
+        "cancelCalls": 1
+      }
+    },
+    {
+      "name": "lock keeps previously persisted conversation bytes intact",
+      "pass": true,
+      "details": {
+        "preservedMessageIds": [
+          "message_00000000000000000000000000000066",
+          "message_00000000000000000000000000000067"
+        ],
+        "noAdditionalWrite": true
+      }
+    },
+    {
+      "name": "restoring unlocked saved state never replays interrupted inference",
+      "pass": true,
+      "details": {
+        "dispatchesBeforeAndAfterUnlock": 1,
+        "pendingTextRecovered": false,
+        "unlockAdapter": "synthetic state projection; no biometric/native unlock exercised"
+      }
+    },
+    {
+      "name": "authority change during generation rejects late save",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED",
+        "writes": 0
+      }
+    },
+    {
+      "name": "active to inactive cancels current task before suspend and retains model",
+      "pass": true,
+      "details": {
+        "cancelCalls": 1,
+        "suspendCalls": 1,
+        "modelRetained": true
+      }
+    },
+    {
+      "name": "inactive to active resumes runtime but never uncancels old task",
+      "pass": true,
+      "details": {
+        "runtimeResumeCalls": 1,
+        "oldOperationRemainsCancelled": true,
+        "guardError": "CANCELLED"
+      }
+    },
+    {
+      "name": "background admission fails before invoking requested action",
+      "pass": true,
+      "details": {
+        "error": "FOREGROUND_REQUIRED",
+        "dispatchCount": 0
+      }
+    },
+    {
+      "name": "failed lifecycle transition blocks reuse without deleting model",
+      "pass": true,
+      "details": {
+        "blocked": true,
+        "modelRetained": true,
+        "resumeCalls": 0,
+        "limitation": "Synthetic timeout injection, not an Android wall-clock test."
+      }
+    }
+  ],
+  "capturedModules": 966,
+  "suppressedEntrypoints": [
+    191,
+    3,
+    0
+  ]
+}

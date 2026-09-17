@@ -1,0 +1,313 @@
+{
+  "pass": true,
+  "total": 34,
+  "cases": [
+    {
+      "name": "guided unloaded Hello",
+      "pass": true,
+      "details": {
+        "message": "Hello. I am Pocket LUCA. I can help you reflect, choose a small step and review the records you select in Sources."
+      }
+    },
+    {
+      "name": "guided unloaded Hi!",
+      "pass": true,
+      "details": {
+        "message": "Hello. I am Pocket LUCA. I can help you reflect, choose a small step and review the records you select in Sources."
+      }
+    },
+    {
+      "name": "guided unloaded hola",
+      "pass": true,
+      "details": {
+        "message": "Hello. I am Pocket LUCA. I can help you reflect, choose a small step and review the records you select in Sources."
+      }
+    },
+    {
+      "name": "guided unloaded What can you do?",
+      "pass": true,
+      "details": {
+        "message": "Hello. I am Pocket LUCA. I can help you reflect, choose a small step and review the records you select in Sources."
+      }
+    },
+    {
+      "name": "guided unloaded Choose a step",
+      "pass": true,
+      "details": {
+        "message": "Choose something small and concrete: write what is on your mind, name an intention or review an unfinished step. Which fits you now? Select a check-in in Sources to tailor this to your answers."
+      }
+    },
+    {
+      "name": "guided unloaded Explain my check-in",
+      "pass": true,
+      "details": {
+        "message": "A Solaris check-in records your impressions of vitality, clarity, balance and alignment. Select a check-in in Sources so we can review your own answers; missing answers stay missing."
+      }
+    },
+    {
+      "name": "guided unloaded What are my most recent activities?",
+      "pass": true,
+      "details": {
+        "message": "Chat does not have your activity history. Open your history to see what you started or completed. You can select records in Sources to review them here."
+      }
+    },
+    {
+      "name": "guided unloaded Show my recent records",
+      "pass": true,
+      "details": {
+        "message": "Chat does not have your activity history. Open your history to see what you started or completed. You can select records in Sources to review them here."
+      }
+    },
+    {
+      "name": "guided unloaded What are my habits?",
+      "pass": true,
+      "details": {
+        "message": "No records are selected for this message. Choose the records you want to share in Sources, or tell me here what you want to review."
+      }
+    },
+    {
+      "name": "guided unloaded How was my sleep?",
+      "pass": true,
+      "details": {
+        "message": "No records are selected for this message. Choose the records you want to share in Sources, or tell me here what you want to review."
+      }
+    },
+    {
+      "name": "Spanish guided reply uses locale",
+      "pass": true,
+      "details": {
+        "message": "Hola. Soy Pocket LUCA. Puedo ayudarte a reflexionar, elegir un peque\u00f1o paso y revisar los registros que selecciones en Fuentes."
+      }
+    },
+    {
+      "name": "selected checkin exact values and missing answers",
+      "pass": true,
+      "details": {
+        "message": "In the selected check-in dated 2026-09-15, you recorded vitality: 4/5, clarity: 4/5, balance: 3/5. These are your own impressions. What was happening when you rated balance? You can start with one of those aspects.",
+        "refs": [
+          {
+            "id": "source_ffffffffffffffffffffffffffffffff",
+            "revision": 1,
+            "sha256": "9185017bcbbdd15d0a6302f5d09e574235aad869c6cc2abf0c1dcf10f33b0661"
+          }
+        ]
+      }
+    },
+    {
+      "name": "unselected newest checkin excluded",
+      "pass": true,
+      "details": {
+        "message": "In the selected check-in dated 2026-09-14, you recorded vitality: 2/5, clarity: 3/5, balance: 4/5, alignment: 5/5. These are your own impressions. What was happening when you rated vitality? You can start with one of those aspects."
+      }
+    },
+    {
+      "name": "latest of selected checkins independent of selection ordering",
+      "pass": true,
+      "details": {
+        "message": "In the selected check-in dated 2026-09-15, you recorded vitality: 4/5, clarity: 4/5, balance: 3/5, alignment: 3/5. These are your own impressions. For a small step, choose an aspect (balance, alignment) and write what would support it today. You decide whether to act on it."
+      }
+    },
+    {
+      "name": "selected unrelated profile does not fabricate checkin",
+      "pass": true,
+      "details": {
+        "message": "A Solaris check-in records your impressions of vitality, clarity, balance and alignment. Select a check-in in Sources so we can review your own answers; missing answers stay missing."
+      }
+    },
+    {
+      "name": "source denial precedes guided shortcut",
+      "pass": true,
+      "details": {
+        "error": "CONTEXT_NOT_APPROVED"
+      }
+    },
+    {
+      "name": "unapproved checkin denied before guided shortcut",
+      "pass": true,
+      "details": {
+        "error": "CONTEXT_NOT_APPROVED"
+      }
+    },
+    {
+      "name": "local grant denial precedes guided shortcut",
+      "pass": true,
+      "details": {
+        "error": "LOCAL_PERMISSION_REQUIRED"
+      }
+    },
+    {
+      "name": "expired local grant denial precedes guided shortcut",
+      "pass": true,
+      "details": {
+        "error": "LOCAL_PERMISSION_REQUIRED"
+      }
+    },
+    {
+      "name": "guided commit rejects change during MAC epoch",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED"
+      }
+    },
+    {
+      "name": "guided commit rejects change during MAC authority",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED"
+      }
+    },
+    {
+      "name": "guided commit rejects change during MAC permission",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED"
+      }
+    },
+    {
+      "name": "guided commit rejects change during MAC local grant",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED"
+      }
+    },
+    {
+      "name": "guided commit rejects change during MAC vault lock",
+      "pass": true,
+      "details": {
+        "error": "VAULT_LOCKED"
+      }
+    },
+    {
+      "name": "guided commit rejects change during MAC session",
+      "pass": true,
+      "details": {
+        "error": "VAULT_LOCKED"
+      }
+    },
+    {
+      "name": "selected source revision changes during MAC",
+      "pass": true,
+      "details": {
+        "error": "CANCELLED"
+      }
+    },
+    {
+      "name": "open chat retains inference Tell me a short story",
+      "pass": true,
+      "details": {
+        "mode": "qvac-device"
+      }
+    },
+    {
+      "name": "open chat retains inference My name is Nila",
+      "pass": true,
+      "details": {
+        "mode": "qvac-device"
+      }
+    },
+    {
+      "name": "open chat retains inference What name did I give?",
+      "pass": true,
+      "details": {
+        "mode": "qvac-device"
+      }
+    },
+    {
+      "name": "open chat retains inference Write a poem about a check-in",
+      "pass": true,
+      "details": {
+        "mode": "qvac-device"
+      }
+    },
+    {
+      "name": "open chat retains inference I could not sleep well",
+      "pass": true,
+      "details": {
+        "mode": "qvac-device"
+      }
+    },
+    {
+      "name": "ordinary model error retains603 diagnostic",
+      "pass": true,
+      "details": {
+        "error": "STREAM_TIMEOUT"
+      }
+    },
+    {
+      "name": "guided operation remains idempotent",
+      "pass": true,
+      "details": {
+        "writes": 1
+      }
+    },
+    {
+      "name": "guided retry retains saved user id",
+      "pass": true,
+      "details": {
+        "messageIds": [
+          "message_dddddddddddddddddddddddddddddddd",
+          "message_00000000000000000000000000000066"
+        ]
+      }
+    }
+  ],
+  "capturedModules": 966,
+  "suppressedEntrypoints": [
+    191,
+    3,
+    0
+  ],
+  "executedModules": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    67,
+    76,
+    77,
+    912,
+    922,
+    923,
+    924,
+    925,
+    926,
+    927,
+    928,
+    929,
+    930,
+    931,
+    932,
+    933,
+    934,
+    935,
+    936,
+    937,
+    938,
+    939,
+    951,
+    952,
+    953,
+    954,
+    955,
+    956,
+    957,
+    958
+  ]
+}

@@ -1,0 +1,24 @@
+=> [Function #7254 "" of 58 bytes]: 1 params, frame size=17, strict=1, exc handler=0, debug info=0  @ offset 0x01c30311
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 0>
+==> 00000002: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 00000005: <LoadFromEnvironment>: <Reg8: 5, Reg8: 1, UInt8: 2>
+==> 00000009: <LoadFromEnvironment>: <Reg8: 4, Reg8: 1, UInt8: 1>
+==> 0000000d: <GetEnvironment>: <Reg8: 1, UInt8: 7>
+==> 00000010: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 3>
+==> 00000014: <GetByIdShort>: <Reg8: 2, Reg8: 1, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 00000019: <LoadConstUndefined>: <Reg8: 3>
+==> 0000001b: <CreateGeneratorClosure>: <Reg8: 1, Reg8: 0, function_id: 7257>  # Function: [#7257  of 9 bytes]: 1 params @ offset 0x01c303a7
+==> 00000020: <Call2>: <Reg8: 6, Reg8: 2, Reg8: 3, Reg8: 1>
+==> 00000025: <CreateClosure>: <Reg8: 8, Reg8: 0, function_id: 7255>  # Function: [#7255  of 26 bytes]: 1 params @ offset 0x01c3034b
+==> 0000002a: <CreateClosure>: <Reg8: 7, Reg8: 0, function_id: 7256>  # Function: [#7256  of 66 bytes]: 2 params @ offset 0x01c30365
+==> 0000002f: <LoadConstUndefined>: <Reg8: 10>
+==> 00000031: <Mov>: <Reg8: 9, Reg8: 4>
+==> 00000034: <Call>: <Reg8: 0, Reg8: 5, UInt8: 5>
+==> 00000038: <Ret>: <Reg8: 0>
+
+
+===============
+

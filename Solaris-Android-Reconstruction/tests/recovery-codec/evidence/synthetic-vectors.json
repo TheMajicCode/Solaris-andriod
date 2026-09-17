@@ -1,0 +1,66 @@
+{
+  "warning": "PUBLIC SYNTHETIC TEST DATA ONLY. Fixed salts/nonces are NOT an encryption API.",
+  "envelope_vectors": [
+    {
+      "name": "minimum",
+      "synthetic_passphrase": "aaaaaaaaaaaaaaaaaaaa",
+      "plaintext_hex": "00",
+      "salt_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "nonce_hex": "a0a1a2a3a4a5a6a7a8a9aaab",
+      "pbkdf2_key_hex": "fb72e4ddc902d3ac2b32df1f20cca511886a18f4cc517b7195b7c73aec1346b7",
+      "envelope_hex": "5356434f5245310a000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1fa0a1a2a3a4a5a6a7a8a9aaab00000001b1c451a4c7f9309274606385c06076e167",
+      "envelope_sha256": "202aa815c22f088dd323f38fa67e978536d13903f375c8969eedc964b9a02854"
+    },
+    {
+      "name": "unicode",
+      "synthetic_passphrase": "Cafe\u0301-\ud83c\udf31-synthetic-password-\u00e9",
+      "plaintext_hex": "73796e7468657469632062797465733a2065737061c3b16f6c20f09f8cb10a",
+      "salt_hex": "202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f",
+      "nonce_hex": "acadaeafb0b1b2b3b4b5b6b7",
+      "pbkdf2_key_hex": "66ddef1e9e312259436283b763a8201897fb2a7c45f5cb8e19e9de673a78d247",
+      "envelope_hex": "5356434f5245310a202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3facadaeafb0b1b2b3b4b5b6b70000001fc8c6baa09d51ec48873bcf26bc7427e2bedb0a325e14c4cb6fda935d5af3dd8da729bf76f039e4c45a3a50c8bd74a2",
+      "envelope_sha256": "6630f9596e50f4537d51d50d7d345efb40c0c43c3e176d6291fd242cbc613b59"
+    },
+    {
+      "name": "binary",
+      "synthetic_passphrase": "binary-synthetic-password-001",
+      "plaintext_hex": "c0afeda080ff00",
+      "salt_hex": "404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f",
+      "nonce_hex": "b8b9babbbcbdbebfc0c1c2c3",
+      "pbkdf2_key_hex": "898f5baf178e840e12fe4c473cbd24c68bc7b92d1c9174e53d808ba722dfae22",
+      "envelope_hex": "5356434f5245310a404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5fb8b9babbbcbdbebfc0c1c2c3000000077b6d03d466480ed43996e6eb55182d839f31c1e69ab624",
+      "envelope_sha256": "949923da2857ed901142f25feb0a042b12702ab07b38a8a479390aca0ce554da"
+    }
+  ],
+  "receipt_key_hex": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20",
+  "receipt_vectors": {
+    "body": {
+      "utf8_length": 29,
+      "hmac_sha256": "7a2d65ebfa271e17546ab637a231bb23b29de954e866eeda8d7354b760777445"
+    },
+    "empty": {
+      "utf8_length": 0,
+      "hmac_sha256": "462476a897ddfdbd40d1420e08a5bcfeeb25c3e2ade6a0a9083b327b9ef9fca1"
+    },
+    "limit_ascii": {
+      "utf8_length": 65536,
+      "hmac_sha256": "a60736e524f568c65e71a2aa54109fee8d7a9a871d40aaf05a532c06eaec367d"
+    },
+    "over_ascii": {
+      "utf8_length": 65537,
+      "hmac_sha256": "9820cdaa936c0558dfa2ee4876d7b4206e4f09d33fefd2104cb59ebdb89b7982"
+    },
+    "limit_unicode": {
+      "utf8_length": 65536,
+      "hmac_sha256": "83254bf8cafb986a51dba7ca4ca8a96296c161a3f5fabb82cf77bd2c6899736e"
+    },
+    "over_unicode": {
+      "utf8_length": 65538,
+      "hmac_sha256": "da323ce3aa90993e21cdc019307a5fa579265c30996ae2b77b20b52ff731ae86"
+    },
+    "replacement": {
+      "utf8_length": 1,
+      "hmac_sha256": "788b4e68f2025c0d757218192b229c42f18fab07443edeeaeaf3ef529a18fc40"
+    }
+  }
+}

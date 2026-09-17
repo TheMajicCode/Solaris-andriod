@@ -1,0 +1,49 @@
+{
+  "format": "solaris-v6-603-unsigned-packaging-or-verification/1",
+  "baselineApkSha256": "01da9f5281f5f92230dcbd64da62484557cc7a0a15e876cc2d99ec7ec3bcd2cd",
+  "candidatePath": "/tmp/solaris603-root-signed/Solaris-V6.0.3-Pocket-Chat-Candidate.apk",
+  "candidateSha256": "25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227",
+  "candidateBytes": 242588871,
+  "patchedHbcSha256": "b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990",
+  "buildManifestSha256": "045dab7fd48ab09c169ed45ce498088fb57de33c40b6a749d4358b1e3cf7a9c3",
+  "packagingScriptSha256": "560afea26dfcf6f2691125220ab2593bac4afbdbffeabf9168349a29d1ff97ee",
+  "toolSha256": {
+    "zipalign": "c5f559e946de5a9e7d58792181db20383b228877812136bc469d97ae00a43b0a",
+    "aapt2": "1a6a396b9cd071f7040071fdd108718cb98c3c9f4960044f373b288993d19eb7",
+    "lib/apksigner.jar": "3716d9311e55d2b0918a2fd9d54ba9e406c5f6abeea700b287f11259bc163dec",
+    "lib64/libc++.so": "96a19cd2154a4423a61f8444e5d3148a608fa3033bc1a22285d19855a950d05a"
+  },
+  "manifestSha256": "f906d8709e4eecdd850d3acc33d565e50b0d296abf235598a3e15e5f3bd4c20c",
+  "configSha256": "ae33bdf2a2d4d0489f2d87ae0e4929df5265b025346489b5814a87ba8f1611ba",
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 603,
+  "versionName": "6.0.3-preview.pocket-chat",
+  "changedPayloadEntries": [
+    "AndroidManifest.xml",
+    "assets/app.config",
+    "assets/index.android.bundle"
+  ],
+  "preservedPayloadEntries": 599,
+  "removedObsoleteSignatureEntries": [],
+  "nativeLibraryCount": 51,
+  "allNativePayloadsUnchanged": true,
+  "allNativeLibrariesStoredAnd16KiBAligned": true,
+  "manifestChange": {
+    "stringIndex": 35,
+    "originalStringOffset": 1452,
+    "stringGrowthBytes": -10,
+    "poolGrowthBytes": -8,
+    "originalVersionCodeOffset": 6728,
+    "newVersionCodeOffset": 6720,
+    "allOtherStringsUnchanged": true,
+    "allOtherXmlNodeBytesUnchanged": true
+  },
+  "allOtherManifestSemanticsUnchanged": true,
+  "signatureVerified": true,
+  "expectedCertificateSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+  "signingPerformedByThisTool": false,
+  "phoneInstalled": false,
+  "phoneTested": false,
+  "buildKind": "APK-derived binary patch; not a complete native source rebuild",
+  "scope": "Strict conversation response schema with a separate zero-source prompt; one bounded source-free pair from the current unlocked session; explicit response-length termination rejection; clearer diagnostics and normal-chat readiness UI. Existing model, native vault components and 602 completion guards are preserved. Full LUCA resume repair, complete native-source reconstruction and on-device validation remain pending."
+}

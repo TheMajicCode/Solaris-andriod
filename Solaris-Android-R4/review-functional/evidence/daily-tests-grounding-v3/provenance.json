@@ -1,0 +1,27 @@
+{
+  "bundle": "Solaris-Android-R4/grounding/candidate-grounding.hbc",
+  "bundleSha256": "0b881b2bdcb97f1f805091d615b9b7f678759496b0559a6207dbd7c98067a1ec",
+  "preludeSha256": "88c7cb3f85637a06435056eaf4a6693dd0aa604a8fa9293fc2b0927dff9d6e46",
+  "testSha256": "665ca5db8d356bbddf1fe018a44e0902398cc702f3a88799b085e900f9876547",
+  "compiledSha256": "42857556f3fb7371bc8a1888a2bea1c4e723e0151e10ddbfb3b0db4dd44df9cb",
+  "patchedExpected": true,
+  "recentExpected": true,
+  "command": [
+    "python3",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py",
+    "--tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/reconstruction-work/r2-tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/tests/hermes/capture-prelude.js",
+    "Solaris-Android-R4/grounding/candidate-grounding.hbc",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/daily-tests-grounding-v3/run-ikpfzbdn/mode.js",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/daily-tests-grounding-v3/run-ikpfzbdn/daily.compiled.js"
+  ],
+  "exitCode": 0,
+  "limitations": [
+    "synthetic model output",
+    "synthetic VaultStore/nativeVault boundary",
+    "presentation view projection simplified",
+    "no Android or native QVAC execution",
+    "no real timers"
+  ]
+}

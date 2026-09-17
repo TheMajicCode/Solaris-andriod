@@ -1,0 +1,36 @@
+=> [Function #14854 "?anon_0_" of 100 bytes]: 3 params, frame size=15, strict=1, exc handler=0, debug info=0  @ offset 0x01d37a7b
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 6, UInt8: 1>
+==> 00000004: <LoadParam>: <Reg8: 3, UInt8: 0>
+==> 00000007: <CreateEnvironment>: <Reg8: 1>
+==> 00000009: <ResumeGenerator>: <Reg8: 0, Reg8: 2>
+==> 0000000c: <JmpTrue>: <Addr8: 85, Reg8: 2>  # Address: 00000061
+==> 0000000f: <StoreToEnvironment>: <Reg8: 1, UInt8: 0, Reg8: 6>
+==> 00000013: <LoadParam>: <Reg8: 2, UInt8: 2>
+==> 00000016: <StoreToEnvironment>: <Reg8: 1, UInt8: 1, Reg8: 2>
+==> 0000001a: <LoadConstUndefined>: <Reg8: 5>
+==> 0000001c: <StoreNPToEnvironment>: <Reg8: 1, UInt8: 3, Reg8: 5>
+==> 00000020: <StoreToEnvironment>: <Reg8: 1, UInt8: 2, Reg8: 3>
+==> 00000024: <GetEnvironment>: <Reg8: 4, UInt8: 3>
+==> 00000027: <LoadFromEnvironment>: <Reg8: 2, Reg8: 4, UInt8: 19>
+==> 0000002b: <GetById>: <Reg8: 2, Reg8: 2, UInt8: 1, string_id: 21170>  # String: 'validHealthSnapshot' (Identifier)
+==> 00000031: <Call2>: <Reg8: 2, Reg8: 2, Reg8: 5, Reg8: 6>
+==> 00000036: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 2, string_id: 17606>  # String: 'session' (Identifier)
+==> 0000003c: <StoreToEnvironment>: <Reg8: 1, UInt8: 3, Reg8: 2>
+==> 00000040: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 3, string_id: 14853>  # String: 'queue' (Identifier)
+==> 00000046: <LoadFromEnvironment>: <Reg8: 4, Reg8: 4, UInt8: 5>
+==> 0000004a: <GetByIdShort>: <Reg8: 4, Reg8: 4, UInt8: 4, string_id: 101>  # String: 'default' (Identifier)
+==> 0000004f: <CreateGeneratorClosure>: <Reg8: 1, Reg8: 1, function_id: 14855>  # Function: [#14855  of 9 bytes]: 1 params @ offset 0x01d37adf
+==> 00000054: <Call2>: <Reg8: 1, Reg8: 4, Reg8: 5, Reg8: 1>
+==> 00000059: <Call2>: <Reg8: 1, Reg8: 2, Reg8: 3, Reg8: 1>
+==> 0000005e: <CompleteGenerator>: <>
+==> 0000005f: <Ret>: <Reg8: 1>
+==> 00000061: <CompleteGenerator>: <>
+==> 00000062: <Ret>: <Reg8: 0>
+
+
+===============
+

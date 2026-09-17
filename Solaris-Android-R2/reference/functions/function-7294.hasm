@@ -1,0 +1,35 @@
+=> [Function #7294 "?anon_0_" of 81 bytes]: 2 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c30b8f
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 4, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrue>: <Addr8: 71, Reg8: 1>  # Address: 0000004e
+==> 0000000a: <GetByIdShort>: <Reg8: 1, Reg8: 4, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 0000000f: <LoadConstNull>: <Reg8: 2>
+==> 00000011: <Eq>: <Reg8: 5, Reg8: 1, Reg8: 2>
+==> 00000015: <LoadConstUndefined>: <Reg8: 2>
+==> 00000017: <LoadConstUndefined>: <Reg8: 3>
+==> 00000019: <JmpTrue>: <Addr8: 14, Reg8: 5>  # Address: 00000027
+==> 0000001c: <GetById>: <Reg8: 1, Reg8: 1, UInt8: 2, string_id: 17234>  # String: 'ctx' (Identifier)
+==> 00000022: <GetByIdShort>: <Reg8: 3, Reg8: 1, UInt8: 3, string_id: 95>  # String: 'id' (Identifier)
+==> 00000027: <LoadParam>: <Reg8: 1, UInt8: 1>
+==> 0000002a: <JStrictNotEqual>: <Addr8: 30, Reg8: 3, Reg8: 1>  # Address: 00000048
+==> 0000002e: <GetById>: <Reg8: 3, Reg8: 4, UInt8: 4, string_id: 14913>  # String: 'cancelOperation' (Identifier)
+==> 00000034: <GetByIdShort>: <Reg8: 1, Reg8: 4, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 00000039: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 4, Reg8: 1>
+==> 0000003e: <SaveGenerator>: <Addr8: 4>  # Address: 00000042
+==> 00000040: <Ret>: <Reg8: 1>
+==> 00000042: <ResumeGenerator>: <Reg8: 1, Reg8: 3>
+==> 00000045: <JmpTrue>: <Addr8: 6, Reg8: 3>  # Address: 0000004b
+==> 00000048: <CompleteGenerator>: <>
+==> 00000049: <Ret>: <Reg8: 2>
+==> 0000004b: <CompleteGenerator>: <>
+==> 0000004c: <Ret>: <Reg8: 1>
+==> 0000004e: <CompleteGenerator>: <>
+==> 0000004f: <Ret>: <Reg8: 0>
+
+
+===============
+
