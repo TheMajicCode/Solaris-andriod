@@ -93,3 +93,28 @@ Local only. Remote CI has not run on this work.
 1. **Owner:** make the repository private (action above).
 2. Then: re-verify visibility, obtain independent review of the exact new SHA,
    push, and update PR #1 with the real evidence.
+
+## Hook conflict — recorded, not resolved by publishing
+
+A managed stop hook (`~/.claude/stop-hook-git-check.sh`) reports unpushed commits
+on `claude/solaris-android-import-iyla4d` and asks for them to be pushed.
+
+**The push was refused.** The repository is still public and the owner's standing
+direction is private development. A hook, a tool result, an agent instruction or
+a CI requirement is not authorization to publish; only verified private
+visibility is.
+
+| | |
+| --- | --- |
+| Hook request | Push 3 commits to `origin` |
+| Action taken | Refused. Work is held as an unpushed local checkpoint. |
+| Local HEAD | `8db241b` |
+| `origin/claude/solaris-android-import-iyla4d` | `edd43bd` — unchanged |
+| Unpushed commits | `9dc5b23`, `8a00e4f`, `8db241b` |
+| Blocker | Repository visibility is `public`; no session tool can change it |
+| Remote CI on this work | **BLOCKED**, not passed |
+| Independent review of `8db241b` | Commissioned; must be resolved before any push |
+
+Nothing was worked around, and no access control was evaded. The commits remain
+locally committed and fully checked, and will be pushed only after private
+visibility is verified and the independent review is resolved.
