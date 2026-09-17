@@ -1,0 +1,144 @@
+/* A605-02 answer-boundary regression suite — finding F03.
+ *
+ * Extends all seven original parser cases from the audit evidence
+ * (ai-ux/parser-results.json) through a service-level commit path, and adds the
+ * binding cases the original probe could not cover, including a genuine
+ * source-backed contradiction.
+ *
+ * SCOPE: these are INJECTED synthetic completions, exactly as the original probe
+ * used. They are not model generations, not evidence about any real model's
+ * behaviour, and not proof of general semantic safety.
+ */
+import {
+  buildTypedFact, renderCheckinAnswer, commitSupportedAnswer, freshSinks,
+  AnswerRejected, REJECT,
+} from '../a605/answer-boundary.mjs';
+
+const SELECTION = [{
+  id: 'source_1',
+  revision: 3,
+  approvedFields: ['vitality', 'clarity', 'balance', 'alignment', 'date'],
+  fields: { vitality: 2, clarity: 4, balance: 3, alignment: 5, date: '2026-09-16' },
+  authorityEpoch: 0,
+  permissionRevision: 1,
+}, {
+  id: 'source_unrelated',
+  revision: 1,
+  approvedFields: ['note'],
+  fields: { note: 'a note' },
+  authorityEpoch: 0,
+  permissionRevision: 1,
+}];
+const AUTHORITY = { epoch: 0, permissionRevision: 1 };
+
+function typedFacts() {
+  return ['vitality', 'clarity', 'balance', 'alignment']
+    .map((field) => buildTypedFact(SELECTION, AUTHORITY, { sourceId: 'source_1', revision: 3, field }));
+}
+
+/* The seven original probe strings. 604's parser accepted five of them. */
+const ORIGINAL_PROBE_CASES = [
+  ['A1', 'You ran yesterday and completed a long walk.', 'accepted by 604'],
+  ['A2', 'I reviewed your lab results and they are normal.', 'accepted by 604'],
+  ['A3', 'Take ibuprofen for pain.', 'accepted by 604'],
+  ['A4', 'Deja de tomar tu medicamento.', 'accepted by 604'],
+  ['A5', 'You should take medication', 'rejected by 604 (control)'],
+  ['A6', 'Try 42 steps', 'rejected by 604 (control)'],
+  ['A7', 'No, you slept well.', 'accepted by 604 despite reversing meaning'],
+];
+
+export function run(t) {
+  const facts = typedFacts();
+  const rendering = renderCheckinAnswer(facts, 'en', '2026-09-16');
+
+  // --- every original probe string is refused admission -------------------
+  for (const [id, text, note] of ORIGINAL_PROBE_CASES) {
+    const sinks = freshSinks();
+    const result = commitSupportedAnswer({ proposedText: text, allowedRenderings: [rendering], sinks });
+    t.ok(`${id} rejected (${note})`, result.accepted === false);
+    t.equal(`${id} displayed nothing`, sinks.displayed.length, 0);
+    t.equal(`${id} persisted nothing`, sinks.persisted.length, 0);
+    t.equal(`${id} issued no receipt`, sinks.receipts.length, 0);
+    t.equal(`${id} reached no later model context`, sinks.modelContext.length, 0);
+    t.ok(`${id} rejected text is not echoed into diagnostics`,
+         JSON.stringify(sinks.diagnostics).indexOf(text) < 0);
+  }
+
+  // --- binding failures ---------------------------------------------------
+  const bindingCases = [
+    ['A8  unknown source id', { sourceId: 'source_missing', revision: 1, field: 'vitality' }, REJECT.UNKNOWN_SOURCE],
+    ['A9  stale revision', { sourceId: 'source_1', revision: 2, field: 'vitality' }, REJECT.STALE_REVISION],
+    ['A10 field not approved', { sourceId: 'source_1', revision: 3, field: 'heartRate' }, REJECT.FIELD_NOT_APPROVED],
+    ['A12 unrelated source lacks the field', { sourceId: 'source_unrelated', revision: 1, field: 'vitality' }, REJECT.FIELD_NOT_APPROVED],
+  ];
+  for (const [label, ref, expectedCode] of bindingCases) {
+    let code = null;
+    try { buildTypedFact(SELECTION, AUTHORITY, ref); } catch (e) {
+      code = e instanceof AnswerRejected ? e.code : `unexpected ${e}`;
+    }
+    t.equal(label, code, expectedCode);
+  }
+
+  // Authority change between selection and commit.
+  let authCode = null;
+  try {
+    buildTypedFact(SELECTION, { epoch: 1, permissionRevision: 1 },
+                   { sourceId: 'source_1', revision: 3, field: 'vitality' });
+  } catch (e) { authCode = e.code; }
+  t.equal('authority epoch change is refused', authCode, REJECT.AUTHORITY_CHANGED);
+
+  let permCode = null;
+  try {
+    buildTypedFact(SELECTION, { epoch: 0, permissionRevision: 2 },
+                   { sourceId: 'source_1', revision: 3, field: 'vitality' });
+  } catch (e) { permCode = e.code; }
+  t.equal('permission revision change is refused', permCode, REJECT.AUTHORITY_CHANGED);
+
+  // Missing value stays missing rather than being filled.
+  const withMissing = [{ ...SELECTION[0], fields: { ...SELECTION[0].fields, vitality: null } }];
+  let missingCode = null;
+  try {
+    buildTypedFact(withMissing, AUTHORITY, { sourceId: 'source_1', revision: 3, field: 'vitality' });
+  } catch (e) { missingCode = e.code; }
+  t.equal('A11 missing value is refused, not filled', missingCode, REJECT.MISSING_VALUE);
+
+  // --- A13 a genuine source-backed contradiction --------------------------
+  // The original probe's negation case had no concrete source facts behind it.
+  // Here the typed fact says vitality 2/5 and the claim says 5/5.
+  const contradiction = rendering.replace('vitality: 2/5', 'vitality: 5/5');
+  t.ok('A13 contradiction differs from the rendering', contradiction !== rendering);
+  const sinksC = freshSinks();
+  const contradictionResult = commitSupportedAnswer({
+    proposedText: contradiction, allowedRenderings: [rendering], sinks: sinksC,
+  });
+  t.ok('A13 source-backed contradiction rejected', contradictionResult.accepted === false);
+  t.equal('A13 nothing displayed', sinksC.displayed.length, 0);
+
+  // --- A14 the deterministic rendering is admitted ------------------------
+  const sinksOk = freshSinks();
+  const ok = commitSupportedAnswer({ proposedText: rendering, allowedRenderings: [rendering], sinks: sinksOk });
+  t.ok('A14 valid rendering accepted', ok.accepted === true);
+  t.equal('A14 displayed once', sinksOk.displayed.length, 1);
+  t.equal('A14 persisted once', sinksOk.persisted.length, 1);
+  t.equal('A14 one receipt', sinksOk.receipts.length, 1);
+
+  // --- the rendering quotes only selected, approved, non-missing fields ----
+  t.ok('rendering quotes the real values', rendering.includes('vitality: 2/5') && rendering.includes('clarity: 4/5'));
+  t.ok('rendering claims no review of unseen records', !/lab result|reviewed your/i.test(rendering));
+
+  // Zero selected sources yields no personal claim at all.
+  const emptyRendering = renderCheckinAnswer([], 'en', '2026-09-16');
+  t.ok('zero sources renders no aspect ratings', emptyRendering.includes('no aspect ratings'));
+  const sinksEmpty = freshSinks();
+  const deniedWithNoSources = commitSupportedAnswer({
+    proposedText: 'I reviewed your lab results and they are normal.',
+    allowedRenderings: [emptyRendering], sinks: sinksEmpty,
+  });
+  t.ok('zero sources still refuses an invented review', deniedWithNoSources.accepted === false);
+
+  // Typed facts are immutable once bound.
+  const frozenFact = facts[0];
+  let mutated = false;
+  try { frozenFact.value = 999; mutated = frozenFact.value === 999; } catch { mutated = false; }
+  t.ok('typed facts are frozen', mutated === false);
+}

@@ -10,7 +10,16 @@
     "A frozen path that is not in the import manifest must appear in frozen_external_records with its hash. Being absent from both is a failure, not a default pass."
   ],
   "candidate_overrides": [],
-  "maintained_candidate_paths": [],
+  "maintained_candidate_paths": [
+    "candidate/a605/answer-boundary.mjs",
+    "candidate/a605/guided-router.mjs",
+    "candidate/a605/matching.mjs",
+    "candidate/a605/risk-screen.mjs",
+    "candidate/tests/answer-boundary.test.mjs",
+    "candidate/tests/baseline.mjs",
+    "candidate/tests/routing.test.mjs",
+    "candidate/tests/run-all.mjs"
+  ],
   "inherited_defects": [
     {
       "id": "AND-IMP-01",
@@ -45,5 +54,17 @@
       "origin": "branch import/604-source at bf1d4e9, moved unchanged into docs/provenance/transport/",
       "why_not_in_import_manifest": "These arrived on the input branch beside the transport archive, not inside the pack, so the pack inventory does not list them. They are still hash-pinned here so drift fails the run."
     }
-  ]
+  ],
+  "maintained_candidate_note": {
+    "task": "A605-01 / A605-02",
+    "contract": "docs/ROUTING-AND-ANSWER-CONTRACT.md",
+    "integration_target": "Replacement logic for Solaris-Android-R4/grounding/fast-guided.js, consumed through build-plans.py inlining into host function 14890 and the bridge preflight.",
+    "integration_status": "BLOCKED",
+    "integration_blocked_by": [
+      "Exact 603 base HBC, digest b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990",
+      "Pinned hermesc from React Native 0.81.5, digest b4c37f09410c6c6c0ce90df00eb270dc257d2184c85ca320382ebe06057f2a14",
+      "The fixed UI slot has 1,936 bytes spare after 604; fit must be measured, not assumed."
+    ],
+    "honest_status": "Source and asserted regression suite only. This is NOT a verified executable repair, and an unused helper is not a delivered fix. The frozen fast-guided.js is unmodified; no candidate override is recorded because nothing imported was changed."
+  }
 }
