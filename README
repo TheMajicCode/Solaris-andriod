@@ -1,0 +1,6 @@
+# Solaris Android · Pocket LUCA
+
+Private development workspace for the recovered Android build 604.
+
+Includes source reconstruction, local AI improvements, testing and audit.
+The complete native source build and production readiness remain under review.
