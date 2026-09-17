@@ -127,35 +127,55 @@ Every row needs a test that **fails against the frozen 604 baseline and passes
 against the candidate**, or is marked `control` (already correct — must not
 regress).
 
-### Routing — F04
+### Routing and mixed clinical intent — F04 and F05 (measured)
 
-| # | Input | Expected | Baseline |
-| --- | --- | --- | --- |
-| R1 | `Hello` | greeting, 0 model calls | control |
-| R2 | `Hola` | greeting, 0 model calls | control |
-| R3 | `¡Hola!` | greeting, 0 model calls | **fails** |
-| R4 | `¿Qué puedes hacer?` | capabilities, 0 model calls | **fails** |
-| R5 | `Qué puedes hacer?` | capabilities, 0 model calls | control |
-| R6 | `¿Cómo está mi check-in?` | checkin-explain | **fails** |
-| R7 | `Cómo está mi check-in?` | checkin-explain | control |
-| R8 | `Can you explain my check-in?` | checkin-explain | **fails** |
-| R9 | `  hola  ` (padded) | greeting | **fails** |
-| R10 | `HOLA` | greeting | control |
-| R11 | `¿¿Hola??` | greeting | **fails** |
-| R12 | `hola\nqué puedes hacer` | not a supported single intent → out of surface | control |
-| R13 | `Por favor, ¿qué puedes hacer?` | capabilities | **fails** |
-| R14 | `Hello there, I have a question about my medication` | out-of-scope (risk) | **fails** |
+Every row below was **measured**, not predicted: the suite runs the frozen 604
+helper and the candidate over the same input and asserts both. `repaired` means
+the two differ; `control` means the baseline is already correct and must not
+regress.
 
-### Mixed clinical intent — F05
+| # | Input | Locale | Baseline (frozen 604) | Candidate | Classification |
+| --- | --- | --- | --- | --- | --- |
+| R1 | `Hello` | en | `welcome` | `welcome` | control |
+| R2 | `Hola` | es | `welcome` | `welcome` | control |
+| R3 | `¡Hola!` | es | `null` | `welcome` | **repaired** |
+| R4 | `¿Qué puedes hacer?` | es | `null` | `welcome` | **repaired** |
+| R5 | `Qué puedes hacer?` | es | `welcome` | `welcome` | control |
+| R6 | `¿Cómo está mi check-in?` | es | `null` | `checkin-select` | **repaired** |
+| R7 | `Cómo está mi check-in?` | es | `checkin-select` | `checkin-select` | control |
+| R8 | `Can you explain my check-in?` | en | `null` | `checkin-select` | **repaired** |
+| R9 | `   hola   ` | es | `welcome` | `welcome` | control |
+| R10 | `HOLA` | es | `welcome` | `welcome` | control |
+| R11 | `¿¿Hola??` | es | `null` | `welcome` | **repaired** |
+| R12 | `hola\nqué puedes hacer` | es | `null` | `null` | control |
+| R13 | `Por favor, ¿qué puedes hacer?` | es | `null` | `welcome` | **repaired** |
+| R14 | `Que puedes hacer` | es | `welcome` | `welcome` | control |
+| R15 | `buenas noches` | es | `welcome` | `welcome` | control |
+| R16 | `¡Buenas noches!` | es | `null` | `welcome` | **repaired** |
+| R17 | `what can you do please` | en | `null` | `welcome` | **repaired** |
+| R18 | `I read an article about check-in kiosks at the airport` | en | `null` | `null` | control |
+| R19 | `hola amigo, tell me a story about the sea` | es | `null` | `null` | control |
+| M1 | `What should I do about severe chest pain during my check-in?` | en | `checkin-select` | `out-of-scope-clinical` | **repaired** |
+| M2 | `¿Qué hago si tengo dolor de pecho fuerte en mi check-in?` | es | `null` | `out-of-scope-clinical` | **repaired** |
+| M3 | `Should I stop taking my medication before my check-in?` | en | `null` | `out-of-scope-clinical` | **repaired** |
+| M4 | `During my check-in I felt calm` | en | `null` | `null` | control |
+| M5 | `My check-in mentioned I read about chest pain` | en | `checkin-select` | `out-of-scope-clinical` | **repaired** |
+| M6 | `I do not have chest pain, how is my check-in?` | en | `null` | `out-of-scope-clinical` | **repaired** |
+| M7 | `Hello there, I have a question about my medication` | en | `null` | `out-of-scope-clinical` | **repaired** |
+| M8 | `¿Cómo está mi check-in? También tengo dolor de pecho` | es | `null` | `out-of-scope-clinical` | **repaired** |
 
-| # | Input | Expected | Baseline |
-| --- | --- | --- | --- |
-| M1 | `What should I do about severe chest pain during my check-in?` | out-of-scope, **never** checkin-explain | **fails** (persists wellness reply) |
-| M2 | `¿Qué hago si tengo dolor de pecho fuerte en mi check-in?` | out-of-scope | **fails** |
-| M3 | `Should I stop taking my medication before my check-in?` | out-of-scope | **fails** |
-| M4 | `During my check-in I felt calm` | checkin-explain or wellness — **not** escalation | control (no false positive) |
-| M5 | `My check-in mentioned I read about chest pain` (quoted/historical) | reviewed classification; must not silently become wellness | **fails** |
-| M6 | `I do not have chest pain, how is my check-in?` (negated) | must not be treated as wellness-only by ignoring negation | **fails** |
+One prediction in the first draft of this contract was wrong and was corrected
+to measured behaviour: for **M5** the baseline returns `checkin-select`, not
+`null`. A request whose only clinical content is a reported reading about chest
+pain is answered as an ordinary wellness reflection, because `my ` satisfies the
+baseline's question prefix and `check-in` appears as a substring. That is a worse
+failure than predicted, and it is why the suite asserts baseline behaviour rather
+than assuming it.
+
+**M6** (`I do not have chest pain, …`) and **M5** are both routed out of scope.
+This is deliberately conservative: the screen does not attempt to decide that a
+negated or historical symptom mention is safe. Distinguishing them needs
+qualified clinical review, not a cleverer matcher.
 
 ### Answer boundary — F03
 
