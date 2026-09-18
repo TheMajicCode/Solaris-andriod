@@ -23,13 +23,13 @@ pushed.
 
 ## Unpushed commits
 
-| SHA | What |
-| --- | --- |
-| `9dc5b23` | A604-01 foundation: fail-closed checks, candidate change tracking, exposure record |
-| `8a00e4f` | A605 contract, implementation and regression suite |
-| `8db241b` | Measured acceptance matrix; finding dispositions |
-| `2853244` | Stop-hook publication conflict recorded as an unpushed checkpoint |
-| `5a3d4ad` | Three risk-screen gaps closed after adversarial self-review |
+```sh
+git log --oneline origin/claude/solaris-android-import-iyla4d..HEAD
+```
+
+`origin` has stayed at `edd43bd` since the private-development direction
+arrived. The stop hook asks for a push on every turn; each request was refused
+and recorded in [`STATUS.md`](STATUS.md).
 
 ## Read first
 

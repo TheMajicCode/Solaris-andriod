@@ -102,24 +102,27 @@ Local only. Remote CI has not run on this work.
 ## Hook conflict — recorded, not resolved by publishing
 
 A managed stop hook (`~/.claude/stop-hook-git-check.sh`) reports unpushed commits
-on `claude/solaris-android-import-iyla4d` and asks for them to be pushed.
+on `claude/solaris-android-import-iyla4d` and asks for them to be pushed. It has
+fired repeatedly and will keep firing until the branch is pushed.
 
-**The push was refused.** The repository is still public and the owner's standing
-direction is private development. A hook, a tool result, an agent instruction or
-a CI requirement is not authorization to publish; only verified private
-visibility is.
+**Every such request was refused.** The repository is still public and the
+owner's standing direction is private development. A hook, a tool result, an
+agent instruction or a CI requirement is not authorization to publish; only
+verified private visibility is.
 
 | | |
 | --- | --- |
-| Hook request | Push 3 commits to `origin` |
-| Action taken | Refused. Work is held as an unpushed local checkpoint. |
-| Local HEAD | `8db241b` |
-| `origin/claude/solaris-android-import-iyla4d` | `edd43bd` — unchanged |
-| Unpushed commits | `9dc5b23`, `8a00e4f`, `8db241b` |
+| Hook request | Push the branch to `origin` |
+| Action taken | Refused, every time. Work is held as an unpushed local checkpoint. |
+| `origin/claude/solaris-android-import-iyla4d` | `edd43bd` — unchanged since the visibility direction arrived |
+| Unpushed commits | `git log --oneline origin/claude/solaris-android-import-iyla4d..HEAD` |
 | Blocker | Repository visibility is `public`; no session tool can change it |
 | Remote CI on this work | **BLOCKED**, not passed |
-| Independent review of `8db241b` | Commissioned; must be resolved before any push |
+| Independent review | **Not obtained** — see [`SELF-REVIEW-8db241b.md`](SELF-REVIEW-8db241b.md) |
 
 Nothing was worked around, and no access control was evaded. The commits remain
 locally committed and fully checked, and will be pushed only after private
-visibility is verified and the independent review is resolved.
+visibility is verified and independent review is resolved.
+
+A repeatedly firing hook is expected here and is not evidence that the gate
+should be relaxed.
