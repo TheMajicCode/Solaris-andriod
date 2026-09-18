@@ -1,9 +1,9 @@
 # Public exposure record
 
-**Status: the repository is still PUBLIC as of the inspection below.** This
-record exists because every governing document for this work assumes a private
-repository, and because making a repository private later cannot retract what
-was already downloaded, cloned, forked or cached.
+**Status: the repository is public, and public development is authorized** (owner
+instruction, 18 September 2026). This record exists because earlier governing
+documents assumed a private repository, and because the exposure it describes is
+a fact worth keeping on the record regardless of which direction was chosen.
 
 ## What happened
 
@@ -12,12 +12,13 @@ was already downloaded, cloned, forked or cached.
 | Repository created | `TheMajicCode/Solaris-andriod`, public from creation |
 | Before this work | `main` held a README; `import/604-source` held the 20 MB transport archive, its checksum file and the import prompt |
 | During the first session | The 604 source projection and repository bootstrap were pushed to `claude/solaris-android-import-iyla4d`, and draft PR #1 was opened, **while the repository was public** |
-| Now | The owner's direction is private development. Visibility is unchanged because no tool in this session can change it. |
+| Now | The owner has authorized continuing publicly. Visibility is unchanged and no longer contested. |
 
-The push to a public repository was made after the conflict was raised and on
-the owner's explicit instruction at that time. That instruction has since been
-superseded by the private-development direction, which is why publication is now
-blocked rather than continued.
+The first push to the public repository was made after the conflict was raised
+and on the owner's explicit instruction. A later instruction briefly required
+private development; the current instruction restores public development and
+supersedes it. **Publication is authorized.** This record is retained as history,
+not as an open blocker.
 
 ## Inspection performed
 
@@ -75,8 +76,8 @@ Per the governing instruction, and because no concrete finding justifies them:
   preserved; replacing it would break the update lineage.
 - **No history rewrite.** The transport object stays in `import/604-source`
   history. Rewriting would break provenance and cannot un-publish anything.
-- **No visibility change.** No tool in this session can make the repository
-  private; see the owner action in `docs/workflow/STATUS.md`.
+- **No visibility change.** None is required: public development is the standing
+  instruction.
 
 Any remediation beyond this record is a separate decision requiring a concrete
 finding.

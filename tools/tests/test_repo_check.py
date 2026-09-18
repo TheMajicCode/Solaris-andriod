@@ -280,6 +280,78 @@ def _(f: Fixture):
     assert status_of(r, 'candidate-regression-tests') == 'FAIL'
 
 
+@case('a frozen_external_record CANNOT launder drift in an imported file')
+def _(f: Fixture):
+    baseline(f)
+    original = f.frozen['imported/app.js']
+    changed = b'var a = 999;\n'
+    # The laundering attempt: pin the MODIFIED bytes as an "external" record.
+    # No original hash, no rationale, no integration target.
+    f.candidate['frozen_external_records'] = [{
+        'path': 'imported/app.js', 'sha256': sha(changed), 'bytes': len(changed),
+        'origin': 'pretend', 'why_not_in_import_manifest': 'pretend',
+    }]
+    f.write()
+    (f.root / 'imported/app.js').write_bytes(changed)
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'frozen-integrity') == 'FAIL', \
+        'an external record must never overwrite an import-manifest entry'
+    assert sha(original) != sha(changed)
+
+
+@case('a frozen_external_record missing required fields FAILS')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('extra/note.txt', b'hello\n')
+    f.candidate['frozen_external_records'] = [{'path': 'extra/note.txt', 'sha256': sha(b'hello\n')}]
+    f.write()
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'candidate-changes-valid') == 'FAIL'
+
+
+@case('declassifying candidate source does NOT silence its test gate')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('candidate/src/ok.js', b'var x = 1;\n')
+    f.write()
+    # Reclassify candidate/ as documentation and drop the declared paths.
+    classification = json.loads((f.root / 'docs/provenance/SOURCE-CLASSIFICATION.json').read_text())
+    for rule in classification['rules']:
+        if rule.get('prefix') == 'candidate/':
+            rule['scope'] = 'documentation'
+    (f.root / 'docs/provenance/SOURCE-CLASSIFICATION.json').write_text(json.dumps(classification))
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'candidate-regression-tests') == 'FAIL', \
+        'reclassification must not be a way to skip candidate tests'
+    assert r['status'] == 'FAIL'
+
+
+@case('a check that examines zero expected files FAILS (coverage guard)')
+def _(f: Fixture):
+    baseline(f)
+    f.write()
+    from solaris_checks.checks import CheckResult, _coverage, PASS as _PASS
+    probe = _coverage(CheckResult('probe', 'scope', _PASS, files_expected=5, files_examined=0))
+    assert probe.status == 'FAIL', 'a check inspecting nothing must not pass'
+    ok = _coverage(CheckResult('probe', 'scope', _PASS, files_expected=5, files_examined=5))
+    assert ok.status == 'PASS'
+
+
+@case('a registered defect whose DIAGNOSTIC changed FAILS')
+def _(f: Fixture):
+    baseline(f)
+    broken = b'function a(){\n'
+    f.add_frozen('imported/evidence/broken.js', broken)
+    f.candidate['inherited_defects'] = [{
+        'id': 'X-04', 'path': 'imported/evidence/broken.js', 'sha256': sha(broken),
+        'tool': 'node --check', 'expected_diagnostic': 'SyntaxError: Some Other Diagnostic',
+        'disposition': 'OPEN',
+    }]
+    r = f.run()
+    assert status_of(r, 'javascript-parse-evidence') == 'FAIL', \
+        'the exception is narrowed to one diagnostic, not the whole file'
+
+
 # --- parsing ---------------------------------------------------------------
 
 @case('malformed YAML FAILS yaml-parse')

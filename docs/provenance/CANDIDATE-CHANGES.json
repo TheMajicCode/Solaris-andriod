@@ -7,7 +7,8 @@
     "Refreshing a baseline hash to absorb a modification is prohibited. Record an override instead.",
     "An inherited defect is registered by exact path and exact hash. If that file changes or disappears, the check FAILS rather than silently passing.",
     "A registered inherited defect narrows to one diagnostic on one path. It never exempts a directory, and never suppresses a new defect.",
-    "A frozen path that is not in the import manifest must appear in frozen_external_records with its hash. Being absent from both is a failure, not a default pass."
+    "A frozen path that is not in the import manifest must appear in frozen_external_records with its hash, origin and reason. Such a record may ONLY cover a path the import manifest does not already pin: it can never overwrite an import-manifest entry, because that would bless a modified imported file without an original hash, rationale or integration target. Being absent from both is a failure, not a default pass.",
+    "Reclassifying candidate source out of its scope cannot be used to skip its tests. If files are tracked under candidate/ and none is classified maintained-candidate, the run fails."
   ],
   "candidate_overrides": [],
   "maintained_candidate_paths": [

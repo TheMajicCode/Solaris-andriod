@@ -100,15 +100,30 @@ def check_classification(ctx: Context) -> CheckResult:
 def check_frozen_integrity(ctx: Context) -> CheckResult:
     """Frozen bytes must match the import manifest unless an override authorizes the change."""
     expected = {e['tracked_path']: e for e in ctx.import_manifest['files']}
-    # Frozen paths that arrived outside the transport pack are hash-pinned here instead.
+    laundering = []
+    # Frozen paths that arrived outside the transport pack are hash-pinned here
+    # instead. Such a record may ONLY cover a path the import manifest does not
+    # already pin. Allowing it to overwrite an import-manifest entry would let a
+    # modified imported file be blessed by appending its new hash — with no
+    # original hash, rationale or integration target. That is exactly the
+    # baseline-refresh this repository prohibits; an authorized change to an
+    # imported path must be a candidate_override.
     for record in ctx.candidate.get('frozen_external_records', []):
-        expected[record['path']] = {'sha256': record['sha256'], 'bytes': record['bytes']}
+        path = record['path']
+        if path in expected:
+            laundering.append(
+                f'{path}: listed in frozen_external_records but already pinned by the import '
+                'manifest. An authorized change to an imported path must be a candidate_override '
+                'with its original hash, rationale and integration target.')
+            continue
+        expected[path] = {'sha256': record['sha256'], 'bytes': record['bytes']}
     overrides = {o['path']: o for o in ctx.candidate['candidate_overrides']}
     frozen = ctx.classification.paths_with_integrity(ctx.resolved, 'frozen')
 
     r = CheckResult('frozen-integrity',
                     'Imported bytes match REPO-IMPORT-MANIFEST.json, or an authorized override',
                     PASS, files_expected=len(expected))
+    r.findings.extend(laundering)
     tracked = set(ctx.files)
 
     for path, entry in expected.items():
@@ -143,6 +158,7 @@ def check_frozen_integrity(ctx: Context) -> CheckResult:
 
 REQUIRED_OVERRIDE_FIELDS = ('path', 'original_sha256', 'resulting_sha256', 'rationale', 'integration_target')
 REQUIRED_DEFECT_FIELDS = ('id', 'path', 'sha256', 'tool', 'expected_diagnostic', 'disposition')
+REQUIRED_EXTERNAL_FIELDS = ('path', 'sha256', 'bytes', 'origin', 'why_not_in_import_manifest')
 
 
 def check_candidate_changes(ctx: Context) -> CheckResult:
@@ -150,7 +166,8 @@ def check_candidate_changes(ctx: Context) -> CheckResult:
     overrides = ctx.candidate['candidate_overrides']
     defects = ctx.candidate['inherited_defects']
     declared = ctx.candidate['maintained_candidate_paths']
-    total = len(overrides) + len(defects) + len(declared)
+    external = ctx.candidate.get('frozen_external_records', [])
+    total = len(overrides) + len(defects) + len(declared) + len(external)
 
     r = CheckResult('candidate-changes-valid',
                     'Every override, declared candidate path and inherited defect resolves and matches',
@@ -179,6 +196,17 @@ def check_candidate_changes(ctx: Context) -> CheckResult:
             r.findings.append(f'inherited defect {d["id"]}: {d["path"]} changed; '
                               'the registered exception no longer describes this file')
 
+    for record in ctx.candidate.get('frozen_external_records', []):
+        missing = [f for f in REQUIRED_EXTERNAL_FIELDS if not record.get(f)]
+        if missing:
+            r.findings.append(f'frozen external record {record.get("path", "<unnamed>")}: '
+                              f'missing fields {missing}')
+            continue
+        if record['path'] not in tracked:
+            r.findings.append(f'frozen external record {record["path"]}: not tracked')
+        elif ctx.sha(record['path']) != record['sha256']:
+            r.findings.append(f'frozen external record {record["path"]}: hash no longer matches')
+
     for path in declared:
         if path not in tracked:
             r.findings.append(f'declared maintained-candidate path {path}: not tracked')
@@ -202,7 +230,8 @@ def check_excluded_paths(ctx: Context) -> CheckResult:
         ('releases/', 'release binaries'),
     )
     binary_suffixes = ('.apk', '.aab', '.hbc', '.dex', '.so', '.gguf', '.jks', '.keystore',
-                       '.p12', '.pfx', '.zip', '.tar.xz', '.tgz', '.bundle')
+                       '.p12', '.pfx', '.zip', '.tar', '.tar.gz', '.tar.xz', '.tgz', '.gz',
+                       '.xz', '.7z', '.rar', '.jar', '.aar', '.bundle', '.dylib', '.dll')
     r = CheckResult('excluded-path-policy',
                     'Private, binary and build-input material stays untracked',
                     PASS, files_expected=len(ctx.files), files_examined=len(ctx.files))
@@ -459,7 +488,8 @@ SECRET_FILENAMES = re.compile(
     r'(?i)\.(jks|keystore|p12|pfx|pem|key)$|(^|/)(local|key)\.properties$|(^|/)\.env($|\.)')
 TEXT_SUFFIXES = {'.md', '.txt', '.json', '.js', '.cjs', '.mjs', '.ts', '.py', '.java', '.c', '.cpp',
                  '.h', '.hpp', '.html', '.css', '.xml', '.sh', '.hasm', '.yaml', '.yml', '.toml',
-                 '.config', '.envelope'}
+                 '.config', '.envelope', '.properties', '.gradle', '.kt', '.kts', '.pro', '.cfg',
+                 '.ini', '.env', '.conf', '.patch', '.diff', '.lock', '.gitignore', ''}
 
 
 def check_secret_patterns(ctx: Context) -> CheckResult:
@@ -494,8 +524,19 @@ def check_candidate_tests(ctx: Context) -> CheckResult:
                     'Maintained-candidate regression suite passes',
                     PASS, files_expected=len(candidate_files))
     if not candidate_files:
+        # Reclassifying candidate source out of scope must not silence this gate.
+        # NOT_APPLICABLE is only honest when no candidate source exists at all.
+        orphaned = [p for p in ctx.files if p.startswith('candidate/')]
+        if orphaned:
+            r.status = FAIL
+            r.files_expected = len(orphaned)
+            r.findings.append(
+                f'{len(orphaned)} files are tracked under candidate/ but none is classified '
+                'maintained-candidate. Reclassifying candidate source out of scope cannot be '
+                'used to skip its tests.')
+            return r
         r.status = NOT_APPLICABLE
-        r.findings.append('no maintained-candidate source is classified yet')
+        r.findings.append('no candidate source is tracked')
         return r
     if not runner.is_file():
         r.status = FAIL
@@ -569,7 +610,9 @@ def run_all(repo: Path, files: list[str]) -> dict:
                 getattr(fn, '__name__', 'unknown').replace('check_', '').replace('_', '-'),
                 'check raised an unexpected exception', FAIL,
                 [f'{type(exc).__name__}: {exc}']))
-    failed = [r for r in results if r.failed]
+    # Only PASS and a genuinely-empty NOT_APPLICABLE count as success. Any other
+    # status — including one added later — is a failure by default.
+    failed = [r for r in results if r.status not in (PASS, NOT_APPLICABLE)]
     return {
         'scope': 'source-only-repository-projection',
         'not_established': [

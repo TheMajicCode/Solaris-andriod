@@ -57,25 +57,26 @@ pass and is never evidence of an Android build.
 
 ### Result recorded for this candidate
 
-1,925 tracked files:
+1,949 tracked files:
 
 | Check | Result | Files |
 | --- | --- | --- |
-| `classification-complete` | PASS | 1925/1925 |
+| `classification-complete` | PASS | 1949/1949 |
 | `frozen-integrity` | PASS | 1881/1881 |
-| `candidate-changes-valid` | PASS | 1/1 |
-| `excluded-path-policy` | PASS | 1925/1925 |
+| `candidate-changes-valid` | PASS | 12/12 |
+| `excluded-path-policy` | PASS | 1949/1949 |
 | `build-input-exceptions` | PASS | 5/5 |
 | `json-parse` | PASS | 483/483 |
 | `yaml-parse` | PASS | 2/2 |
-| `python-syntax` | PASS | 79/79 |
-| `javascript-syntax-authored` | PASS | 64/64 |
+| `python-syntax` | PASS | 80/80 |
+| `javascript-syntax-authored` | PASS | 73/73 |
 | `javascript-parse-evidence` | PASS | 141/141 |
-| `doc-links` | PASS | 25/25 |
-| `secret-pattern-scan` | PASS | 1925/1925 |
-| `candidate-regression-tests` | NOT_APPLICABLE | 0/0 |
+| `doc-links` | PASS | 39/39 |
+| `secret-pattern-scan` | PASS | 1949/1949 |
+| `candidate-regression-tests` | PASS | 9/9 |
 
-Overall: **PASS**. The checker's own negative controls: **22 passed, 0 failed**.
+Overall: **PASS**. Companion suites: **27** checker negative controls,
+**11** parse-mode controls, **310** candidate assertions — all passing.
 
 `AND-IMP-01` — `solaris-603-native-probe/recommended-request-builder.cjs` is
 truncated in the imported evidence. It is registered by exact path and hash in

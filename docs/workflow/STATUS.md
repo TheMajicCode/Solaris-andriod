@@ -55,17 +55,39 @@ convenience item, not a blocker.
 | Base | `edd43bd` |
 | State | Foundation repairs complete locally and unpushed |
 
-## Checks actually run this session
+## Checks actually run
 
-Local only. Remote CI has not run on this work.
+Local. Remote CI has **not** run on this work yet; it runs after the push.
 
 | Check | Result |
 | --- | --- |
-| Handoff `HANDOFF-SHA256SUMS.txt` (7 files) | PASS |
+| Engineering handoff `HANDOFF-SHA256SUMS.txt` (69 files) | PASS — 0 failures |
 | Audit evidence ZIP vs declared hash/size | PASS — `f3b30628…`, 1,319,606 bytes |
-| Evidence `MANIFEST.json` (103 members) | PASS — 103 verified, 0 mismatched, 0 missing |
-| `tools/tests/test_repo_check.py` | PASS — 22 negative controls, 0 failed |
-| `tools/repo-check.py` | PASS — 13 checks, 0 failed |
+| Evidence `MANIFEST.json` (103 members) | PASS |
+| `tools/repo-check.py` | PASS — 13 checks |
+| `tools/tests/test_repo_check.py` | PASS — 27 negative controls |
+| `tools/tests/test_js_parse_modes.py` | PASS — 11 parse-mode controls, AND-CI-01 reproduced on pinned Node 22.22.2 |
+| `candidate/tests/run-all.mjs` | PASS — 278 assertions |
+| Outgoing-range content inspection | PASS — no credentials, PHI, binaries or handoff material |
+
+## Independent review
+
+Review of `1b33e60` returned **APPROVE WITH FINDINGS**, with four blocking items.
+All four were reproduced independently before being fixed:
+
+| ID | Finding | Resolution |
+| --- | --- | --- |
+| B1 | `frozen_external_records` could overwrite an import-manifest entry, blessing a modified imported file with no original hash, rationale or integration target | Such a record may now only cover a path the manifest does not pin; required fields are validated. Two negative controls added. |
+| B2 | Reclassifying `candidate/` out of scope silenced its test gate, and `NOT_APPLICABLE` counted as success | Tracked `candidate/` files with no maintained-candidate classification now FAIL. Only `PASS` and a genuinely empty `NOT_APPLICABLE` count as success. Control added. |
+| B3 | `PUBLIC-EXPOSURE-RECORD.md` still said publication was blocked | Reconciled to the authorized public direction. |
+| B4 | `AUDIT-FINDINGS-MATRIX.md` F09 acceptance still required a private repository | Visibility component recorded as closed by instruction; foundation acceptance stays open on its own merits. |
+
+Non-blocking findings fixed in the same pass: stale assertion counts, an untested
+rating-shape guard, missing coverage/diagnostic controls, and a non-string input
+path that threw instead of resolving.
+
+Independent review is **AI review, not a GitHub approval** from a second eligible
+account, and is not presented as one.
 
 ## What was repaired this session
 

@@ -71,7 +71,18 @@ const COPY = {
  * @returns {{kind:string, message:string, sourceRefs:Array, modelCallsRequired:number}|null}
  */
 export function routeRequest(request) {
-  const locale = request.locale === 'es' ? 'es' : 'en';
+  const locale = request && request.locale === 'es' ? 'es' : 'en';
+  // A non-string or absent input is a host-path defect, not a user question.
+  // It still resolves deterministically rather than throwing, so no caller can
+  // fall back to open generation on an exception.
+  if (!request || typeof request.user !== 'string') {
+    return {
+      kind: 'limitation',
+      message: limitationReply(locale),
+      sourceRefs: [],
+      modelCallsRequired: 0,
+    };
+  }
   const match = matchingText(request.user);
   if (!match.normalized.length) {
     // Empty or punctuation-only input (`¿?`, whitespace) still gets a

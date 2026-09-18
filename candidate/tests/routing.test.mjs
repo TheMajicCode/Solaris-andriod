@@ -129,6 +129,22 @@ export function run(t) {
   routeRequest({ user: original, locale: 'es' });
   t.equal('original text is not mutated', original, '  ¡Hola!  ');
 
+  // N4: a non-string or absent input resolves deterministically, never throws.
+  for (const [label, bad] of [
+    ['undefined user', { locale: 'en' }],
+    ['null user', { user: null, locale: 'en' }],
+    ['numeric user', { user: 123, locale: 'en' }],
+    ['object user', { user: {}, locale: 'en' }],
+    ['array user', { user: [], locale: 'en' }],
+    ['no request at all', undefined],
+  ]) {
+    let result = null;
+    let threw = false;
+    try { result = routeRequest(bad); } catch { threw = true; }
+    t.ok(`no throw on ${label}`, threw === false);
+    t.equal(`${label} resolves to a limitation`, result && result.kind, 'limitation');
+  }
+
   // Escalation copy carries its unreviewed release gate.
   const risky = routeRequest({ user: 'severe chest pain', locale: 'en' });
   t.equal('escalation carries a review gate', risky.reviewGate,
