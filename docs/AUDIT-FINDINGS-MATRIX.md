@@ -47,6 +47,32 @@ handling resolved. Do not merge them.
 | **F11** | Visual design is coherent; accessibility and consent clarity need work. Concrete issues: ineffective Home reduced-transparency override (~`sanctuary.html:710–713`), chat container without `role=log` (~line 1115). | **OPEN** | A606-03 | TalkBack, font-scaling, contrast and touch-target checks at 320/360/390 logical widths. | A device or a real rendering environment. The inspected image was an **archived 601 synthetic** screenshot, not a fresh 604 render. |
 | **F12** | Production P2P practitioner sharing is not implemented or proven. | **OPEN — roadmap** | P2P-01 | A separately versioned sharing contract and synthetic two-device tests. | Stable vault/identity. Must stay described as roadmap. |
 
+## Sprint-01 findings (18 September 2026)
+
+Recorded without renumbering or closing F01–F12. F03 remains **containment**, not
+a parser repair. F06 remains an **unreproduced** native race hypothesis.
+
+| ID | Finding | Disposition | Evidence |
+| --- | --- | --- | --- |
+| **SP-CI-01** | Actions were pinned by SHA but runtimes were selectors, so the remote resolved Python 3.12.14 / Node 22.23.2 while a local run used 22.22.2. | **FIXED** | Runtimes pinned explicitly; the checker now records the versions that actually executed, because a selector is a request, not evidence. |
+| **SP-CI-02** | Injected results showed `NOT_APPLICABLE` or `PASS` with scope 1 and nothing inspected yielding overall PASS. | **FIXED** | Reproduced exactly against current code first. Registration, status and coverage are now enforced centrally in `validate_results`. 17 controls, including legitimate empty-scope positives. The prior CI run did inspect files; this does not invalidate its results. |
+| **SP-CHAT-01** | A stored `date: "2026-99-99"` rendered to the user as a check-in date; returned bindings omitted the date. | **FIXED** | Real calendar validation incl. leap years. The stored record is **not** corrected — an impossible value is a finding about that record. The date is now bound like any displayed claim (five bindings, not four). |
+| **SP-CHAT-02** | `selection: [null]` threw a `TypeError` while reading `.id`. | **FIXED** | Entries validated and unusable ones dropped. Twelve malformed shapes yield the honest select reply with no throw and no diagnostic leakage; a usable record among malformed entries is still honoured. |
+| **SP-CHAT-03** | Literal `Reflect` returned the limitation route. | **PREMISE DISPROVED, real defect found and FIXED** | Traced to the UI first: quick actions dispatch `send(a.slice(4))` on `ask:` payloads, and `Reflect` is **not** one. The three real payloads are `Explain my check-in`, `Help me choose a step today`, `Who is Pocket LUCA AI?` — and **two of the three fell to the limitation reply**, so the app answered its own buttons with "I cannot answer that". All three now route correctly, EN and ES. |
+| **SP-DOC-01** | Operative docs mixed stale statements; the routing contract still showed candidate `null` outcomes. | **FIXED** | Matrix regenerated from measured behaviour across 37 rows; router header corrected. No candidate row is `null`. |
+| **SP-INT-01** | Candidate modules were never bound to the actual host; a fixture could supply allowed renderings. | **MEASURED — does not fit** | The frozen donor asserts 2 functions with function 1 named `fastGuided`. The candidate compiles to **26**, function 1 being the bundle IIFE. Hermes 0.12.0 also rejects ES6 `class`. Nothing was weakened to force a fit. See [host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md). |
+
+### F01 and F06 status after this sprint
+
+**F01 is partially advanced, not closed.** The 604 **host bundle** now reproduces
+byte-identically (`30be9989…`) and its original 34 host and 10 lifecycle cases
+pass. That is the host layer only. The authored native Gradle/Kotlin/NDK project
+is still not recovered, and no supplied tool recovers it. A host-bundle
+reproduction is **not** a native source build and **not** an APK.
+
+**F06 is unchanged.** Nothing in this sprint executed native or DEX code, so the
+stale-completion race remains an unreproduced hypothesis.
+
 ## Findings raised by this repository
 
 | ID | Finding | Disposition | Owner | Acceptance condition |

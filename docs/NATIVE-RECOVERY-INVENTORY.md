@@ -86,67 +86,79 @@ minSdk 29 / target 36. **No version here was selected by picking "latest".**
 Gradle, AGP, Kotlin, JDK, NDK and CMake versions are **not** established by any
 available evidence and must not be guessed.
 
-## Input reconciliation — checked before requesting anything
+## Input reconciliation — 18 September 2026
 
-Verified against what is actually present in this workspace on 18 September 2026.
-Nothing below was requested from the owner before checking.
+Verified in this workspace against the privately supplied
+`Solaris-603-Host-Inputs.zip` (184/184 files matched its own manifest, 0
+failures). Nothing below was requested from the owner before checking.
 
 | # | Input | Status | Evidence |
 | --- | --- | --- | --- |
-| **N4** | Pinned Linux x86_64 `hermesc` | **RESTORED and digest-verified** | See the restoration record below |
-| N3 | Exact 603 base HBC, `assets/index.android.bundle`, 30,754,484 bytes, SHA-256 `b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990` | **MISSING** | Not present. Extracted from the 603 APK, which is restricted. |
-| N-APK | Exact 603 APK `Solaris-V6.0.3-Pocket-Chat-Candidate.apk`, SHA-256 `25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227` | **MISSING** | `reconstruction-inputs/baseline-603/` absent. **The current builder needs the APK, not the HBC alone** — it extracts the bundle itself. |
+| **N3** | Exact 603 host bundle `assets/index.android.bundle` | **RESTORED**, 30,754,484 bytes, SHA-256 `b8ac7d1b…` — exact | Supplied in the private kit |
+| **N4** | Pinned Linux x86-64 `hermesc` | **RESTORED**, SHA-256 `b4c37f09…` — exact, Hermes 0.12.0, executes | Private kit; also independently retrievable from pinned public upstream |
+| **Host runtime** | Custom `hermes-runner`, `libhermes.so`, `libjsi.so` | **RESTORED** — executed the 34-case and 10-case suites successfully | Private kit |
+| **Transpile toolchain** | Babel 7.28.5, pinned `hermes-dec` source subset | **RESTORED** | Private kit |
+| **N-APK** | Exact 603 APK, 242,588,871 bytes, SHA-256 `25d3642a…` | **MISSING** | Not in the kit. Needed only for APK-provenance verification; see below. |
 | N1 | Four-part 604 handoff backup | **MISSING** | Restricted; owner-held |
-| N2 | `Solaris-603-Build-Inputs.zip` | **MISSING** | Restricted; owner-held |
-| N5 | Signed 604 APK | **MISSING** | Restricted; owner-held |
-| N6 | `reconstruction-inputs/` + `reconstruction-work/` trees | **MISSING** | Restricted; owner-held |
+| N2 | `Solaris-603-Build-Inputs.zip` | **Superseded for this purpose** — the selected tools it contains are restored | Kit provenance |
+| N5 | Signed 604 APK | **MISSING** | Needed for differential APK/payload comparison, not for host work |
+| N6 | `reconstruction-inputs/` + `reconstruction-work/` trees | **PARTIALLY RESTORED** — the paths the builders expect are populated from the kit | Restored into a disposable copy only |
 | N7 | `Solaris-603-Model-Test-Input.zip` | **MISSING — optional** | Model experiments only |
-| Hermes runtime/harness | Matching runtime for executable host comparison | **MISSING and separately required** | `hermesc` compiles; it does not execute host bytecode. |
 
-### N4 restoration record
+### What changed: the host lane is no longer blocked
 
-Retrieved from verified public upstream — a non-sensitive tool, explicitly
-permitted, and **restoration rather than a dependency upgrade**. Nothing was
-upgraded and no application dependency changed.
+The 604 host bundle was reproduced **byte-identically** without the APK, and the
+original host and lifecycle suites pass against it. See
+[Host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md).
 
-| Field | Value |
+The APK is consequently **no longer the blocker it was**. It is still wanted, but
+only for what it uniquely proves: that this bundle came from that APK, and the
+APK's own integrity. It is not needed to continue host work.
+
+## Separate the four things this often conflates
+
+| Layer | State |
 | --- | --- |
-| Approved source | `https://registry.npmjs.org/react-native/-/react-native-0.81.5.tgz` |
-| Archive size | 24,766,674 bytes — **matches the pin exactly** |
-| Archive SHA-256 | `e31721654764d1ca040bdddc5d6343376cef799f65115098ba250340af7e18b2` — **matches the pin exactly** |
-| Archive member extracted | `package/sdks/hermesc/linux64-bin/hermesc` (only this one) |
-| Compiler SHA-256 | `b4c37f09410c6c6c0ce90df00eb270dc257d2184c85ca320382ebe06057f2a14` — **matches the N4 pin exactly** |
-| Compiler size / type | 3,787,344 bytes; ELF 64-bit x86-64, statically linked, stripped |
-| Reported version | Hermes release 0.12.0 (LLVM 8.0.0svn) |
-| Smoke check | `hermesc -O -g0 -emit-binary` on a trivial script produced HBC, exit 0 |
-| Destination | Outside the repository, in the session scratchpad. **Not committed** — binaries stay out of ordinary Git. |
-| License status | React Native is MIT-licensed upstream; redistribution here is **not** performed and remains unreviewed |
-| Consuming command | `Solaris-Android-R4/grounding/build-plans.py`, which requires it at `reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc` |
+| **Host tools** — compiler, runner, libraries, transpiler | **Restored and executing.** |
+| **Retained binaries** — 603 bundle, 604/603 APKs, native `.so`, model weights | Bundle restored; APKs and weights absent and restricted. |
+| **Authored application source** | Host/UI/grounding layers present. The original native Gradle/Kotlin/NDK project is **not recovered**, and no tool in this kit recovers it. |
+| **Native build graph** | **Absent.** Gradle wrapper, AGP, Kotlin, JDK, SDK, NDK and CMake versions are not established by any available evidence and must not be guessed. |
 
-Archive members were listed and checked for absolute and traversal paths before
-extraction, and only the single required member was extracted.
-
-**What this unblocks, and what it does not.** The compiler is available, so donor
-compilation is no longer blocked *by the compiler*. It is still blocked by N3 and
-the 603 APK: `build-plans.py` asserts the exact 603 base bytecode digest, and
-`build-bundle.py` consumes the APK. Executable host comparison would need a
-matching Hermes **runtime**, which `hermesc` is not.
+**Restoring host tools does not reconstruct Gradle or native source.** Those are
+different problems; the kit moves only the first.
 
 ## Exact minimum artifact requests
 
-Only these are actually needed from the owner. Each is restricted and must come
-through the private artifact workflow, never Git.
+The host lane is unblocked, so these are ordered by what they actually unlock now.
 
-| # | Artifact | SHA-256 | Unblocks |
-| --- | --- | --- | --- |
-| **N-APK** | `Solaris-V6.0.3-Pocket-Chat-Candidate.apk` | `25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227` | **The smallest single request.** The builder extracts N3's bundle from it, so it satisfies both. |
-| N3 | 603 base HBC, if the APK cannot be supplied | `b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990` | Donor compilation and patch checks, but not the full bundle builder |
-| N5 | Signed 604 APK | `0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827` | Differential component comparison |
-| N1 | Four-part 604 handoff backup | reassembles to `b31177db52d0b041d8dd66ed5e3d3b504ef2448e60b54f8e6a8a436f9a8c0e3d` | The full-reference gate and N6 |
-| N7 | `Solaris-603-Model-Test-Input.zip` | `d6a1d5640ce37e9aa2ff2aee56d1f78534ebd6b93e80dc6fe262c851a122f9da` | **Optional** — model experiments only |
+| # | Artifact | SHA-256 | What it uniquely unlocks | Priority |
+| --- | --- | --- | --- | --- |
+| N-APK | Exact 603 APK | `25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227` | Runs the **frozen** `build-bundle.py` unmodified, proving APK provenance for the bundle. The host reproduction itself no longer needs it. | Medium |
+| N5 | Signed 604 APK | `0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827` | Differential payload/DEX/native-library comparison and packaging verification | Medium |
+| N1 | Four-part 604 handoff backup | reassembles to `b31177db…` | The full-reference gate | Low for host work |
+| N7 | `Solaris-603-Model-Test-Input.zip` | `d6a1d5640ce37e9aa2ff2aee56d1f78534ebd6b93e80dc6fe262c851a122f9da` | Model experiments only | Optional |
 
-**N-APK is now the single highest-value request**, because N4 is restored and the
-APK yields N3.
+**No artifact unblocks the native source build**, because the authored native
+project was not recovered by this retrieval. That is a reconstruction problem,
+not a transfer problem, and remains the largest open item (`F01`).
+
+## Session and lifecycle continuity — requirements, not a design
+
+Documented against the **existing** encrypted persistence. Nothing here changes a
+storage or recovery format, and nothing claims background inference works.
+
+| State | Current 604 behaviour | Requirement for a future bounded task |
+| --- | --- | --- |
+| **Draft** (typed, unsent) | Cleared on foreground loss. Not persisted. | If ever retained, it must live in the encrypted vault — **never** browser/plaintext storage. Explicit user retry, never silent resend. |
+| **Pending** (sent, unanswered) | Does not exist. Inference is cancelled on background/lock. | Encrypted pending turn committed **before** inference, carrying a stable idempotent operation id. After unlock, explicit retry re-checks current authority and current selection. |
+| **Completed** | Persisted and survives; chat view restores after unlock. | Unchanged. Completed-history survival and unfinished-work survival are **different claims** and must not be merged. |
+| **Restart / process death** | Unfinished work is lost by design. | Restore only from the authenticated current vault. An uncertain write acknowledgement must be reconcilable without duplicating a record. |
+| **Reauthorization** | Authority is rechecked at the side effect, including after receipt authentication. | Preserved. A retry after unlock is a **new** authorization, not a replay of the old one. |
+| **Duplicate prevention** | Existing record IDs and commit guards. | Idempotent by operation id; retrying must never produce two assistant records or two receipts. |
+
+This is `A606-02`, gated on understanding the existing persistence contract. It
+is **not** in scope now, and the 16 MiB recovery-envelope ceiling and OEM
+transfer behaviour remain unassessed.
 
 ## Milestones
 
