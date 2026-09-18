@@ -1,54 +1,51 @@
-# Roadmap
+# Solaris Android and ecosystem roadmap
 
-Sequenced, evidence-gated work. **No delivery dates appear here because none have
-been established.** This table is a plan, not authority to implement everything
-in parallel — each item needs its own bounded task and review.
+Updated 18 September 2026. This is an evidence-gated plan, not authorization to implement or release every phase. No delivery dates are asserted. Current source, reported unpushed work and target architecture are separated in the [engineering report](reports/Solaris-Engineering-Progress-and-Ecosystem-Report-2026-09-18.md).
 
-| ID | Scope and dependencies | Acceptance evidence |
+## Current checkpoint
+
+- Latest verified published task head: `edd43bd7404730480f3c5bd94720a3aef068fdb9`, draft PR #1. Main remains `5cc354c852565479020d4a6c99109fff992c6de4` at the review time.
+- Claude reports local `9183802`, seven unpushed commits, 13 checks, 224 assertions and 22 checker controls. These are author-reported until the exact source/reports are obtained and independently reviewed.
+- Independent candidate review, remote candidate CI, executable A605 integration and native build remain open. No new APK is established by those assertion counts.
+- Public source development and reviewed pushes are now explicitly authorized in the existing repository. Earlier private-visibility and mandatory-private-backup requirements are superseded. Preserve work, review outgoing material and complete independent review; patient data and secrets remain excluded.
+
+## Audit-grounded next sequence
+
+Use the [F01–F12/CI disposition matrix](reports/AUDIT-DISPOSITION-2026-09-18.md) and [bounded execution plan](workflow/NEXT-BOUNDED-EXECUTION.md) as the current task detail. Do not restart the completed import from the old proposal. Review the actual local foundation/candidate, push reviewed public source, then run remote CI. Integrate the routing/answer containment through actual host and UI/storage boundaries while restoring native source in a separate owned workstream.
+
+Cold-path model-preparation instrumentation, positive answer controls, the finite HBC/HTML slot, 16 MiB recovery ceiling, narrow conversational context and shared development signer are explicit constraints. Their tests and production gates remain open; none is waived by public source development.
+
+## Phases
+
+| Phase / existing task alignment | Bounded result | Exit evidence |
 | --- | --- | --- |
-| **AND-00** — Verified repository bootstrap | This import task | Exact source import and projection manifest, useful docs, real scoped CI, reviewed unmerged PR, artifact boundaries, no unsupported claims. **Delivered by this PR.** |
-| **AND-00b** — Curate private reference-input artifacts | After AND-00, needs restored reference and a licensing review | Reviewed, non-sensitive input bundles with hashes, sizes, restore paths and license status recorded in `artifacts/manifest.json`. Blocked until the reference is restored. |
-| **AND-01** — Baseline quality and security audit | After AND-00 | Prioritized findings tied to exact paths and SHAs; scoped lint, dependency, license and secret reports; clear native source gaps; the smallest next repair named |
-| **AND-02** — Reconstruct native build prerequisites | Based on the AND-01 audit | Traceable app/native graph, dependencies and build inputs; signer and vault compatibility preserved; rebuild stages proven without fabricated source |
-| **AND-03** — Pocket LUCA reliability and latency | Can run alongside AND-02 within proven source boundaries | Phone cold/warm timings, selected-source answer quality, truthful progress and error states, working cancellation; guided help kept distinct from inference |
-| **AND-04** — Pending conversation recovery | Requires a storage/lifecycle contract | Encrypted durable pending-turn states; device and process-death tests; no replay after revocation or owner change; record IDs preserved |
-| **AND-05** — Identity, consent and shared contract alignment | Joint work with web / Clinic OS; assumes **no** remote repo write | Explicit identity binding, qualified recipient trust, consent/expiry/revocation, schema versioning, negative test vectors |
-| **AND-06** — Own-device encrypted transfer spike | After the relevant identity and recovery gates | One synthetic note between owned devices; restart, replay, conflict and revoke tests; local records still unlock without connectivity |
-| **AND-07** — Practitioner private-care inbox | After AND-05 and AND-06, plus a suitable clinic endpoint | Selected synthetic record delivered across networks; recipient-scoped authorization, acknowledgements, authorship and recovery proven |
-| **AND-08** — Sovereignty discovery prototype | Optional read-only adapter after contract review | Attributed BTC Map data, cached/online status shown, explicit location choice, separate evidence labels, no invented trust badges |
-| **AND-09** — Breez Spark compatibility spike | Requires native/runtime feasibility (AND-02) | Regtest only; lock, recovery, fee and pending-state tests; no real funds, no seed reuse, no effect on vault access |
-| **AND-10** — WDK chain/runtime decision and spike | Requires native/runtime feasibility and a selected module | Documented Bare Kit compatibility, chain/token/gas/account model, synthetic or test-network transactions, independent recovery checks |
-| **AND-11** — GPS shadow contribution ledger | Requires an accepted shared policy and vectors | Attributable synthetic evidence, one finite allocation per episode, replay-safe outbox design; **zero funds move** |
-| **AND-12** — Funded Earn pilot and release evaluation | Wallet, GPS, funding, trust and applicable release prerequisites | Approved funded rules, dispute/anti-abuse/limits, explicit confirmations, idempotent settlement; no health-data sale, no guaranteed earnings |
+| **0: Foundation** — AND-00/00b, A604-01 | Preserved source checkpoint in the public development repository, immutable reference, explicit candidate map, required CI that fails closed | Verified checkpoint; publishable outgoing source; final independent review and local checks before push; actual remote CI results after push |
+| **1a: Bounded chat** — AND-03, A605-01/02 | EN/ES supported routing and answer-boundary containment | Positive and adversarial actual-host tests; no unsupported content at display/storage/receipt/context boundaries; clinical-copy release review |
+| **1b: Native recovery** — AND-02, A604-02 | Evidence-backed source/build graph and real unsigned native app | Exact inputs/locks; clean reproducible build; component compatibility; preserve package, signer lineage, vault, recovery and models |
+| **1c: Local quality** — AND-04, A606-01/02/03, REL-01 | Proven recovery/durability, encrypted pending turns and useful local assistance | Synthetic native failure/recovery tests; authorized device cold/warm latency, stop/process-death and accessibility tests; production-signing transition decision |
+| **2: Identity and consent** — AND-05/06 | Shared, versioned contracts and one synthetic owned-device transfer | Cross-runtime identity/authority vectors; expiry/revoke/replay/wrong-recipient/correction tests; no forced identity/key reset |
+| **3: Private care connection** — AND-07 | Patient-to-clinic selected record and reply; narrow Clinic OS inbox | Verified clinic binding; role-scoped access; patient and clinic restore; discovery receives no clinical plaintext in the tested flow |
+| **4a: GPS shadow** — AND-11 | One finite `ValueEpisode`, evidence/attestor policy, deterministic allocations and private receipts | Accepted simulator profile; conservation/cap/rounding/replay/budget/appeal tests; zero financial side effects |
+| **4b: Optional passport/discovery adapters** — AND-08/09/10 | Attributed BTC Map discovery; one selected WDK or Breez test adapter | Correct freshness/qualification distinctions; exact runtime/rail test environment; amount/recipient/fee/recovery tests; no seed reuse |
+| **5a: RGB lab** — separately scoped RGB task | One supported synthetic asset in a declared test environment | Pinned implementation/schema; test issuer; independent validation, restore and interoperability; no real-money funding needed |
+| **5b: Funded pilot** — AND-12 | One capped, separately authorized program | Accepted profile, named funder/operator, dispute process, reviewed rail-specific recovery and reconciled settlement |
+| **6: Productization** | Supported Clinic in a Box, more clinics and optional sovereignty/wearable modules | Repeatable operations, backup/update drills, measured benefit, support ownership and sustainable unit costs |
 
-## The next bounded task
+1a and 1b may run in parallel with separate ownership. Phase 4 contract/fixture design can begin early; wallet SDK installation and fund movement do not thereby become authorized. Production-release gates remain independent of source PR acceptance.
 
-**AND-01, narrowed to a first slice:** classify and triage the imported tree by
-scope — current authored source, recovered/decompiled evidence, third-party
-inputs, missing inputs — and produce a prioritized findings list tied to exact
-paths and hashes, starting from the one finding this import already surfaced
-(`AND-IMP-01`, the truncated probe file). No code changes; findings only.
+## The next bounded action
 
-That is smaller than a full audit, needs no missing inputs, and directly feeds
-AND-02.
+Preserve and review Claude's actual unpublished checkpoint, then finish the foundation PR. Restore the exact [host/compiler inputs](NATIVE-RECOVERY-INPUTS.md) for candidate integration while native reconstruction continues. Do not restart the import, silently replace missing implementation, or treat source-only tests as an APK release.
 
-## Open production gates
+For GPS, resolve [draft profile discrepancies](GPS-RGB-CONTRACT-ROADMAP.md) before building executable allocation vectors. Existing historical rates must not become hidden constants. For P2P, begin with a single record owner and explicit receipt, not a shared multi-writer clinical database.
 
-These remain unresolved regardless of roadmap progress. See
-[`handoff/PRODUCTION-GATES.md`](../handoff/PRODUCTION-GATES.md):
+## Dependencies that stay visible
 
-- Complete native source build
-- Vault and identity compatibility under synthetic round trips
-- Background and session behaviour with an explicit pending-turn protocol
-- AI reliability and latency on the target device
-- Android UI and platform behaviour on real devices
-- Security and dependency posture
-- Release identity and a deliberate production signing strategy
-- Independent release verification
+- Qualified review of bilingual escalation wording and the supported patient-facing scope.
+- Native vault/recovery/attachment/upgrade evidence, including the preserved recovery-envelope capacity boundary.
+- Device-measured usefulness, latency, cancellation and accessibility.
+- Dependency and redistribution rights, supply-chain/SBOM evidence and a deliberate production-signing strategy.
+- Independent exact-candidate review and final artifact/source correspondence.
+- For financial features: selected asset/network, funding, authority, ledger reconciliation, separate recovery and applicable operating review.
 
-## What this roadmap does not authorize
-
-Guessing missing native implementation, fabricating build scaffolding, upgrading
-the 604 QVAC/Bare runtime, installing or signing an APK, moving real funds,
-changing keys, or delaying every useful fix until the whole architecture is
-finished. Propose the smallest task the evidence actually supports.
+The [product map](ECOSYSTEM-AND-PRODUCTS.md) explains which product owns each responsibility. [Research](research/P2P-WALLET-EVIDENCE-2026-09-18.md) describes upstream possibilities; it does not certify integration in Solaris.

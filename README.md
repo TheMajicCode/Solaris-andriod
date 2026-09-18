@@ -17,7 +17,7 @@ not the price of admission to a reward program.
 > ### Current status — read this before anything else
 >
 > **Baseline: Android candidate 604, `6.0.4-preview.grounded-chat`.** This
-> repository holds a reviewed **source projection** of a recovered, partially
+> repository holds a hash-verified imported **source projection** of a recovered, partially
 > reconstructed application and its verified evidence. Build 604 improves guided
 > chat grounding and interaction behaviour while preserving the existing native
 > payloads.
@@ -29,6 +29,46 @@ not the price of admission to a reward program.
 > work**, not shipped features.
 >
 > No APK was built, signed, installed or deployed to produce this repository.
+
+## Latest engineering status — 18 September 2026
+
+The import branch carries the foundation repairs and the A605 source candidate
+on top of `edd43bd`; PR #1 remains draft and unmerged. Recheck the actual branch
+before writing.
+
+What that work is, stated precisely:
+
+- **Foundation.** Source checks now fail closed — a missing dependency, an empty
+  but expected scope, an unexpected exception, an unclassified path or an
+  unregistered defect all fail. Frozen imported bytes and authorized candidate
+  changes are tracked in separate manifests.
+- **A605 candidate.** Routing and answer-containment **source and tests only**.
+  Every request resolves deterministically: a supported guided answer, a bounded
+  out-of-scope reply, or a limitation that names what can be asked. Personal
+  facts render only from typed bindings to explicitly selected, approved fields.
+- **Not** a new APK, not version code 605, not an executable repair, and not a
+  model-quality or readiness score. Its assertion count is source-test evidence
+  to inspect, nothing more.
+
+Executable integration is **BLOCKED**: it needs the exact 603 APK, from which the
+603 base HBC is extracted. The pinned `hermesc` compiler has been restored from
+verified public upstream and matches its recorded digest exactly, so the compiler
+is no longer a blocker. See [native recovery inventory](docs/NATIVE-RECOVERY-INVENTORY.md).
+
+Independent review of the candidate had **not** completed at the time of writing;
+a self-review is recorded as such and does not close that gate.
+
+Start with the [current engineering report](docs/reports/Solaris-Engineering-Progress-and-Ecosystem-Report-2026-09-18.md),
+[product map](docs/ECOSYSTEM-AND-PRODUCTS.md), [gated roadmap](docs/ROADMAP.md)
+[native recovery inputs](docs/NATIVE-RECOVERY-INPUTS.md) and the
+[reconciled input inventory](docs/NATIVE-RECOVERY-INVENTORY.md).
+
+The consolidated [audit dispositions](docs/reports/AUDIT-DISPOSITION-2026-09-18.md)
+and [next execution plan](docs/workflow/NEXT-BOUNDED-EXECUTION.md) reconcile all
+attached audits with the reported candidate. Continue the existing public source
+branch; the older private-gated/archive-only starters are superseded. Source
+containment, actual host integration and a native-source build remain distinct
+milestones. No new APK or readiness score follows from this documentation update.
 
 ## Three connected purposes
 
@@ -81,11 +121,16 @@ accept Bitcoin. "Accepts Bitcoin", "runs a verified sovereign service", "belongs
 to a community" and "is a qualified trusted practitioner" are different claims,
 each needing its own source, criteria, date and status.
 
-Here, **GPS is Solaris's policy/allocation/settlement/receipt protocol** for
+Here, **GPS (Global Prosperous Split) is Solaris's policy/allocation/settlement/receipt protocol** for
 evidenced contributions and accountable value distribution. It is **not** phone
 geolocation. Any location feature needs its own purpose and permission.
 
-See [Sovereignty and GPS](docs/SOVEREIGNTY-AND-GPS.md).
+See [Sovereignty and GPS](docs/SOVEREIGNTY-AND-GPS.md) and the proposed
+[GPS/RGB contract roadmap](docs/GPS-RGB-CONTRACT-ROADMAP.md). GPS starts with
+minimal contribution evidence and deterministic shadow allocations. Optional
+RGB contracts can enforce selected asset rules; they do not enforce medical
+truth, health-data consent or the entire GPS constitution. No policy rate or
+financial program is activated by this README.
 
 ## One product within Solaris
 
@@ -105,7 +150,7 @@ product's data. See [Architecture](docs/ARCHITECTURE.md) and
 
 | Area | Evidence-backed position |
 | --- | --- |
-| Guided LUCA interactions | Recognized common intents use bounded application logic and are labelled guided. Applicable personal answers use selected, approved source fields; missing context leads to a request for sources. |
+| Guided LUCA interactions | Recognized common intents use guided application logic and selected fields. The 604 audit found routing/output-boundary defects; later source repairs are reported, with independent review and executable integration still pending. |
 | On-device generated chat | Available through the existing local-model path (Qwen3-0.6B Q4), with real quality and latency limitations. Phone response times for 604 have **not** been measured. |
 | Chat and return behaviour | UI and guard repairs improve the existing flow. Backgrounding still locks the vault and cancels unfinished generation; unsent drafts are cleared. Continuous background inference is not established. |
 | Vault and native components | Existing components were preserved unchanged in the candidate. Preservation is not an audit of their security or recovery behaviour. |
@@ -158,8 +203,10 @@ changing these boundaries.
    python3 tools/repo-check.py
    ```
 
-   A pass proves preserved bytes and parseable text. It proves nothing about
-   security, licensing, native build completeness or release readiness.
+   The published checker has known gaps: missing required dependencies and new
+   source classifications can still leave it green. Candidate repairs are
+   reported but not yet independently verified. See the dated engineering
+   report; a source-check pass is not an Android build or release approval.
 3. Keep a complete, immutable 604 reference **outside** this working tree and run
    the original full-manifest checks there. This repository's README and docs
    intentionally differ from the handoff; it is not byte-identical to it.
@@ -182,6 +229,11 @@ decompiled evidence as though it were maintained application source obscures the
 real work.
 
 ## Project documentation
+
+- [Engineering progress report](docs/reports/Solaris-Engineering-Progress-and-Ecosystem-Report-2026-09-18.md) — verified source, reported local work and unresolved gates.
+- [Products and boundaries](docs/ECOSYSTEM-AND-PRODUCTS.md) — Android, web, Clinic OS and economic modules.
+- [GPS/RGB contract roadmap](docs/GPS-RGB-CONTRACT-ROADMAP.md) — policies, deterministic allocation, authority and optional asset contracts.
+- [P2P/wallet research](docs/research/P2P-WALLET-EVIDENCE-2026-09-18.md) and [RGB research](docs/research/RGB-GPS-EVIDENCE-2026-09-18.md) — dated primary-source evidence.
 
 - [Product vision](docs/PRODUCT-VISION.md) — the Android experience and its place in Solaris.
 - [Feature status](docs/FEATURE-STATUS.md) — working / tested-in-isolation / experimental / planned / blocked, with evidence paths.
@@ -216,10 +268,14 @@ or redistributing components. Existing third-party notices must be preserved. A
 repository-level license must reflect an actual ownership and licensing review;
 none is implied here.
 
-> **Visibility.** This repository is currently **public**, at the owner's
-> explicit direction. The setup brief and import pack both assumed a private
-> repository while source completeness, licensing and release readiness were
-> assessed, and neither establishes public-redistribution clearance for the
-> retained recovered and third-party material. Licensing is
-> [unresolved](docs/THIRD-PARTY-NOTICES.md) and no security audit has been
-> performed. Treat every file here as published.
+> **Public source development — 2026-09-18 revision.** The owner now authorizes
+> development and reviewed publication in this existing public repository. This
+> supersedes earlier private-repository assumptions in the setup/import documents.
+> The health vault, patient records and credentials remain private; public source
+> does not authorize publishing them or signing/wallet keys. Review outgoing
+> changes and newly reachable history for specific restricted material, preserving
+> third-party notices and the [licensing inventory](docs/THIRD-PARTY-NOTICES.md).
+> Continue unaffected authored work while resolving concrete findings. No new
+> license grant or production-readiness claim is implied by public visibility.
+> Historical evidence remains unchanged; comprehensive security and production
+> readiness are not established.

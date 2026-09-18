@@ -22,6 +22,29 @@ What stays out of public Git regardless: patient and vault data, raw phone
 recordings, credentials, signing and wallet secrets, restricted binaries. Public
 source authorization is not a license grant for restricted material.
 
+## Repository metadata and README consolidation
+
+| Item | State |
+| --- | --- |
+| `main` tree | Contains exactly one file: the extensionless `README` |
+| That file's claim | *"Private development workspace"* — **inaccurate**; the repository is public |
+| Consolidation | Prepared on this branch: `README` is deleted and replaced by `README.md`, first done in `c57c0b2` |
+| Resolution | Lands when PR #1 merges. Merging is the owner's decision and is **not** authorized here. |
+
+### Proposed About description — needs the owner to set it
+
+No tool available in this session can change the repository description, topics
+or homepage. The wording below is reviewed and ready to paste into
+**Settings → General → Description**:
+
+```text
+Solaris Android / Pocket LUCA: recovered local health-vault prototype and source-reconstruction workspace. Native build restoration is in progress; consented P2P, economic-passport and GPS/RGB adapters are roadmap work.
+```
+
+It labels P2P, economic-passport and GPS/RGB explicitly as roadmap work, claims
+no shipped capability, and does not describe the repository as private. This is a
+convenience item, not a blocker.
+
 ## Current task
 
 | Field | Value |

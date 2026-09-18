@@ -1,5 +1,9 @@
 # Native recovery inventory — A604-02 milestone 1
 
+> **Companion document.** [`NATIVE-RECOVERY-INPUTS.md`](NATIVE-RECOVERY-INPUTS.md)
+> records the documented pins each input must match. This file records what is
+> actually present, what was restored and verified, and what is still needed.
+
 Evidence-backed inventory of what exists, what is reconstructed, what is
 reference-only, and what is missing for a native build of build 604. This is
 **milestone 1 (inventory and missing-input list)** of the native recovery
@@ -82,23 +86,67 @@ minSdk 29 / target 36. **No version here was selected by picking "latest".**
 Gradle, AGP, Kotlin, JDK, NDK and CMake versions are **not** established by any
 available evidence and must not be guessed.
 
+## Input reconciliation — checked before requesting anything
+
+Verified against what is actually present in this workspace on 18 September 2026.
+Nothing below was requested from the owner before checking.
+
+| # | Input | Status | Evidence |
+| --- | --- | --- | --- |
+| **N4** | Pinned Linux x86_64 `hermesc` | **RESTORED and digest-verified** | See the restoration record below |
+| N3 | Exact 603 base HBC, `assets/index.android.bundle`, 30,754,484 bytes, SHA-256 `b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990` | **MISSING** | Not present. Extracted from the 603 APK, which is restricted. |
+| N-APK | Exact 603 APK `Solaris-V6.0.3-Pocket-Chat-Candidate.apk`, SHA-256 `25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227` | **MISSING** | `reconstruction-inputs/baseline-603/` absent. **The current builder needs the APK, not the HBC alone** — it extracts the bundle itself. |
+| N1 | Four-part 604 handoff backup | **MISSING** | Restricted; owner-held |
+| N2 | `Solaris-603-Build-Inputs.zip` | **MISSING** | Restricted; owner-held |
+| N5 | Signed 604 APK | **MISSING** | Restricted; owner-held |
+| N6 | `reconstruction-inputs/` + `reconstruction-work/` trees | **MISSING** | Restricted; owner-held |
+| N7 | `Solaris-603-Model-Test-Input.zip` | **MISSING — optional** | Model experiments only |
+| Hermes runtime/harness | Matching runtime for executable host comparison | **MISSING and separately required** | `hermesc` compiles; it does not execute host bytecode. |
+
+### N4 restoration record
+
+Retrieved from verified public upstream — a non-sensitive tool, explicitly
+permitted, and **restoration rather than a dependency upgrade**. Nothing was
+upgraded and no application dependency changed.
+
+| Field | Value |
+| --- | --- |
+| Approved source | `https://registry.npmjs.org/react-native/-/react-native-0.81.5.tgz` |
+| Archive size | 24,766,674 bytes — **matches the pin exactly** |
+| Archive SHA-256 | `e31721654764d1ca040bdddc5d6343376cef799f65115098ba250340af7e18b2` — **matches the pin exactly** |
+| Archive member extracted | `package/sdks/hermesc/linux64-bin/hermesc` (only this one) |
+| Compiler SHA-256 | `b4c37f09410c6c6c0ce90df00eb270dc257d2184c85ca320382ebe06057f2a14` — **matches the N4 pin exactly** |
+| Compiler size / type | 3,787,344 bytes; ELF 64-bit x86-64, statically linked, stripped |
+| Reported version | Hermes release 0.12.0 (LLVM 8.0.0svn) |
+| Smoke check | `hermesc -O -g0 -emit-binary` on a trivial script produced HBC, exit 0 |
+| Destination | Outside the repository, in the session scratchpad. **Not committed** — binaries stay out of ordinary Git. |
+| License status | React Native is MIT-licensed upstream; redistribution here is **not** performed and remains unreviewed |
+| Consuming command | `Solaris-Android-R4/grounding/build-plans.py`, which requires it at `reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc` |
+
+Archive members were listed and checked for absolute and traversal paths before
+extraction, and only the single required member was extracted.
+
+**What this unblocks, and what it does not.** The compiler is available, so donor
+compilation is no longer blocked *by the compiler*. It is still blocked by N3 and
+the 603 APK: `build-plans.py` asserts the exact 603 base bytecode digest, and
+`build-bundle.py` consumes the APK. Executable host comparison would need a
+matching Hermes **runtime**, which `hermesc` is not.
+
 ## Exact minimum artifact requests
 
-Each entry is a concrete request: name, hash where known, and what it unblocks.
-Deliver through the private artifact workflow — never Git.
+Only these are actually needed from the owner. Each is restricted and must come
+through the private artifact workflow, never Git.
 
 | # | Artifact | SHA-256 | Unblocks |
 | --- | --- | --- | --- |
-| N1 | `Solaris-Android-604-Handoff-Part-1..4-of-4.zip` + `Assemble-Solaris-604-Handoff.py` | reassembles to `b31177db52d0b041d8dd66ed5e3d3b504ef2448e60b54f8e6a8a436f9a8c0e3d` (1,518,762,347 bytes) | Everything below; the full-reference gate |
-| N2 | `Solaris-603-Build-Inputs.zip` | `0745458668eb3ff149fa881b647095a74865b97fba84f39fc88297becb49019d` | HBC reconstruction: pinned `hermesc`, parser, formatter, packaging tools |
-| N3 | Exact 603 base HBC | digest `b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990` (required by `build-plans.py`) | Any guided-routing patch build, including the A605 candidate |
-| N4 | Pinned `hermesc` from RN 0.81.5 | `b4c37f09410c6c6c0ce90df00eb270dc257d2184c85ca320382ebe06057f2a14` | Same as N3 |
-| N5 | Signed 604 APK | `0e9a66da…` | Differential component comparison; payload/alignment verification |
-| N6 | `reconstruction-inputs/` + `reconstruction-work/` trees | per full-reference inventory | Reference APKs and restored tool paths the saved scripts expect |
+| **N-APK** | `Solaris-V6.0.3-Pocket-Chat-Candidate.apk` | `25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227` | **The smallest single request.** The builder extracts N3's bundle from it, so it satisfies both. |
+| N3 | 603 base HBC, if the APK cannot be supplied | `b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990` | Donor compilation and patch checks, but not the full bundle builder |
+| N5 | Signed 604 APK | `0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827` | Differential component comparison |
+| N1 | Four-part 604 handoff backup | reassembles to `b31177db52d0b041d8dd66ed5e3d3b504ef2448e60b54f8e6a8a436f9a8c0e3d` | The full-reference gate and N6 |
 | N7 | `Solaris-603-Model-Test-Input.zip` | `d6a1d5640ce37e9aa2ff2aee56d1f78534ebd6b93e80dc6fe262c851a122f9da` | **Optional** — model experiments only |
 
-N3 and N4 are the smallest pair that would unblock an executable A605 candidate.
-N1 is the smallest single request that unblocks the full-reference gate.
+**N-APK is now the single highest-value request**, because N4 is restored and the
+APK yields N3.
 
 ## Milestones
 
