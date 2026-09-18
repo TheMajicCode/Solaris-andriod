@@ -121,9 +121,20 @@ array **cannot** fix this. The rules are structural:
 8. **No authority through diagnostics.** A model-supplied string must not gain
    storage or prompt authority through an error or diagnostic path.
 9. **Record content is data, never instructions.** Only a value matching its
-   field's strict shape may be rendered — a date as `YYYY-MM-DD`, an aspect as an
-   integer 1–5. A record cannot inject prose or directives into assistant output.
-10. **Missing is not zero.** They are distinct states and are never conflated.
+   field's strict shape may be rendered — an aspect as an integer 1–5, and a date
+   that is a **real calendar date**, not merely `YYYY-MM-DD`-shaped. `2026-99-99`
+   matches the shape and is rejected. Leap years are evaluated properly. The
+   stored record is never modified to make a value pass; an impossible value is a
+   finding about that record.
+10. **Every displayed claim is bound.** The rendered answer states the date, so
+   the date is returned among the authorized bindings alongside the aspect
+   ratings — five bindings, not four.
+11. **A malformed selection is controlled, never thrown.** Entries that are not
+   usable records are dropped; a thrown error would escape the deterministic
+   contract and leave the caller free to fall back to open generation. A usable
+   record among malformed entries is still honoured, and no diagnostic text
+   reaches the reply.
+12. **Missing is not zero.** They are distinct states and are never conflated.
 
 If bounded general generation is retained, it carries an explicit
 **non-personal, non-clinical** scope enforced before presentation and
@@ -142,12 +153,14 @@ Every row needs a test that **fails against the frozen 604 baseline and passes
 against the candidate**, or is marked `control` (already correct — must not
 regress).
 
-### Routing and mixed clinical intent — F04 and F05 (measured)
+### Routing and mixed clinical intent — measured, 18 September 2026
 
-Every row below was **measured**, not predicted: the suite runs the frozen 604
-helper and the candidate over the same input and asserts both. `repaired` means
-the two differ; `control` means the baseline is already correct and must not
-regress.
+Every row is **measured**, not predicted: the suite runs the frozen 604 helper
+and the candidate over the same input and asserts both. `repaired` means they
+differ; `control` means the baseline is already correct and must not regress.
+
+`null` in the candidate column would mean the request fell through to the caller,
+and therefore to unrestricted model generation. **No candidate row is `null`.**
 
 | # | Input | Locale | Baseline (frozen 604) | Candidate | Classification |
 | --- | --- | --- | --- | --- | --- |
@@ -162,35 +175,52 @@ regress.
 | R9 | `   hola   ` | es | `welcome` | `welcome` | control |
 | R10 | `HOLA` | es | `welcome` | `welcome` | control |
 | R11 | `¿¿Hola??` | es | `null` | `welcome` | **repaired** |
-| R12 | `hola\nqué puedes hacer` | es | `null` | `null` | control |
+| R12 | `hola\nqué puedes hacer` | es | `null` | `limitation` | **repaired** |
 | R13 | `Por favor, ¿qué puedes hacer?` | es | `null` | `welcome` | **repaired** |
 | R14 | `Que puedes hacer` | es | `welcome` | `welcome` | control |
 | R15 | `buenas noches` | es | `welcome` | `welcome` | control |
 | R16 | `¡Buenas noches!` | es | `null` | `welcome` | **repaired** |
 | R17 | `what can you do please` | en | `null` | `welcome` | **repaired** |
-| R18 | `I read an article about check-in kiosks at the airport` | en | `null` | `null` | control |
-| R19 | `hola amigo, tell me a story about the sea` | es | `null` | `null` | control |
+| R18 | `I read an article about check-in kiosks at the airport` | en | `null` | `limitation` | **repaired** |
+| R19 | `hola amigo, tell me a story about the sea` | es | `null` | `limitation` | **repaired** |
 | M1 | `What should I do about severe chest pain during my check-in?` | en | `checkin-select` | `out-of-scope-clinical` | **repaired** |
 | M2 | `¿Qué hago si tengo dolor de pecho fuerte en mi check-in?` | es | `null` | `out-of-scope-clinical` | **repaired** |
 | M3 | `Should I stop taking my medication before my check-in?` | en | `null` | `out-of-scope-clinical` | **repaired** |
-| M4 | `During my check-in I felt calm` | en | `null` | `null` | control |
+| M4 | `During my check-in I felt calm` | en | `null` | `limitation` | **repaired** |
 | M5 | `My check-in mentioned I read about chest pain` | en | `checkin-select` | `out-of-scope-clinical` | **repaired** |
 | M6 | `I do not have chest pain, how is my check-in?` | en | `null` | `out-of-scope-clinical` | **repaired** |
 | M7 | `Hello there, I have a question about my medication` | en | `null` | `out-of-scope-clinical` | **repaired** |
 | M8 | `¿Cómo está mi check-in? También tengo dolor de pecho` | es | `null` | `out-of-scope-clinical` | **repaired** |
+| M9 | `Hola. Tengo dolor en el pecho.` | es | `null` | `out-of-scope-clinical` | **repaired** |
+| M10 | `¿Qué puedes hacer? Me duele mucho el pecho` | es | `null` | `out-of-scope-clinical` | **repaired** |
+| M11 | `Take my meds?` | en | `null` | `out-of-scope-clinical` | **repaired** |
+| M12 | `my head hurts badly` | en | `null` | `out-of-scope-clinical` | **repaired** |
+| M13 | `me duele la cabeza` | es | `null` | `out-of-scope-clinical` | **repaired** |
+| U1 | `Explain my check-in` | en | `checkin-select` | `checkin-select` | control |
+| U2 | `Help me choose a step today` | en | `null` | `step-select` | **repaired** |
+| U3 | `Who is Pocket LUCA AI?` | en | `null` | `welcome` | **repaired** |
+| U4 | `what is the capital of France` | en | `null` | `limitation` | **repaired** |
+| U5 | `write me a poem` | en | `null` | `limitation` | **repaired** |
 
-One prediction in the first draft of this contract was wrong and was corrected
-to measured behaviour: for **M5** the baseline returns `checkin-select`, not
-`null`. A request whose only clinical content is a reported reading about chest
-pain is answered as an ordinary wellness reflection, because `my ` satisfies the
-baseline's question prefix and `check-in` appears as a substring. That is a worse
-failure than predicted, and it is why the suite asserts baseline behaviour rather
-than assuming it.
+**U1–U3 are the application's own shipped quick-action buttons**, traced from
+`Solaris-Android-R4/ui/sanctuary.html` and `sanctuary.compact.html`, where a
+quick action dispatches `send(a.slice(4))` on an `ask:`-prefixed payload. The
+three payloads are `Explain my check-in`, `Help me choose a step today` and
+`Who is Pocket LUCA AI?`. Two of the three previously fell to the limitation
+reply, so the app answered its own buttons with "I cannot answer that".
 
-**M6** (`I do not have chest pain, …`) and **M5** are both routed out of scope.
-This is deliberately conservative: the screen does not attempt to decide that a
-negated or historical symptom mention is safe. Distinguishing them needs
-qualified clinical review, not a cleverer matcher.
+The literal word `Reflect` is **not** a payload the UI sends; `Reflect on my
+step` is an adjacent label and is supported as a step form. Finding SP-CHAT-03
+was investigated at the UI before any behaviour was changed.
+
+One earlier prediction was wrong and was corrected to measured behaviour: for
+**M5** the baseline returns `checkin-select`, not `null`, because `my ` satisfies
+its question prefix while `check-in` appears as a substring.
+
+**M6** and **M5** are both routed out of scope. This is deliberately
+conservative: the screen does not try to decide that a negated or historical
+symptom mention is safe. Distinguishing them needs qualified clinical review,
+not a cleverer matcher.
 
 ### Answer boundary — F03
 

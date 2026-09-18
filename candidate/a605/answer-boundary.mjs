@@ -90,6 +90,8 @@ const ASPECT_LABELS = {
 export function renderCheckinAnswer(typedFacts, locale, date) {
   const lang = locale === 'es' ? 'es' : 'en';
   const labels = ASPECT_LABELS[lang];
+  // The date fact is bound and returned, but it is rendered in the sentence
+  // frame rather than listed as an aspect rating.
   const parts = typedFacts
     .filter((f) => Object.prototype.hasOwnProperty.call(labels, f.field))
     .map((f) => `${labels[f.field]}: ${f.value}/5`);

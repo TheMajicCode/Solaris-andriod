@@ -3,9 +3,14 @@
  * Contract: docs/ROUTING-AND-ANSWER-CONTRACT.md §3–§4.
  *
  * Deterministic. No model call, no store read, no source auto-selection, no
- * mutation. Returns null for "not the supported surface", exactly as build 604's
- * fastGuided does, so the caller's authority, permission, current-source,
- * cancellation and persistence checks are unchanged.
+ * mutation. Unlike build 604's fastGuided, it NEVER returns null: every request
+ * resolves to a supported answer, a bounded out-of-scope reply, or a
+ * deterministic limitation. Returning null handed the request back to the
+ * caller, which dispatches the model. The caller's authority, permission,
+ * current-source, cancellation and persistence checks are unchanged.
+ *
+ * (The private groundedCheckin helper below does return null, meaning "no
+ * usable selection"; routeRequest converts that into an honest reply.)
  *
  * INTEGRATION IS BLOCKED. See contract §8: building this into the candidate host
  * needs the exact 603 base HBC and the pinned hermesc, both excluded from this
@@ -14,7 +19,7 @@
  */
 import { matchingText, matchesWholeRequest } from './matching.mjs';
 import { screenForRisk, ESCALATION_COPY } from './risk-screen.mjs';
-import { limitationReply } from './supported-surface.mjs';
+import { limitationReply, usableSelection } from './supported-surface.mjs';
 import { buildTypedFact, renderCheckinAnswer, AnswerRejected } from './answer-boundary.mjs';
 
 const INTENTS = {
@@ -23,8 +28,14 @@ const INTENTS = {
     es: ['hola', 'buenos dias', 'buenos días', 'buenas tardes', 'buenas noches'],
   },
   capabilities: {
-    en: ['what can you do', 'what can you help me with', 'who are you', 'help'],
-    es: ['que puedes hacer', 'qué puedes hacer', 'quien eres', 'quién eres', 'ayuda'],
+    // `who is pocket luca ai` is the normalized form of the shipped UI button
+    // payload `ask:Who is Pocket LUCA AI?`. Traced from
+    // Solaris-Android-R4/ui/sanctuary.html and sanctuary.compact.html, where
+    // quick actions dispatch via send(a.slice(4)).
+    en: ['what can you do', 'what can you help me with', 'who are you', 'help',
+         'who is pocket luca ai', 'who is pocket luca', 'what is pocket luca ai'],
+    es: ['que puedes hacer', 'qué puedes hacer', 'quien eres', 'quién eres', 'ayuda',
+         'quien es pocket luca ai', 'quién es pocket luca ai', 'que es pocket luca ai'],
   },
   checkinExplain: {
     en: ['what is a check-in', 'what is a check in', 'explain my check-in',
@@ -34,8 +45,14 @@ const INTENTS = {
          'cómo está mi check-in', 'explica mi check-in', 'revisa mi check-in'],
   },
   step: {
-    en: ['choose a step', 'help me choose a step', 'suggest a small step'],
-    es: ['elige un paso', 'elegir un paso', 'sugiere un paso pequeño'],
+    // `help me choose a step today` is the shipped payload
+    // `ask:Help me choose a step today`; `reflect on my step` is the adjacent
+    // UI label. Both are supported so the app's own buttons work.
+    en: ['choose a step', 'help me choose a step', 'help me choose a step today',
+         'suggest a small step', 'reflect on my step', 'choose a step today'],
+    es: ['elige un paso', 'elegir un paso', 'sugiere un paso pequeño',
+         'ayudame a elegir un paso hoy', 'ayúdame a elegir un paso hoy',
+         'reflexiona sobre mi paso'],
   },
 };
 
@@ -156,9 +173,11 @@ export function routeRequest(request) {
  * caller must not substitute anything for it.
  */
 function groundedCheckin(request) {
-  const selection = Array.isArray(request.selection) ? request.selection : [];
+  // Malformed entries are dropped rather than read: selection: [null] used to
+  // throw here, which escaped the deterministic contract entirely.
+  const selection = usableSelection(request.selection);
   const authority = request.authority;
-  if (!selection.length || !authority) return null;
+  if (!selection.length || !authority || typeof authority !== 'object') return null;
 
   const locale = request.locale === 'es' ? 'es' : 'en';
   const aspects = ['vitality', 'clarity', 'balance', 'alignment'];
@@ -174,11 +193,14 @@ function groundedCheckin(request) {
       if (error instanceof AnswerRejected) continue;
       throw error;
     }
-    if (!chosen || dateFact.value > chosen.date) chosen = { source, date: dateFact.value };
+    if (!chosen || dateFact.value > chosen.date) chosen = { source, date: dateFact.value, dateFact };
   }
   if (!chosen) return null;
 
-  const typedFacts = [];
+  // The rendered answer states the date, so the date is bound like any other
+  // displayed fact. Previously it was validated but omitted from typedFacts,
+  // leaving a displayed claim with no authorized binding behind it.
+  const typedFacts = [chosen.dateFact];
   for (const field of aspects) {
     try {
       typedFacts.push(buildTypedFact(selection, authority,

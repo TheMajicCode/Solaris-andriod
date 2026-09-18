@@ -145,6 +145,87 @@ export function run(t) {
     t.equal(`${label} resolves to a limitation`, result && result.kind, 'limitation');
   }
 
+  // --- SP-CHAT-03: the ACTUAL shipped quick-action payloads --------------
+  // Traced from Solaris-Android-R4/ui/sanctuary.html and
+  // sanctuary.compact.html, where quick actions dispatch via send(a.slice(4)).
+  // The literal word "Reflect" is NOT a payload; these three are.
+  for (const [payload, expected] of [
+    ['Explain my check-in', 'checkin-select'],
+    ['Help me choose a step today', 'step-select'],
+    ['Who is Pocket LUCA AI?', 'welcome'],
+  ]) {
+    t.equal(`shipped UI button answers: ${JSON.stringify(payload)}`,
+            routeRequest({ user: payload, locale: 'en' }).kind, expected);
+  }
+  for (const [payload, expected] of [
+    ['Explica mi check-in', 'checkin-select'],
+    ['Ayúdame a elegir un paso hoy', 'step-select'],
+    ['¿Quién es Pocket LUCA AI?', 'welcome'],
+  ]) {
+    t.equal(`ES equivalent answers: ${JSON.stringify(payload)}`,
+            routeRequest({ user: payload, locale: 'es' }).kind, expected);
+  }
+
+  // --- SP-CHAT-01: an impossible calendar date is never displayed ---------
+  const mkSelection = (date) => [{
+    id: 'source_1', revision: 3,
+    approvedFields: ['vitality', 'clarity', 'balance', 'alignment', 'date'],
+    fields: { vitality: 2, clarity: 4, balance: 3, alignment: 5, date },
+    authorityEpoch: 0, permissionRevision: 1,
+  }];
+  const authority2 = { epoch: 0, permissionRevision: 1 };
+
+  for (const badDate of ['2026-99-99', '2026-02-30', '2023-02-29', '2026-13-01',
+                         '2026-00-10', '2026-04-31', '2026-1-1']) {
+    const r = routeRequest({ user: 'explain my check-in', locale: 'en',
+                             selection: mkSelection(badDate), authority: authority2 });
+    t.equal(`impossible date ${badDate} is not rendered`, r.kind, 'checkin-select');
+    t.ok(`impossible date ${badDate} never reaches the message`, !r.message.includes(badDate));
+  }
+  for (const goodDate of ['2026-09-16', '2024-02-29', '2026-12-31', '2026-01-01']) {
+    const r = routeRequest({ user: 'explain my check-in', locale: 'en',
+                             selection: mkSelection(goodDate), authority: authority2 });
+    t.equal(`valid date ${goodDate} is rendered`, r.kind, 'checkin');
+    t.ok(`valid date ${goodDate} appears in the answer`, r.message.includes(goodDate));
+    // Every displayed claim is bound, including the date.
+    t.ok(`date ${goodDate} is among the authorized bindings`,
+         r.typedFacts.some((f) => f.field === 'date' && f.value === goodDate));
+    t.equal(`bindings cover date plus four aspects for ${goodDate}`, r.typedFacts.length, 5);
+  }
+
+  // The record is never mutated to make an impossible date pass.
+  const hostileSelection = mkSelection('2026-99-99');
+  routeRequest({ user: 'explain my check-in', locale: 'en',
+                 selection: hostileSelection, authority: authority2 });
+  t.equal('the stored record is left untouched', hostileSelection[0].fields.date, '2026-99-99');
+
+  // --- SP-CHAT-02: a malformed selection is controlled, never thrown ------
+  for (const [label, selection] of [
+    ['[null]', [null]], ['[undefined]', [undefined]], ['[string]', ['x']],
+    ['[{}]', [{}]], ['[[]]', [[]]], ['null', null], ['string', 'nope'],
+    ['[number]', [42]], ['[true]', [true]],
+    ['entry without fields', [{ id: 'a', approvedFields: [] }]],
+    ['entry with array fields', [{ id: 'a', approvedFields: [], fields: [] }]],
+    ['entry with empty id', [{ id: '', approvedFields: [], fields: {} }]],
+  ]) {
+    let threw = false;
+    let result = null;
+    try { result = routeRequest({ user: 'explain my check-in', locale: 'en',
+                                  selection, authority: authority2 }); } catch { threw = true; }
+    t.ok(`malformed selection does not throw: ${label}`, threw === false);
+    t.equal(`malformed selection yields the honest select reply: ${label}`,
+            result && result.kind, 'checkin-select');
+    t.ok(`malformed selection leaks no diagnostic: ${label}`,
+         result && !/TypeError|undefined|null|Cannot read/.test(result.message));
+  }
+
+  // A usable entry alongside malformed ones is still honoured.
+  const mixed = [null, 'x', ...mkSelection('2026-09-16'), {}];
+  const mixedResult = routeRequest({ user: 'explain my check-in', locale: 'en',
+                                     selection: mixed, authority: authority2 });
+  t.equal('a usable record among malformed entries is still used', mixedResult.kind, 'checkin');
+  t.ok('and its real values render', mixedResult.message.includes('vitality: 2/5'));
+
   // Escalation copy carries its unreviewed release gate.
   const risky = routeRequest({ user: 'severe chest pain', locale: 'en' });
   t.equal('escalation carries a review gate', risky.reviewGate,
