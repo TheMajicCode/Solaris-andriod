@@ -49,26 +49,40 @@ convenience item, not a blocker.
 
 | Field | Value |
 | --- | --- |
-| Task | `A604-01` — foundation: private import, integrity model and truthful CI |
-| Writer | Claude Code (this session) |
-| Reviewer | **NOT obtained.** The commissioned review of `8db241b` failed on a session rate limit (429). See [`SELF-REVIEW-8db241b.md`](SELF-REVIEW-8db241b.md) — a self-review is not a substitute. |
-| Base | `edd43bd` |
-| State | Foundation repairs complete locally and unpushed |
+| Sprint | Sprint-01 after `5d48426` |
+| Writer | Claude Code (integrator) |
+| Base | `5d48426e49a0e6e2d1f4eb7b6cdfa62dbaa657d7` (published, CI green) |
+| Lanes | S0 state · S1 CI coverage · S2 candidate · S3 audit · S4 host reproduction · S5 fit proof · S6 native · S7 delivery |
+| State | S0–S2, S4–S6 complete; S3 in progress; S7 in progress |
 
-## Checks actually run
+## Checks actually run — Sprint-01
 
-Local. Remote CI has **not** run on this work yet; it runs after the push.
+Local. Remote CI runs on the pushed head.
 
 | Check | Result |
 | --- | --- |
-| Engineering handoff `HANDOFF-SHA256SUMS.txt` (69 files) | PASS — 0 failures |
-| Audit evidence ZIP vs declared hash/size | PASS — `f3b30628…`, 1,319,606 bytes |
-| Evidence `MANIFEST.json` (103 members) | PASS |
+| Sprint kit `SHA256SUMS.txt` (70 files) | PASS — 0 failures |
+| Host kit `SHA256SUMS.txt` (184 files) | PASS — 0 failures |
+| N3 host bundle vs pin | PASS — `b8ac7d1b…`, 30,754,484 bytes |
+| N4 `hermesc` vs pin | PASS — `b4c37f09…`, Hermes 0.12.0, executes |
 | `tools/repo-check.py` | PASS — 13 checks |
 | `tools/tests/test_repo_check.py` | PASS — 27 negative controls |
-| `tools/tests/test_js_parse_modes.py` | PASS — 11 parse-mode controls, AND-CI-01 reproduced on pinned Node 22.22.2 |
-| `candidate/tests/run-all.mjs` | PASS — 278 assertions |
-| Outgoing-range content inspection | PASS — no credentials, PHI, binaries or handoff material |
+| `tools/tests/test_js_parse_modes.py` | PASS — 11 parse-mode controls |
+| `tools/tests/test_result_aggregation.py` | PASS — 17 aggregation controls |
+| `candidate/tests/run-all.mjs` | PASS — 385 assertions |
+| **604 host bundle reproduction** | **PASS — byte-identical `30be9989…`** |
+| Original 34 host cases on the reproduced bundle | **PASS — 34/34** |
+| Original 10 lifecycle cases on the reproduced bundle | **PASS — 10/10** |
+| A605 donor fit | **DOES NOT FIT — measured**, 26 functions against a 2-function contract |
+
+Host and lifecycle suites ran in actual Hermes with synthetic native, storage and
+model seams, in a **disposable copy**; the tracked tree was never modified.
+
+## What this sprint did not establish
+
+No Android execution, no device, no phone latency, no model-quality evidence, no
+native source build, no APK. Desktop Hermes is not a phone. The historical 30–80
+second waits are untouched.
 
 ## Independent review
 

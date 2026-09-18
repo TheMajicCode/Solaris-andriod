@@ -18,6 +18,7 @@ Three kinds of check exist and must never be confused.
 python3 -m pip install --require-hashes --no-deps -r tools/requirements.txt
 python3 tools/tests/test_repo_check.py          # the checker's own negative controls
 python3 tools/tests/test_js_parse_modes.py     # AND-CI-01 controls on the pinned runtime
+python3 tools/tests/test_result_aggregation.py # SP-CI-02 result-aggregation invariants
 python3 tools/repo-check.py                     # human-readable
 python3 tools/repo-check.py --json              # machine-readable on stdout
 python3 tools/repo-check.py --report out.json   # write the report, keep the real exit status
@@ -57,26 +58,52 @@ pass and is never evidence of an Android build.
 
 ### Result recorded for this candidate
 
-1,949 tracked files:
+1,952 tracked files:
 
 | Check | Result | Files |
 | --- | --- | --- |
-| `classification-complete` | PASS | 1949/1949 |
+| `classification-complete` | PASS | 1952/1952 |
 | `frozen-integrity` | PASS | 1881/1881 |
 | `candidate-changes-valid` | PASS | 12/12 |
-| `excluded-path-policy` | PASS | 1949/1949 |
+| `excluded-path-policy` | PASS | 1952/1952 |
 | `build-input-exceptions` | PASS | 5/5 |
 | `json-parse` | PASS | 483/483 |
 | `yaml-parse` | PASS | 2/2 |
-| `python-syntax` | PASS | 80/80 |
+| `python-syntax` | PASS | 82/82 |
 | `javascript-syntax-authored` | PASS | 73/73 |
 | `javascript-parse-evidence` | PASS | 141/141 |
-| `doc-links` | PASS | 39/39 |
-| `secret-pattern-scan` | PASS | 1949/1949 |
+| `doc-links` | PASS | 40/40 |
+| `secret-pattern-scan` | PASS | 1952/1952 |
 | `candidate-regression-tests` | PASS | 9/9 |
 
 Overall: **PASS**. Companion suites: **27** checker negative controls,
-**11** parse-mode controls, **310** candidate assertions — all passing.
+**11** parse-mode controls, **17** result-aggregation controls, **385** candidate
+assertions — all passing.
+
+Runtime recorded by the checker for this run: Python
+3.11.15, Node v22.22.2. CI pins Python 3.12.14
+and Node 22.23.2; a local run may legitimately differ, which is exactly why the
+executed versions are recorded rather than assumed (`SP-CI-01`).
+
+### Checks fail closed, and that is enforced centrally
+
+`SP-CI-02` showed a check could report `PASS` or `NOT_APPLICABLE` with a
+non-empty scope having inspected nothing. Registration, status and coverage are
+now validated in `validate_results`, outside the individual checks, because a
+check cannot be trusted to police itself:
+
+- every registered check produces exactly one result — missing, duplicated,
+  unregistered and self-renamed results are violations;
+- the status must be `PASS`, `FAIL` or `NOT_APPLICABLE`;
+- counts must be non-negative integers, and examined may not exceed scope;
+- `NOT_APPLICABLE` is legitimate only for a genuinely empty scope, and only for a
+  check declared optional;
+- `PASS` with a non-empty scope requires inspection, and full coverage where the
+  check declares it.
+
+Coverage is declared **per check**, not assumed globally — the checks do not
+share a meaning for "examined", so a single count-equality rule across all of
+them would be wrong.
 
 `AND-IMP-01` — `solaris-603-native-probe/recommended-request-builder.cjs` is
 truncated in the imported evidence. It is registered by exact path and hash in

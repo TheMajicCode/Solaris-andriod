@@ -32,31 +32,37 @@ not the price of admission to a reward program.
 
 ## Latest engineering status — 18 September 2026
 
-The import branch carries the foundation repairs and the A605 source candidate
-on top of `edd43bd`; PR #1 remains draft and unmerged. Recheck the actual branch
-before writing.
+The import branch carries the foundation repairs, the A605 routing and
+answer-containment candidate, and Sprint-01's host reproduction work. PR #1
+remains draft and unmerged. Recheck the actual branch before writing.
 
-What that work is, stated precisely:
+**What is now established:**
 
-- **Foundation.** Source checks now fail closed — a missing dependency, an empty
-  but expected scope, an unexpected exception, an unclassified path or an
-  unregistered defect all fail. Frozen imported bytes and authorized candidate
-  changes are tracked in separate manifests.
-- **A605 candidate.** Routing and answer-containment **source and tests only**.
-  Every request resolves deterministically: a supported guided answer, a bounded
-  out-of-scope reply, or a limitation that names what can be asked. Personal
-  facts render only from typed bindings to explicitly selected, approved fields.
-- **Not** a new APK, not version code 605, not an executable repair, and not a
-  model-quality or readiness score. Its assertion count is source-test evidence
-  to inspect, nothing more.
+- **The 604 host bundle reproduces byte-identically** (`30be9989…`) from the
+  exact 603 host bundle and pinned compiler, and the original 34 host cases and
+  10 lifecycle cases pass against it in actual Hermes. See
+  [host reproduction evidence](docs/HOST-REPRODUCTION-EVIDENCE.md).
+- **Source checks fail closed, enforced centrally.** Registration, status and
+  coverage are validated outside the individual checks, so a check cannot pass
+  while having inspected nothing.
+- **The candidate resolves every request deterministically** — a supported
+  answer, a bounded out-of-scope reply, or a limitation naming what can be asked.
+  Personal facts render only from typed bindings to explicitly selected, approved
+  fields, with real calendar dates and malformed selections handled safely.
 
-Executable integration is **BLOCKED**: it needs the exact 603 APK, from which the
-603 base HBC is extracted. The pinned `hermesc` compiler has been restored from
-verified public upstream and matches its recorded digest exactly, so the compiler
-is no longer a blocker. See [native recovery inventory](docs/NATIVE-RECOVERY-INVENTORY.md).
+**What is not established, and is not claimed:**
 
-Independent review of the candidate had **not** completed at the time of writing;
-a self-review is recorded as such and does not close that gate.
+- **No APK exists.** `A605` is a workstream name, not version code 605.
+- **The candidate does not yet fit the host.** Measured: the frozen donor asserts
+  a 2-function donor named `fastGuided`; the candidate compiles to 26 functions.
+  Nothing was weakened to force a fit.
+- **No native source build.** A host-bundle reproduction is not a native build.
+  The authored Gradle/Kotlin/NDK project is still not recovered — the largest
+  open item.
+- **No Android execution, device, phone latency or model-quality evidence.**
+  Desktop Hermes with synthetic seams is not a phone.
+
+Release remains **NO-GO**.
 
 Start with the [current engineering report](docs/reports/Solaris-Engineering-Progress-and-Ecosystem-Report-2026-09-18.md),
 [product map](docs/ECOSYSTEM-AND-PRODUCTS.md), [gated roadmap](docs/ROADMAP.md)
