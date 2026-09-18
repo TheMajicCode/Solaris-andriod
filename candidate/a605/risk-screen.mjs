@@ -27,7 +27,7 @@ const RISK_MARKERS = [
   'numbness', 'slurred speech', 'vision loss', 'allergic reaction',
   // English — medication and clinical decisions
   'medication', 'medicine', 'prescription', 'dose', 'dosage', 'mg of',
-  'ibuprofen', 'paracetamol', 'acetaminophen', 'antibiotic', 'insulin',
+  'meds', 'my med', 'pill', 'double my', 'ibuprofen', 'paracetamol', 'acetaminophen', 'antibiotic', 'insulin',
   'stop taking', 'start taking', 'should i take', 'is it safe to take',
   'diagnos', 'treatment for', 'cure for',
   // Spanish — symptoms
@@ -36,12 +36,26 @@ const RISK_MARKERS = [
   'convulsion', 'infarto', 'derrame', 'suicid', 'sobredosis', 'veneno',
   'entumecimiento', 'reaccion alergica',
   // Spanish — medication and clinical decisions
-  'medicamento', 'medicina', 'receta', 'dosis', 'antibiotico', 'insulina',
+  'medicamento', 'medicina', 'receta', 'dosis', 'antibiotico', 'insulina', 'pastilla', 'tomar mas',
   'dejar de tomar', 'empezar a tomar', 'debo tomar', 'es seguro tomar',
   'diagnostic', 'tratamiento para', 'cura para',
 ];
 
 const FOLDED_MARKERS = RISK_MARKERS.map(foldAccents);
+
+/* Fixed phrases miss ordinary paraphrase. Self-review found three clinical
+ * requests falling through to open generation rather than the bounded
+ * out-of-scope reply: `Hola. Tengo dolor en el pecho.`, `¿Qué puedes hacer? Me
+ * duele mucho el pecho` and `Take my meds?`. A pain word co-occurring with a
+ * body site is treated as clinical regardless of the words between them. */
+const PAIN_WORDS = ['pain', 'hurts', 'hurting', 'ache', 'aching', 'sore',
+                    'dolor', 'duele', 'duelen', 'molestia'];
+const BODY_SITES = ['chest', 'heart', 'head', 'stomach', 'abdomen', 'back',
+                    'throat', 'arm', 'leg', 'breathing', 'breath',
+                    'pecho', 'corazon', 'cabeza', 'estomago', 'vientre',
+                    'espalda', 'garganta', 'brazo', 'pierna', 'respirar'];
+const FOLDED_PAIN = PAIN_WORDS.map(foldAccents);
+const FOLDED_SITES = BODY_SITES.map(foldAccents);
 
 /**
  * @returns {{risk: boolean, markers: string[]}}
@@ -50,6 +64,11 @@ export function screenForRisk(originalText) {
   const match = matchingText(originalText);
   const haystack = match.folded;
   const markers = FOLDED_MARKERS.filter((m) => haystack.indexOf(m) >= 0);
+
+  const pain = FOLDED_PAIN.find((w) => new RegExp(`\\b${w}`).test(haystack));
+  const site = FOLDED_SITES.find((w) => new RegExp(`\\b${w}`).test(haystack));
+  if (pain && site) markers.push(`${pain}+${site}`);
+
   return { risk: markers.length > 0, markers };
 }
 

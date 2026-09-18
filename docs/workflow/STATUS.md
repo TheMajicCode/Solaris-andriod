@@ -38,7 +38,7 @@ passed, for every commit after `edd43bd`.
 | --- | --- |
 | Task | `A604-01` — foundation: private import, integrity model and truthful CI |
 | Writer | Claude Code (this session) |
-| Reviewer | Pending — an independent review of the **new full SHA** is required |
+| Reviewer | **NOT obtained.** The commissioned review of `8db241b` failed on a session rate limit (429). See [`SELF-REVIEW-8db241b.md`](SELF-REVIEW-8db241b.md) — a self-review is not a substitute. |
 | Base | `edd43bd` |
 | State | Foundation repairs complete locally and unpushed |
 
@@ -86,7 +86,12 @@ Local only. Remote CI has not run on this work.
   set. No artifact release exists.
 - Remote CI has not run on any commit after `edd43bd`.
 - Independent review of the current candidate has **not** been obtained. A review
-  of `c57c0b2` does not cover `edd43bd` or later, and must not be reused.
+  of `c57c0b2` does not cover `edd43bd` or later, and must not be reused. The
+  review commissioned for `8db241b` terminated on a session rate limit.
+- A self-review of `8db241b` found and fixed three risk-screen gaps where a
+  clinical request fell through to open generation rather than the bounded
+  out-of-scope reply (`M9`–`M13`). Self-review is recorded as such and does not
+  close the independent-review gate.
 
 ## Next action
 

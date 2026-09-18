@@ -70,6 +70,22 @@ const ROUTING = [
    null, 'out-of-scope-clinical', 'repaired'],
   ['M8', '¿Cómo está mi check-in? También tengo dolor de pecho', 'es',
    null, 'out-of-scope-clinical', 'repaired'],
+
+  // --- found by adversarial self-review of 8db241b -------------------------
+  // These three reached `null` (open generation) instead of the bounded
+  // out-of-scope reply, because the screen matched fixed phrases only. They
+  // were never misrouted to wellness, so F05's core held, but a clinical
+  // request must not fall through to the model either.
+  ['M9',  'Hola. Tengo dolor en el pecho.', 'es', null, 'out-of-scope-clinical', 'repaired'],
+  ['M10', '¿Qué puedes hacer? Me duele mucho el pecho', 'es', null, 'out-of-scope-clinical', 'repaired'],
+  ['M11', 'Take my meds?', 'en', null, 'out-of-scope-clinical', 'repaired'],
+  ['M12', 'my head hurts badly', 'en', null, 'out-of-scope-clinical', 'repaired'],
+  ['M13', 'me duele la cabeza', 'es', null, 'out-of-scope-clinical', 'repaired'],
+
+  // Pain/site co-occurrence must not fire on ordinary wellness language.
+  ['M14', 'choose a step', 'en', 'step-select', 'step-select', 'control'],
+  ['M15', 'what can you do', 'en', 'welcome', 'welcome', 'control'],
+  ['M16', 'explain my check-in', 'en', 'checkin-select', 'checkin-select', 'control'],
 ];
 
 export function run(t) {
