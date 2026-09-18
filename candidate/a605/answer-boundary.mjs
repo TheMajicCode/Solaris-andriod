@@ -17,11 +17,14 @@
  * prose is never admitted, so there is nothing for a cleverer sentence to defeat.
  */
 
+import { isRenderableValue } from './supported-surface.mjs';
+
 export const REJECT = {
   UNKNOWN_SOURCE: 'CANDIDATE_UNKNOWN_SOURCE',
   STALE_REVISION: 'CANDIDATE_STALE_REVISION',
   FIELD_NOT_APPROVED: 'CANDIDATE_FIELD_NOT_APPROVED',
   MISSING_VALUE: 'CANDIDATE_MISSING_VALUE',
+  UNRENDERABLE_VALUE: 'CANDIDATE_UNRENDERABLE_VALUE',
   AUTHORITY_CHANGED: 'CANDIDATE_AUTHORITY_CHANGED',
   NOT_RENDERED: 'CANDIDATE_NOT_RENDERED_FROM_TYPED_FACTS',
 };
@@ -58,6 +61,12 @@ export function buildTypedFact(selection, authority, ref) {
   if (source.authorityEpoch !== authority.epoch
       || source.permissionRevision !== authority.permissionRevision) {
     throw new AnswerRejected(REJECT.AUTHORITY_CHANGED, ref.sourceId);
+  }
+  // Record content is DATA, never instructions and never free text. Only a value
+  // matching its field's strict shape may ever be rendered into an answer, so a
+  // record cannot inject prose or directives into assistant output.
+  if (!isRenderableValue(ref.field, value)) {
+    throw new AnswerRejected(REJECT.UNRENDERABLE_VALUE, `${ref.sourceId}.${ref.field}`);
   }
   return Object.freeze({
     sourceId: source.id,

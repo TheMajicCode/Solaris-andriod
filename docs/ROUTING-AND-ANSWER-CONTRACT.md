@@ -61,12 +61,23 @@ as one.**
 Evaluated strictly in this order. The first match wins.
 
 ```
-1. risk / out-of-scope screen      →  bounded out-of-scope reply
-2. greeting, capabilities           →  guided reply, zero model calls
-3. checkin-explain, step            →  guided reply from typed facts
-4. records-missing                  →  honest "nothing selected" reply
-5. everything else                  →  NOT the supported surface
+1. empty / punctuation-only input   →  deterministic limitation
+2. risk / out-of-scope screen       →  bounded out-of-scope reply
+3. greeting, capabilities           →  guided reply, zero model calls
+4. checkin-explain, step
+     with a usable selection        →  grounded reply rendered from typed facts
+     without one                    →  honest "nothing selected" reply
+5. everything else                  →  deterministic limitation naming what CAN be asked
 ```
+
+**Nothing returns null.** Returning null handed the request to the caller, which
+dispatches the model — so an unsupported request became unrestricted generated
+prose. Every request now resolves to a deterministic outcome.
+
+Equally, **a reject-all assistant is not a correct answer boundary.** The text
+box must stay useful for the supported intents: greeting and capability help,
+selected check-in explanation, and bounded guided reflection and next steps. The
+limitation reply therefore names what can be asked instead of only refusing.
 
 **Step 1 exists to fix F05.** A request that mentions severe symptoms,
 medication, or a clinical decision must reach the out-of-scope reply even when it
@@ -109,6 +120,10 @@ array **cannot** fix this. The rules are structural:
    later model context — and must not be streamed to the UI first and retracted.
 8. **No authority through diagnostics.** A model-supplied string must not gain
    storage or prompt authority through an error or diagnostic path.
+9. **Record content is data, never instructions.** Only a value matching its
+   field's strict shape may be rendered — a date as `YYYY-MM-DD`, an aspect as an
+   integer 1–5. A record cannot inject prose or directives into assistant output.
+10. **Missing is not zero.** They are distinct states and are never conflated.
 
 If bounded general generation is retained, it carries an explicit
 **non-personal, non-clinical** scope enforced before presentation and

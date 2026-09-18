@@ -38,10 +38,10 @@ data.
 | Field | Value |
 | --- | --- |
 | Product | Solaris Android · Pocket LUCA |
-| Visibility | **Public**, at the owner's explicit direction. The setup brief recommended private until source completeness, licensing and release readiness were assessed; that assessment is still outstanding. See [THIRD-PARTY-NOTICES](../THIRD-PARTY-NOTICES.md). |
+| Visibility | **Public**, authorized by the owner on 18 September 2026, superseding the setup brief's private recommendation. The licensing and source-completeness assessment it wanted remains outstanding and is tracked separately in [THIRD-PARTY-NOTICES](../THIRD-PARTY-NOTICES.md). |
 | License | Not set. Resolved by a separate ownership and licensing review. |
 | Source roots | `Solaris-Android-R4/`, `R3/`, `R2/`, `Solaris-Android-Reconstruction/`, `handoff/`, `solaris-603-native-probe/` — preserved at their original relative paths |
 
 The public-source decision was taken by the owner ahead of the content and
-licensing review. That review remains outstanding and is tracked in
-`AND-01`.
+licensing review, and is now the standing instruction. That review remains
+outstanding and is tracked in `AND-01`; it does not gate ordinary source work.

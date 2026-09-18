@@ -14,6 +14,8 @@
  */
 import { matchingText, matchesWholeRequest } from './matching.mjs';
 import { screenForRisk, ESCALATION_COPY } from './risk-screen.mjs';
+import { limitationReply } from './supported-surface.mjs';
+import { buildTypedFact, renderCheckinAnswer, AnswerRejected } from './answer-boundary.mjs';
 
 const INTENTS = {
   greeting: {
@@ -50,6 +52,10 @@ const COPY = {
     en: 'A Solaris check-in records your impressions of vitality, clarity, balance and alignment. Select a check-in in Sources so we can review your own answers; missing answers stay missing.',
     es: 'En Solaris, un check-in es tu impresión de vitalidad, claridad, equilibrio y alineación. Selecciona un check-in en Fuentes para revisar tus respuestas; no completaré lo que falta.',
   },
+  stepSuffix: {
+    en: 'For a small step, choose one of those aspects and write what would support it today. You decide whether to act on it.',
+    es: 'Para un pequeño paso, elige uno de esos aspectos y escribe qué te ayudaría hoy. Tú decides si quieres hacerlo.',
+  },
   stepSelect: {
     en: 'Choose something small and concrete: write what is on your mind, name an intention or review an unfinished step. Which fits you now? Select a check-in in Sources to tailor this to your answers.',
     es: 'Elige algo pequeño y concreto: escribe lo que sientes, nombra una intención o revisa un paso pendiente. ¿Cuál encaja contigo ahora? Selecciona un check-in en Fuentes para adaptarlo a tus respuestas.',
@@ -67,7 +73,16 @@ const COPY = {
 export function routeRequest(request) {
   const locale = request.locale === 'es' ? 'es' : 'en';
   const match = matchingText(request.user);
-  if (!match.normalized.length) return null;
+  if (!match.normalized.length) {
+    // Empty or punctuation-only input (`¿?`, whitespace) still gets a
+    // deterministic outcome. Returning null here would hand it to the model.
+    return {
+      kind: 'limitation',
+      message: limitationReply(locale),
+      sourceRefs: [],
+      modelCallsRequired: 0,
+    };
+  }
 
   // Step 1 — risk screen runs BEFORE any wellness shortcut. This is the F05 fix.
   const risk = screenForRisk(request.user);
@@ -89,13 +104,83 @@ export function routeRequest(request) {
   }
 
   // Step 3 — record-dependent supported intents. Selection, never inference.
-  if (matchesWholeRequest(match, formsFor('checkinExplain'))) {
-    return { kind: 'checkin-select', message: COPY.checkinSelect[locale], sourceRefs: [], modelCallsRequired: 0 };
-  }
-  if (matchesWholeRequest(match, formsFor('step'))) {
-    return { kind: 'step-select', message: COPY.stepSelect[locale], sourceRefs: [], modelCallsRequired: 0 };
+  const wantsCheckin = matchesWholeRequest(match, formsFor('checkinExplain'));
+  const wantsStep = matchesWholeRequest(match, formsFor('step'));
+
+  if (wantsCheckin || wantsStep) {
+    const grounded = groundedCheckin(request);
+    if (grounded) {
+      return {
+        kind: wantsStep ? 'step' : 'checkin',
+        message: wantsStep ? `${grounded.message} ${COPY.stepSuffix[locale]}` : grounded.message,
+        sourceRefs: grounded.sourceRefs,
+        modelCallsRequired: 0,
+        typedFacts: grounded.typedFacts,
+      };
+    }
+    // Nothing usable is selected. Say so; never fill the gap.
+    return {
+      kind: wantsStep ? 'step-select' : 'checkin-select',
+      message: wantsStep ? COPY.stepSelect[locale] : COPY.checkinSelect[locale],
+      sourceRefs: [],
+      modelCallsRequired: 0,
+    };
   }
 
-  // Step 5 — not the supported surface.
-  return null;
+  // Step 4 — not the supported surface. A deterministic limitation that names
+  // what CAN be asked. Returning null here would hand the request to open
+  // generation, which is exactly what this contract forbids.
+  return {
+    kind: 'limitation',
+    message: limitationReply(locale),
+    sourceRefs: [],
+    modelCallsRequired: 0,
+  };
+}
+
+/**
+ * Build a grounded check-in answer from explicitly selected, approved fields.
+ *
+ * Returns null when no usable selection exists — missing stays missing, and the
+ * caller must not substitute anything for it.
+ */
+function groundedCheckin(request) {
+  const selection = Array.isArray(request.selection) ? request.selection : [];
+  const authority = request.authority;
+  if (!selection.length || !authority) return null;
+
+  const locale = request.locale === 'es' ? 'es' : 'en';
+  const aspects = ['vitality', 'clarity', 'balance', 'alignment'];
+
+  // Newest selected check-in that actually carries a valid date.
+  let chosen = null;
+  for (const source of selection) {
+    let dateFact;
+    try {
+      dateFact = buildTypedFact(selection, authority,
+                                { sourceId: source.id, revision: source.revision, field: 'date' });
+    } catch (error) {
+      if (error instanceof AnswerRejected) continue;
+      throw error;
+    }
+    if (!chosen || dateFact.value > chosen.date) chosen = { source, date: dateFact.value };
+  }
+  if (!chosen) return null;
+
+  const typedFacts = [];
+  for (const field of aspects) {
+    try {
+      typedFacts.push(buildTypedFact(selection, authority,
+                                     { sourceId: chosen.source.id, revision: chosen.source.revision, field }));
+    } catch (error) {
+      if (error instanceof AnswerRejected) continue;   // missing or unapproved stays absent
+      throw error;
+    }
+  }
+
+  return {
+    message: renderCheckinAnswer(typedFacts, locale, chosen.date),
+    sourceRefs: [{ id: chosen.source.id, revision: chosen.source.revision }],
+    typedFacts,
+  };
 }

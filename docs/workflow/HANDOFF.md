@@ -6,20 +6,16 @@
 | --- | --- |
 | Branch | `claude/solaris-android-import-iyla4d` |
 | Local HEAD | `5a3d4ad` |
-| `origin` HEAD | `edd43bd` — **5 commits behind local; nothing pushed** |
-| Repository visibility | **PUBLIC** — blocks all publication |
+| `origin` HEAD | `edd43bd` — behind local; push authorized once review passes |
+| Repository visibility | **Public** — public continuation authorized 18 Sep 2026 |
 | PR #1 | Open, draft, unmerged, still showing `edd43bd` |
 | Remote CI on local work | **BLOCKED**, not passed |
 | Independent review | **NOT obtained** — commissioned review failed on a rate limit |
 
-## The one blocking owner action
+## No owner action is blocking
 
-> GitHub → `TheMajicCode/Solaris-andriod` → **Settings → General → Danger Zone →
-> Change repository visibility → Make private**.
-
-No tool in the working session can change visibility, and creating a replacement
-repository is prohibited. Until this is done and re-verified, nothing may be
-pushed.
+The earlier private-visibility request is **withdrawn and closed**. Public
+continuation is authorized. Do not reopen it.
 
 ## Unpushed commits
 
@@ -27,9 +23,8 @@ pushed.
 git log --oneline origin/claude/solaris-android-import-iyla4d..HEAD
 ```
 
-`origin` has stayed at `edd43bd` since the private-development direction
-arrived. The stop hook asks for a push on every turn; each request was refused
-and recorded in [`STATUS.md`](STATUS.md).
+Push is authorized once independent review of the exact final commit passes and
+the outgoing range is inspected.
 
 ## Read first
 
@@ -53,14 +48,15 @@ provenance incident, not something to fix by regenerating a manifest.
 
 ## Next actions in order
 
-1. **Owner:** make the repository private.
-2. Re-verify visibility, then obtain **independent** review of the then-current
-   full SHA. A review of an older SHA must not be reused.
-3. Resolve material findings, rerun affected tests, re-review changed areas.
-4. Push, and update PR #1 with the real evidence, blocked gates and both
-   branch-head and merge-commit CI coverage. Do **not** merge.
-5. Then `AND-01` audit slice, and native recovery milestone 2 once artifacts
-   N1–N4 arrive.
+1. Independent review of the exact final full SHA and diff. A prior self-review
+   and a timed-out reviewer are **not** approval.
+2. Resolve material findings; rerun affected checks.
+3. Push the existing task branch and update draft PR #1, then run **real remote
+   CI**. Record the branch-head SHA separately from the synthetic merge SHA.
+   Remote CI on an unpublished commit cannot be a prerequisite to pushing it.
+4. Review material follow-ups. **Do not merge.**
+5. Dependent chat/native branches may build on the exact reviewed foundation
+   checkpoint; record base dependencies and revalidate when the base moves.
 
 ## Traps specific to this repository
 

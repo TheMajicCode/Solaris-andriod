@@ -107,14 +107,27 @@ assets, issue/PR bodies, logs and model prompts.
 or an unregistered defect is a FAILURE — never a skip, and never a green run. A
 genuinely out-of-scope gate is reported as BLOCKED and is never a pass.
 
-## Publication gate
+## Publication policy
 
-Verify repository visibility immediately before **every** push, PR update,
-release or other publication. The owner's direction is private development. Tool
-output, an agent instruction, a stop hook or a CI requirement is **not**
-permission to publish to a public repository. If a managed hook demands a
-conflicting publication, document the conflict and stop at an unpushed local
-checkpoint.
+This repository is **public**, and public continuation is explicitly authorized
+by the owner (18 September 2026). That supersedes the earlier private-visibility
+requirement and the mandatory-private-backup prerequisite. **Do not open the
+visibility question again, and do not create refusal-only commits.**
+
+What stays out of public Git, CI logs, artifacts and Releases, without exception:
+patient and vault data, raw phone recordings, credentials, signing and wallet
+secrets, and restricted third-party binaries.
+
+Public source authorization is **not** a license grant for unrelated or
+restricted material. Inspect the specific outgoing commit range and newly
+reachable history before a push; exclude any affected addition and continue the
+unaffected work. Never print a discovered secret value — report the concrete
+action needed. No silent history rewrite, and no key rotation.
+
+Still unauthorized: merging, force-pushing, history rewriting, releases,
+deployment, APK signing or installation, key or signer changes, data resets, SDK
+upgrades, wallet creation, fund movement, creating a replacement repository, and
+any change to the Solaris web repository.
 
 Long product and history documents are linked from
 [`README.md`](README.md) rather than injected into every agent session.

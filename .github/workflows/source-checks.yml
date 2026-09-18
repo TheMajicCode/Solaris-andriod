@@ -61,6 +61,12 @@ jobs:
       - name: Verify the checker's own negative controls
         run: python3 tools/tests/test_repo_check.py
 
+      # AND-CI-01: measured on the runtime this workflow actually pins, with
+      # valid ESM/CJS positives as well as malformed negatives. Rejecting valid
+      # ESM would not be a correct fix, so the positives are required.
+      - name: Verify JavaScript parse-mode controls on the pinned runtime
+        run: python3 tools/tests/test_js_parse_modes.py
+
       # Runs the checks exactly once, writes the machine-readable report as a
       # side effect, and preserves the real exit status. The report is written
       # even on failure, so the upload step below never needs to mask it.

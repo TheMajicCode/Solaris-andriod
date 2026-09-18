@@ -17,6 +17,7 @@ Three kinds of check exist and must never be confused.
 ```sh
 python3 -m pip install --require-hashes --no-deps -r tools/requirements.txt
 python3 tools/tests/test_repo_check.py          # the checker's own negative controls
+python3 tools/tests/test_js_parse_modes.py     # AND-CI-01 controls on the pinned runtime
 python3 tools/repo-check.py                     # human-readable
 python3 tools/repo-check.py --json              # machine-readable on stdout
 python3 tools/repo-check.py --report out.json   # write the report, keep the real exit status
@@ -83,10 +84,18 @@ other defect: a second broken evidence file, or any change to this one, fails.
 
 `AND-CI-01` — `node --check file.js` returns success for a `.js` file containing
 ESM syntax even when that file has a real syntax error, because Node's
-module-syntax detection stops short of a full module parse. The earlier checker
-inherited that blind spot. The checker now parses each file under an explicit
-`.cjs`/`.mjs` extension and fails only when **both** modes fail. A negative
-control covers it.
+module-syntax detection stops short of a full module parse. An external probe
+reproduced this on Node v24.19.0; `tools/tests/test_js_parse_modes.py`
+**reproduces it on this repository's pinned Node v22.22.2** for three malformed
+ESM cases, so the claim is measured rather than carried over from another
+version.
+
+The checker parses each file under an explicit `.cjs`/`.mjs` extension and fails
+only when **both** modes fail. The controls assert both directions: six valid
+sources (ESM `export`, ESM `import`, dynamic `import()`, CJS `require`,
+`exports.fn`, plain script) must **pass**, and five malformed sources must
+**fail**. Rejecting valid ESM because it was parsed as CommonJS would not be a
+correct fix, and the positive controls exist to catch exactly that.
 
 ## Frozen import-pack verification — does not run here
 

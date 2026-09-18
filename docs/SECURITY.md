@@ -2,13 +2,13 @@
 
 ## Reporting
 
-This repository is currently **public**, at the owner's explicit direction.
-Report a suspected vulnerability privately to the repository owner through the
-channel you already use with them — do not open a public issue, and do not
+This repository is **public** by the owner's explicit direction (18 September
+2026). Report a suspected vulnerability privately to the repository owner through
+the channel you already use with them — do not open a public issue, and do not
 include exploit details, credentials or patient data in an issue or PR body.
 
-Because the repository is public, assume anything committed here is already
-disclosed. The `secret-pattern-scan` in `tools/repo-check.py` is a filename and
+Because the repository is public, assume anything committed here is disclosed
+the moment it is pushed. Inspect the outgoing range before every push. The `secret-pattern-scan` in `tools/repo-check.py` is a filename and
 regex sweep, not a completed secret audit, and no dependency or license audit has
 been performed. That combination is an accepted, owner-directed risk, recorded
 here rather than implied to be resolved.
@@ -31,9 +31,8 @@ scoped source and static analysis, a dependency and license inventory, a proper
 secret scan, reviewed tool provenance, and triage of findings that affect actual
 shipped code. Scan results alone do not prove safe behaviour.
 
-GitHub code scanning on private repositories has plan and licensing
-requirements. Availability must be **verified**, not assumed — nothing here
-promises that CodeQL will run. Compatible local or manual scanners and retained
+GitHub code scanning availability must be **verified**, not assumed — nothing
+here promises that CodeQL will run. Compatible local or manual scanners and retained
 reports can still support the first audit.
 
 ## Key and data handling

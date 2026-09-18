@@ -15,6 +15,7 @@
     "candidate/a605/guided-router.mjs",
     "candidate/a605/matching.mjs",
     "candidate/a605/risk-screen.mjs",
+    "candidate/a605/supported-surface.mjs",
     "candidate/tests/answer-boundary.test.mjs",
     "candidate/tests/baseline.mjs",
     "candidate/tests/routing.test.mjs",
@@ -65,6 +66,6 @@
       "Pinned hermesc from React Native 0.81.5, digest b4c37f09410c6c6c0ce90df00eb270dc257d2184c85ca320382ebe06057f2a14",
       "The fixed UI slot has 1,936 bytes spare after 604; fit must be measured, not assumed."
     ],
-    "honest_status": "Source and asserted regression suite only. This is NOT a verified executable repair, and an unused helper is not a delivered fix. The frozen fast-guided.js is unmodified; no candidate override is recorded because nothing imported was changed."
+    "honest_status": "Source and asserted regression suite only. This is NOT a verified executable repair, NOT a new APK, and NOT version code 605 \u2014 A605 names a workstream, not a built version. An unused helper is not a delivered fix. The frozen fast-guided.js is unmodified, so no candidate override is recorded."
   }
 }

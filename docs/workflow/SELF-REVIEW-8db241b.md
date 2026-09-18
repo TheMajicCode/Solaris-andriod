@@ -69,7 +69,8 @@ the new rule does not fire on ordinary wellness language.
 
 ## Required before push
 
-1. Repository visibility verified **private** — owner action.
+1. ~~Repository visibility verified private~~ — **superseded.** Public
+   continuation is authorized; this is no longer a gate.
 2. **Independent** review of the then-current full SHA, covering privacy state,
    import preservation, candidate override rules, CI failure semantics,
    maintained-source coverage and documentation claims.

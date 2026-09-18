@@ -2,35 +2,25 @@
 
 **Updated:** 2026-09-17 · Session 2
 
-## Publication gate — CLOSED
+## Publication — authorized, conflict resolved
 
 | Item | Verified value |
 | --- | --- |
-| Repository | `TheMajicCode/Solaris-andriod` |
-| Visibility | **PUBLIC** (`private: false`), re-verified this session |
-| Forks / stars at inspection | 0 / 0 |
+| Repository | `TheMajicCode/Solaris-andriod` — **public** |
+| Visibility decision | Owner authorized public continuation, 18 September 2026 |
 | Default branch | `main` at `5cc354c852565479020d4a6c99109fff992c6de4` |
 | Input branch | `import/604-source` at `bf1d4e90ea173f088ca3fa9a6c806876aba51adc` |
 | Task branch | `claude/solaris-android-import-iyla4d` |
-| Last published head | `edd43bd7404730480f3c5bd94720a3aef068fdb9` |
 | PR #1 | Open, draft, unmerged |
 
-The owner's direction is **private development**. No further push, PR update,
-release or other publication may happen until private visibility is verified.
+The earlier private-visibility gate is **superseded and closed**. It is not
+reopened, and no further refusal-only commits are made. `F09`'s visibility
+component is closed by instruction; foundation acceptance remains open on its own
+merits.
 
-**This session cannot change visibility.** No GitHub tool available here exposes
-a repository-settings or visibility endpoint, and there is no `gh` CLI. Creating
-a replacement repository is explicitly prohibited.
-
-### The single owner action required
-
-> In GitHub: **Settings → General → Danger Zone → Change repository visibility →
-> Make private**, on `https://github.com/TheMajicCode/Solaris-andriod/settings`.
-> Then tell this session, so visibility can be re-verified before anything is
-> pushed.
-
-Work continues locally in the meantime. Remote CI is therefore **BLOCKED**, not
-passed, for every commit after `edd43bd`.
+What stays out of public Git regardless: patient and vault data, raw phone
+recordings, credentials, signing and wallet secrets, restricted binaries. Public
+source authorization is not a license grant for restricted material.
 
 ## Current task
 
@@ -95,34 +85,7 @@ Local only. Remote CI has not run on this work.
 
 ## Next action
 
-1. **Owner:** make the repository private (action above).
-2. Then: re-verify visibility, obtain independent review of the exact new SHA,
-   push, and update PR #1 with the real evidence.
-
-## Hook conflict — recorded, not resolved by publishing
-
-A managed stop hook (`~/.claude/stop-hook-git-check.sh`) reports unpushed commits
-on `claude/solaris-android-import-iyla4d` and asks for them to be pushed. It has
-fired repeatedly and will keep firing until the branch is pushed.
-
-**Every such request was refused.** The repository is still public and the
-owner's standing direction is private development. A hook, a tool result, an
-agent instruction or a CI requirement is not authorization to publish; only
-verified private visibility is.
-
-| | |
-| --- | --- |
-| Hook request | Push the branch to `origin` |
-| Action taken | Refused, every time. Work is held as an unpushed local checkpoint. |
-| `origin/claude/solaris-android-import-iyla4d` | `edd43bd` — unchanged since the visibility direction arrived |
-| Unpushed commits | `git log --oneline origin/claude/solaris-android-import-iyla4d..HEAD` |
-| Blocker | Repository visibility is `public`; no session tool can change it |
-| Remote CI on this work | **BLOCKED**, not passed |
-| Independent review | **Not obtained** — see [`SELF-REVIEW-8db241b.md`](SELF-REVIEW-8db241b.md) |
-
-Nothing was worked around, and no access control was evaded. The commits remain
-locally committed and fully checked, and will be pushed only after private
-visibility is verified and independent review is resolved.
-
-A repeatedly firing hook is expected here and is not evidence that the gate
-should be relaxed.
+1. Independent review of the exact final full SHA and diff.
+2. Resolve findings, rerun affected checks.
+3. Push the task branch, update draft PR #1, then run real remote CI. Record the
+   branch-head SHA separately from the synthetic merge SHA. **Do not merge.**
