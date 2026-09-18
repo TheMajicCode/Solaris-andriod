@@ -42,15 +42,27 @@ jobs:
         with:
           persist-credentials: false
 
+      # SP-CI-01: action code SHAs and RUNTIME versions are separate concerns.
+      # The actions were pinned; the runtimes were selectors ('3.12', '22'), so
+      # the remote resolved 3.12.14 / 22.23.2 while a local run used 22.22.2.
+      # These are now explicit supported pins. The checker additionally records
+      # the versions that actually executed, because a selector is a request,
+      # not evidence.
       - name: Set up Python
         uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b  # v5.3.0
         with:
-          python-version: '3.12'
+          python-version: '3.12.14'
 
       - name: Set up Node.js
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af  # v4.1.0
         with:
-          node-version: '22'
+          node-version: '22.23.2'
+
+      - name: Record the runtime that actually executed
+        run: |
+          echo "python: $(python3 --version)"
+          echo "node:   $(node --version)"
+          echo "runner: $RUNNER_OS $(uname -m)"
 
       # Required, not best-effort. repo-check.py fails the yaml-parse check when
       # PyYAML is absent, so a failure here must stop the run rather than leave a
@@ -66,6 +78,11 @@ jobs:
       # ESM would not be a correct fix, so the positives are required.
       - name: Verify JavaScript parse-mode controls on the pinned runtime
         run: python3 tools/tests/test_js_parse_modes.py
+
+      # SP-CI-02: central status/coverage/registration invariants, with
+      # legitimate empty-scope positives alongside the negatives.
+      - name: Verify result-aggregation invariants
+        run: python3 tools/tests/test_result_aggregation.py
 
       # Runs the checks exactly once, writes the machine-readable report as a
       # side effect, and preserves the real exit status. The report is written

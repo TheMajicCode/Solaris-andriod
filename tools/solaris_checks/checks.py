@@ -16,6 +16,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import platform
 import shutil
 import subprocess
 import tempfile
@@ -26,6 +27,36 @@ from .classification import Classification, Rule
 from . import jsonc
 
 PASS, FAIL, NOT_APPLICABLE = 'PASS', 'FAIL', 'NOT_APPLICABLE'
+
+# The only statuses a check may report. Anything else is malformed and fails.
+VALID_STATUSES = frozenset({PASS, FAIL, NOT_APPLICABLE})
+
+# Coverage semantics, declared per check rather than assumed globally. Checks
+# have different meanings for "examined", so a single count-equality rule across
+# all of them would be wrong.
+#
+#   'full'    — when passing, every in-scope file must have been inspected.
+#   'nonzero' — when passing with a positive scope, at least one file must have
+#               been inspected. Used where a check legitimately stops early or
+#               counts differently from its scope.
+COVERAGE_FULL, COVERAGE_NONZERO = 'full', 'nonzero'
+
+
+@dataclass(frozen=True)
+class CheckSpec:
+    """What a registered check is, and what a valid result from it looks like.
+
+    Registration is central: `run_all` requires every spec to produce exactly one
+    well-formed result. A check that disappears, reports twice, reports an
+    unknown status, or claims to pass without inspecting its scope is a failure
+    of the run — not something an individual check gets to decide for itself.
+    """
+    name: str
+    fn: object
+    coverage: str = COVERAGE_NONZERO
+    # NOT_APPLICABLE is only ever legitimate for a genuinely empty optional
+    # scope. A check with work to do may never report it.
+    allows_not_applicable: bool = False
 
 
 @dataclass
@@ -557,21 +588,85 @@ def check_candidate_tests(ctx: Context) -> CheckResult:
     return r
 
 
-ALL_CHECKS = (
-    check_classification,
-    check_frozen_integrity,
-    check_candidate_changes,
-    check_excluded_paths,
-    check_gitignore_exceptions,
-    check_json,
-    check_yaml,
-    check_python_syntax,
-    check_js_authored,
-    check_js_evidence,
-    check_doc_links,
-    check_secret_patterns,
-    check_candidate_tests,
+# The registry. Every entry must produce exactly one well-formed result.
+CHECK_SPECS = (
+    CheckSpec('classification-complete', check_classification, COVERAGE_FULL),
+    CheckSpec('frozen-integrity', check_frozen_integrity, COVERAGE_NONZERO),
+    CheckSpec('candidate-changes-valid', check_candidate_changes, COVERAGE_NONZERO),
+    CheckSpec('excluded-path-policy', check_excluded_paths, COVERAGE_FULL),
+    CheckSpec('build-input-exceptions', check_gitignore_exceptions, COVERAGE_FULL),
+    CheckSpec('json-parse', check_json, COVERAGE_FULL),
+    CheckSpec('yaml-parse', check_yaml, COVERAGE_FULL),
+    CheckSpec('python-syntax', check_python_syntax, COVERAGE_FULL),
+    CheckSpec('javascript-syntax-authored', check_js_authored, COVERAGE_FULL),
+    CheckSpec('javascript-parse-evidence', check_js_evidence, COVERAGE_FULL),
+    CheckSpec('doc-links', check_doc_links, COVERAGE_FULL),
+    CheckSpec('secret-pattern-scan', check_secret_patterns, COVERAGE_FULL),
+    # The only optional scope: with no candidate source tracked at all, there is
+    # genuinely nothing to run. check_candidate_tests still fails when candidate
+    # files exist but are declassified.
+    CheckSpec('candidate-regression-tests', check_candidate_tests, COVERAGE_NONZERO,
+              allows_not_applicable=True),
 )
+
+# Kept for callers that only need the functions.
+ALL_CHECKS = tuple(spec.fn for spec in CHECK_SPECS)
+
+
+def validate_results(results: list[CheckResult], specs=CHECK_SPECS) -> list[str]:
+    """Central invariants. Returns a list of violations; empty means valid.
+
+    This is deliberately outside the individual checks. A check cannot be
+    trusted to police itself: the defect this exists to stop is exactly a check
+    that reports a non-failing status without having inspected anything.
+    """
+    violations: list[str] = []
+    by_name: dict[str, list[CheckResult]] = {}
+    for result in results:
+        by_name.setdefault(result.name, []).append(result)
+
+    registered = {spec.name: spec for spec in specs}
+
+    for name in registered:
+        found = by_name.get(name, [])
+        if not found:
+            violations.append(f'{name}: registered check produced no result')
+        elif len(found) > 1:
+            violations.append(f'{name}: produced {len(found)} results; exactly one is required')
+
+    for name, found in by_name.items():
+        if name not in registered:
+            violations.append(f'{name}: unregistered check result')
+            continue
+        spec = registered[name]
+        for result in found:
+            if result.status not in VALID_STATUSES:
+                violations.append(f'{name}: invalid status {result.status!r}')
+                continue
+            expected, examined = result.files_expected, result.files_examined
+            if not isinstance(expected, int) or not isinstance(examined, int) \
+                    or expected < 0 or examined < 0:
+                violations.append(f'{name}: malformed counts '
+                                  f'(expected={expected!r}, examined={examined!r})')
+                continue
+            if examined > expected:
+                violations.append(f'{name}: examined {examined} files but only '
+                                  f'{expected} were in scope')
+            if result.status == NOT_APPLICABLE:
+                if not spec.allows_not_applicable:
+                    violations.append(f'{name}: reported NOT_APPLICABLE, which this check '
+                                      'may never do')
+                elif expected > 0:
+                    violations.append(f'{name}: reported NOT_APPLICABLE with {expected} files '
+                                      'in scope; an empty scope is the only legitimate case')
+            elif result.status == PASS and expected > 0:
+                if examined == 0:
+                    violations.append(f'{name}: passed with {expected} files in scope but '
+                                      'inspected none')
+                elif spec.coverage == COVERAGE_FULL and examined != expected:
+                    violations.append(f'{name}: passed having inspected {examined} of '
+                                      f'{expected} in-scope files')
+    return violations
 
 BLOCKED_GATES = [
     ('full-reference-604-reproduction',
@@ -599,22 +694,52 @@ BLOCKED_GATES = [
 ]
 
 
-def run_all(repo: Path, files: list[str]) -> dict:
+def runtime_versions() -> dict:
+    """Record the runtime the checks actually ran on, not the one requested.
+
+    SP-CI-01: the workflow selected Node 22 / Python 3.12 while the remote runner
+    resolved 22.23.2 / 3.12.14 and a local run used 22.22.2. Selectors are not
+    evidence of what executed, so the executed versions are captured here.
+    """
+    node = None
+    if shutil.which('node'):
+        node = subprocess.run(['node', '--version'], capture_output=True, text=True).stdout.strip()
+    return {
+        'python': platform.python_version(),
+        'python_implementation': platform.python_implementation(),
+        'node': node,
+        'platform': platform.platform(),
+    }
+
+
+def run_all(repo: Path, files: list[str], specs=CHECK_SPECS) -> dict:
     ctx = Context(repo, files)
     results: list[CheckResult] = []
-    for fn in ALL_CHECKS:
+    for spec in specs:
         try:
-            results.append(fn(ctx))
+            result = spec.fn(ctx)
         except Exception as exc:  # noqa: BLE001 - an unexpected error is a failure, never a pass
-            results.append(CheckResult(
-                getattr(fn, '__name__', 'unknown').replace('check_', '').replace('_', '-'),
-                'check raised an unexpected exception', FAIL,
-                [f'{type(exc).__name__}: {exc}']))
-    # Only PASS and a genuinely-empty NOT_APPLICABLE count as success. Any other
-    # status — including one added later — is a failure by default.
+            result = CheckResult(spec.name, 'check raised an unexpected exception', FAIL,
+                                 [f'{type(exc).__name__}: {exc}'])
+        # A check may not rename itself out from under its registration.
+        if result.name != spec.name:
+            result.findings.append(
+                f'result name {result.name!r} does not match registered name {spec.name!r}')
+            result.name = spec.name
+            result.status = FAIL
+        results.append(result)
+
+    # Central invariants, enforced here rather than inside the checks. A check
+    # cannot be trusted to police itself.
+    violations = validate_results(results, specs)
+
+    # Only PASS and a legitimately empty NOT_APPLICABLE count as success. Any
+    # other status — including one added later — is a failure by default.
     failed = [r for r in results if r.status not in (PASS, NOT_APPLICABLE)]
     return {
         'scope': 'source-only-repository-projection',
+        'runtime': runtime_versions(),
+        'result_invariant_violations': violations,
         'not_established': [
             'native Android build completeness or reproducibility',
             'application security or licensing clearance',
@@ -623,6 +748,6 @@ def run_all(repo: Path, files: list[str]) -> dict:
         'tracked_files': len(files),
         'checks': [r.as_dict() for r in results],
         'blocked': [{'check': n, 'reason': why} for n, why in BLOCKED_GATES],
-        'status': FAIL if failed else PASS,
+        'status': FAIL if (failed or violations) else PASS,
         'failed_checks': [r.name for r in failed],
     }
