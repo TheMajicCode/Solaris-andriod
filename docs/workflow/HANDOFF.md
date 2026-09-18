@@ -1,49 +1,78 @@
 # Handoff
 
-## To the next writer
+## State at handoff
 
-**State:** the 604 source import is complete and verified on branch
-`claude/solaris-android-import-iyla4d`, documented, and proposed as an unmerged
-draft PR. Nothing is merged. Nothing is deployed.
+| Item | Value |
+| --- | --- |
+| Branch | `claude/solaris-android-import-iyla4d` |
+| Local HEAD | `5a3d4ad` |
+| `origin` HEAD | `edd43bd` — **5 commits behind local; nothing pushed** |
+| Repository visibility | **PUBLIC** — blocks all publication |
+| PR #1 | Open, draft, unmerged, still showing `edd43bd` |
+| Remote CI on local work | **BLOCKED**, not passed |
+| Independent review | **NOT obtained** — commissioned review failed on a rate limit |
 
-### Read first
+## The one blocking owner action
 
-1. [`AGENTS.md`](../../AGENTS.md) — binding constraints.
-2. [`workflow/STATUS.md`](STATUS.md) — current writer, checks run, open findings.
-3. [`BUILD-AND-TEST.md`](../BUILD-AND-TEST.md) — what runs, what is blocked.
-4. [`FEATURE-STATUS.md`](../FEATURE-STATUS.md) — before calling anything working.
+> GitHub → `TheMajicCode/Solaris-andriod` → **Settings → General → Danger Zone →
+> Change repository visibility → Make private**.
 
-### Establish your own baseline before changing anything
+No tool in the working session can change visibility, and creating a replacement
+repository is prohibited. Until this is done and re-verified, nothing may be
+pushed.
+
+## Unpushed commits
+
+| SHA | What |
+| --- | --- |
+| `9dc5b23` | A604-01 foundation: fail-closed checks, candidate change tracking, exposure record |
+| `8a00e4f` | A605 contract, implementation and regression suite |
+| `8db241b` | Measured acceptance matrix; finding dispositions |
+| `2853244` | Stop-hook publication conflict recorded as an unpushed checkpoint |
+| `5a3d4ad` | Three risk-screen gaps closed after adversarial self-review |
+
+## Read first
+
+1. [`../../AGENTS.md`](../../AGENTS.md) — binding constraints, including the publication gate.
+2. [`STATUS.md`](STATUS.md) — verified state, repairs, open findings.
+3. [`SELF-REVIEW-8db241b.md`](SELF-REVIEW-8db241b.md) — what self-review covered and, more importantly, what it did not.
+4. [`../AUDIT-FINDINGS-MATRIX.md`](../AUDIT-FINDINGS-MATRIX.md) — F01–F12 dispositions.
+5. [`../ROUTING-AND-ANSWER-CONTRACT.md`](../ROUTING-AND-ANSWER-CONTRACT.md) — what A605 promises and what it explicitly does not.
+
+## Establish your own baseline first
 
 ```sh
-python3 tools/repo-check.py
+python3 -m pip install --require-hashes --no-deps -r tools/requirements.txt
+python3 tools/tests/test_repo_check.py     # 22 negative controls
+python3 tools/repo-check.py                # 13 checks
+node candidate/tests/run-all.mjs           # 224 assertions
 ```
 
-Expect `PASS` overall with one `INFO` finding (`AND-IMP-01`). If
-`import-integrity` fails, **stop** — imported bytes have drifted, and that is a
-provenance incident, not something to fix by regenerating the manifest.
+If `frozen-integrity` fails, **stop** — imported bytes have drifted, which is a
+provenance incident, not something to fix by regenerating a manifest.
 
-### Traps specific to this repository
+## Next actions in order
+
+1. **Owner:** make the repository private.
+2. Re-verify visibility, then obtain **independent** review of the then-current
+   full SHA. A review of an older SHA must not be reused.
+3. Resolve material findings, rerun affected tests, re-review changed areas.
+4. Push, and update PR #1 with the real evidence, blocked gates and both
+   branch-head and merge-commit CI coverage. Do **not** merge.
+5. Then `AND-01` audit slice, and native recovery milestone 2 once artifacts
+   N1–N4 arrive.
+
+## Traps specific to this repository
 
 - `docs/provenance/import-pack/verify-import.py` **cannot** run here. That is
-  correct. Do not repair it, relocate files for it, or refresh its inventory.
-- A parse failure in retained recovered or probe evidence is a **finding**, not a
-  file to edit. `AND-IMP-01` is the live example.
-- Historical 604 test results belong to the dated handoff. Never present them as
-  newly executed checks.
-- There is no `gradlew` and no native build. Do not create scaffolding to make
-  the tree look complete.
-- Do not upgrade the 604 QVAC/Bare runtime, even if a dependency quickstart's
-  version table suggests it.
-
-### Carried-forward limits
-
-Native production readiness is unproven; all eight production gates are open. No
-security, dependency or license audit exists. No repository license is set. No
-artifact release exists. Branch protection and required reviews are unset and are
-the owner's to configure.
-
-### Next action
-
-Owner decision on the PR, then `AND-01` first slice — classification and triage,
-findings only. See [`TASKS.md`](TASKS.md).
+  correct. Do not repair it or relocate files to satisfy it.
+- A parse failure in retained evidence is a finding, not a file to edit.
+  `AND-IMP-01` is registered by exact path and hash.
+- `node --check foo.js` passes broken ESM `.js` (`AND-CI-01`). The checker works
+  around it; do not "simplify" that back.
+- There is no `gradlew` and no native build. Do not create scaffolding.
+- Do not upgrade the 604 QVAC/Bare runtime, whatever a dependency quickstart says.
+- A605 is **source and tests only**. Integration is BLOCKED on artifacts N3/N4.
+  An unused helper is not a delivered fix.
+- The EN/ES escalation copy is an engineering placeholder and a patient-release
+  gate until a qualified clinician reviews it.
