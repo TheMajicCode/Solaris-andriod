@@ -1,6 +1,6 @@
 {
   "format": "solaris-android-candidate-changes/1",
-  "updated": "2026-09-17",
+  "updated": "2026-09-18",
   "purpose": "The frozen import manifest records what arrived and never changes. This file records every authorized deviation from it: overrides of imported paths, new maintained candidate source, and known inherited defects. tools/repo-check.py rejects any drift, deletion or reclassification that is not listed here, and rejects a listed entry whose recorded hashes no longer match.",
   "rules": [
     "An override must name the exact path, the original SHA-256 from the frozen manifest, the resulting SHA-256 on disk, a rationale, and the integration target that consumes it.",
@@ -14,11 +14,13 @@
   "maintained_candidate_paths": [
     "candidate/a605/answer-boundary.mjs",
     "candidate/a605/guided-router.mjs",
+    "candidate/a605/host-envelope.mjs",
     "candidate/a605/matching.mjs",
     "candidate/a605/risk-screen.mjs",
     "candidate/a605/supported-surface.mjs",
     "candidate/tests/answer-boundary.test.mjs",
     "candidate/tests/baseline.mjs",
+    "candidate/tests/host-envelope.test.mjs",
     "candidate/tests/routing.test.mjs",
     "candidate/tests/run-all.mjs"
   ],

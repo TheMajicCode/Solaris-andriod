@@ -30,7 +30,6 @@ EXPECTED OUTPUT PARITY
 import hashlib, importlib.util, json, sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve()
 SRC = Path(sys.argv[1]).resolve()
 BUNDLE = Path(sys.argv[2]).resolve()
 OUT = Path(sys.argv[3]).resolve()
@@ -92,6 +91,18 @@ for fid, (h, hh) in enumerate(zip(r.function_headers, rr.function_headers)):
 
 (OUT / 'candidate604.hbc').write_bytes(code)
 actual = digest(code)
+# NB9: `report` from append_plans was discarded, so the output omitted the
+# frozen builder's own labels. They are report fields, not require()s, so no
+# assertion was lost — but carrying them makes this directly diffable against
+# the historical Solaris-Android-R4/evidence/release/BUNDLE-RESULT.json.
+report.update(
+    ui=dict(path=str(UI), sha256=digest(html.encode()), encoding=encoding,
+            start=start, end=end, spare_bytes=spare),
+    final_hbc_sha256=actual, final_hbc_bytes=len(code),
+    changed_function_ids=sorted(changed), changed_string_ids=[12364],
+    native_payload_changes=False, inference_request_and_worker_unchanged=True,
+    background_lock_and_cancel_unchanged=True,
+)
 result = {
     'scope': 'HBC-input wrapper for the frozen builder; host bundle evidence only, not APK provenance',
     'input_bundle_sha256': digest(base),
@@ -101,6 +112,7 @@ result = {
     'final_hbc_sha256': actual,
     'target_hbc_sha256': TARGET_HBC_SHA,
     'byte_identical_to_historical_604': actual == TARGET_HBC_SHA,
+    'frozen_builder_report': report,
 }
 (OUT / 'WRAPPER-RESULT.json').write_text(json.dumps(result, indent=2) + '\n')
 print(json.dumps(result, indent=2))

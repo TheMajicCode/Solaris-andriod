@@ -70,14 +70,14 @@ pass and is never evidence of an Android build.
 | `json-parse` | PASS | 483/483 |
 | `yaml-parse` | PASS | 2/2 |
 | `python-syntax` | PASS | 82/82 |
-| `javascript-syntax-authored` | PASS | 73/73 |
-| `javascript-parse-evidence` | PASS | 141/141 |
+| `javascript-syntax-authored` | PASS | 54/54 |
+| `javascript-parse-evidence` | PASS | 162/162 |
 | `doc-links` | PASS | 40/40 |
-| `secret-pattern-scan` | PASS | 1952/1952 |
-| `candidate-regression-tests` | PASS | 9/9 |
+| `secret-pattern-scan` | PASS | 1954/1954 |
+| `candidate-regression-tests` | PASS | 11/11 |
 
 Overall: **PASS**. Companion suites: **27** checker negative controls,
-**11** parse-mode controls, **17** result-aggregation controls, **385** candidate
+**11** parse-mode controls, **27** result-aggregation controls, **484** candidate
 assertions — all passing.
 
 Runtime recorded by the checker for this run: Python
@@ -162,17 +162,42 @@ correctness of changed repository code.
 
 ## Blocked gates
 
-`tools/repo-check.py` prints these on every run so they can never be mistaken for
-passes:
+`tools/repo-check.py` prints all 8 of these on every run, so they can never be
+mistaken for passes. This table is generated from `BLOCKED_GATES` in
+`tools/solaris_checks/checks.py`; if it disagrees with the checker, the checker
+is right.
 
-| Gate | Missing input |
+| Gate | Why it cannot run here |
 | --- | --- |
-| `full-reference-604-reproduction` | The four restored backups and the reassembled reference |
-| `frozen-import-pack-verification` | Applies to the unchanged extracted pack only |
-| `hbc-reconstruction-and-packaging` | Reference APKs and pinned build tools from the build-input archives |
-| `native-android-gradle-build` | **The source itself is missing** — not merely an excluded input. Do not fabricate scaffolding. |
-| `on-device-acceptance-and-latency` | A target phone, an installed build and explicit authorization |
-| `local-model-inference-checks` | The excluded model weights |
+| `full-reference-604-reproduction` | Needs the four restored Solaris-Android-604-Handoff-Part-N-of-4.zip backups and the reassembled 1,518,762,347-byte reference. Run it there, never here. |
+| `frozen-import-pack-verification` | docs/provenance/import-pack/verify-import.py applies to the unchanged extracted transport pack only. This repository intentionally differs from it; frozen-integrity is its equivalent here. |
+| `hbc-reconstruction-and-packaging` | Needs the reference APKs and the pinned host compiler/parser/packaging tools from the build-input archives, which are excluded from this projection. |
+| `native-android-gradle-build` | No complete original native application/build project exists. The source itself is missing; do not fabricate scaffolding. |
+| `on-device-acceptance-and-latency` | Needs a target phone, an installed build and explicit authorization. No APK is built, signed or installed by this repository. |
+| `local-model-inference-checks` | The Qwen3-0.6B Q4 phone model and the probe model weight are excluded binaries. |
+| `dependency-cve-and-license-audit` | Needs a complete locked dependency graph, which the missing native build graph does not yet provide. |
+| `maintained-source-lint` | No pinned lint toolchain is vendored yet. python-syntax and javascript-syntax-authored are syntax checks, not lint. Configuring a pinned linter is task AND-01. |
+
+## Reproducing retained evidence — always in a disposable copy
+
+Several retained tools write their results **into tracked frozen paths, in
+place**, with no output flag:
+
+| Tool | Writes to |
+| --- | --- |
+| `Solaris-Android-R4/review-functional/helper-adversarial.cjs` | `evidence/helper-adversarial.json` |
+| `Solaris-Android-R4/tests/ui/chat-ui.test.cjs`, `Solaris-Android-R3/tests/ui/chat-ui.test.cjs` | `UI-TEST-RESULTS.json`, `UI-COMPACT-TEST-RESULTS.json` |
+| `Solaris-Android-R4/latency/prepare-caps.mjs`, `prepare-probe.mjs`, `run-caps.py`, `run-probes.py` | `caps-validation.json`, `helper-validation.json`, `caps-native-summary.json`, `native-summary.json` |
+| `Solaris-Android-R2/tools/test-completion-guards.py` | `evidence/guard-patch/BEHAVIORAL-RESULT.json` |
+| `Solaris-Android-R4/lifecycle/tests/run.py` | `Solaris-Android-R4/lifecycle/evidence/<label>/` |
+
+Reproducing any of that in the working tree silently mutates frozen bytes and
+fails `frozen-integrity` on the next run. **A diff in those files is a
+reproduction artifact, never an authorized override** — refreshing a baseline
+hash to absorb it is exactly what this repository prohibits.
+
+Run reproductions in a disposable copy of the tree, as Sprint-01's host and
+lifecycle suites did. The tools themselves are frozen and are not modified.
 
 ## Candidate testing for future changes
 

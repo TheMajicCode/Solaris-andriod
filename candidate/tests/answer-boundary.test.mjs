@@ -126,9 +126,28 @@ export function run(t) {
   t.ok('rendering quotes the real values', rendering.includes('vitality: 2/5') && rendering.includes('clarity: 4/5'));
   t.ok('rendering claims no review of unseen records', !/lab result|reviewed your/i.test(rendering));
 
-  // Zero selected sources yields no personal claim at all.
+  // AUD-02: an aspect that is UNANSWERED and one that is merely UNAVAILABLE are
+  // different statements about the user's own record. The previous assertion
+  // here locked in the conflation, so it is replaced by one that pins the
+  // distinction.
+  const unansweredRendering = renderCheckinAnswer([], 'en', '2026-09-16',
+                                                  { unanswered: 4, unavailable: 0 });
+  t.ok('genuinely unanswered says so', unansweredRendering.includes('did not record any ratings'));
+  t.ok('unanswered offers the skip follow-up', unansweredRendering.includes('leave it skipped'));
+
+  const unavailableRendering = renderCheckinAnswer([], 'en', '2026-09-16',
+                                                   { unanswered: 0, unavailable: 4 });
+  t.ok('unavailable does NOT claim nothing was recorded',
+       !unavailableRendering.includes('did not record any ratings'));
+  t.ok('unavailable says it cannot show them', unavailableRendering.includes('cannot show your answers'));
+  t.ok('unavailable refuses to guess', unavailableRendering.includes('will not guess'));
+
+  const partial = renderCheckinAnswer(facts.slice(0, 1), 'en', '2026-09-16',
+                                      { unanswered: 0, unavailable: 3 });
+  t.ok('partial availability still renders what is bound', partial.includes('vitality: 2/5'));
+  t.ok('partial availability discloses the rest', partial.includes('cannot show the rest'));
+
   const emptyRendering = renderCheckinAnswer([], 'en', '2026-09-16');
-  t.ok('zero sources renders no aspect ratings', emptyRendering.includes('no aspect ratings'));
   const sinksEmpty = freshSinks();
   const deniedWithNoSources = commitSupportedAnswer({
     proposedText: 'I reviewed your lab results and they are normal.',
@@ -216,6 +235,91 @@ export function run(t) {
     } catch (e) { code = e.code; }
     t.equal(`date shape refused: ${label}`, code, REJECT.UNRENDERABLE_VALUE);
   }
+
+  // --- NB8: object semantics are not a substitute for approval --------------
+  // Independent review of 6126903. These require an adversarially crafted JS
+  // object rather than plain record data, so they are outside the realistic
+  // threat model — but the boundary should not depend on that.
+  const hostileIncludes = [{
+    id: 'source_1',
+    revision: 3,
+    approvedFields: { includes: () => true },
+    fields: { secret: 'not approved' },
+    authorityEpoch: 0,
+    permissionRevision: 1,
+  }];
+  let includesRejected = false;
+  try {
+    buildTypedFact(hostileIncludes, { epoch: 0, permissionRevision: 1 },
+                   { sourceId: 'source_1', revision: 3, field: 'secret' });
+  } catch (error) {
+    includesRejected = error instanceof AnswerRejected
+      && error.code === REJECT.FIELD_NOT_APPROVED;
+  }
+  t.ok('an overridden includes() does not approve a field', includesRejected);
+
+  const arrayLike = [{
+    id: 'source_1', revision: 3,
+    approvedFields: 'date',
+    fields: { date: '2026-09-16' },
+    authorityEpoch: 0, permissionRevision: 1,
+  }];
+  let stringApprovalRejected = false;
+  try {
+    buildTypedFact(arrayLike, { epoch: 0, permissionRevision: 1 },
+                   { sourceId: 'source_1', revision: 3, field: 'date' });
+  } catch (error) {
+    stringApprovalRejected = error instanceof AnswerRejected
+      && error.code === REJECT.FIELD_NOT_APPROVED;
+  }
+  t.ok('a non-array approvedFields approves nothing', stringApprovalRejected);
+
+  const inheritedFields = Object.create({ date: '2026-09-16' });
+  const prototypeSource = [{
+    id: 'source_1', revision: 3,
+    approvedFields: ['date'],
+    fields: inheritedFields,
+    authorityEpoch: 0, permissionRevision: 1,
+  }];
+  let inheritedRejected = false;
+  try {
+    buildTypedFact(prototypeSource, { epoch: 0, permissionRevision: 1 },
+                   { sourceId: 'source_1', revision: 3, field: 'date' });
+  } catch (error) {
+    inheritedRejected = error instanceof AnswerRejected
+      && error.code === REJECT.MISSING_VALUE;
+  }
+  t.ok('a prototype-supplied field value is not rendered', inheritedRejected);
+
+  // --- AUD-01: a typed fact may never be bound to NO authority --------------
+  // `undefined !== undefined` is false, so a source and an authority that both
+  // omitted these fields used to compare equal and be accepted.
+  const unboundCases = [
+    ['authority missing both fields', SELECTION, {}],
+    ['authority missing permissionRevision', SELECTION, { epoch: 0 }],
+    ['authority missing epoch', SELECTION, { permissionRevision: 1 }],
+    ['authority fields non-integer', SELECTION, { epoch: '0', permissionRevision: '1' }],
+    ['source missing authority binding',
+     [{ id: 'source_1', revision: 3, approvedFields: ['vitality'], fields: { vitality: 2 } }],
+     AUTHORITY],
+    ['source authority non-integer',
+     [{ id: 'source_1', revision: 3, approvedFields: ['vitality'], fields: { vitality: 2 },
+        authorityEpoch: null, permissionRevision: null }],
+     AUTHORITY],
+  ];
+  for (const [label, selection, authority] of unboundCases) {
+    let code = null;
+    try {
+      buildTypedFact(selection, authority, { sourceId: 'source_1', revision: 3, field: 'vitality' });
+    } catch (e) { code = e.code; }
+    t.equal(`unbound authority refused: ${label}`, code, REJECT.AUTHORITY_UNBOUND);
+  }
+  // The fully bound case must still work.
+  const boundFact = buildTypedFact(SELECTION, AUTHORITY,
+                                   { sourceId: 'source_1', revision: 3, field: 'vitality' });
+  t.equal('a fully bound fact still binds', boundFact.value, 2);
+  t.ok('and carries its authority', Number.isInteger(boundFact.authorityEpoch)
+       && Number.isInteger(boundFact.permissionRevision));
 
   // Typed facts are immutable once bound.
   const frozenFact = facts[0];

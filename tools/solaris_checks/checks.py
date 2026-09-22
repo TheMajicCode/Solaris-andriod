@@ -40,6 +40,7 @@ VALID_STATUSES = frozenset({PASS, FAIL, NOT_APPLICABLE})
 #               been inspected. Used where a check legitimately stops early or
 #               counts differently from its scope.
 COVERAGE_FULL, COVERAGE_NONZERO = 'full', 'nonzero'
+VALID_COVERAGE = frozenset({COVERAGE_FULL, COVERAGE_NONZERO})
 
 
 @dataclass(frozen=True)
@@ -318,6 +319,32 @@ def check_gitignore_exceptions(ctx: Context) -> CheckResult:
 # Parsing
 # --------------------------------------------------------------------------
 
+def check_evidence_not_authored(ctx: Context) -> CheckResult:
+    """No path under an evidence/ directory may be treated as authored source.
+
+    AUD-08: longest-prefix matching sent nested evidence trees, e.g.
+    Solaris-Android-R4/lifecycle/evidence/, to the enclosing source rule, so
+    generated fixtures received authored-source treatment. That inverts the
+    intent in both directions: a generated fixture that failed to parse would
+    hard-fail with no triage path, while the classification file's own stated
+    purpose is that a new directory never silently inherits a treatment.
+
+    This check makes the next nested evidence directory fail rather than repeat
+    it, instead of relying on someone remembering to add a rule.
+    """
+    offenders = [p for p, rule in sorted(ctx.resolved.items())
+                 if '/evidence/' in p and rule.scope == 'authored-source']
+    r = CheckResult('evidence-not-authored-source',
+                    'No evidence/ path is classified authored-source',
+                    PASS, files_expected=len(ctx.files), files_examined=len(ctx.files))
+    for path in offenders:
+        r.findings.append(f'{path}: under evidence/ but classified authored-source; '
+                          'add a retained-evidence rule for its directory')
+    if r.findings:
+        r.status = FAIL
+    return r
+
+
 def check_json(ctx: Context) -> CheckResult:
     targets = [p for p in ctx.files if p.endswith('.json')
                and ctx.resolved[p].scope != 'repo-config' or
@@ -591,10 +618,13 @@ def check_candidate_tests(ctx: Context) -> CheckResult:
 # The registry. Every entry must produce exactly one well-formed result.
 CHECK_SPECS = (
     CheckSpec('classification-complete', check_classification, COVERAGE_FULL),
-    CheckSpec('frozen-integrity', check_frozen_integrity, COVERAGE_NONZERO),
-    CheckSpec('candidate-changes-valid', check_candidate_changes, COVERAGE_NONZERO),
+    # NB3: any unhashed path already forces FAIL, so examined < expected can only
+    # co-occur with a failure. COVERAGE_FULL is strictly stronger here.
+    CheckSpec('frozen-integrity', check_frozen_integrity, COVERAGE_FULL),
+    CheckSpec('candidate-changes-valid', check_candidate_changes, COVERAGE_FULL),
     CheckSpec('excluded-path-policy', check_excluded_paths, COVERAGE_FULL),
     CheckSpec('build-input-exceptions', check_gitignore_exceptions, COVERAGE_FULL),
+    CheckSpec('evidence-not-authored-source', check_evidence_not_authored, COVERAGE_FULL),
     CheckSpec('json-parse', check_json, COVERAGE_FULL),
     CheckSpec('yaml-parse', check_yaml, COVERAGE_FULL),
     CheckSpec('python-syntax', check_python_syntax, COVERAGE_FULL),
@@ -605,7 +635,7 @@ CHECK_SPECS = (
     # The only optional scope: with no candidate source tracked at all, there is
     # genuinely nothing to run. check_candidate_tests still fails when candidate
     # files exist but are declassified.
-    CheckSpec('candidate-regression-tests', check_candidate_tests, COVERAGE_NONZERO,
+    CheckSpec('candidate-regression-tests', check_candidate_tests, COVERAGE_FULL,
               allows_not_applicable=True),
 )
 
@@ -621,11 +651,23 @@ def validate_results(results: list[CheckResult], specs=CHECK_SPECS) -> list[str]
     that reports a non-failing status without having inspected anything.
     """
     violations: list[str] = []
+    # NB1: a run that inspected nothing must never be green. An empty registry
+    # produces zero results and zero violations, which would otherwise pass.
+    if not specs:
+        violations.append('the check registry is empty; a run that registers no check '
+                          'is a FAILURE, not a pass')
     by_name: dict[str, list[CheckResult]] = {}
     for result in results:
         by_name.setdefault(result.name, []).append(result)
 
     registered = {spec.name: spec for spec in specs}
+
+    # NB2: an unrecognised coverage string silently degraded to NONZERO
+    # semantics, so a registry typo became quiet under-enforcement.
+    for spec in specs:
+        if spec.coverage not in VALID_COVERAGE:
+            violations.append(f'{spec.name}: unknown coverage {spec.coverage!r}; '
+                              f'expected one of {sorted(VALID_COVERAGE)}')
 
     for name in registered:
         found = by_name.get(name, [])
@@ -644,7 +686,9 @@ def validate_results(results: list[CheckResult], specs=CHECK_SPECS) -> list[str]
                 violations.append(f'{name}: invalid status {result.status!r}')
                 continue
             expected, examined = result.files_expected, result.files_examined
-            if not isinstance(expected, int) or not isinstance(examined, int) \
+            # NB5: isinstance(True, int) is True, so bools were accepted as counts.
+            if isinstance(expected, bool) or isinstance(examined, bool) \
+                    or not isinstance(expected, int) or not isinstance(examined, int) \
                     or expected < 0 or examined < 0:
                 violations.append(f'{name}: malformed counts '
                                   f'(expected={expected!r}, examined={examined!r})')
@@ -721,6 +765,13 @@ def run_all(repo: Path, files: list[str], specs=CHECK_SPECS) -> dict:
         except Exception as exc:  # noqa: BLE001 - an unexpected error is a failure, never a pass
             result = CheckResult(spec.name, 'check raised an unexpected exception', FAIL,
                                  [f'{type(exc).__name__}: {exc}'])
+        # NB4: the name check below sits outside the try/except, so a check that
+        # returned None used to raise AttributeError out of run_all entirely and
+        # no report was produced. Still fail-closed, but it bypassed the
+        # "an unexpected error is a FAILURE" reporting path.
+        if not isinstance(result, CheckResult):
+            result = CheckResult(spec.name, 'check returned no result', FAIL,
+                                 [f'returned {type(result).__name__}, expected CheckResult'])
         # A check may not rename itself out from under its registration.
         if result.name != spec.name:
             result.findings.append(

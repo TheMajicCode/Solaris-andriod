@@ -1,6 +1,6 @@
 # Status
 
-**Updated:** 2026-09-17 · Session 2
+**Updated:** 2026-09-18 · Session 2
 
 ## Publication — authorized, conflict resolved
 
@@ -65,11 +65,11 @@ Local. Remote CI runs on the pushed head.
 | Host kit `SHA256SUMS.txt` (184 files) | PASS — 0 failures |
 | N3 host bundle vs pin | PASS — `b8ac7d1b…`, 30,754,484 bytes |
 | N4 `hermesc` vs pin | PASS — `b4c37f09…`, Hermes 0.12.0, executes |
-| `tools/repo-check.py` | PASS — 13 checks |
+| `tools/repo-check.py` | PASS — 14 checks |
 | `tools/tests/test_repo_check.py` | PASS — 27 negative controls |
 | `tools/tests/test_js_parse_modes.py` | PASS — 11 parse-mode controls |
-| `tools/tests/test_result_aggregation.py` | PASS — 17 aggregation controls |
-| `candidate/tests/run-all.mjs` | PASS — 385 assertions |
+| `tools/tests/test_result_aggregation.py` | PASS — 27 aggregation controls |
+| `candidate/tests/run-all.mjs` | PASS — 484 assertions |
 | **604 host bundle reproduction** | **PASS — byte-identical `30be9989…`** |
 | Original 34 host cases on the reproduced bundle | **PASS — 34/34** |
 | Original 10 lifecycle cases on the reproduced bundle | **PASS — 10/10** |

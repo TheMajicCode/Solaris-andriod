@@ -6,6 +6,7 @@
  */
 import * as routing from './routing.test.mjs';
 import * as answerBoundary from './answer-boundary.test.mjs';
+import * as hostEnvelope from './host-envelope.test.mjs';
 
 let passed = 0;
 const failures = [];
@@ -23,6 +24,7 @@ const t = {
 const suites = [
   ['A605-01 routing (F04/F05)', routing],
   ['A605-02 answer boundary (F03)', answerBoundary],
+  ['A605-01 host envelope adapter (AUD-04)', hostEnvelope],
 ];
 
 for (const [name, suite] of suites) {

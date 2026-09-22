@@ -226,6 +226,64 @@ export function run(t) {
   t.equal('a usable record among malformed entries is still used', mixedResult.kind, 'checkin');
   t.ok('and its real values render', mixedResult.message.includes('vitality: 2/5'));
 
+  // --- AUD-01/AUD-02 at the router ---------------------------------------
+  const bound = (fields, approvedFields = ['date', 'vitality', 'clarity', 'balance', 'alignment']) => [{
+    id: 's1', revision: 3, approvedFields, fields, authorityEpoch: 0, permissionRevision: 1,
+  }];
+  const auth3 = { epoch: 0, permissionRevision: 1 };
+
+  for (const [label, selection, authority] of [
+    ['authority object is empty', bound({ date: '2026-01-01', vitality: 4 }), {}],
+    ['source carries no authority',
+     [{ id: 's1', revision: 1, approvedFields: ['date', 'vitality'],
+        fields: { date: '2026-01-01', vitality: 4 } }], auth3],
+    ['selection entry has no revision',
+     [{ id: 's3', approvedFields: ['date', 'vitality'], fields: { date: '2026-01-01', vitality: 4 },
+        authorityEpoch: 0, permissionRevision: 1 }], auth3],
+  ]) {
+    const r = routeRequest({ user: 'explain my check-in', locale: 'en', selection, authority });
+    t.equal(`unbound claim is not rendered: ${label}`, r.kind, 'checkin-select');
+    t.ok(`unbound claim shows no values: ${label}`, !/\d\/5/.test(r.message));
+  }
+
+  // Aspects present but NOT approved must not be reported as "not recorded".
+  const unapproved = routeRequest({
+    user: 'explain my check-in', locale: 'en',
+    selection: bound({ date: '2026-02-03', vitality: 5, clarity: 5, balance: 5, alignment: 5 }, ['date']),
+    authority: auth3,
+  });
+  t.equal('unapproved aspects still produce a grounded reply', unapproved.kind, 'checkin');
+  t.ok('and it does NOT claim nothing was recorded',
+       !unapproved.message.includes('did not record any ratings'));
+  t.ok('it says the answers cannot be shown', unapproved.message.includes('cannot show'));
+  t.ok('and it reveals no values', !/\d\/5/.test(unapproved.message));
+
+  // Genuinely unanswered says so, with the shipped-604 skip follow-up.
+  const unanswered = routeRequest({
+    user: 'explain my check-in', locale: 'en',
+    selection: bound({ date: '2026-02-03', vitality: null, clarity: null, balance: null, alignment: null }),
+    authority: auth3,
+  });
+  t.ok('unanswered check-in says no ratings were recorded',
+       unanswered.message.includes('did not record any ratings'));
+  t.ok('and offers the skip follow-up', unanswered.message.includes('leave it skipped'));
+
+  // The step suffix names the actual lowest rendered aspects, or none at all.
+  const stepNamed = routeRequest({
+    user: 'help me choose a step today', locale: 'en',
+    selection: bound({ date: '2026-02-03', vitality: 2, clarity: 4, balance: 2, alignment: 5 }),
+    authority: auth3,
+  });
+  t.ok('step names the lowest rendered aspects',
+       stepNamed.message.includes('choose an aspect (vitality, balance)'));
+  const stepNone = routeRequest({
+    user: 'help me choose a step today', locale: 'en',
+    selection: bound({ date: '2026-02-03', vitality: null, clarity: null, balance: null, alignment: null }),
+    authority: auth3,
+  });
+  t.ok('step with nothing rendered points at no list',
+       !stepNone.message.includes('those aspects') && !stepNone.message.includes('choose an aspect'));
+
   // Escalation copy carries its unreviewed release gate.
   const risky = routeRequest({ user: 'severe chest pain', locale: 'en' });
   t.equal('escalation carries a review gate', risky.reviewGate,

@@ -40,8 +40,9 @@ the outgoing range is inspected.
 python3 -m pip install --require-hashes --no-deps -r tools/requirements.txt
 python3 tools/tests/test_repo_check.py     # 27 negative controls
 python3 tools/tests/test_js_parse_modes.py # 11 parse-mode controls
-python3 tools/repo-check.py                # 13 checks
-node candidate/tests/run-all.mjs           # 278 assertions
+python3 tools/tests/test_result_aggregation.py # 27 aggregation controls
+python3 tools/repo-check.py                # 14 checks
+node candidate/tests/run-all.mjs           # 484 assertions
 ```
 
 If `frozen-integrity` fails, **stop** — imported bytes have drifted, which is a

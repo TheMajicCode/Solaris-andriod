@@ -19,8 +19,8 @@
  */
 import { matchingText, matchesWholeRequest } from './matching.mjs';
 import { screenForRisk, ESCALATION_COPY } from './risk-screen.mjs';
-import { limitationReply, usableSelection } from './supported-surface.mjs';
-import { buildTypedFact, renderCheckinAnswer, AnswerRejected } from './answer-boundary.mjs';
+import { limitationReply, usableSelection, valueState } from './supported-surface.mjs';
+import { buildTypedFact, renderCheckinAnswer, AnswerRejected, REJECT } from './answer-boundary.mjs';
 
 const INTENTS = {
   greeting: {
@@ -69,9 +69,9 @@ const COPY = {
     en: 'A Solaris check-in records your impressions of vitality, clarity, balance and alignment. Select a check-in in Sources so we can review your own answers; missing answers stay missing.',
     es: 'En Solaris, un check-in es tu impresión de vitalidad, claridad, equilibrio y alineación. Selecciona un check-in en Fuentes para revisar tus respuestas; no completaré lo que falta.',
   },
-  stepSuffix: {
-    en: 'For a small step, choose one of those aspects and write what would support it today. You decide whether to act on it.',
-    es: 'Para un pequeño paso, elige uno de esos aspectos y escribe qué te ayudaría hoy. Tú decides si quieres hacerlo.',
+  stepNoAspects: {
+    en: 'For a small step, write what would support you today. You decide whether to act on it.',
+    es: 'Para un pequeño paso, escribe qué te ayudaría hoy. Tú decides si quieres hacerlo.',
   },
   stepSelect: {
     en: 'Choose something small and concrete: write what is on your mind, name an intention or review an unfinished step. Which fits you now? Select a check-in in Sources to tailor this to your answers.',
@@ -138,9 +138,18 @@ export function routeRequest(request) {
   if (wantsCheckin || wantsStep) {
     const grounded = groundedCheckin(request);
     if (grounded) {
+      let message = grounded.message;
+      if (wantsStep) {
+        // AUD-02: the shipped 604 helper names the actual lowest aspects. Saying
+        // "choose one of those aspects" when none were rendered points at a list
+        // that does not exist.
+        message += ' ' + (grounded.rendered.length
+          ? stepSuffixFor(grounded.rendered, locale)
+          : COPY.stepNoAspects[locale]);
+      }
       return {
         kind: wantsStep ? 'step' : 'checkin',
-        message: wantsStep ? `${grounded.message} ${COPY.stepSuffix[locale]}` : grounded.message,
+        message,
         sourceRefs: grounded.sourceRefs,
         modelCallsRequired: 0,
         typedFacts: grounded.typedFacts,
@@ -164,6 +173,22 @@ export function routeRequest(request) {
     sourceRefs: [],
     modelCallsRequired: 0,
   };
+}
+
+const ASPECT_WORDS = {
+  en: { vitality: 'vitality', clarity: 'clarity', balance: 'balance', alignment: 'alignment' },
+  es: { vitality: 'vitalidad', clarity: 'claridad', balance: 'equilibrio', alignment: 'alineación' },
+};
+
+/** Name the lowest-rated aspects actually rendered, matching shipped 604. */
+function stepSuffixFor(rendered, locale) {
+  const lang = locale === 'es' ? 'es' : 'en';
+  const lowest = Math.min(...rendered.map((r) => r.value));
+  const names = rendered.filter((r) => r.value === lowest)
+    .map((r) => ASPECT_WORDS[lang][r.field]).join(', ');
+  return lang === 'es'
+    ? `Para un pequeño paso, elige un aspecto (${names}) y escribe qué te ayudaría hoy. Tú decides si quieres hacerlo.`
+    : `For a small step, choose an aspect (${names}) and write what would support it today. You decide whether to act on it.`;
 }
 
 /**
@@ -201,19 +226,30 @@ function groundedCheckin(request) {
   // displayed fact. Previously it was validated but omitted from typedFacts,
   // leaving a displayed claim with no authorized binding behind it.
   const typedFacts = [chosen.dateFact];
+  // AUD-02: track WHY an aspect produced no fact. "Unanswered" and "present but
+  // not bindable" are different statements about the user's own record, and the
+  // reply must not report the second as the first.
+  const absence = { unanswered: 0, unavailable: 0 };
+  const rendered = [];
   for (const field of aspects) {
     try {
-      typedFacts.push(buildTypedFact(selection, authority,
-                                     { sourceId: chosen.source.id, revision: chosen.source.revision, field }));
+      const fact = buildTypedFact(selection, authority,
+                                  { sourceId: chosen.source.id, revision: chosen.source.revision, field });
+      typedFacts.push(fact);
+      rendered.push({ field, value: fact.value });
     } catch (error) {
-      if (error instanceof AnswerRejected) continue;   // missing or unapproved stays absent
-      throw error;
+      if (!(error instanceof AnswerRejected)) throw error;
+      const raw = chosen.source.fields ? chosen.source.fields[field] : undefined;
+      if (error.code === REJECT.MISSING_VALUE && valueState(raw) === 'missing') absence.unanswered += 1;
+      else absence.unavailable += 1;
     }
   }
 
   return {
-    message: renderCheckinAnswer(typedFacts, locale, chosen.date),
+    message: renderCheckinAnswer(typedFacts, locale, chosen.date, absence),
     sourceRefs: [{ id: chosen.source.id, revision: chosen.source.revision }],
     typedFacts,
+    rendered,
+    absence,
   };
 }

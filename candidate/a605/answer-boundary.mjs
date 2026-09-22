@@ -26,6 +26,7 @@ export const REJECT = {
   MISSING_VALUE: 'CANDIDATE_MISSING_VALUE',
   UNRENDERABLE_VALUE: 'CANDIDATE_UNRENDERABLE_VALUE',
   AUTHORITY_CHANGED: 'CANDIDATE_AUTHORITY_CHANGED',
+  AUTHORITY_UNBOUND: 'CANDIDATE_AUTHORITY_UNBOUND',
   NOT_RENDERED: 'CANDIDATE_NOT_RENDERED_FROM_TYPED_FACTS',
 };
 
@@ -51,12 +52,35 @@ export function buildTypedFact(selection, authority, ref) {
   if (source.revision !== ref.revision) {
     throw new AnswerRejected(REJECT.STALE_REVISION, `${ref.sourceId}@${ref.revision} != ${source.revision}`);
   }
-  if (!source.approvedFields.includes(ref.field)) {
+  // NB8: `approvedFields.includes(...)` and `fields[...]` trusted caller-supplied
+  // object semantics. An overridden `includes()` returning true bypassed the
+  // approval gate, and a value reachable only through the prototype chain was
+  // read and rendered. Both are now read structurally, matching the care already
+  // taken on the fields lookup below.
+  const approved = source.approvedFields;
+  if (!Array.isArray(approved) || !approved.some((f) => f === ref.field)) {
     throw new AnswerRejected(REJECT.FIELD_NOT_APPROVED, `${ref.sourceId}.${ref.field}`);
   }
-  const value = source.fields[ref.field];
+  const fields = source.fields;
+  if (!fields || typeof fields !== 'object'
+      || !Object.prototype.hasOwnProperty.call(fields, ref.field)) {
+    throw new AnswerRejected(REJECT.MISSING_VALUE, `${ref.sourceId}.${ref.field}`);
+  }
+  const value = fields[ref.field];
   if (value === undefined || value === null) {
     throw new AnswerRejected(REJECT.MISSING_VALUE, `${ref.sourceId}.${ref.field}`);
+  }
+  // AUD-01: `undefined !== undefined` is false, so a source and an authority that
+  // BOTH omit these fields used to compare equal and be accepted. A claim could
+  // then be displayed, persisted and receipted carrying no authority binding at
+  // all — the exact failure the contract's "every typed fact is bound" rule
+  // exists to prevent. Absence is now rejected before equality is considered.
+  const bound = (value) => Number.isInteger(value);
+  if (!bound(authority.epoch) || !bound(authority.permissionRevision)) {
+    throw new AnswerRejected(REJECT.AUTHORITY_UNBOUND, 'authority carries no epoch/permissionRevision');
+  }
+  if (!bound(source.authorityEpoch) || !bound(source.permissionRevision)) {
+    throw new AnswerRejected(REJECT.AUTHORITY_UNBOUND, `${ref.sourceId} carries no authority binding`);
   }
   if (source.authorityEpoch !== authority.epoch
       || source.permissionRevision !== authority.permissionRevision) {
@@ -87,7 +111,19 @@ const ASPECT_LABELS = {
  * Deterministically render the supported personal answer from typed facts.
  * This is the ONLY producer of personal factual text on the supported surface.
  */
-export function renderCheckinAnswer(typedFacts, locale, date) {
+/**
+ * Render the supported personal answer from typed facts.
+ *
+ * AUD-02: saying "you recorded no aspect ratings" when the aspects existed but
+ * could not be BOUND — unapproved field, stale revision, out-of-shape value — is
+ * a false statement about what the user recorded. An aspect that is genuinely
+ * unanswered and one that is merely unavailable to this answer are different
+ * things, and the reply must not conflate them.
+ *
+ * @param {object} [absence] `{ unanswered, unavailable }` counts for the aspects
+ *   that produced no fact. Omit only when there were none.
+ */
+export function renderCheckinAnswer(typedFacts, locale, date, absence = {}) {
   const lang = locale === 'es' ? 'es' : 'en';
   const labels = ASPECT_LABELS[lang];
   // The date fact is bound and returned, but it is rendered in the sentence
@@ -95,12 +131,33 @@ export function renderCheckinAnswer(typedFacts, locale, date) {
   const parts = typedFacts
     .filter((f) => Object.prototype.hasOwnProperty.call(labels, f.field))
     .map((f) => `${labels[f.field]}: ${f.value}/5`);
-  const body = parts.length
-    ? parts.join(', ')
-    : (lang === 'es' ? 'ninguna valoración' : 'no aspect ratings');
+
+  const unavailable = absence.unavailable || 0;
+  const lead = lang === 'es'
+    ? `En el check-in seleccionado de ${date}`
+    : `In the selected check-in dated ${date}`;
+  const own = lang === 'es' ? 'Son tus propias impresiones.' : 'These are your own impressions.';
+
+  if (parts.length) {
+    const body = lang === 'es'
+      ? `${lead} registraste ${parts.join(', ')}.`
+      : `${lead}, you recorded ${parts.join(', ')}.`;
+    if (!unavailable) return `${body} ${own}`;
+    const caveat = lang === 'es'
+      ? 'No puedo mostrar el resto de tus respuestas aquí.'
+      : 'I cannot show the rest of your answers here.';
+    return `${body} ${own} ${caveat}`;
+  }
+
+  // Nothing rendered. Say which of the two situations it actually is.
+  if (unavailable) {
+    return lang === 'es'
+      ? `${lead} no puedo mostrar tus respuestas aquí. No voy a suponer lo que registraste.`
+      : `${lead}, I cannot show your answers here. I will not guess what you recorded.`;
+  }
   return lang === 'es'
-    ? `En el check-in seleccionado de ${date} registraste ${body}. Son tus propias impresiones.`
-    : `In the selected check-in dated ${date}, you recorded ${body}. These are your own impressions.`;
+    ? `${lead} no registraste valoraciones. Puedes volver al check-in cuando quieras responder, o dejarlo sin completar.`
+    : `${lead}, you did not record any ratings. You can return to the check-in when you want to answer, or leave it skipped.`;
 }
 
 /**

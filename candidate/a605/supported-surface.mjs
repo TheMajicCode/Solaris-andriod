@@ -91,6 +91,10 @@ export function isUsableSelectionEntry(entry) {
     && !Array.isArray(entry)
     && typeof entry.id === 'string'
     && entry.id.length > 0
+    // AUD-01: without a revision the staleness check is self-referential — the
+    // ref's revision is read from this same object — so a citation could be
+    // attached to a receipt with no revision at all.
+    && Number.isInteger(entry.revision)
     && Array.isArray(entry.approvedFields)
     && entry.fields !== null
     && typeof entry.fields === 'object'

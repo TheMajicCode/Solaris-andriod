@@ -11,9 +11,12 @@ words have fixed meanings:
 | **Planned** | Documented intent only. No implementation exists. |
 | **Blocked** | Cannot be established until a named missing input is restored. |
 
-**All 604 results below are attributed to the dated 604 handoff. This repository
-did not rerun them.** The only checks this repository has executed are in
-[Build and test](BUILD-AND-TEST.md).
+**604 results below are attributed to the dated 604 handoff, except where a row
+explicitly names a Sprint-01 re-run.** Sprint-01 reproduced the 604 host bundle
+byte-identically and re-ran two of the original suites against it; those rows are
+marked. Everything else remains historical. See
+[Build and test](BUILD-AND-TEST.md) and
+[Host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md).
 
 ## Pocket LUCA chat
 
@@ -50,7 +53,11 @@ did not rerun them.** The only checks this repository has executed are in
 | Structural host verification: four changed functions, 15,509 other function bodies/headers unchanged | Recorded (604) | 604 build report |
 | No native vault, recovery, schema, key or model change in 604 | Recorded (604) | 604 build report |
 | Complete native Gradle/application source build | **Blocked — source missing** | No original native Gradle app, original host `App.tsx`, complete native dependency lock/build graph or complete editable native library sources were found. See [`handoff/SOURCE-MAP.md`](../handoff/SOURCE-MAP.md). |
-| HBC reconstruction and packaging reproducible in this repository | **Blocked — inputs excluded** | Needs reference APKs and the pinned host compiler/parser/packaging tools from the build-input archives. |
+| 604 **host bundle** reproducible | **Re-run 18 Sep 2026 — byte-identical** | Reproduced as `30be9989…` from the exact 603 host bundle and pinned compiler via `tools/host/hbc-input-wrapper.py`. Host bundle only; **not** an APK and **not** a native build. |
+| Original 34 host cases | **Re-run 18 Sep 2026 — 34/34 pass** | Against the reproduced bundle in actual Hermes, synthetic native/storage/model seams, disposable copy. |
+| Original 10 lifecycle cases | **Re-run 18 Sep 2026 — 10/10 pass** | Same conditions. |
+| A605 candidate integrated into the host | **Measured — does not fit** | Donor asserts 2 functions; candidate compiles to 26, plus further inliner constraints. See [host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md). |
+| APK packaging reproducible in this repository | **Blocked — inputs excluded** | Needs the reference APKs and packaging tools. The host-bundle reproduction does not cover APK assembly or signing. |
 | Android WebView rendering, native storage durability, on-device acceptance | **Blocked** | Desktop synthetic DOM/host tests do not substitute. Requires a device and separate authorization. |
 
 ## Product direction — not implemented

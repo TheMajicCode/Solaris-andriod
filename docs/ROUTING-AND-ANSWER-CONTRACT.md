@@ -56,6 +56,81 @@ only as wrappers around an otherwise exact supported form.
 **This keyword set is not a clinical intent detector and must never be described
 as one.**
 
+### 3.1 Host envelope parse — the integration owns the guards (AUD-04)
+
+Routing does not begin at the intent table. It begins where the host turns a
+prompt string into a request, and **build 604 does that unguarded**.
+`Solaris-Android-R4/grounding/fast-guided.js` opens with:
+
+```js
+var envelope = JSON.parse(prompt.slice(prompt.indexOf('\n') + 1, -10));
+var text = envelope.user.toLowerCase().trim();
+```
+
+Three structural assumptions are made and none is checked: that a newline
+exists, that the trailing ten characters are exactly ` /no_think`, and that
+`envelope.user` is a string.
+
+**The asymmetry is that the helper's own harness checks what the helper does
+not.** `Solaris-Android-R4/grounding/actual-tests.js:54` reads:
+
+```js
+function envelope(prompt){var cut=prompt.indexOf('\n');assert(cut>=0&&prompt.slice(-10)===' /no_think','unexpected prompt structure');return JSON.parse(prompt.slice(cut+1,-10));}
+```
+
+So every prompt the suite inspects has already been asserted well-formed by the
+suite's own helper. The shipped gap is structurally invisible to the 34 passing
+host cases. A green suite here is not evidence about malformed input.
+
+Measured against the frozen helper, loaded unmodified into a scratch harness
+(18 September 2026):
+
+| Prompt | Frozen `fastGuided` outcome |
+| --- | --- |
+| No newline, header present | `SyntaxError` — the header is parsed as the envelope |
+| No newline, no header | Answers normally — `slice(0, -10)` happens to be the whole envelope |
+| ` /no_think` absent | `SyntaxError` — ten bytes of JSON silently removed |
+| Suffix changed to ` /nothink` | `SyntaxError` |
+| Body is not JSON | `SyntaxError` |
+| `envelope` is `null` | `TypeError: Cannot read properties of null` |
+| `user` absent | `TypeError: Cannot read properties of undefined` |
+| `user` is a number | `TypeError: envelope.user.toLowerCase is not a function` |
+| Well-formed control | Answers normally |
+
+**What this does and does not establish.** It establishes that seven of eight
+malformed prompts leave `fastGuided` by an exception rather than by its
+documented `null`-or-result contract, and that one leaves it with the wrong
+region of the string parsed as the envelope. It does **not** establish that the
+604 caller then dispatches the model: the caller's exception path is native and
+is not in this source projection. The honest statement is that the outcome at
+this seam is **unbounded** — `IMPLEMENTATION.md` defines `null` and a result
+object, and says nothing about a throw.
+
+**The frozen helper is not edited.** It is hash-verified evidence (AGENTS.md).
+The guards are owned by the integration instead, in
+[`candidate/a605/host-envelope.mjs`](../candidate/a605/host-envelope.mjs):
+
+| Guard | Rejection reason | Replaces |
+| --- | --- | --- |
+| `typeof prompt === 'string'` | `prompt-not-a-string` | an immediate `TypeError` |
+| `indexOf('\n') >= 0` | `no-newline-between-header-and-envelope` | `slice(0, -10)` |
+| `slice(-10) === ' /no_think'` | `missing-or-changed-no_think-suffix` | a ten-byte truncation |
+| non-empty body | `envelope-body-is-empty` | a `SyntaxError` |
+| `JSON.parse` in `try` | `envelope-body-is-not-json` | a `SyntaxError` |
+| plain object, not array or `null` | `envelope-is-not-a-plain-object` | a `TypeError` |
+| own-property `user`, `typeof === 'string'` | `envelope-user-is-not-a-string` | a `TypeError` |
+
+Every rejection resolves to the deterministic limitation reply with
+`modelCallsRequired: 0` and a named `envelopeError`. `routeHostPrompt` is total:
+for every input it returns an object, never throws and never returns `null`.
+
+**The adapter manufactures no bindings.** The 604 envelope carries
+`facts[i].fields` and `task.sourceRefs[i].id`, but no `revision`, no
+`approvedFields` and no authority epoch or permission revision — the four inputs
+`buildTypedFact` requires (§5). Passing envelope facts through as a selection
+therefore yields `checkin-select` and cites nothing, which is asserted. Supplying
+a genuinely bound selection is part of integration and is BLOCKED (§8).
+
 ## 4. Precedence — risk first
 
 Evaluated strictly in this order. The first match wins.
@@ -91,6 +166,37 @@ does not triage, rate urgency, or name a condition.
 > **Release gate.** The escalation wording, in English and Spanish, requires
 > review by a qualified clinician before any patient release. This repository
 > contains engineering placeholders only, and says so at the point of use.
+
+#### Which language the escalation is written in (AUD-10)
+
+The escalation reply is selected by **UI locale**, not by the language of the
+user's message. `routeRequest` reads `request.locale`; through the host seam that
+locale comes from the prompt header directive `Reply in es `, which is the
+interface language. Build 604 does the same thing — `fast-guided.js` computes
+`var spanish = prompt.indexOf('Reply in es ') >= 0`, and
+`grounding/IMPLEMENTATION.md` states the supported set as *"English and Spanish
+**UI locale**"*.
+
+This is a deliberate decision, recorded rather than silently inherited:
+
+- **Kept**, because locale is an authenticated property of the session, while
+  message language would have to be inferred from the user's text. Language
+  detection on a short, code-switched, possibly clinical sentence is exactly the
+  kind of inference this contract forbids elsewhere, and a wrong guess would
+  route a person to care instructions in a language they may not read.
+- **The consequence is real and is not resolved by this decision.** A user who
+  writes `me duele el pecho` in an English-locale session receives the English
+  escalation copy. The risk screen itself is bilingual and matches the Spanish
+  markers correctly — only the reply language follows the interface.
+- **This is therefore part of the existing clinician-review gate above, not a
+  separate one.** The qualified reviewer must decide whether escalation copy in
+  the interface language is acceptable, or whether the escalation reply alone
+  should be bilingual regardless of locale. Until that review, the wording is an
+  engineering placeholder in both languages.
+
+No language-detection heuristic is added here. Adding one to the escalation path
+would be a clinical decision made by inference, and it is not this repository's
+to make.
 
 ## 5. Answer-support rules — the F03 boundary
 

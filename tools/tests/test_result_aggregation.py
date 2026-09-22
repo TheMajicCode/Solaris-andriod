@@ -126,6 +126,34 @@ def main() -> int:
         FAILURES.append('unregistered result not detected')
         print('  FAIL an unregistered result is not detected')
 
+    print('\nIndependent review of 6126903, findings NB1-NB5:')
+    # NB1: zero registered checks produced zero results and zero violations,
+    # which aggregated to a green run that inspected nothing.
+    case('an empty check registry', (), 'FAIL')
+
+    # NB2: an unrecognised coverage string silently degraded to NONZERO, so a
+    # typo in the registry became quiet under-enforcement rather than an error.
+    case('a spec declaring an unknown coverage value',
+         (_spec('json-parse', 'PASS', 5, 5, 'banana'),), 'FAIL')
+    # (A FAIL result with a bad coverage value is deliberately NOT a case here:
+    # it reports FAIL either way, so it could not detect a regression.)
+    case('an unknown coverage value at partial coverage',
+         (_spec('json-parse', 'PASS', 5, 3, 'banana'),), 'FAIL')
+
+    # NB4: the registered-name comparison sits outside the try/except wrapping
+    # the check call, so a check returning None raised AttributeError out of
+    # run_all and no report was produced at all.
+    case('a check that returns None',
+         (CheckSpec('json-parse', lambda ctx: None, COVERAGE_FULL),), 'FAIL')
+    case('a check that returns a non-CheckResult',
+         (CheckSpec('json-parse', lambda ctx: {'status': 'PASS'}, COVERAGE_FULL),), 'FAIL')
+
+    # NB5: isinstance(True, int) is True in Python, so booleans passed as counts.
+    case('boolean file counts',
+         (_spec('json-parse', 'PASS', True, True, COVERAGE_FULL),), 'FAIL')
+    case('a boolean examined count against an integer scope',
+         (_spec('json-parse', 'PASS', 5, True, COVERAGE_NONZERO),), 'FAIL')
+
     print('\nLegitimate positives — these must NOT be broken by the rule:')
     case('NOT_APPLICABLE with a genuinely empty optional scope',
          (_spec('candidate-regression-tests', 'NOT_APPLICABLE', 0, 0, allows_na=True),), 'PASS')
@@ -137,6 +165,15 @@ def main() -> int:
          (_spec('frozen-integrity', 'PASS', 5, 3, COVERAGE_NONZERO),), 'PASS')
     case('FAIL is reported as FAIL',
          (_spec('json-parse', 'FAIL', 5, 5, COVERAGE_FULL),), 'FAIL')
+    # NB3: three checks were declared NONZERO but achieve full coverage. They
+    # are now COVERAGE_FULL, which is strictly stronger; these confirm the
+    # promotion does not fail a legitimate complete run.
+    for promoted in ('frozen-integrity', 'candidate-changes-valid'):
+        case(f'{promoted} passing at complete coverage',
+             (_spec(promoted, 'PASS', 9, 9, COVERAGE_FULL),), 'PASS')
+    case('candidate-regression-tests still allows a genuinely empty scope',
+         (_spec('candidate-regression-tests', 'NOT_APPLICABLE', 0, 0,
+                COVERAGE_FULL, allows_na=True),), 'PASS')
 
     print(f'\nsummary: {PASSED} passed, {len(FAILURES)} failed')
     if FAILURES:

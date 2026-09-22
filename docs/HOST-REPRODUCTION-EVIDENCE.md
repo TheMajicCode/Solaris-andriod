@@ -16,6 +16,34 @@ at any point; `git status --porcelain` was empty before and after.
 | Output `candidate604.hbc` | 30,800,788 bytes, SHA-256 `30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3` |
 | **Byte-identical to the historical 604 host bundle** | **Yes** |
 
+### Report parity with the historical release record
+
+The wrapper originally discarded the `report` dictionary that `append_plans`
+returns, so its output carried only the four fields it computed itself
+(independent review of `6126903`, NB9). It now carries the frozen builder's own
+report labels, which makes the run directly diffable against the historical
+release record committed in this repository.
+
+Deep field-by-field comparison of the reproduced `frozen_builder_report` against
+`Solaris-Android-R4/evidence/release/BUNDLE-RESULT.json`:
+
+```
+total differing leaf fields: 1
+   .ui.path
+```
+
+Every other leaf field is identical, including `status`,
+`unchanged_original_bytes_verified`, `string_and_function_ids_preserved`, the
+per-function plan records, `changed_string_ids: [12364]`,
+`native_payload_changes: false`, `inference_request_and_worker_unchanged: true`
+and `background_lock_and_cancel_unchanged: true`. The single difference is
+`ui.path`, the local filesystem path of the input HTML, which is environment
+state and not a property of the artifact.
+
+**These labels are report fields, not `require()` assertions.** Carrying them
+adds provenance to the record; it does not add verification. The verification is
+the twelve `require()` calls and the SHA-256 comparison above.
+
 ### Tests run against the reproduced bundle
 
 | Suite | Command | Result |
@@ -75,30 +103,41 @@ Compiled with the pinned `hermesc`:
 | Frozen `fast-guided.js` | **2** | `global`, `fastGuided` | Yes |
 | Candidate, five ESM modules bundled to one script | **26** | `global`, `''`, `limitationReply`, `isRealCalendarDate`, … | **No** |
 
-Two independent constraints were measured, not assumed:
+### The full constraint list, from `hbc_inline.py`
 
-1. **Hermes 0.12.0 rejects ES6 `class`.** `class AnswerRejected extends Error`
-   fails to compile: *"invalid statement encountered"*. The probe lowered it to a
-   function to measure the next constraint.
-2. **Function count.** The candidate compiles to 26 functions against a contract
-   that asserts exactly 2, and its function 1 is the bundle IIFE rather than
-   `fastGuided`. Every helper and arrow function becomes its own HBC function.
+The first version of this section named **two** constraints and concluded that a
+single-function rewrite was the smaller change. That was under-informed. The
+frozen inliner (`Solaris-Android-R4/tools/hbc_inline.py`) enforces considerably
+more, and the candidate violates most of it:
 
-**The candidate cannot be integrated through the existing donor path as written.**
-No assertion was disabled, no `eval` introduced, no patch surface widened and no
-permission check removed to force a fit — the plan prohibits all four, and doing
-any of them would make the result meaningless.
+| Constraint enforced by the frozen inliner | Candidate today |
+| --- | --- |
+| `functionCount == 2`, function 1 named `fastGuided` | **26 functions**; function 1 is the bundle IIFE |
+| Hermes 0.12.0 language support | **ES6 `class` is rejected outright** — "invalid statement encountered" |
+| `not donor.hasExceptionHandler` — try/catch forbidden | **3 try/catch blocks, and 13 `throw` sites**: the entire rejection mechanism is exceptions |
+| `donor.environmentSize == 0`, no `Closure` opcodes | **10 arrow functions** used as `filter`/`map`/`find` callbacks |
+| `CreateRegExp` forbidden | **regex literals** for whitespace, combining marks and the ISO date |
+| No `WithBuffer` opcodes — array/object literal buffers forbidden | many array and object literals, including the ~80-entry risk-marker list and the intent/copy tables |
+| `no_new_strings`, every string already in the base table | **dozens of new EN/ES sentences**; `prepare-guided.cjs` handles new constants only as eight-code-unit `String.fromCharCode` chunks, which is expensive per constant |
+| `frame < 128` registers | unmeasured |
 
-### The two honest paths forward
+**This changes the recommendation.** "Express the supported surface as one
+function" is not a flattening exercise. It additionally requires eliminating
+exceptions as control flow, all regex, all literal buffers, and routing every new
+string through `fromCharCode` chunking, under a 127-register ceiling. That may
+well make **B — extend the donor contract under its own review** the cheaper
+path, and the earlier preference for A is withdrawn pending the measurement
+below.
 
-| Path | What it costs | What it preserves |
-| --- | --- | --- |
-| **A. Single-function rewrite.** Express the whole supported surface as one function with no inner closures, matching the shape the donor contract expects. | A substantial rewrite of five modules into one function; readability and the current module tests would need rework. | The frozen builder, its assertions and the reviewed patch surface, all untouched. |
-| **B. Extend the donor contract** to accept a multi-function donor. | `build-plans.py` is frozen; changing it needs its own review, and `inline_donor` inlines a single function body. | The candidate's structure and tests. |
+### One measurement required before choosing
 
-**A is the smaller and safer change** and does not touch frozen builders. Neither
-path is attempted here: this milestone was to prove fit, and the measured answer
-is that it does not fit yet.
+The candidate's entire F04 accent handling depends on
+`String.prototype.normalize('NFD')`. **Nothing in this repository establishes
+that the pinned Hermes 0.12.0 implements `normalize` correctly for the Spanish
+diacritics involved**, and it must not be assumed. Probe `foldAccents('¿Qué?')`
+and `'á'.normalize('NFD').length` under the pinned runtime, then re-state the A/B
+choice. If `normalize` is absent or wrong, the accent strategy changes regardless
+of which donor path is taken.
 
 ## What this is not
 
