@@ -119,7 +119,12 @@ export function parseHostPrompt(prompt) {
  * this adapter does not manufacture them. Supplying them is a named part of
  * integration and is BLOCKED on the host work in contract §8.
  */
-export function routeHostPrompt(prompt, { selection = [], authority = null } = {}) {
+export function routeHostPrompt(prompt, options) {
+  // NBR-1: `= {}` is a DEFAULT parameter, so it fires only on `undefined`.
+  // Destructuring `null` throws — and `null` is exactly what a host bridge
+  // passes for an absent optional. A throw here is the failure this adapter
+  // exists to prevent, so the fallback must cover null too.
+  const { selection = [], authority = null } = options ?? {};
   const parsed = parseHostPrompt(prompt);
   if (!parsed.ok) {
     return {

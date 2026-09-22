@@ -26,7 +26,7 @@ handling resolved. Do not merge them.
 | --- | --- | --- | --- | --- | --- |
 | **F01** | Complete native application source and build graph are missing. The builder patches four Hermes functions and a fixed HTML slot with 1,936 bytes spare. | **BLOCKED** — inventory milestone 1 delivered | A604-02 | Milestone 1 (inventory, source classification, exact missing-artifact requests N1–N7) is done. Milestones 2–5 need the artifacts. | Artifacts N1–N4 in [`NATIVE-RECOVERY-INVENTORY.md`](NATIVE-RECOVERY-INVENTORY.md). **F01 now blocks F03/F04/F05 integration too.** |
 | **F02** | Signing identity is a shared public development fixture (`CN=Android Debug`). | **OPEN** | REL-01 | A deliberate production signer with exclusive custody and a tested existing-user transition. | F01. Explicitly **not** in scope now; no silent key replacement. |
-| **F03** | Generated-answer validation does not enforce truthful or safe output. The actual 604 parser accepted 5 of 7 injected strings. | **CONTAINED at source level — integration BLOCKED** | A605-02 | Done at source: personal facts render only from typed facts bound to source ID, revision, approved field and authority; the supported surface admits only deterministic renderings; validation precedes display, persistence, receipts and later model context. the answer-boundary suite, part of a 484-assertion candidate total, including all 7 original probe strings and a source-backed contradiction. **Still needed:** integration into a running candidate, and adversarial evaluation against a real model. | Executable integration — see F01. Module 958's parser is **not** repaired; this is containment, not semantic verification. |
+| **F03** | Generated-answer validation does not enforce truthful or safe output. The actual 604 parser accepted 5 of 7 injected strings. | **CONTAINED at source level — integration BLOCKED** | A605-02 | Done at source: personal facts render only from typed facts bound to source ID, revision, approved field and authority; the supported surface admits only deterministic renderings; validation precedes display, persistence, receipts and later model context. the answer-boundary suite, part of a 507-assertion candidate total, including all 7 original probe strings and a source-backed contradiction. **Still needed:** integration into a running candidate, and adversarial evaluation against a real model. | Executable integration — see F01. Module 958's parser is **not** repaired; this is containment, not semantic verification. |
 | **F05** | A mixed urgent-symptom + "check-in" request is persisted as an ordinary wellness reply, with zero model calls. | **REPAIRED at source level — integration BLOCKED** | A605-01 | Done at source: a risk screen runs before every wellness shortcut; 8 mixed-intent rows measured EN/ES, baseline-failing and candidate-passing, with a no-false-positive control. **Still needed:** integration, service-level assertions against the actual DailyService, and **qualified clinical review of the EN/ES escalation copy — a patient-release gate that is not met.** | Executable integration (F01); clinician review. |
 | **F06** | Native vault/recovery durability is unestablished; one unconfirmed stale-completion race hypothesis from decompiled code. | **BLOCKED** | A606-01 | Reproduce against actual DEX/native execution with synthetic data before treating the race as real; plus the wider upgrade/attachment/recovery matrix. | F01. Decompiler output is not conclusive source. |
 
@@ -55,26 +55,31 @@ a parser repair. F06 remains an **unreproduced** native race hypothesis.
 | ID | Finding | Disposition | Evidence |
 | --- | --- | --- | --- |
 | **SP-CI-01** | Actions were pinned by SHA but runtimes were selectors, so the remote resolved Python 3.12.14 / Node 22.23.2 while a local run used 22.22.2. | **FIXED** | Runtimes pinned explicitly; the checker now records the versions that actually executed, because a selector is a request, not evidence. |
-| **SP-CI-02** | Injected results showed `NOT_APPLICABLE` or `PASS` with scope 1 and nothing inspected yielding overall PASS. | **FIXED** | Reproduced exactly against current code first. Registration, status and coverage are now enforced centrally in `validate_results`. 27 controls, including legitimate empty-scope positives. The prior CI run did inspect files; this does not invalidate its results. |
+| **SP-CI-02** | Injected results showed `NOT_APPLICABLE` or `PASS` with scope 1 and nothing inspected yielding overall PASS. | **FIXED** | Reproduced exactly against current code first. Registration, status and coverage are now enforced centrally in `validate_results`. 33 controls, including legitimate empty-scope positives. The prior CI run did inspect files; this does not invalidate its results. |
 | **SP-CHAT-01** | A stored `date: "2026-99-99"` rendered to the user as a check-in date; returned bindings omitted the date. | **FIXED** | Real calendar validation incl. leap years. The stored record is **not** corrected — an impossible value is a finding about that record. The date is now bound like any displayed claim (five bindings, not four). |
 | **SP-CHAT-02** | `selection: [null]` threw a `TypeError` while reading `.id`. | **FIXED** | Entries validated and unusable ones dropped. Twelve malformed shapes yield the honest select reply with no throw and no diagnostic leakage; a usable record among malformed entries is still honoured. |
 | **SP-CHAT-03** | Literal `Reflect` returned the limitation route. | **PREMISE DISPROVED, real defect found and FIXED** | Traced to the UI first: quick actions dispatch `send(a.slice(4))` on `ask:` payloads, and `Reflect` is **not** one. The three real payloads are `Explain my check-in`, `Help me choose a step today`, `Who is Pocket LUCA AI?` — and **two of the three fell to the limitation reply**, so the app answered its own buttons with "I cannot answer that". All three now route correctly, EN and ES. |
 | **SP-DOC-01** | Operative docs mixed stale statements; the routing contract still showed candidate `null` outcomes. | **FIXED** | Matrix regenerated from measured behaviour across 37 rows; router header corrected. No candidate row is `null`. |
 | **SP-INT-01** | Candidate modules were never bound to the actual host; a fixture could supply allowed renderings. | **MEASURED — does not fit** | The frozen donor asserts 2 functions with function 1 named `fastGuided`. The candidate compiles to **26**, function 1 being the bundle IIFE. Hermes 0.12.0 also rejects ES6 `class`. Nothing was weakened to force a fit. See [host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md). |
 
-### Sprint-01 audit slice (AND-01) and independent review of `6126903`
+### Sprint-01 audit slice (AND-01) and the independent reviews
 
-The audit slice raised AUD-01…AUD-10 against this repository's own candidate and
-documentation. The independent reviewer of commit `6126903` raised NB1…NB10 as
-non-blocking hardening items on top of an APPROVE verdict. Both sets are recorded
-here rather than in a side document.
+The audit slice raised nine findings against this repository's own candidate and
+documentation. They are numbered AUD-01…AUD-05 and AUD-07…AUD-10: **there is no
+AUD-06.** It was withdrawn during the slice and the numbering was not closed up,
+so an earlier "AUD-01…AUD-10" implied a finding that does not exist (NBR-10).
+
+The independent reviewer of commit `6126903` raised NB1…NB10 as non-blocking
+hardening items on top of an APPROVE verdict, and the reviewer of `4f49ba8`
+raised NBR-1…NBR-10 the same way. All three sets are recorded here rather than in
+a side document.
 
 | ID | Finding | Disposition | Evidence |
 | --- | --- | --- | --- |
 | **AUD-01** | `undefined !== undefined` is false, so a record and an authority that BOTH omitted the epoch and permission revision compared equal, and a claim rendered with no authority binding. | **FIXED** | Absence rejected before equality (`AUTHORITY_UNBOUND`). Independently re-raised by the reviewer as NB6, confirmed pre-existing at the published base `5d48426`, so not a regression. |
 | **AUD-02** | The reply asserted "you recorded no aspect ratings" when the aspects existed but were unapproved or unbindable — an affirmative false statement about the user's own data. | **FIXED** | `renderCheckinAnswer` now distinguishes unanswered from unavailable; the step suffix names only aspects actually rendered. Independently re-raised as NB7. |
 | **AUD-03** | The A/B donor recommendation was stated before the constraint set had been read in full. | **WITHDRAWN** | The full `hbc_inline.py` constraint table is now recorded. The recommendation is withheld pending a `normalize()` measurement. |
-| **AUD-04** | Build 604's shipped `fast-guided.js` parses the prompt envelope with no guards, while its own harness asserts the structure before parsing — so the gap is invisible to the 34 passing host cases. | **FIXED at source — integration BLOCKED** | Measured: seven of eight malformed prompts leave the frozen helper by exception, one parses the wrong region. Guards moved to `candidate/a605/host-envelope.mjs`; the frozen helper is not edited. Contract §3.1. |
+| **AUD-04** | Build 604's shipped `fast-guided.js` parses the prompt envelope with no guards, while its own harness asserts the structure before parsing — so the gap is invisible to the 34 passing host cases. | **FIXED at source — integration BLOCKED** | Measured across nine rows: seven leave the frozen helper by exception; the remaining malformed row is accepted only because an absent header made the unguarded slice coincide with the envelope. Guards moved to `candidate/a605/host-envelope.mjs`; the frozen helper is not edited. Contract §3.1. |
 | **AUD-05** | `FEATURE-STATUS.md` lacked a header stating its evidence basis, and carried no Sprint-01 rows. | **FIXED** | Header plus per-claim Sprint-01 rows. |
 | **AUD-07** | The disposable-copy requirement was practice, not a recorded reason. | **FIXED** | Recorded: `lifecycle/tests/run.py` writes evidence inside its own source tree, so running it against the tracked tree would damage the frozen reference. |
 | **AUD-08** | Longest-prefix classification sent nested `evidence/` trees to authored-source treatment. | **FIXED** | Seven classification rules plus `check_evidence_not_authored`, which immediately caught a path the audit itself had missed. All 945 evidence paths now resolve to `retained-evidence`. |
@@ -89,6 +94,38 @@ here rather than in a side document.
 | **NB8** | `approvedFields.includes()` and `fields[...]` trusted caller-supplied object semantics: an overridden `includes()` bypassed the approval gate and a prototype-supplied value was rendered. | **FIXED** | Read structurally (`Array.isArray` + `some`, `hasOwnProperty`). Outside the realistic threat model — the boundary should not depend on that. |
 | **NB9** | The host wrapper discarded `append_plans`' report, so its output omitted the frozen builder's own labels. | **FIXED** | No assertion was lost — they are report fields. The wrapper now carries them, and the run is byte-identical and differs from the historical release record in exactly one leaf field, `ui.path`. |
 | **NB10** | `STATUS.md` was dated 2026-09-17 while carrying 18 September content. | **FIXED** | Date corrected. |
+
+### Independent review of `4f49ba8` — NBR-1…NBR-10
+
+**APPROVE WITH FINDINGS, zero blocking.** The reviewer reproduced the nine-row
+frozen-helper table exactly, re-ran the host reproduction to the same
+`30be9989…`, independently re-ran the 34 host cases against **their own**
+reproduced bundle (34/34), confirmed the deep report diff is 48,719 leaves per
+side with exactly one difference, and confirmed every NB1–NB5 reversion claim
+including NB4's exact `AttributeError`. It verified the AUD-08 reclassification
+is not laundering: all 21 moved files sit under literal `evidence/` directories,
+all parse cleanly, none gained a defect registration, and zero files entered
+`authored-source`.
+
+Two findings refuted **published claims** and are the reason this commit was not
+called reviewed until they were fixed.
+
+| ID | Finding | Disposition |
+| --- | --- | --- |
+| **NBR-1** | `routeHostPrompt` was **not total**. `= {}` is a default parameter, firing only on `undefined`; destructuring `null` threw — and `null` is what a host bridge passes for an absent optional. The contract claimed totality. Every hostile case passed `undefined`, so the axis was untested. | **FIXED** — `?? {}`, plus 11 option shapes asserted. Reverting reproduces the throw. |
+| **NBR-2** | The `BUILD-AND-TEST.md` result table was four rows stale and missing the `evidence-not-authored-source` row, while **this matrix listed AUD-09 as "counts reconciled"**. The table is the artifact AUD-09 is about. | **FIXED** — the table is now transcribed from a live run, and the drift is stated in place so the next hand edit is discouraged. |
+| **NBR-3** | The prototype-`user` control **could not fail**. A `__proto__` key in JSON becomes an own property, so guarded and unguarded reads agree; the assertion passed for the wrong reason. | **FIXED** — the control now pollutes `Object.prototype` and restores it. Reverting the guard fails 2 assertions. |
+| **NBR-4** | The §3.1 summary said one row "parses the wrong region", which no measured row does — the row that parses the wrong region throws and is already inside the seven. The prose contradicted its own table. | **FIXED** — corrected in the contract, this matrix and the record, with the error stated rather than quietly rewritten. |
+| **NBR-5** | NB8 was **partially applied**. `selection.find()` still trusted caller semantics: a non-array with a forged `find()` admitted an arbitrary record, and `approvedFields`/`revision`/authority were prototype-traversing reads. The comment claiming "both are now read structurally" overstated completeness. | **FIXED** — array-checked identity scan, own-property gates on the lookup fields, own-property authority reads. A record that merely *omits* its authority still gets the precise `AUTHORITY_UNBOUND` rather than being collapsed into `UNKNOWN_SOURCE`. |
+| **NBR-6** | NB1 closed the empty-**registry** hole; the empty-**scope** sibling stayed open. A full registry of `PASS 0/0` still aggregated to a green run that inspected nothing, and every check derives its scope from the classification file. | **FIXED** — `CheckSpec.min_scope`, declared on the twelve checks that must never be empty here. Reverting flips 3 controls to PASS. |
+| **NBR-7** | The "manufactures no bindings" control **did not discriminate** — unbound facts are refused downstream, so it passed whether or not the adapter forwarded them. | **FIXED** — the control now puts *fully bound* records in the envelope, so only the adapter's refusal keeps them refused. Reverting fails 6 assertions. |
+| **NBR-8** | NB3's promotion of `candidate-changes-valid` to `COVERAGE_FULL` is **inert**, not stronger: it sets `examined = expected` unconditionally. | **FIXED** — the rationale now says so instead of claiming an improvement it does not make. |
+| **NBR-9** | The review record lived only in this matrix, while `docs/workflow/` — the ledger `CLAUDE.md` designates — still said no review had been obtained and showed `origin` at `edd43bd`. | **FIXED** — reviewed-SHA ledger added to `STATUS.md`; `HANDOFF.md` reconciled. |
+| **NBR-10** | Three minor items: one guard replaces a 604 *success* rather than a failure and was presented as pure hardening; **`AUD-06` does not exist** though the numbering implied it; `WRAPPER-RESULT.json` was not ignored though it provably carries an absolute local path. | **FIXED** — divergence stated in §3.1, the numbering gap recorded above, the output files ignored. |
+
+**On NBR-1 and NBR-5 specifically:** both are cases where the code was narrower
+than the claim written about it. The defect was not only the missing guard but
+the assertion of a property that had not been tested on the axis where it failed.
 
 **The reviewer's process caveat is recorded and was correct.** Review began on a
 clean tree at `6126903`; a writer then modified 12 files on the same paths during

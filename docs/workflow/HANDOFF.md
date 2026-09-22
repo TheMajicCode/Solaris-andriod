@@ -5,12 +5,12 @@
 | Item | Value |
 | --- | --- |
 | Branch | `claude/solaris-android-import-iyla4d` |
-| Local HEAD | `5a3d4ad` |
-| `origin` HEAD | `edd43bd` — behind local; push authorized once review passes |
+| `origin` HEAD | `4f49ba8` — pushed |
 | Repository visibility | **Public** — public continuation authorized 18 Sep 2026 |
-| PR #1 | Open, draft, unmerged, still showing `edd43bd` |
-| Remote CI on local work | **BLOCKED**, not passed |
-| Independent review | **NOT obtained** — commissioned review failed on a rate limit |
+| PR #1 | Open, draft, **unmerged**, showing `4f49ba8` |
+| Remote CI | **PASS** on `6126903` and on `4f49ba8`, push and pull_request runs both |
+| Independent review | **APPROVE WITH FINDINGS** on `6126903`, then on `4f49ba8` |
+| Findings from the `4f49ba8` review | 0 blocking, 10 non-blocking (NBR-1…NBR-10), all addressed |
 
 ## No owner action is blocking
 
@@ -40,9 +40,9 @@ the outgoing range is inspected.
 python3 -m pip install --require-hashes --no-deps -r tools/requirements.txt
 python3 tools/tests/test_repo_check.py     # 27 negative controls
 python3 tools/tests/test_js_parse_modes.py # 11 parse-mode controls
-python3 tools/tests/test_result_aggregation.py # 27 aggregation controls
+python3 tools/tests/test_result_aggregation.py # 33 aggregation controls
 python3 tools/repo-check.py                # 14 checks
-node candidate/tests/run-all.mjs           # 484 assertions
+node candidate/tests/run-all.mjs           # 507 assertions
 ```
 
 If `frozen-integrity` fails, **stop** — imported bytes have drifted, which is a

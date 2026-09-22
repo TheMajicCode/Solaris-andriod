@@ -36,11 +36,12 @@ PASSED = 0
 FAILURES: list[str] = []
 
 
-def _spec(name, status, expected, examined, coverage=COVERAGE_NONZERO, allows_na=False):
+def _spec(name, status, expected, examined, coverage=COVERAGE_NONZERO, allows_na=False,
+          min_scope=0):
     def fn(_ctx, _n=name, _s=status, _e=expected, _x=examined):
         return CheckResult(_n, 'synthetic result injection', _s,
                            files_expected=_e, files_examined=_x)
-    return CheckSpec(name, fn, coverage, allows_not_applicable=allows_na)
+    return CheckSpec(name, fn, coverage, allows_not_applicable=allows_na, min_scope=min_scope)
 
 
 def overall(specs) -> dict:
@@ -154,6 +155,30 @@ def main() -> int:
     case('a boolean examined count against an integer scope',
          (_spec('json-parse', 'PASS', 5, True, COVERAGE_NONZERO),), 'FAIL')
 
+    print('\nNBR-6 — an emptied scope is not an empty success:')
+    # NB1 closed the empty-REGISTRY case. This is the empty-SCOPE sibling: every
+    # check derives files_expected from SOURCE-CLASSIFICATION.json, so
+    # reclassifying a check's paths out of scope zeroes it. Before min_scope, a
+    # full registry of PASS 0/0 results aggregated to a green run that inspected
+    # nothing — exactly the shape AGENTS.md calls a FAILURE.
+    case('a declared-floor check whose scope was emptied',
+         (_spec('json-parse', 'PASS', 0, 0, COVERAGE_FULL, min_scope=1),), 'FAIL')
+    case('a whole registry of emptied scopes',
+         tuple(_spec(n, 'PASS', 0, 0, COVERAGE_FULL, min_scope=1)
+               for n in ('json-parse', 'python-syntax', 'doc-links')), 'FAIL')
+    case('an emptied scope reported NOT_APPLICABLE is still a failure',
+         (_spec('candidate-regression-tests', 'NOT_APPLICABLE', 0, 0,
+                COVERAGE_FULL, allows_na=True, min_scope=1),), 'FAIL')
+    case('a scope above its floor passes',
+         (_spec('json-parse', 'PASS', 3, 3, COVERAGE_FULL, min_scope=1),), 'PASS')
+    # A check already FAILING is not additionally penalised for a small scope:
+    # the failure is the signal, and a duplicate violation would only be noise.
+    case('a failing check is not re-flagged for its scope',
+         (_spec('json-parse', 'FAIL', 0, 0, COVERAGE_FULL, min_scope=1),), 'FAIL')
+    # No floor declared means the old behaviour, which the positives below pin.
+    case('a check with no declared floor may have an empty scope',
+         (_spec('yaml-parse', 'PASS', 0, 0, COVERAGE_FULL),), 'PASS')
+
     print('\nLegitimate positives — these must NOT be broken by the rule:')
     case('NOT_APPLICABLE with a genuinely empty optional scope',
          (_spec('candidate-regression-tests', 'NOT_APPLICABLE', 0, 0, allows_na=True),), 'PASS')
@@ -165,9 +190,12 @@ def main() -> int:
          (_spec('frozen-integrity', 'PASS', 5, 3, COVERAGE_NONZERO),), 'PASS')
     case('FAIL is reported as FAIL',
          (_spec('json-parse', 'FAIL', 5, 5, COVERAGE_FULL),), 'FAIL')
-    # NB3: three checks were declared NONZERO but achieve full coverage. They
-    # are now COVERAGE_FULL, which is strictly stronger; these confirm the
-    # promotion does not fail a legitimate complete run.
+    # NB3: three checks were declared NONZERO but achieve full coverage. They are
+    # now COVERAGE_FULL. NBR-8: that is strictly stronger for frozen-integrity
+    # and candidate-regression-tests, but INERT for candidate-changes-valid,
+    # which sets files_examined = files_expected unconditionally, so
+    # examined != expected is unreachable there. Recorded rather than claimed as
+    # an improvement it is not. These confirm no legitimate complete run fails.
     for promoted in ('frozen-integrity', 'candidate-changes-valid'):
         case(f'{promoted} passing at complete coverage',
              (_spec(promoted, 'PASS', 9, 9, COVERAGE_FULL),), 'PASS')

@@ -58,6 +58,13 @@ class CheckSpec:
     # NOT_APPLICABLE is only ever legitimate for a genuinely empty optional
     # scope. A check with work to do may never report it.
     allows_not_applicable: bool = False
+    # NBR-6: closing the empty-REGISTRY hole left the empty-SCOPE hole open. A
+    # check whose scope is derived from SOURCE-CLASSIFICATION.json can be zeroed
+    # by reclassifying its paths, and `PASS` with expected == 0 was accepted, so
+    # a green run could again inspect nothing. A check that must always have
+    # files in this repository declares its floor here; a run that drops below it
+    # fails rather than reporting an empty success.
+    min_scope: int = 0
 
 
 @dataclass
@@ -617,21 +624,21 @@ def check_candidate_tests(ctx: Context) -> CheckResult:
 
 # The registry. Every entry must produce exactly one well-formed result.
 CHECK_SPECS = (
-    CheckSpec('classification-complete', check_classification, COVERAGE_FULL),
+    CheckSpec('classification-complete', check_classification, COVERAGE_FULL, min_scope=1),
     # NB3: any unhashed path already forces FAIL, so examined < expected can only
     # co-occur with a failure. COVERAGE_FULL is strictly stronger here.
-    CheckSpec('frozen-integrity', check_frozen_integrity, COVERAGE_FULL),
-    CheckSpec('candidate-changes-valid', check_candidate_changes, COVERAGE_FULL),
-    CheckSpec('excluded-path-policy', check_excluded_paths, COVERAGE_FULL),
-    CheckSpec('build-input-exceptions', check_gitignore_exceptions, COVERAGE_FULL),
-    CheckSpec('evidence-not-authored-source', check_evidence_not_authored, COVERAGE_FULL),
-    CheckSpec('json-parse', check_json, COVERAGE_FULL),
+    CheckSpec('frozen-integrity', check_frozen_integrity, COVERAGE_FULL, min_scope=1),
+    CheckSpec('candidate-changes-valid', check_candidate_changes, COVERAGE_FULL, min_scope=1),
+    CheckSpec('excluded-path-policy', check_excluded_paths, COVERAGE_FULL, min_scope=1),
+    CheckSpec('build-input-exceptions', check_gitignore_exceptions, COVERAGE_FULL, min_scope=1),
+    CheckSpec('evidence-not-authored-source', check_evidence_not_authored, COVERAGE_FULL, min_scope=1),
+    CheckSpec('json-parse', check_json, COVERAGE_FULL, min_scope=1),
     CheckSpec('yaml-parse', check_yaml, COVERAGE_FULL),
-    CheckSpec('python-syntax', check_python_syntax, COVERAGE_FULL),
-    CheckSpec('javascript-syntax-authored', check_js_authored, COVERAGE_FULL),
-    CheckSpec('javascript-parse-evidence', check_js_evidence, COVERAGE_FULL),
-    CheckSpec('doc-links', check_doc_links, COVERAGE_FULL),
-    CheckSpec('secret-pattern-scan', check_secret_patterns, COVERAGE_FULL),
+    CheckSpec('python-syntax', check_python_syntax, COVERAGE_FULL, min_scope=1),
+    CheckSpec('javascript-syntax-authored', check_js_authored, COVERAGE_FULL, min_scope=1),
+    CheckSpec('javascript-parse-evidence', check_js_evidence, COVERAGE_FULL, min_scope=1),
+    CheckSpec('doc-links', check_doc_links, COVERAGE_FULL, min_scope=1),
+    CheckSpec('secret-pattern-scan', check_secret_patterns, COVERAGE_FULL, min_scope=1),
     # The only optional scope: with no candidate source tracked at all, there is
     # genuinely nothing to run. check_candidate_tests still fails when candidate
     # files exist but are declassified.
@@ -696,6 +703,10 @@ def validate_results(results: list[CheckResult], specs=CHECK_SPECS) -> list[str]
             if examined > expected:
                 violations.append(f'{name}: examined {examined} files but only '
                                   f'{expected} were in scope')
+            if expected < spec.min_scope and result.status != FAIL:
+                violations.append(f'{name}: {expected} files in scope but at least '
+                                  f'{spec.min_scope} are required; a scope that has been '
+                                  'emptied is a FAILURE, not an empty success')
             if result.status == NOT_APPLICABLE:
                 if not spec.allows_not_applicable:
                     violations.append(f'{name}: reported NOT_APPLICABLE, which this check '

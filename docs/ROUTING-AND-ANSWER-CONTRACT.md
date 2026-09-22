@@ -97,10 +97,14 @@ Measured against the frozen helper, loaded unmodified into a scratch harness
 | `user` is a number | `TypeError: envelope.user.toLowerCase is not a function` |
 | Well-formed control | Answers normally |
 
-**What this does and does not establish.** It establishes that seven of eight
-malformed prompts leave `fastGuided` by an exception rather than by its
-documented `null`-or-result contract, and that one leaves it with the wrong
-region of the string parsed as the envelope. It does **not** establish that the
+**What this does and does not establish.** It establishes that seven of the nine
+rows leave `fastGuided` by an exception rather than by its documented
+`null`-or-result contract. The remaining malformed row is accepted only because
+the header was absent, so with `cut === -1` the unguarded `slice(0, -10)`
+coincided with the whole envelope. (An earlier version of this paragraph said
+that row parsed "the wrong region" — that was wrong, and it contradicted the
+table directly above it. Parsing the wrong region is what the *first* row does,
+and that row throws, so it is already inside the seven.) It does **not** establish that the
 604 caller then dispatches the model: the caller's exception path is native and
 is not in this source projection. The honest statement is that the outcome at
 this seam is **unbounded** — `IMPLEMENTATION.md` defines `null` and a result
@@ -121,8 +125,17 @@ The guards are owned by the integration instead, in
 | own-property `user`, `typeof === 'string'` | `envelope-user-is-not-a-string` | a `TypeError` |
 
 Every rejection resolves to the deterministic limitation reply with
-`modelCallsRequired: 0` and a named `envelopeError`. `routeHostPrompt` is total:
-for every input it returns an object, never throws and never returns `null`.
+`modelCallsRequired: 0` and a named `envelopeError`. `routeHostPrompt` is total
+in **both** arguments: for every prompt and every options value — including
+`null`, which a host bridge is likely to pass for an absent optional — it returns
+an object, never throws and never returns `null`.
+
+> **One guard is stricter than 604, not merely safer.** The newline guard rejects
+> a header-less prompt that the frozen helper answers *correctly* (table row 2).
+> Every other guard replaces a crash; this one replaces a success. It is kept
+> because such a prompt is not a valid 604 prompt — it carries no locale
+> directive, so its reply language would be a guess — but the divergence is
+> stated rather than presented as a pure improvement.
 
 **The adapter manufactures no bindings.** The 604 envelope carries
 `facts[i].fields` and `task.sourceRefs[i].id`, but no `revision`, no

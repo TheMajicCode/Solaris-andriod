@@ -80,3 +80,9 @@ node_modules/
 !/Solaris-Android-Reconstruction/build-inputs/packaged-dependencies.json
 !/Solaris-Android-Reconstruction/build-inputs/ui-toolchain/package.json
 !/Solaris-Android-Reconstruction/build-inputs/ui-toolchain/package-lock.json
+
+# NBR-10: host reproduction output. The wrapper writes only to its argv output
+# directory and refuses an existing one, so this is latent rather than live —
+# but the file provably contains an absolute local path and this repo is public.
+WRAPPER-RESULT.json
+candidate604.hbc

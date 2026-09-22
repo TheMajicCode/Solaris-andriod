@@ -68,8 +68,8 @@ Local. Remote CI runs on the pushed head.
 | `tools/repo-check.py` | PASS — 14 checks |
 | `tools/tests/test_repo_check.py` | PASS — 27 negative controls |
 | `tools/tests/test_js_parse_modes.py` | PASS — 11 parse-mode controls |
-| `tools/tests/test_result_aggregation.py` | PASS — 27 aggregation controls |
-| `candidate/tests/run-all.mjs` | PASS — 484 assertions |
+| `tools/tests/test_result_aggregation.py` | PASS — 33 aggregation controls |
+| `candidate/tests/run-all.mjs` | PASS — 507 assertions |
 | **604 host bundle reproduction** | **PASS — byte-identical `30be9989…`** |
 | Original 34 host cases on the reproduced bundle | **PASS — 34/34** |
 | Original 10 lifecycle cases on the reproduced bundle | **PASS — 10/10** |
@@ -85,6 +85,25 @@ native source build, no APK. Desktop Hermes is not a phone. The historical 30–
 second waits are untouched.
 
 ## Independent review
+
+**Reviewed SHAs and scope — this is the ledger `CLAUDE.md` points to.** NBR-9
+found the review record lived only in `AUDIT-FINDINGS-MATRIX.md` while this file
+still said no review existed. Recorded here now.
+
+| Reviewed SHA | Scope | Verdict | Findings |
+| --- | --- | --- | --- |
+| `1b33e60` | full candidate tree | APPROVE WITH FINDINGS | 4 blocking (B1–B4), all reproduced then fixed |
+| `6126903` | full tree at that commit | APPROVE WITH FINDINGS | 0 blocking, 10 non-blocking (NB1–NB10) |
+| `4f49ba8` | delta `6126903..4f49ba8` | APPROVE WITH FINDINGS | 0 blocking, 10 non-blocking (NBR-1…NBR-10) |
+
+The `6126903` reviewer also raised a **process** finding: a writer modified files
+on the reviewed paths during the review, contrary to this repository's
+one-writer-per-path rule. Correct, and recorded. The `4f49ba8` review confirmed a
+clean tree at both start and end.
+
+Independent AI review is real evidence. It is **not** an enforced GitHub approval
+from a second eligible account and is never presented as one.
+
 
 Review of `1b33e60` returned **APPROVE WITH FINDINGS**, with four blocking items.
 All four were reproduced independently before being fixed:
@@ -133,10 +152,14 @@ account, and is not presented as one.
   all open. See `AUDIT-FINDINGS-MATRIX.md`.
 - No security, dependency, CVE or license audit exists. No repository license is
   set. No artifact release exists.
-- Remote CI has not run on any commit after `edd43bd`.
-- Independent review of the current candidate has **not** been obtained. A review
-  of `c57c0b2` does not cover `edd43bd` or later, and must not be reused. The
-  review commissioned for `8db241b` terminated on a session rate limit.
+- Remote CI has run and passed on `6126903` and on `4f49ba8`, on both the
+  `push` (branch head) and `pull_request` (synthetic merge) events. The branch
+  head and the synthetic merge commit are different objects and are recorded
+  separately.
+- Independent review **has** been obtained for the current candidate, at two
+  exact SHAs. Earlier statements here that no review existed described the
+  `edd43bd`/`8db241b` era and are superseded. A review of `c57c0b2` still does
+  not cover later work and must not be reused.
 - A self-review of `8db241b` found and fixed three risk-screen gaps where a
   clinical request fell through to open generation rather than the bounded
   out-of-scope reply (`M9`–`M13`). Self-review is recorded as such and does not

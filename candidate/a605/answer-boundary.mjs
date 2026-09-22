@@ -47,16 +47,41 @@ export class AnswerRejected extends Error {
  * its category is enabled.
  */
 export function buildTypedFact(selection, authority, ref) {
-  const source = selection.find((s) => s.id === ref.sourceId);
+  // NBR-5: `selection.find(...)` trusted the caller's object semantics exactly as
+  // `approvedFields.includes(...)` once did — a non-array with a forged `find()`
+  // returned an arbitrary record and it was admitted. The record lookup is the
+  // first gate, so it is scanned structurally rather than through a method the
+  // caller can supply.
+  if (!Array.isArray(selection)) {
+    throw new AnswerRejected(REJECT.UNKNOWN_SOURCE, 'selection is not an array');
+  }
+  let source;
+  for (const entry of selection) {
+    if (entry && typeof entry === 'object'
+        && Object.prototype.hasOwnProperty.call(entry, 'id') && entry.id === ref.sourceId) {
+      source = entry;
+      break;
+    }
+  }
   if (!source) throw new AnswerRejected(REJECT.UNKNOWN_SOURCE, ref.sourceId);
+  // The identity and approval gates must read the record's OWN properties, never
+  // inherited ones. The authority binding is deliberately NOT in this list: a
+  // record that simply omits it must still be rejected as AUTHORITY_UNBOUND,
+  // which is a different and more precise statement than "unknown source".
+  for (const own of ['revision', 'approvedFields', 'fields']) {
+    if (!Object.prototype.hasOwnProperty.call(source, own)) {
+      throw new AnswerRejected(REJECT.UNKNOWN_SOURCE, `${ref.sourceId} lacks own ${own}`);
+    }
+  }
   if (source.revision !== ref.revision) {
     throw new AnswerRejected(REJECT.STALE_REVISION, `${ref.sourceId}@${ref.revision} != ${source.revision}`);
   }
   // NB8: `approvedFields.includes(...)` and `fields[...]` trusted caller-supplied
   // object semantics. An overridden `includes()` returning true bypassed the
   // approval gate, and a value reachable only through the prototype chain was
-  // read and rendered. Both are now read structurally, matching the care already
-  // taken on the fields lookup below.
+  // read and rendered. Both are now read structurally. NBR-5 extended the same
+  // treatment upward to the record lookup and to every field these gates read;
+  // the earlier claim that NB8 alone made this complete was wrong.
   const approved = source.approvedFields;
   if (!Array.isArray(approved) || !approved.some((f) => f === ref.field)) {
     throw new AnswerRejected(REJECT.FIELD_NOT_APPROVED, `${ref.sourceId}.${ref.field}`);
@@ -75,15 +100,23 @@ export function buildTypedFact(selection, authority, ref) {
   // then be displayed, persisted and receipted carrying no authority binding at
   // all — the exact failure the contract's "every typed fact is bound" rule
   // exists to prevent. Absence is now rejected before equality is considered.
+  // NBR-5: read as own properties so an inherited epoch cannot bind a claim,
+  // while a record that omits them still gets the precise AUTHORITY_UNBOUND.
+  const ownNumber = (object, key) => (
+    object && typeof object === 'object' && Object.prototype.hasOwnProperty.call(object, key)
+      ? object[key] : undefined);
   const bound = (value) => Number.isInteger(value);
-  if (!bound(authority.epoch) || !bound(authority.permissionRevision)) {
+  const authorityEpoch = ownNumber(authority, 'epoch');
+  const authorityRevision = ownNumber(authority, 'permissionRevision');
+  const sourceEpoch = ownNumber(source, 'authorityEpoch');
+  const sourceRevision = ownNumber(source, 'permissionRevision');
+  if (!bound(authorityEpoch) || !bound(authorityRevision)) {
     throw new AnswerRejected(REJECT.AUTHORITY_UNBOUND, 'authority carries no epoch/permissionRevision');
   }
-  if (!bound(source.authorityEpoch) || !bound(source.permissionRevision)) {
+  if (!bound(sourceEpoch) || !bound(sourceRevision)) {
     throw new AnswerRejected(REJECT.AUTHORITY_UNBOUND, `${ref.sourceId} carries no authority binding`);
   }
-  if (source.authorityEpoch !== authority.epoch
-      || source.permissionRevision !== authority.permissionRevision) {
+  if (sourceEpoch !== authorityEpoch || sourceRevision !== authorityRevision) {
     throw new AnswerRejected(REJECT.AUTHORITY_CHANGED, ref.sourceId);
   }
   // Record content is DATA, never instructions and never free text. Only a value

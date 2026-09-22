@@ -291,6 +291,65 @@ export function run(t) {
   }
   t.ok('a prototype-supplied field value is not rendered', inheritedRejected);
 
+  // --- NBR-5: the record LOOKUP is a gate too -------------------------------
+  // NB8 hardened approvedFields and fields but left selection.find() and the
+  // record's own fields trusting caller semantics — the same class of defect.
+  const BOUND = {
+    id: 'source_1', revision: 1, approvedFields: ['vitality'],
+    fields: { vitality: 5 }, authorityEpoch: 0, permissionRevision: 1,
+  };
+  const AUTH = { epoch: 0, permissionRevision: 1 };
+  const REF = { sourceId: 'source_1', revision: 1, field: 'vitality' };
+  const reject = (selection, authority = AUTH, ref = REF) => {
+    try { buildTypedFact(selection, authority, ref); return null; }
+    catch (error) { return error instanceof AnswerRejected ? error.code : 'THREW_OTHER'; }
+  };
+
+  t.equal('a non-array selection with a forged find() admits nothing',
+          reject({ find: () => BOUND }), REJECT.UNKNOWN_SOURCE);
+  t.equal('a string selection admits nothing', reject('source_1'), REJECT.UNKNOWN_SOURCE);
+  t.equal('a null selection admits nothing', reject(null), REJECT.UNKNOWN_SOURCE);
+  t.equal('an array-like with a forged find() admits nothing',
+          reject({ length: 1, 0: BOUND, find: () => BOUND }), REJECT.UNKNOWN_SOURCE);
+
+  const inheritedApproval = Object.assign(
+    Object.create({ approvedFields: ['vitality'] }),
+    { id: 'source_1', revision: 1, fields: { vitality: 5 }, authorityEpoch: 0, permissionRevision: 1 });
+  t.equal('a prototype-supplied approvedFields does not approve',
+          reject([inheritedApproval]), REJECT.UNKNOWN_SOURCE);
+
+  const inheritedEpoch = Object.assign(
+    Object.create({ authorityEpoch: 0, permissionRevision: 1 }),
+    { id: 'source_1', revision: 1, approvedFields: ['vitality'], fields: { vitality: 5 } });
+  t.equal('a prototype-supplied authority binding does not bind',
+          reject([inheritedEpoch]), REJECT.AUTHORITY_UNBOUND);
+
+  const inheritedAuthority = Object.create({ epoch: 0, permissionRevision: 1 });
+  t.equal('a prototype-supplied authority object does not bind',
+          reject([BOUND], inheritedAuthority), REJECT.AUTHORITY_UNBOUND);
+
+  const inheritedId = Object.assign(Object.create({ id: 'source_1' }),
+                                    { revision: 1, approvedFields: ['vitality'],
+                                      fields: { vitality: 5 }, authorityEpoch: 0, permissionRevision: 1 });
+  t.equal('a prototype-supplied id does not match a record',
+          reject([inheritedId]), REJECT.UNKNOWN_SOURCE);
+
+  // A record that simply OMITS its authority must keep its precise code, not be
+  // collapsed into "unknown source" by the own-property gate.
+  const noAuthority = { id: 'source_1', revision: 1, approvedFields: ['vitality'],
+                        fields: { vitality: 5 } };
+  t.equal('a record omitting its authority is AUTHORITY_UNBOUND, not UNKNOWN_SOURCE',
+          reject([noAuthority]), REJECT.AUTHORITY_UNBOUND);
+
+  // No false rejections: ordinary and null-prototype records must still bind.
+  t.equal('a plain bound record still binds', buildTypedFact([BOUND], AUTH, REF).value, 5);
+  const nullProto = Object.assign(Object.create(null), BOUND);
+  nullProto.fields = Object.assign(Object.create(null), { vitality: 5 });
+  t.equal('a null-prototype record still binds',
+          buildTypedFact([nullProto], AUTH, REF).value, 5);
+  t.equal('a frozen record still binds',
+          buildTypedFact([Object.freeze({ ...BOUND })], AUTH, REF).value, 5);
+
   // --- AUD-01: a typed fact may never be bound to NO authority --------------
   // `undefined !== undefined` is false, so a source and an authority that both
   // omitted these fields used to compare equal and be accepted.

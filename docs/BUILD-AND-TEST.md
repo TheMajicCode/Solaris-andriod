@@ -58,15 +58,20 @@ pass and is never evidence of an Android build.
 
 ### Result recorded for this candidate
 
-1,952 tracked files:
+1,954 tracked files, 14 checks. Regenerated from a live run rather
+than edited by hand — NBR-2 found this table four rows stale and missing the
+`evidence-not-authored-source` row while the same commit claimed the counts were
+reconciled. A hand-maintained result table drifts; this one is transcribed from
+the run it reports.
 
 | Check | Result | Files |
 | --- | --- | --- |
-| `classification-complete` | PASS | 1952/1952 |
+| `classification-complete` | PASS | 1954/1954 |
 | `frozen-integrity` | PASS | 1881/1881 |
-| `candidate-changes-valid` | PASS | 12/12 |
-| `excluded-path-policy` | PASS | 1952/1952 |
+| `candidate-changes-valid` | PASS | 14/14 |
+| `excluded-path-policy` | PASS | 1954/1954 |
 | `build-input-exceptions` | PASS | 5/5 |
+| `evidence-not-authored-source` | PASS | 1954/1954 |
 | `json-parse` | PASS | 483/483 |
 | `yaml-parse` | PASS | 2/2 |
 | `python-syntax` | PASS | 82/82 |
@@ -77,7 +82,7 @@ pass and is never evidence of an Android build.
 | `candidate-regression-tests` | PASS | 11/11 |
 
 Overall: **PASS**. Companion suites: **27** checker negative controls,
-**11** parse-mode controls, **27** result-aggregation controls, **484** candidate
+**11** parse-mode controls, **33** result-aggregation controls, **507** candidate
 assertions — all passing.
 
 Runtime recorded by the checker for this run: Python

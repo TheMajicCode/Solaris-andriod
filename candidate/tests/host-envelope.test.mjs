@@ -114,10 +114,30 @@ export function run(t) {
   }
 
   // A `user` reachable only through the prototype chain must not be read.
-  const proto = prompt(HEADER_EN, { facts: [] })
+  // NBR-3: a `__proto__` KEY in JSON does not set the prototype — JSON.parse
+  // makes it an ordinary own property — so the obvious version of this test
+  // passed whether or not the guard existed. Polluting Object.prototype is what
+  // actually discriminates: without the hasOwnProperty guard the parse returns
+  // the polluted value as the user's message.
+  const pollutedProto = prompt(HEADER_EN, { facts: [] })
     .replace('{"facts":[]}', '{"facts":[],"__proto__":{"user":"hello"}}');
-  const inherited = parseHostPrompt(proto);
-  t.ok('a prototype-supplied user is not accepted', inherited.ok === false);
+  t.ok('a __proto__ JSON key does not supply a user', parseHostPrompt(pollutedProto).ok === false);
+
+  const descriptor = Object.getOwnPropertyDescriptor(Object.prototype, 'user');
+  try {
+    Object.defineProperty(Object.prototype, 'user',
+                          { value: 'inherited', configurable: true, writable: true });
+    const polluted = parseHostPrompt(prompt(HEADER_EN, { facts: [] }));
+    t.ok('an inherited user from a polluted prototype is not read', polluted.ok === false);
+    t.equal('prototype pollution reports the user reason',
+            polluted.reason, ENVELOPE_ERROR.USER_NOT_A_STRING);
+    t.equal('a polluted prototype does not produce an answer',
+            routeHostPrompt(prompt(HEADER_EN, { facts: [] })).kind, 'limitation');
+  } finally {
+    if (descriptor) Object.defineProperty(Object.prototype, 'user', descriptor);
+    else delete Object.prototype.user;
+  }
+  t.ok('the prototype was restored', !('user' in {}));
 
   // --- totality: every malformed input still produces a reply -------------
   const hostile = [
@@ -150,6 +170,27 @@ export function run(t) {
   t.equal('a limitation from a bad envelope still requires zero model calls',
           totalReply(null).reply.modelCallsRequired, 0);
 
+  // --- NBR-1: the OPTIONS argument is an input too ------------------------
+  // `= {}` is a default parameter: it fires only on `undefined`. Destructuring
+  // `null` threw, and `null` is exactly what a host bridge passes for an absent
+  // optional. Every hostile case above passed `undefined`, so this axis was
+  // untested while the contract claimed totality.
+  const wellFormed = prompt(HEADER_EN, { user: 'hello' });
+  let optionThrows = 0;
+  const optionShapes = [undefined, null, 0, false, '', NaN, {}, [],
+                        { selection: null }, { authority: null },
+                        { selection: null, authority: null }];
+  for (const shape of optionShapes) {
+    try { routeHostPrompt(wellFormed, shape); } catch { optionThrows += 1; }
+  }
+  t.equal('no options shape makes routeHostPrompt throw', optionThrows, 0);
+  t.equal('a null options object routes as if absent',
+          routeHostPrompt(wellFormed, null).kind, 'welcome');
+  t.equal('a null options object on a malformed prompt still replies',
+          routeHostPrompt('garbage', null).kind, 'limitation');
+  t.equal('null prompt and null options together still reply',
+          routeHostPrompt(null, null).kind, 'limitation');
+
   // --- locale is probed from the raw prompt, so it survives a bad envelope --
   t.equal('the Spanish directive is detected', localeFromPrompt(HEADER_ES), 'es');
   t.equal('no directive means en', localeFromPrompt(HEADER_EN), 'en');
@@ -172,6 +213,26 @@ export function run(t) {
   const unbound = routeHostPrompt(enveloped);
   t.equal('envelope facts alone yield no grounded answer', unbound.kind, 'checkin-select');
   t.ok('envelope facts alone bind no source', unbound.sourceRefs.length === 0);
+
+  // NBR-7: the case above is rejected downstream by the answer boundary, so it
+  // passes whether or not the adapter forwards envelope facts. This one puts
+  // FULLY BOUND records in the envelope: if the adapter forwarded them they
+  // would render, so only the adapter's refusal to forward keeps it refused.
+  const boundEnvelope = prompt(HEADER_EN, {
+    user: 'explain my check-in',
+    facts: [{
+      id: 'source_1', revision: 2,
+      approvedFields: ['vitality', 'clarity', 'balance', 'alignment', 'date'],
+      fields: { vitality: 2, clarity: 4, balance: 3, alignment: 5, date: '2026-09-16' },
+      authorityEpoch: 0, permissionRevision: 1,
+    }],
+  });
+  const notForwarded = routeHostPrompt(boundEnvelope, { authority: AUTHORITY });
+  t.equal('a fully bound envelope fact is still not used as a selection',
+          notForwarded.kind, 'checkin-select');
+  t.equal('a fully bound envelope fact cites nothing', notForwarded.sourceRefs.length, 0);
+  t.ok('a fully bound envelope fact renders no value',
+       !notForwarded.message.includes('2026-09-16'));
 
   // With a caller-supplied, fully bound selection the same prompt answers.
   const bound = routeHostPrompt(enveloped, { selection: SELECTION, authority: AUTHORITY });
