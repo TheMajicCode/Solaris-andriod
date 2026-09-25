@@ -50,7 +50,10 @@
                      ['S2R-2 checkin spelling', 'explain my checkin', {checkin: true, categories: ['questionnaires']}],
                      ['S2R-2 polite suffix', 'Show my check-in please', {checkin: true, categories: ['questionnaires']}],
                      ['S2R-2 Spanish mi check-in', 'mi check-in', {checkin: true, categories: ['questionnaires'], locale: 'es'}],
-                     ['deliberate difference: unlisted check-in question', 'how did my check-in go', {checkin: true, categories: ['questionnaires']}]];
+                     ['deliberate difference: unlisted check-in question', 'how did my check-in go', {checkin: true, categories: ['questionnaires']}],
+                     ['S2R2-1 check-in plus chest pain', 'Explain my check-in, I noted chest pain', {}],
+                     ['S2R2-1 check-in plus fainted', 'How was my check-in? I recorded that I fainted', {}],
+                     ['S2R2-1 check-in plus overdose', 'What is my check-in? My sleep is bad, I overdosed', {}]];
     for (var u of unchanged) await test('review: ' + u[0], (function(m, o){ return function(){ return route(m, o); }; })(u[1], u[2]));
     await test('control: open chat stays with the model', function(){ return route('Tell me a short story'); });
     await test('control: exact shipped form still guided', function(){ return route('Explain my check-in'); });

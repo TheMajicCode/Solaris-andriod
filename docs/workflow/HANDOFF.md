@@ -10,7 +10,7 @@
 | PR #1 | Open, draft, **unmerged** |
 | Remote CI | **PASS** on `6126903`, `4f49ba8`, `cdbf3a3` and `e0efa1d`, push and pull_request runs both |
 | Independent review | APPROVE WITH FINDINGS on `6126903`, `4f49ba8` and `cdbf3a3`. **REQUEST CHANGES** on `b2a6ba8` (S2R-1…S2R-15). |
-| Sprint-02 state | All S2R findings fixed by the integrator; **unreviewed until the re-review is recorded**. The NBR findings from `4f49ba8` were fixed in `cdbf3a3`, which the Sprint-02 review approved. |
+| Sprint-02 state | The S2R fixes were re-reviewed: one blocking finding (S2R2-1) remained, now fixed with the other S2R2 items in the commit after `9198227`. **That commit is unreviewed.** The onboarding commits and `e0efa1d` were approved, with findings. |
 
 ## No owner action is blocking
 

@@ -287,7 +287,7 @@ instead of the out-of-scope referral. Re-measured unchanged on 2026-09-25:
   escalation wording above. In particular, the reviewer must decide what a
   crisis phrasing should receive, and in which language.
 - **Build 604 and the bounded host donor:** measured at helper level
-  (2026-09-25, on the revised donor `ab7067e6…`), both return `null` for all 17
+  (2026-09-25, on the revised donor `6ae8f2ce…`), both return `null` for all 17
   requests in both locales (34 of 34 each). They therefore reach the model path,
   and the donor does not change that (see
   [host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md)).

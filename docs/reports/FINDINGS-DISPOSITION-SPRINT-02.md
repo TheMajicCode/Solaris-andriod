@@ -18,6 +18,7 @@ altered.
 | [Review of `6126903`](../reviews/2026-09-18-review-6126903.md) | `6126903` | APPROVE WITH FINDINGS | NB1–NB10 |
 | [Review of `4f49ba8`](../reviews/2026-09-22-review-4f49ba8.md) | `4f49ba8` | APPROVE WITH FINDINGS, 0 blocking | NBR-1–NBR-10 |
 | Review of `4f49ba8..b2a6ba8` (Sprint-02, below) | `cdbf3a3`, `b2a6ba8` | `cdbf3a3`: APPROVE WITH FINDINGS. `b2a6ba8`: **REQUEST CHANGES**, 3 blocking | S2R-1–S2R-15 |
+| Re-review of `b2a6ba8..9198227` (below) | `e0efa1d` … `9198227` | `e0efa1d` APPROVE; onboarding and `9198227` APPROVE WITH FINDINGS; `76b24f6` **REQUEST CHANGES**, 1 blocking | S2R2-1–S2R2-7 |
 
 **Namespacing.** The first two reviews reused the same short IDs (`B1`, `N1`…).
 They are cited here as `c57c0b2/N3`, `1b33e60/N2` and so on. The `F`, `SP`,
@@ -197,6 +198,34 @@ go back to a reviewer.
 | S2R-13 | Four kit files lacked their executable bit, not one. The lowering recipe was uncommitted. | **FIXED.** Documentation corrected; `tools/host/lower-candidate.cjs` committed; the full-router figures re-measured with it. | — |
 | S2R-14 | `EXTERNAL-AUDIT-STATUS.md` published a private repository's name, HEAD, date and file count, and the account's repository count. | **FIXED** in the document, generalised. **Not removable:** the private repository's name also appears in the already-pushed message of commit `b2a6ba8`. History is not rewritten, since that is not authorized. The owner is told. | — |
 | S2R-15 | `maintained_candidate_records[].resulting_sha256_at_record` was checked by nothing. | **FIXED.** `candidate-changes-valid` checks it, and the record's `derived_from` must be an imported file at that hash. The check fired at once on the revised donor, and the record was updated with the new proof. | Negative control plus positive; reverting fails it. |
+
+## Independent re-review of `b2a6ba8..9198227` — S2R2-1 to S2R2-7
+
+The re-review ran on the same reviewer's own reproductions. Its first attempt hit
+a usage limit and was restarted from the beginning.
+
+- **`e0efa1d`: APPROVE.**
+- **The onboarding commits and `9198227`: APPROVE WITH FINDINGS.**
+- **`76b24f6`: REQUEST CHANGES**, on one blocking finding.
+
+The reviewer confirmed that its S2R-1, S2R-2, S2R-7 and S2R-11 reproductions now
+fail on the actual host and at helper level. It also re-measured 30be9989;
+88 registers; `105ade31`; 34/34, 10/10, 8/8 and 74/74 / 69/69; the lowered-router
+figures; the UI slot boundary; and every onboarding host operation against the
+frozen `sanctuary.html`.
+
+| ID | Finding (abridged) | Disposition | Evidence |
+| --- | --- | --- | --- |
+| **S2R2-1** (blocking) | Records-select now fired on mixed clinical plus check-in messages where 604 gave its check-in reply: 168 of a 25,920-message fuzz, e.g. `Explain my check-in, I noted chest pain`. That refuted the "never more" and "model path" claims. It is not a regression against 604, which also answered them with no model call. | **FIXED.** Records-select is off wherever shipped's substring check-in rule matched, so these return `null` (the model path). Donor `6ae8f2ce…`, still 88 registers and accepted by the frozen inliner; bundle `d0e36d6e…`. | Helper: 6 assertions plus a generated-corpus property; the `76b24f6` donor fails 7. Host: 3 new cases; 32 cases, candidate 80/80, shipped 78/78; host 34/34, lifecycle 10/10, input 8/8. |
+| S2R2-2 | The wrapper's frozen-file check missed the APK decoder it runs, and ignored modules planted on the import path. | **FIXED.** Decoder prefix added; unpinned `.py` in the import directories is refused. | A planted module and a tampered decoder are both refused; the wrapper still yields `30be9989…`. |
+| S2R2-3 | A broken `transport/evil.js` external record passed; maintained `.JS`, `.ts` and `.jsx` passed. | **FIXED.** Code cannot be a frozen external record. Invariant 4 is case-insensitive and refuses ungated TypeScript/JSX. | 2 controls; each mutation fails its control. |
+| S2R2-4 | The S2R-15 `derived_from` check had no control. | **FIXED.** | 1 control; disabling the check fails it. |
+| S2R2-5 | An absent `onboardingComplete` replays chapter 1 (as host 1014 does). | **RECORDED** deviation for the owner. | `docs/onboarding/SCREEN-ACTION-MAP.md` |
+| S2R2-6 | Chapter 1 has no Back, while the contract lists one. | **RECORDED** deviation for the owner. | same |
+| S2R2-7 | The vision panel's web-product claim is unverified. | **RECORDED** under the copy-review gate (`U0-04`). | same; STATUS |
+
+These fixes are the integrator's, made after the re-review, and are
+**unreviewed** until a further review is recorded.
 
 ## Findings not reopened here
 

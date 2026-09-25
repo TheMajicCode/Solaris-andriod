@@ -206,7 +206,7 @@ independent review of `b2a6ba8` found the first versions too narrow (S2R-8):
 - The result files are git-ignored, since they carry local paths.
 
 `tools/host/probes/envelope-and-input-cases.js`: 8 cases, 8 pass on each of 603
-(`b8ac7d1b…`), 604 (`30be9989…`) and the donor candidate (`105ade31…`), with 0
+(`b8ac7d1b…`), 604 (`30be9989…`) and the donor candidate (`d0e36d6e…`), with 0
 harness errors.
 
 | Observation on the actual host | Consequence |
@@ -273,7 +273,7 @@ here.
 
 The smallest adapter that fits is built and exercised on the actual host: the
 maintained donor `candidate/a605/host-donor/fast-guided.js`, SHA-256
-`ab7067e6cf433e9a19e16a8df68fc439e42f9765d013e5c2de2cca078f89f667`. It is
+`6ae8f2ceb931350e9f32bc5b5b05ecb5a1badadc3d0b0f7dfeb2e79fc404cc09`. It is
 derived from the frozen helper (`100a7ce8…`), which is not modified.
 
 > **Revised after independent review.** The first revision (`a0224b4e…`, bundle
@@ -289,6 +289,20 @@ derived from the frozen helper (`100a7ce8…`), which is not modified.
 > `null`, as in shipped 604"; "every shipped-accepted message keeping its kind
 > and rendering") were therefore false. Both defects are fixed below, and the
 > reviewer's cases are now host cases.
+>
+> **Revised again after re-review.** The second revision (`ab7067e6…`, bundle
+> `105ade31…`, commit `76b24f6`) was re-reviewed and returned REQUEST CHANGES on
+> S2R2-1. Whole-request check-in matching had removed the shadowing that 604's
+> substring check-in rule gave the records branch. The reviewer's fuzz of
+> 25,920 messages found 168 mixed clinical and check-in messages that moved from
+> 604's check-in reply to the records-select reply, both with no model call. On
+> the host, `Explain my check-in, I noted chest pain` was one of them. That
+> refuted this page's "never more" and "takes 604's model path" claims for that
+> subclass. Records-select now also requires that shipped's check-in rule did
+> **not** match, so those messages return `null`. The claims below hold for the
+> current donor: the reviewer's three phrasings are host cases, and a
+> helper-level property over a generated corpus checks that no shipped check-in
+> reply is replaced by a different canned reply.
 
 **How it works: two texts, on purpose.**
 
@@ -336,12 +350,12 @@ reviewer's corpus plus clinical and quick-action cases, and re-checked on the ho
 | Measurement | Result |
 | --- | --- |
 | Fit (`measure-donor-fit.py`) | 2 functions, `fastGuided`, **88 registers** (inlined frame 127 at 14894, 108 at 14890), no exception handler, environment 0, no forbidden opcodes, no function-ID operands, every string in the base table. **The real frozen `inline_donor` accepted it at both sites.** |
-| Build (`build-donor-candidate.py`) | The frozen `build-plans.py` is exec'd with only its donor path replaced. That line is asserted to occur exactly once, and the plans file is pinned at `7025545b…`. Every wrapper `require()` passes. Output: `candidate604.hbc`, 30,815,560 bytes, SHA-256 `105ade31744618ab37460b3b42fe4a46bafb221f91690a1f05ff6635695b279f`. Same four changed functions, 1,936 spare UI bytes. Not byte-identical to 604, by design. |
+| Build (`build-donor-candidate.py`) | The frozen `build-plans.py` is exec'd with only its donor path replaced. That line is asserted to occur exactly once, and the plans file is pinned at `7025545b…`. Every wrapper `require()` passes. Output: `candidate604.hbc`, 30,816,156 bytes, SHA-256 `d0e36d6e5cb47c191c45320231201984a86d48e294e3897e819572dd03db09db`. Same four changed functions, 1,936 spare UI bytes. Not byte-identical to 604, by design. |
 | Original 34 host cases on the candidate bundle | **34/34** |
 | Original 10 lifecycle cases on the candidate bundle | **10/10** |
 | Envelope and input probes (above) | **8/8**, identical to 604 |
-| Donor proof, candidate bundle (`donor-proof-cases.js`, label `candidate`) | **29 cases, 74/74 expected fields match**, 0 missing, 0 harness errors |
-| Donor proof, shipped 604 bundle (label `shipped-604`) | **29 cases, 69/69 match**. Shipped reproduces F05 on the actual host for `severe chest pain during my check-in?` and for a fainting-plus-check-in request. |
+| Donor proof, candidate bundle (`donor-proof-cases.js`, label `candidate`) | **32 cases, 80/80 expected fields match**, 0 missing, 0 harness errors |
+| Donor proof, shipped 604 bundle (label `shipped-604`) | **32 cases, 78/78 match**. Shipped reproduces F05 on the actual host for `severe chest pain during my check-in?` and for a fainting-plus-check-in request. |
 
 The expectations are pre-registered in
 `tools/host/probes/donor-proof-expectations.json`:
@@ -385,7 +399,7 @@ node tools/host/lower-candidate.cjs <disposable> <new dir>                      
 python3 tools/host/measure-donor-fit.py --disposable-root <disposable> --base <603 bundle> \
         --donor <script.js> --out <new dir>
 python3 tools/host/build-donor-candidate.py --disposable-root <disposable> --bundle <603 bundle> \
-        --donor <disposable>/candidate/a605/host-donor/fast-guided.js --out <new dir>   # → 105ade31…
+        --donor <disposable>/candidate/a605/host-donor/fast-guided.js --out <new dir>   # → d0e36d6e…
 python3 tools/host/run-host-probe.py --disposable-root <disposable> --bundle <hbc> --out <new dir> \
         [--cases tools/host/probes/donor-proof-cases.js \
          --expect tools/host/probes/donor-proof-expectations.json --label candidate|shipped-604]

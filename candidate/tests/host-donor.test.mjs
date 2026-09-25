@@ -111,6 +111,35 @@ export function run(t) {
     }
   }
 
+  // --- S2R2-1: the records branch must not inherit shipped's check-in matches -
+  // In 604 the substring check-in rule shadowed records-select. With whole-request
+  // check-in matching, these fell through to "no records are selected" with no
+  // model call (re-review of 76b24f6). They must take the model path instead.
+  for (const user of ['Explain my check-in, I noted chest pain',
+                      'How was my check-in? I recorded that I fainted',
+                      'What is my check-in? My sleep is bad, I overdosed']) {
+    for (const locale of ['en', 'es']) {
+      t.equal(`shipped gave the check-in reply (${locale}): ${user}`, runBaseline(user, locale)?.kind, 'checkin-select');
+      t.equal(`donor takes the model path, not records-select (${locale}): ${user}`, runDonor(user, locale), null);
+    }
+  }
+  // Property over a generated corpus: wherever shipped answered with a check-in
+  // reply, the donor answers with that same reply or returns null. It never
+  // substitutes a different canned reply.
+  const LEADS = ['explain my check-in', 'how was my check-in', 'what is my check-in', 'show my checkin',
+                 'my check in', 'mi check-in', 'cómo está mi check-in', 'review my check-in'];
+  const TAILS = ['', '?', ', my sleep record is bad', ', I noted chest pain', ' and my habits',
+                 ' in my journal', ', I overdosed on my meds', '. I recorded that I fainted'];
+  let substituted = 0;
+  for (const lead of LEADS) for (const tail of TAILS) for (const locale of ['en', 'es']) {
+    for (const options of [undefined, selected()]) {
+      const shipped = runBaseline(lead + tail, locale, options);
+      const donor = runDonor(lead + tail, locale, options);
+      if (shipped && /^checkin/.test(shipped.kind) && donor && donor.kind !== shipped.kind) substituted += 1;
+    }
+  }
+  t.equal('no shipped check-in reply is replaced by a different canned reply', substituted, 0);
+
   // --- S2R-11: bare help keeps shipped 604 semantics exactly -----------------
   // The donor has no risk screen, so it must not turn "Please help!" into the
   // product welcome. Only the shipped exact forms are recognised.

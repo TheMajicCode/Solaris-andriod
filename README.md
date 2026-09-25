@@ -47,7 +47,7 @@ draft and unmerged. Recheck the actual branch and
 - **A bounded A605 host donor fits the frozen host and passes on it.** It covers
   the F04 punctuation and polite-wrapper fix, the F05 check-in fix, and the
   app's quick-action replies. It is built into a candidate host bundle
-  (`105ade31…`) that passes the same 34 and 10 cases, plus 29 pre-registered
+  (`d0e36d6e…`) that passes the same 34 and 10 cases, plus 32 pre-registered
   donor-proof cases. This is desktop Hermes with synthetic seams, not a phone.
   The first revision of this donor was rejected by independent review, and the
   published claims about it were corrected.

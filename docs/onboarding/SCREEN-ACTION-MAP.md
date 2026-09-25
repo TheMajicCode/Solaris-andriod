@@ -88,3 +88,22 @@ see [`HOST-TRACE.md`](HOST-TRACE.md).
   candidate never opens a questionnaire itself.
 - **The size budget.** The candidate is far over the historical HBC slot (see
   the report); integration is blocked on fit.
+
+## Known deviations from the contract (independent re-review, 2026-09-25)
+
+Recorded by the integrator. They are not fixed in this candidate:
+
+- **S2R2-5: an absent `onboardingComplete` resolves to chapter 1.** This matches
+  host 1014, but it is a possible tour replay, and the contract says "No
+  onboarding replay after an ordinary update". Before integration, decide
+  whether an unlocked state that omits the flag should route to the neutral
+  `opening` state instead.
+- **S2R2-6: chapter 1 has no Back,** although the contract lists "Continue;
+  Skip for now; Back" for it. The screen before chapter 1 is the pre-unlock
+  welcome, which the flow cannot return to while unlocked. This is intentional,
+  but it needs contract-owner sign-off.
+- **S2R2-7: the vision panel's web copy states** "It has its own sign-in; this
+  vault does not send your records to it". Nothing in this repository verifies
+  either statement about the separate Solaris web product. It stays behind the
+  same EN/ES copy review as the finish-button labels (STATUS `U0-03`, `U0-04`)
+  and must be verified or reworded before any release.

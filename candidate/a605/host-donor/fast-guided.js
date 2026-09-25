@@ -10,7 +10,11 @@
  * conditions. They therefore fire on exactly the messages they fired on in 604,
  * never more. An earlier revision normalized first, which widened those branches:
  * "Can you tell me about my sleep? I took too many pills" got a canned reply
- * where 604 took the model path.
+ * where 604 took the model path. And because 604's substring check-in rule
+ * shadowed records-select, records-select also stays off wherever that rule
+ * matched: otherwise "Explain my check-in, I noted chest pain" falls from 604's
+ * check-in reply to the records reply instead of the model path (re-review of
+ * 76b24f6, S2R2-1).
  *
  * The normalized text is used ONLY for whole-request matches, where the entire
  * message must equal an accepted form, so normalization cannot hide an extra
@@ -69,7 +73,10 @@ function fastGuided(task) {
   var question = text.indexOf('what ') === 0 || text.indexOf('how ') === 0 || text.indexOf('show ') === 0 || text.indexOf('tell ') === 0 || text.indexOf('explain ') === 0 || text.indexOf('review ') === 0 || text.indexOf('summari') === 0 || text.indexOf('my ') === 0 || text.indexOf('mi ') === 0 || text.indexOf('mis ') === 0 || text.indexOf('qué ') === 0 || text.indexOf('que ') === 0 || text.indexOf('cómo ') === 0 || text.indexOf('como ') === 0 || text.indexOf('revisa ') === 0 || text.indexOf('explica ') === 0;
   var personal = text.indexOf('my ') >= 0 || text.indexOf(' me') >= 0 || text.indexOf('mi ') >= 0 || text.indexOf('mis ') >= 0 || text === 'explain my check-in';
   var activities = question && personal && (text.indexOf('activit') >= 0 || text.indexOf('activid') >= 0 || text.indexOf('history') >= 0 || text.indexOf('historial') >= 0 || text.indexOf('recent records') >= 0);
-  var records = question && personal && (text.indexOf('record') >= 0 || text.indexOf('note') >= 0 || text.indexOf('habit') >= 0 || text.indexOf('measurement') >= 0 || text.indexOf('sleep') >= 0 || text.indexOf('journal') >= 0 || text.indexOf('registro') >= 0 || text.indexOf('hábito') >= 0 || text.indexOf('dorm') >= 0);
+  // S2R2-1: in 604 its substring check-in rule shadowed records-select. A request that
+  // rule matched but that is not an accepted form must reach the model path, not the
+  // records reply, so records-select never fires where 604 gave the check-in branch.
+  var records = question && personal && text.indexOf('check-in') < 0 && text.indexOf('check in') < 0 && text.indexOf('checkin') < 0 && text.indexOf('registro de bienestar') < 0 && (text.indexOf('record') >= 0 || text.indexOf('note') >= 0 || text.indexOf('habit') >= 0 || text.indexOf('measurement') >= 0 || text.indexOf('sleep') >= 0 || text.indexOf('journal') >= 0 || text.indexOf('registro') >= 0 || text.indexOf('hábito') >= 0 || text.indexOf('dorm') >= 0);
   var capabilities = text === 'help' || text === 'ayuda';
   while (text.length && '¡¿!?.,;:'.indexOf(text.charAt(0)) >= 0) text = text.slice(1).trim();
   while (text.length && '¡¿!?.,;:'.indexOf(text.charAt(text.length - 1)) >= 0) text = text.slice(0, -1).trim();

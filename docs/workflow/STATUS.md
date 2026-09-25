@@ -70,10 +70,10 @@ review ledger below. File and assertion counts are those of
 | Check | Result |
 | --- | --- |
 | `tools/repo-check.py` | PASS — 15 checks (file counts in `BUILD-AND-TEST.md`) |
-| `tools/tests/test_repo_check.py` | PASS — 46 negative and documentation-drift controls |
+| `tools/tests/test_repo_check.py` | PASS — 49 negative and documentation-drift controls |
 | `tools/tests/test_js_parse_modes.py` | PASS — 11 |
 | `tools/tests/test_result_aggregation.py` | PASS — 33 |
-| `candidate/tests/run-all.mjs` | PASS — 5,099 assertions, of which 4,220 are onboarding |
+| `candidate/tests/run-all.mjs` | PASS — 5,112 assertions, of which 4,220 are onboarding |
 | Onboarding mutation check (`tools/onboarding/mutation-check.mjs`) | 34/34 mutations caught (re-run by the integrator) |
 | Onboarding size (`tools/onboarding/measure-size.mjs`) | 35,687 characters minified vs a 968-character slot: 36.9× over (re-run by the integrator) |
 | Real UI slot check via the wrapper | 968 characters appended: builds, 0 spare. 969: refused. Onboarding: refused (`UI slot overflow`). |
@@ -81,8 +81,9 @@ review ledger below. File and assertion counts are those of
 | Host kit | 179 manifest entries, 184 checksummed files, 185 ZIP members — all match. Four executables lack their exec bit; the bytes match. |
 | 604 host bundle via the refactored wrapper | PASS — byte-identical `30be9989…` |
 | Bounded donor fit | Fits — 88 registers; the frozen inliner accepts it |
-| Candidate bundle `105ade31…` | Host 34/34, lifecycle 10/10, input probes 8/8, donor proof 74/74 fields (29 cases) |
-| Shipped 604 on the same proof | 69/69 fields; F05 reproduced |
+| Candidate bundle `d0e36d6e…` (after the re-review) | Host 34/34, lifecycle 10/10, input probes 8/8, donor proof 80/80 fields (32 cases) |
+| Shipped 604 on the same proof | 78/78 fields; F05 reproduced |
+| Guarded wrapper, after the S2R2-2 changes | Still byte-identical `30be9989…`; a planted import-path module and a tampered decoder are both refused |
 | Full candidate router fit | Does not fit: 80 functions, 18 `Catch`, 27 closures |
 | Guard attacks (tampered frozen tool, git-tree root, forged bundle) | All refused |
 
@@ -130,9 +131,8 @@ still said no review existed. Recorded here now.
 | `6126903` | full tree at that commit | APPROVE WITH FINDINGS | 0 blocking, 10 non-blocking (NB1–NB10) |
 | `4f49ba8` | delta `6126903..4f49ba8` | APPROVE WITH FINDINGS | 0 blocking, 10 non-blocking (NBR-1…NBR-10) |
 | `cdbf3a3` | delta `4f49ba8..cdbf3a3` (the NBR fixes) | APPROVE WITH FINDINGS | Covered by the Sprint-02 review below |
-| `b2a6ba8` | delta `cdbf3a3..b2a6ba8` | **REQUEST CHANGES** | 3 blocking (S2R-1 donor widened shipped shortcuts; S2R-2 donor dropped 604 grounded answers; S2R-3 ledgers stale), 12 non-blocking. All fixed; **the fixes await re-review.** |
-
-`e0efa1d` (documentation only) was pushed during that review and was not reviewed.
+| `b2a6ba8` | delta `cdbf3a3..b2a6ba8` | **REQUEST CHANGES** | 3 blocking (S2R-1 donor widened shipped shortcuts; S2R-2 donor dropped 604 grounded answers; S2R-3 ledgers stale), 12 non-blocking. Fixed in `76b24f6`; re-reviewed below. |
+| `b2a6ba8..9198227` | re-review of the S2R fixes, the onboarding commits and the integration | `e0efa1d` APPROVE; `2fd079b`, `7350fd5`, `5630df3`, `9198227` APPROVE WITH FINDINGS; `76b24f6` **REQUEST CHANGES** (1 blocking, S2R2-1) | 7 findings (S2R2-1…7). All fixed or recorded in the commit after `9198227`; **that commit is unreviewed.** |
 
 Remote CI, branch head (`push`) and synthetic merge (`pull_request`) recorded
 separately:
@@ -141,6 +141,7 @@ separately:
 | --- | --- | --- |
 | `cdbf3a3` | 35678409412 — success | 35678413073 — success |
 | `e0efa1d` | 36078420652 — success | 36078425072 — success |
+| `9198227` | 36081879597 — success | 36081884342 — success (merge `e781da6a`) |
 
 The `6126903` reviewer also raised a **process** finding: a writer modified files
 on the reviewed paths during the review, contrary to this repository's
@@ -194,6 +195,7 @@ account, and is not presented as one.
 | `U0-01` | Long Spanish words break mid-word at 320 px and 200% text in the preview; headless Chromium did not hyphenate. | OPEN — needs a WebView or device check with `hyphens`. |
 | `U0-02` | The onboarding does not fit the host UI slot (36.9×). | BLOCKED — native UI source (F01). |
 | `U0-03` | Two finish-button labels ("Finish and check in", "Finish and open my records") are the writer's wording, not the contract's. | Needs qualified EN/ES copy review. |
+| `U0-04` | The vision panel's web copy ("its own sign-in; this vault does not send your records to it") is unverified here (S2R2-7). Also: an absent `onboardingComplete` replays chapter 1, and chapter 1 has no Back (S2R2-5/6). | Recorded in `docs/onboarding/SCREEN-ACTION-MAP.md`; owner decision before integration. |
 
 ## Unresolved boundaries
 

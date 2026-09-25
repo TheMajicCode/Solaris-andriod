@@ -61,7 +61,7 @@ pass and is never evidence of an Android build.
 ### Result recorded for this candidate
 
 1,996 tracked files, 15 checks, transcribed from a live run of the
-Sprint-02 integration tree on 2026-09-25. It is not edited by hand. NBR-2 found this
+Sprint-02 re-review-fix tree on 2026-09-25. It is not edited by hand. NBR-2 found this
 table four rows stale, and the independent review of `b2a6ba8` found it stale
 again (S2R-3: 14 rows for 15 checks). Since then `tools/tests/test_repo_check.py`
 fails if its check names, their order or the stated check count disagree with
@@ -86,9 +86,9 @@ re-transcribed rather than compared.
 | `secret-pattern-scan` | PASS | 1996/1996 |
 | `candidate-regression-tests` | PASS | 28/28 |
 
-Overall: **PASS**. Companion suites: **46** checker negative controls and
+Overall: **PASS**. Companion suites: **49** checker negative controls and
 documentation-drift controls, **11** parse-mode controls, **33** result-aggregation
-controls, **5,099** candidate assertions (4,220 of them onboarding) — all passing.
+controls, **5,112** candidate assertions (4,220 of them onboarding) — all passing.
 
 Runtime recorded by the checker for this run: Python
 3.11.15, Node v22.22.2. CI pins Python 3.12.14

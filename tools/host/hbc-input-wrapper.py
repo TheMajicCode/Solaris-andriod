@@ -43,7 +43,10 @@ from _guard import refuse_git_worktree, verify_frozen  # noqa: E402
 
 # Everything build() executes from the disposable copy (review of b2a6ba8, S2R-8).
 FROZEN_PREFIXES = ('Solaris-Android-R4/tools/', 'Solaris-Android-R3/tools/',
-                   'Solaris-Android-R4/grounding/', 'Solaris-Android-R4/ui/')
+                   'Solaris-Android-R4/grounding/', 'Solaris-Android-R4/ui/',
+                   # S2R2-2: the APK/bundle decoder build() loads and runs.
+                   'Solaris-Android-Reconstruction/reference/601-recovery/v6-apk-recovery/')
+IMPORT_DIRS = ('Solaris-Android-R4/tools', 'Solaris-Android-R3/tools')
 
 BASE_BUNDLE_SHA = 'b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990'
 TARGET_HBC_SHA = '30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3'
@@ -63,7 +66,7 @@ def build(src, bundle_path, out, plans_loader=frozen_plans, ui_path=None):
     SRC, BUNDLE, OUT = Path(src).resolve(), Path(bundle_path).resolve(), Path(out).resolve()
     refuse_git_worktree(SRC, 'disposable root')
     refuse_git_worktree(OUT.parent, 'output directory')
-    verify_frozen(SRC, FROZEN_PREFIXES)
+    verify_frozen(SRC, FROZEN_PREFIXES, IMPORT_DIRS)
     UI = Path(ui_path).resolve() if ui_path else SRC / UI_RELATIVE
     sys.path.insert(0, str(SRC / 'Solaris-Android-R4/tools'))
     sys.path.insert(1, str(SRC / 'Solaris-Android-R3/tools'))

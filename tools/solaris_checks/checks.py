@@ -261,6 +261,9 @@ def check_candidate_changes(ctx: Context) -> CheckResult:
             r.findings.append(f'frozen external record {record.get("path", "<unnamed>")}: '
                               f'missing fields {missing}')
             continue
+        if record['path'].lower().endswith(JS_SUFFIXES + UNGATED_CODE_SUFFIXES + ('.py', '.sh')):
+            r.findings.append(f'frozen external record {record["path"]}: code cannot be declared a '
+                              'frozen external record; frozen provenance has no parse gate (S2R2-3)')
         if not record['path'].startswith(FROZEN_EXTERNAL_PREFIXES):
             r.findings.append(f'frozen external record {record["path"]}: outside '
                               f'{", ".join(FROZEN_EXTERNAL_PREFIXES)}; a new file elsewhere cannot be '
@@ -453,10 +456,17 @@ def check_executable_scope(ctx: Context) -> CheckResult:
         # that javascript-syntax-authored parses. Otherwise a broken script in
         # .github/, contracts/ or a new directory classified as documentation
         # passes every check.
-        if (rule.integrity == 'maintained' and path.endswith(JS_SUFFIXES)
-                and rule.scope not in JS_GATED_SCOPES):
-            r.findings.append(f'{path}: maintained JavaScript classified {rule.scope}, which no '
-                              f'parse gate covers; use one of {", ".join(JS_GATED_SCOPES)}')
+        # Re-review of 76b24f6 (S2R2-3): matched case-insensitively, and TypeScript
+        # or JSX, for which this repository has no parse gate at all, is refused
+        # outright rather than passing unchecked.
+        lowered = path.lower()
+        if rule.integrity == 'maintained' and lowered.endswith(UNGATED_CODE_SUFFIXES):
+            r.findings.append(f'{path}: maintained TypeScript/JSX has no parse gate in this repository')
+        elif (rule.integrity == 'maintained' and lowered.endswith(JS_SUFFIXES)
+                and (rule.scope not in JS_GATED_SCOPES or not path.endswith(JS_SUFFIXES))):
+            r.findings.append(f'{path}: maintained JavaScript classified {rule.scope} or with an '
+                              f'upper-case suffix, which no parse gate covers; use a lower-case '
+                              f'suffix in one of {", ".join(JS_GATED_SCOPES)}')
     if r.findings:
         r.status = FAIL
     return r
@@ -564,6 +574,7 @@ JS_SUFFIXES = ('.js', '.cjs', '.mjs')
 # The scopes javascript-syntax-authored parses; executable-code-scope invariant 4
 # requires every maintained script to be in one of them.
 JS_GATED_SCOPES = ('authored-source', 'maintained-candidate', 'repo-tooling')
+UNGATED_CODE_SUFFIXES = ('.ts', '.tsx', '.jsx', '.mts', '.cts')
 
 
 def check_js_authored(ctx: Context) -> CheckResult:

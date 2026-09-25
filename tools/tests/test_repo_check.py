@@ -545,6 +545,45 @@ def _(f: Fixture):
     assert status_of(r, 'candidate-changes-valid') == 'FAIL', 'a stale host-proof record passed'
 
 
+@case('S2R2-3: code declared as a frozen external record FAILS, even under the transport prefix')
+def _(f: Fixture):
+    baseline(f)
+    evil = b'function a(){\n'
+    f.add_file('docs/provenance/transport/evil.js', evil)
+    f.candidate['frozen_external_records'] = [{
+        'path': 'docs/provenance/transport/evil.js', 'sha256': sha(evil), 'bytes': len(evil),
+        'origin': 'test', 'why_not_in_import_manifest': 'test'}]
+    r = f.run()
+    assert status_of(r, 'candidate-changes-valid') == 'FAIL', 'code was accepted as frozen provenance'
+
+
+@case('S2R2-3: maintained .JS, .ts and .jsx outside a parse gate FAIL executable-code-scope')
+def _(f: Fixture):
+    for name in ('conf/check.JS', 'conf/helper.ts', 'conf/view.jsx'):
+        g = Fixture(f.root.parent / name.replace('/', '_').replace('.', '_'))
+        baseline(g)
+        g.add_file(name, b'broken(\n')
+        r = g.run()
+        assert status_of(r, 'executable-code-scope') == 'FAIL', f'{name} passed with no parse gate'
+
+
+@case('S2R2-4: a maintained candidate record whose derived_from is not an imported file FAILS')
+def _(f: Fixture):
+    baseline(f)
+    donor = b'function fastGuided(task) { return null; }\n'
+    f.add_file('candidate/donor.js', donor)
+    f.add_file('candidate/tests/run-all.mjs', b'console.log("summary: 1 assertions passed, 0 failed");\n')
+    f.candidate['maintained_candidate_paths'] = ['candidate/donor.js', 'candidate/tests/run-all.mjs']
+    f.candidate['maintained_candidate_records'] = [{
+        'path': 'candidate/donor.js', 'derived_from': 'imported/app.js',
+        'derived_from_sha256': sha(b'not the imported bytes'),
+        'resulting_sha256_at_record': sha(donor), 'rationale': 'test', 'integration_target': 'test'}]
+    r = f.run()
+    report = next(c for c in r['checks'] if c['check'] == 'candidate-changes-valid')
+    assert report['status'] == 'FAIL', 'a fabricated derivation was accepted'
+    assert any('derived_from' in x for x in report['findings']), report['findings']
+
+
 @case('a check that examines zero expected files FAILS (coverage guard)')
 def _(f: Fixture):
     baseline(f)

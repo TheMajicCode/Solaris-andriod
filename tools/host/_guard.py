@@ -32,8 +32,8 @@ MANIFEST = REPO / 'docs/provenance/REPO-IMPORT-MANIFEST.json'
 # build-donor-candidate.py and proven in docs/HOST-REPRODUCTION-EVIDENCE.md.
 # Update only together with that evidence and CANDIDATE-CHANGES.json.
 KNOWN_CANDIDATE_BUILDS = {
-    'ab7067e6cf433e9a19e16a8df68fc439e42f9765d013e5c2de2cca078f89f667':
-        '105ade31744618ab37460b3b42fe4a46bafb221f91690a1f05ff6635695b279f',
+    '6ae8f2ceb931350e9f32bc5b5b05ecb5a1badadc3d0b0f7dfeb2e79fc404cc09':
+        'd0e36d6e5cb47c191c45320231201984a86d48e294e3897e819572dd03db09db',
 }
 DONOR_PATH = 'candidate/a605/host-donor/fast-guided.js'
 
@@ -50,9 +50,17 @@ def refuse_git_worktree(path: Path, what: str) -> None:
                      'use a disposable copy outside any repository')
 
 
-def verify_frozen(root: Path, prefixes: tuple[str, ...]) -> int:
-    entries = [e for e in json.loads(MANIFEST.read_text())['files']
-               if e['tracked_path'].startswith(prefixes)]
+def verify_frozen(root: Path, prefixes: tuple[str, ...], import_dirs: tuple[str, ...] = ()) -> int:
+    """import_dirs: directories the caller prepends to sys.path. Any .py file there
+    that the manifest does not pin is refused, so a planted module cannot shadow a
+    frozen one (re-review of 76b24f6, S2R2-2)."""
+    manifest = json.loads(MANIFEST.read_text())['files']
+    entries = [e for e in manifest if e['tracked_path'].startswith(prefixes)]
+    pinned = {e['tracked_path'] for e in manifest}
+    planted = sorted(str(p.relative_to(root)) for d in import_dirs for p in (root / d).glob('*.py')
+                     if str(p.relative_to(root)) not in pinned)
+    if planted:
+        sys.exit('refusing: unpinned Python modules on the import path:\n  ' + '\n  '.join(planted[:20]))
     if not entries:
         sys.exit(f'no frozen files pinned under {prefixes}; refusing to run unverified code')
     bad = []
