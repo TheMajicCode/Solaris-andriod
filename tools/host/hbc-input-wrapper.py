@@ -35,7 +35,7 @@ CALLABLE BUILD (maintained, Sprint-02)
   re-proven to yield 30be9989... after the refactor. A candidate plans module
   or UI never changes what is asserted; it only changes the inputs asserted on.
 """
-import hashlib, importlib.util, json, sys
+import hashlib, json, sys, types
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -54,8 +54,13 @@ UI_RELATIVE = 'Solaris-Android-R4/ui/sanctuary.compact.html'
 
 
 def module(name, path):
-    spec = importlib.util.spec_from_file_location(name, path)
-    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
+    # Compiled from the hash-verified source bytes, never through the import
+    # system: a file loader would accept a forged __pycache__ entry whose header
+    # matches the source's mtime and size (review of bfaf23b, S2R5-1).
+    m = types.ModuleType(name)
+    m.__file__ = str(path)
+    exec(compile(Path(path).read_bytes(), str(path), 'exec'), m.__dict__)
+    return m
 
 
 def frozen_plans(src):

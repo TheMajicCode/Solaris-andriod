@@ -134,7 +134,8 @@ still said no review existed. Recorded here now.
 | `b2a6ba8` | delta `cdbf3a3..b2a6ba8` | **REQUEST CHANGES** | 3 blocking (S2R-1 donor widened shipped shortcuts; S2R-2 donor dropped 604 grounded answers; S2R-3 ledgers stale), 12 non-blocking. Fixed in `76b24f6`; re-reviewed below. |
 | `b2a6ba8..9198227` | re-review of the S2R fixes, the onboarding commits and the integration | `e0efa1d` APPROVE; `2fd079b`, `7350fd5`, `5630df3`, `9198227` APPROVE WITH FINDINGS; `76b24f6` **REQUEST CHANGES** (1 blocking, S2R2-1) | 7 findings (S2R2-1…7). Fixed or recorded in `9a3bf89`. |
 | `9a3bf89` | follow-up review of the S2R2 fixes | **APPROVE WITH FINDINGS**, 0 blocking | S2R3-1 (import-path guard missed packages) and S2R3-2 (a missing control), fixed in `e377669`. |
-| `e377669` | review of the S2R3 fixes | **APPROVE WITH FINDINGS**, 0 blocking | S2R4-1 (symlinked module) and S2R4-2 (forged bytecode cache), fixed in the next commit (host guard and records only). |
+| `e377669` | review of the S2R3 fixes | **APPROVE WITH FINDINGS**, 0 blocking | S2R4-1 (symlinked module) and S2R4-2 (forged bytecode cache), fixed in `bfaf23b`. |
+| `bfaf23b` | review of the S2R4 fixes | **APPROVE WITH FINDINGS**, 0 blocking | S2R5-1 (modules loaded by path trusted forged caches) and S2R5-2 (cosmetic), fixed in the next commit (wrapper loader, guard and records only). |
 
 Remote CI, branch head (`push`) and synthetic merge (`pull_request`) recorded
 separately:

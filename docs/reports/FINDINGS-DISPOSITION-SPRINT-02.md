@@ -258,8 +258,24 @@ The S2R3 fixes are in `e377669`.
 | S2R4-1 | A symlinked directory under an import directory still shadowed a module, because `rglob` does not follow directory symlinks. | **FIXED.** Any symlink under an import directory is refused. | A symlinked `ctypes` package is refused. |
 | S2R4-2 | A forged `__pycache__/hbc_patch.cpython-311.pyc` with a matching mtime/size header replaced the pinned module. Python checks a cache only against the source's mtime and size, so the guard's comment was wrong. | **FIXED.** Existing caches under import directories are discarded before running; the tools disable bytecode writing (`sys.dont_write_bytecode`, and `-B` for the probe runner); the comment is corrected. | A forged cache is removed and the wrapper still yields `30be9989…`; no new `__pycache__` appears after the wrapper, fit and probe runs. |
 
-The S2R4 fixes are in the commit after `e377669`, which touches only the host
-guard, the probe runner's `-B` flag and these records.
+The S2R4 fixes are in `bfaf23b`.
+
+### Review of `e377669..bfaf23b` — S2R5-1, S2R5-2
+
+**`bfaf23b`: APPROVE WITH FINDINGS, 0 blocking.** The reviewer confirmed:
+
+- a symlinked directory and a symlinked file are both refused;
+- a forged import-path cache is purged, and the build still yields
+  `30be9989…`;
+- a `.pth` file is inert.
+
+| ID | Finding | Disposition | Evidence |
+| --- | --- | --- | --- |
+| S2R5-1 | The wrapper loaded `build-plans.py` and the APK decoder by file path through the import system, which trusts a forged `__pycache__` entry. Their directories were not purged. | **FIXED.** Those modules are compiled from their hash-verified source bytes, never through the import system. | With forged caches in both directories, the wrapper still yields `30be9989…` and the donor build yields `d0e36d6e…`. |
+| S2R5-2 | A symlinked `__pycache__` failed closed, but with a traceback. | **FIXED.** Refused by name. | Refusal message observed. |
+
+These are the last host-tool fixes in Sprint-02. They are in the commit after
+`bfaf23b`.
 
 ## Findings not reopened here
 

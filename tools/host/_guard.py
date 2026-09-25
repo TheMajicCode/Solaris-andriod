@@ -75,6 +75,8 @@ def verify_frozen(root: Path, prefixes: tuple[str, ...], import_dirs: tuple[str,
         for dirpath, dirnames, filenames in os.walk(root / d, followlinks=False):
             here = Path(dirpath)
             if '__pycache__' in dirnames:
+                if (here / '__pycache__').is_symlink():
+                    sys.exit(f'refusing: {here / "__pycache__"} is a symlink (S2R5-2)')
                 shutil.rmtree(here / '__pycache__')
                 dirnames.remove('__pycache__')
             for name in dirnames + filenames:
