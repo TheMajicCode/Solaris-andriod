@@ -31,7 +31,7 @@ DEFAULT_OUT = REPO / 'candidate' / 'onboarding' / 'preview' / '.assets'
 
 # docs/provenance/REPO-IMPORT-MANIFEST.json entry for Solaris-Android-R4/ui/sanctuary.html
 SOURCE_SHA256 = '1dd45155ee400b7316d32c30856d2b3394680e98af7148bca29e5610879dbab4'
-# Welcome-and-Onboarding-Contract.md, "Visual contract"
+# docs/reports/WELCOME-AND-ONBOARDING-CONTRACT-2026-09-18.md, "Visual contract"
 ASSETS = {
     'EMBLEM': ('emblem.png', '1f85d6630a2acd377871288f75031a17aef0ae7d0978b105a935406fa1facec3'),
     'FOREST_SANCTUARY': ('forest_sanctuary.png', 'e7bd6d01e2278259882250175dc9f453920c595625e45eb40a6acafb19adeef4'),

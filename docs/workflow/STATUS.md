@@ -55,7 +55,7 @@ convenience item, not a blocker.
 | Reviewer | Independent review agent. It reviewed `4f49ba8..b2a6ba8` and changed no code. |
 | Base | `cdbf3a3ab3785f9e3eaca5c09c2594de3833470a` (remote at sprint start, tree clean) |
 | Checkpoints | Verified bundles of `cdbf3a3` and of `cdbf3a3..b2a6ba8`, held outside Git |
-| State | Findings and EXT dispositions done. Bounded host donor revised after review. Review fixes awaiting re-review. Onboarding preview being integrated. |
+| State | Findings and EXT dispositions done. Bounded host donor revised after review. Onboarding candidate integrated as source and preview; HBC integration blocked on size. The review fixes and the onboarding work await re-review. |
 
 Detail: [finding dispositions](../reports/FINDINGS-DISPOSITION-SPRINT-02.md) ·
 [host evidence](../HOST-REPRODUCTION-EVIDENCE.md) ·
@@ -63,16 +63,21 @@ Detail: [finding dispositions](../reports/FINDINGS-DISPOSITION-SPRINT-02.md) ·
 
 ## Checks actually run — Sprint-02
 
-Local, on the staged review-fix tree, 2026-09-25. Remote CI results are in the
-review ledger below.
+Local, on the staged integration tree, 2026-09-25. Remote CI results are in the
+review ledger below. File and assertion counts are those of
+[`BUILD-AND-TEST.md`](../BUILD-AND-TEST.md), which is transcribed from the same run.
 
 | Check | Result |
 | --- | --- |
-| `tools/repo-check.py` | PASS — 15 checks, 1,973 tracked files |
+| `tools/repo-check.py` | PASS — 15 checks (file counts in `BUILD-AND-TEST.md`) |
 | `tools/tests/test_repo_check.py` | PASS — 46 negative and documentation-drift controls |
 | `tools/tests/test_js_parse_modes.py` | PASS — 11 |
 | `tools/tests/test_result_aggregation.py` | PASS — 33 |
-| `candidate/tests/run-all.mjs` | PASS — 879 assertions |
+| `candidate/tests/run-all.mjs` | PASS — 5,099 assertions, of which 4,220 are onboarding |
+| Onboarding mutation check (`tools/onboarding/mutation-check.mjs`) | 34/34 mutations caught (re-run by the integrator) |
+| Onboarding size (`tools/onboarding/measure-size.mjs`) | 35,687 characters minified vs a 968-character slot: 36.9× over (re-run by the integrator) |
+| Real UI slot check via the wrapper | 968 characters appended: builds, 0 spare. 969: refused. Onboarding: refused (`UI slot overflow`). |
+| Onboarding browser QA (`tools/onboarding/visual-qa.mjs`) | 680 runs, 0 failures: 0 overflow, targets at least 48 px, reduced motion off. **Run by the writer, not re-run by the integrator.** Headless Chromium only. |
 | Host kit | 179 manifest entries, 184 checksummed files, 185 ZIP members — all match. Four executables lack their exec bit; the bytes match. |
 | 604 host bundle via the refactored wrapper | PASS — byte-identical `30be9989…` |
 | Bounded donor fit | Fits — 88 registers; the frozen inliner accepts it |
@@ -186,6 +191,9 @@ account, and is not presented as one.
 | `SP2-HOST-01` | A lone UTF-16 surrogate makes the host throw `URIError` before any model call or write. | OPEN — host budget code, not editable here (F01). |
 | `1b33e60/N2` | 17 clinical phrasings reach the generic limitation, not a referral. | OPEN — clinician gate. Containment is pinned. |
 | `S2R-2` residual | A check-in question outside the accepted forms takes the model path on the donor. | Deliberate cost of the F05 fix. Needs owner and clinician acceptance. |
+| `U0-01` | Long Spanish words break mid-word at 320 px and 200% text in the preview; headless Chromium did not hyphenate. | OPEN — needs a WebView or device check with `hyphens`. |
+| `U0-02` | The onboarding does not fit the host UI slot (36.9×). | BLOCKED — native UI source (F01). |
+| `U0-03` | Two finish-button labels ("Finish and check in", "Finish and open my records") are the writer's wording, not the contract's. | Needs qualified EN/ES copy review. |
 
 ## Unresolved boundaries
 

@@ -34,7 +34,7 @@ not the price of admission to a reward program.
 
 The import branch carries the foundation repairs, the A605 routing and
 answer-containment candidate, Sprint-01's host reproduction, and Sprint-02's
-audit closure and bounded host donor. PR #1 remains
+audit closure, bounded host donor and welcome/onboarding candidate. PR #1 remains
 draft and unmerged. Recheck the actual branch and
 [`docs/workflow/STATUS.md`](docs/workflow/STATUS.md) before writing.
 
@@ -51,6 +51,19 @@ draft and unmerged. Recheck the actual branch and
   donor-proof cases. This is desktop Hermes with synthetic seams, not a phone.
   The first revision of this donor was rejected by independent review, and the
   published claims about it were corrected.
+- **A welcome/onboarding refresh exists as a tested candidate and an isolated
+  preview.** It lives in `candidate/onboarding/` and implements the
+  [contract](docs/reports/WELCOME-AND-ONBOARDING-CONTRACT-2026-09-18.md):
+  - EN/ES throughout, including the locked screen;
+  - an unknown vault state is never treated as "no vault";
+  - returning owners go straight to unlock;
+  - no model download or source selection from the introduction;
+  - brief motion, off under reduced motion.
+
+  Browser checks cover 320–390 px widths, 200% text and 48 dp targets. It is
+  **not integrated**: it measures 36.9× the host's UI slot, so it waits on
+  native UI source. See [the trace](docs/onboarding/HOST-TRACE.md) and
+  [visual QA](docs/onboarding/VISUAL-QA.md).
 - **Every reviewer finding is dispositioned against the reviewer's own words.**
   See [finding dispositions](docs/reports/FINDINGS-DISPOSITION-SPRINT-02.md).
   An external Expo audit is kept separately as EXT-01–30; its source was never

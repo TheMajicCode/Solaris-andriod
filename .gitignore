@@ -94,3 +94,7 @@ PROBE-RESULT.json
 
 # Local agent state and per-agent git worktrees. Never repository content.
 /.claude/
+
+# U0 preview artwork extracted locally from the frozen UI by
+# tools/onboarding/extract-assets.py. Derived binaries, never committed.
+/candidate/onboarding/preview/.assets/

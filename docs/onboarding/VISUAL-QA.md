@@ -8,8 +8,10 @@ real hardware, the HBC or the APK.
 - **Tool:** [`tools/onboarding/visual-qa.mjs`](../../tools/onboarding/visual-qa.mjs)
 - **Command:** `node tools/onboarding/visual-qa.mjs --out <scratch-dir>`
 - **Exit code of the recorded run:** 0
-- **Code measured:** commit `aaee1d9`. The working tree for `candidate/` and
-  `tools/` was identical to it (`git diff --quiet HEAD -- candidate tools`).
+- **Code measured:** commit `aaee1d9` in the writer's worktree, cherry-picked
+  onto the integration branch as `7350fd5` with identical content. The working
+  tree for `candidate/` and `tools/` was identical to it
+  (`git diff --quiet HEAD -- candidate tools`).
 - **Browser:** the pre-installed Chromium `141.0.7390.37` at
   `/opt/pw-browsers/chromium`, driven by the globally installed Playwright
   1.56.1. `playwright install` was not run, and no package was added to the

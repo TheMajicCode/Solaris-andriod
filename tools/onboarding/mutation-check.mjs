@@ -13,7 +13,7 @@
 import { cpSync, mkdirSync, readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { join, resolve, relative, isAbsolute } from 'node:path';
+import { join, resolve, relative, isAbsolute, dirname } from 'node:path';
 
 const REPO = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const SOURCE = join(REPO, 'candidate', 'onboarding');
@@ -62,6 +62,12 @@ function parseArgs(argv) {
   const out = resolve(argv[i + 1]);
   const inside = relative(REPO, out);
   if (!inside.startsWith('..') && !isAbsolute(inside)) throw Error('--out must be outside the repository');
+  // Same rule as tools/host/_guard.py (review of b2a6ba8, S2R-8): no git work tree at all,
+  // including sibling clones and .claude/worktrees/, because this tool deletes under --out.
+  for (let d = out; ; d = dirname(d)) {
+    if (existsSync(join(d, '.git'))) throw Error(`--out is inside a git work tree (${d})`);
+    if (dirname(d) === d) break;
+  }
   return out;
 }
 

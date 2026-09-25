@@ -1,6 +1,6 @@
 /* U0 welcome/onboarding — EN/ES copy. Maintained candidate, NOT integrated.
  *
- * Source: Welcome-and-Onboarding-Contract.md ("Compact screen sequence and
+ * Source: docs/reports/WELCOME-AND-ONBOARDING-CONTRACT-2026-09-18.md ("Compact screen sequence and
  * copy", "Solaris beyond the first step"). Strings marked (host) reuse the
  * retained host's own wording and Spanish (sanctuary.html 763/1013/1033).
  * Everything else was written for this candidate and has had NO qualified

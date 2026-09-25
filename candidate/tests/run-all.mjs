@@ -8,6 +8,11 @@ import * as routing from './routing.test.mjs';
 import * as answerBoundary from './answer-boundary.test.mjs';
 import * as hostEnvelope from './host-envelope.test.mjs';
 import * as hostDonor from './host-donor.test.mjs';
+import * as u0Route from '../onboarding/tests/route.test.mjs';
+import * as u0Actions from '../onboarding/tests/actions.test.mjs';
+import * as u0Copy from '../onboarding/tests/copy.test.mjs';
+import * as u0Render from '../onboarding/tests/render.test.mjs';
+import * as u0Static from '../onboarding/tests/static.test.mjs';
 
 let passed = 0;
 const failures = [];
@@ -27,6 +32,11 @@ const suites = [
   ['A605-02 answer boundary (F03)', answerBoundary],
   ['A605-01 host envelope adapter (AUD-04)', hostEnvelope],
   ['A605 bounded host donor (F04/F05/SP-CHAT-03)', hostDonor],
+  ['U0-01 onboarding entry routing', u0Route],
+  ['U0-02 onboarding actions and host calls', u0Actions],
+  ['U0-03 onboarding EN/ES copy', u0Copy],
+  ['U0-04 onboarding rendering and accessibility', u0Render],
+  ['U0-05 onboarding static source', u0Static],
 ];
 
 for (const [name, suite] of suites) {

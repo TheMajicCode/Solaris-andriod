@@ -395,6 +395,30 @@ The disposable copy must hold this checkout's `tools/` and `candidate/`, the
 unmodified frozen trees, and the private `reconstruction-work/`. None of the
 directories may be inside a git work tree.
 
+## Welcome/onboarding against the UI slot (U1)
+
+The Sprint-02 welcome/onboarding refresh exists as a maintained candidate under
+`candidate/onboarding/`: routing, actions, EN/ES copy, rendering, CSS and an
+isolated browser preview. See [`onboarding/`](onboarding/HOST-TRACE.md). The only
+route into the current host without native source is the compact UI string slot
+in the host bundle, which has **1,936 spare bytes**: UTF-16LE, so 968
+characters.
+
+| Measurement | Result |
+| --- | --- |
+| `tools/onboarding/measure-size.mjs`: token-level whitespace and comment removal, no renaming; the stripped JavaScript still passes all 4,220 onboarding assertions | 35,687 characters (71,374 UTF-16 bytes) for `route`, `copy`, `actions`, `render` and the CSS. **36.9× the budget**, over by 34,719 characters. `copy.mjs` alone (the EN/ES copy) minifies to 10,179 characters, more than ten times the budget. |
+| The real slot check (`hbc-input-wrapper.py` `build(ui_path=…)`, which mirrors the frozen builder's `require()`s): the frozen compact UI with exactly 968 characters appended | **Builds**, with 0 spare bytes |
+| The same with 969 characters appended | **Refused**: `UI slot overflow` |
+| The same with the stripped onboarding JavaScript and CSS appended (37,835 characters; CSS not minified in this demonstration) | **Refused**: `UI slot overflow` |
+
+**Decision: HBC-slot integration of the onboarding refresh is BLOCKED on size.**
+Fitting it would mean dropping the Spanish copy, the failure states or the
+accessibility controls, and the contract forbids all three. The route in is the
+native UI source (F01). No UI byte of the host bundle or APK changed, and no
+integration is claimed. The preview is a reviewed candidate for that later
+integration. Its browser checks are not TalkBack, not a device and not the
+WebView; see [`onboarding/VISUAL-QA.md`](onboarding/VISUAL-QA.md).
+
 ## What this is not
 
 Desktop Hermes with synthetic native, storage and model seams is **not** Android

@@ -24,7 +24,22 @@
     "candidate/tests/host-donor.test.mjs",
     "candidate/tests/host-envelope.test.mjs",
     "candidate/tests/routing.test.mjs",
-    "candidate/tests/run-all.mjs"
+    "candidate/tests/run-all.mjs",
+    "candidate/onboarding/actions.mjs",
+    "candidate/onboarding/copy.mjs",
+    "candidate/onboarding/onboarding.css",
+    "candidate/onboarding/preview/index.html",
+    "candidate/onboarding/preview/preview.css",
+    "candidate/onboarding/preview/preview.mjs",
+    "candidate/onboarding/render.mjs",
+    "candidate/onboarding/route.mjs",
+    "candidate/onboarding/tests/actions.test.mjs",
+    "candidate/onboarding/tests/copy.test.mjs",
+    "candidate/onboarding/tests/fakes.mjs",
+    "candidate/onboarding/tests/render.test.mjs",
+    "candidate/onboarding/tests/route.test.mjs",
+    "candidate/onboarding/tests/run.mjs",
+    "candidate/onboarding/tests/static.test.mjs"
   ],
   "inherited_defects": [
     {

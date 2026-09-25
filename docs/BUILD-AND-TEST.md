@@ -60,8 +60,8 @@ pass and is never evidence of an Android build.
 
 ### Result recorded for this candidate
 
-1,973 tracked files, 15 checks, transcribed from a live run of the
-Sprint-02 review-fix tree on 2026-09-25. It is not edited by hand. NBR-2 found this
+1,996 tracked files, 15 checks, transcribed from a live run of the
+Sprint-02 integration tree on 2026-09-25. It is not edited by hand. NBR-2 found this
 table four rows stale, and the independent review of `b2a6ba8` found it stale
 again (S2R-3: 14 rows for 15 checks). Since then `tools/tests/test_repo_check.py`
 fails if its check names, their order or the stated check count disagree with
@@ -70,25 +70,25 @@ re-transcribed rather than compared.
 
 | Check | Result | Files |
 | --- | --- | --- |
-| `classification-complete` | PASS | 1973/1973 |
+| `classification-complete` | PASS | 1996/1996 |
 | `frozen-integrity` | PASS | 1881/1881 |
-| `candidate-changes-valid` | PASS | 17/17 |
-| `excluded-path-policy` | PASS | 1973/1973 |
+| `candidate-changes-valid` | PASS | 32/32 |
+| `excluded-path-policy` | PASS | 1996/1996 |
 | `build-input-exceptions` | PASS | 5/5 |
-| `evidence-not-authored-source` | PASS | 1973/1973 |
-| `executable-code-scope` | PASS | 1973/1973 |
+| `evidence-not-authored-source` | PASS | 1996/1996 |
+| `executable-code-scope` | PASS | 1996/1996 |
 | `json-parse` | PASS | 484/484 |
 | `yaml-parse` | PASS | 2/2 |
-| `python-syntax` | PASS | 86/86 |
-| `javascript-syntax-authored` | PASS | 59/59 |
+| `python-syntax` | PASS | 87/87 |
+| `javascript-syntax-authored` | PASS | 74/74 |
 | `javascript-parse-evidence` | PASS | 162/162 |
-| `doc-links` | PASS | 53/53 |
-| `secret-pattern-scan` | PASS | 1973/1973 |
-| `candidate-regression-tests` | PASS | 13/13 |
+| `doc-links` | PASS | 57/57 |
+| `secret-pattern-scan` | PASS | 1996/1996 |
+| `candidate-regression-tests` | PASS | 28/28 |
 
 Overall: **PASS**. Companion suites: **46** checker negative controls and
 documentation-drift controls, **11** parse-mode controls, **33** result-aggregation
-controls, **879** candidate assertions — all passing.
+controls, **5,099** candidate assertions (4,220 of them onboarding) — all passing.
 
 Runtime recorded by the checker for this run: Python
 3.11.15, Node v22.22.2. CI pins Python 3.12.14
@@ -169,6 +169,27 @@ variable such as `SOLARIS_604_REFERENCE_DIR`, and never repurpose `HOME` or
 platform runtime variables. Run the handoff's own verifier and reproduction
 harness there. Label the result **reference reproduction**; it does not prove the
 correctness of changed repository code.
+
+## Welcome/onboarding candidate tools — not CI gates
+
+The onboarding suites run in CI as part of `candidate/tests/run-all.mjs`. The
+three tools below need locally available packages that are **not** repository
+dependencies: the TypeScript scanner for size, and Playwright with the
+pre-installed Chromium for browser QA. They fail as BLOCKED when those are
+absent. `mutation-check` and `measure-size` delete under `--out`, so they refuse
+an output directory inside any git work tree. `visual-qa` writes screenshots to
+its `--out` scratch directory. `extract-assets` writes the two preview images into
+the git-ignored `candidate/onboarding/preview/.assets/` by default.
+
+```sh
+node tools/onboarding/mutation-check.mjs --out <scratch>   # reverts 34 guards; each must fail its named assertion
+node tools/onboarding/measure-size.mjs  --out <scratch>    # minified size vs the 968-character UI slot
+node tools/onboarding/visual-qa.mjs     --out <scratch>    # headless preview matrix, contrast, motion, screenshots
+python3 tools/onboarding/extract-assets.py [--source <frozen sanctuary.html>] [--out <dir>]  # hash-verified preview artwork
+```
+
+Browser QA is **not** TalkBack, not a device and not the Android WebView. See
+[`onboarding/VISUAL-QA.md`](onboarding/VISUAL-QA.md).
 
 ## Blocked gates
 

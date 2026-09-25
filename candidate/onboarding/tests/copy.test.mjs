@@ -10,7 +10,7 @@ import { COPY, LOCALES, SAME_IN_BOTH, NATIVE_HANDOFF_KEYS, t } from '../copy.mjs
 
 const source = name => readFileSync(new URL(`../${name}`, import.meta.url), 'utf8');
 
-// Exact strings from Welcome-and-Onboarding-Contract.md.
+// Exact strings from docs/reports/WELCOME-AND-ONBOARDING-CONTRACT-2026-09-18.md.
 const CONTRACT = [
   ['welcome.title', 'Your health. Your space.', 'Tu salud. Tu espacio.'],
   ['welcome.body', 'A place for your records, your reflections and your next small step.', 'Un espacio para tus registros, tus reflexiones y tu próximo pequeño paso.'],
