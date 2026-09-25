@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Solaris onboarding — design preview</title>
+<link rel="stylesheet" href="../onboarding.css">
+<link rel="stylesheet" href="preview.css">
+<script type="module" src="preview.mjs"></script>
+</head>
+<body>
+<div class="pv-banner" role="note">
+  <strong>Design preview — synthetic state. No vault, model, records or native bridge.</strong>
+  <span lang="es">Vista previa de diseño — estado sintético. Sin bóveda, modelo, registros ni puente nativo.</span>
+  <span id="pv-asset-note" hidden>Retained artwork is not extracted. Run <code>python3 tools/onboarding/extract-assets.py</code>.</span>
+</div>
+<details class="pv-panel" id="pv-panel" open>
+  <summary>Synthetic state</summary>
+  <label for="pv-state">Scenario</label>
+  <select id="pv-state"></select>
+  <p id="pv-scenario-note" class="pv-small"></p>
+  <div class="pv-controls">
+    <button type="button" id="pv-lock">Simulate lock</button>
+    <button type="button" id="pv-reset">Reload scenario</button>
+  </div>
+  <p class="pv-small">Synthetic host calls (what the candidate would ask the existing host to do):</p>
+  <ol id="pv-log" class="pv-log"></ol>
+</details>
+<div id="app" class="pv-app"></div>
+</body>
+</html>
