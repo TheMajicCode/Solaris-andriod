@@ -40,7 +40,7 @@ At extraction time the pack verifier reported:
 { "scope": "frozen-source-import-only", "files_checked": 1878, "status": "PASS", "failures": [] }
 ```
 
-### Two files were renamed, with bytes unchanged
+### One file was renamed, with bytes unchanged
 
 | Original | Tracked as | Why |
 | --- | --- | --- |
@@ -50,6 +50,18 @@ The repository's own root `.gitignore` **starts from those exact bytes**, then
 adds projection rules and re-includes five retained `build-inputs` JSON
 descriptors that the full-handoff rule would otherwise drop. That edit is
 recorded in the manifest's `deliberately_edited_documentation` list.
+
+An earlier revision of this heading said "Two files were renamed". The manifest
+contains exactly one `rename_reason` (independent review of `c57c0b2`, N2).
+
+### The owner's original root `README` was replaced
+
+The import commit `c57c0b2` deleted the owner-authored 6-line root `README`
+(added in `5cc354c`) and introduced `README.md` in its place. The commit message
+did not mention the deletion, and the import manifest's
+`deliberately_edited_documentation` list does not record it (independent review
+of `c57c0b2`, N6). The manifest is frozen, so the deletion is recorded here
+instead. The original bytes remain reachable in history at `5cc354c:README`.
 
 ## What a verified import does and does not prove
 

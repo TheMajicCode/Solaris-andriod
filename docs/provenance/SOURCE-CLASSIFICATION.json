@@ -15,7 +15,7 @@
     "repo-config": "Workflow, template, ignore and container configuration. YAML/JSON must parse.",
     "provenance-record": "Frozen or generated provenance records. JSON must parse; frozen copies must match their recorded hash."
   },
-  "precedence": "Longest matching prefix wins. An exact-path rule beats any prefix rule. NOTE: a nested evidence/ directory must have its own rule \u2014 longest-prefix matching would otherwise send it to the enclosing source rule and give generated fixtures authored-source treatment. The no-evidence-as-authored-source check enforces this.",
+  "precedence": "Longest matching prefix wins. An exact-path rule beats any prefix rule. NOTE: a nested evidence/ directory must have its own rule — longest-prefix matching would otherwise send it to the enclosing source rule and give generated fixtures authored-source treatment. The no-evidence-as-authored-source check enforces this.",
   "rules": [
     {
       "prefix": "Solaris-Android-R2/evidence/",
@@ -192,12 +192,6 @@
       "integrity": "maintained",
       "scope": "maintained-candidate",
       "note": "New candidate source and tests authored in this repository."
-    },
-    {
-      "prefix": "tools/tests/fixtures/",
-      "integrity": "maintained",
-      "scope": "repo-config",
-      "note": "Deliberately malformed negative-control fixtures. Excluded from parse checks by design; exercised only by the checker self-tests."
     },
     {
       "prefix": "tools/",

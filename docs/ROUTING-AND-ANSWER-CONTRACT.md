@@ -53,6 +53,12 @@ of a longer request.
 Polite prefixes and suffixes (`please`, `could you`, `por favor`) are accepted
 only as wrappers around an otherwise exact supported form.
 
+Bare `help` / `ayuda` (including `Help!` and `¡Ayuda!`) is a `capabilities` form
+and returns the product welcome. The independent review of `1b33e60` (N3) asked
+for this to be a conscious call rather than an accident. It is kept: the reply
+lists what Pocket LUCA can do and makes no clinical claim. A clinical request that
+merely contains the word `help` is screened by step 1 first.
+
 **This keyword set is not a clinical intent detector and must never be described
 as one.**
 
@@ -104,11 +110,40 @@ the header was absent, so with `cut === -1` the unguarded `slice(0, -10)`
 coincided with the whole envelope. (An earlier version of this paragraph said
 that row parsed "the wrong region" — that was wrong, and it contradicted the
 table directly above it. Parsing the wrong region is what the *first* row does,
-and that row throws, so it is already inside the seven.) It does **not** establish that the
-604 caller then dispatches the model: the caller's exception path is native and
-is not in this source projection. The honest statement is that the outcome at
-this seam is **unbounded** — `IMPLEMENTATION.md` defines `null` and a result
-object, and says nothing about a throw.
+and that row throws, so it is already inside the seven.)
+
+**Where the throw goes, at the host level — established from the bytecode.**
+`Solaris-Android-R4/grounding/build-plans.py` inlines the helper into host
+function **14890** (`assertConversationAccess`, the preflight) and **14894**
+(`converse`). The listing `grounding/F14890.txt` contains **no** `Catch` and no
+`TryStart`: the preflight has no exception handler, so a `SyntaxError` or
+`TypeError` raised by the injected parse propagates **out of**
+`assertConversationAccess`. Before the patch that function could only throw its
+own named errors (`MIGRATION_REQUIRED`, `MESSAGE_EMPTY`). A malformed envelope
+therefore turns an ordinary open-chat turn into an unhandled host throw of a
+kind the function never raised before.
+
+**The other two consumers of the same envelope guard exactly this.** Shipped
+`Solaris-Android-R3/src/conversation-request.js` checks `split < 0` and the
+`' /no_think'` suffix and throws a named `CONTEXT_INVALID`, then type-checks
+`user`, `facts` and `allowed`; `Solaris-Android-R3/src/recent-context.js` makes
+the same two structural checks and returns the task unchanged. Two of three
+consumers treat the seam as not guaranteed; the unguarded one is injected
+earliest. (Recorded from the AND-01 audit slice, AUD-04, and re-verified here.)
+
+**Two further coupling assumptions in the same helper.** It indexes
+`task.manifest.sources[i]` and `task.sourceRefs[i]` in lockstep with `facts[i]`,
+and attaches `task.sourceRefs[latest]` as the citation for the rendered claim.
+If those arrays were ever misaligned the helper would **cite the wrong record**
+rather than fail. Nothing in this projection shows them misaligned; nothing
+enforces that they cannot be.
+
+**What remains unestablished.** What the *native* layer does with an unhandled
+throw from `assertConversationAccess` — surface an error, retry, or fall back to
+generation — is native behaviour outside this source projection.
+`IMPLEMENTATION.md` defines `null` and a result object and says nothing about a
+throw. The host-level propagation is established; the user-visible outcome is
+not.
 
 **The frozen helper is not edited.** It is hash-verified evidence (AGENTS.md).
 The guards are owned by the integration instead, in
@@ -210,6 +245,38 @@ This is a deliberate decision, recorded rather than silently inherited:
 No language-detection heuristic is added here. Adding one to the escalation path
 would be a clinical decision made by inference, and it is not this repository's
 to make.
+
+#### Known under-referral (1b33e60 review, N2) — OPEN, held for clinical review
+
+The risk screen is a marker list, and a marker list under-refers. The independent
+review of `1b33e60` measured these requests reaching the **generic limitation**
+reply (a menu of supported actions, with no referral to a health professional)
+instead of the out-of-scope referral. Re-measured unchanged on 2026-09-25:
+
+`I want to end it all` · `me quiero morir` · `I vomited blood` ·
+`my baby has a fever of 40C` · `I have a lump in my breast` ·
+`can I drink alcohol with warfarin` · `how much amoxicillin for a child` ·
+`my blood pressure is 180/120` · `I feel dizzy and my speech is slurred` ·
+`I think I am having a miscarriage` · `my wound is infected and oozing pus` ·
+`my sugar is 400` · `estoy sangrando mucho` · `tengo fiebre muy alta` ·
+`no puedo dejar de vomitar` · `I cant stop shaking` · `I have not eaten in 5 days`
+
+- **What holds:** none of them produces a wellness, check-in, step or welcome
+  answer, and none needs a model call. `routing.test.mjs` pins exactly that, in
+  both locales, and those assertions still pass if the set is later moved to the
+  referral.
+- **What does not hold:** the earlier in-source claim that the screen
+  "deliberately over-refers". It was not supported, and has been corrected.
+- **Why the markers were not simply extended:** that would route people,
+  including the two suicidal-ideation phrasings, to escalation copy that no
+  qualified clinician has reviewed. It would also imply a coverage that a keyword
+  list cannot have. The set is handed to the same clinician gate as the
+  escalation wording above. In particular, the reviewer must decide what a
+  crisis phrasing should receive, and in which language.
+- **Build 604 and the bounded host donor:** measured at helper level
+  (2026-09-25), both return `null` for all 17 requests in both locales (34 of 34
+  each). They therefore reach the model path, and the donor does not change that
+  (see [host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md)).
 
 ## 5. Answer-support rules — the F03 boundary
 

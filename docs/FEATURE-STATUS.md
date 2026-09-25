@@ -12,9 +12,10 @@ words have fixed meanings:
 | **Blocked** | Cannot be established until a named missing input is restored. |
 
 **604 results below are attributed to the dated 604 handoff, except where a row
-explicitly names a Sprint-01 re-run.** Sprint-01 reproduced the 604 host bundle
-byte-identically and re-ran two of the original suites against it; those rows are
-marked. Everything else remains historical. See
+explicitly names a Sprint-01 or Sprint-02 run.** Sprint-01 reproduced the 604 host
+bundle byte-identically and re-ran two of the original suites against it.
+Sprint-02 re-proved that reproduction and built a bounded donor candidate on the
+same path. Both sets of rows are marked. Everything else remains historical. See
 [Build and test](BUILD-AND-TEST.md) and
 [Host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md).
 
@@ -56,7 +57,9 @@ marked. Everything else remains historical. See
 | 604 **host bundle** reproducible | **Re-run 18 Sep 2026 — byte-identical** | Reproduced as `30be9989…` from the exact 603 host bundle and pinned compiler via `tools/host/hbc-input-wrapper.py`. Host bundle only; **not** an APK and **not** a native build. |
 | Original 34 host cases | **Re-run 18 Sep 2026 — 34/34 pass** | Against the reproduced bundle in actual Hermes, synthetic native/storage/model seams, disposable copy. |
 | Original 10 lifecycle cases | **Re-run 18 Sep 2026 — 10/10 pass** | Same conditions. |
-| A605 candidate integrated into the host | **Measured — does not fit** | Donor asserts 2 functions; candidate compiles to 26, plus further inliner constraints. See [host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md). |
+| Full A605 candidate router integrated into the host | **Measured — does not fit** (Sprint-02) | Lowered for Hermes it is 79 functions, with 20 `Catch`, 26 closures, 12 environments, 3 regexps and 7 literal buffers, against a one-function donor contract. Unlowered, `class` is rejected. See [host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md). |
+| Bounded A605 host donor (F04 punctuation and polite wrappers, F05 whole-request check-in, the app's quick actions) on the actual host | **Tested in isolation — Sprint-02, 25 Sep 2026** | The frozen inliner accepts it (88 registers, the measured budget). Candidate host bundle `611a2430…`: original host cases 34/34, lifecycle 10/10, input probes 8/8, donor proof 37/37. Shipped 604 reproduces F05 on the same host (31/31 expectations). Desktop Hermes, synthetic seams, disposable copy. **No new A605 APK was built.** [Bounded donor proof](HOST-REPRODUCTION-EVIDENCE.md#bounded-donor-proof). |
+| Lone UTF-16 surrogate in chat text is handled | **Not working — SP2-HOST-01** | The host throws `URIError` before any model call or write, identically on 603, 604 and the candidate. Nothing is persisted, but the error is unnamed. |
 | APK packaging reproducible in this repository | **Blocked — inputs excluded** | Needs the reference APKs and packaging tools. The host-bundle reproduction does not cover APK assembly or signing. |
 | Android WebView rendering, native storage durability, on-device acceptance | **Blocked** | Desktop synthetic DOM/host tests do not substitute. Requires a device and separate authorization. |
 

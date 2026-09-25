@@ -10,9 +10,14 @@
  *
  * THIS IS NOT A CLINICAL CLASSIFIER. It is a conservative screen that moves
  * ambiguous clinical requests OUT of the supported surface. It does not triage,
- * rate urgency or name a condition. It deliberately over-refers rather than
- * under-refers, and every decision it makes is "answer this as out of scope",
- * never "this is an emergency".
+ * rate urgency or name a condition. Every decision it makes is "answer this as
+ * out of scope", never "this is an emergency".
+ *
+ * It does NOT reliably over-refer. The independent review of 1b33e60 (N2)
+ * measured 17 clinical requests, two of them suicidal ideation, that miss every
+ * marker and reach the generic limitation reply instead of the referral. That
+ * set is recorded in contract §4 ("Known under-referral") for the clinician who
+ * holds the escalation-copy gate; routing.test.mjs pins only its containment.
  */
 import { matchingText, foldAccents } from './matching.mjs';
 

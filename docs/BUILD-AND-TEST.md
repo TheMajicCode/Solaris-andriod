@@ -43,16 +43,18 @@ pass and is never evidence of an Android build.
 | Check | Scope |
 | --- | --- |
 | `classification-complete` | Every tracked file resolves to one integrity role and one check scope. An unclassified path fails; a new directory never silently inherits informational treatment. |
-| `frozen-integrity` | Imported bytes match `provenance/REPO-IMPORT-MANIFEST.json`, or an authorized override in `CANDIDATE-CHANGES.json` whose original and resulting hashes both match. Drift, deletion and reclassification all fail. |
+| `frozen-integrity` | Imported bytes match `provenance/REPO-IMPORT-MANIFEST.json`, or an authorized override in `CANDIDATE-CHANGES.json` whose original and resulting hashes both match. Each imported file's executable flag must match the manifest's. Drift, deletion, a changed mode and reclassification all fail. |
 | `candidate-changes-valid` | Every override, declared candidate path and registered inherited defect resolves and still matches its recorded hash. |
-| `excluded-path-policy` | Private phone evidence, host disassembly, build inputs, `node_modules` and binary/archive inputs stay untracked. |
+| `excluded-path-policy` | Private phone evidence, host disassembly, build inputs, `node_modules`, and binary, archive and model-weight inputs stay untracked. Suffixes are matched case-insensitively. |
 | `build-input-exceptions` | Only the five recorded JSON descriptors are re-included under `build-inputs/`, and a binary there would still be ignored. |
+| `evidence-not-authored-source` | No tracked path inside an `evidence/` directory resolves to authored-source treatment (AUD-08). |
+| `executable-code-scope` | Maintained code keeps its gates (SP2-CHK-01). Retained-evidence is always frozen. Under `candidate/` and `tools/` only that tree's own scope is legal. Every maintained-candidate file is declared in `CANDIDATE-CHANGES.json`. |
 | `json-parse` | Every tracked `.json` parses. JSONC is permitted only for `devcontainer.json`/`tsconfig.json`/`jsconfig.json`, and comments are removed by a string-aware scanner that cannot corrupt a URL. |
 | `yaml-parse` | Every tracked `.yml`/`.yaml` parses. **Absent PyYAML fails this check.** |
 | `python-syntax` | Every tracked `.py` compiles. Syntax only — this is not a lint audit. |
 | `javascript-syntax-authored` | Authored and maintained-candidate JavaScript parses, checked under an explicit module/script extension. |
 | `javascript-parse-evidence` | Retained-evidence JavaScript parses, except defects registered by exact path and exact hash. An unregistered defect fails. |
-| `doc-links` | Relative Markdown links in this repository's authored docs resolve. |
+| `doc-links` | Relative Markdown links in this repository's authored docs and in `.github/` Markdown resolve, and none escapes the repository. |
 | `secret-pattern-scan` | Credential-shaped filenames and key-material patterns. A pattern sweep, **not** a completed secret audit. |
 | `candidate-regression-tests` | The maintained-candidate regression suite. `NOT_APPLICABLE` only while no candidate source is classified. |
 
@@ -168,9 +170,10 @@ correctness of changed repository code.
 ## Blocked gates
 
 `tools/repo-check.py` prints all 8 of these on every run, so they can never be
-mistaken for passes. This table is generated from `BLOCKED_GATES` in
-`tools/solaris_checks/checks.py`; if it disagrees with the checker, the checker
-is right.
+mistaken for passes. This table is transcribed from `BLOCKED_GATES` in
+`tools/solaris_checks/checks.py`, not generated. `tools/tests/test_repo_check.py`
+fails if its gate names, their order or the count above disagree with the
+checker. If they ever do, the checker is right.
 
 | Gate | Why it cannot run here |
 | --- | --- |

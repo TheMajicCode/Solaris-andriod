@@ -189,7 +189,7 @@ export function renderCheckinAnswer(typedFacts, locale, date, absence = {}) {
       : `${lead}, I cannot show your answers here. I will not guess what you recorded.`;
   }
   return lang === 'es'
-    ? `${lead} no registraste valoraciones. Puedes volver al check-in cuando quieras responder, o dejarlo sin completar.`
+    ? `${lead} no registraste valoraciones. Puedes volver al check-in cuando quieras responder o saltarlo.`
     : `${lead}, you did not record any ratings. You can return to the check-in when you want to answer, or leave it skipped.`;
 }
 

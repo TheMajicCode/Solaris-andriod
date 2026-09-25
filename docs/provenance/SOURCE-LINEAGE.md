@@ -18,7 +18,7 @@
 Four private backups                  Solaris-Android-604-Handoff-Part-N-of-4.zip
         │                             (held privately, outside this repository)
         ▼
-Complete 604 handoff ZIP              5,234 archive members
+Complete 604 handoff ZIP              5,234 archive members (derived, see below)
         │                             b31177db…  1,518,762,347 bytes
         │  selection-policy.py projection
         ▼
@@ -31,13 +31,16 @@ This repository                       1,867 source files at original relative pa
 ```
 
 `1,867 retained + 3,367 excluded = 5,234` archive members. The excluded counts are
-carried verbatim into `REPO-IMPORT-MANIFEST.json`.
+carried verbatim into `REPO-IMPORT-MANIFEST.json`. **5,234 is derived, not measured
+here.** The complete-handoff inventories that would confirm it are excluded from
+this repository, so the figure rests on that sum (independent review of `c57c0b2`,
+N10).
 
 ### The five counts are five different sets — do not use them interchangeably
 
 | # | Count | What it counts |
 | --- | ---: | --- |
-| A | **5,234** | Entries in the complete 604 handoff archive (1,867 retained + 3,367 excluded) |
+| A | **5,234** (derived) | Entries in the complete 604 handoff archive (1,867 retained + 3,367 excluded) |
 | B | **1,879** | Members of the transport pack `.tar.xz` |
 | C | **1,878** | Entries listed by `IMPORT-INVENTORY.json`, which does not list itself — this is what `verify-import.py` checks |
 | D | **1,867** | Retained **original** handoff files, listed in `IMPORT-PROVENANCE.json` |

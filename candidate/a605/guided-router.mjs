@@ -138,6 +138,20 @@ export function routeRequest(request) {
   if (wantsCheckin || wantsStep) {
     const grounded = groundedCheckin(request);
     if (grounded) {
+      // AUD-02(b): shipped 604 answers an all-unanswered check-in with a
+      // dedicated `checkin-empty` kind on BOTH the explain and the step path, and
+      // adds no step suffix — there is no rated aspect to build a step from.
+      // Only a genuinely unanswered record qualifies; a record whose answers
+      // exist but cannot be shown keeps its own kind and honest wording.
+      if (!grounded.rendered.length && !grounded.absence.unavailable) {
+        return {
+          kind: 'checkin-empty',
+          message: grounded.message,
+          sourceRefs: grounded.sourceRefs,
+          modelCallsRequired: 0,
+          typedFacts: grounded.typedFacts,
+        };
+      }
       let message = grounded.message;
       if (wantsStep) {
         // AUD-02: the shipped 604 helper names the actual lowest aspects. Saying

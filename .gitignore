@@ -86,3 +86,6 @@ node_modules/
 # but the file provably contains an absolute local path and this repo is public.
 WRAPPER-RESULT.json
 candidate604.hbc
+
+# Local agent state and per-agent git worktrees. Never repository content.
+/.claude/

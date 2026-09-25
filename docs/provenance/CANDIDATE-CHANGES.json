@@ -1,6 +1,6 @@
 {
   "format": "solaris-android-candidate-changes/1",
-  "updated": "2026-09-18",
+  "updated": "2026-09-25",
   "purpose": "The frozen import manifest records what arrived and never changes. This file records every authorized deviation from it: overrides of imported paths, new maintained candidate source, and known inherited defects. tools/repo-check.py rejects any drift, deletion or reclassification that is not listed here, and rejects a listed entry whose recorded hashes no longer match.",
   "rules": [
     "An override must name the exact path, the original SHA-256 from the frozen manifest, the resulting SHA-256 on disk, a rationale, and the integration target that consumes it.",
@@ -14,12 +14,14 @@
   "maintained_candidate_paths": [
     "candidate/a605/answer-boundary.mjs",
     "candidate/a605/guided-router.mjs",
+    "candidate/a605/host-donor/fast-guided.js",
     "candidate/a605/host-envelope.mjs",
     "candidate/a605/matching.mjs",
     "candidate/a605/risk-screen.mjs",
     "candidate/a605/supported-surface.mjs",
     "candidate/tests/answer-boundary.test.mjs",
     "candidate/tests/baseline.mjs",
+    "candidate/tests/host-donor.test.mjs",
     "candidate/tests/host-envelope.test.mjs",
     "candidate/tests/routing.test.mjs",
     "candidate/tests/run-all.mjs"
@@ -40,7 +42,31 @@
         "Recover the complete original from the restored full 604 reference and register it as an override.",
         "Record it permanently as a truncated evidence fragment."
       ],
-      "prohibited": "Do not guess the missing tail, and do not edit the original merely to make a syntax check green."
+      "prohibited": "Do not guess the missing tail, and do not edit the original merely to make a syntax check green.",
+      "content_preserved_in": [
+        {
+          "path": "solaris-603-native-probe/recommended-request-builder.cjs",
+          "sha256": "32e8ced1646b494fd3af6cb833ef9b9d1041f129805930bd7502b4dd77df3492",
+          "what": "The truncated file itself. Lines 1-9 hold the complete request object, including the only verbatim copy of the system-prompt string; what is missing is the function's closing brace and anything that may have followed it, which cannot be known."
+        },
+        {
+          "path": "solaris-603-native-probe/REPORT.md",
+          "section": "Narrow recommendation",
+          "what": "Enumerates every parameter in prose: predict 128, temp 0.3, reasoning_budget 0, seed 42, kvCache false, captureThinking true, the message/empty-sourceRefs schema and a bounded prior pair. It does not reproduce the system-prompt text, and its pointer to the builder does not say the builder is truncated."
+        },
+        {
+          "path": "Solaris-Android-R3/src/conversation-request.js",
+          "sha256": "33f7e34b75c5e0b15bc7af32df1b2084c483792549be2295f73e7b8e32af6042",
+          "what": "The shipped implementation of the same source-free request: identical predict/temp/reasoning_budget/seed, captureThinking, schema name, maxLength 500 and maxItems 0. NOT identical: it substitutes an explicit English/Spanish for \"in their language\" in the system prompt, sets no kvCache flag, bounds the prior context to exactly one user/assistant pair, and adds minItems 0."
+        }
+      ],
+      "recommended_resolution": {
+        "option": 2,
+        "source": "AUD-06, AND-01 audit slice of 6126903 (docs/reviews/2026-09-18-audit-AND-01-slice.md)",
+        "rationale": "The file has no caller anywhere in the tree. Its parameters survive in REPORT.md and, with the stated differences, in shipped code; its prompt string survives in the file itself. Option 1 needs the restored 1,518,762,347-byte reference to recover what is most likely a closing brace.",
+        "correction": "The audit described conversation-request.js as carrying a byte-identical system prompt. Measured on 2026-09-24 it does not: the language clause differs. Preservation is substantial, not verbatim.",
+        "status": "Recommended, not adopted. Choosing option 2 forgoes recovery from the full reference, which is an owner decision. The finding stays OPEN until then."
+      }
     }
   ],
   "frozen_external_records": [
@@ -69,6 +95,19 @@
       "Pinned hermesc from React Native 0.81.5, digest b4c37f09410c6c6c0ce90df00eb270dc257d2184c85ca320382ebe06057f2a14",
       "The fixed UI slot has 1,936 bytes spare after 604; fit must be measured, not assumed."
     ],
-    "honest_status": "Source and asserted regression suite only. This is NOT a verified executable repair, NOT a new APK, and NOT version code 605 \u2014 A605 names a workstream, not a built version. An unused helper is not a delivered fix. The frozen fast-guided.js is unmodified, so no candidate override is recorded."
-  }
+    "honest_status": "Source and asserted regression suite only. This is NOT a verified executable repair, NOT a new APK, and NOT version code 605 — A605 names a workstream, not a built version. An unused helper is not a delivered fix. The frozen fast-guided.js is unmodified, so no candidate override is recorded."
+  },
+  "maintained_candidate_records": [
+    {
+      "path": "candidate/a605/host-donor/fast-guided.js",
+      "kind": "new maintained file derived from a frozen file; the frozen file is not modified",
+      "derived_from": "Solaris-Android-R4/grounding/fast-guided.js",
+      "derived_from_sha256": "100a7ce8045aa1ec64d554715eb0980d7379afb2c78cc6441ae424900a5c0369",
+      "resulting_sha256_at_record": "a0224b4e19483d88c4e756f91a2b69797a3faefd5a3cd76ec29cf58a3fb6850e",
+      "rationale": "Smallest adapter measured to fit the frozen donor contract: F04 boundary punctuation and polite prefixes, F05 whole-request check-in matching, SP-CHAT-03 quick-action forms. 88 registers against a measured 88-register budget at host function 14894.",
+      "integration_target": "Host functions 14890 (assertConversationAccess) and 14894 via Solaris-Android-R4/grounding/build-plans.py, built by tools/host/build-donor-candidate.py. Desktop-Hermes candidate only; no APK is built, signed or installed.",
+      "evidence": "docs/HOST-REPRODUCTION-EVIDENCE.md, section \"Bounded donor proof\"",
+      "deliberate_differences_from_candidate_router": "A clinical or unsupported request returns null (shipped 604 model path) instead of the candidate router's deterministic escalation or limitation reply; the typed-fact answer boundary is not included."
+    }
+  ]
 }

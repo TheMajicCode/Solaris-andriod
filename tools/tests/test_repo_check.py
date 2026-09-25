@@ -326,6 +326,151 @@ def _(f: Fixture):
     assert r['status'] == 'FAIL'
 
 
+# --- executable-code-scope: the converse of AUD-08 ------------------------
+# Each negative control below reproduces an attack that passed EVERY check in a
+# scratch copy of the real tree on 2026-09-24, before this check existed.
+
+def _prepend_rules(f: Fixture, *rules: dict) -> None:
+    path = f.root / 'docs/provenance/SOURCE-CLASSIFICATION.json'
+    classification = json.loads(path.read_text())
+    classification['rules'] = list(rules) + classification['rules']
+    path.write_text(json.dumps(classification))
+
+
+def _maintained_evidence(prefix: str) -> dict:
+    return {'prefix': prefix, 'integrity': 'maintained', 'scope': 'retained-evidence'}
+
+
+@case('A1: a working candidate file missing from the ledger FAILS executable-code-scope')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('candidate/src/declared.js', b'var x = 1;\n')
+    f.add_file('candidate/src/undeclared.js', b'var y = 2;\n')
+    f.candidate['maintained_candidate_paths'] = ['candidate/src/declared.js']
+    f.write()
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'executable-code-scope') == 'FAIL', status_of(r, 'executable-code-scope')
+    assert r['status'] == 'FAIL'
+
+
+@case('A2: candidate code moved into an evidence/ dir and reclassified FAILS')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('candidate/src/evidence/escape.js', b'var z = 3;\n')
+    f.candidate['maintained_candidate_paths'] = []
+    f.write()
+    _prepend_rules(f, _maintained_evidence('candidate/src/evidence/'))
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'executable-code-scope') == 'FAIL', status_of(r, 'executable-code-scope')
+    assert r['status'] == 'FAIL'
+
+
+@case('A4: the checker package reclassified as evidence FAILS')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('tools/solaris_checks/checks.py', b'X = 1\n')
+    f.write()
+    _prepend_rules(f, {'prefix': 'tools/', 'integrity': 'maintained', 'scope': 'repo-tooling'},
+                   _maintained_evidence('tools/solaris_checks/'))
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'executable-code-scope') == 'FAIL', status_of(r, 'executable-code-scope')
+    assert r['status'] == 'FAIL'
+
+
+@case('A5: a new tool placed under tools/evidence/ and reclassified FAILS')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('tools/evidence/escape.js', b'var w = 4;\n')
+    f.write()
+    _prepend_rules(f, {'prefix': 'tools/', 'integrity': 'maintained', 'scope': 'repo-tooling'},
+                   _maintained_evidence('tools/evidence/'))
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'executable-code-scope') == 'FAIL', status_of(r, 'executable-code-scope')
+    assert r['status'] == 'FAIL'
+
+
+@case('a maintained file classified retained-evidence anywhere FAILS (evidence is frozen)')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('conf/evidence/made-up.json', b'{}\n')
+    f.write()
+    _prepend_rules(f, _maintained_evidence('conf/evidence/'))
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'executable-code-scope') == 'FAIL', status_of(r, 'executable-code-scope')
+
+
+@case('positive: genuine frozen nested evidence and declared candidate code PASS')
+def _(f: Fixture):
+    baseline(f)                      # includes frozen imported/evidence/old.js
+    f.add_frozen('imported/sub/evidence/fixture.js', b'var f = 5;\n')
+    f.add_file('candidate/src/ok.js', b'var x = 1;\n')
+    f.candidate['maintained_candidate_paths'] = ['candidate/src/ok.js']
+    f.write()
+    _prepend_rules(f, {'prefix': 'imported/sub/evidence/', 'integrity': 'frozen',
+                       'scope': 'retained-evidence'})
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'executable-code-scope') == 'PASS', status_of(r, 'executable-code-scope')
+    assert status_of(r, 'evidence-not-authored-source') == 'PASS'
+
+
+# --- c57c0b2 review, non-blocking items closed in Sprint-02 -----------------
+
+@case('N8: an imported file that lost its executable flag FAILS frozen-integrity')
+def _(f: Fixture):
+    baseline(f)
+    f.add_frozen('imported/run.sh', b'#!/bin/sh\necho ok\n')
+    f.write()
+    manifest_path = f.root / 'docs/provenance/REPO-IMPORT-MANIFEST.json'
+    manifest = json.loads(manifest_path.read_text())
+    for entry in manifest['files']:
+        entry['executable'] = entry['tracked_path'] == 'imported/run.sh'
+    manifest_path.write_text(json.dumps(manifest))
+    script = f.root / 'imported/run.sh'
+    script.chmod(0o755)
+    positive = run_all(f.root, f.files())
+    assert status_of(positive, 'frozen-integrity') == 'PASS', 'matching modes must pass'
+    script.chmod(0o644)
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'frozen-integrity') == 'FAIL', 'a dropped exec bit went unnoticed'
+    script.chmod(0o755)
+    (f.root / 'imported/app.js').chmod(0o755)
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'frozen-integrity') == 'FAIL', 'a gained exec bit went unnoticed'
+
+
+@case('N3: an upper-case .APK and a .safetensors weight FAIL excluded-path-policy')
+def _(f: Fixture):
+    for name in ('conf/app.APK', 'conf/model.safetensors'):
+        g = Fixture(f.root.parent / name.replace('/', '_').replace('.', '_'))
+        baseline(g)
+        g.add_file(name, b'x')
+        r = g.run()
+        assert status_of(r, 'excluded-path-policy') == 'FAIL', f'{name} was accepted'
+
+
+@case('N4: key material in a .tsx file FAILS secret-pattern-scan')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('conf/leak.tsx', b'const k = `-----BEGIN ' + b'RSA PRIVATE KEY-----`;\n')
+    r = f.run()
+    assert status_of(r, 'secret-pattern-scan') == 'FAIL', 'the .tsx suffix was not scanned'
+
+
+@case('N7: a doc link escaping the repository FAILS doc-links, and .github Markdown is checked')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('manual/guide.md', b'[ok](guide.md) [escape](../../../../../../etc/hostname)\n')
+    f.add_file('conf/template.md', b'[broken](missing.md)\n')
+    f.write()
+    _prepend_rules(f, {'prefix': 'manual/', 'integrity': 'maintained', 'scope': 'documentation'})
+    r = run_all(f.root, f.files())
+    report = next(c for c in r['checks'] if c['check'] == 'doc-links')
+    text = ' '.join(report['findings'])
+    assert report['status'] == 'FAIL'
+    assert 'escapes the repository' in text, text
+    assert 'conf/template.md' in text, 'repo-config Markdown was not link-checked'
+
+
 @case('a check that examines zero expected files FAILS (coverage guard)')
 def _(f: Fixture):
     baseline(f)
@@ -440,9 +585,32 @@ def unit_jsonc() -> None:
             print(f'  ok   jsonc: {label} raises')
 
 
+def unit_blocked_gate_table() -> None:
+    """AUD-09 / NBR-2: the documented blocked-gate table drifted from the checker
+    twice while being maintained by hand. Compare the real document with the real
+    registry, so the next drift fails CI instead of waiting for a reviewer."""
+    global PASSES
+    import re
+    from solaris_checks.checks import BLOCKED_GATES
+    doc = (TOOLS.parent / 'docs/BUILD-AND-TEST.md').read_text(encoding='utf-8')
+    section = doc.split('## Blocked gates', 1)[1].split('\n## ', 1)[0]
+    documented = re.findall(r'^\| `([a-z0-9-]+)` \|', section, flags=re.M)
+    registered = [name for name, _ in BLOCKED_GATES]
+    count = re.search(r'prints all (\d+) of these', section)
+    label = 'docs: BUILD-AND-TEST blocked-gate table matches BLOCKED_GATES'
+    if documented == registered and count and int(count.group(1)) == len(registered):
+        PASSES += 1
+        print(f'  ok   {label}')
+    else:
+        FAILURES.append(f'{label}: documented {documented} (count {count and count.group(1)}) '
+                        f'vs registered {registered}')
+        print(f'  FAIL {label}')
+
+
 def main() -> int:
     print('repo-check negative controls\n')
     unit_jsonc()
+    unit_blocked_gate_table()
     print(f'\nsummary: {PASSES} passed, {len(FAILURES)} failed')
     if FAILURES:
         print('\nFAILURES:')

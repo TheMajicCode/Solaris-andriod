@@ -175,6 +175,13 @@ def check_frozen_integrity(ctx: Context) -> CheckResult:
             continue
         actual = ctx.sha(path)
         r.files_examined += 1
+        # c57c0b2 review N8: the manifest records each imported file's executable
+        # flag and the import was required to preserve modes, but only bytes were
+        # compared. This is the working-tree mode, which equals the committed mode
+        # on a Linux checkout with core.fileMode enabled — how CI runs.
+        if 'executable' in entry and bool(target.stat().st_mode & 0o111) != bool(entry['executable']):
+            r.findings.append(f"{path}: executable flag differs from the frozen import "
+                              f"(manifest records executable={bool(entry['executable'])})")
         if actual == entry['sha256']:
             continue
         override = overrides.get(path)
@@ -270,7 +277,9 @@ def check_excluded_paths(ctx: Context) -> CheckResult:
     )
     binary_suffixes = ('.apk', '.aab', '.hbc', '.dex', '.so', '.gguf', '.jks', '.keystore',
                        '.p12', '.pfx', '.zip', '.tar', '.tar.gz', '.tar.xz', '.tgz', '.gz',
-                       '.xz', '.7z', '.rar', '.jar', '.aar', '.bundle', '.dylib', '.dll')
+                       '.xz', '.7z', '.rar', '.jar', '.aar', '.bundle', '.dylib', '.dll',
+                       # c57c0b2 review N3: the common model-weight formats besides .gguf
+                       '.bin', '.safetensors', '.pt', '.pth', '.ckpt', '.onnx', '.tflite')
     r = CheckResult('excluded-path-policy',
                     'Private, binary and build-input material stays untracked',
                     PASS, files_expected=len(ctx.files), files_examined=len(ctx.files))
@@ -278,7 +287,7 @@ def check_excluded_paths(ctx: Context) -> CheckResult:
         for prefix, why in forbidden:
             if path.startswith(prefix) or f'/{prefix}' in path:
                 r.findings.append(f'{path}: {why} must stay out of this repository')
-        if path.endswith(binary_suffixes):
+        if path.lower().endswith(binary_suffixes):   # N3: `app.APK` is still an APK
             r.findings.append(f'{path}: excluded binary/archive input is tracked')
         if '/node_modules/' in path or path.startswith('node_modules/'):
             r.findings.append(f'{path}: bundled third-party dependency is tracked')
@@ -352,12 +361,70 @@ def check_evidence_not_authored(ctx: Context) -> CheckResult:
     return r
 
 
+# Where maintained code lives, and the only scope it may have there. Longest
+# prefix first. Anything under these prefixes classified otherwise loses the
+# gates written for it.
+EXECUTABLE_SCOPE_RULES = (
+    ('candidate/', 'maintained-candidate'),
+    ('tools/', 'repo-tooling'),
+)
+
+
+def check_executable_scope(ctx: Context) -> CheckResult:
+    """Maintained code cannot be reclassified or added out from under its gates.
+
+    AUD-08 made nested evidence directories resolve to retained-evidence. The
+    converse was never enforced, and on 2026-09-24 four attacks passed every
+    check in a scratch copy of this tree:
+
+      A1  a new working file under candidate/ that the candidate-change ledger
+          never declared;
+      A2  new candidate code placed in candidate/a605/evidence/ with a
+          maintained retained-evidence rule;
+      A4  the whole checker package tools/solaris_checks/ reclassified as
+          maintained retained-evidence;
+      A5  a new tool under tools/evidence/ classified the same way.
+
+    Retained-evidence scope permits registered inherited defects, so each of
+    those opened a path to launder broken maintained code as an "inherited
+    defect". Three invariants close them:
+
+      1. retained-evidence is imported evidence, so it is always frozen;
+      2. under candidate/ and tools/, only the listed scope is legal;
+      3. every maintained-candidate file is declared in CANDIDATE-CHANGES.json.
+    """
+    declared = set(ctx.candidate.get('maintained_candidate_paths', []))
+    r = CheckResult('executable-code-scope',
+                    'Maintained code keeps its gates; evidence is frozen; candidate files are declared',
+                    PASS, files_expected=len(ctx.files))
+    for path in ctx.files:
+        rule = ctx.resolved.get(path)
+        r.files_examined += 1
+        if rule is None:
+            continue  # classification-complete reports unclassified paths
+        if rule.scope == 'retained-evidence' and rule.integrity != 'frozen':
+            r.findings.append(f'{path}: retained-evidence must be frozen imported evidence, '
+                              f'but is classified {rule.integrity}')
+        for prefix, required in EXECUTABLE_SCOPE_RULES:
+            if path.startswith(prefix):
+                if rule.scope != required:
+                    r.findings.append(f'{path}: under {prefix} the only legal scope is '
+                                      f'{required}, not {rule.scope}')
+                break
+        if rule.scope == 'maintained-candidate' and path not in declared:
+            r.findings.append(f'{path}: maintained-candidate but not declared in '
+                              'docs/provenance/CANDIDATE-CHANGES.json maintained_candidate_paths')
+    if r.findings:
+        r.status = FAIL
+    return r
+
+
 def check_json(ctx: Context) -> CheckResult:
-    targets = [p for p in ctx.files if p.endswith('.json')
-               and ctx.resolved[p].scope != 'repo-config' or
-               (p.endswith('.json') and ctx.resolved[p].scope == 'repo-config'
-                and not p.startswith('tools/tests/fixtures/'))]
-    targets = sorted(set(targets))
+    # 1b33e60 review N7: a `tools/tests/fixtures/` exclusion used to sit here and
+    # in the YAML and Python checks. That directory was never tracked, so the
+    # exclusion was dead and would have silently un-checked whatever landed there
+    # first. The negative controls build their fixtures in temporary directories.
+    targets = sorted(p for p in ctx.files if p.endswith('.json'))
     r = CheckResult('json-parse', 'Every tracked .json file parses (JSONC only where the spec allows it)',
                     PASS, files_expected=len(targets))
     for path in targets:
@@ -375,7 +442,7 @@ def check_json(ctx: Context) -> CheckResult:
 
 def check_yaml(ctx: Context) -> CheckResult:
     targets = sorted(p for p in ctx.files
-                     if p.endswith(('.yml', '.yaml')) and not p.startswith('tools/tests/fixtures/'))
+                     if p.endswith(('.yml', '.yaml')))
     r = CheckResult('yaml-parse', 'Every tracked .yml/.yaml file parses',
                     PASS, files_expected=len(targets))
     try:
@@ -401,7 +468,7 @@ def check_yaml(ctx: Context) -> CheckResult:
 
 def check_python_syntax(ctx: Context) -> CheckResult:
     targets = sorted(p for p in ctx.files
-                     if p.endswith('.py') and not p.startswith('tools/tests/fixtures/'))
+                     if p.endswith('.py'))
     r = CheckResult('python-syntax', 'Every tracked .py file compiles (syntax only; this is not a lint audit)',
                     PASS, files_expected=len(targets))
     for path in targets:
@@ -523,8 +590,11 @@ LINK_RE = re.compile(r'\[[^\]]*\]\(([^)]+)\)')
 
 
 def check_doc_links(ctx: Context) -> CheckResult:
-    targets = [p for p in ctx.scoped('documentation')
+    # c57c0b2 review N7: `.github/*.md` (issue and PR templates) are repo-config,
+    # not documentation, but they are authored Markdown with links all the same.
+    targets = [p for p in ctx.scoped('documentation', 'repo-config')
                if p.endswith('.md') and ctx.resolved[p].integrity == 'maintained']
+    root = ctx.repo.resolve()
     r = CheckResult('doc-links', "Relative Markdown links in this repository's authored docs resolve",
                     PASS, files_expected=len(targets))
     for path in targets:
@@ -534,7 +604,11 @@ def check_doc_links(ctx: Context) -> CheckResult:
             target = target.split(' ')[0].strip()
             if target.startswith(('http://', 'https://', 'mailto:', '#')) or not target:
                 continue
-            if not (base / target.split('#')[0]).resolve().exists():
+            resolved = (base / target.split('#')[0]).resolve()
+            if not resolved.is_relative_to(root):
+                # N7: `../../../etc/passwd` exists, but it is not in this repository.
+                r.findings.append(f'{path}: relative link escapes the repository -> {target}')
+            elif not resolved.exists():
                 r.findings.append(f'{path}: broken relative link -> {target}')
     if r.findings:
         r.status = FAIL
@@ -554,7 +628,9 @@ SECRET_FILENAMES = re.compile(
 TEXT_SUFFIXES = {'.md', '.txt', '.json', '.js', '.cjs', '.mjs', '.ts', '.py', '.java', '.c', '.cpp',
                  '.h', '.hpp', '.html', '.css', '.xml', '.sh', '.hasm', '.yaml', '.yml', '.toml',
                  '.config', '.envelope', '.properties', '.gradle', '.kt', '.kts', '.pro', '.cfg',
-                 '.ini', '.env', '.conf', '.patch', '.diff', '.lock', '.gitignore', ''}
+                 '.ini', '.env', '.conf', '.patch', '.diff', '.lock', '.gitignore', '',
+                 # c57c0b2 review N4: extensions a React Native / Android task would add
+                 '.tsx', '.jsx', '.sql', '.mts', '.cts'}
 
 
 def check_secret_patterns(ctx: Context) -> CheckResult:
@@ -632,6 +708,7 @@ CHECK_SPECS = (
     CheckSpec('excluded-path-policy', check_excluded_paths, COVERAGE_FULL, min_scope=1),
     CheckSpec('build-input-exceptions', check_gitignore_exceptions, COVERAGE_FULL, min_scope=1),
     CheckSpec('evidence-not-authored-source', check_evidence_not_authored, COVERAGE_FULL, min_scope=1),
+    CheckSpec('executable-code-scope', check_executable_scope, COVERAGE_FULL, min_scope=1),
     CheckSpec('json-parse', check_json, COVERAGE_FULL, min_scope=1),
     CheckSpec('yaml-parse', check_yaml, COVERAGE_FULL),
     CheckSpec('python-syntax', check_python_syntax, COVERAGE_FULL, min_scope=1),

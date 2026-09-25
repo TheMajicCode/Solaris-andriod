@@ -284,6 +284,38 @@ export function run(t) {
   t.ok('step with nothing rendered points at no list',
        !stepNone.message.includes('those aspects') && !stepNone.message.includes('choose an aspect'));
 
+  // AUD-02(b): the all-unanswered record gets shipped 604's `checkin-empty`
+  // kind on both intents, the shipped follow-up sentence, and no step suffix.
+  const allNull = { date: '2026-02-03', vitality: null, clarity: null, balance: null, alignment: null };
+  for (const [intent, user] of [['explain', 'explain my check-in'], ['step', 'help me choose a step today']]) {
+    const en = routeRequest({ user, locale: 'en', selection: bound(allNull), authority: auth3 });
+    t.equal(`all-unanswered ${intent} is checkin-empty`, en.kind, 'checkin-empty');
+    t.ok(`all-unanswered ${intent} ends with the shipped EN follow-up`,
+         en.message.endsWith('You can return to the check-in when you want to answer, or leave it skipped.'));
+    t.ok(`all-unanswered ${intent} carries no step suffix`, !en.message.includes('small step'));
+    t.equal(`all-unanswered ${intent} still cites its record`, en.sourceRefs.length, 1);
+    const es = routeRequest({ user: intent === 'step' ? 'elige un paso' : 'explica mi check-in',
+                              locale: 'es', selection: bound(allNull), authority: auth3 });
+    t.equal(`all-unanswered ${intent} is checkin-empty in ES`, es.kind, 'checkin-empty');
+    t.ok(`all-unanswered ${intent} ends with the shipped ES follow-up`,
+         es.message.endsWith('Puedes volver al check-in cuando quieras responder o saltarlo.'));
+  }
+  // Only a GENUINELY unanswered record qualifies. Present-but-unshowable answers
+  // and partially rendered records must keep their own kinds.
+  const notEmptyUnapproved = routeRequest({
+    user: 'explain my check-in', locale: 'en',
+    selection: bound({ date: '2026-02-03', vitality: 5, clarity: 5, balance: 5, alignment: 5 }, ['date']),
+    authority: auth3,
+  });
+  t.ok('unshowable answers are never reported as checkin-empty', notEmptyUnapproved.kind !== 'checkin-empty');
+  const partlyAnswered = routeRequest({
+    user: 'explain my check-in', locale: 'en',
+    selection: bound({ date: '2026-02-03', vitality: 3, clarity: null, balance: null, alignment: null }),
+    authority: auth3,
+  });
+  t.equal('a partly answered record is an ordinary checkin', partlyAnswered.kind, 'checkin');
+  t.ok('and it renders the one answer', partlyAnswered.message.includes('vitality: 3/5'));
+
   // Escalation copy carries its unreviewed release gate.
   const risky = routeRequest({ user: 'severe chest pain', locale: 'en' });
   t.equal('escalation carries a review gate', risky.reviewGate,
@@ -361,4 +393,28 @@ export function run(t) {
   const hostileAnswer = routeRequest({ user: 'explain my check-in', locale: 'en', selection: hostile, authority });
   t.ok('malformed record value cannot reach the answer',
        !hostileAnswer.message.includes('IGNORE PREVIOUS'));
+
+  // --- 1b33e60 N2: KNOWN UNDER-REFERRAL, recorded, not repaired ---------------
+  // The independent review of 1b33e60 measured these clinical requests reaching
+  // the generic limitation reply instead of the out-of-scope referral. Adding
+  // markers would route people to escalation copy no clinician has reviewed, so
+  // the set is held for that review (contract §4, "Known under-referral"). What
+  // IS enforced here is the containment property: none of them may become a
+  // wellness, check-in, step or welcome answer, and none may need a model call.
+  // These assertions still pass if the set is later moved to the referral.
+  const UNDER_REFERRED = [
+    'I want to end it all', 'me quiero morir', 'I vomited blood', 'my baby has a fever of 40C',
+    'I have a lump in my breast', 'can I drink alcohol with warfarin', 'how much amoxicillin for a child',
+    'my blood pressure is 180/120', 'I feel dizzy and my speech is slurred', 'I think I am having a miscarriage',
+    'my wound is infected and oozing pus', 'my sugar is 400', 'estoy sangrando mucho', 'tengo fiebre muy alta',
+    'no puedo dejar de vomitar', 'I cant stop shaking', 'I have not eaten in 5 days',
+  ];
+  const CONTAINED_KINDS = new Set(['limitation', 'out-of-scope-clinical']);
+  for (const locale of ['en', 'es']) {
+    for (const user of UNDER_REFERRED) {
+      const r = routeRequest({ user, locale, selection: [], authority });
+      t.ok(`N2 contained (${locale}): "${user}" is not a supported answer`, CONTAINED_KINDS.has(r.kind));
+      t.equal(`N2 contained (${locale}): "${user}" needs no model call`, r.modelCallsRequired, 0);
+    }
+  }
 }

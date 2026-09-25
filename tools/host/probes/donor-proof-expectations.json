@@ -1,0 +1,132 @@
+{
+  "_about": "Expected ACTUAL-host outcomes. \"shipped-604\" records the defects as they exist; \"candidate\" is what the donor must do. guided=answered by the shortcut with no model call; not guided=model path.",
+  "shipped-604": {
+    "supported: F04 leading inverted exclamation": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "supported: F04 leading inverted question": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "supported: F04 polite prefix and punctuation": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "supported: F04 can-you prefix": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "supported: SP-CHAT-03 step quick action": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "supported: SP-CHAT-03 who-is quick action": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "supported: grounded values from a selected check-in": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "supported: Spanish explain with Spanish locale": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "rejected: F05 severe chest pain during check-in": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "rejected: F05 Spanish chest pain plus explain": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "rejected: F05 medication plus explain": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "rejected: F05 fainted plus check-in question": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "control: open chat stays with the model": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "control: exact shipped form still guided": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    }
+  },
+  "candidate": {
+    "supported: F04 leading inverted exclamation": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "supported: F04 leading inverted question": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "supported: F04 polite prefix and punctuation": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "supported: F04 can-you prefix": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "supported: SP-CHAT-03 step quick action": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "supported: SP-CHAT-03 who-is quick action": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "supported: grounded values from a selected check-in": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "supported: Spanish explain with Spanish locale": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "rejected: F05 severe chest pain during check-in": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "rejected: F05 Spanish chest pain plus explain": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "rejected: F05 medication plus explain": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "rejected: F05 fainted plus check-in question": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "control: open chat stays with the model": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "control: exact shipped form still guided": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    }
+  },
+  "_baseline_note": "Three shipped-604 expectations were pre-registered as guided and observed as model-path. Shipped 604 shortcuts a check-in only when the text STARTS with a question prefix: a leading \"¿\" defeats it (F04), and the other two phrasings never start with one. Corrected to the observed outcome after checking the shipped helper; the candidate expectations were not changed."
+}
