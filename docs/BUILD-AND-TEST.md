@@ -86,7 +86,7 @@ re-transcribed rather than compared.
 | `secret-pattern-scan` | PASS | 1996/1996 |
 | `candidate-regression-tests` | PASS | 28/28 |
 
-Overall: **PASS**. Companion suites: **49** checker negative controls and
+Overall: **PASS**. Companion suites: **50** checker negative controls and
 documentation-drift controls, **11** parse-mode controls, **33** result-aggregation
 controls, **5,112** candidate assertions (4,220 of them onboarding) — all passing.
 

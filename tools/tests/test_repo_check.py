@@ -567,6 +567,16 @@ def _(f: Fixture):
         assert status_of(r, 'executable-code-scope') == 'FAIL', f'{name} passed with no parse gate'
 
 
+@case('S2R3-2: a broken tool with an upper-case .JS suffix in a gated scope FAILS executable-code-scope')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('tools/x.JS', b'broken(\n')
+    f.write()
+    _prepend_rules(f, {'prefix': 'tools/', 'integrity': 'maintained', 'scope': 'repo-tooling'})
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'executable-code-scope') == 'FAIL', 'an upper-case suffix escaped the parse gate'
+
+
 @case('S2R2-4: a maintained candidate record whose derived_from is not an imported file FAILS')
 def _(f: Fixture):
     baseline(f)

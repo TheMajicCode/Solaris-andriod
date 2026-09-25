@@ -10,7 +10,7 @@
 | PR #1 | Open, draft, **unmerged** |
 | Remote CI | **PASS** on `6126903`, `4f49ba8`, `cdbf3a3` and `e0efa1d`, push and pull_request runs both |
 | Independent review | APPROVE WITH FINDINGS on `6126903`, `4f49ba8` and `cdbf3a3`. **REQUEST CHANGES** on `b2a6ba8` (S2R-1…S2R-15). |
-| Sprint-02 state | The S2R fixes were re-reviewed: one blocking finding (S2R2-1) remained, now fixed with the other S2R2 items in the commit after `9198227`. **That commit is unreviewed.** The onboarding commits and `e0efa1d` were approved, with findings. |
+| Sprint-02 state | The S2R fixes were re-reviewed (S2R2-1 blocking, fixed in `9a3bf89`). `9a3bf89` was approved with findings; S2R3-1/2 are fixed in the next commit, which touches only the host guard, one checker control and the records. The onboarding commits and `e0efa1d` were approved, with findings. |
 
 ## No owner action is blocking
 

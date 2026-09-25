@@ -44,7 +44,8 @@ def main():
     from _guard import refuse_git_worktree, verify_frozen
     refuse_git_worktree(root, 'disposable root')
     refuse_git_worktree(a.out.resolve().parent, 'output directory')
-    verify_frozen(root, ('Solaris-Android-R4/tools/', 'Solaris-Android-R3/tools/', 'Solaris-Android-R4/grounding/'))
+    verify_frozen(root, ('Solaris-Android-R4/tools/', 'Solaris-Android-R3/tools/', 'Solaris-Android-R4/grounding/'),
+                  ('Solaris-Android-R4/tools', 'Solaris-Android-R3/tools'))
     # Same order as the frozen builders: R4 tools shadow R3's older hbc_patch.
     for i, sub in enumerate(('Solaris-Android-R4/tools', 'Solaris-Android-R3/tools',
                              'reconstruction-work/toolchain/hermes-dec-a0f18f97ab661eb8ed659c8c683a0d21ea619e69/src')):

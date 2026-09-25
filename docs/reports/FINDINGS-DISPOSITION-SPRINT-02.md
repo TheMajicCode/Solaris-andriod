@@ -224,8 +224,26 @@ frozen `sanctuary.html`.
 | S2R2-6 | Chapter 1 has no Back, while the contract lists one. | **RECORDED** deviation for the owner. | same |
 | S2R2-7 | The vision panel's web-product claim is unverified. | **RECORDED** under the copy-review gate (`U0-04`). | same; STATUS |
 
-These fixes are the integrator's, made after the re-review, and are
-**unreviewed** until a further review is recorded.
+These fixes are in `9a3bf89`.
+
+### Follow-up review of `9198227..9a3bf89` — S2R3-1, S2R3-2
+
+**`9a3bf89`: APPROVE WITH FINDINGS, 0 blocking.** The reviewer:
+
+- re-ran its 25,920-message fuzz. 0 shipped check-in replies were replaced by a
+  different canned reply (168 at `9198227`), and 0 clinical messages moved from
+  the model path to a canned reply.
+- reproduced `30be9989`; 88 registers; `d0e36d6e`; 34/34, 10/10, 8/8; 80/80 and
+  78/78.
+- confirmed that its S2R2-1 phrasings take the model path on the candidate host.
+
+| ID | Finding | Disposition | Evidence |
+| --- | --- | --- | --- |
+| S2R3-1 | The import-path guard only globbed `*.py`: a planted package (`ctypes/__init__.py`) was imported by the wrapper. `measure-donor-fit.py` and `run-host-probe.py` did not pass their import directories at all. | **FIXED.** Any unpinned `.py`, `.pyc`, `.so` or `.pyd` anywhere under an import directory is refused, and all three tools pass their import directories. | A planted package (wrapper, measure) and a planted `json.py` (probe) are refused; on a clean copy the wrapper still yields `30be9989…` and the other tools exit 0. |
+| S2R3-2 | The upper-case-suffix clause of invariant 4 had no control. | **FIXED.** | Control `tools/x.JS`; removing the clause fails it. |
+
+The S2R3 fixes are in the commit after `9a3bf89`. That commit is limited to the
+host guard, one checker control and these records.
 
 ## Findings not reopened here
 

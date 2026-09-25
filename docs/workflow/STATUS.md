@@ -70,7 +70,7 @@ review ledger below. File and assertion counts are those of
 | Check | Result |
 | --- | --- |
 | `tools/repo-check.py` | PASS — 15 checks (file counts in `BUILD-AND-TEST.md`) |
-| `tools/tests/test_repo_check.py` | PASS — 49 negative and documentation-drift controls |
+| `tools/tests/test_repo_check.py` | PASS — 50 negative and documentation-drift controls |
 | `tools/tests/test_js_parse_modes.py` | PASS — 11 |
 | `tools/tests/test_result_aggregation.py` | PASS — 33 |
 | `candidate/tests/run-all.mjs` | PASS — 5,112 assertions, of which 4,220 are onboarding |
@@ -132,7 +132,8 @@ still said no review existed. Recorded here now.
 | `4f49ba8` | delta `6126903..4f49ba8` | APPROVE WITH FINDINGS | 0 blocking, 10 non-blocking (NBR-1…NBR-10) |
 | `cdbf3a3` | delta `4f49ba8..cdbf3a3` (the NBR fixes) | APPROVE WITH FINDINGS | Covered by the Sprint-02 review below |
 | `b2a6ba8` | delta `cdbf3a3..b2a6ba8` | **REQUEST CHANGES** | 3 blocking (S2R-1 donor widened shipped shortcuts; S2R-2 donor dropped 604 grounded answers; S2R-3 ledgers stale), 12 non-blocking. Fixed in `76b24f6`; re-reviewed below. |
-| `b2a6ba8..9198227` | re-review of the S2R fixes, the onboarding commits and the integration | `e0efa1d` APPROVE; `2fd079b`, `7350fd5`, `5630df3`, `9198227` APPROVE WITH FINDINGS; `76b24f6` **REQUEST CHANGES** (1 blocking, S2R2-1) | 7 findings (S2R2-1…7). All fixed or recorded in the commit after `9198227`; **that commit is unreviewed.** |
+| `b2a6ba8..9198227` | re-review of the S2R fixes, the onboarding commits and the integration | `e0efa1d` APPROVE; `2fd079b`, `7350fd5`, `5630df3`, `9198227` APPROVE WITH FINDINGS; `76b24f6` **REQUEST CHANGES** (1 blocking, S2R2-1) | 7 findings (S2R2-1…7). Fixed or recorded in `9a3bf89`. |
+| `9a3bf89` | follow-up review of the S2R2 fixes | **APPROVE WITH FINDINGS**, 0 blocking | S2R3-1 (import-path guard missed packages) and S2R3-2 (a missing control), both fixed in the next commit (host guard, one control and records only). |
 
 Remote CI, branch head (`push`) and synthetic merge (`pull_request`) recorded
 separately:
@@ -142,6 +143,7 @@ separately:
 | `cdbf3a3` | 35678409412 — success | 35678413073 — success |
 | `e0efa1d` | 36078420652 — success | 36078425072 — success |
 | `9198227` | 36081879597 — success | 36081884342 — success (merge `e781da6a`) |
+| `9a3bf89` | 36086055340 — success | 36086060498 — success (merge `2a16d1d3`) |
 
 The `6126903` reviewer also raised a **process** finding: a writer modified files
 on the reviewed paths during the review, contrary to this repository's

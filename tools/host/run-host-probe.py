@@ -65,8 +65,10 @@ def main() -> int:
     identity = KNOWN_BUNDLES.get(sha(bundle)) or candidate_identity(sha(bundle))
     if identity is None:
         sys.exit(f'refusing an unpinned bundle: {sha(bundle)}')
+    # The runner script's own directory is its sys.path[0] (S2R3-1).
     verify_frozen(root, ('Solaris-Android-R2/evidence/integration-feasibility/',
-                         'Solaris-Android-R2/tests/hermes/', 'Solaris-Android-R4/grounding/'))
+                         'Solaris-Android-R2/tests/hermes/', 'Solaris-Android-R4/grounding/'),
+                  ('Solaris-Android-R2/evidence/integration-feasibility',))
 
     harness = (REPO / HARNESS).read_text(encoding='utf-8').splitlines(keepends=True)
     prefix = ''.join(harness[:PREFIX_LINES])

@@ -57,8 +57,15 @@ def verify_frozen(root: Path, prefixes: tuple[str, ...], import_dirs: tuple[str,
     manifest = json.loads(MANIFEST.read_text())['files']
     entries = [e for e in manifest if e['tracked_path'].startswith(prefixes)]
     pinned = {e['tracked_path'] for e in manifest}
-    planted = sorted(str(p.relative_to(root)) for d in import_dirs for p in (root / d).glob('*.py')
-                     if str(p.relative_to(root)) not in pinned)
+    # Follow-up review of 9a3bf89 (S2R3-1): a planted package (sub/__init__.py), a
+    # sourceless .pyc or an extension module shadows a module just as well as a
+    # planted .py file, so any importable file anywhere under an import directory
+    # must be pinned. __pycache__ holds only caches that Python itself validates
+    # against their pinned sources.
+    importable = ('.py', '.pyc', '.so', '.pyd')
+    planted = sorted(str(p.relative_to(root)) for d in import_dirs for p in (root / d).rglob('*')
+                     if p.is_file() and p.suffix in importable and '__pycache__' not in p.parts
+                     and str(p.relative_to(root)) not in pinned)
     if planted:
         sys.exit('refusing: unpinned Python modules on the import path:\n  ' + '\n  '.join(planted[:20]))
     if not entries:

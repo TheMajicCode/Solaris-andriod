@@ -197,7 +197,10 @@ independent review of `b2a6ba8` found the first versions too narrow (S2R-8):
 - A disposable root or output directory inside **any** git work tree is
   refused. An earlier revision refused only the tool's own checkout.
 - Every frozen file a tool executes from the disposable copy must match its
-  import-manifest hash. A tampered `hbc_inline.py` is refused before it runs.
+  import-manifest hash. A tampered `hbc_inline.py` or APK decoder is refused
+  before it runs. Any unpinned importable file under a directory placed on the
+  import path is refused too: a module, a package, a `.pyc` or an extension
+  module (S2R2-2, S2R3-1).
   The private toolchain under `reconstruction-work/` is not in the import
   manifest; it is pinned by the kit's own `SHA256SUMS`.
 - A candidate bundle is accepted only as the recorded pair of donor hash and
