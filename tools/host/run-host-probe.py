@@ -85,7 +85,7 @@ def main() -> int:
     compiled = a.out / 'probe.compiled.js'
     subprocess.run(['node', str(root / 'Solaris-Android-R2/evidence/integration-feasibility/transpile-hermes-fixture.cjs'),
                     str(probe), str(compiled)], cwd=root, check=True, capture_output=True, text=True)
-    run = subprocess.run(['python3', str(root / 'Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py'),
+    run = subprocess.run(['python3', '-B', str(root / 'Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py'),
                           '--tools', str(tools), str(root / 'Solaris-Android-R2/tests/hermes/capture-prelude.js'),
                           str(a.bundle.resolve()), str(compiled)],
                          cwd=root, capture_output=True, text=True, timeout=120)

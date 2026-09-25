@@ -22,8 +22,13 @@ when restoring it.
 """
 import hashlib
 import json
+import os
+import shutil
 import sys
 from pathlib import Path
+
+# No new bytecode caches next to the frozen modules these tools import (S2R4-2).
+sys.dont_write_bytecode = True
 
 REPO = Path(__file__).resolve().parents[2]
 MANIFEST = REPO / 'docs/provenance/REPO-IMPORT-MANIFEST.json'
@@ -57,15 +62,29 @@ def verify_frozen(root: Path, prefixes: tuple[str, ...], import_dirs: tuple[str,
     manifest = json.loads(MANIFEST.read_text())['files']
     entries = [e for e in manifest if e['tracked_path'].startswith(prefixes)]
     pinned = {e['tracked_path'] for e in manifest}
-    # Follow-up review of 9a3bf89 (S2R3-1): a planted package (sub/__init__.py), a
-    # sourceless .pyc or an extension module shadows a module just as well as a
-    # planted .py file, so any importable file anywhere under an import directory
-    # must be pinned. __pycache__ holds only caches that Python itself validates
-    # against their pinned sources.
+    # Follow-up reviews of 9a3bf89 and e377669 (S2R3-1, S2R4-1, S2R4-2): a planted
+    # package, a sourceless .pyc, an extension module or a symlinked directory
+    # shadows a module as well as a planted .py file does. A forged __pycache__
+    # entry does too, because Python checks a cache only against the source's
+    # mtime and size, not its content. So under an import directory: no symlink
+    # at all, every importable file pinned, and existing caches are discarded.
+    # The tools also disable bytecode writing, so no new cache appears.
     importable = ('.py', '.pyc', '.so', '.pyd')
-    planted = sorted(str(p.relative_to(root)) for d in import_dirs for p in (root / d).rglob('*')
-                     if p.is_file() and p.suffix in importable and '__pycache__' not in p.parts
-                     and str(p.relative_to(root)) not in pinned)
+    planted = []
+    for d in import_dirs:
+        for dirpath, dirnames, filenames in os.walk(root / d, followlinks=False):
+            here = Path(dirpath)
+            if '__pycache__' in dirnames:
+                shutil.rmtree(here / '__pycache__')
+                dirnames.remove('__pycache__')
+            for name in dirnames + filenames:
+                p = here / name
+                rel = str(p.relative_to(root))
+                if p.is_symlink():
+                    planted.append(rel + ' (symlink)')
+                elif name in filenames and p.suffix in importable and rel not in pinned:
+                    planted.append(rel)
+    planted.sort()
     if planted:
         sys.exit('refusing: unpinned Python modules on the import path:\n  ' + '\n  '.join(planted[:20]))
     if not entries:

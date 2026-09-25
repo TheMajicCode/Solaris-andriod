@@ -242,8 +242,24 @@ These fixes are in `9a3bf89`.
 | S2R3-1 | The import-path guard only globbed `*.py`: a planted package (`ctypes/__init__.py`) was imported by the wrapper. `measure-donor-fit.py` and `run-host-probe.py` did not pass their import directories at all. | **FIXED.** Any unpinned `.py`, `.pyc`, `.so` or `.pyd` anywhere under an import directory is refused, and all three tools pass their import directories. | A planted package (wrapper, measure) and a planted `json.py` (probe) are refused; on a clean copy the wrapper still yields `30be9989…` and the other tools exit 0. |
 | S2R3-2 | The upper-case-suffix clause of invariant 4 had no control. | **FIXED.** | Control `tools/x.JS`; removing the clause fails it. |
 
-The S2R3 fixes are in the commit after `9a3bf89`. That commit is limited to the
-host guard, one checker control and these records.
+The S2R3 fixes are in `e377669`.
+
+### Review of `9a3bf89..e377669` — S2R4-1, S2R4-2
+
+**`e377669`: APPROVE WITH FINDINGS, 0 blocking.** The reviewer:
+
+- confirmed that the planted `ctypes` package is refused and S2R3-2 is fixed;
+- confirmed that the wrapper still yields `30be9989…`;
+- confirmed that Node-side shadowing is not possible, because the frozen JS
+  tools load only core modules, plus Babel by explicit path.
+
+| ID | Finding | Disposition | Evidence |
+| --- | --- | --- | --- |
+| S2R4-1 | A symlinked directory under an import directory still shadowed a module, because `rglob` does not follow directory symlinks. | **FIXED.** Any symlink under an import directory is refused. | A symlinked `ctypes` package is refused. |
+| S2R4-2 | A forged `__pycache__/hbc_patch.cpython-311.pyc` with a matching mtime/size header replaced the pinned module. Python checks a cache only against the source's mtime and size, so the guard's comment was wrong. | **FIXED.** Existing caches under import directories are discarded before running; the tools disable bytecode writing (`sys.dont_write_bytecode`, and `-B` for the probe runner); the comment is corrected. | A forged cache is removed and the wrapper still yields `30be9989…`; no new `__pycache__` appears after the wrapper, fit and probe runs. |
+
+The S2R4 fixes are in the commit after `e377669`, which touches only the host
+guard, the probe runner's `-B` flag and these records.
 
 ## Findings not reopened here
 

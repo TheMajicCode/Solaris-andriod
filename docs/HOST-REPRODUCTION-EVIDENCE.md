@@ -199,8 +199,10 @@ independent review of `b2a6ba8` found the first versions too narrow (S2R-8):
 - Every frozen file a tool executes from the disposable copy must match its
   import-manifest hash. A tampered `hbc_inline.py` or APK decoder is refused
   before it runs. Any unpinned importable file under a directory placed on the
-  import path is refused too: a module, a package, a `.pyc` or an extension
-  module (S2R2-2, S2R3-1).
+  import path is refused too: a module, a package, a `.pyc`, an extension
+  module or any symlink. Existing bytecode caches there are discarded before
+  running, and bytecode writing is off, because Python checks a cache only
+  against its source's mtime and size (S2R2-2, S2R3-1, S2R4-1, S2R4-2).
   The private toolchain under `reconstruction-work/` is not in the import
   manifest; it is pinned by the kit's own `SHA256SUMS`.
 - A candidate bundle is accepted only as the recorded pair of donor hash and
