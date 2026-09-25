@@ -153,6 +153,25 @@ async function sampleContrast([png, boxes]) {
   });
 }
 
+/** Runs inside the page: taps one control, then inspects motion synchronously after the re-render. */
+function tapAndInspectMotion(action) {
+  document.querySelector(`button[data-do="${action}"]`).click();
+  const anims = document.getAnimations();
+  const enter = document.querySelector('.ob-enter');
+  const buttons = [...document.querySelectorAll('#app button')];
+  return {
+    screen: document.querySelector('#app section') ? document.querySelector('#app section').dataset.screen : null,
+    animations: anims.length,
+    targets: anims.map(a => (a.effect && a.effect.target ? String(a.effect.target.className) : '')),
+    durationsMs: anims.map(a => a.effect.getComputedTiming().duration),
+    finite: anims.every(a => Number.isFinite(a.effect.getComputedTiming().iterations)),
+    enterPresent: !!enter,
+    enterAnimationName: enter ? getComputedStyle(enter).animationName : null,
+    buttonsEnabled: buttons.filter(b => !b.disabled).length,
+    buttonInAnimated: buttons.some(b => anims.some(a => a.effect && a.effect.target && a.effect.target.contains(b))),
+  };
+}
+
 /** Runs inside the page: measures layout, controls and motion. */
 function measure([required, forbidden]) {
   const vw = window.innerWidth;
@@ -370,6 +389,23 @@ async function main() {
     }
   }
 
+  // Motion, measured right after a real screen change (the matrix above measures a settled page).
+  const motion = [];
+  for (const mode of ['no-preference', 'reduce']) {
+    for (const [scenario, action, sameScreen] of [['chapter-1', 'next', false], ['chapter-2', 'withoutAI', false], ['welcome', 'vision', true]]) {
+      const { context, page } = await open({ viewport: VIEWPORTS[1], locale: 'en', text: 100, motion: mode, scenario });
+      await page.evaluate(() => Promise.all(document.getAnimations().map(a => a.finished)));
+      const after = await page.evaluate(tapAndInspectMotion, action);
+      let pass;
+      if (sameScreen) pass = after.animations === 0 && !after.enterPresent;
+      else if (mode === 'reduce') pass = after.animations === 0 && after.enterPresent && after.enterAnimationName === 'none';
+      else pass = after.animations === 1 && after.targets.every(t => t.includes('ob-enter')) && after.durationsMs.every(d => d <= 300) && after.finite && !after.buttonInAnimated && after.buttonsEnabled > 0;
+      motion.push({ check: `${mode}: ${scenario} -> ${action}${sameScreen ? ' (same screen)' : ''}`, ...after, pass });
+      if (!pass) failures.push(`motion: ${mode} ${scenario} ${action}: ${JSON.stringify(after)}`);
+      await context.close();
+    }
+  }
+
   // Interaction smoke in the preview (synthetic host log is the observable).
   const smoke = [];
   {
@@ -428,6 +464,7 @@ async function main() {
       return [`${size}%`, { runsWithBreaks: rows.filter(r => r.brokenWords.length).length, runs: rows.length, distinct: [...new Set(words)].sort() }];
     })),
     smoke,
+    motion,
     contrast: {
       method: 'text made transparent via inline !important (CSSOM); lossless full-page PNG; worst background pixel inside each text line box; WCAG AA 4.5 normal / 3 large; logotype and disabled controls exempt',
       runs: contrast.length,

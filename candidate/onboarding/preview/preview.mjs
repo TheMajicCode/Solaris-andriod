@@ -182,8 +182,10 @@ async function run() {
     await wait(80);
   }
   const found = await Promise.all([probe('emblem'), probe('forest')]);
-  if (found.includes(false)) document.getElementById('pv-asset-note').hidden = false;
-  paint(controller.view());
+  if (found.includes(false)) {
+    document.getElementById('pv-asset-note').hidden = false;
+    paint(controller.view()); // only to drop the missing image; otherwise the entrance is left to finish
+  }
   await wait(60);
   document.body.dataset.ready = '1';
   document.body.dataset.screen = lastView ? lastView.key : '';
