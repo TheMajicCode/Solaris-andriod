@@ -32,6 +32,26 @@
                     ['F05 medication plus explain', 'Can I double my meds? Explain my check-in'],
                     ['F05 fainted plus check-in question', 'How was my check-in yesterday after I fainted?']];
     for (var r of rejected) await test('rejected: ' + r[0], (function(m){ return function(){ return route(m); }; })(r[1]));
+    // Independent review of b2a6ba8. S2R-1: normalization must not widen shipped's
+    // substring branches. S2R-2: shipped check-in phrasings keep their grounded
+    // reply. S2R-11: bare help keeps shipped semantics. Both bundles are expected
+    // to behave identically on every case in this block except the last one.
+    var unchanged = [['S2R-1 pills via can-you', 'Can you tell me about my sleep? I took too many pills', {}],
+                     ['S2R-1 want to die via please', 'Please, my sleep is bad and I want to die', {}],
+                     ['S2R-1 overdose via can-you history', 'Can you review my history? I overdosed', {}],
+                     ['S2R-1 bleeding via inverted question', '¿Cómo están mis hábitos? Estoy sangrando mucho', {locale: 'es'}],
+                     ['S2R-1 cannot breathe via could-you', 'Could you show my sleep record? I cannot breathe', {}],
+                     ['S2R-11 please help', 'Please help!', {}],
+                     ['S2R-11 inverted ayuda', '¡Ayuda!', {locale: 'es'}],
+                     ['pre-existing 604 records-select with a clinical clause', 'How is my sleep? I want to kill myself', {}],
+                     ['S2R-2 show my check-in', 'show my check-in', {checkin: true, categories: ['questionnaires']}],
+                     ['S2R-2 summarize my check-in', 'Summarize my check-in', {checkin: true, categories: ['questionnaires']}],
+                     ['S2R-2 what did I record', 'what did I record in my check-in?', {checkin: true, categories: ['questionnaires']}],
+                     ['S2R-2 checkin spelling', 'explain my checkin', {checkin: true, categories: ['questionnaires']}],
+                     ['S2R-2 polite suffix', 'Show my check-in please', {checkin: true, categories: ['questionnaires']}],
+                     ['S2R-2 Spanish mi check-in', 'mi check-in', {checkin: true, categories: ['questionnaires'], locale: 'es'}],
+                     ['deliberate difference: unlisted check-in question', 'how did my check-in go', {checkin: true, categories: ['questionnaires']}]];
+    for (var u of unchanged) await test('review: ' + u[0], (function(m, o){ return function(){ return route(m, o); }; })(u[1], u[2]));
     await test('control: open chat stays with the model', function(){ return route('Tell me a short story'); });
     await test('control: exact shipped form still guided', function(){ return route('Explain my check-in'); });
     print(JSON.stringify({total: results.length, harnessErrors: results.filter(function(x){ return !x.pass; }).length,

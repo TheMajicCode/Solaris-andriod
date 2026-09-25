@@ -59,6 +59,74 @@
       "guided": true,
       "modelCalls": 0,
       "mode": "rules"
+    },
+    "review: S2R-1 pills via can-you": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-1 want to die via please": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-1 overdose via can-you history": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-1 bleeding via inverted question": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-1 cannot breathe via could-you": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-11 please help": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-11 inverted ayuda": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: pre-existing 604 records-select with a clinical clause": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 show my check-in": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 summarize my check-in": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 what did I record": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 checkin spelling": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 polite suffix": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 Spanish mi check-in": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: deliberate difference: unlisted check-in question": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
     }
   },
   "candidate": {
@@ -126,7 +194,75 @@
       "guided": true,
       "modelCalls": 0,
       "mode": "rules"
+    },
+    "review: S2R-1 pills via can-you": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-1 want to die via please": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-1 overdose via can-you history": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-1 bleeding via inverted question": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-1 cannot breathe via could-you": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-11 please help": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: S2R-11 inverted ayuda": {
+      "guided": false,
+      "modelCalls": 1
+    },
+    "review: pre-existing 604 records-select with a clinical clause": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 show my check-in": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 summarize my check-in": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 what did I record": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 checkin spelling": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 polite suffix": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: S2R-2 Spanish mi check-in": {
+      "guided": true,
+      "modelCalls": 0,
+      "mode": "rules"
+    },
+    "review: deliberate difference: unlisted check-in question": {
+      "guided": false,
+      "modelCalls": 1
     }
   },
-  "_baseline_note": "Three shipped-604 expectations were pre-registered as guided and observed as model-path. Shipped 604 shortcuts a check-in only when the text STARTS with a question prefix: a leading \"¿\" defeats it (F04), and the other two phrasings never start with one. Corrected to the observed outcome after checking the shipped helper; the candidate expectations were not changed."
+  "_baseline_note": "Three shipped-604 expectations were pre-registered as guided and observed as model-path. Shipped 604 shortcuts a check-in only when the text STARTS with a question prefix: a leading \"¿\" defeats it (F04), and the other two phrasings never start with one. Corrected to the observed outcome after checking the shipped helper; the candidate expectations were not changed.",
+  "_review_cases_note": "Added after the independent review of b2a6ba8 (S2R-1, S2R-2, S2R-11), written before the runs. Both bundles are expected to behave identically on every 'review:' case except the last: a check-in question shipped answered through its substring rule but that is not an accepted whole-request form takes the model path on the candidate. That is the deliberate cost of the F05 fix. The pre-existing 604 records-select case is expected to stay guided on both: it is recorded for the clinician gate, not changed by keyword."
 }

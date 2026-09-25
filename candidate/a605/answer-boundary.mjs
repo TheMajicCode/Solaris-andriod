@@ -55,8 +55,11 @@ export function buildTypedFact(selection, authority, ref) {
   if (!Array.isArray(selection)) {
     throw new AnswerRejected(REJECT.UNKNOWN_SOURCE, 'selection is not an array');
   }
+  // Index loop, not for...of: a real array can still carry an own
+  // Symbol.iterator that yields records which are not its elements (S2R-7).
   let source;
-  for (const entry of selection) {
+  for (let i = 0; i < selection.length; i += 1) {
+    const entry = selection[i];
     if (entry && typeof entry === 'object'
         && Object.prototype.hasOwnProperty.call(entry, 'id') && entry.id === ref.sourceId) {
       source = entry;
@@ -82,8 +85,16 @@ export function buildTypedFact(selection, authority, ref) {
   // read and rendered. Both are now read structurally. NBR-5 extended the same
   // treatment upward to the record lookup and to every field these gates read;
   // the earlier claim that NB8 alone made this complete was wrong.
+  // Index loop, not approved.some(): a real array can carry an own `some`, and
+  // Array.prototype.some can be replaced (S2R-7).
   const approved = source.approvedFields;
-  if (!Array.isArray(approved) || !approved.some((f) => f === ref.field)) {
+  let isApproved = false;
+  if (Array.isArray(approved)) {
+    for (let i = 0; i < approved.length; i += 1) {
+      if (approved[i] === ref.field) { isApproved = true; break; }
+    }
+  }
+  if (!isApproved) {
     throw new AnswerRejected(REJECT.FIELD_NOT_APPROVED, `${ref.sourceId}.${ref.field}`);
   }
   const fields = source.fields;

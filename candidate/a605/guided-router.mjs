@@ -38,11 +38,19 @@ const INTENTS = {
          'quien es pocket luca ai', 'quién es pocket luca ai', 'que es pocket luca ai'],
   },
   checkinExplain: {
-    en: ['what is a check-in', 'what is a check in', 'explain my check-in',
-         'explain my check in', 'how is my check-in', 'how is my check in',
-         'tell me about my check-in', 'review my check-in'],
+    // Written with `check-in`; formsFor() adds the `check in` and `checkin`
+    // spellings. The second group is the common phrasings shipped 604 answered
+    // through its substring rule, measured by the independent review of
+    // b2a6ba8 (S2R-2), so whole-request matching does not silently drop them.
+    // The bounded host donor accepts the same forms.
+    en: ['what is a check-in', 'explain my check-in', 'how is my check-in',
+         'tell me about my check-in', 'review my check-in',
+         'what is my check-in', 'how was my check-in', 'show my check-in', 'show me my check-in',
+         'summarize my check-in', 'summarise my check-in', 'what did i record in my check-in',
+         'my check-in'],
     es: ['que es un check-in', 'qué es un check-in', 'como esta mi check-in',
-         'cómo está mi check-in', 'explica mi check-in', 'revisa mi check-in'],
+         'cómo está mi check-in', 'explica mi check-in', 'revisa mi check-in',
+         'revisa mis check-in', 'mi check-in', 'muestra mi check-in', 'resume mi check-in'],
   },
   step: {
     // `help me choose a step today` is the shipped payload
@@ -56,8 +64,12 @@ const INTENTS = {
   },
 };
 
+const CHECKIN_SPELLINGS = ['check-in', 'check in', 'checkin'];
+
 function formsFor(intent) {
-  return [...INTENTS[intent].en, ...INTENTS[intent].es];
+  const forms = [...INTENTS[intent].en, ...INTENTS[intent].es];
+  if (intent !== 'checkinExplain') return forms;
+  return forms.flatMap((form) => CHECKIN_SPELLINGS.map((spelling) => form.replace('check-in', spelling)));
 }
 
 const COPY = {

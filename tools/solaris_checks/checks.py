@@ -205,6 +205,13 @@ def check_frozen_integrity(ctx: Context) -> CheckResult:
 REQUIRED_OVERRIDE_FIELDS = ('path', 'original_sha256', 'resulting_sha256', 'rationale', 'integration_target')
 REQUIRED_DEFECT_FIELDS = ('id', 'path', 'sha256', 'tool', 'expected_diagnostic', 'disposition')
 REQUIRED_EXTERNAL_FIELDS = ('path', 'sha256', 'bytes', 'origin', 'why_not_in_import_manifest')
+REQUIRED_RECORD_FIELDS = ('path', 'derived_from', 'derived_from_sha256', 'resulting_sha256_at_record',
+                          'rationale', 'integration_target')
+# Independent review of b2a6ba8, S2R-4: a frozen_external_record plus an
+# inherited_defects entry could register a NEW broken file anywhere as imported
+# evidence. External records are confined to the transport records they exist
+# for, and an inherited defect must be an imported file at its import hash.
+FROZEN_EXTERNAL_PREFIXES = ('docs/provenance/transport/',)
 
 
 def check_candidate_changes(ctx: Context) -> CheckResult:
@@ -213,7 +220,9 @@ def check_candidate_changes(ctx: Context) -> CheckResult:
     defects = ctx.candidate['inherited_defects']
     declared = ctx.candidate['maintained_candidate_paths']
     external = ctx.candidate.get('frozen_external_records', [])
-    total = len(overrides) + len(defects) + len(declared) + len(external)
+    records = ctx.candidate.get('maintained_candidate_records', [])
+    total = len(overrides) + len(defects) + len(declared) + len(external) + len(records)
+    manifest = {e['tracked_path']: e['sha256'] for e in ctx.import_manifest['files']}
 
     r = CheckResult('candidate-changes-valid',
                     'Every override, declared candidate path and inherited defect resolves and matches',
@@ -241,6 +250,10 @@ def check_candidate_changes(ctx: Context) -> CheckResult:
         elif ctx.sha(d['path']) != d['sha256']:
             r.findings.append(f'inherited defect {d["id"]}: {d["path"]} changed; '
                               'the registered exception no longer describes this file')
+        if manifest.get(d['path']) != d['sha256']:
+            r.findings.append(f'inherited defect {d["id"]}: {d["path"]} is not an imported file at '
+                              'its import-manifest hash. Only an inherited defect can be registered, '
+                              'never a new one (S2R-4).')
 
     for record in ctx.candidate.get('frozen_external_records', []):
         missing = [f for f in REQUIRED_EXTERNAL_FIELDS if not record.get(f)]
@@ -248,10 +261,32 @@ def check_candidate_changes(ctx: Context) -> CheckResult:
             r.findings.append(f'frozen external record {record.get("path", "<unnamed>")}: '
                               f'missing fields {missing}')
             continue
+        if not record['path'].startswith(FROZEN_EXTERNAL_PREFIXES):
+            r.findings.append(f'frozen external record {record["path"]}: outside '
+                              f'{", ".join(FROZEN_EXTERNAL_PREFIXES)}; a new file elsewhere cannot be '
+                              'declared frozen (S2R-4)')
         if record['path'] not in tracked:
             r.findings.append(f'frozen external record {record["path"]}: not tracked')
         elif ctx.sha(record['path']) != record['sha256']:
             r.findings.append(f'frozen external record {record["path"]}: hash no longer matches')
+
+    # S2R-15: evidence recorded about a maintained file (host proofs, fit
+    # measurements) goes stale silently if the file changes. The record's
+    # resulting hash is therefore checked, so an edit must re-record it.
+    for record in records:
+        missing = [f for f in REQUIRED_RECORD_FIELDS if not record.get(f)]
+        if missing:
+            r.findings.append(f'maintained candidate record {record.get("path", "<unnamed>")}: '
+                              f'missing fields {missing}')
+            continue
+        if record['path'] not in tracked:
+            r.findings.append(f'maintained candidate record {record["path"]}: not tracked')
+        elif ctx.sha(record['path']) != record['resulting_sha256_at_record']:
+            r.findings.append(f'maintained candidate record {record["path"]}: the file changed since '
+                              'its evidence was recorded; re-measure and update the record')
+        if manifest.get(record['derived_from']) != record['derived_from_sha256']:
+            r.findings.append(f'maintained candidate record {record["path"]}: derived_from '
+                              f'{record["derived_from"]} is not an imported file at that hash')
 
     for path in declared:
         if path not in tracked:
@@ -414,6 +449,14 @@ def check_executable_scope(ctx: Context) -> CheckResult:
         if rule.scope == 'maintained-candidate' and path not in declared:
             r.findings.append(f'{path}: maintained-candidate but not declared in '
                               'docs/provenance/CANDIDATE-CHANGES.json maintained_candidate_paths')
+        # Invariant 4 (S2R-5): maintained JavaScript anywhere must sit in a scope
+        # that javascript-syntax-authored parses. Otherwise a broken script in
+        # .github/, contracts/ or a new directory classified as documentation
+        # passes every check.
+        if (rule.integrity == 'maintained' and path.endswith(JS_SUFFIXES)
+                and rule.scope not in JS_GATED_SCOPES):
+            r.findings.append(f'{path}: maintained JavaScript classified {rule.scope}, which no '
+                              f'parse gate covers; use one of {", ".join(JS_GATED_SCOPES)}')
     if r.findings:
         r.status = FAIL
     return r
@@ -518,10 +561,13 @@ def _node_check(repo: Path, paths: list[str]) -> list[tuple[str, str]]:
 
 
 JS_SUFFIXES = ('.js', '.cjs', '.mjs')
+# The scopes javascript-syntax-authored parses; executable-code-scope invariant 4
+# requires every maintained script to be in one of them.
+JS_GATED_SCOPES = ('authored-source', 'maintained-candidate', 'repo-tooling')
 
 
 def check_js_authored(ctx: Context) -> CheckResult:
-    targets = [p for p in ctx.scoped('authored-source', 'maintained-candidate', 'repo-tooling')
+    targets = [p for p in ctx.scoped(*JS_GATED_SCOPES)
                if p.endswith(JS_SUFFIXES)]
     r = CheckResult('javascript-syntax-authored',
                     'Authored and maintained-candidate JavaScript parses with node --check',

@@ -12,21 +12,26 @@ transpiler and runner resolve those relative to the tree they live in. Nothing
 is written to the tracked tree. Without the private inputs this is BLOCKED, and
 it exits non-zero rather than reporting a pass.
 
-A candidate bundle (not one of the two pinned hosts) is accepted only with the
-DONOR-CANDIDATE-RESULT.json that tools/host/build-donor-candidate.py wrote for
-it, and only if that record names this exact bundle hash. With --expect, each
-case's observed fields are compared with the expected outcomes for the named
-bundle label, and any mismatch fails the run.
+A candidate bundle (not one of the two pinned hosts) is accepted only when its
+hash is the one recorded in tools/host/_guard.py for the donor currently in this
+checkout. A hand-written result record is not enough (review of b2a6ba8, S2R-8).
+The disposable root and the output directory must not be inside any git work
+tree, and the frozen transpiler, runner and harness in the disposable copy must
+match their import hashes. With --expect, each case's observed fields are
+compared with the expected outcomes for the named bundle label, and any mismatch
+fails the run.
 
 Usage:
   run-host-probe.py --disposable-root <copy> --bundle <hbc> --out <new-dir>
-                    [--cases <file>] [--candidate-record <json>] [--expect <json> --label <name>]
+                    [--cases <file>] [--expect <json> --label <name>]
 """
 import argparse, hashlib, json, shutil, subprocess, sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
+sys.path.insert(0, str(HERE))
+from _guard import candidate_identity, refuse_git_worktree, verify_frozen  # noqa: E402
 HARNESS = 'Solaris-Android-R4/grounding/actual-tests.js'
 PREFIX_LINES = 63
 PREFIX_SHA256 = '839496d353ef7ff55cda420339770a0c7d7f4c812559fc2c23dc9086e24ad639'
@@ -44,7 +49,6 @@ def main() -> int:
     p.add_argument('--bundle', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--cases', type=Path, default=HERE / 'probes/envelope-and-input-cases.js')
-    p.add_argument('--candidate-record', type=Path)
     p.add_argument('--expect', type=Path)
     p.add_argument('--label')
     a = p.parse_args()
@@ -52,19 +56,17 @@ def main() -> int:
         sys.exit('--expect and --label go together')
 
     root = a.disposable_root.resolve()
-    if root == REPO or REPO in root.parents:
-        sys.exit('refusing to run inside the tracked tree; pass a disposable copy')
+    refuse_git_worktree(root, 'disposable root')
+    refuse_git_worktree(a.out.resolve().parent, 'output directory')
     tools = root / 'reconstruction-work/r2-tools'
     if not tools.is_dir():
         sys.exit(f'BLOCKED: {tools} is missing (private inputs are not in this projection)')
     bundle = a.bundle.read_bytes()
-    identity = KNOWN_BUNDLES.get(sha(bundle))
-    if identity is None and a.candidate_record:
-        record = json.loads(a.candidate_record.read_text())
-        if record.get('final_hbc_sha256') == sha(bundle) and 'donor' in record:
-            identity = f"candidate bundle from donor {record['donor']['path']} ({record['donor']['sha256'][:16]})"
+    identity = KNOWN_BUNDLES.get(sha(bundle)) or candidate_identity(sha(bundle))
     if identity is None:
         sys.exit(f'refusing an unpinned bundle: {sha(bundle)}')
+    verify_frozen(root, ('Solaris-Android-R2/evidence/integration-feasibility/',
+                         'Solaris-Android-R2/tests/hermes/', 'Solaris-Android-R4/grounding/'))
 
     harness = (REPO / HARNESS).read_text(encoding='utf-8').splitlines(keepends=True)
     prefix = ''.join(harness[:PREFIX_LINES])

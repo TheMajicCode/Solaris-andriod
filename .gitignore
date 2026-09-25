@@ -86,6 +86,11 @@ node_modules/
 # but the file provably contains an absolute local path and this repo is public.
 WRAPPER-RESULT.json
 candidate604.hbc
+# S2R-8(d): the Sprint-02 host tools' result files carry local paths too. The
+# tools also refuse an output directory inside any git work tree.
+DONOR-CANDIDATE-RESULT.json
+FIT-RESULT.json
+PROBE-RESULT.json
 
 # Local agent state and per-agent git worktrees. Never repository content.
 /.claude/

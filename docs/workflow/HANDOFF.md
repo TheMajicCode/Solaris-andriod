@@ -5,12 +5,12 @@
 | Item | Value |
 | --- | --- |
 | Branch | `claude/solaris-android-import-iyla4d` |
-| `origin` HEAD | `4f49ba8` — pushed |
+| `origin` HEAD | See [`STATUS.md`](STATUS.md). At the last update it was `e0efa1d` (Sprint-02, unreviewed); check `git log origin/<branch>` before writing. |
 | Repository visibility | **Public** — public continuation authorized 18 Sep 2026 |
-| PR #1 | Open, draft, **unmerged**, showing `4f49ba8` |
-| Remote CI | **PASS** on `6126903` and on `4f49ba8`, push and pull_request runs both |
-| Independent review | **APPROVE WITH FINDINGS** on `6126903`, then on `4f49ba8` |
-| Findings from the `4f49ba8` review | 0 blocking, 10 non-blocking (NBR-1…NBR-10), all addressed |
+| PR #1 | Open, draft, **unmerged** |
+| Remote CI | **PASS** on `6126903`, `4f49ba8`, `cdbf3a3` and `e0efa1d`, push and pull_request runs both |
+| Independent review | APPROVE WITH FINDINGS on `6126903`, `4f49ba8` and `cdbf3a3`. **REQUEST CHANGES** on `b2a6ba8` (S2R-1…S2R-15). |
+| Sprint-02 state | All S2R findings fixed by the integrator; **unreviewed until the re-review is recorded**. The NBR findings from `4f49ba8` were fixed in `cdbf3a3`, which the Sprint-02 review approved. |
 
 ## No owner action is blocking
 
@@ -38,12 +38,20 @@ the outgoing range is inspected.
 
 ```sh
 python3 -m pip install --require-hashes --no-deps -r tools/requirements.txt
-python3 tools/tests/test_repo_check.py     # 27 negative controls
-python3 tools/tests/test_js_parse_modes.py # 11 parse-mode controls
-python3 tools/tests/test_result_aggregation.py # 33 aggregation controls
-python3 tools/repo-check.py                # 14 checks
-node candidate/tests/run-all.mjs           # 507 assertions
+python3 tools/tests/test_repo_check.py     # negative and doc-drift controls
+python3 tools/tests/test_js_parse_modes.py # parse-mode controls
+python3 tools/tests/test_result_aggregation.py # aggregation controls
+python3 tools/repo-check.py                # registered checks
+node candidate/tests/run-all.mjs           # candidate assertions
 ```
+
+The current counts are in [`BUILD-AND-TEST.md`](../BUILD-AND-TEST.md), whose
+check tables CI ties to the registry. They are deliberately not repeated here,
+because repeated counts are what drifted three times (AUD-09, NBR-2, S2R-3).
+
+Host tools under `tools/host/` need the private inputs and a disposable copy
+outside any git work tree; see [host evidence](../HOST-REPRODUCTION-EVIDENCE.md),
+section "Reproducing".
 
 If `frozen-integrity` fails, **stop** — imported bytes have drifted, which is a
 provenance incident, not something to fix by regenerating a manifest.
@@ -70,7 +78,12 @@ provenance incident, not something to fix by regenerating a manifest.
   around it; do not "simplify" that back.
 - There is no `gradlew` and no native build. Do not create scaffolding.
 - Do not upgrade the 604 QVAC/Bare runtime, whatever a dependency quickstart says.
-- A605 is **source and tests only**. Integration is BLOCKED on artifacts N3/N4.
-  An unused helper is not a delivered fix.
+- The full A605 router is **source and tests only**; it does not fit the frozen
+  donor contract. Only the bounded host donor is proven on the actual host, in
+  desktop Hermes. No new A605 APK has been built.
+- Never normalize before shipped 604's substring branches in the donor. That
+  widened canned replies to clinical messages (S2R-1).
+- Host tools refuse any directory inside a git work tree, including
+  `.claude/worktrees/`. Build disposable copies elsewhere.
 - The EN/ES escalation copy is an engineering placeholder and a patient-release
   gate until a qualified clinician reviews it.

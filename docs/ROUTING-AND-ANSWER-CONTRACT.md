@@ -46,18 +46,31 @@ of a longer request.
 | --- | --- | --- | --- |
 | `greeting` | hello, hi, hey, good morning/afternoon/evening | hola, buenos días, buenas tardes, buenas noches | none |
 | `capabilities` | what can you do, what can you help me with, who are you, help | qué puedes hacer, quién eres, ayuda | none |
-| `checkin-explain` | what is a check-in, explain my check-in, can you explain my check-in, how is my check-in | qué es un check-in, cómo está mi check-in, explica mi check-in | optional |
+| `checkin-explain` | what is a check-in, what is my check-in, explain / review / show / summarize my check-in, show me my check-in, how is / how was my check-in, tell me about my check-in, what did I record in my check-in, my check-in | qué es un check-in, cómo está mi check-in, explica / revisa / muestra / resume mi check-in, revisa mis check-in, mi check-in | optional |
 | `step` | choose a step, help me choose a step | elige un paso, elegir un paso | optional |
 | `records-missing` | (only when zero sources are selected and the request is record-dependent) | — | none |
 
 Polite prefixes and suffixes (`please`, `could you`, `por favor`) are accepted
-only as wrappers around an otherwise exact supported form.
+only as wrappers around an otherwise exact supported form. The spellings
+`check in` and `checkin` are accepted wherever `check-in` is.
+
+The second group of `checkin-explain` forms consists of the common phrasings
+build 604 answered through its substring rule. The independent review of
+`b2a6ba8` (S2R-2) measured them, so that whole-request matching does not quietly
+drop 604 answers the user relied on. A check-in question outside these forms is
+not a supported intent. The candidate router gives it the limitation reply; the
+bounded host donor sends it to 604's model path. That is the deliberate cost of
+the F05 fix.
 
 Bare `help` / `ayuda` (including `Help!` and `¡Ayuda!`) is a `capabilities` form
 and returns the product welcome. The independent review of `1b33e60` (N3) asked
-for this to be a conscious call rather than an accident. It is kept: the reply
-lists what Pocket LUCA can do and makes no clinical claim. A clinical request that
-merely contains the word `help` is screened by step 1 first.
+for this to be a conscious call rather than an accident. It is kept in the
+candidate router: the reply lists what Pocket LUCA can do and makes no clinical
+claim, and a clinical request that merely contains the word `help` is screened by
+step 1 first. **The bounded host donor has no step 1, so it keeps 604's exact
+semantics for help instead.** Only bare `help` and `ayuda`, after shipped's own
+normalization, get the welcome there. `Please help!` and `¡Ayuda!` take the model
+path, as in 604 (S2R-11).
 
 **This keyword set is not a clinical intent detector and must never be described
 as one.**
@@ -274,9 +287,17 @@ instead of the out-of-scope referral. Re-measured unchanged on 2026-09-25:
   escalation wording above. In particular, the reviewer must decide what a
   crisis phrasing should receive, and in which language.
 - **Build 604 and the bounded host donor:** measured at helper level
-  (2026-09-25), both return `null` for all 17 requests in both locales (34 of 34
-  each). They therefore reach the model path, and the donor does not change that
-  (see [host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md)).
+  (2026-09-25, on the revised donor `ab7067e6…`), both return `null` for all 17
+  requests in both locales (34 of 34 each). They therefore reach the model path,
+  and the donor does not change that (see
+  [host reproduction evidence](HOST-REPRODUCTION-EVIDENCE.md)).
+- **A related 604 residual, also recorded for the clinician gate:** 604's
+  records-select branch is a substring rule. `How is my sleep? I want to kill
+  myself` and `Show my sleep record, I overdosed` therefore get 604's "no records
+  are selected" reply with no model call. The donor keeps this exactly, since
+  changing it by keyword would be a clinical decision. The candidate router's
+  risk screen matches `kill myself` and `overdose` and gives the out-of-scope
+  referral instead.
 
 ## 5. Answer-support rules — the F03 boundary
 

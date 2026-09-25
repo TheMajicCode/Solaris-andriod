@@ -334,6 +334,27 @@ export function run(t) {
   t.equal('a prototype-supplied id does not match a record',
           reject([inheritedId]), REJECT.UNKNOWN_SOURCE);
 
+  // S2R-7: a REAL array is not enough. for...of honours an own Symbol.iterator,
+  // and .some() honours an own override or a replaced Array.prototype.some.
+  const iterSelection = [{ id: 'other', revision: 1, approvedFields: [], fields: {},
+                           authorityEpoch: 0, permissionRevision: 1 }];
+  iterSelection[Symbol.iterator] = function* forged() { yield BOUND; };
+  t.equal('an own Symbol.iterator on the selection array admits nothing',
+          reject(iterSelection), REJECT.UNKNOWN_SOURCE);
+  const forgedApproval = ['date'];
+  forgedApproval.some = () => true;
+  t.equal('an own some() on approvedFields approves nothing',
+          reject([{ ...BOUND, approvedFields: forgedApproval }]), REJECT.FIELD_NOT_APPROVED);
+  const realSome = Array.prototype.some;
+  let pollutedCode;
+  try {
+    Array.prototype.some = function forgedSome() { return true; };
+    pollutedCode = reject([{ ...BOUND, approvedFields: ['date'] }]);
+  } finally {
+    Array.prototype.some = realSome;
+  }
+  t.equal('a replaced Array.prototype.some approves nothing', pollutedCode, REJECT.FIELD_NOT_APPROVED);
+
   // A record that simply OMITS its authority must keep its precise code, not be
   // collapsed into "unknown source" by the own-property gate.
   const noAuthority = { id: 'source_1', revision: 1, approvedFields: ['vitality'],

@@ -120,9 +120,9 @@ APK's own integrity. It is not needed to continue host work.
 | Item | Measured state |
 | --- | --- |
 | Host kit | 179 manifest entries, 184 checksummed files and 185 ZIP members. All hashes match; the three counts describe nested sets. |
-| Kit `hermes-runner` | Bytes match the pin, but the file **arrived without its executable bit**. It runs from a copy with the bit set. The kit is not modified. |
+| Kit executables | `hermes-runner`, `hermesc`, `libhermes.so` and `libjsi.so` **arrived without their executable bit**; the kit's own verifier reports this. Their bytes match the pins. The bits are set on copies only, and the kit is not modified. |
 | 604 host bundle reproduction | Re-proven byte-identical (`30be9989…`) after the wrapper became a callable `build()`. |
-| A605 candidate host bundle | **Built** from the bounded donor through the same path: `611a2430…`, 30,812,336 bytes. Host 34/34, lifecycle 10/10. See [bounded donor proof](HOST-REPRODUCTION-EVIDENCE.md#bounded-donor-proof). |
+| A605 candidate host bundle | **Built** from the bounded donor through the same path: `105ade31…`, 30,815,560 bytes (revised after independent review; the first revision was `611a2430…`). Host 34/34, lifecycle 10/10. See [bounded donor proof](HOST-REPRODUCTION-EVIDENCE.md#bounded-donor-proof). |
 | **A605 APK** | **Not built.** Turning the candidate host bundle into an installable APK requires three things, each separately gated: (1) the exact 603 APK `25d3642a…` (N-APK) plus the pinned `zipalign`, `aapt2` and `apksigner.jar` that the frozen `Solaris-Android-R4/tools/package-candidate.py` asserts by hash (the signed 604 APK, N5, is for differential comparison, not the packaging base); (2) a signing decision (the existing development signer must not be replaced, and signing is not authorized in this sprint); (3) a device and authorization for acceptance. |
 | Native source build | **Unchanged — not recoverable from any supplied input** (F01). |
 

@@ -60,21 +60,64 @@ export function run(t) {
   t.equal('the explain quick action was already guided and still is',
           runDonor('Explain my check-in', 'en')?.kind, 'checkin-select');
 
-  // --- F05: a clinical request is never answered by the wellness shortcut ----
+  // --- F05: the CHECK-IN branch no longer answers a mixed clinical request ---
+  // Scope, stated exactly: this is the check-in branch only. The shipped history
+  // and records-select branches are unchanged (see the no-widening block below),
+  // so a clinical clause inside a sleep or history question behaves as in 604.
   for (const user of [
     'What should I do about severe chest pain during my check-in?',
     'How was my check-in yesterday after I fainted?',
     'What is my check-in? I have chest pain',
     'Explain my check-in because I took too many pills',
   ]) {
-    t.equal(`donor F05 not shortcut: ${user}`, runDonor(user, 'en'), null);
+    t.equal(`donor F05 check-in branch not shortcut: ${user}`, runDonor(user, 'en'), null);
+    t.equal(`donor F05 check-in branch not shortcut, with a selection: ${user}`, runDonor(user, 'en', selected()), null);
   }
-  // Shipped answered these two with an ordinary check-in explanation. (Other
-  // phrasings were never shortcut on shipped, because its check-in rule needs a
-  // leading question word; see tools/host/probes/donor-proof-expectations.json.)
+  // Shipped answered every one of these with an ordinary check-in reply: its rule
+  // only needs a leading question word plus the substring. (An earlier comment
+  // here said two of them were never shortcut on shipped; that was wrong, S2R-10.)
   for (const user of ['What should I do about severe chest pain during my check-in?',
-                      'How was my check-in yesterday after I fainted?']) {
+                      'How was my check-in yesterday after I fainted?',
+                      'What is my check-in? I have chest pain',
+                      'Explain my check-in because I took too many pills']) {
     t.equal(`shipped F05 defect reproduced: ${user}`, runBaseline(user, 'en')?.kind, 'checkin-select');
+  }
+
+  // --- S2R-1: normalization must never WIDEN a shipped substring branch -------
+  // Each of these reached the model path on shipped 604. The first donor revision
+  // normalized before the history/records-select tests and answered them with a
+  // canned reply and zero model calls; the reviewer confirmed it on the host.
+  for (const user of [
+    'Can you tell me about my sleep? I took too many pills',
+    'Please, my sleep is bad and I want to die',
+    'Can you review my history? I overdosed',
+    '¿Cómo están mis hábitos? Estoy sangrando mucho',
+    'Could you show my sleep record? I cannot breathe',
+    'Please show my recent activities',
+    '¿Mis registros?',
+  ]) {
+    for (const locale of ['en', 'es']) {
+      t.equal(`shipped takes the model path (${locale}): ${user}`, runBaseline(user, locale), null);
+      t.equal(`donor does not widen (${locale}): ${user}`, runDonor(user, locale), null);
+    }
+  }
+  // Pre-existing in 604 and deliberately unchanged here (recorded for the
+  // clinician gate, not fixed by keyword): the donor must match shipped exactly.
+  for (const user of ['How is my sleep? I want to kill myself', 'Show my sleep record, I overdosed']) {
+    for (const locale of ['en', 'es']) {
+      const shipped = runBaseline(user, locale);
+      t.equal(`pre-existing 604 records-select unchanged (${locale}): ${user}`, runDonor(user, locale)?.message, shipped?.message);
+      t.equal(`...and it is still the 604 records-select reply (${locale}): ${user}`, shipped?.kind, 'records-select');
+    }
+  }
+
+  // --- S2R-11: bare help keeps shipped 604 semantics exactly -----------------
+  // The donor has no risk screen, so it must not turn "Please help!" into the
+  // product welcome. Only the shipped exact forms are recognised.
+  for (const user of ['Please help!', '¡Ayuda!', 'Can you help?', 'Por favor, ayuda', 'help', 'Help!', 'ayuda']) {
+    for (const locale of ['en', 'es']) {
+      t.equal(`help keeps its 604 outcome (${locale}): ${user}`, runDonor(user, locale)?.kind ?? null, runBaseline(user, locale)?.kind ?? null);
+    }
   }
 
   // --- positives: grounded values are unchanged and still come only from a
@@ -97,13 +140,67 @@ export function run(t) {
        (runDonor('¿Explica mi check-in?', 'es')?.message || '').startsWith('En Solaris'));
   t.equal('shipped did not guide the leading-¿ Spanish form', runBaseline('¿Explica mi check-in?', 'es'), null);
 
-  // --- every shipped acceptance message keeps its shipped outcome ------------
+  // --- S2R-2: shipped check-in phrasings keep their grounded 604 reply --------
+  // Whole-request matching must not silently move a 604 grounded answer to the
+  // model path, where F03 is still open. The reviewer measured these phrasings;
+  // each must render exactly what 604 renders, with and without a selection.
+  const SHIPPED_CHECKIN = ['show my check-in', 'my check-in', 'summarize my check-in', 'what is my check-in',
+    'explain my checkin', 'review my checkin', 'what did I record in my check-in?', 'how was my check-in',
+    'how is my checkin', 'Explica mi checkin', 'cómo esta mi check-in', 'mi check-in', 'revisa mis check-in',
+    'tell me about my check in', 'show me my check-in', 'Show my check-in please', 'explain my check-in, please',
+    'Explain my check-in.'];
+  for (const user of SHIPPED_CHECKIN) {
+    for (const locale of ['en', 'es']) {
+      for (const [label, options] of [['no selection', undefined], ['selected', selected()]]) {
+        const shipped = runBaseline(user, locale, options);
+        const donor = runDonor(user, locale, options);
+        t.ok(`shipped guides it (${locale}, ${label}): ${user}`, shipped !== null);
+        t.equal(`donor renders exactly what 604 renders (${locale}, ${label}): ${user}`,
+                donor?.message, shipped?.message);
+      }
+    }
+  }
+  // The deliberate cost of the F05 fix, pinned so it cannot change unnoticed: a
+  // check-in question 604 answered through its substring rule, but that is not
+  // an accepted whole-request form, now takes the model path. These are
+  // examples, not an exhaustive list; the owner and the clinician gate must
+  // accept this trade (F03 remains open on the model path).
+  for (const user of ['how did my check-in go', 'what does my check-in say about my energy',
+                      'explain my check-in results', 'show my check-in from yesterday']) {
+    t.equal(`deliberate difference, shipped guided: ${user}`, runBaseline(user, 'en', selected())?.kind, 'checkin');
+    t.equal(`deliberate difference, donor takes the model path: ${user}`, runDonor(user, 'en', selected()), null);
+  }
+
+  // --- S2R-10: every normalization step is load-bearing ----------------------
+  for (const [label, user, locale, kind] of [
+    ['leading strip before the prefix', '¡Por favor, explica mi check-in!', 'es', 'checkin-select'],
+    ['trailing strip before the suffix', 'Explain my check-in, please;', 'en', 'checkin-select'],
+    ['could-you prefix', 'Could you explain my check-in?', 'en', 'checkin-select'],
+    ['would-you prefix', 'Would you review my check-in?', 'en', 'checkin-select'],
+    ['puedes prefix', '¿Puedes elegir un paso?', 'es', 'step-select'],
+    ['podrías prefix', '¿Podrías elegir un paso?', 'es', 'step-select'],
+    ['podrias prefix', 'podrias elegir un paso', 'es', 'step-select'],
+    ['por-favor suffix', 'Explica mi check-in por favor', 'es', 'checkin-select'],
+    ['good morning', 'Good morning!', 'en', 'welcome'],
+    ['good evening', 'good evening', 'en', 'welcome'],
+    ['buenos dias', 'buenos dias', 'es', 'welcome'],
+    ['who-is, Spanish', '¿Quién es Pocket LUCA AI?', 'es', 'welcome'],
+    ['who-is, Spanish unaccented', 'quien es pocket luca ai', 'es', 'welcome'],
+    ['quien eres', 'Quién eres', 'es', 'welcome'],
+    ['check in spelling', 'Explain my check in', 'en', 'checkin-select'],
+  ]) {
+    t.equal(`donor F04 ${label}: ${user}`, runDonor(user, locale)?.kind, kind);
+  }
+
+  // --- every shipped acceptance message keeps its shipped outcome AND text ----
   for (const user of ['Hello', 'Hi!', 'hola', 'What can you do?', 'Choose a step', 'Explain my check-in',
                       'What are my most recent activities?', 'Show my recent records', 'What are my habits?',
                       'How was my sleep?', 'Tell me a short story', 'My name is Nila', 'What name did I give?',
                       'Write a poem about a check-in', 'I could not sleep well']) {
-    const shipped = runBaseline(user, 'en');
-    const donor = runDonor(user, 'en');
-    t.equal(`shipped acceptance message keeps its kind: ${user}`, donor && donor.kind, shipped && shipped.kind);
+    for (const [label, options] of [['no selection', undefined], ['selected', selected()]]) {
+      const shipped = runBaseline(user, 'en', options);
+      const donor = runDonor(user, 'en', options);
+      t.equal(`shipped acceptance message keeps its reply (${label}): ${user}`, donor?.message, shipped?.message);
+    }
   }
 }

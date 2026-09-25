@@ -30,37 +30,51 @@ not the price of admission to a reward program.
 >
 > No APK was built, signed, installed or deployed to produce this repository.
 
-## Latest engineering status — 18 September 2026
+## Latest engineering status — 25 September 2026 (Sprint-02)
 
 The import branch carries the foundation repairs, the A605 routing and
-answer-containment candidate, and Sprint-01's host reproduction work. PR #1
-remains draft and unmerged. Recheck the actual branch before writing.
+answer-containment candidate, Sprint-01's host reproduction, and Sprint-02's
+audit closure and bounded host donor. PR #1 remains
+draft and unmerged. Recheck the actual branch and
+[`docs/workflow/STATUS.md`](docs/workflow/STATUS.md) before writing.
 
-**What is now established:**
+**What is established:**
 
 - **The 604 host bundle reproduces byte-identically** (`30be9989…`) from the
-  exact 603 host bundle and pinned compiler, and the original 34 host cases and
-  10 lifecycle cases pass against it in actual Hermes. See
+  exact 603 host bundle and pinned compiler. The original 34 host cases and 10
+  lifecycle cases pass against it in actual Hermes. See
   [host reproduction evidence](docs/HOST-REPRODUCTION-EVIDENCE.md).
-- **Source checks fail closed, enforced centrally.** Registration, status and
-  coverage are validated outside the individual checks, so a check cannot pass
-  while having inspected nothing.
-- **The candidate resolves every request deterministically** — a supported
-  answer, a bounded out-of-scope reply, or a limitation naming what can be asked.
-  Personal facts render only from typed bindings to explicitly selected, approved
-  fields, with real calendar dates and malformed selections handled safely.
+- **A bounded A605 host donor fits the frozen host and passes on it.** It covers
+  the F04 punctuation and polite-wrapper fix, the F05 check-in fix, and the
+  app's quick-action replies. It is built into a candidate host bundle
+  (`105ade31…`) that passes the same 34 and 10 cases, plus 29 pre-registered
+  donor-proof cases. This is desktop Hermes with synthetic seams, not a phone.
+  The first revision of this donor was rejected by independent review, and the
+  published claims about it were corrected.
+- **Every reviewer finding is dispositioned against the reviewer's own words.**
+  See [finding dispositions](docs/reports/FINDINGS-DISPOSITION-SPRINT-02.md).
+  An external Expo audit is kept separately as EXT-01–30; its source was never
+  found, so its source-specific fixes stay unverified
+  ([status](docs/EXTERNAL-AUDIT-STATUS.md)).
+- **Source checks fail closed, enforced centrally.** Maintained code cannot be
+  reclassified out from under its gates, and the documented check tables are
+  tied to the registry in CI.
 
 **What is not established, and is not claimed:**
 
-- **No APK exists.** `A605` is a workstream name, not version code 605.
-- **The candidate does not yet fit the host.** Measured: the frozen donor asserts
-  a 2-function donor named `fastGuided`; the candidate compiles to 26 functions.
-  Nothing was weakened to force a fit.
+- **No new A605 APK has been built.** `A605` is a workstream name, not version
+  code 605. The 603 and 604 APKs exist outside this repository. Packaging would
+  need the exact 603 APK and three pinned tools, plus a signing decision; none
+  is authorized now.
+- **The full candidate router does not fit the host.** Lowered for Hermes it is
+  80 functions against a one-function donor contract. Only the bounded donor
+  fits. Nothing was weakened to force a fit.
 - **No native source build.** A host-bundle reproduction is not a native build.
-  The authored Gradle/Kotlin/NDK project is still not recovered — the largest
-  open item.
+  The authored Gradle/Kotlin/NDK project is still not recovered, and that is the
+  largest open item.
 - **No Android execution, device, phone latency or model-quality evidence.**
-  Desktop Hermes with synthetic seams is not a phone.
+- **Clinical wording is unreviewed.** Escalation copy, 17 known under-referred
+  clinical phrasings and crisis phrasings wait on a qualified clinician.
 
 Release remains **NO-GO**.
 

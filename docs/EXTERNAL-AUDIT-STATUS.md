@@ -45,8 +45,8 @@ type errors across those four paths, and six passing tests.
 | This repository, all tracked files | 0 `.ts`/`.tsx` files. |
 | This session's filesystem, excluding system library, browser and `node_modules` trees and `.d.ts` declarations | 0 `.ts`/`.tsx` files. |
 | The five handoff/input archives supplied to this workstream | 0 `.ts`/`.tsx` members. |
-| Repositories visible to this session's account (37 listed) | `Solaris-mobile-appV1` (private) was the only name-level match inspected. At HEAD `c9cd5096b45064c17f762a6dd40ec0c77fa8f0ff` (2025-12-07) it has 23 files, including an `App.tsx`, but **none** of the four audited paths. It is not the audited tree. The clone was inspected metadata-only and then removed; nothing from it was copied here. |
-| `Solaris-mobile-app-v2` | Checked by the Sprint-02 handoff author, who found no match. **Not re-run here.** |
+| Repositories visible to this session's account | One **private** repository whose name matched was inspected at its current HEAD. It contains an `App.tsx` but **none** of the four audited paths, so it is not the audited tree. Nothing from it was copied here, and the inspection copy was removed. Its identifying details are deliberately not published here (independent review of `b2a6ba8`, S2R-14). |
+| An older mobile-app repository named in the Sprint-02 handoff | Checked by the handoff author, who found no match. **Not re-run here.** |
 
 **Result: the audit remains source-unattributed.** Its repository, commit,
 lockfile, compiler version and exact diagnostics were never supplied. So:

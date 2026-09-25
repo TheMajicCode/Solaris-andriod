@@ -2,33 +2,51 @@
  *
  * Derived from the FROZEN Solaris-Android-R4/grounding/fast-guided.js
  * (sha256 100a7ce8045aa1ec64d554715eb0980d7379afb2c78cc6441ae424900a5c0369), which is not modified.
- * Everything outside the changes below is the shipped helper verbatim.
  *
- * Changes, and only these:
- *   F04  Boundary punctuation is stripped from BOTH ends, including the inverted
- *        Spanish marks and ;: (shipped stripped only trailing '!?.,'), then one
- *        polite prefix (can you / could you / would you / please / por favor /
- *        puedes / podrias), then the boundary again.
- *   F05  The check-in shortcut requires the WHOLE request to be an accepted
- *        form. Shipped fired on the substring 'check-in' plus a question prefix,
- *        which is why "severe chest pain during my check-in?" was answered and
- *        persisted as an ordinary wellness reply. A request that is not an
- *        accepted form now returns null: shipped 604's existing model path,
- *        with its no-diagnosis instruction. No clinical copy is embedded here;
- *        the candidate router's escalation reply has not passed clinical review.
+ * TWO TEXTS, ON PURPOSE (independent review of b2a6ba8, S2R-1). Shipped 604's
+ * substring branches — activity history, "no records selected" and bare
+ * help/ayuda — are decided on shipped 604's OWN text (lower-cased, trimmed,
+ * trailing '!?.,' removed) BEFORE any normalization below, with shipped's exact
+ * conditions. They therefore fire on exactly the messages they fired on in 604,
+ * never more. An earlier revision normalized first, which widened those branches:
+ * "Can you tell me about my sleep? I took too many pills" got a canned reply
+ * where 604 took the model path.
+ *
+ * The normalized text is used ONLY for whole-request matches, where the entire
+ * message must equal an accepted form, so normalization cannot hide an extra
+ * clause:
+ *   F04  Boundary punctuation stripped from both ends, including the inverted
+ *        Spanish marks and ;: ; then one polite prefix (can/could/would you,
+ *        please, por favor, puedes, podrias/podrías) and one polite suffix
+ *        (please, por favor); then the boundary again; then the spellings
+ *        "checkin" and "check in" are written "check-in".
+ *   F05  The check-in reply requires the WHOLE request to be an accepted form.
+ *        Shipped fired on the substring "check-in" after a leading question
+ *        word, so "What should I do about severe chest pain during my
+ *        check-in?" got an ordinary check-in explanation. Such a request now
+ *        returns null: shipped 604's model path, with its no-diagnosis
+ *        instruction. No clinical copy is embedded; the candidate router's
+ *        escalation reply has not passed clinical review.
+ *        Consequence, accepted deliberately and pinned in
+ *        candidate/tests/host-donor.test.mjs: a check-in question that 604
+ *        answered through the substring rule but that is not an accepted form
+ *        now reaches the model path too (S2R-2). The accepted forms include
+ *        the common phrasings measured by the reviewer.
  *   SP-CHAT-03  The app's own quick-action payloads ("Help me choose a step
  *        today", "Who is Pocket LUCA AI?") and the candidate's other accepted
- *        step/greeting/capability forms are recognised.
+ *        step, greeting and capability forms are recognised.
  *
- * Accepted forms are the candidate router's (candidate/a605/guided-router.mjs).
+ * Accepted forms match candidate/a605/guided-router.mjs; that router also folds
+ * accents and accepts a few more wrappers (hey, thanks, gracias), which do not
+ * fit here.
  *
  * Why it is written like this: the frozen inliner (Solaris-Android-R4/tools/
  * hbc_inline.py) accepts ONE closure-free function with no exception handler,
- * regexp, literal buffer or call into another donor function. Measured, the
- * shipped helper already uses 88 registers and host function 14894 leaves
- * exactly 88, so this donor has ZERO register headroom. A marker-scan risk
- * screen (98 registers), even a looped polite-prefix strip (95), did not fit;
- * this form measures 88. See docs/HOST-REPRODUCTION-EVIDENCE.md.
+ * regexp, literal buffer or call into another donor function. Host function
+ * 14894 leaves exactly 88 registers, and shipped already uses 88, so this donor
+ * has ZERO register headroom. Measured: this form uses 88. A marker-scan risk
+ * screen (98) and a looped prefix strip (95) did not fit. See
+ * docs/HOST-REPRODUCTION-EVIDENCE.md.
  *
  * NOT the candidate router: the typed-fact answer boundary (F03 containment),
  * deterministic limitation replies and escalation copy are NOT in this donor.
@@ -42,29 +60,34 @@ function fastGuided(task) {
   var prompt = task.prompt;
   var envelope = JSON.parse(prompt.slice(prompt.indexOf('\n') + 1, -10));
   var text = envelope.user.toLowerCase().trim();
-  while (text.length && '\u00a1\u00bf!?.,;:'.indexOf(text.charAt(0)) >= 0) text = text.slice(1).trim();
-  while (text.length && '\u00a1\u00bf!?.,;:'.indexOf(text.charAt(text.length - 1)) >= 0) text = text.slice(0, -1).trim();
-  if (text.indexOf('can you ') === 0) text = text.slice(8).trim();
-  else if (text.indexOf('could you ') === 0 || text.indexOf('would you ') === 0) text = text.slice(10).trim();
-  else if (text.indexOf('please ') === 0 || text.indexOf('please,') === 0) text = text.slice(7).trim();
-  else if (text.indexOf('por favor ') === 0 || text.indexOf('por favor,') === 0) text = text.slice(9).trim();
-  else if (text.indexOf('puedes ') === 0) text = text.slice(7).trim();
-  else if (text.indexOf('podrias ') === 0 || text.indexOf('podr\u00edas ') === 0) text = text.slice(8).trim();
-  while (text.length && '\u00a1\u00bf!?.,;:'.indexOf(text.charAt(0)) >= 0) text = text.slice(1).trim();
-  while (text.length && '\u00a1\u00bf!?.,;:'.indexOf(text.charAt(text.length - 1)) >= 0) text = text.slice(0, -1).trim();
+  while (text.length && '!?.,'.indexOf(text.charAt(text.length - 1)) >= 0) text = text.slice(0, -1).trim();
   var spanish = prompt.indexOf('Reply in es ') >= 0;
   var facts = envelope.facts;
   var refs = [];
   var answer = '';
   var kind = '';
-  var checkin = text.indexOf('check-in') >= 0 || text.indexOf('check in') >= 0 || text.indexOf('checkin') >= 0 || text.indexOf('registro de bienestar') >= 0;
   var question = text.indexOf('what ') === 0 || text.indexOf('how ') === 0 || text.indexOf('show ') === 0 || text.indexOf('tell ') === 0 || text.indexOf('explain ') === 0 || text.indexOf('review ') === 0 || text.indexOf('summari') === 0 || text.indexOf('my ') === 0 || text.indexOf('mi ') === 0 || text.indexOf('mis ') === 0 || text.indexOf('qué ') === 0 || text.indexOf('que ') === 0 || text.indexOf('cómo ') === 0 || text.indexOf('como ') === 0 || text.indexOf('revisa ') === 0 || text.indexOf('explica ') === 0;
   var personal = text.indexOf('my ') >= 0 || text.indexOf(' me') >= 0 || text.indexOf('mi ') >= 0 || text.indexOf('mis ') >= 0 || text === 'explain my check-in';
-  checkin = text === 'what is a check-in' || text === 'what is a check in' || text === 'explain my check-in' || text === 'explain my check in' || text === 'how is my check-in' || text === 'how is my check in' || text === 'tell me about my check-in' || text === 'review my check-in' || text === 'que es un check-in' || text === 'qu\u00e9 es un check-in' || text === 'como esta mi check-in' || text === 'c\u00f3mo est\u00e1 mi check-in' || text === 'explica mi check-in' || text === 'revisa mi check-in';
   var activities = question && personal && (text.indexOf('activit') >= 0 || text.indexOf('activid') >= 0 || text.indexOf('history') >= 0 || text.indexOf('historial') >= 0 || text.indexOf('recent records') >= 0);
-  var step = text === 'choose a step' || text === 'help me choose a step' || text === 'help me choose a step today' || text === 'suggest a small step' || text === 'reflect on my step' || text === 'choose a step today' || text === 'elige un paso' || text === 'elegir un paso' || text === 'sugiere un paso peque\u00f1o' || text === 'ayudame a elegir un paso hoy' || text === 'ay\u00fadame a elegir un paso hoy' || text === 'reflexiona sobre mi paso';
+  var records = question && personal && (text.indexOf('record') >= 0 || text.indexOf('note') >= 0 || text.indexOf('habit') >= 0 || text.indexOf('measurement') >= 0 || text.indexOf('sleep') >= 0 || text.indexOf('journal') >= 0 || text.indexOf('registro') >= 0 || text.indexOf('hábito') >= 0 || text.indexOf('dorm') >= 0);
+  var capabilities = text === 'help' || text === 'ayuda';
+  while (text.length && '¡¿!?.,;:'.indexOf(text.charAt(0)) >= 0) text = text.slice(1).trim();
+  while (text.length && '¡¿!?.,;:'.indexOf(text.charAt(text.length - 1)) >= 0) text = text.slice(0, -1).trim();
+  if (text.indexOf('can you ') === 0) text = text.slice(8).trim();
+  else if (text.indexOf('could you ') === 0 || text.indexOf('would you ') === 0) text = text.slice(10).trim();
+  else if (text.indexOf('please ') === 0 || text.indexOf('please,') === 0) text = text.slice(7).trim();
+  else if (text.indexOf('por favor ') === 0 || text.indexOf('por favor,') === 0) text = text.slice(9).trim();
+  else if (text.indexOf('puedes ') === 0) text = text.slice(7).trim();
+  else if (text.indexOf('podrias ') === 0 || text.indexOf('podrías ') === 0) text = text.slice(8).trim();
+  if (text.slice(-7) === ' please') text = text.slice(0, -7).trim();
+  else if (text.slice(-10) === ' por favor') text = text.slice(0, -10).trim();
+  while (text.length && '¡¿!?.,;:'.indexOf(text.charAt(0)) >= 0) text = text.slice(1).trim();
+  while (text.length && '¡¿!?.,;:'.indexOf(text.charAt(text.length - 1)) >= 0) text = text.slice(0, -1).trim();
+  text = text.split('checkin').join('check-in').split('check in').join('check-in');
+  var checkin = text === 'what is a check-in' || text === 'what is my check-in' || text === 'explain my check-in' || text === 'how is my check-in' || text === 'how was my check-in' || text === 'tell me about my check-in' || text === 'review my check-in' || text === 'show my check-in' || text === 'show me my check-in' || text === 'summarize my check-in' || text === 'summarise my check-in' || text === 'what did i record in my check-in' || text === 'my check-in' || text === 'que es un check-in' || text === 'qué es un check-in' || text === 'como esta mi check-in' || text === 'cómo está mi check-in' || text === 'cómo esta mi check-in' || text === 'como está mi check-in' || text === 'explica mi check-in' || text === 'revisa mi check-in' || text === 'revisa mis check-in' || text === 'mi check-in' || text === 'muestra mi check-in' || text === 'resume mi check-in';
+  var step = text === 'choose a step' || text === 'help me choose a step' || text === 'help me choose a step today' || text === 'suggest a small step' || text === 'reflect on my step' || text === 'choose a step today' || text === 'elige un paso' || text === 'elegir un paso' || text === 'sugiere un paso pequeño' || text === 'ayudame a elegir un paso hoy' || text === 'ayúdame a elegir un paso hoy' || text === 'reflexiona sobre mi paso';
   var greeting = text === 'hello' || text === 'hi' || text === 'hey' || text === 'hola' || text === 'buenos días' || text === 'buenas tardes' || text === 'buenas noches' || text === 'good morning' || text === 'good afternoon' || text === 'good evening' || text === 'buenos dias';
-  var capabilities = text === 'what can you do' || text === 'what can you help me with' || text === 'who are you' || text === 'help' || text === 'qué puedes hacer' || text === 'que puedes hacer' || text === 'ayuda' || text === 'who is pocket luca ai' || text === 'who is pocket luca' || text === 'what is pocket luca ai' || text === 'quien eres' || text === 'qui\u00e9n eres' || text === 'quien es pocket luca ai' || text === 'qui\u00e9n es pocket luca ai' || text === 'que es pocket luca ai';
+  capabilities = capabilities || text === 'what can you do' || text === 'what can you help me with' || text === 'who are you' || text === 'qué puedes hacer' || text === 'que puedes hacer' || text === 'who is pocket luca ai' || text === 'who is pocket luca' || text === 'what is pocket luca ai' || text === 'quien eres' || text === 'quién eres' || text === 'quien es pocket luca ai' || text === 'quién es pocket luca ai' || text === 'que es pocket luca ai';
   if (greeting || capabilities) {
     answer = spanish ? 'Hola. Soy Pocket LUCA. Puedo ayudarte a reflexionar, elegir un pequeño paso y revisar los registros que selecciones en Fuentes.' : 'Hello. I am Pocket LUCA. I can help you reflect, choose a small step and review the records you select in Sources.';
     kind = 'welcome';
@@ -120,7 +143,7 @@ function fastGuided(task) {
         kind = 'checkin';
       }
     }
-  } else if (facts.length === 0 && question && personal && (text.indexOf('record') >= 0 || text.indexOf('note') >= 0 || text.indexOf('habit') >= 0 || text.indexOf('measurement') >= 0 || text.indexOf('sleep') >= 0 || text.indexOf('journal') >= 0 || text.indexOf('registro') >= 0 || text.indexOf('hábito') >= 0 || text.indexOf('dorm') >= 0)) {
+  } else if (facts.length === 0 && records) {
     answer = spanish ? 'No hay registros seleccionados para este mensaje. Elige los registros que quieras compartir en Fuentes, o cuéntame aquí lo que deseas revisar.' : 'No records are selected for this message. Choose the records you want to share in Sources, or tell me here what you want to review.';
     kind = 'records-select';
   }

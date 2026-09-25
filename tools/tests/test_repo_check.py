@@ -471,6 +471,80 @@ def _(f: Fixture):
     assert 'conf/template.md' in text, 'repo-config Markdown was not link-checked'
 
 
+# --- independent review of b2a6ba8 (S2R-4, S2R-5, S2R-6, S2R-15) ------------
+
+@case('S2R-4: a frozen_external_record outside the transport prefix FAILS')
+def _(f: Fixture):
+    baseline(f)
+    new = b'var c = 3;\n'
+    f.add_file('imported/evidence/new-router.js', new)
+    f.candidate['frozen_external_records'] = [{
+        'path': 'imported/evidence/new-router.js', 'sha256': sha(new), 'bytes': len(new),
+        'origin': 'test', 'why_not_in_import_manifest': 'test'}]
+    r = f.run()
+    report = next(c for c in r['checks'] if c['check'] == 'candidate-changes-valid')
+    assert report['status'] == 'FAIL', 'a new file was declared frozen evidence'
+    assert any('outside' in x for x in report['findings']), report['findings']
+
+
+@case('S2R-4: an inherited defect that is not an imported file at its import hash FAILS')
+def _(f: Fixture):
+    baseline(f)
+    broken = b'function a(){\n'
+    f.add_file('docs/provenance/transport/new.js', broken)
+    f.candidate['frozen_external_records'] = [{
+        'path': 'docs/provenance/transport/new.js', 'sha256': sha(broken), 'bytes': len(broken),
+        'origin': 'test', 'why_not_in_import_manifest': 'test'}]
+    f.candidate['inherited_defects'] = [{
+        'id': 'X-9', 'path': 'docs/provenance/transport/new.js', 'sha256': sha(broken),
+        'tool': 'node --check', 'expected_diagnostic': 'SyntaxError', 'disposition': 'OPEN'}]
+    r = f.run()
+    report = next(c for c in r['checks'] if c['check'] == 'candidate-changes-valid')
+    assert report['status'] == 'FAIL', 'a new broken file was registered as an inherited defect'
+    assert any('not an imported file' in x for x in report['findings']), report['findings']
+
+
+@case('S2R-5: broken maintained JavaScript outside the gated scopes FAILS executable-code-scope')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('conf/check.cjs', b'module.exports = function (\n')
+    r = f.run()
+    assert status_of(r, 'executable-code-scope') == 'FAIL', 'a script with no parse gate passed'
+
+
+@case('S2R-6: a tools/ subdirectory reclassified out of repo-tooling FAILS (invariant 2)')
+def _(f: Fixture):
+    baseline(f)
+    f.add_file('tools/probes/run.py', b'print(1)\n')
+    f.write()
+    _prepend_rules(f,
+                   {'prefix': 'tools/probes/', 'integrity': 'maintained', 'scope': 'repo-config'},
+                   {'prefix': 'tools/', 'integrity': 'maintained', 'scope': 'repo-tooling'})
+    r = run_all(f.root, f.files())
+    report = next(c for c in r['checks'] if c['check'] == 'executable-code-scope')
+    assert report['status'] == 'FAIL', 'a tool moved out of its gated scope'
+    assert any('only legal scope' in x for x in report['findings']), report['findings']
+
+
+@case('S2R-15: a maintained candidate record whose file changed FAILS; a current one PASSES')
+def _(f: Fixture):
+    baseline(f)
+    donor = b'function fastGuided(task) { return null; }\n'
+    f.add_file('candidate/donor.js', donor)
+    f.candidate['maintained_candidate_paths'] = ['candidate/donor.js']
+    f.add_file('candidate/tests/run-all.mjs', b'console.log("summary: 1 assertions passed, 0 failed");\n')
+    f.candidate['maintained_candidate_paths'].append('candidate/tests/run-all.mjs')
+    record = {'path': 'candidate/donor.js', 'derived_from': 'imported/app.js',
+              'derived_from_sha256': sha(f.frozen['imported/app.js']),
+              'resulting_sha256_at_record': sha(donor), 'rationale': 'test', 'integration_target': 'test'}
+    f.candidate['maintained_candidate_records'] = [record]
+    r = f.run()
+    assert status_of(r, 'candidate-changes-valid') == 'PASS', 'a current record must pass'
+    (f.root / 'candidate/donor.js').write_bytes(b'function fastGuided(task) { return 1; }\n')
+    r = run_all(f.root, f.files())
+    assert status_of(r, 'candidate-changes-valid') == 'FAIL', 'a stale host-proof record passed'
+
+
 @case('a check that examines zero expected files FAILS (coverage guard)')
 def _(f: Fixture):
     baseline(f)
@@ -607,10 +681,44 @@ def unit_blocked_gate_table() -> None:
         print(f'  FAIL {label}')
 
 
+def unit_check_tables() -> None:
+    """S2R-3 (review of b2a6ba8): the check-description table and the recorded
+    result table in BUILD-AND-TEST.md fell behind the registry again (14 rows for
+    15 checks, no executable-code-scope row). Both must name exactly the
+    registered checks, in registry order, and the result table's stated check
+    count must match. File counts are transcribed from a live run and are not
+    compared here, since they legitimately move with every tracked file."""
+    global PASSES
+    import re
+    from solaris_checks.checks import CHECK_SPECS
+    registered = [spec.name for spec in CHECK_SPECS]
+    doc = (TOOLS.parent / 'docs/BUILD-AND-TEST.md').read_text(encoding='utf-8')
+    described_section = doc.split('| Check | Scope |', 1)[1].split('\n\n', 1)[0]
+    described = re.findall(r'^\| `([a-z0-9-]+)` \|', described_section, flags=re.M)
+    result_section = doc.split('### Result recorded for this candidate', 1)[1].split('\nOverall:', 1)[0]
+    recorded = re.findall(r'^\| `([a-z0-9-]+)` \| (?:PASS|FAIL|NOT_APPLICABLE) \|', result_section, flags=re.M)
+    stated = re.search(r'tracked files, (\d+) checks', result_section)
+    for label, ok, detail in [
+        ('docs: check-description table names exactly the registered checks', described == registered,
+         f'documented {described} vs registered {registered}'),
+        ('docs: recorded result table names exactly the registered checks', recorded == registered,
+         f'recorded {recorded} vs registered {registered}'),
+        ('docs: recorded result table states the registered check count',
+         bool(stated) and int(stated.group(1)) == len(registered), f'stated {stated and stated.group(1)}'),
+    ]:
+        if ok:
+            PASSES += 1
+            print(f'  ok   {label}')
+        else:
+            FAILURES.append(f'{label}: {detail}')
+            print(f'  FAIL {label}')
+
+
 def main() -> int:
     print('repo-check negative controls\n')
     unit_jsonc()
     unit_blocked_gate_table()
+    unit_check_tables()
     print(f'\nsummary: {PASSES} passed, {len(FAILURES)} failed')
     if FAILURES:
         print('\nFAILURES:')

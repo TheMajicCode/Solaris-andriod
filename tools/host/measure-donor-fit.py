@@ -17,7 +17,6 @@ Usage: measure-donor-fit.py --disposable-root <copy> --base <603 hbc> --donor <s
 import argparse, hashlib, json, subprocess, sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[2]
 BASE_SHA = 'b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990'
 HERMESC_SHA = 'b4c37f09410c6c6c0ce90df00eb270dc257d2184c85ca320382ebe06057f2a14'
 # The two inline sites in build-plans.py: (caller fid, parameter map, result register).
@@ -41,8 +40,11 @@ def main():
     p.add_argument('--out', type=Path, required=True)
     a = p.parse_args()
     root = a.disposable_root.resolve()
-    if root == REPO or REPO in root.parents:
-        sys.exit('refusing to run inside the tracked tree; pass a disposable copy')
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _guard import refuse_git_worktree, verify_frozen
+    refuse_git_worktree(root, 'disposable root')
+    refuse_git_worktree(a.out.resolve().parent, 'output directory')
+    verify_frozen(root, ('Solaris-Android-R4/tools/', 'Solaris-Android-R3/tools/', 'Solaris-Android-R4/grounding/'))
     # Same order as the frozen builders: R4 tools shadow R3's older hbc_patch.
     for i, sub in enumerate(('Solaris-Android-R4/tools', 'Solaris-Android-R3/tools',
                              'reconstruction-work/toolchain/hermes-dec-a0f18f97ab661eb8ed659c8c683a0d21ea619e69/src')):

@@ -21,7 +21,6 @@ import argparse, hashlib, importlib.util, json, sys, types
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-REPO = HERE.parents[1]
 PLANS = 'Solaris-Android-R4/grounding/build-plans.py'
 PLANS_SHA256 = '7025545b9117d3cb28d4cda1f8e6ba3762a35f2e460c6508bd956663df04430f'
 SOURCE_LINE = "    source=HERE/'fast-guided.js'\n"
@@ -56,8 +55,8 @@ def main():
     p.add_argument('--out', type=Path, required=True)
     a = p.parse_args()
     root = a.disposable_root.resolve()
-    if root == REPO or REPO in root.parents:
-        sys.exit('refusing to run inside the tracked tree; pass a disposable copy')
+    # build() below refuses any git work tree and verifies the frozen code in
+    # the disposable copy before it runs anything (review of b2a6ba8, S2R-8).
     donor = a.donor.resolve()
     if root not in donor.parents:
         sys.exit('the donor must live inside the disposable root (build-plans records it relative to that root)')

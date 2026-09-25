@@ -103,11 +103,12 @@
       "kind": "new maintained file derived from a frozen file; the frozen file is not modified",
       "derived_from": "Solaris-Android-R4/grounding/fast-guided.js",
       "derived_from_sha256": "100a7ce8045aa1ec64d554715eb0980d7379afb2c78cc6441ae424900a5c0369",
-      "resulting_sha256_at_record": "a0224b4e19483d88c4e756f91a2b69797a3faefd5a3cd76ec29cf58a3fb6850e",
-      "rationale": "Smallest adapter measured to fit the frozen donor contract: F04 boundary punctuation and polite prefixes, F05 whole-request check-in matching, SP-CHAT-03 quick-action forms. 88 registers against a measured 88-register budget at host function 14894.",
-      "integration_target": "Host functions 14890 (assertConversationAccess) and 14894 via Solaris-Android-R4/grounding/build-plans.py, built by tools/host/build-donor-candidate.py. Desktop-Hermes candidate only; no APK is built, signed or installed.",
+      "resulting_sha256_at_record": "ab7067e6cf433e9a19e16a8df68fc439e42f9765d013e5c2de2cca078f89f667",
+      "rationale": "Smallest adapter measured to fit the frozen donor contract: F04 boundary punctuation and polite prefix/suffix wrappers, F05 whole-request check-in matching, SP-CHAT-03 quick-action forms. Shipped 604's substring branches (activity history, records-select, bare help/ayuda) are decided on shipped's own text before any normalization, so they never fire more widely than in 604 (independent review of b2a6ba8, S2R-1/S2R-11). 88 registers against a measured 88-register budget at host function 14894.",
+      "integration_target": "Host functions 14890 (assertConversationAccess) and 14894 via Solaris-Android-R4/grounding/build-plans.py, built by tools/host/build-donor-candidate.py into candidate host bundle 105ade31744618ab37460b3b42fe4a46bafb221f91690a1f05ff6635695b279f (pinned in tools/host/_guard.py). Desktop-Hermes candidate only; no APK is built, signed or installed.",
       "evidence": "docs/HOST-REPRODUCTION-EVIDENCE.md, section \"Bounded donor proof\"",
-      "deliberate_differences_from_candidate_router": "A clinical or unsupported request returns null (shipped 604 model path) instead of the candidate router's deterministic escalation or limitation reply; the typed-fact answer boundary is not included."
+      "deliberate_differences_from_candidate_router": "A clinical or unsupported request returns null (shipped 604 model path) instead of the candidate router's deterministic escalation or limitation reply; the typed-fact answer boundary is not included. Shipped's history and records-select branches are kept exactly, including their pre-existing behaviour on a clinical clause inside a sleep or history question.",
+      "deliberate_differences_from_shipped_604": "A check-in question that 604 answered through its substring rule but that is not an accepted whole-request form takes the model path (the cost of the F05 fix, S2R-2); the common phrasings are accepted forms. Pinned in candidate/tests/host-donor.test.mjs and on the host by tools/host/probes/donor-proof-cases.js."
     }
   ]
 }

@@ -60,32 +60,35 @@ pass and is never evidence of an Android build.
 
 ### Result recorded for this candidate
 
-1,954 tracked files, 14 checks. Regenerated from a live run rather
-than edited by hand — NBR-2 found this table four rows stale and missing the
-`evidence-not-authored-source` row while the same commit claimed the counts were
-reconciled. A hand-maintained result table drifts; this one is transcribed from
-the run it reports.
+1,973 tracked files, 15 checks, transcribed from a live run of the
+Sprint-02 review-fix tree on 2026-09-25. It is not edited by hand. NBR-2 found this
+table four rows stale, and the independent review of `b2a6ba8` found it stale
+again (S2R-3: 14 rows for 15 checks). Since then `tools/tests/test_repo_check.py`
+fails if its check names, their order or the stated check count disagree with
+the registry. File counts move with every tracked file, so they are
+re-transcribed rather than compared.
 
 | Check | Result | Files |
 | --- | --- | --- |
-| `classification-complete` | PASS | 1954/1954 |
+| `classification-complete` | PASS | 1973/1973 |
 | `frozen-integrity` | PASS | 1881/1881 |
-| `candidate-changes-valid` | PASS | 14/14 |
-| `excluded-path-policy` | PASS | 1954/1954 |
+| `candidate-changes-valid` | PASS | 17/17 |
+| `excluded-path-policy` | PASS | 1973/1973 |
 | `build-input-exceptions` | PASS | 5/5 |
-| `evidence-not-authored-source` | PASS | 1954/1954 |
-| `json-parse` | PASS | 483/483 |
+| `evidence-not-authored-source` | PASS | 1973/1973 |
+| `executable-code-scope` | PASS | 1973/1973 |
+| `json-parse` | PASS | 484/484 |
 | `yaml-parse` | PASS | 2/2 |
-| `python-syntax` | PASS | 82/82 |
-| `javascript-syntax-authored` | PASS | 54/54 |
+| `python-syntax` | PASS | 86/86 |
+| `javascript-syntax-authored` | PASS | 59/59 |
 | `javascript-parse-evidence` | PASS | 162/162 |
-| `doc-links` | PASS | 40/40 |
-| `secret-pattern-scan` | PASS | 1954/1954 |
-| `candidate-regression-tests` | PASS | 11/11 |
+| `doc-links` | PASS | 53/53 |
+| `secret-pattern-scan` | PASS | 1973/1973 |
+| `candidate-regression-tests` | PASS | 13/13 |
 
-Overall: **PASS**. Companion suites: **27** checker negative controls,
-**11** parse-mode controls, **33** result-aggregation controls, **507** candidate
-assertions — all passing.
+Overall: **PASS**. Companion suites: **46** checker negative controls and
+documentation-drift controls, **11** parse-mode controls, **33** result-aggregation
+controls, **879** candidate assertions — all passing.
 
 Runtime recorded by the checker for this run: Python
 3.11.15, Node v22.22.2. CI pins Python 3.12.14

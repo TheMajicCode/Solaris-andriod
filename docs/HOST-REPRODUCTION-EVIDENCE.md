@@ -163,10 +163,14 @@ The private host-input kit reconciles to exactly three counts:
 - **184** checksum-listed files: the 179 plus 5 metadata files, all `OK`.
 - **185** ZIP members: the 184 plus `SHA256SUMS` itself.
 
-The three figures count different sets and do not contradict each other. The
-kit's `hermes-runner` arrived without its executable bit. It was run from a copy
-with the bit set; its bytes match the pin (`975e603f…`). The full 603 APK is not
-needed on this path; the wrapper below uses the pinned bundle directly.
+The three figures count different sets and do not contradict each other.
+
+**Four kit files arrived without their executable bit:** `hermes-runner`,
+`hermesc`, `libhermes.so` and `libjsi.so`. The kit's own verifier reports this.
+(An earlier revision of this page named only the runner; the independent review
+of `b2a6ba8` found the other three, S2R-13.) The bits were set on copies only, and
+the bytes of all four match their pins. The full 603 APK is not needed on this
+path; the wrapper below uses the pinned bundle directly.
 
 ### Wrapper refactor, re-proven
 
@@ -187,10 +191,22 @@ byte, with **1,936** spare UI bytes.
 3. Transpiles the result with the frozen transpiler.
 4. Runs it with the frozen runner against a pinned bundle.
 
-It refuses to run in the tracked tree or on an unpinned bundle.
+Every host tool uses the guards in `tools/host/_guard.py`, added after the
+independent review of `b2a6ba8` found the first versions too narrow (S2R-8):
+
+- A disposable root or output directory inside **any** git work tree is
+  refused. An earlier revision refused only the tool's own checkout.
+- Every frozen file a tool executes from the disposable copy must match its
+  import-manifest hash. A tampered `hbc_inline.py` is refused before it runs.
+  The private toolchain under `reconstruction-work/` is not in the import
+  manifest; it is pinned by the kit's own `SHA256SUMS`.
+- A candidate bundle is accepted only as the recorded pair of donor hash and
+  bundle hash, and only while the donor in the checkout still has that hash. A
+  hand-written result record no longer suffices.
+- The result files are git-ignored, since they carry local paths.
 
 `tools/host/probes/envelope-and-input-cases.js`: 8 cases, 8 pass on each of 603
-(`b8ac7d1b…`), 604 (`30be9989…`) and the donor candidate (`611a2430…`), with 0
+(`b8ac7d1b…`), 604 (`30be9989…`) and the donor candidate (`105ade31…`), with 0
 harness errors.
 
 | Observation on the actual host | Consequence |
@@ -222,105 +238,162 @@ reusing variables does not lower it; temporaries and code shape do.
 
 ### The full candidate does not fit — measured
 
+`tools/host/lower-candidate.cjs` produces the two measured inputs. The recipe was
+uncommitted in the first revision, so the numbers could not be reproduced exactly
+(S2R-13); it is committed now and records the module hashes it read.
+
 | Input | Result |
 | --- | --- |
-| Candidate modules concatenated as one script (`matching`, `risk-screen`, `supported-surface`, `answer-boundary`, `guided-router`, `host-envelope`; `import` lines dropped, `export` keywords removed) | **Rejected by the pinned `hermesc`**: `class AnswerRejected extends Error` is an invalid statement for Hermes 0.12.0. |
-| The same script lowered with the kit's pinned `@babel/standalone` 7.28.5 (classes, spread, for-of, template literals, block scoping, arrows, parameters, destructuring, shorthand) | Compiles. **79 functions** (78 besides `global`) against the required 2. |
+| The six candidate modules (`matching`, `risk-screen`, `supported-surface`, `answer-boundary`, `guided-router`, `host-envelope`) concatenated as one script, `import` lines dropped, `export` keywords removed | **Rejected by the pinned `hermesc`**: `class AnswerRejected extends Error` is an invalid statement for Hermes 0.12.0. |
+| The same script lowered with the kit's pinned `@babel/standalone` 7.28.5 (classes, spread, for-of, template literals, block scoping, arrows, parameters, destructuring, shorthand) | Compiles to **80 functions** (79 besides `global`) against the required 2. |
 
-Across those 78 functions (the `wholeProgram` block of `measure-donor-fit.py`):
+Measured on the candidate as of this revision, with the `wholeProgram` block of
+`measure-donor-fit.py`, across those 79 functions:
 
-- 10 have exception handlers, with **20 `Catch`** opcodes.
-- **26 `CreateClosure`** and **12 `CreateEnvironment`**; 10 functions have a
+- 9 have exception handlers, with **18 `Catch`** opcodes.
+- **27 `CreateClosure`** and **14 `CreateEnvironment`**; 10 functions have a
   non-zero environment.
-- **3 `CreateRegExp`** and **7 literal buffers** (4 `NewArrayWithBuffer`, 3
-  `NewObjectWithBuffer`).
+- **3 `CreateRegExp`** and **7 literal buffers**.
 - Argument reification and `this` access.
-- Read-cache indices summing to **420**, against a single-function donor limit
-  of 206. This is indicative only; a flattened function would allocate
-  differently.
+- Read-cache indices summing to 419, against a single-function donor limit of
+  206. This is indicative only.
 - One string not in the base table.
 
+The first revision reported 78, 20, 26 and 12 for the same quantities. The
+candidate has changed since, and the independent reviewer's own lowering gave
+slightly different figures again. None of these differences changes the
+conclusion.
+
 **Decision.** The full candidate router cannot reach the host through the frozen
-donor contract. Getting it there needs either:
-
-- recovered native source (F01), or
-- a separately reviewed extension of the inliner contract to closures,
-  environments, exception handlers and literal buffers.
-
-The second is a change to a frozen, security-relevant tool and is **not** made
+donor contract. That needs either recovered native source (F01) or a separately
+reviewed extension of a frozen, security-relevant inliner. Neither is attempted
 here.
 
 ## Bounded donor proof
 
-The smallest adapter that fits was built and exercised on the actual host. It is
-a maintained donor, `candidate/a605/host-donor/fast-guided.js` (SHA-256
-`a0224b4e19483d88c4e756f91a2b69797a3faefd5a3cd76ec29cf58a3fb6850e`), derived
-from the frozen helper (`100a7ce8…`, not modified). It changes only:
+The smallest adapter that fits is built and exercised on the actual host: the
+maintained donor `candidate/a605/host-donor/fast-guided.js`, SHA-256
+`ab7067e6cf433e9a19e16a8df68fc439e42f9765d013e5c2de2cca078f89f667`. It is
+derived from the frozen helper (`100a7ce8…`), which is not modified.
 
-- **F04**: strips leading and trailing `¡¿!?.,;:` and one polite wrapper
-  (`can/could/would you`, `please`, `por favor`, `puedes`, `podrías`), then
-  strips the edges again.
-- **F05**: a check-in explanation is recognised only when the **whole** request
-  is one of the candidate's exact `checkinExplain` forms (EN/ES, with and without
-  accents), instead of a substring test after a question prefix.
-- **SP-CHAT-03**: the app's own quick-action payloads (`Explain my check-in`,
-  `Help me choose a step today`, `Who is Pocket LUCA AI?`) and a few further
-  greeting and capability forms are accepted.
+> **Revised after independent review.** The first revision (`a0224b4e…`, bundle
+> `611a2430…`) was reviewed at `b2a6ba8` and returned **REQUEST CHANGES**.
+> - **S2R-1:** it normalized before shipped's substring branches, so on the
+>   actual host 10 of 10 messages such as `Can you tell me about my sleep? I took
+>   too many pills` got a canned reply with 0 model calls, where 604 took the
+>   model path.
+> - **S2R-2:** it dropped 17 check-in phrasings that 604 answered from the
+>   user's selected record, sending them to the model path.
+>
+> This page's earlier claims ("a clinical or unsupported request returns
+> `null`, as in shipped 604"; "every shipped-accepted message keeping its kind
+> and rendering") were therefore false. Both defects are fixed below, and the
+> reviewer's cases are now host cases.
 
-**Deliberate difference from the candidate router.** A clinical or unsupported
-request returns `null`, as in shipped 604, so it takes the model path. It does
-not get the candidate's escalation or limitation reply: that copy is clinically
-unreviewed, and the typed-fact answer boundary does not fit the donor contract.
-F03 therefore stays open for model replies on this path. The known
-under-referred clinical set (contract §4) behaves exactly as in 604.
+**How it works: two texts, on purpose.**
+
+- **Shipped's own text** decides shipped 604's substring branches: activity
+  history, "no records selected", and bare `help`/`ayuda`. This is the text
+  lower-cased, trimmed, and stripped of trailing `!?.,`, tested with shipped's
+  exact conditions *before* any normalization. Those branches therefore fire on
+  exactly the messages they fired on in 604, never more.
+- **The normalized text** is used only for whole-request matches, where the
+  entire message must equal an accepted form, so normalization cannot hide an
+  extra clause.
+  - **F04:** leading and trailing `¡¿!?.,;:` are stripped; then one polite prefix
+    (`can/could/would you`, `please`, `por favor`, `puedes`, `podrías`) and one
+    polite suffix (`please`, `por favor`); then the edges again. `checkin` and
+    `check in` are written `check-in`.
+  - **F05:** the check-in reply requires the **whole** request to be an accepted
+    form.
+  - **SP-CHAT-03:** the app's quick-action payloads are accepted forms.
+
+**What changes relative to shipped 604**, measured at helper level on the
+reviewer's corpus plus clinical and quick-action cases, and re-checked on the host:
+
+1. A mixed clinical and check-in request no longer gets the check-in reply. It
+   takes 604's model path. This is **the check-in branch only**.
+2. Whole-request forms that 604 missed now get the guided reply:
+   - `¡Hola!`, `¿Qué puedes hacer?`;
+   - polite wrappers around a supported form;
+   - the app's two quick actions that 604 did not answer.
+3. **A deliberate cost of (1):** a check-in question that 604 answered through
+   its substring rule, but that is not an accepted form (for example `how did my
+   check-in go`), now takes the model path, where F03 is still open. The common
+   phrasings the reviewer measured are accepted forms and render exactly what
+   604 renders. The trade is pinned in tests and must be accepted at the owner
+   and clinician gate.
+
+**What does not change:**
+
+- Activity history, records-select and bare help behave exactly as in 604. That
+  includes 604's **pre-existing** records-select reply to `How is my sleep? I want
+  to kill myself`, which is recorded for the clinician gate and not changed by
+  keyword.
+- There is no escalation copy in the donor: it is clinically unreviewed, and the
+  typed-fact answer boundary does not fit the donor contract.
 
 | Measurement | Result |
 | --- | --- |
 | Fit (`measure-donor-fit.py`) | 2 functions, `fastGuided`, **88 registers** (inlined frame 127 at 14894, 108 at 14890), no exception handler, environment 0, no forbidden opcodes, no function-ID operands, every string in the base table. **The real frozen `inline_donor` accepted it at both sites.** |
-| Build (`build-donor-candidate.py`) | The frozen `build-plans.py` is exec'd with only its donor path replaced. That line is asserted to occur exactly once, and the plans file is pinned at `7025545b…`. Every wrapper `require()` passes. Output: `candidate604.hbc`, 30,812,336 bytes, SHA-256 `611a2430ef40263125b900d51bf5715a7936542f6cf23603f979171461290a80`. Same four changed functions (`6929, 14890, 14894, 14904`), 1,936 spare UI bytes. Not byte-identical to 604, by design. |
+| Build (`build-donor-candidate.py`) | The frozen `build-plans.py` is exec'd with only its donor path replaced. That line is asserted to occur exactly once, and the plans file is pinned at `7025545b…`. Every wrapper `require()` passes. Output: `candidate604.hbc`, 30,815,560 bytes, SHA-256 `105ade31744618ab37460b3b42fe4a46bafb221f91690a1f05ff6635695b279f`. Same four changed functions, 1,936 spare UI bytes. Not byte-identical to 604, by design. |
 | Original 34 host cases on the candidate bundle | **34/34** |
 | Original 10 lifecycle cases on the candidate bundle | **10/10** |
 | Envelope and input probes (above) | **8/8**, identical to 604 |
-| Donor proof, candidate bundle (`donor-proof-cases.js`, expectations label `candidate`) | **37/37** fields match, 0 missing |
-| Donor proof, shipped 604 bundle (expectations label `shipped-604`) | **31/31** fields match. Shipped reproduces F05 on the actual host for `severe chest pain during my check-in?` and for a fainting-plus-check-in request. |
+| Donor proof, candidate bundle (`donor-proof-cases.js`, label `candidate`) | **29 cases, 74/74 expected fields match**, 0 missing, 0 harness errors |
+| Donor proof, shipped 604 bundle (label `shipped-604`) | **29 cases, 69/69 match**. Shipped reproduces F05 on the actual host for `severe chest pain during my check-in?` and for a fainting-plus-check-in request. |
 
-The expectations were written before the runs
-(`tools/host/probes/donor-proof-expectations.json`). Three shipped-604
-predictions were wrong: shipped 604 shortcuts a check-in only when the text
-*starts* with a question prefix. Those three were corrected to the observed model
-path, and the file says so; the candidate expectations were not changed.
-Swapping the two expectation sets produces 22 mismatches, so the oracle
-discriminates.
+The expectations are pre-registered in
+`tools/host/probes/donor-proof-expectations.json`:
+
+- The review cases were written before the runs.
+- In the first revision, three shipped-604 predictions were wrong: 604
+  shortcuts a check-in only when the text *starts* with a question word. They
+  were corrected to the observed model path, and the file says so.
+- Swapping the two expectation sets produces 30 and 25 mismatches, so the oracle
+  discriminates.
+
+On the host, both bundles behave identically on the S2R-1 and S2R-11 cases, the
+S2R-2 check-in phrasings and the pre-existing records-select case. They differ
+on the F04, F05 and SP-CHAT-03 cases and on the one deliberate-difference case.
 
 Helper-level regression for the same donor runs in CI:
 `candidate/tests/host-donor.test.mjs` evaluates the donor file itself. It covers:
 
-- F04 forms that shipped 604 misses;
-- the SP-CHAT-03 payloads;
-- F05 not being shortcut;
-- every shipped-accepted message keeping its kind and rendering;
-- the `Please,` / `por favorito` edge cases.
+- the S2R-1 no-widening cases in both locales, and the pre-existing 604
+  records-select replies;
+- the 18 S2R-2 phrasings, compared by **message**, with and without a
+  selection;
+- the pinned deliberate differences;
+- help;
+- every normalization step;
+- the shipped acceptance messages, compared by message.
 
-It is mutation-verified.
+Removing any single normalization step fails between 1 and 32 assertions. The
+first-revision donor fails 92.
 
 **Status: a desktop-Hermes candidate only.** No new A605 APK was built, and
-nothing was signed, installed or measured on a phone. Placing this donor into an
-APK needs the APK packaging inputs and the signing decision, which are
-separately gated (F01, F02).
+nothing was signed, installed or measured on a phone. Packaging needs the exact
+603 APK and three pinned packaging tools, and signing is separately gated (F01,
+F02). See the [native inventory](NATIVE-RECOVERY-INVENTORY.md).
 
 ### Reproducing (requires the private inputs)
 
 ```
 python3 tools/host/hbc-input-wrapper.py <disposable> <603 bundle> <out>             # → 30be9989…
+node tools/host/lower-candidate.cjs <disposable> <new dir>                          # full-router inputs
 python3 tools/host/measure-donor-fit.py --disposable-root <disposable> --base <603 bundle> \
-        --donor candidate/a605/host-donor/fast-guided.js --out <new dir>
+        --donor <script.js> --out <new dir>
 python3 tools/host/build-donor-candidate.py --disposable-root <disposable> --bundle <603 bundle> \
-        --donor candidate/a605/host-donor/fast-guided.js --out <new dir>          # → 611a2430…
+        --donor <disposable>/candidate/a605/host-donor/fast-guided.js --out <new dir>   # → 105ade31…
 python3 tools/host/run-host-probe.py --disposable-root <disposable> --bundle <hbc> --out <new dir> \
-        --cases tools/host/probes/donor-proof-cases.js \
-        --expect tools/host/probes/donor-proof-expectations.json --label candidate \
-        [--candidate-record <DONOR-CANDIDATE-RESULT.json>]
+        [--cases tools/host/probes/donor-proof-cases.js \
+         --expect tools/host/probes/donor-proof-expectations.json --label candidate|shipped-604]
 ```
+
+The disposable copy must hold this checkout's `tools/` and `candidate/`, the
+unmodified frozen trees, and the private `reconstruction-work/`. None of the
+directories may be inside a git work tree.
 
 ## What this is not
 

@@ -1,6 +1,6 @@
 # Status
 
-**Updated:** 2026-09-18 · Session 2
+**Updated:** 2026-09-25 · Sprint-02
 
 ## Publication — authorized, conflict resolved
 
@@ -11,7 +11,7 @@
 | Default branch | `main` at `5cc354c852565479020d4a6c99109fff992c6de4` |
 | Input branch | `import/604-source` at `bf1d4e90ea173f088ca3fa9a6c806876aba51adc` |
 | Task branch | `claude/solaris-android-import-iyla4d` |
-| PR #1 | Open, draft, unmerged |
+| PR #1 | Open, draft, unmerged. Head at the last push: `e0efa1d` (Sprint-02, unreviewed) |
 
 The earlier private-visibility gate is **superseded and closed**. It is not
 reopened, and no further refusal-only commits are made. `F09`'s visibility
@@ -49,13 +49,42 @@ convenience item, not a blocker.
 
 | Field | Value |
 | --- | --- |
-| Sprint | Sprint-01 after `5d48426` |
-| Writer | Claude Code (integrator) |
-| Base | `5d48426e49a0e6e2d1f4eb7b6cdfa62dbaa657d7` (published, CI green) |
-| Lanes | S0 state · S1 CI coverage · S2 candidate · S3 audit · S4 host reproduction · S5 fit proof · S6 native · S7 delivery |
-| State | S0–S2, S4–S6 complete; S3 in progress; S7 in progress |
+| Sprint | Sprint-02: recovery, audit closure, welcome/onboarding |
+| Integrator | Claude Code (this session) |
+| Writers | Integrator for `candidate/a605/`, `tools/`, `docs/`. One onboarding writer in its own worktree, on disjoint paths `candidate/onboarding/` and `tools/onboarding/`. |
+| Reviewer | Independent review agent. It reviewed `4f49ba8..b2a6ba8` and changed no code. |
+| Base | `cdbf3a3ab3785f9e3eaca5c09c2594de3833470a` (remote at sprint start, tree clean) |
+| Checkpoints | Verified bundles of `cdbf3a3` and of `cdbf3a3..b2a6ba8`, held outside Git |
+| State | Findings and EXT dispositions done. Bounded host donor revised after review. Review fixes awaiting re-review. Onboarding preview being integrated. |
 
-## Checks actually run — Sprint-01
+Detail: [finding dispositions](../reports/FINDINGS-DISPOSITION-SPRINT-02.md) ·
+[host evidence](../HOST-REPRODUCTION-EVIDENCE.md) ·
+[external audit status](../EXTERNAL-AUDIT-STATUS.md).
+
+## Checks actually run — Sprint-02
+
+Local, on the staged review-fix tree, 2026-09-25. Remote CI results are in the
+review ledger below.
+
+| Check | Result |
+| --- | --- |
+| `tools/repo-check.py` | PASS — 15 checks, 1,973 tracked files |
+| `tools/tests/test_repo_check.py` | PASS — 46 negative and documentation-drift controls |
+| `tools/tests/test_js_parse_modes.py` | PASS — 11 |
+| `tools/tests/test_result_aggregation.py` | PASS — 33 |
+| `candidate/tests/run-all.mjs` | PASS — 879 assertions |
+| Host kit | 179 manifest entries, 184 checksummed files, 185 ZIP members — all match. Four executables lack their exec bit; the bytes match. |
+| 604 host bundle via the refactored wrapper | PASS — byte-identical `30be9989…` |
+| Bounded donor fit | Fits — 88 registers; the frozen inliner accepts it |
+| Candidate bundle `105ade31…` | Host 34/34, lifecycle 10/10, input probes 8/8, donor proof 74/74 fields (29 cases) |
+| Shipped 604 on the same proof | 69/69 fields; F05 reproduced |
+| Full candidate router fit | Does not fit: 80 functions, 18 `Catch`, 27 closures |
+| Guard attacks (tampered frozen tool, git-tree root, forged bundle) | All refused |
+
+Every new control was mutation-tested: each fix reverted individually in a scratch
+copy, with its control confirmed to fail.
+
+## Checks actually run — Sprint-01 (history)
 
 Local. Remote CI runs on the pushed head.
 
@@ -95,6 +124,18 @@ still said no review existed. Recorded here now.
 | `1b33e60` | full candidate tree | APPROVE WITH FINDINGS | 4 blocking (B1–B4), all reproduced then fixed |
 | `6126903` | full tree at that commit | APPROVE WITH FINDINGS | 0 blocking, 10 non-blocking (NB1–NB10) |
 | `4f49ba8` | delta `6126903..4f49ba8` | APPROVE WITH FINDINGS | 0 blocking, 10 non-blocking (NBR-1…NBR-10) |
+| `cdbf3a3` | delta `4f49ba8..cdbf3a3` (the NBR fixes) | APPROVE WITH FINDINGS | Covered by the Sprint-02 review below |
+| `b2a6ba8` | delta `cdbf3a3..b2a6ba8` | **REQUEST CHANGES** | 3 blocking (S2R-1 donor widened shipped shortcuts; S2R-2 donor dropped 604 grounded answers; S2R-3 ledgers stale), 12 non-blocking. All fixed; **the fixes await re-review.** |
+
+`e0efa1d` (documentation only) was pushed during that review and was not reviewed.
+
+Remote CI, branch head (`push`) and synthetic merge (`pull_request`) recorded
+separately:
+
+| Head | `push` run | `pull_request` run |
+| --- | --- | --- |
+| `cdbf3a3` | 35678409412 — success | 35678413073 — success |
+| `e0efa1d` | 36078420652 — success | 36078425072 — success |
 
 The `6126903` reviewer also raised a **process** finding: a writer modified files
 on the reviewed paths during the review, contrary to this repository's
@@ -141,7 +182,10 @@ account, and is not presented as one.
 | --- | --- | --- |
 | `AND-IMP-01` | `solaris-603-native-probe/recommended-request-builder.cjs` is truncated at line 10. Imported byte-for-byte; **not** repaired. | OPEN — registered by exact hash. Recover from the full reference or record permanently as a truncated fragment. |
 | `AND-CI-01` | `node --check` returns success for broken `.js` containing ESM syntax. | FIXED in the checker; negative control added. |
-| `F09` | Repository public while every governing document assumes private. | OPEN — blocked on the owner action above. See `provenance/PUBLIC-EXPOSURE-RECORD.md`. |
+| `F09` | Visibility component | CLOSED by owner instruction (public continuation authorized, 18 Sep 2026). Foundation acceptance stays open on its own merits. |
+| `SP2-HOST-01` | A lone UTF-16 surrogate makes the host throw `URIError` before any model call or write. | OPEN — host budget code, not editable here (F01). |
+| `1b33e60/N2` | 17 clinical phrasings reach the generic limitation, not a referral. | OPEN — clinician gate. Containment is pinned. |
+| `S2R-2` residual | A check-in question outside the accepted forms takes the model path on the donor. | Deliberate cost of the F05 fix. Needs owner and clinician acceptance. |
 
 ## Unresolved boundaries
 
@@ -152,14 +196,14 @@ account, and is not presented as one.
   all open. See `AUDIT-FINDINGS-MATRIX.md`.
 - No security, dependency, CVE or license audit exists. No repository license is
   set. No artifact release exists.
-- Remote CI has run and passed on `6126903` and on `4f49ba8`, on both the
-  `push` (branch head) and `pull_request` (synthetic merge) events. The branch
-  head and the synthetic merge commit are different objects and are recorded
-  separately.
-- Independent review **has** been obtained for the current candidate, at two
-  exact SHAs. Earlier statements here that no review existed described the
-  `edd43bd`/`8db241b` era and are superseded. A review of `c57c0b2` still does
-  not cover later work and must not be reused.
+- Remote CI has passed on `6126903`, `4f49ba8`, `cdbf3a3` and `e0efa1d`, on
+  both the `push` (branch head) and `pull_request` (synthetic merge) events. The
+  branch head and the synthetic merge commit are different objects and are
+  recorded separately. **A green run is not a review.**
+- Independent review covers up to `cdbf3a3` (approved with findings) and
+  `b2a6ba8` (changes requested). The Sprint-02 fixes and the onboarding work are
+  integrator changes after that review, and are unreviewed until the re-review is
+  recorded here. A review of an earlier SHA never covers later work.
 - A self-review of `8db241b` found and fixed three risk-screen gaps where a
   clinical request fell through to open generation rather than the bounded
   out-of-scope reply (`M9`–`M13`). Self-review is recorded as such and does not
@@ -167,7 +211,11 @@ account, and is not presented as one.
 
 ## Next action
 
-1. Independent review of the exact final full SHA and diff.
-2. Resolve findings, rerun affected checks.
-3. Push the task branch, update draft PR #1, then run real remote CI. Record the
-   branch-head SHA separately from the synthetic merge SHA. **Do not merge.**
+1. Re-review the S2R fixes and the onboarding commit, which are integrator
+   changes after the last review.
+2. Resolve any findings, rerun the affected checks, and push. Update draft PR #1,
+   run remote CI, and record the branch-head SHA separately from the synthetic
+   merge SHA. **Do not merge.**
+3. Owner decisions: the S2R-2 trade-off, the clinician gate (escalation copy,
+   under-referred phrasings, crisis phrasings), and the packaging inputs for any
+   A605 APK rehearsal.
