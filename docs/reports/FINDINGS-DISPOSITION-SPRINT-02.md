@@ -222,7 +222,7 @@ frozen `sanctuary.html`.
 | S2R2-4 | The S2R-15 `derived_from` check had no control. | **FIXED.** | 1 control; disabling the check fails it. |
 | S2R2-5 | An absent `onboardingComplete` replays chapter 1 (as host 1014 does). | **RECORDED** deviation for the owner. | `docs/onboarding/SCREEN-ACTION-MAP.md` |
 | S2R2-6 | Chapter 1 has no Back, while the contract lists one. | **RECORDED** deviation for the owner. | same |
-| S2R2-7 | The vision panel's web-product claim is unverified. | **RECORDED** under the copy-review gate (`U0-04`). | same; STATUS |
+| S2R2-7 | The vision panel's web-product claim is unverified. | **FIXED** (merge-polish task, 2026-09-26): reworded to intended architecture, not a checked claim; no test pinned the old wording. | `candidate/onboarding/copy.mjs`; same; STATUS |
 
 These fixes are in `9a3bf89`.
 

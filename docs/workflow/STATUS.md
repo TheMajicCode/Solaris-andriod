@@ -135,7 +135,8 @@ still said no review existed. Recorded here now.
 | `b2a6ba8..9198227` | re-review of the S2R fixes, the onboarding commits and the integration | `e0efa1d` APPROVE; `2fd079b`, `7350fd5`, `5630df3`, `9198227` APPROVE WITH FINDINGS; `76b24f6` **REQUEST CHANGES** (1 blocking, S2R2-1) | 7 findings (S2R2-1…7). Fixed or recorded in `9a3bf89`. |
 | `9a3bf89` | follow-up review of the S2R2 fixes | **APPROVE WITH FINDINGS**, 0 blocking | S2R3-1 (import-path guard missed packages) and S2R3-2 (a missing control), fixed in `e377669`. |
 | `e377669` | review of the S2R3 fixes | **APPROVE WITH FINDINGS**, 0 blocking | S2R4-1 (symlinked module) and S2R4-2 (forged bytecode cache), fixed in `bfaf23b`. |
-| `bfaf23b` | review of the S2R4 fixes | **APPROVE WITH FINDINGS**, 0 blocking | S2R5-1 (modules loaded by path trusted forged caches) and S2R5-2 (cosmetic), fixed in the next commit (wrapper loader, guard and records only). |
+| `bfaf23b` | review of the S2R4 fixes | **APPROVE WITH FINDINGS**, 0 blocking | S2R5-1 (modules loaded by path trusted forged caches) and S2R5-2 (cosmetic), fixed in `192d7ab`. |
+| **`192d7ab` (head, merge-polish base)** | review of the S2R5 fixes | **APPROVE, 0 findings** | Confirmed the wrapper still yields `30be9989…` with forged caches in both import-loaded directories, and the symlink refusal names itself. **This is the first commit in Sprint-02 to clear review with no findings at all.** |
 
 Remote CI, branch head (`push`) and synthetic merge (`pull_request`) recorded
 separately:
@@ -146,6 +147,9 @@ separately:
 | `e0efa1d` | 36078420652 — success | 36078425072 — success |
 | `9198227` | 36081879597 — success | 36081884342 — success (merge `e781da6a`) |
 | `9a3bf89` | 36086055340 — success | 36086060498 — success (merge `2a16d1d3`) |
+| `e377669` | 36086553605 — success | 36086558121 — success |
+| `bfaf23b` | 36086771394 — success | 36086774811 — success |
+| `192d7ab` | 36086958698 — success | 36086963140 — success |
 
 The `6126903` reviewer also raised a **process** finding: a writer modified files
 on the reviewed paths during the review, contrary to this repository's
@@ -199,7 +203,7 @@ account, and is not presented as one.
 | `U0-01` | Long Spanish words break mid-word at 320 px and 200% text in the preview; headless Chromium did not hyphenate. | OPEN — needs a WebView or device check with `hyphens`. |
 | `U0-02` | The onboarding does not fit the host UI slot (36.9×). | BLOCKED — native UI source (F01). |
 | `U0-03` | Two finish-button labels ("Finish and check in", "Finish and open my records") are the writer's wording, not the contract's. | Needs qualified EN/ES copy review. |
-| `U0-04` | The vision panel's web copy ("its own sign-in; this vault does not send your records to it") is unverified here (S2R2-7). Also: an absent `onboardingComplete` replays chapter 1, and chapter 1 has no Back (S2R2-5/6). | Recorded in `docs/onboarding/SCREEN-ACTION-MAP.md`; owner decision before integration. |
+| `U0-04` | **FIXED (merge-polish, 2026-09-26):** the vision panel's web copy now describes intended architecture instead of an unverified present-tense claim (S2R2-7). Still open: an absent `onboardingComplete` replays chapter 1, and chapter 1 has no Back (S2R2-5/6). | Recorded in `docs/onboarding/SCREEN-ACTION-MAP.md`; owner decision before integration. |
 
 ## Unresolved boundaries
 

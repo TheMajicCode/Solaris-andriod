@@ -43,6 +43,20 @@ rewriting, branch or repository deletion, releases, deployment, APK signing or
 installation, key or signer changes, data resets, wallet generation, payments,
 or any change to the Solaris web repository.
 
+**Merge and evaluation-release authorization (26 September 2026).** The owner
+has additionally authorized exactly two actions on the reviewed engineering
+foundation, superseding the "merging" and "releases" clauses above **only**
+for these: (1) a normal merge commit of the reviewed `claude/solaris-android-import-iyla4d`
+branch into `main`, with no squash or force-push that would discard the
+reviewed history; and (2) publishing the specific, already-signed historical
+604 APK (`org.solarishealth.edge.recovery`, `6.0.4-preview.grounded-chat` /
+code 604) as a clearly labeled GitHub **prerelease** evaluation artifact,
+subject to its own eligibility, hash and outgoing-content checks. See
+[`docs/ARTIFACTS.md`](docs/ARTIFACTS.md). Every other item on the list above —
+branch/repository deletion, deployment, new APK signing or repackaging,
+installation, key or signer changes, data resets, wallet generation, payments,
+and any change to the Solaris web repository — remains unauthorized.
+
 ## Evidence rules
 
 - **Preserve imported bytes.** Imported source, tests and evidence are
@@ -124,10 +138,12 @@ reachable history before a push; exclude any affected addition and continue the
 unaffected work. Never print a discovered secret value — report the concrete
 action needed. No silent history rewrite, and no key rotation.
 
-Still unauthorized: merging, force-pushing, history rewriting, releases,
-deployment, APK signing or installation, key or signer changes, data resets, SDK
-upgrades, wallet creation, fund movement, creating a replacement repository, and
-any change to the Solaris web repository.
+Still unauthorized, except for the two narrow actions dated 26 September 2026
+above (merging the reviewed branch, and publishing the one named historical APK
+as a labeled prerelease): force-pushing, history rewriting, any other release,
+deployment, new APK signing or repackaging, installation, key or signer
+changes, data resets, SDK upgrades, wallet creation, fund movement, creating a
+replacement repository, and any change to the Solaris web repository.
 
 Long product and history documents are linked from
 [`README.md`](README.md) rather than injected into every agent session.

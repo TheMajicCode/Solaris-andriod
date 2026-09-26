@@ -22,6 +22,27 @@ asset has been created, and `docs/provenance/REPO-IMPORT-MANIFEST.json` records
 no artifact identifiers, because none exist. Populating it is a separate
 authorized task (`AND-00b` in the [Roadmap](ROADMAP.md)).
 
+## Evaluation-release authorization (26 September 2026) — narrow and specific
+
+The owner has authorized publishing exactly one existing, already-signed
+historical artifact as a clearly labeled GitHub **prerelease**, not a general
+release capability: the retained 604 APK,
+`org.solarishealth.edge.recovery`, `6.0.4-preview.grounded-chat` / code 604,
+242,638,023 bytes, SHA-256 `0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827`.
+No new signing, repackaging, key change or installation is authorized. This
+does **not** authorize a general release process, a "latest" tag, or
+publishing any other artifact.
+
+**Blocked in this task.** The actual APK file was not supplied to this
+workspace — only recovered evidence and reports *about* it (for example
+`Solaris-Android-Reconstruction/reference/Solaris-V6-APK-Recovery-Report.md`)
+are present, never the binary. Rehashing, package/version inspection, embedded-
+content inspection and signature verification on the **actual recovered file**
+are required before publication and could not be performed here. Publishing
+must wait until the binary is supplied to a session with this authorization,
+so the checks in this section can run against the real bytes rather than the
+recorded identity alone.
+
 When assets are eventually curated, each entry records: asset name, bytes,
 SHA-256, origin and provenance, license status, required/optional role, exact
 restoration path, platform requirements, and the release tag plus exact commit

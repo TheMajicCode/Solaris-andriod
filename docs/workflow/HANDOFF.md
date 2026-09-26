@@ -5,26 +5,28 @@
 | Item | Value |
 | --- | --- |
 | Branch | `claude/solaris-android-import-iyla4d` |
-| `origin` HEAD | See [`STATUS.md`](STATUS.md). At the last update it was `e0efa1d` (Sprint-02, unreviewed); check `git log origin/<branch>` before writing. |
+| `origin` HEAD | `192d7ab4a739076decdf2fb487d4c3ffb686761c` — **independently reviewed, 0 findings.** Re-check `git log origin/<branch>` before writing in case it has moved since this line was last touched. |
 | Repository visibility | **Public** — public continuation authorized 18 Sep 2026 |
 | PR #1 | Open, draft, **unmerged** |
-| Remote CI | **PASS** on `6126903`, `4f49ba8`, `cdbf3a3` and `e0efa1d`, push and pull_request runs both |
-| Independent review | APPROVE WITH FINDINGS on `6126903`, `4f49ba8` and `cdbf3a3`. **REQUEST CHANGES** on `b2a6ba8` (S2R-1…S2R-15). |
-| Sprint-02 state | The S2R fixes were re-reviewed (S2R2-1 blocking, fixed in `9a3bf89`). `9a3bf89` was approved with findings; S2R3-1/2 are fixed in the next commit, which touches only the host guard, one checker control and the records. The onboarding commits and `e0efa1d` were approved, with findings. |
+| Remote CI | **PASS** on every pushed Sprint-02 head, push and pull_request runs both: `e0efa1d`, `9198227`, `9a3bf89`, `e377669`, `bfaf23b`, `192d7ab`. See the run table in `STATUS.md`. |
+| Independent review | APPROVE WITH FINDINGS on `6126903`, `4f49ba8` and `cdbf3a3`. `b2a6ba8` initially got **REQUEST CHANGES** (S2R-1…S2R-15); every finding across the seven follow-up rounds was fixed, and the final round approved `192d7ab` with **0 findings**. |
+| Sprint-02 state | **Closed at `192d7ab`.** Seven review rounds on the host-tool hardening (S2R-1…S2R5-2); the final round approved `192d7ab` with **0 findings**. The onboarding commits and `e0efa1d` were approved, with findings, each recorded and resolved or accepted. See the full ledger in `STATUS.md`. |
 
 ## No owner action is blocking
 
 The earlier private-visibility request is **withdrawn and closed**. Public
 continuation is authorized. Do not reopen it.
 
-## Unpushed commits
+## Current head — reviewed, pushed, CI green
 
-```sh
-git log --oneline origin/claude/solaris-android-import-iyla4d..HEAD
-```
-
-Push is authorized once independent review of the exact final commit passes and
-the outgoing range is inspected.
+`192d7ab` is fully pushed with nothing outstanding
+(`git log --oneline origin/claude/solaris-android-import-iyla4d..HEAD` is empty
+as of this writing). The engineering foundation on this head has cleared
+independent review and required CI. **Merging this reviewed branch into `main`
+is authorized** — see the dated, narrowly scoped authorization in
+[`../../AGENTS.md`](../../AGENTS.md) ("Merge and evaluation-release
+authorization, 26 September 2026"). Verify the branch has not moved before
+merging, since a changed head needs its own review and CI pass.
 
 ## Read first
 
@@ -58,13 +60,19 @@ provenance incident, not something to fix by regenerating a manifest.
 
 ## Next actions in order
 
-1. Independent review of the exact final full SHA and diff. A prior self-review
-   and a timed-out reviewer are **not** approval.
-2. Resolve material findings; rerun affected checks.
-3. Push the existing task branch and update draft PR #1, then run **real remote
-   CI**. Record the branch-head SHA separately from the synthetic merge SHA.
-   Remote CI on an unpublished commit cannot be a prerequisite to pushing it.
-4. Review material follow-ups. **Do not merge.**
+1. If the branch head has moved since `192d7ab`, review and CI the new head
+   before treating it as merge-ready — a review of an earlier SHA never covers
+   later work.
+2. Merge PR #1 into `main` with a normal merge commit (no squash, no
+   force-push), checking the expected head SHA immediately before merging.
+   Verify `main` afterward and check its post-merge CI.
+3. Native source recovery (F01), the qualified-clinician escalation-copy
+   review, the F05 model-path trade-off acceptance, and onboarding UI-slot
+   integration remain open product gates and are **not** merge blockers — see
+   `STATUS.md` for the full list.
+4. The historical 604 APK evaluation-prerelease authorization is separate from
+   the source merge; see [`../ARTIFACTS.md`](../ARTIFACTS.md). It is blocked in
+   this workspace because the actual binary was not supplied here.
 5. Dependent chat/native branches may build on the exact reviewed foundation
    checkpoint; record base dependencies and revalidate when the base moves.
 

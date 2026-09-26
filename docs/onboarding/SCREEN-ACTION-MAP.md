@@ -102,8 +102,10 @@ Recorded by the integrator. They are not fixed in this candidate:
   Skip for now; Back" for it. The screen before chapter 1 is the pre-unlock
   welcome, which the flow cannot return to while unlocked. This is intentional,
   but it needs contract-owner sign-off.
-- **S2R2-7: the vision panel's web copy states** "It has its own sign-in; this
-  vault does not send your records to it". Nothing in this repository verifies
-  either statement about the separate Solaris web product. It stays behind the
-  same EN/ES copy review as the finish-button labels (STATUS `U0-03`, `U0-04`)
-  and must be verified or reworded before any release.
+- **S2R2-7 (FIXED, merge-polish task, 2026-09-26): the vision panel's web copy**
+  asserted the website's sign-in and data flow as present fact. Nothing in this
+  repository verifies either statement, so the copy now describes intended
+  architecture ("planned as a separate product … with its own sign-in; it is
+  not designed to receive your vault records") rather than a checked claim. It
+  still stays behind the same EN/ES copy review as the finish-button labels
+  (STATUS `U0-03`, `U0-04`) before any release.

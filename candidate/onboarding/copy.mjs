@@ -88,7 +88,11 @@ const en = {
   'vision.vault.title': 'Health passport on this phone',
   'vision.vault.body': 'This Android vault keeps your records on this phone.',
   'vision.web.title': 'Solaris online',
-  'vision.web.body': 'The website supports discovery and coordination. It has its own sign-in; this vault does not send your records to it.',
+  // S2R2-7 (independent review): the original wording asserted the website's
+  // sign-in and data flow as present fact. Nothing in this repository verifies
+  // the separate Solaris web product's behaviour, so this describes intended
+  // architecture, not a checked claim.
+  'vision.web.body': 'The website is planned as a separate product for discovery and coordination, with its own sign-in; it is not designed to receive your vault records.',
   'vision.clinic.title': 'Practitioner exchange',
   'vision.clinic.body': 'Future practitioner endpoints and Clinic OS are meant to support consented exchange. A directory entry does not prove trust, and withdrawing access later cannot recall a copy already shared.',
   'vision.economy.title': 'Economic passport and sovereignty experiments',
@@ -173,7 +177,7 @@ const es = {
   'vision.vault.title': 'Pasaporte de salud en este teléfono',
   'vision.vault.body': 'Esta bóveda Android guarda tus registros en este teléfono.',
   'vision.web.title': 'Solaris en línea',
-  'vision.web.body': 'El sitio web ayuda a descubrir y coordinar. Tiene su propio inicio de sesión; esta bóveda no le envía tus registros.',
+  'vision.web.body': 'El sitio web está previsto como un producto aparte para descubrir y coordinar, con su propio inicio de sesión; no está diseñado para recibir los registros de tu bóveda.',
   'vision.clinic.title': 'Intercambio con profesionales',
   'vision.clinic.body': 'Los futuros puntos de conexión para profesionales y Clinic OS buscan permitir un intercambio con consentimiento. Una entrada en un directorio no demuestra confianza, y retirar el acceso más tarde no puede recuperar una copia ya compartida.',
   'vision.economy.title': 'Pasaporte económico y experimentos de soberanía',
