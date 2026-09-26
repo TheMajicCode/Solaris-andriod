@@ -65,4 +65,26 @@ key, signer, schema or data change. No escalation copy extended without
 clinical review. No Expo scaffold imported. Nothing in the Solaris web
 repository.
 
+## APK-EVAL — Historical 604 evaluation APK verification
+
+| Field | Value |
+| --- | --- |
+| **Problem** | PR #1 (the reviewed source foundation) merged into `main` at `25c9e93`. The narrow, separately authorized evaluation-prerelease of the historical 604 APK (see `docs/ARTIFACTS.md`, "Evaluation-release authorization") remained blocked because the binary itself had not been supplied to any session. It was then supplied as a three-part transport archive. |
+| **Writer** | Claude Code (this session), isolated branch `claude/solaris-604-apk-eval` |
+| **Reviewer** | Independent review agent. It independently reassembled the archive, re-derived every hash, wrote its own from-scratch APK Signing Block v2 parser/verifier (catching and fixing a real bug in its own first draft, then cross-validating against a second independent tool, `apksigtool`), and independently re-ran the secrets/content scan. **APPROVE WITH FINDINGS** on `2b0931b`: one non-blocking finding, `S2R7-1` (this ledger entry was missing — now added). |
+| **Base SHA** | `25c9e93` (`main`, post-merge) |
+| **Allowed paths** | `docs/ARTIFACTS.md`, `docs/THIRD-PARTY-NOTICES.md` only. No source, no binary committed to Git. |
+| **Acceptance evidence** | Reassembly matched all pinned hashes; APK SHA-256 `0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827` (242,638,023 bytes) independently recomputed twice; package/version/version-code parsed from the binary manifest and matched; v2 APK Signing Block signature cryptographically verified against the certificate's public key, with the content digest recomputed over the full file and matched against the embedded digest; certificate SHA-256 `fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c` matched, confirmed as the existing self-signed Android Debug certificate; `classes.dex`, the JS bundle and `assets/app.config` scanned for secrets/PII with none found; license evidence gathered for bundled third-party components (Apache-2.0/MIT only, no copyleft identified) — recorded in `docs/THIRD-PARTY-NOTICES.md` as evidence for this one binary, explicitly not as `AND-01` closure. `tools/repo-check.py` PASS at this head (15/15 applicable checks). |
+| **Output paths** | `docs/ARTIFACTS.md`, `docs/THIRD-PARTY-NOTICES.md` |
+| **Status** | Verification complete and independently reviewed. **Publication itself is BLOCKED**: this session's GitHub tooling exposes no release-creation or asset-upload capability (only reading existing releases), and this repository's operating instructions restrict GitHub actions to that sanctioned tooling. No release, tag, README download link, or badge was created. The unchanged APK, a `SHA256SUMS.txt`, and drafted evaluation notes are prepared and held outside Git, ready to attach. |
+| **Next step** | A session or maintainer with GitHub release-asset-upload capability creates the "Solaris Android 604 — Historical evaluation preview" prerelease using the verified hash above, attaches the APK and `SHA256SUMS.txt`, and only then is the README updated with the real release/download URLs in a further small reviewed change. |
+
+### Explicitly not done in APK-EVAL
+
+No APK signed, repackaged or installed. No release, tag or download link
+created. No merge to `main`. `AND-01` (the full dependency/license inventory)
+was not closed — only per-component evidence for this one binary was
+gathered. The F05 trade-off, clinical escalation-copy review and native
+source recovery were not touched.
+
 Later items are sequenced in the [Roadmap](../ROADMAP.md).

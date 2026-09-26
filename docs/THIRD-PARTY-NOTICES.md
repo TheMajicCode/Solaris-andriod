@@ -42,6 +42,31 @@ remove any obligation attached to them.
 The same applies to reference APKs, native libraries, model weights, the pinned
 host compiler/parser, the formatter and Android packaging tools.
 
+## Evidence gathered for the 604 evaluation APK (26 September 2026)
+
+While verifying `Solaris-V6.0.4-Grounded-Chat-Candidate.apk`
+(`org.solarishealth.edge.recovery`, `6.0.4-preview.grounded-chat` / code 604,
+SHA-256 `0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827`) for
+the narrow evaluation-prerelease authorization in
+[Artifacts](ARTIFACTS.md), the components bundled in that one binary were
+checked against their actual licenses, not assumed by name:
+
+| Component | Evidence | License |
+| --- | --- | --- |
+| Tether QVAC on-device AI SDK (`@qvac/sdk`, `libqvac-ggml-*.so`) | Fetched upstream `LICENSE` | Apache License 2.0 |
+| Holepunch Bare runtime (`bare-kit`, `libbare-*.so` family) | Fetched upstream `LICENSE` (`bare-kit`) | Apache License 2.0 |
+| OpenSSL (`libcrypto.so`) | Embedded `ndkports/openssl` build-path strings | Apache License 2.0 |
+| Meta `fbjni` (`libfbjni.so`) | Embedded `com.facebook.jni` symbols | Apache License 2.0 |
+| Meta Hermes engine (`libhermes.so`, `libjsi.so`) | Embedded engine strings | MIT |
+| AndroidX, Kotlin/kotlinx.coroutines | `META-INF/*.version` descriptors, well-established public license (not independently re-fetched) | Apache License 2.0 |
+| Expo modules, Meta Fresco image pipeline | File names, well-established public license (not independently re-fetched) | MIT |
+
+No copyleft (GPL/LGPL/AGPL) component was identified in this binary. This
+table is evidence for that one artifact's redistribution eligibility. It does
+**not** constitute the `AND-01` dependency/license inventory above, which
+remains **not produced**, and it does not cover any other build or any source
+in this repository.
+
 ## Adapters under consideration
 
 None are integrated. Each carries its own licensing and service-terms review

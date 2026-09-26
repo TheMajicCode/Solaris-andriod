@@ -33,15 +33,70 @@ No new signing, repackaging, key change or installation is authorized. This
 does **not** authorize a general release process, a "latest" tag, or
 publishing any other artifact.
 
-**Blocked in this task.** The actual APK file was not supplied to this
-workspace — only recovered evidence and reports *about* it (for example
-`Solaris-Android-Reconstruction/reference/Solaris-V6-APK-Recovery-Report.md`)
-are present, never the binary. Rehashing, package/version inspection, embedded-
-content inspection and signature verification on the **actual recovered file**
-are required before publication and could not be performed here. Publishing
-must wait until the binary is supplied to a session with this authorization,
-so the checks in this section can run against the real bytes rather than the
-recorded identity alone.
+**Verified in this task (26 September 2026).** A three-part transport archive
+was supplied and reassembled outside any Git work tree; every pinned hash
+matched at each stage — the three chunks, the restored
+`Solaris-604-Update.zip` (78,314,463 bytes, SHA-256
+`4bb60b697fdf3835b424e0356df94dc98de4e4a40bb84cea40fedddfd1e2b9d5`), and the
+extracted APK. The APK's SHA-256 was independently recomputed twice (once by
+the reassembly script, once by a separate `sha256sum` call) and matches the
+recorded identity above exactly: 242,638,023 bytes,
+`0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827`.
+
+- **Package/version**: parsed the binary `AndroidManifest.xml` directly —
+  `org.solarishealth.edge.recovery`, `6.0.4-preview.grounded-chat`, version
+  code 604. Matches the recorded identity exactly.
+- **Signature**: the APK carries only a v2 APK Signing Block (no v1 JAR
+  signature). Its RSASSA-PKCS1-v1_5/SHA-256 signature was **cryptographically
+  verified** against the signer's own public key — not just fingerprint-
+  matched — and the content digest was recomputed over the full
+  242,638,023-byte file and matches the digest embedded in the signed data
+  exactly, confirming the signature covers this exact file. The signing
+  certificate's SHA-256
+  (`fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c`) matches
+  the recorded certificate fingerprint. The certificate is the standard
+  self-signed AOSP "Android Debug" certificate (`CN=Android Debug`) — the
+  existing development signer, not a new key.
+- **Embedded content**: `classes.dex`, the 30.8 MB
+  `assets/index.android.bundle` JS bundle, and `assets/app.config` were
+  scanned for private-key headers, AWS-style keys, generic API-key/secret
+  assignments, wallet-seed markers (`nsec1…`, `xprv…`), JWT/bearer tokens and
+  non-standard email addresses — none found. The full 602-entry file listing
+  contains only standard Android resource types (`res/*.png|xml|webp`), the
+  JS bundle, dex, and native libraries — no `.pem`, `.key`, `.jks`,
+  `.keystore`, database, or media-recording files, and no filenames
+  suggesting patient or recording data. `assets/app.config` (Expo config)
+  contains no embedded credentials. Manifest permissions: `USE_BIOMETRIC`,
+  `health.READ_SLEEP`, `health.READ_STEPS`, `INTERNET`, `RECORD_AUDIO`,
+  `VIBRATE`, and one app-scoped receiver permission — no location, contacts
+  or SMS.
+- **Third-party licensing** (concrete evidence, not name-based assumption):
+  fetched the actual upstream `LICENSE` for the two bundled components whose
+  terms were not already well established — Tether's QVAC on-device AI SDK
+  (`@qvac/sdk`, the `libqvac-ggml-*.so` family) and Holepunch's Bare runtime
+  (`bare-kit` and the `libbare-*.so` family) — both **Apache License 2.0**.
+  Confirmed `libcrypto.so` is OpenSSL (embedded `ndkports/openssl` build-path
+  strings; Apache-2.0), `libfbjni.so` is Meta's `com.facebook.jni` helper
+  (Apache-2.0), and `libhermes.so`/`libjsi.so` are Meta's Hermes engine (MIT),
+  by inspecting the binaries' own embedded strings. AndroidX and Kotlin/
+  kotlinx.coroutines (both Apache-2.0), Expo modules and Meta's Fresco image
+  pipeline (both MIT) were identified from `META-INF/*.version` descriptors
+  and file names against their well-established public licenses, without a
+  fresh fetch per package. No copyleft (GPL/LGPL/AGPL) component was
+  identified. This is evidence for this one binary's redistribution
+  eligibility; it does **not** close `AND-01` (the repository's own full
+  dependency/license inventory with versions), which remains open exactly as
+  [Third-party notices](THIRD-PARTY-NOTICES.md) states.
+
+**On the evidence above, this APK is eligible for the narrow evaluation
+prerelease authorized above.** Publication itself is blocked for a different,
+concrete reason: this session's sanctioned GitHub tooling exposes no
+release-creation or asset-upload capability, only reading existing releases,
+and this repository's operating instructions restrict GitHub actions to that
+sanctioned tooling. The unchanged APK, a `SHA256SUMS.txt`, and drafted
+evaluation notes are prepared and ready to attach the moment a session with
+release-asset-upload capability — or a maintainer, using the verified hash
+above — creates the prerelease.
 
 When assets are eventually curated, each entry records: asset name, bytes,
 SHA-256, origin and provenance, license status, required/optional role, exact
