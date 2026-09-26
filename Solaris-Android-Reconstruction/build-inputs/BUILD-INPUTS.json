@@ -1,0 +1,34 @@
+{
+  "format": "solaris-reconstruction-build-inputs/1",
+  "applicationPackage": "org.solarishealth.edge.recovery",
+  "referenceVersionCode": 601,
+  "referenceApkSha256": "228c3d9f282d716515e3640de2b13478a29e21c607293eaf589741ec6d34f183",
+  "signerCertificateSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+  "observedAndroid": {
+    "minSdk": 29,
+    "targetSdk": 36,
+    "compileSdk": 36
+  },
+  "available": [
+    "exact code601 APK",
+    "packaged HBC96/DEX/resources/native libraries in APK",
+    "exact packaged HTML and 1013 worker files",
+    "readable reviewed UI source with frozen format-tool lock",
+    "native decompiled class references and host disassembly",
+    "JADX1.5.6 and pinned hermes-dec tooling",
+    "official Android build tools36 archive"
+  ],
+  "notRecovered": [
+    "original App.tsx and authored host service sources",
+    "complete native Gradle project",
+    "Gradle wrapper and distribution pin",
+    "Android Gradle/Kotlin plugin pins",
+    "original resolved native/npm application lockfile",
+    "NDK/CMake compiler inputs and flags",
+    "original release regression suite",
+    "complete original authored native source for reference dependencies"
+  ],
+  "signingNote": "Matching public Expo development fixture provenance retained; no fixture key included and no signing operation performed. A signing fixture is not a native source/build graph.",
+  "nativeBuildReady": false,
+  "signedCandidateAllowed": false
+}

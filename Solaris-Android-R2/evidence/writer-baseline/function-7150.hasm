@@ -1,0 +1,53 @@
+=> [Function #7150 "preparation" of 193 bytes]: 1 params, frame size=15, strict=1, exc handler=0, debug info=0  @ offset 0x01c2e0cd
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 3, UInt8: 0>
+==> 00000003: <GetEnvironment>: <Reg8: 0, UInt8: 1>
+==> 00000006: <LoadFromEnvironment>: <Reg8: 0, Reg8: 0, UInt8: 12>
+==> 0000000a: <GetById>: <Reg8: 2, Reg8: 0, UInt8: 1, string_id: 21019>  # String: 'preparationState' (Identifier)
+==> 00000010: <NewObject>: <Reg8: 1>
+==> 00000012: <GetById>: <Reg8: 0, Reg8: 3, UInt8: 2, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 00000018: <GetByIdShort>: <Reg8: 0, Reg8: 0, UInt8: 3, string_id: 35>  # String: 'state' (Identifier)
+==> 0000001d: <PutNewOwnById>: <Reg8: 1, Reg8: 0, string_id: 14303>  # String: 'transfer' (Identifier)
+==> 00000022: <GetByIdShort>: <Reg8: 0, Reg8: 3, UInt8: 4, string_id: 195>  # String: 'phase' (Identifier)
+==> 00000027: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 0, string_id: 195>  # String: 'phase' (Identifier)
+==> 0000002b: <GetByIdShort>: <Reg8: 4, Reg8: 3, UInt8: 5, string_id: 96>  # String: 'current' (Identifier)
+==> 00000030: <LoadConstNull>: <Reg8: 0>
+==> 00000032: <Eq>: <Reg8: 6, Reg8: 4, Reg8: 0>
+==> 00000036: <LoadConstUndefined>: <Reg8: 0>
+==> 00000038: <LoadConstUndefined>: <Reg8: 5>
+==> 0000003a: <JmpTrue>: <Addr8: 14, Reg8: 6>  # Address: 00000048
+==> 0000003d: <GetById>: <Reg8: 4, Reg8: 4, UInt8: 6, string_id: 17234>  # String: 'ctx' (Identifier)
+==> 00000043: <GetByIdShort>: <Reg8: 5, Reg8: 4, UInt8: 7, string_id: 174>  # String: 'method' (Identifier)
+==> 00000048: <LoadConstString>: <Reg8: 4, string_id: 14103>  # String: 'loadModel' (Identifier)
+==> 0000004c: <StrictEq>: <Reg8: 4, Reg8: 5, Reg8: 4>
+==> 00000050: <JmpFalse>: <Addr8: 17, Reg8: 4>  # Address: 00000061
+==> 00000053: <GetByIdShort>: <Reg8: 5, Reg8: 3, UInt8: 5, string_id: 96>  # String: 'current' (Identifier)
+==> 00000058: <GetById>: <Reg8: 5, Reg8: 5, UInt8: 8, string_id: 14914>  # String: 'cancelled' (Identifier)
+==> 0000005e: <Not>: <Reg8: 4, Reg8: 5>
+==> 00000061: <PutNewOwnById>: <Reg8: 1, Reg8: 4, string_id: 18718>  # String: 'preparing' (Identifier)
+==> 00000066: <GetGlobalObject>: <Reg8: 4>
+==> 00000068: <TryGetById>: <Reg8: 5, Reg8: 4, UInt8: 9, string_id: 15800>  # String: 'Boolean' (Identifier)
+==> 0000006e: <GetByIdShort>: <Reg8: 4, Reg8: 3, UInt8: 10, string_id: 176>  # String: 'modelId' (Identifier)
+==> 00000073: <JmpFalse>: <Addr8: 9, Reg8: 4>  # Address: 0000007c
+==> 00000076: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 11, string_id: 21209>  # String: 'workerReady' (Identifier)
+==> 0000007c: <JmpFalse>: <Addr8: 12, Reg8: 4>  # Address: 00000088
+==> 0000007f: <GetById>: <Reg8: 6, Reg8: 3, UInt8: 12, string_id: 14465>  # String: 'blocked' (Identifier)
+==> 00000085: <Not>: <Reg8: 4, Reg8: 6>
+==> 00000088: <JmpFalse>: <Addr8: 9, Reg8: 4>  # Address: 00000091
+==> 0000008b: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 13, string_id: 14370>  # String: 'active' (Identifier)
+==> 00000091: <Call2>: <Reg8: 4, Reg8: 5, Reg8: 0, Reg8: 4>
+==> 00000096: <PutNewOwnById>: <Reg8: 1, Reg8: 4, string_id: 14377>  # String: 'loaded' (Identifier)
+==> 0000009b: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 12, string_id: 14465>  # String: 'blocked' (Identifier)
+==> 000000a1: <PutNewOwnById>: <Reg8: 1, Reg8: 4, string_id: 14465>  # String: 'blocked' (Identifier)
+==> 000000a6: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 14, string_id: 17483>  # String: 'recoveryInfo' (Identifier)
+==> 000000ac: <PutNewOwnById>: <Reg8: 1, Reg8: 4, string_id: 15811>  # String: 'recovery' (Identifier)
+==> 000000b1: <GetByIdShort>: <Reg8: 3, Reg8: 3, UInt8: 15, string_id: 122>  # String: 'error' (Identifier)
+==> 000000b6: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 3, string_id: 122>  # String: 'error' (Identifier)
+==> 000000ba: <Call2>: <Reg8: 0, Reg8: 2, Reg8: 0, Reg8: 1>
+==> 000000bf: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,8 @@
+{
+  "zipPath": "/workspace/scratch/7a1f5a13b137/deliverables/Solaris-603-Update.zip",
+  "zipBytes": 78295417,
+  "zipSha256": "e2ba3503d78a86c2bb27054201325f7d50aa6701d06e0449fd13c24c6648cf62",
+  "apkBytes": 242588871,
+  "apkSha256": "25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227",
+  "extractedApkExactlyMatchesSignedCandidate": true
+}

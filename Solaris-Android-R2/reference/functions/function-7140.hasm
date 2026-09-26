@@ -1,0 +1,17 @@
+=> [Function #7140 "_interopDefault" of 28 bytes]: 2 params, frame size=3, strict=1, exc handler=0, debug info=0  @ offset 0x01b82a2b
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 2, UInt8: 1>
+==> 00000003: <JmpFalse>: <Addr8: 14, Reg8: 2>  # Address: 00000011
+==> 00000006: <GetByIdShort>: <Reg8: 1, Reg8: 2, UInt8: 1, string_id: 32>  # String: '__esModule' (Identifier)
+==> 0000000b: <Mov>: <Reg8: 0, Reg8: 2>
+==> 0000000e: <JmpTrue>: <Addr8: 12, Reg8: 1>  # Address: 0000001a
+==> 00000011: <NewObject>: <Reg8: 1>
+==> 00000013: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 2, string_id: 101>  # String: 'default' (Identifier)
+==> 00000017: <Mov>: <Reg8: 0, Reg8: 1>
+==> 0000001a: <Ret>: <Reg8: 0>
+
+
+===============
+

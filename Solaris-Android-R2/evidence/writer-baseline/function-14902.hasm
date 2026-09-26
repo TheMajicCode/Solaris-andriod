@@ -1,0 +1,45 @@
+=> [Function #14902 "" of 149 bytes]: 1 params, frame size=15, strict=1, exc handler=0, debug info=0  @ offset 0x01d39438
+
+Bytecode listing:
+
+==> 00000000: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 00000003: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 8>
+==> 00000007: <LoadFromEnvironment>: <Reg8: 0, Reg8: 1, UInt8: 0>
+==> 0000000b: <GetByIdShort>: <Reg8: 0, Reg8: 0, UInt8: 1, string_id: 121>  # String: 'epoch' (Identifier)
+==> 00000010: <StrictEq>: <Reg8: 0, Reg8: 2, Reg8: 0>
+==> 00000014: <JmpFalse>: <Addr8: 37, Reg8: 0>  # Address: 00000039
+==> 00000017: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 0>
+==> 0000001b: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 2, string_id: 35>  # String: 'state' (Identifier)
+==> 00000020: <LoadConstNull>: <Reg8: 3>
+==> 00000022: <Eq>: <Reg8: 4, Reg8: 2, Reg8: 3>
+==> 00000026: <LoadConstUndefined>: <Reg8: 3>
+==> 00000028: <JmpTrue>: <Addr8: 9, Reg8: 4>  # Address: 00000031
+==> 0000002b: <GetById>: <Reg8: 3, Reg8: 2, UInt8: 3, string_id: 17238>  # String: 'authorityEpoch' (Identifier)
+==> 00000031: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 9>
+==> 00000035: <StrictEq>: <Reg8: 0, Reg8: 3, Reg8: 2>
+==> 00000039: <JmpFalse>: <Addr8: 71, Reg8: 0>  # Address: 00000080
+==> 0000003c: <GetEnvironment>: <Reg8: 2, UInt8: 4>
+==> 0000003f: <LoadFromEnvironment>: <Reg8: 2, Reg8: 2, UInt8: 15>
+==> 00000043: <GetById>: <Reg8: 5, Reg8: 2, UInt8: 4, string_id: 16853>  # String: 'localAllowed' (Identifier)
+==> 00000049: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 0>
+==> 0000004d: <GetByIdShort>: <Reg8: 4, Reg8: 2, UInt8: 2, string_id: 35>  # String: 'state' (Identifier)
+==> 00000052: <GetGlobalObject>: <Reg8: 2>
+==> 00000054: <TryGetById>: <Reg8: 2, Reg8: 2, UInt8: 5, string_id: 6>  # String: 'Date' (Identifier)
+==> 0000005a: <GetByIdShort>: <Reg8: 3, Reg8: 2, UInt8: 6, string_id: 203>  # String: 'prototype' (Identifier)
+==> 0000005f: <CreateThis>: <Reg8: 3, Reg8: 3, Reg8: 2>
+==> 00000063: <Mov>: <Reg8: 8, Reg8: 3>
+==> 00000066: <Construct>: <Reg8: 2, Reg8: 2, UInt8: 1>
+==> 0000006a: <SelectObject>: <Reg8: 3, Reg8: 3, Reg8: 2>
+==> 0000006e: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 7, string_id: 17366>  # String: 'toISOString' (Identifier)
+==> 00000074: <Call1>: <Reg8: 3, Reg8: 2, Reg8: 3>
+==> 00000078: <LoadConstUndefined>: <Reg8: 2>
+==> 0000007a: <Call3>: <Reg8: 0, Reg8: 5, Reg8: 2, Reg8: 4, Reg8: 3>
+==> 00000080: <JmpFalse>: <Addr8: 19, Reg8: 0>  # Address: 00000093
+==> 00000083: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 0>
+==> 00000087: <GetById>: <Reg8: 1, Reg8: 1, UInt8: 8, string_id: 14233>  # String: 'store' (Identifier)
+==> 0000008d: <GetById>: <Reg8: 0, Reg8: 1, UInt8: 9, string_id: 21109>  # String: 'unlocked' (Identifier)
+==> 00000093: <Ret>: <Reg8: 0>
+
+
+===============
+

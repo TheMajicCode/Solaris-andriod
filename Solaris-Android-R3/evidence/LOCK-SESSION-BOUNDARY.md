@@ -1,0 +1,5 @@
+The existing DailyService lock implementation (Hermes function14921) increments both `epoch` and `session` synchronously before clearing `state` and `restoreData`, then begins asynchronous QVAC cancellation/storage locking. If a lock is already in progress, it returns that same operation. No change to this implementation is part of603.
+
+Evidence: `Solaris-Android-Reconstruction/reference/host-disassembly/index.android.pseudocode.js`, function14921, offsets22 through the state-clear sequence; corresponding original instructions are retained in the candidate. The root inspected this body after independent helper review asked whether `owner.session` actually changes at lock.
+
+This supports the recent-context scope key's use of `owner.session`: old baseline cursor metadata cannot authorize prior-session text when the next compiler call executes. The helper stores scope/tail IDs only; private message text is read from the current validated state and never cached in this new property. Actual-Hermes tests separately verify reset behavior after a session change. This is source and synthetic execution evidence, not an installed-device lifecycle observation.

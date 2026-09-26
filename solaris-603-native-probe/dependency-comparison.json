@@ -1,0 +1,140 @@
+[
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp.bare",
+    "sha256": "f74d733ec42b0b43b3291d7ba23317810041382fc4e745ee3b61afe94ad9edae",
+    "comparison": []
+  },
+  {
+    "tarballEntry": "package/addon.js",
+    "sha256": "4510f2ab6b708e159b55420bfeed2fc7b265379476196a2d6e7771aa84cff292",
+    "comparison": [
+      {
+        "recoveredPath": "reference-worker/node_modules/@qvac/llm-llamacpp/addon.js",
+        "matches": true
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/batchHandler.js",
+    "sha256": "343a54ac4b34eee7006702490a28a1bd0b677ff2f19295c6a95affd5bfcb34d8",
+    "comparison": [
+      {
+        "recoveredPath": "reference-worker/node_modules/@qvac/llm-llamacpp/batchHandler.js",
+        "matches": true
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/binding.js",
+    "sha256": "884e9b3f3c0a760a12a43a0925e9db2596524614b0065f7e7152ceca63b49953",
+    "comparison": [
+      {
+        "recoveredPath": "reference-worker/node_modules/@qvac/llm-llamacpp/binding.js",
+        "matches": true
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/index.js",
+    "sha256": "6c9d461ae21dc9d4b396e3eabcfd3787efb229eb003330c23c5a1e90625c6d89",
+    "comparison": [
+      {
+        "recoveredPath": "reference-worker/node_modules/@qvac/llm-llamacpp/index.js",
+        "matches": true
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp/libqvac-ggml-cpu-android_armv8.0_1.so",
+    "sha256": "90a6cd14fe142054505ac0ee21597351d4628c5ba849bd39cc305cd87a184ef1",
+    "comparison": [
+      {
+        "apkEntry": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.0_1.so",
+        "sha256": "281715b42f2fa6ecff283f4b8c23e8130454e714201c1428cac0a749b0f1000b",
+        "matches": false
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp/libqvac-ggml-cpu-android_armv8.2_1.so",
+    "sha256": "1c3a941d9d60b8e1fc5944511ba1160570cd1cbd83963e887d9dc2455ddfa1d9",
+    "comparison": [
+      {
+        "apkEntry": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.2_1.so",
+        "sha256": "896eceadacfbcf2926af59455e83d558648223a1790ea524d4e485f7f1b3f0f2",
+        "matches": false
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp/libqvac-ggml-cpu-android_armv8.2_2.so",
+    "sha256": "65a5ba4c6c60c4e8e42b828f7fbc368f876d10a7a2cc40eebb21f5652ed8daaf",
+    "comparison": [
+      {
+        "apkEntry": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.2_2.so",
+        "sha256": "7a57c88c6d14585a8d8689a4e65892797963a652fd5cf3cba1465c3021952754",
+        "matches": false
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp/libqvac-ggml-cpu-android_armv8.6_1.so",
+    "sha256": "8d5175d8630ea4f3d4f4f4f13236971f11fd9844e033c7b2e4db28df2f5e208c",
+    "comparison": [
+      {
+        "apkEntry": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv8.6_1.so",
+        "sha256": "3a3dc3923e614e3f28bbf090d2cdc2060f02c16c2b316188c24a9e99ec171197",
+        "matches": false
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp/libqvac-ggml-cpu-android_armv9.0_1.so",
+    "sha256": "2f4349596809d5b2f660dfb6e8ae3c72bbde89f9f307f6d547c76b2a8cab53ea",
+    "comparison": [
+      {
+        "apkEntry": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv9.0_1.so",
+        "sha256": "3c80108fda415e587bf0f29f816adffe99499467f897539d8593d4ca96c36fc6",
+        "matches": false
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp/libqvac-ggml-cpu-android_armv9.2_1.so",
+    "sha256": "b154afc99789f53dba92bf781f3a86df3ccfb6f5dbcbd86499778ea74a87d1b7",
+    "comparison": [
+      {
+        "apkEntry": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv9.2_1.so",
+        "sha256": "16dd4fa34b18fb1b33549bcc3fb25d9c43e23c1890a15760c4ed45802ded619f",
+        "matches": false
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp/libqvac-ggml-cpu-android_armv9.2_2.so",
+    "sha256": "80508625c26952984fe240e3d68442cf270ec0b36e449e749204f3f13dd51a0c",
+    "comparison": [
+      {
+        "apkEntry": "lib/arm64-v8a/libqvac-ggml-cpu-android_armv9.2_2.so",
+        "sha256": "9538af570b38b3888fcbed224af02214ba71f965ba77ae4fd4fd70a28eac13f1",
+        "matches": false
+      }
+    ]
+  },
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp/libqvac-ggml-opencl.so",
+    "sha256": "e9b0ee372ce3b3099174b382d27b4fd631b45010951ae3cd41bf90ea25189bba",
+    "comparison": []
+  },
+  {
+    "tarballEntry": "package/prebuilds/android-arm64/qvac__llm-llamacpp/libqvac-ggml-vulkan.so",
+    "sha256": "d9cfa3025fa5e6f5f0c42437fe8f16693df869f0d829d85d8c3f1f943bf8c33f",
+    "comparison": [
+      {
+        "apkEntry": "lib/arm64-v8a/libqvac-ggml-vulkan.so",
+        "sha256": "4ea591ef4460a899ac498100ee3dab1562550e7e56cfabd78fd14766dd037925",
+        "matches": false
+      }
+    ]
+  }
+]

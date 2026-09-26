@@ -1,0 +1,78 @@
+{
+  "format": "solaris603-packaging-prep-targeted-tests/1",
+  "passed": 14,
+  "failed": 0,
+  "packagingScriptSha256": "560afea26dfcf6f2691125220ab2593bac4afbdbffeabf9168349a29d1ff97ee",
+  "signingScriptSha256": "58839b723f21b2c8578dd6566907c4e248a887bc118dd65accb1c12a762f0ff6",
+  "signingPerformed": false,
+  "cases": [
+    {
+      "name": "dynamic-version-attribute-after-negative-string-pool-growth",
+      "outcome": "pass"
+    },
+    {
+      "name": "config-only-version-fields-changed",
+      "outcome": "pass"
+    },
+    {
+      "name": "manifest-hash-mismatch",
+      "outcome": "pass",
+      "expectedError": "BASELINE_MANIFEST_HASH"
+    },
+    {
+      "name": "version-code-namespace-mismatch",
+      "outcome": "pass",
+      "expectedError": "AXML_VERSION_CODE_NAMESPACE"
+    },
+    {
+      "name": "build-manifest-versionCode",
+      "outcome": "pass",
+      "expectedError": "BUILD_MANIFEST_IDENTITY"
+    },
+    {
+      "name": "build-manifest-patchedHbcSha256",
+      "outcome": "pass",
+      "expectedError": "PATCHED_HBC_HASH_OR_SIZE"
+    },
+    {
+      "name": "build-manifest-patchedHbcBytes",
+      "outcome": "pass",
+      "expectedError": "PATCHED_HBC_HASH_OR_SIZE"
+    },
+    {
+      "name": "unexpected-native-payload-change",
+      "outcome": "pass",
+      "expectedError": "UNEXPECTED_PAYLOAD_CHANGE:lib/arm64-v8a/example.so"
+    },
+    {
+      "name": "denied-gate",
+      "outcome": "pass",
+      "expectedError": "GATE_DECISION"
+    },
+    {
+      "name": "wrong-apk-hash",
+      "outcome": "pass",
+      "expectedError": "GATE_UNSIGNED_APK"
+    },
+    {
+      "name": "missing-review",
+      "outcome": "pass",
+      "expectedError": "GATE_REVIEW_COUNT"
+    },
+    {
+      "name": "duplicate-reviewer",
+      "outcome": "pass",
+      "expectedError": "GATE_REVIEW_INDEPENDENCE"
+    },
+    {
+      "name": "duplicate-review-file",
+      "outcome": "pass",
+      "expectedError": "GATE_DUPLICATE_REVIEW_PATH"
+    },
+    {
+      "name": "changed-review",
+      "outcome": "pass",
+      "expectedError": "GATE_REVIEW_HASH"
+    }
+  ]
+}

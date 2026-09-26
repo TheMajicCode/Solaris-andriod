@@ -1,0 +1,57 @@
+=> [Function #7365 "?anon_0_" of 162 bytes]: 1 params, frame size=14, strict=1, exc handler=1, debug info=0  @ offset 0x01c327f6
+  [Exception handlers: [start=0x43, end=0x50, target=0x80] ]
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 1, UInt8: 0>
+==> 00000004: <CreateEnvironment>: <Reg8: 2>
+==> 00000006: <ResumeGenerator>: <Reg8: 0, Reg8: 4>
+==> 00000009: <JmpTrueLong>: <Addr32: 150, Reg8: 4>  # Address: 0000009f
+==> 0000000f: <LoadConstUndefined>: <Reg8: 4>
+==> 00000011: <LoadConstUndefined>: <Reg8: 3>
+==> 00000013: <StoreToEnvironment>: <Reg8: 2, UInt8: 0, Reg8: 1>
+==> 00000017: <GetById>: <Reg8: 5, Reg8: 1, UInt8: 1, string_id: 21021>  # String: 'prepareWork' (Identifier)
+==> 0000001d: <JmpTrue>: <Addr8: 121, Reg8: 5>  # Address: 00000096
+==> 00000020: <GetEnvironment>: <Reg8: 5, UInt8: 3>
+==> 00000023: <LoadFromEnvironment>: <Reg8: 5, Reg8: 5, UInt8: 3>
+==> 00000027: <GetByIdShort>: <Reg8: 5, Reg8: 5, UInt8: 2, string_id: 101>  # String: 'default' (Identifier)
+==> 0000002c: <CreateGeneratorClosure>: <Reg8: 2, Reg8: 2, function_id: 7366>  # Function: [#7366  of 9 bytes]: 1 params @ offset 0x01c32898
+==> 00000031: <Call2>: <Reg8: 2, Reg8: 5, Reg8: 4, Reg8: 2>
+==> 00000036: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 4>
+==> 0000003a: <Mov>: <Reg8: 3, Reg8: 2>
+==> 0000003d: <PutById>: <Reg8: 1, Reg8: 2, UInt8: 1, string_id: 21021>  # String: 'prepareWork' (Identifier)
+==> 00000043: <Mov>: <Reg8: 2, Reg8: 3>
+==> 00000046: <SaveGenerator>: <Addr8: 4>  # Address: 0000004a
+==> 00000048: <Ret>: <Reg8: 2>
+==> 0000004a: <ResumeGenerator>: <Reg8: 2, Reg8: 4>
+==> 0000004d: <JmpTrue>: <Addr8: 27, Reg8: 4>  # Address: 00000068
+==> 00000050: <GetById>: <Reg8: 5, Reg8: 1, UInt8: 1, string_id: 21021>  # String: 'prepareWork' (Identifier)
+==> 00000056: <Mov>: <Reg8: 4, Reg8: 3>
+==> 00000059: <JStrictNotEqual>: <Addr8: 12, Reg8: 5, Reg8: 4>  # Address: 00000065
+==> 0000005d: <LoadConstNull>: <Reg8: 4>
+==> 0000005f: <PutById>: <Reg8: 1, Reg8: 4, UInt8: 1, string_id: 21021>  # String: 'prepareWork' (Identifier)
+==> 00000065: <CompleteGenerator>: <>
+==> 00000066: <Ret>: <Reg8: 2>
+==> 00000068: <GetById>: <Reg8: 5, Reg8: 1, UInt8: 1, string_id: 21021>  # String: 'prepareWork' (Identifier)
+==> 0000006e: <Mov>: <Reg8: 4, Reg8: 3>
+==> 00000071: <JStrictNotEqual>: <Addr8: 12, Reg8: 5, Reg8: 4>  # Address: 0000007d
+==> 00000075: <LoadConstNull>: <Reg8: 4>
+==> 00000077: <PutById>: <Reg8: 1, Reg8: 4, UInt8: 1, string_id: 21021>  # String: 'prepareWork' (Identifier)
+==> 0000007d: <CompleteGenerator>: <>
+==> 0000007e: <Ret>: <Reg8: 2>
+==> 00000080: <Catch>: <Reg8: 2>
+==> 00000082: <GetById>: <Reg8: 4, Reg8: 1, UInt8: 1, string_id: 21021>  # String: 'prepareWork' (Identifier)
+==> 00000088: <JStrictNotEqual>: <Addr8: 12, Reg8: 4, Reg8: 3>  # Address: 00000094
+==> 0000008c: <LoadConstNull>: <Reg8: 3>
+==> 0000008e: <PutById>: <Reg8: 1, Reg8: 3, UInt8: 1, string_id: 21021>  # String: 'prepareWork' (Identifier)
+==> 00000094: <Throw>: <Reg8: 2>
+==> 00000096: <GetById>: <Reg8: 1, Reg8: 1, UInt8: 1, string_id: 21021>  # String: 'prepareWork' (Identifier)
+==> 0000009c: <CompleteGenerator>: <>
+==> 0000009d: <Ret>: <Reg8: 1>
+==> 0000009f: <CompleteGenerator>: <>
+==> 000000a0: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,28 @@
+{
+  "decision": "APPROVE",
+  "scope": "Exact604 host functional changes; APK packaging/signing and Android acceptance are separate gates.",
+  "reviewer": "604_functional_review",
+  "candidateHbcSha256": "30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3",
+  "candidateBytes": 30800788,
+  "tests": {
+    "actualHermesOpenChat": 94,
+    "actualHermesGuidedAndMacRace": 15,
+    "sourceHelperDefenses": 8
+  },
+  "evidenceSha256": {
+    "FUNCTIONAL-INDEPENDENT-REVIEW.md": "f210f908a850d438126feebc2b44a5ed4e46a8cd8202513fa25702b1ceaab019",
+    "daily-openchat-postlude.js": "665ca5db8d356bbddf1fe018a44e0902398cc702f3a88799b085e900f9876547",
+    "daily-openchat-run.py": "8acfca9bcb4760d75072a4e5757f786d98b05399ee9014fd2757dfe888c7afee",
+    "fixture.js": "d4a0e77b175ea11732eac6fc2989dcfd1d756a847761aa294db7fcb62f27b928",
+    "guided-races.js": "6a67f0df2e1e48e907c640d09fac9045e74b8e7f5dbc4d2c7a7474fc38e3875c",
+    "guided-races-run.py": "bd61d7d01d09122005d5704ba617a91dd10de791d8132477f71003c77643a689",
+    "helper-adversarial.cjs": "09c6ffac57475e7b9c4b0c8737970d0a07641db2798fe6327d9d27834dee85d3",
+    "inspect-bundle.py": "6613dfc157c74ce5b81284eb2dcf381a0cb0f9484f35f14995855db9a636c3ef",
+    "evidence/daily-tests-candidate02/result.json": "9b9fef7b9531aaf7918d7b70ef39eb001ce560531f863e5083ce976635005dc7",
+    "evidence/daily-tests-candidate02/provenance.json": "d4f18ef4af50624c89c02e96778760c5d0de4598689cb6a17d8f33640297f7fb",
+    "evidence/guided-races-candidate02/result.json": "fe201d8df7f986d2f323ba707f2cdc843a63007b8682a1ed1cf87a8b0f90b3c0",
+    "evidence/guided-races-candidate02/provenance.json": "2595484990acc1703f3e6d99baf04217881b652bc10ba01cba57a8de5317f0c2",
+    "evidence/candidate02-structure.json": "c992e990d5b740c4c4a5f7c875dd2476284b0c7ade4f542e74d8e4db364443fb",
+    "evidence/helper-adversarial.json": "c032399a4ee12a32ee6370097ff942e404c83a9345d7647494441d18f4ca261d"
+  }
+}

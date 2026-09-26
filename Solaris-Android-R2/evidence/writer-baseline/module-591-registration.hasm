@@ -1,0 +1,6 @@
+==> 000047b7: <TryGetById>: <Reg8: 9, Reg8: 0, UInt8: 10, string_id: 31>  # String: '__d' (Identifier)
+==> 000047bd: <CreateClosure>: <Reg8: 8, Reg8: 3, function_id: 7139>  # Function: [#7139  of 357 bytes]: 8 params @ offset 0x01c2d668
+==> 000047c2: <LoadConstInt>: <Reg8: 7, Imm32: 591>
+==> 000047c8: <NewArrayWithBuffer>: <Reg8: 6, UInt16: 16, UInt16: 16, UInt16: 7919>  # Array: [38, 67, 8, 9, 592, 593, 599, 602, 603, 604, 912, 913, 914, 916, 716, 918]
+==> 000047d0: <Call4>: <Reg8: 6, Reg8: 9, Reg8: 2, Reg8: 8, Reg8: 7, Reg8: 6>
+==> 000047d7: <TryGetById>: <Reg8: 9, Reg8: 0, UInt8: 10, string_id: 31>  # String: '__d' (Identifier)

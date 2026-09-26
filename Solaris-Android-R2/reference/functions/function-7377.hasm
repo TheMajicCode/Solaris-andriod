@@ -1,0 +1,30 @@
+=> [Function #7377 "AsyncFromSyncIterator" of 96 bytes]: 2 params, frame size=13, strict=0, exc handler=0, debug info=0  @ offset 0x01c32bf1
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 3>
+==> 00000002: <CreateClosure>: <Reg8: 0, Reg8: 3, function_id: 7378>  # Function: [#7378 AsyncFromSyncIteratorContinuation of 124 bytes]: 2 params @ offset 0x01c32c51
+==> 00000007: <StoreToEnvironment>: <Reg8: 3, UInt8: 0, Reg8: 0>
+==> 0000000b: <CreateClosure>: <Reg8: 2, Reg8: 3, function_id: 7380>  # Function: [#7380 AsyncFromSyncIterator of 26 bytes]: 2 params @ offset 0x01c32ce3
+==> 00000010: <GetEnvironment>: <Reg8: 0, UInt8: 0>
+==> 00000013: <StoreToEnvironment>: <Reg8: 0, UInt8: 0, Reg8: 2>
+==> 00000017: <NewObjectWithBuffer>: <Reg8: 1, UInt16: 5, UInt16: 2, UInt16: 2570, UInt16: 160>  # Object: {'s': null, 'n': null}
+==> 00000021: <CreateClosure>: <Reg8: 4, Reg8: 3, function_id: 7381>  # Function: [#7381 next of 45 bytes]: 1 params @ offset 0x01c32cfd
+==> 00000026: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 4, string_id: 180>  # String: 'next' (Identifier)
+==> 0000002a: <CreateClosure>: <Reg8: 4, Reg8: 3, function_id: 7382>  # Function: [#7382 _return of 89 bytes]: 2 params @ offset 0x01c32d2a
+==> 0000002f: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 4, string_id: 216>  # String: 'return' (Identifier)
+==> 00000033: <CreateClosure>: <Reg8: 3, Reg8: 3, function_id: 7383>  # Function: [#7383 _throw of 78 bytes]: 2 params @ offset 0x01c32d83
+==> 00000038: <PutNewOwnById>: <Reg8: 1, Reg8: 3, string_id: 16815>  # String: 'throw' (Identifier)
+==> 0000003d: <PutById>: <Reg8: 2, Reg8: 1, UInt8: 1, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000043: <LoadFromEnvironment>: <Reg8: 2, Reg8: 0, UInt8: 0>
+==> 00000047: <GetByIdShort>: <Reg8: 0, Reg8: 2, UInt8: 1, string_id: 203>  # String: 'prototype' (Identifier)
+==> 0000004c: <CreateThis>: <Reg8: 1, Reg8: 0, Reg8: 2>
+==> 00000050: <LoadParam>: <Reg8: 5, UInt8: 1>
+==> 00000053: <Mov>: <Reg8: 6, Reg8: 1>
+==> 00000056: <Construct>: <Reg8: 0, Reg8: 2, UInt8: 2>
+==> 0000005a: <SelectObject>: <Reg8: 0, Reg8: 1, Reg8: 0>
+==> 0000005e: <Ret>: <Reg8: 0>
+
+
+===============
+

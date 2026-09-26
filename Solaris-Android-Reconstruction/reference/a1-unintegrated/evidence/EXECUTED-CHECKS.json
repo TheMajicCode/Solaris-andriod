@@ -1,0 +1,33 @@
+{
+  "nodeVersion": "v24.19.0",
+  "classification": "Host checks with explicit SDK import/resource/native bridge stubs; not full native runtime or phone",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "--experimental-vm-modules",
+        "--test",
+        "--test-reporter=tap",
+        "test/active-qvac.test.mjs"
+      ],
+      "cwd": "/workspace/scratch/768f612cf893/v6-a1-reconciliation",
+      "startedAt": "2026-09-13T09:45:03.134887+00:00",
+      "completedAt": "2026-09-13T09:45:03.475722+00:00",
+      "exitCode": 0,
+      "stdout": "TAP version 13\n# (node:23) ExperimentalWarning: VM Modules is an experimental feature and might change at any time\n# (Use `node --trace-warnings ...` to show where the warning was created)\n# Subtest: skipped startup reconciliation: exact SDK rejects suspended load; helper resumes before one dispatch\nok 1 - skipped startup reconciliation: exact SDK rejects suspended load; helper resumes before one dispatch\n  ---\n  duration_ms: 5.467659\n  type: 'test'\n  ...\n# Subtest: active SDK needs no resume and public state is a string\nok 2 - active SDK needs no resume and public state is a string\n  ---\n  duration_ms: 1.958301\n  type: 'test'\n  ...\n# Subtest: resume waits for an exact SDK suspend in progress\nok 3 - resume waits for an exact SDK suspend in progress\n  ---\n  duration_ms: 8.704378\n  type: 'test'\n  ...\n# Subtest: failed SDK resume leaves suspended; no automatic retry or operation; explicit retry can recover\nok 4 - failed SDK resume leaves suspended; no automatic retry or operation; explicit retry can recover\n  ---\n  duration_ms: 3.735151\n  type: 'test'\n  ...\n# Subtest: resume acknowledgement alone does not prove active\nok 5 - resume acknowledgement alone does not prove active\n  ---\n  duration_ms: 0.304565\n  type: 'test'\n  ...\n# Subtest: malformed public state response fails closed rather than confusing wire response shape\nok 6 - malformed public state response fails closed rather than confusing wire response shape\n  ---\n  duration_ms: 0.33845\n  type: 'test'\n  ...\n# Subtest: second admission cannot dispatch while first native operation is pending\nok 7 - second admission cannot dispatch while first native operation is pending\n  ---\n  duration_ms: 1.953046\n  type: 'test'\n  ...\n# Subtest: timeout does not release an unsettled SDK resume or admit a duplicate operation\nok 8 - timeout does not release an unsettled SDK resume or admit a duplicate operation\n  ---\n  duration_ms: 28.474674\n  type: 'test'\n  ...\n# Subtest: timeout after dispatch discards late result and holds ownership until actual settlement\nok 9 - timeout after dispatch discards late result and holds ownership until actual settlement\n  ---\n  duration_ms: 26.183415\n  type: 'test'\n  ...\n# Subtest: lock/permission/worker invalidation during state query prevents resume and dispatch\nok 10 - lock/permission/worker invalidation during state query prevents resume and dispatch\n  ---\n  duration_ms: 0.483613\n  type: 'test'\n  ...\n# Subtest: navigation invalidation while operation completes prevents result release\nok 11 - navigation invalidation while operation completes prevents result release\n  ---\n  duration_ms: 1.707309\n  type: 'test'\n  ...\n# Subtest: abort before start makes no SDK call; abort during resume retains unsettled ownership\nok 12 - abort before start makes no SDK call; abort during resume retains unsettled ownership\n  ---\n  duration_ms: 3.400912\n  type: 'test'\n  ...\n# Subtest: actual gate rejection after active observation is propagated once, never replayed\nok 13 - actual gate rejection after active observation is propagated once, never replayed\n  ---\n  duration_ms: 2.968564\n  type: 'test'\n  ...\n# Subtest: guard exceptions are private, and non-boolean/async guards never grant admission\nok 14 - guard exceptions are private, and non-boolean/async guards never grant admission\n  ---\n  duration_ms: 0.392182\n  type: 'test'\n  ...\n# Subtest: failed state query produces a bounded error and no resume or operation\nok 15 - failed state query produces a bounded error and no resume or operation\n  ---\n  duration_ms: 0.180146\n  type: 'test'\n  ...\n# Subtest: an event-loop stall cannot admit dispatch after the elapsed budget\nok 16 - an event-loop stall cannot admit dispatch after the elapsed budget\n  ---\n  duration_ms: 40.24386\n  type: 'test'\n  ...\n# Subtest: an event-loop stall during dispatch cannot release a result after the budget\nok 17 - an event-loop stall during dispatch cannot release a result after the budget\n  ---\n  duration_ms: 41.575206\n  type: 'test'\n  ...\n# Subtest: a missing or backwards monotonic clock fails closed\nok 18 - a missing or backwards monotonic clock fails closed\n  ---\n  duration_ms: 0.278226\n  type: 'test'\n  ...\n1..18\n# tests 18\n# suites 0\n# pass 18\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 267.03185\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "ui-followup/scripts/ui-repair-test.cjs"
+      ],
+      "cwd": "/workspace/scratch/768f612cf893/v6-a1-reconciliation",
+      "startedAt": "2026-09-13T09:45:03.135453+00:00",
+      "completedAt": "2026-09-13T09:45:03.309438+00:00",
+      "exitCode": 0,
+      "stdout": "{\n  \"kind\": \"synthetic-exact-function-regression\",\n  \"assertions\": 120,\n  \"status\": \"passed\",\n  \"androidDeviceTested\": false,\n  \"nativeInferenceTested\": false\n}\n",
+      "stderr": ""
+    }
+  ]
+}

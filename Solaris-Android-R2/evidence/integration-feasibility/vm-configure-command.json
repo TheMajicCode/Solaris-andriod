@@ -1,0 +1,18 @@
+[
+  "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/cmake-3.31.6/cmake/data/bin/cmake",
+  "-S",
+  "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782",
+  "-B",
+  "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build",
+  "-G",
+  "Ninja",
+  "-DCMAKE_BUILD_TYPE=Release",
+  "-DCMAKE_MAKE_PROGRAM=/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/ninja-1.11.1.4/ninja-1.11.1.4.data/scripts/ninja",
+  "-DHERMES_ENABLE_TEST_SUITE=OFF",
+  "-DHERMES_ENABLE_DEBUGGER=ON",
+  "-DHERMES_ENABLE_INTL=OFF",
+  "-DICU_INCLUDE_DIR=/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/icu-dev/usr/include",
+  "-DICU_UC_LIBRARY_RELEASE=/lib/x86_64-linux-gnu/libicuuc.so.74",
+  "-DICU_I18N_LIBRARY_RELEASE=/lib/x86_64-linux-gnu/libicui18n.so.74",
+  "-DICU_DATA_LIBRARY_RELEASE=/lib/x86_64-linux-gnu/libicudata.so.74"
+]

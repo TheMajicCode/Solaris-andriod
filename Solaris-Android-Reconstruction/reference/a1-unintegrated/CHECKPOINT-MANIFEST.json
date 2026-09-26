@@ -1,0 +1,194 @@
+{
+  "format": "solaris-a1-recovered-lifecycle-checkpoint/1",
+  "classification": "Source-independent integration candidate; not original native project or APK",
+  "helperSha256": "11dc0d090ba14f5ad3e79fe388d6a60a2e8ad9991b6dd1bebc5516c0f0ab4530",
+  "nativeBuildRun": false,
+  "deviceTestsRun": false,
+  "files": [
+    {
+      "path": "CONTRACT-A1-RECOVERED-LIFECYCLE.md",
+      "bytes": 2986,
+      "sha256": "310c2698c7f8f8f2f44cbc88da0755f21a1c957e207d4b04707cb867dccabed2"
+    },
+    {
+      "path": "INTEGRATION.md",
+      "bytes": 6657,
+      "sha256": "0a3af93b4826823505cf03689b7e0fe7a8c7fbb374a89ccb94c6f7f5d8aa2b37"
+    },
+    {
+      "path": "MASTER-START-HERE.md",
+      "bytes": 5074,
+      "sha256": "05c489c00ca3fe9ff8f7493a91903d3a029441a26902817d8ec0ade4566d97e3"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3539,
+      "sha256": "94d4442ee6027bcefd0edf1896a16900582884307388ba481a882c0a223359a0"
+    },
+    {
+      "path": "evidence/BUILD-AND-SOURCE-STATE.json",
+      "bytes": 1272,
+      "sha256": "51659e938c57e96067aef9988e5cfb87772d23c3ee55448c22f39e94c04aeccb"
+    },
+    {
+      "path": "evidence/EXECUTED-CHECKS.json",
+      "bytes": 5504,
+      "sha256": "e8c190c18808b3bda6d6c2b76d7bad8b85b39c7dc7943f79bd1e997962cdf178"
+    },
+    {
+      "path": "evidence/PRESERVED-INPUTS.json",
+      "bytes": 1405,
+      "sha256": "5d3c688aa675f18292a3751173f38ae515c668ad0c5a651a069799c7f50d4f52"
+    },
+    {
+      "path": "evidence/SDK-FIXTURES.json",
+      "bytes": 2363,
+      "sha256": "26cf096d512c83d0a78cdfcb1b45b23752c4cf68d7d6f492dc3e82c1171ac414"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/ATTRIBUTION.md",
+      "bytes": 895,
+      "sha256": "31cc342f410ae8792e3f13514b2c8be249347c07c1163cefc21e8d78bfa7c8da"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/LICENSE-APACHE-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/schemas/resume.js",
+      "bytes": 186,
+      "sha256": "bc01dc35255eefa9ea94fc8833bdf1b816f064043bbc0000ac803a6109eab8a9"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/schemas/state.js",
+      "bytes": 310,
+      "sha256": "f978fb74cf2ee93906f95626934c8eb6e006f45ef09c6b9c50ad13cf3f700ab0"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/schemas/suspend.js",
+      "bytes": 190,
+      "sha256": "d6c97f86f40cb4c4291480157cb240267f42ae40fe0db679de2aabe8eb1f538c"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/server/bare/runtime-lifecycle.js",
+      "bytes": 5731,
+      "sha256": "9d52cf464f7e625ab5a0a3f81881c390e57bb40c80e0545f19d3e2843d302cab"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/server/rpc/handlers/resume.js",
+      "bytes": 411,
+      "sha256": "cd14370b6ca341351049b5ddc1457423de265d3ac23cabe4c4f46affb969471a"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/server/rpc/handlers/state.js",
+      "bytes": 191,
+      "sha256": "15b2edf251e1a48645fb52d45872f325a7b9b9869aa13450d7708a803caae47f"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/server/rpc/handlers/suspend.js",
+      "bytes": 417,
+      "sha256": "af0439e6822dcea1667ff4f93081f3ef9c0b920b474c7cc265a914374868a660"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/package.json",
+      "bytes": 11904,
+      "sha256": "f04d6b5148124451a2844ce84564bafda697c1bb8d71cf7f822633ca5c24c3d2"
+    },
+    {
+      "path": "review/API-EVIDENCE.md",
+      "bytes": 10496,
+      "sha256": "5b96183a923e731bf22de4fb74cc8c83c603792cfaba53274581d0ffcb9f811a"
+    },
+    {
+      "path": "review/INDEPENDENT-REVIEW.md",
+      "bytes": 8302,
+      "sha256": "e436443abcf2cff0baaf497caf2a2498adf00a14e6a596324882f38525be76aa"
+    },
+    {
+      "path": "review/api-extracts/13759-suspend.hasm",
+      "bytes": 2072,
+      "sha256": "895dbe33c24d16f7028cb1950c5642d64c4155d669e61f953694e63459ae5e62"
+    },
+    {
+      "path": "review/api-extracts/13764-resume.hasm",
+      "bytes": 2071,
+      "sha256": "b7cacb4c55cca0368f8de779fdfa45afa53b77f39a5f2ad67488f86680aa0704"
+    },
+    {
+      "path": "review/api-extracts/13769-state.hasm",
+      "bytes": 2174,
+      "sha256": "e615c8b1d394889adcee911e84a4f7fbe232f59cf775e3a2b0a6b283b40616b7"
+    },
+    {
+      "path": "review/api-extracts/MANIFEST.json",
+      "bytes": 1556,
+      "sha256": "a99b7a5623916cfacd8ffabca192f1b2444885691df41f93a9e0e203b49edf1b"
+    },
+    {
+      "path": "scripts/package-master.py",
+      "bytes": 4185,
+      "sha256": "0f81a3bb373618b8f4f5f13a2feba772873db8da53fc1914461aae95891ca400"
+    },
+    {
+      "path": "scripts/verify-checkpoint.py",
+      "bytes": 704,
+      "sha256": "c1ff91051fa3bc27b146dcd137a66704bba65dc8443b88202cd623bd8e80b046"
+    },
+    {
+      "path": "src/active-qvac.mjs",
+      "bytes": 5784,
+      "sha256": "11dc0d090ba14f5ad3e79fe388d6a60a2e8ad9991b6dd1bebc5516c0f0ab4530"
+    },
+    {
+      "path": "test/active-qvac.test.mjs",
+      "bytes": 10932,
+      "sha256": "2d26c4cc67ba1a0f7e7562f9ca0b3b9156816ade14be148e2182fcabc6ebe87e"
+    },
+    {
+      "path": "test/recovered-sdk.mjs",
+      "bytes": 3308,
+      "sha256": "b11f060b21bd102a19128da67d4d7162384c7f109b81b5402f29d70e208112b4"
+    },
+    {
+      "path": "ui-followup/UI-FOLLOWUP.md",
+      "bytes": 3966,
+      "sha256": "1254694108ef88d8a70d281a5e6ca7013e52930a233e450ce94dbc44d3cb49cb"
+    },
+    {
+      "path": "ui-followup/baseline/sanctuary.html",
+      "bytes": 5235340,
+      "sha256": "d8192125d041ac8521029dc9b348c2760fafce91e5cb9a5e12d7d91ba2897962"
+    },
+    {
+      "path": "ui-followup/candidate/sanctuary.html",
+      "bytes": 5251581,
+      "sha256": "d37c2cca5a60085924bf777e0c0428144f5955799e3d5e1b767e4dce0a7618a9"
+    },
+    {
+      "path": "ui-followup/evidence/CURRENT-HASHES.json",
+      "bytes": 399,
+      "sha256": "22dcff45a4aded418294bd7c7bed845c0b3f5b0217dee2b24f557bbee818829c"
+    },
+    {
+      "path": "ui-followup/evidence/HOST-CHECKS.json",
+      "bytes": 500,
+      "sha256": "8af544ea2a72de6651201c6e305be11dc37462d67246a90b60226d4b3f85df90"
+    },
+    {
+      "path": "ui-followup/evidence/PREVIOUS-HASHES.json",
+      "bytes": 399,
+      "sha256": "d502bcf49ba3a8a243d167e5386b56108d24b5af7adcf5ec2c6aa1b1976d08d0"
+    },
+    {
+      "path": "ui-followup/scripts/ui-repair-apply.mjs",
+      "bytes": 22105,
+      "sha256": "25683271c4d72579061e8e87ee42b9e80ca3a7bc90d161dcf1026192e50c67c0"
+    },
+    {
+      "path": "ui-followup/scripts/ui-repair-test.cjs",
+      "bytes": 10133,
+      "sha256": "eac6fbea19688e9461259dd9015e23e4b021c4f2e66acffa4a45028ade2df0d8"
+    }
+  ]
+}

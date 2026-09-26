@@ -1,0 +1,29 @@
+=> [Function #7290 "?anon_0_" of 63 bytes]: 1 params, frame size=12, strict=1, exc handler=0, debug info=0  @ offset 0x01c30b22
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 3, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrue>: <Addr8: 53, Reg8: 1>  # Address: 0000003c
+==> 0000000a: <GetByIdShort>: <Reg8: 1, Reg8: 3, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 0000000f: <JmpFalse>: <Addr8: 29, Reg8: 1>  # Address: 0000002c
+==> 00000012: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 2, string_id: 14913>  # String: 'cancelOperation' (Identifier)
+==> 00000018: <GetByIdShort>: <Reg8: 1, Reg8: 3, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 0000001d: <Call2>: <Reg8: 1, Reg8: 2, Reg8: 3, Reg8: 1>
+==> 00000022: <SaveGenerator>: <Addr8: 4>  # Address: 00000026
+==> 00000024: <Ret>: <Reg8: 1>
+==> 00000026: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 00000029: <JmpTrue>: <Addr8: 16, Reg8: 2>  # Address: 00000039
+==> 0000002c: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 3, string_id: 20764>  # String: 'getStatus' (Identifier)
+==> 00000032: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 00000036: <CompleteGenerator>: <>
+==> 00000037: <Ret>: <Reg8: 2>
+==> 00000039: <CompleteGenerator>: <>
+==> 0000003a: <Ret>: <Reg8: 1>
+==> 0000003c: <CompleteGenerator>: <>
+==> 0000003d: <Ret>: <Reg8: 0>
+
+
+===============
+

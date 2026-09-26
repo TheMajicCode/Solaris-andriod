@@ -1,0 +1,52 @@
+[
+  {
+    "file": "Solaris-APK-Identity-and-GPS-Implementation-Plan.md",
+    "bytes": 51859,
+    "sha256": "87b87d584b527fcc06e475c8adc60144cd63a2015b60ea103f8e17041a167856"
+  },
+  {
+    "file": "Solaris-V6-APK-Recovered-Assets-and-Evidence.zip",
+    "bytes": 23761791,
+    "sha256": "44def3c89020e499564eeda41f8a659f840128a2b48625632184e1a6372b62c9"
+  },
+  {
+    "file": "Solaris-V6-APK-Recovery-Report.md",
+    "bytes": 7986,
+    "sha256": "bd6631aebee562b4766d87efd211a8e7b4b2aedbb075f7f5c1085522731b092d"
+  },
+  {
+    "file": "Solaris-V6-APK-Recovery-SHA256SUMS.txt",
+    "bytes": 306,
+    "sha256": "90eff88e5cdf78a4828f54111a273fa410c92d64820cac5eccfc6ee488667fba"
+  },
+  {
+    "file": "Solaris-V6-Recovered-Repair-Handoff.md",
+    "bytes": 5586,
+    "sha256": "d8c9afd45c8a470223c13e7cf80af9c5708ac48351a6a0de33e69e4741fd9b52"
+  },
+  {
+    "file": "Solaris-V6-Recovered-Repair-SHA256SUMS.txt",
+    "bytes": 219,
+    "sha256": "58a08fd8242bbf968f45d291b7bc2bc88d90ae07bf7350bcd83329bdda70ca22"
+  },
+  {
+    "file": "Solaris-V6-Recovered-UI-Repair-and-Evidence.zip",
+    "bytes": 13023096,
+    "sha256": "61ab3c8a31a50dd3bd5fc751a25af9fc37829b43f38196fcf1280bfe557d5da3"
+  },
+  {
+    "file": "Solaris-V6-Recovery-Master-SHA256SUMS.txt",
+    "bytes": 331,
+    "sha256": "9f8d9fc323a54ce2a147f21cfb64a454115c3631ef7e89a7ce3a182a12a12bc7"
+  },
+  {
+    "file": "Solaris-V6-Recovery-Master-Start-Here.md",
+    "bytes": 5074,
+    "sha256": "05c489c00ca3fe9ff8f7493a91903d3a029441a26902817d8ec0ade4566d97e3"
+  },
+  {
+    "file": "Solaris-V6-Sanctuary.apk",
+    "bytes": 242584391,
+    "sha256": "4ac6a72c864118ec548ee5c05738c814b6e519f82b01a7d358d24952b900c518"
+  }
+]

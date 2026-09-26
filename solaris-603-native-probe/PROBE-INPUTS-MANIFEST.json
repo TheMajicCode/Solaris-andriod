@@ -1,0 +1,176 @@
+{
+  "scope": "Probe-only Linux inputs; none installed into APK or user device",
+  "model": {
+    "path": "acquired/Qwen3-0.6B-Q4_0.gguf",
+    "url": "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_0.gguf",
+    "expectedBytes": 382156480,
+    "expectedSHA256": "33bcc57074ec7b6eada5a90651ee546ec0c2b271002c22baf9f1b2dd1e8f75cb"
+  },
+  "files": [
+    {
+      "path": "runtime/index.js",
+      "bytes": 97,
+      "sha256": "532a6ca580d28e342a76d154045721412828b871073d9be91ac242dc4062cb0e"
+    },
+    {
+      "path": "runtime/NOTICE",
+      "bytes": 554,
+      "sha256": "fb077635559d54cc8838cf8986be94c0f19da54361ca7e86b99a72af2fc41a5f"
+    },
+    {
+      "path": "runtime/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "runtime/package.json",
+      "bytes": 715,
+      "sha256": "f0df1542a657627c1d7bc1ecbfb16e2b713b789c315b29da68303a9c89c53014"
+    },
+    {
+      "path": "runtime/bin/bare",
+      "bytes": 92533576,
+      "sha256": "96fd14169a781d834e6496ba96cd848e14edf36c3a6e668ba1972b3dcbf1c57d"
+    },
+    {
+      "path": "acquired/Qwen3-0.6B-Q4_0.gguf",
+      "bytes": 382156480,
+      "sha256": "33bcc57074ec7b6eada5a90651ee546ec0c2b271002c22baf9f1b2dd1e8f75cb"
+    },
+    {
+      "path": "acquired/.Qwen3-0.6B-Q4_0.gguf.2wglV3",
+      "bytes": 297009152,
+      "sha256": "9e5834efe865e0dcb959b668fbd837b08a0d6649027e76491a7e8ac613aeb98a"
+    },
+    {
+      "path": "acquired/bare-runtime-metadata.json",
+      "bytes": 3115,
+      "sha256": "f06f07a0a06d40f21b2f30dbdfe9cbd53a5e5c43c5bb0bf3b49227bbb547f915"
+    },
+    {
+      "path": "acquired/bare-runtime-1.24.0.tgz",
+      "bytes": 6094,
+      "sha256": "accb37ec43559ad1a17a73465048d5805f6fe0eab204a18b6d80baa2faf35038"
+    },
+    {
+      "path": "acquired/llm-llamacpp-0.45.0-metadata.json",
+      "bytes": 8404,
+      "sha256": "fa91f8a92ae39bdc3af497cc583999408d273f58104cdfcc2ed2d1fde4ba5058"
+    },
+    {
+      "path": "acquired/qvac-6620d695-source.tar.gz",
+      "bytes": 263788057,
+      "sha256": "91961dd689543afecb68da0200746e55cb6e6365ea6784fb02eb8b724a291bd7"
+    },
+    {
+      "path": "acquired/sdk-0.18.2-metadata.json",
+      "bytes": 13189,
+      "sha256": "865770d7b23120e1e796c2254a76824d62600da0ea29cbcb9f4b7249f5f80c9c"
+    },
+    {
+      "path": "acquired/llm-llamacpp-0.45.0.tgz",
+      "bytes": 172538870,
+      "sha256": "fe6cfe3f8df8e18735a1844324bd6d0820959927101b05e65482f0040b6989d8"
+    },
+    {
+      "path": "acquired/acquisition.json",
+      "bytes": 957,
+      "sha256": "66ccb05895dedea71386f68561157b28657b332ade7f0cfa233e6ed42e18eb83"
+    },
+    {
+      "path": "acquired/bare-runtime-linux-x64-metadata.json",
+      "bytes": 1878,
+      "sha256": "9b6594420390d878993caeee2cd391f26242a1b158b25579327716ca9b22ce0f"
+    },
+    {
+      "path": "acquired/bare-runtime-linux-x64-1.28.0.tgz",
+      "bytes": 25603980,
+      "sha256": "cee1b8ed83e556482173eb40a1685bbda49a17ea5b0c66053581e73dcbad652d"
+    },
+    {
+      "path": "acquired/bare-1.24.0.tgz",
+      "bytes": 6125,
+      "sha256": "db48d8f9560b50ee7ee98d786bfbd284d77e940165c6a7d511643d601d0aabd9"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp.bare",
+      "bytes": 13144608,
+      "sha256": "3dc59723d8c8a7bcd146a980c93db50e6bebaaa9204c999c7c02e6ee69341a4b"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-cascadelake.so",
+      "bytes": 2656296,
+      "sha256": "3265ab38f8ed680ca97f3d5a7c3d3e0bd37ae527938f7feaa0c5d45498446a49"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-ivybridge.so",
+      "bytes": 2472080,
+      "sha256": "05fea4abc400858e47f0500b787da707b2b02ed34dbf83c819702c0dfd7e7bbf"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-x64.so",
+      "bytes": 2377624,
+      "sha256": "90e5ac37eb6c8518e3cf6713857a6b1e46794dd164c51239b696b02ac91a1ed0"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-sse42.so",
+      "bytes": 2385720,
+      "sha256": "130d8579e31ec688fc6594f4d24a727e4a3ccdadfa10a29c0dd8750b957233b6"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-cooperlake.so",
+      "bytes": 2656296,
+      "sha256": "5d4f783cbda7a06ab729be53158ae770e20383a213e1e82c76edc9fc350c58e6"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-alderlake.so",
+      "bytes": 2599056,
+      "sha256": "1bed4bd89961276b3651372a90f47f9d3d2d08739f042562aa4ca716381bc9e7"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-cannonlake.so",
+      "bytes": 2672624,
+      "sha256": "e9c7487ca471df1a8b750e1f8113c8e5b362773cf52a890bce06571c518f10cf"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-sandybridge.so",
+      "bytes": 2476176,
+      "sha256": "45575d32007883cab3813b088f8341ccfc2d890c5dbe5fffd8ea9ccdcd0ffa39"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-skylakex.so",
+      "bytes": 2664488,
+      "sha256": "90b989af9e25010f1ed4ed1c54e86dad97a882de4148cf919fd34340077d0ef7"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-haswell.so",
+      "bytes": 2603152,
+      "sha256": "78f7bf22495c31ef3c01d95918be8d810588a8db9ded67dabbd212cf81cb2e57"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-zen4.so",
+      "bytes": 2664432,
+      "sha256": "13170044d893cb04162b77216029950a905d9062136e2cc576639841237f7965"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-vulkan.so",
+      "bytes": 92593192,
+      "sha256": "ebc94e618e0da037ae51b131bc0a5d972eeb7524075e2031057664e65822dca7"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-sapphirerapids.so",
+      "bytes": 2822704,
+      "sha256": "7c7264ea4e12ddc6ab55229188995a6c54fe662485e91c8e0cc1119bb601c7b8"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-icelake.so",
+      "bytes": 2664432,
+      "sha256": "a4c30a7bba63aa0c5d27fd53fa59ffec64859b7886e416ca74cad10c73459ffb"
+    },
+    {
+      "path": "reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp/libqvac-ggml-cpu-piledriver.so",
+      "bytes": 2480272,
+      "sha256": "0dec71959fd4cb600b1e2a27e592cbbd1d17039033963cf910f1a324cb37fcf1"
+    }
+  ]
+}

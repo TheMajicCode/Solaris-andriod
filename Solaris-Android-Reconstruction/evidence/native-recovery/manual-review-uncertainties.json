@@ -1,0 +1,12 @@
+{
+  "reviewer": "compatibility_audit",
+  "uncertainties": [
+    {
+      "class": "L5.n$a",
+      "structured_path": "reference/native-decompiled/L5/n$a.java",
+      "fallback_path": "reference/native-decompiled/fallback/L5.n$a.java",
+      "reason": "Possible decompiler control-flow artifacts at Unicode escape append and object comma iteration. No claim that the APK contains these bugs. No parser implementation authorized from this output.",
+      "status": "unresolved; preserved for future bytecode branch audit"
+    }
+  ]
+}

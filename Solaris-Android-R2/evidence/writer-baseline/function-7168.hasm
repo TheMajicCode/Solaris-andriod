@@ -1,0 +1,27 @@
+=> [Function #7168 "check" of 72 bytes]: 2 params, frame size=13, strict=1, exc handler=0, debug info=0  @ offset 0x01c2e961
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 0, UInt8: 0>
+==> 00000003: <LoadParam>: <Reg8: 1, UInt8: 1>
+==> 00000006: <GetById>: <Reg8: 1, Reg8: 1, UInt8: 1, string_id: 14914>  # String: 'cancelled' (Identifier)
+==> 0000000c: <JmpTrue>: <Addr8: 16, Reg8: 1>  # Address: 0000001c
+==> 0000000f: <GetById>: <Reg8: 1, Reg8: 0, UInt8: 2, string_id: 14370>  # String: 'active' (Identifier)
+==> 00000015: <JmpFalse>: <Addr8: 7, Reg8: 1>  # Address: 0000001c
+==> 00000018: <LoadConstUndefined>: <Reg8: 1>
+==> 0000001a: <Ret>: <Reg8: 1>
+==> 0000001c: <GetEnvironment>: <Reg8: 1, UInt8: 1>
+==> 0000001f: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 12>
+==> 00000023: <GetById>: <Reg8: 3, Reg8: 1, UInt8: 3, string_id: 17316>  # String: 'RuntimeError' (Identifier)
+==> 00000029: <GetByIdShort>: <Reg8: 4, Reg8: 0, UInt8: 4, string_id: 195>  # String: 'phase' (Identifier)
+==> 0000002e: <GetByIdShort>: <Reg8: 0, Reg8: 3, UInt8: 5, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000033: <CreateThis>: <Reg8: 1, Reg8: 0, Reg8: 3>
+==> 00000037: <LoadConstString>: <Reg8: 5, string_id: 15290>  # String: 'CANCELLED' (Identifier)
+==> 0000003b: <Mov>: <Reg8: 6, Reg8: 1>
+==> 0000003e: <Construct>: <Reg8: 0, Reg8: 3, UInt8: 3>
+==> 00000042: <SelectObject>: <Reg8: 0, Reg8: 1, Reg8: 0>
+==> 00000046: <Throw>: <Reg8: 0>
+
+
+===============
+

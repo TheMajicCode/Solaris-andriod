@@ -1,0 +1,80 @@
+=> [Function #7361 "?anon_0_" of 299 bytes]: 1 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c3269d
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 3, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrueLong>: <Addr32: 289, Reg8: 1>  # Address: 00000128
+==> 0000000d: <GetById>: <Reg8: 1, Reg8: 3, UInt8: 1, string_id: 16484>  # String: 'loadPreparationChoice' (Identifier)
+==> 00000013: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 3>
+==> 00000017: <SaveGenerator>: <Addr8: 4>  # Address: 0000001b
+==> 00000019: <Ret>: <Reg8: 1>
+==> 0000001b: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 0000001e: <JmpTrueLong>: <Addr32: 263, Reg8: 2>  # Address: 00000125
+==> 00000024: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 2, string_id: 21018>  # String: 'preparationChoice' (Identifier)
+==> 0000002a: <GetById>: <Reg8: 2, Reg8: 2, UInt8: 3, string_id: 17456>  # String: 'enabled' (Identifier)
+==> 00000030: <JmpFalseLong>: <Addr32: 232, Reg8: 2>  # Address: 00000118
+==> 00000036: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 4, string_id: 14370>  # String: 'active' (Identifier)
+==> 0000003c: <JmpFalseLong>: <Addr32: 220, Reg8: 2>  # Address: 00000118
+==> 00000042: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 5, string_id: 14465>  # String: 'blocked' (Identifier)
+==> 00000048: <JmpTrueLong>: <Addr32: 208, Reg8: 2>  # Address: 00000118
+==> 0000004e: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 6, string_id: 17483>  # String: 'recoveryInfo' (Identifier)
+==> 00000054: <LoadConstNull>: <Reg8: 2>
+==> 00000056: <Eq>: <Reg8: 5, Reg8: 4, Reg8: 2>
+==> 0000005a: <LoadConstUndefined>: <Reg8: 2>
+==> 0000005c: <JmpTrue>: <Addr8: 9, Reg8: 5>  # Address: 00000065
+==> 0000005f: <GetById>: <Reg8: 2, Reg8: 4, UInt8: 5, string_id: 14465>  # String: 'blocked' (Identifier)
+==> 00000065: <JmpTrueLong>: <Addr32: 179, Reg8: 2>  # Address: 00000118
+==> 0000006b: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 7, string_id: 96>  # String: 'current' (Identifier)
+==> 00000070: <JmpTrueLong>: <Addr32: 168, Reg8: 2>  # Address: 00000118
+==> 00000076: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 8, string_id: 16498>  # String: 'transferImport' (Identifier)
+==> 0000007c: <JmpTrueLong>: <Addr32: 156, Reg8: 2>  # Address: 00000118
+==> 00000082: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 9, string_id: 15551>  # String: 'attemptedPreparationEpoch' (Identifier)
+==> 00000088: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 10, string_id: 19140>  # String: 'choiceEpoch' (Identifier)
+==> 0000008e: <JStrictEqualLong>: <Addr32: 138, Reg8: 4, Reg8: 2>  # Address: 00000118
+==> 00000095: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 10, string_id: 19140>  # String: 'choiceEpoch' (Identifier)
+==> 0000009b: <GetById>: <Reg8: 5, Reg8: 3, UInt8: 11, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 000000a1: <GetById>: <Reg8: 2, Reg8: 5, UInt8: 12, string_id: 15553>  # String: 'refresh' (Identifier)
+==> 000000a7: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 5>
+==> 000000ab: <SaveGenerator>: <Addr8: 4>  # Address: 000000af
+==> 000000ad: <Ret>: <Reg8: 2>
+==> 000000af: <ResumeGenerator>: <Reg8: 2, Reg8: 5>
+==> 000000b2: <JmpTrue>: <Addr8: 99, Reg8: 5>  # Address: 00000115
+==> 000000b5: <GetById>: <Reg8: 5, Reg8: 3, UInt8: 10, string_id: 19140>  # String: 'choiceEpoch' (Identifier)
+==> 000000bb: <JStrictNotEqual>: <Addr8: 77, Reg8: 4, Reg8: 5>  # Address: 00000108
+==> 000000bf: <GetById>: <Reg8: 5, Reg8: 3, UInt8: 2, string_id: 21018>  # String: 'preparationChoice' (Identifier)
+==> 000000c5: <GetById>: <Reg8: 5, Reg8: 5, UInt8: 3, string_id: 17456>  # String: 'enabled' (Identifier)
+==> 000000cb: <JmpFalse>: <Addr8: 61, Reg8: 5>  # Address: 00000108
+==> 000000ce: <GetById>: <Reg8: 5, Reg8: 3, UInt8: 4, string_id: 14370>  # String: 'active' (Identifier)
+==> 000000d4: <JmpFalse>: <Addr8: 52, Reg8: 5>  # Address: 00000108
+==> 000000d7: <GetByIdShort>: <Reg8: 5, Reg8: 3, UInt8: 7, string_id: 96>  # String: 'current' (Identifier)
+==> 000000dc: <JmpTrue>: <Addr8: 44, Reg8: 5>  # Address: 00000108
+==> 000000df: <GetById>: <Reg8: 5, Reg8: 2, UInt8: 13, string_id: 15099>  # String: 'cached' (Identifier)
+==> 000000e5: <JmpFalse>: <Addr8: 35, Reg8: 5>  # Address: 00000108
+==> 000000e8: <GetByIdShort>: <Reg8: 6, Reg8: 2, UInt8: 14, string_id: 35>  # String: 'state' (Identifier)
+==> 000000ed: <LoadConstString>: <Reg8: 5, string_id: 14889>  # String: 'failed' (Identifier)
+==> 000000f1: <JStrictEqual>: <Addr8: 23, Reg8: 6, Reg8: 5>  # Address: 00000108
+==> 000000f5: <PutById>: <Reg8: 3, Reg8: 4, UInt8: 1, string_id: 15551>  # String: 'attemptedPreparationEpoch' (Identifier)
+==> 000000fb: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 15, string_id: 17629>  # String: 'prepareForUse' (Identifier)
+==> 00000101: <Call1>: <Reg8: 4, Reg8: 4, Reg8: 3>
+==> 00000105: <CompleteGenerator>: <>
+==> 00000106: <Ret>: <Reg8: 4>
+==> 00000108: <GetById>: <Reg8: 4, Reg8: 3, UInt8: 16, string_id: 17693>  # String: 'snapshot' (Identifier)
+==> 0000010e: <Call1>: <Reg8: 4, Reg8: 4, Reg8: 3>
+==> 00000112: <CompleteGenerator>: <>
+==> 00000113: <Ret>: <Reg8: 4>
+==> 00000115: <CompleteGenerator>: <>
+==> 00000116: <Ret>: <Reg8: 2>
+==> 00000118: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 16, string_id: 17693>  # String: 'snapshot' (Identifier)
+==> 0000011e: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 00000122: <CompleteGenerator>: <>
+==> 00000123: <Ret>: <Reg8: 2>
+==> 00000125: <CompleteGenerator>: <>
+==> 00000126: <Ret>: <Reg8: 1>
+==> 00000128: <CompleteGenerator>: <>
+==> 00000129: <Ret>: <Reg8: 0>
+
+
+===============
+

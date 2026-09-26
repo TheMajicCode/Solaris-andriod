@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "checks": 8,
+  "reference_input_unchanged": true,
+  "results": [
+    {
+      "test": "short/unverified input",
+      "status": "PASS",
+      "error": "Input is not the verified code601 HBC."
+    },
+    {
+      "test": "single changed byte rejected even at correct length",
+      "status": "PASS",
+      "error": "Input is not the verified code601 HBC."
+    },
+    {
+      "test": "short forward branch overflow",
+      "status": "PASS",
+      "error": "JmpFalse operand overflow: 128; widening forbidden."
+    },
+    {
+      "test": "short backward branch overflow",
+      "status": "PASS",
+      "error": "JmpFalse operand overflow: -129; widening forbidden."
+    },
+    {
+      "test": "original overwrite rejected",
+      "status": "PASS",
+      "returncode": 1,
+      "expected_error": "Original overwrite forbidden"
+    },
+    {
+      "test": "APK output rejected",
+      "status": "PASS",
+      "returncode": 1,
+      "expected_error": "analysis .hbc"
+    },
+    {
+      "test": "recovered subtree output rejected",
+      "status": "PASS",
+      "returncode": 1,
+      "expected_error": "read-only"
+    },
+    {
+      "test": "existing output not replaced",
+      "status": "PASS",
+      "returncode": 1,
+      "expected_error": "Output exists"
+    }
+  ]
+}

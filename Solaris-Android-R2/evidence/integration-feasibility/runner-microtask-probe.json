@@ -1,0 +1,12 @@
+{
+  "args": [
+    "reconstruction-work/r2-tools/hermes-runner",
+    "Solaris-Android-R2/evidence/integration-feasibility/promise-probe.js"
+  ],
+  "returncode": 0,
+  "stdout": "microtasks-drained\n",
+  "stderr": "",
+  "config": {
+    "MicrotaskQueue": true
+  }
+}

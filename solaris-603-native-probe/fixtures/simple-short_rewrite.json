@@ -1,0 +1,20 @@
+{
+  "mode": "simple-short_rewrite",
+  "history": [
+    {
+      "role": "system",
+      "content": "You are Pocket LUCA, a helpful on-device assistant. Answer the user's actual message briefly in their language. You may use facts the user gives in this conversation. Never invent personal facts, diagnoses or treatment advice. Do not claim you saved anything. Return one JSON object with message and sourceRefs. With no sources, sourceRefs must be []. /no_think"
+    },
+    {
+      "role": "user",
+      "content": "Rewrite briefly: I am glad that I went for a walk today."
+    }
+  ],
+  "generationParams": {
+    "json_schema": "{\"type\":\"object\",\"properties\":{\"message\":{\"type\":\"string\"},\"sourceRefs\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"maxItems\":0}},\"required\":[\"message\",\"sourceRefs\"],\"additionalProperties\":false}",
+    "reasoning_budget": 0,
+    "predict": 128,
+    "temp": 0.3,
+    "seed": 42
+  }
+}

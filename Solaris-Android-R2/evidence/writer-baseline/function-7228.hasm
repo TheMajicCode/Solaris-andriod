@@ -1,0 +1,42 @@
+=> [Function #7228 "?anon_0_" of 109 bytes]: 1 params, frame size=12, strict=1, exc handler=0, debug info=0  @ offset 0x01c2fce8
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 4, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrue>: <Addr8: 99, Reg8: 1>  # Address: 0000006a
+==> 0000000a: <GetById>: <Reg8: 1, Reg8: 4, UInt8: 1, string_id: 15271>  # String: 'guard' (Identifier)
+==> 00000010: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 4>
+==> 00000014: <GetById>: <Reg8: 2, Reg8: 4, UInt8: 2, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 0000001a: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 3, string_id: 15500>  # String: 'acknowledge' (Identifier)
+==> 00000020: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 2>
+==> 00000024: <SaveGenerator>: <Addr8: 4>  # Address: 00000028
+==> 00000026: <Ret>: <Reg8: 1>
+==> 00000028: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 0000002b: <JmpTrue>: <Addr8: 60, Reg8: 2>  # Address: 00000067
+==> 0000002e: <GetById>: <Reg8: 3, Reg8: 4, UInt8: 2, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 00000034: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 4, string_id: 15811>  # String: 'recovery' (Identifier)
+==> 0000003a: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 0000003e: <SaveGenerator>: <Addr8: 4>  # Address: 00000042
+==> 00000040: <Ret>: <Reg8: 2>
+==> 00000042: <ResumeGenerator>: <Reg8: 2, Reg8: 3>
+==> 00000045: <JmpTrue>: <Addr8: 31, Reg8: 3>  # Address: 00000064
+==> 00000048: <PutById>: <Reg8: 4, Reg8: 2, UInt8: 1, string_id: 17483>  # String: 'recoveryInfo' (Identifier)
+==> 0000004e: <LoadConstNull>: <Reg8: 3>
+==> 00000050: <PutById>: <Reg8: 4, Reg8: 3, UInt8: 2, string_id: 122>  # String: 'error' (Identifier)
+==> 00000056: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 5, string_id: 72>  # String: 'changed' (Identifier)
+==> 0000005b: <Call1>: <Reg8: 3, Reg8: 3, Reg8: 4>
+==> 0000005f: <LoadConstUndefined>: <Reg8: 3>
+==> 00000061: <CompleteGenerator>: <>
+==> 00000062: <Ret>: <Reg8: 3>
+==> 00000064: <CompleteGenerator>: <>
+==> 00000065: <Ret>: <Reg8: 2>
+==> 00000067: <CompleteGenerator>: <>
+==> 00000068: <Ret>: <Reg8: 1>
+==> 0000006a: <CompleteGenerator>: <>
+==> 0000006b: <Ret>: <Reg8: 0>
+
+
+===============
+

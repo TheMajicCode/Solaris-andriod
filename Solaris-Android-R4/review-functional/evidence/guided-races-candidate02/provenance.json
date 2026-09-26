@@ -1,0 +1,24 @@
+{
+  "bundleSha256": "30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3",
+  "sourceSha256": {
+    "fixture.js": "d4a0e77b175ea11732eac6fc2989dcfd1d756a847761aa294db7fcb62f27b928",
+    "guided-races.js": "6a67f0df2e1e48e907c640d09fac9045e74b8e7f5dbc4d2c7a7474fc38e3875c"
+  },
+  "runnerSha256": "bd61d7d01d09122005d5704ba617a91dd10de791d8132477f71003c77643a689",
+  "command": [
+    "python3",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py",
+    "--tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/reconstruction-work/r2-tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/tests/hermes/capture-prelude.js",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/evidence/candidate-02/candidate604.hbc",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate02/fixture.compiled.js",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/evidence/guided-races-candidate02/guided-races.compiled.js"
+  ],
+  "exitCode": 0,
+  "limitations": [
+    "Actual retained APK bytecode in matching desktop Hermes.",
+    "Synthetic nativeVault/VaultStore and model outputs; no Android installation or native background scheduling.",
+    "MAC awaits are explicit deferred promises; no real vault touched."
+  ]
+}

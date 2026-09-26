@@ -1,0 +1,41 @@
+{
+  "format": "solaris-v6-604-signing-gate/1",
+  "decision": "approve-signing",
+  "authorization": "User explicitly approved next APK build604 with prior preservation and no-install/reset/key-change/push/deploy constraints.",
+  "baselineApkSha256": "25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227",
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 604,
+  "versionName": "6.0.4-preview.grounded-chat",
+  "expectedCertificateSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+  "buildManifestSha256": "38b14c723fa8f08d0e4719384a6abf6ab4640fba2db2d57162bc077825cc0c13",
+  "patchedHbcSha256": "30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3",
+  "unsignedApkSha256": "1064281a1ee874726d1e16e69e0d621af4dad23539fba301e0b91eed3b175b10",
+  "signingScriptSha256": "f61ca8fe6fbf12e03aaa2f15f33d23bb877aa13a942b50a4ff234395c1be9877",
+  "packagingScriptSha256": "998cb6679f7d81d4fd0ea0fdde5e7a8b9d645f9499bfa20b736435383e2c0445",
+  "independentReviews": [
+    {
+      "reviewer": "604_functional_review",
+      "decision": "approve",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-functional/FUNCTIONAL-INDEPENDENT-REVIEW.md",
+      "sha256": "f210f908a850d438126feebc2b44a5ed4e46a8cd8202513fa25702b1ceaab019"
+    },
+    {
+      "reviewer": "604_recording",
+      "decision": "approve",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/review-packaging/UNSIGNED-PACKAGING-APPROVAL.md",
+      "sha256": "40e9f6a95a8ce85317f3775478435ac15d055067ea9b9f9692a5fc989f06addb"
+    },
+    {
+      "reviewer": "604_latency",
+      "decision": "approve",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/latency/UI-INDEPENDENT-REVIEW.md",
+      "sha256": "e6ad586ff1518177c3146ba3ca6b882dbcfe12e371abd36da0cec2a5704928e8"
+    }
+  ],
+  "limits": [
+    "Android on-device validation pending",
+    "Open-chat model speed and quality unchanged",
+    "Background generation and durable pending text not implemented",
+    "Full native source reconstruction incomplete"
+  ]
+}

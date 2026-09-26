@@ -1,0 +1,3091 @@
+{
+  "notice": "String-presence evidence; execution semantics unverified; ancestor code600 only",
+  "hermes": [
+    {
+      "stringId": 440,
+      "value": "INSERT INTO vault_state(id,revision,payload) VALUES(1,?,?) ON CONFLICT(id) DO UPDATE SET revision=excluded.revision,payload=excluded.payload"
+    },
+    {
+      "stringId": 524,
+      "value": "Qwen3-0.6B-Q4_0.gguf"
+    },
+    {
+      "stringId": 791,
+      "value": "qvac_models_compiled/ggml/acestep/2026-07-22/acestep-v15-sft-Q8_0.gguf"
+    },
+    {
+      "stringId": 792,
+      "value": "acestep-v15-sft-Q8_0.gguf"
+    },
+    {
+      "stringId": 798,
+      "value": "ggml-org/SmolVLM2-500M-Video-Instruct-GGUF/resolve/ccd7aae53bcb1997355c2f094959e72b3642ce17/mmproj-SmolVLM2-500M-Video-Instruct-f16.gguf"
+    },
+    {
+      "stringId": 799,
+      "value": "mmproj-SmolVLM2-500M-Video-Instruct-f16.gguf"
+    },
+    {
+      "stringId": 909,
+      "value": "receipt_"
+    },
+    {
+      "stringId": 1023,
+      "value": "salamandrata_2b_inst_q8-00002-of-00004.gguf"
+    },
+    {
+      "stringId": 1041,
+      "value": "oral_health_satisfaction"
+    },
+    {
+      "stringId": 1182,
+      "value": "city96/Wan2.1-I2V-14B-720P-gguf/resolve/ea36d5421cc5f5c57e50067a432a8b2c16dd0dae/wan2.1-i2v-14b-720p-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 1183,
+      "value": "wan2.1-i2v-14b-720p-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 1365,
+      "value": "Qwen3-4B-Q4_0-00002-of-00005.gguf"
+    },
+    {
+      "stringId": 1721,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-05-18/chatterbox-t3-mtl-q4_0.gguf"
+    },
+    {
+      "stringId": 1722,
+      "value": "chatterbox-t3-mtl-q4_0.gguf"
+    },
+    {
+      "stringId": 1739,
+      "value": "salamandrata_2b_inst_q4-00003-of-00003.gguf"
+    },
+    {
+      "stringId": 1747,
+      "value": "salamandrata_2b_inst_q8-00003-of-00004.gguf"
+    },
+    {
+      "stringId": 1752,
+      "value": "salamandrata_2b_inst_q8-00004-of-00004.gguf"
+    },
+    {
+      "stringId": 1810,
+      "value": "bartowski/google_gemma-4-E2B-it-GGUF/resolve/b5e99bd964eaacc27ba484bb2eb3e9f6160b9143/mmproj-google_gemma-4-E2B-it-bf16.gguf"
+    },
+    {
+      "stringId": 1811,
+      "value": "mmproj-google_gemma-4-E2B-it-bf16.gguf"
+    },
+    {
+      "stringId": 2017,
+      "value": "./assets/solaris-emblem.png"
+    },
+    {
+      "stringId": 2054,
+      "value": "HEALTH_PERMISSION_REVOKED"
+    },
+    {
+      "stringId": 2153,
+      "value": " streamed content events. This is a local diagnostic result, not a signed vault receipt."
+    },
+    {
+      "stringId": 2292,
+      "value": "Save and verify recovery file"
+    },
+    {
+      "stringId": 2761,
+      "value": "qvac/MedPsy-1.7B-GGUF/resolve/fd4cecc90c2de8dce4b112795456a54be9c59363/medpsy-1.7b-iq4_xs-imat.gguf"
+    },
+    {
+      "stringId": 2762,
+      "value": "medpsy-1.7b-iq4_xs-imat.gguf"
+    },
+    {
+      "stringId": 2962,
+      "value": "unsloth/Qwen3.5-0.8B-GGUF/resolve/6ab461498e2023f6e3c1baea90a8f0fe38ab64d0/Qwen3.5-0.8B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 2963,
+      "value": "Qwen3.5-0.8B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 2966,
+      "value": "QWEN3_5_4B_MULTIMODAL_Q4_K_M"
+    },
+    {
+      "stringId": 3023,
+      "value": "noctrex/LightOnOCR-2-1B-ocr-soup-GGUF/resolve/main/LightOnOCR-2-1B-ocr-soup-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 3025,
+      "value": "LightOnOCR-2-1B-ocr-soup-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 3253,
+      "value": "MMPROJ_QWEN3_5_0_8B_MULTIMODAL_Q8_0"
+    },
+    {
+      "stringId": 3254,
+      "value": "QWEN3_5_0_8B_MULTIMODAL_Q8_0"
+    },
+    {
+      "stringId": 3325,
+      "value": "MMPROJ_QWEN3_5_2B_MULTIMODAL_Q8_0"
+    },
+    {
+      "stringId": 3326,
+      "value": "QWEN3_5_2B_MULTIMODAL_Q8_0"
+    },
+    {
+      "stringId": 3451,
+      "value": "AUDIOGEN_QWEN3_EMBEDDING_0_6B_Q8_0"
+    },
+    {
+      "stringId": 3523,
+      "value": "MMPROJ_QWEN3_5_4B_MULTIMODAL_Q8_0"
+    },
+    {
+      "stringId": 3547,
+      "value": "medgemma-4b-it-Q8_0-00005-of-00005.gguf"
+    },
+    {
+      "stringId": 3586,
+      "value": "qvac_models_compiled/ggml/Qwen3-1.7B/2025-08-21/Qwen3-1.7B-Q4_0-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 3587,
+      "value": "Qwen3-1.7B-Q4_0-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 3615,
+      "value": "Keep your recovery file and its passphrase in separate safe places. Both are needed if you lose access to this phone."
+    },
+    {
+      "stringId": 3729,
+      "value": "VAULT_CORE_MISSING"
+    },
+    {
+      "stringId": 3748,
+      "value": "QuantStack/LTX-2.3-GGUF/resolve/4b420da2a92451eaeec5cd44e769007198acff88/LTX-2.3-distilled-1.1/LTX-2.3-22B-distilled-1.1-Q2_K.gguf"
+    },
+    {
+      "stringId": 3749,
+      "value": "LTX-2.3-22B-distilled-1.1-Q2_K.gguf"
+    },
+    {
+      "stringId": 3796,
+      "value": "MMPROJ_QWEN3_6_27B_MULTIMODAL_BF16"
+    },
+    {
+      "stringId": 3822,
+      "value": "HuggingFaceTB/SmolLM2-360M-Instruct-GGUF/resolve/593b5a2e04c8f3e4ee880263f93e0bd2901ad47f/smollm2-360m-instruct-q8_0.gguf"
+    },
+    {
+      "stringId": 3824,
+      "value": "smollm2-360m-instruct-q8_0.gguf"
+    },
+    {
+      "stringId": 3859,
+      "value": "DeepSeek-V4-Flash-0731-UD-IQ2_M-00002-of-00003.gguf"
+    },
+    {
+      "stringId": 3875,
+      "value": "unsloth/Qwen3.6-35B-A3B-GGUF/resolve/a483e9e6cbd595906af30beda3187c2663a1118c/Qwen3.6-35B-A3B-UD-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 3876,
+      "value": "Qwen3.6-35B-A3B-UD-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 3879,
+      "value": "qwen35"
+    },
+    {
+      "stringId": 3952,
+      "value": "Invalid hyperdrive URL. Expected format: pear://64-char-hex-key/path/to/model.gguf"
+    },
+    {
+      "stringId": 3971,
+      "value": "QWEN3_600M_INST_Q4"
+    },
+    {
+      "stringId": 3980,
+      "value": "qvac/MedPsy-4B-GGUF/resolve/ad85e5a6f745027a576595df9acf745b071353b3/medpsy-4b-bf16.gguf"
+    },
+    {
+      "stringId": 3981,
+      "value": "medpsy-4b-bf16.gguf"
+    },
+    {
+      "stringId": 4133,
+      "value": "Qwen/Qwen3-VL-2B-Instruct-GGUF/resolve/main/mmproj-Qwen3VL-2B-Instruct-Q8_0.gguf"
+    },
+    {
+      "stringId": 4134,
+      "value": "mmproj-Qwen3VL-2B-Instruct-Q8_0.gguf"
+    },
+    {
+      "stringId": 4145,
+      "value": "ggml-org/SmolVLM2-500M-Video-Instruct-GGUF/resolve/ccd7aae53bcb1997355c2f094959e72b3642ce17/SmolVLM2-500M-Video-Instruct-Q8_0.gguf"
+    },
+    {
+      "stringId": 4146,
+      "value": "SmolVLM2-500M-Video-Instruct-Q8_0.gguf"
+    },
+    {
+      "stringId": 4156,
+      "value": "ggml-org/SmolVLM2-500M-Video-Instruct-GGUF/resolve/ccd7aae53bcb1997355c2f094959e72b3642ce17/SmolVLM2-500M-Video-Instruct-f16.gguf"
+    },
+    {
+      "stringId": 4157,
+      "value": "SmolVLM2-500M-Video-Instruct-f16.gguf"
+    },
+    {
+      "stringId": 4163,
+      "value": "ggml-org/SmolVLM2-500M-Video-Instruct-GGUF/resolve/ccd7aae53bcb1997355c2f094959e72b3642ce17/mmproj-SmolVLM2-500M-Video-Instruct-Q8_0.gguf"
+    },
+    {
+      "stringId": 4164,
+      "value": "mmproj-SmolVLM2-500M-Video-Instruct-Q8_0.gguf"
+    },
+    {
+      "stringId": 4168,
+      "value": "bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF/resolve/d8f684f08d2950ea9d2db6a35ef7dada0707858b/Kwaipilot_KAT-Coder-V2.5-Dev-IQ2_XXS.gguf"
+    },
+    {
+      "stringId": 4169,
+      "value": "Kwaipilot_KAT-Coder-V2.5-Dev-IQ2_XXS.gguf"
+    },
+    {
+      "stringId": 4190,
+      "value": "city96/Wan2.1-I2V-14B-480P-gguf/resolve/b4b6b3b3f0f64975fb33b1d5d1a46ca24e065f03/wan2.1-i2v-14b-480p-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 4191,
+      "value": "wan2.1-i2v-14b-480p-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 4278,
+      "value": "ggml-org/gemma-4-E2B-it-GGUF/resolve/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/mmproj-gemma-4-E2B-it-Q8_0.gguf"
+    },
+    {
+      "stringId": 4279,
+      "value": "mmproj-gemma-4-E2B-it-Q8_0.gguf"
+    },
+    {
+      "stringId": 4394,
+      "value": "mradermacher/AfriqueGemma-4B-GGUF/blob/e1324d25db75de68b604093e527272f6c5aba69f/AfriqueGemma-4B.Q4_K_M.gguf"
+    },
+    {
+      "stringId": 4395,
+      "value": "AfriqueGemma-4B.Q4_K_M.gguf"
+    },
+    {
+      "stringId": 4398,
+      "value": "solaris-v6-diagnostic/1"
+    },
+    {
+      "stringId": 4403,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-06-01/chatterbox-s3gen-q5_0.gguf"
+    },
+    {
+      "stringId": 4404,
+      "value": "chatterbox-s3gen-q5_0.gguf"
+    },
+    {
+      "stringId": 4511,
+      "value": "org.solarishealth.edge.recovery"
+    },
+    {
+      "stringId": 4512,
+      "value": "recovery-acknowledge"
+    },
+    {
+      "stringId": 4527,
+      "value": "Llama-3.2-1B-Instruct-Q4_0-00005-of-00008.gguf"
+    },
+    {
+      "stringId": 4676,
+      "value": "qvac_models_compiled/ggml/acestep/2026-07-22/acestep-5Hz-lm-0.6B-Q8_0.gguf"
+    },
+    {
+      "stringId": 4677,
+      "value": "acestep-5Hz-lm-0.6B-Q8_0.gguf"
+    },
+    {
+      "stringId": 5013,
+      "value": "BSC-LT/salamandraTA-2B-instruct-GGUF/blob/60046856fcac87c47fb0c706e994e70f01eda62b/salamandrata_2b_inst_q4.gguf"
+    },
+    {
+      "stringId": 5014,
+      "value": "salamandrata_2b_inst_q4.gguf"
+    },
+    {
+      "stringId": 5019,
+      "value": "BSC-LT/salamandraTA-2B-instruct-GGUF/blob/60046856fcac87c47fb0c706e994e70f01eda62b/salamandrata_2b_inst_q8.gguf"
+    },
+    {
+      "stringId": 5020,
+      "value": "salamandrata_2b_inst_q8.gguf"
+    },
+    {
+      "stringId": 5151,
+      "value": "bartowski/google_gemma-4-E2B-it-GGUF/resolve/b5e99bd964eaacc27ba484bb2eb3e9f6160b9143/google_gemma-4-E2B-it-Q8_0.gguf"
+    },
+    {
+      "stringId": 5152,
+      "value": "google_gemma-4-E2B-it-Q8_0.gguf"
+    },
+    {
+      "stringId": 5164,
+      "value": "HEALTH_WINDOW_MISMATCH"
+    },
+    {
+      "stringId": 5215,
+      "value": "hasVault"
+    },
+    {
+      "stringId": 5230,
+      "value": "vimalnakrani/unlimited-ocr-gguf/resolve/45cd66ec6b46a7c4de49f376084ecec2b8d3c59a/mmproj-unlimited-ocr-F16.gguf"
+    },
+    {
+      "stringId": 5231,
+      "value": "mmproj-unlimited-ocr-F16.gguf"
+    },
+    {
+      "stringId": 5262,
+      "value": "health_goals"
+    },
+    {
+      "stringId": 5295,
+      "value": "qvac_models_compiled/ggml/Qwen3-4B/2025-06-27/Qwen3-4B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 5296,
+      "value": "Qwen3-4B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 5342,
+      "value": "city96/Wan2.1-T2V-14B-gguf/resolve/511cbce9f475a6ca0269be901d23b125f44f5c0d/wan2.1-t2v-14b-Q8_0.gguf"
+    },
+    {
+      "stringId": 5343,
+      "value": "wan2.1-t2v-14b-Q8_0.gguf"
+    },
+    {
+      "stringId": 5364,
+      "value": "Choose a long recovery passphrase and keep it separate from the file. The app reads the saved file back and verifies it before reporting success."
+    },
+    {
+      "stringId": 5372,
+      "value": "Choose recovery file"
+    },
+    {
+      "stringId": 5380,
+      "value": "ChristianAzinn/gte-large-gguf/blob/f9fa5479908e72c2a8b9d6ba112911cd1e51be53/gte-large_fp16.gguf"
+    },
+    {
+      "stringId": 5381,
+      "value": "gte-large_fp16.gguf"
+    },
+    {
+      "stringId": 5429,
+      "value": "bartowski/google_gemma-4-31B-it-GGUF/resolve/dbdaa0588c16bed9aa3897f81ad3f48cbdd4244b/mmproj-google_gemma-4-31B-it-bf16.gguf"
+    },
+    {
+      "stringId": 5430,
+      "value": "mmproj-google_gemma-4-31B-it-bf16.gguf"
+    },
+    {
+      "stringId": 5481,
+      "value": "Confirm & open my protected Vault"
+    },
+    {
+      "stringId": 5482,
+      "value": "Vault"
+    },
+    {
+      "stringId": 5489,
+      "value": "bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF/resolve/d8f684f08d2950ea9d2db6a35ef7dada0707858b/Kwaipilot_KAT-Coder-V2.5-Dev-Q8_0.gguf"
+    },
+    {
+      "stringId": 5490,
+      "value": "Kwaipilot_KAT-Coder-V2.5-Dev-Q8_0.gguf"
+    },
+    {
+      "stringId": 5504,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-06-01/chatterbox-s3gen-q4_0.gguf"
+    },
+    {
+      "stringId": 5505,
+      "value": "chatterbox-s3gen-q4_0.gguf"
+    },
+    {
+      "stringId": 5555,
+      "value": "SELECT payload FROM vault_state WHERE id=1"
+    },
+    {
+      "stringId": 5575,
+      "value": "DeepSeek-V4-Flash-0731-UD-IQ2_M-00003-of-00003.gguf"
+    },
+    {
+      "stringId": 5581,
+      "value": "qvac/VisionPsy-Nano-460M-GGUFs/resolve/4138c5bd6e026d67cebf2dbd2d81c6229c14cdc1/mmproj-visionpsy-nano-460m-q8.gguf"
+    },
+    {
+      "stringId": 5582,
+      "value": "mmproj-visionpsy-nano-460m-q8.gguf"
+    },
+    {
+      "stringId": 5615,
+      "value": "unsloth/DeepSeek-V4-Flash-0731-GGUF/resolve/109848da2469efe1f1aab9e11acea08a065ccd4f/UD-IQ2_M/DeepSeek-V4-Flash-0731-UD-IQ2_M-00001-of-00003.gguf"
+    },
+    {
+      "stringId": 5617,
+      "value": "DeepSeek-V4-Flash-0731-UD-IQ2_M-00001-of-00003.gguf"
+    },
+    {
+      "stringId": 5639,
+      "value": "QWEN3_6_27B_MULTIMODAL_Q4_K_XL"
+    },
+    {
+      "stringId": 5662,
+      "value": "QWEN3_4B_Q4_K_M"
+    },
+    {
+      "stringId": 5695,
+      "value": "In no more than 90 words, explain a personal digital Health Vault in calm, everyday language. Describe user control, permission, and portability. Do not give medical, legal, or financial advice."
+    },
+    {
+      "stringId": 5712,
+      "value": "QWEN3_4B_INST_Q4_K_M"
+    },
+    {
+      "stringId": 5717,
+      "value": "Recovery file verified."
+    },
+    {
+      "stringId": 5800,
+      "value": "solaris-questionnaire-catalog/1"
+    },
+    {
+      "stringId": 5809,
+      "value": "QWEN3_4B_INST_Q4_SHARD"
+    },
+    {
+      "stringId": 5826,
+      "value": "RECOVERY_INVALID"
+    },
+    {
+      "stringId": 5845,
+      "value": "solaris-field/2"
+    },
+    {
+      "stringId": 5884,
+      "value": "Llama-3.2-1B-Instruct-Q4_0-00004-of-00008.gguf"
+    },
+    {
+      "stringId": 6002,
+      "value": "FLUX.2-only multi-reference fusion: array of base64-encoded PNG/JPEG buffers. Each buffer becomes a separate reference image that the FLUX.2 transformer attends to. Mutually exclusive with init_image; requires the model to be loaded with config.prediction='flux2_flow' and a Qwen3 text encoder via llmModelSrc."
+    },
+    {
+      "stringId": 6006,
+      "value": "MANUAL_RECOVERY_RETRY"
+    },
+    {
+      "stringId": 6098,
+      "value": "gte-large_fp16-00005-of-00005.gguf"
+    },
+    {
+      "stringId": 6133,
+      "value": "qvac_models_compiled/chatterbox/2026-05-08/chatterbox-s3gen-mtl.gguf"
+    },
+    {
+      "stringId": 6134,
+      "value": "chatterbox-s3gen-mtl.gguf"
+    },
+    {
+      "stringId": 6334,
+      "value": "HEALTH_RANGE_INVALID"
+    },
+    {
+      "stringId": 6337,
+      "value": "HEALTH_RESPONSE_INVALID"
+    },
+    {
+      "stringId": 6340,
+      "value": "HEALTH_SNAPSHOT_INVALID"
+    },
+    {
+      "stringId": 6351,
+      "value": "medgemma-4b-it-Q8_0-00004-of-00005.gguf"
+    },
+    {
+      "stringId": 6488,
+      "value": "Your recovery file"
+    },
+    {
+      "stringId": 6525,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-07-23/cosyvoice3-flow-f32.gguf"
+    },
+    {
+      "stringId": 6526,
+      "value": "cosyvoice3-flow-f32.gguf"
+    },
+    {
+      "stringId": 6591,
+      "value": "Preview only. Your current Vault will not be overwritten."
+    },
+    {
+      "stringId": 6621,
+      "value": "gte-large_fp16-00003-of-00005.gguf"
+    },
+    {
+      "stringId": 6711,
+      "value": "solaris-activity-session/1"
+    },
+    {
+      "stringId": 6784,
+      "value": "solaris-attachment/1"
+    },
+    {
+      "stringId": 6850,
+      "value": "solaris-core-payload/1"
+    },
+    {
+      "stringId": 6863,
+      "value": "Invalid registry URL. Expected format: registry://source/path/to/model.gguf"
+    },
+    {
+      "stringId": 6912,
+      "value": "solaris-daily-state/1"
+    },
+    {
+      "stringId": 7000,
+      "value": "QWEN3_6_35B_A3B_MULTIMODAL_Q6_K_XL"
+    },
+    {
+      "stringId": 7013,
+      "value": "MMPROJ_QWEN3VL_2B_MULTIMODAL_Q4_K"
+    },
+    {
+      "stringId": 7014,
+      "value": "QWEN3VL_2B_MULTIMODAL_Q4_K"
+    },
+    {
+      "stringId": 7023,
+      "value": "QWEN3_5_0_8B_MULTIMODAL_Q6_K"
+    },
+    {
+      "stringId": 7025,
+      "value": "QWEN3_5_2B_MULTIMODAL_Q6_K"
+    },
+    {
+      "stringId": 7027,
+      "value": "QWEN3_5_4B_MULTIMODAL_Q6_K"
+    },
+    {
+      "stringId": 7029,
+      "value": "QWEN3_5_9B_MULTIMODAL_Q6_K"
+    },
+    {
+      "stringId": 7033,
+      "value": "bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF/resolve/d8f684f08d2950ea9d2db6a35ef7dada0707858b/Kwaipilot_KAT-Coder-V2.5-Dev-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7034,
+      "value": "Kwaipilot_KAT-Coder-V2.5-Dev-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7036,
+      "value": "QWEN3_6_27B_MULTIMODAL_Q6_K_XL"
+    },
+    {
+      "stringId": 7041,
+      "value": "QWEN3_8_27B_MULTIMODAL_UD_Q4_K_XL"
+    },
+    {
+      "stringId": 7043,
+      "value": "QWEN3_8_27B_MULTIMODAL_UD_Q8_K_XL"
+    },
+    {
+      "stringId": 7051,
+      "value": "QuantStack/LTX-2.3-GGUF/resolve/4b420da2a92451eaeec5cd44e769007198acff88/LTX-2.3-distilled-1.1/LTX-2.3-22B-distilled-1.1-Q5_K_M.gguf"
+    },
+    {
+      "stringId": 7052,
+      "value": "LTX-2.3-22B-distilled-1.1-Q5_K_M.gguf"
+    },
+    {
+      "stringId": 7111,
+      "value": "solaris-daily-state/2"
+    },
+    {
+      "stringId": 7112,
+      "value": "qvac_models_compiled/ggml/Llama-3.2-1B/2025-12-04/Llama-3.2-1B-Instruct-Q4_0-00001-of-00008.gguf"
+    },
+    {
+      "stringId": 7113,
+      "value": "Llama-3.2-1B-Instruct-Q4_0-00001-of-00008.gguf"
+    },
+    {
+      "stringId": 7115,
+      "value": "Llama-3.2-1B-Instruct-Q4_0-00002-of-00008.gguf"
+    },
+    {
+      "stringId": 7120,
+      "value": "Llama-3.2-1B-Instruct-Q4_0-00003-of-00008.gguf"
+    },
+    {
+      "stringId": 7122,
+      "value": "Llama-3.2-1B-Instruct-Q4_0-00006-of-00008.gguf"
+    },
+    {
+      "stringId": 7124,
+      "value": "Llama-3.2-1B-Instruct-Q4_0-00007-of-00008.gguf"
+    },
+    {
+      "stringId": 7126,
+      "value": "Llama-3.2-1B-Instruct-Q4_0-00008-of-00008.gguf"
+    },
+    {
+      "stringId": 7128,
+      "value": "unsloth/Llama-3.2-1B-Instruct-GGUF/blob/b69aef112e9f895e6f98d7ae0949f72ff09aa401/Llama-3.2-1B-Instruct-Q4_0.gguf"
+    },
+    {
+      "stringId": 7129,
+      "value": "Llama-3.2-1B-Instruct-Q4_0.gguf"
+    },
+    {
+      "stringId": 7166,
+      "value": "solaris-daily-state/3"
+    },
+    {
+      "stringId": 7170,
+      "value": "solaris-edge-recovery"
+    },
+    {
+      "stringId": 7171,
+      "value": "recovery-status"
+    },
+    {
+      "stringId": 7173,
+      "value": "solaris-experience/1"
+    },
+    {
+      "stringId": 7175,
+      "value": "dolphin-mixtral-2x7b-dop-Q2_K-00002-of-00005.gguf"
+    },
+    {
+      "stringId": 7192,
+      "value": "QWEN3_5_0_8B_MULTIMODAL_Q4_K_M"
+    },
+    {
+      "stringId": 7194,
+      "value": "QWEN3_5_2B_MULTIMODAL_Q4_K_M"
+    },
+    {
+      "stringId": 7196,
+      "value": "QWEN3_5_9B_MULTIMODAL_Q4_K_M"
+    },
+    {
+      "stringId": 7198,
+      "value": "QWEN3_6_35B_A3B_MULTIMODAL_Q4_K_M"
+    },
+    {
+      "stringId": 7200,
+      "value": "QWEN3_8B_INST_Q4_K_M"
+    },
+    {
+      "stringId": 7210,
+      "value": "MMPROJ_QWEN3_5_0_8B_MULTIMODAL_BF16"
+    },
+    {
+      "stringId": 7211,
+      "value": "MMPROJ_QWEN3_5_0_8B_MULTIMODAL_F16"
+    },
+    {
+      "stringId": 7212,
+      "value": "MMPROJ_QWEN3_5_2B_MULTIMODAL_BF16"
+    },
+    {
+      "stringId": 7213,
+      "value": "MMPROJ_QWEN3_5_2B_MULTIMODAL_F16"
+    },
+    {
+      "stringId": 7214,
+      "value": "MMPROJ_QWEN3_5_4B_MULTIMODAL_BF16"
+    },
+    {
+      "stringId": 7215,
+      "value": "MMPROJ_QWEN3_5_4B_MULTIMODAL_F16"
+    },
+    {
+      "stringId": 7216,
+      "value": "MMPROJ_QWEN3_5_9B_MULTIMODAL_BF16"
+    },
+    {
+      "stringId": 7217,
+      "value": "MMPROJ_QWEN3_5_9B_MULTIMODAL_F16"
+    },
+    {
+      "stringId": 7218,
+      "value": "MMPROJ_QWEN3_6_27B_MULTIMODAL_F16"
+    },
+    {
+      "stringId": 7219,
+      "value": "MMPROJ_QWEN3_6_35B_A3B_MULTIMODAL_BF16"
+    },
+    {
+      "stringId": 7220,
+      "value": "MMPROJ_QWEN3_6_35B_A3B_MULTIMODAL_F16"
+    },
+    {
+      "stringId": 7221,
+      "value": "MMPROJ_QWEN3_8_27B_MULTIMODAL_F16"
+    },
+    {
+      "stringId": 7227,
+      "value": "Make your Vault yours."
+    },
+    {
+      "stringId": 7241,
+      "value": "solaris-journey-plan/1"
+    },
+    {
+      "stringId": 7266,
+      "value": "solaris-local-intelligence/1"
+    },
+    {
+      "stringId": 7285,
+      "value": "solaris-legacy-read/1"
+    },
+    {
+      "stringId": 7314,
+      "value": "solaris-local-action/1"
+    },
+    {
+      "stringId": 7322,
+      "value": "Preview a recovery file without replacing your current Vault. An empty installation can restore it with its original Solaris ID and a new device identity."
+    },
+    {
+      "stringId": 7339,
+      "value": "dolphin-mixtral-2x7b-dop-Q2_K-00003-of-00005.gguf"
+    },
+    {
+      "stringId": 7342,
+      "value": "dolphin-mixtral-2x7b-dop-Q2_K-00004-of-00005.gguf"
+    },
+    {
+      "stringId": 7566,
+      "value": "RECOVERY_STATE_TIMEOUT"
+    },
+    {
+      "stringId": 7577,
+      "value": "qvac_models_compiled/ggml/Qwen3-4B/2025-08-21/Qwen3-4B-Q4_0-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 7578,
+      "value": "Qwen3-4B-Q4_0-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 7596,
+      "value": "medgemma-4b-it-Q4_1-00004-of-00005.gguf"
+    },
+    {
+      "stringId": 7601,
+      "value": "bartowski/google_gemma-4-E4B-it-GGUF/resolve/c04cb322fd63e347db759a08b6249b867488ccf8/google_gemma-4-E4B-it-Q6_K.gguf"
+    },
+    {
+      "stringId": 7602,
+      "value": "google_gemma-4-E4B-it-Q6_K.gguf"
+    },
+    {
+      "stringId": 7693,
+      "value": "Your answers are stored only in your encrypted Solaris vault. Nothing is shared with a practitioner by completing this form."
+    },
+    {
+      "stringId": 7698,
+      "value": "PRAGMA journal_mode=DELETE; PRAGMA temp_store=MEMORY; PRAGMA secure_delete=ON; CREATE TABLE IF NOT EXISTS vault_state (id INTEGER PRIMARY KEY CHECK(id=1), revision INTEGER NOT NULL, payload TEXT NOT NULL);"
+    },
+    {
+      "stringId": 7715,
+      "value": "mav23/Llama_3.2_1B_Intruct_Tool_Calling_V2-GGUF/blob/main/llama_3.2_1b_intruct_tool_calling_v2.Q4_K.gguf"
+    },
+    {
+      "stringId": 7716,
+      "value": "llama_3.2_1b_intruct_tool_calling_v2.Q4_K.gguf"
+    },
+    {
+      "stringId": 7771,
+      "value": "solaris-model-preparation-v1.json"
+    },
+    {
+      "stringId": 7796,
+      "value": "solaris-model-preparation/1"
+    },
+    {
+      "stringId": 7815,
+      "value": "solaris-native-ai/1"
+    },
+    {
+      "stringId": 7851,
+      "value": "solaris-native-trace/1"
+    },
+    {
+      "stringId": 7864,
+      "value": "Your Vault is private."
+    },
+    {
+      "stringId": 7871,
+      "value": "QWEN3_1_7B_INST_Q4"
+    },
+    {
+      "stringId": 7872,
+      "value": "QWEN3_1_7B_INST_Q4_SHARD"
+    },
+    {
+      "stringId": 7873,
+      "value": "QWEN3_1_7B_INST_Q4_TENSORS"
+    },
+    {
+      "stringId": 7875,
+      "value": "QWEN3_4B_INST_Q4_TENSORS"
+    },
+    {
+      "stringId": 7891,
+      "value": "Qwen/Qwen3-8B-GGUF/blob/main/Qwen3-8B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7892,
+      "value": "Qwen3-8B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7894,
+      "value": "Qwen/Qwen3-VL-2B-Instruct-GGUF/resolve/main/Qwen3VL-2B-Instruct-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7895,
+      "value": "Qwen3VL-2B-Instruct-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7897,
+      "value": "Qwen3-1.7B-Q4_0-00002-of-00005.gguf"
+    },
+    {
+      "stringId": 7899,
+      "value": "Qwen3-1.7B-Q4_0-00003-of-00005.gguf"
+    },
+    {
+      "stringId": 7901,
+      "value": "Qwen3-1.7B-Q4_0-00004-of-00005.gguf"
+    },
+    {
+      "stringId": 7903,
+      "value": "Qwen3-1.7B-Q4_0-00005-of-00005.gguf"
+    },
+    {
+      "stringId": 7905,
+      "value": "unsloth/Qwen3-1.7B-GGUF/resolve/d7f544eead698dbd1f15126ef60b45a1e1933222/Qwen3-1.7B-Q4_0.gguf"
+    },
+    {
+      "stringId": 7906,
+      "value": "Qwen3-1.7B-Q4_0.gguf"
+    },
+    {
+      "stringId": 7907,
+      "value": "qvac_models_compiled/ggml/Qwen3-1.7B/2025-08-21/Qwen3-1.7B-Q4_0.tensors.txt"
+    },
+    {
+      "stringId": 7908,
+      "value": "Qwen3-1.7B-Q4_0.tensors.txt"
+    },
+    {
+      "stringId": 7909,
+      "value": "Qwen3-4B-Q4_0-00003-of-00005.gguf"
+    },
+    {
+      "stringId": 7915,
+      "value": "Qwen3-4B-Q4_0-00004-of-00005.gguf"
+    },
+    {
+      "stringId": 7918,
+      "value": "SELECT revision FROM vault_state WHERE id=1"
+    },
+    {
+      "stringId": 7919,
+      "value": "Qwen3-4B-Q4_0-00005-of-00005.gguf"
+    },
+    {
+      "stringId": 7921,
+      "value": "qvac_models_compiled/ggml/Qwen3-4B/2025-08-21/Qwen3-4B-Q4_0.tensors.txt"
+    },
+    {
+      "stringId": 7922,
+      "value": "Qwen3-4B-Q4_0.tensors.txt"
+    },
+    {
+      "stringId": 7923,
+      "value": "qvac_models_compiled/ggml/acestep/2026-07-22/Qwen3-Embedding-0.6B-Q8_0.gguf"
+    },
+    {
+      "stringId": 7924,
+      "value": "Qwen3-Embedding-0.6B-Q8_0.gguf"
+    },
+    {
+      "stringId": 7925,
+      "value": "unsloth/Qwen3.5-0.8B-GGUF/resolve/6ab461498e2023f6e3c1baea90a8f0fe38ab64d0/Qwen3.5-0.8B-Q6_K.gguf"
+    },
+    {
+      "stringId": 7926,
+      "value": "Qwen3.5-0.8B-Q6_K.gguf"
+    },
+    {
+      "stringId": 7927,
+      "value": "unsloth/Qwen3.5-0.8B-GGUF/resolve/6ab461498e2023f6e3c1baea90a8f0fe38ab64d0/Qwen3.5-0.8B-Q8_0.gguf"
+    },
+    {
+      "stringId": 7928,
+      "value": "Qwen3.5-0.8B-Q8_0.gguf"
+    },
+    {
+      "stringId": 7931,
+      "value": "mradermacher/Qwen3.5-0.8B-GGUF/resolve/9d48fdbc0d8f133716da87ec1d904e5d2c7175a6/Qwen3.5-0.8B.mmproj-Q8_0.gguf"
+    },
+    {
+      "stringId": 7932,
+      "value": "Qwen3.5-0.8B.mmproj-Q8_0.gguf"
+    },
+    {
+      "stringId": 7933,
+      "value": "unsloth/Qwen3.5-2B-GGUF/resolve/f6d5376be1edb4d416d56da11e5397a961aca8ae/Qwen3.5-2B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7934,
+      "value": "Qwen3.5-2B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7935,
+      "value": "unsloth/Qwen3.5-2B-GGUF/resolve/f6d5376be1edb4d416d56da11e5397a961aca8ae/Qwen3.5-2B-Q6_K.gguf"
+    },
+    {
+      "stringId": 7936,
+      "value": "Qwen3.5-2B-Q6_K.gguf"
+    },
+    {
+      "stringId": 7937,
+      "value": "unsloth/Qwen3.5-2B-GGUF/resolve/f6d5376be1edb4d416d56da11e5397a961aca8ae/Qwen3.5-2B-Q8_0.gguf"
+    },
+    {
+      "stringId": 7938,
+      "value": "Qwen3.5-2B-Q8_0.gguf"
+    },
+    {
+      "stringId": 7941,
+      "value": "mradermacher/Qwen3.5-2B-GGUF/resolve/33cc6944e40cb93e38332cd46b2a6e3c6acf081e/Qwen3.5-2B.mmproj-Q8_0.gguf"
+    },
+    {
+      "stringId": 7942,
+      "value": "Qwen3.5-2B.mmproj-Q8_0.gguf"
+    },
+    {
+      "stringId": 7943,
+      "value": "unsloth/Qwen3.5-4B-GGUF/resolve/e87f176479d0855a907a41277aca2f8ee7a09523/Qwen3.5-4B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7944,
+      "value": "Qwen3.5-4B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7945,
+      "value": "unsloth/Qwen3.5-4B-GGUF/resolve/e87f176479d0855a907a41277aca2f8ee7a09523/Qwen3.5-4B-Q6_K.gguf"
+    },
+    {
+      "stringId": 7946,
+      "value": "Qwen3.5-4B-Q6_K.gguf"
+    },
+    {
+      "stringId": 7949,
+      "value": "mradermacher/Qwen3.5-4B-GGUF/resolve/1a5df2c0cba51dae8ac5888420360d8703707171/Qwen3.5-4B.mmproj-Q8_0.gguf"
+    },
+    {
+      "stringId": 7950,
+      "value": "Qwen3.5-4B.mmproj-Q8_0.gguf"
+    },
+    {
+      "stringId": 7951,
+      "value": "unsloth/Qwen3.5-9B-GGUF/resolve/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7952,
+      "value": "Qwen3.5-9B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 7953,
+      "value": "unsloth/Qwen3.5-9B-GGUF/resolve/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-Q6_K.gguf"
+    },
+    {
+      "stringId": 7954,
+      "value": "Qwen3.5-9B-Q6_K.gguf"
+    },
+    {
+      "stringId": 7955,
+      "value": "Qwen3.5-VL multi-tile image encoding mode (multimodal models only): `'sequential'` (default) encodes image tiles one at a time, `'batched'` encodes all tiles in a single batched pass, `'disabled'` does no multi-tile encoding (single tile). Ignored by text-only models."
+    },
+    {
+      "stringId": 7957,
+      "value": "unsloth/Qwen3.6-27B-GGUF/resolve/82d411acf4a06cfb8d9b073a5211bf410bfc29bf/Qwen3.6-27B-UD-Q4_K_XL.gguf"
+    },
+    {
+      "stringId": 7958,
+      "value": "Qwen3.6-27B-UD-Q4_K_XL.gguf"
+    },
+    {
+      "stringId": 7960,
+      "value": "unsloth/Qwen3.6-27B-GGUF/resolve/82d411acf4a06cfb8d9b073a5211bf410bfc29bf/Qwen3.6-27B-UD-Q6_K_XL.gguf"
+    },
+    {
+      "stringId": 7961,
+      "value": "Qwen3.6-27B-UD-Q6_K_XL.gguf"
+    },
+    {
+      "stringId": 7962,
+      "value": "unsloth/Qwen3.6-35B-A3B-GGUF/resolve/a483e9e6cbd595906af30beda3187c2663a1118c/Qwen3.6-35B-A3B-UD-Q6_K_XL.gguf"
+    },
+    {
+      "stringId": 7963,
+      "value": "Qwen3.6-35B-A3B-UD-Q6_K_XL.gguf"
+    },
+    {
+      "stringId": 7964,
+      "value": "unsloth/Qwen3.8-27B-GGUF/resolve/fdd03b8bbd279c1694563650e79d85a2373d9934/Qwen3.8-27B-UD-Q4_K_XL.gguf"
+    },
+    {
+      "stringId": 7965,
+      "value": "Qwen3.8-27B-UD-Q4_K_XL.gguf"
+    },
+    {
+      "stringId": 7966,
+      "value": "unsloth/Qwen3.8-27B-GGUF/resolve/fdd03b8bbd279c1694563650e79d85a2373d9934/Qwen3.8-27B-UD-Q8_K_XL.gguf"
+    },
+    {
+      "stringId": 7967,
+      "value": "Qwen3.8-27B-UD-Q8_K_XL.gguf"
+    },
+    {
+      "stringId": 7986,
+      "value": "RECEIPT_INTEGRITY_FAILED"
+    },
+    {
+      "stringId": 7991,
+      "value": "RECOVERY_STATE_FAILED"
+    },
+    {
+      "stringId": 8006,
+      "value": "solaris-private-context/1"
+    },
+    {
+      "stringId": 8007,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-07-23/voice-en.gguf"
+    },
+    {
+      "stringId": 8008,
+      "value": "voice-en.gguf"
+    },
+    {
+      "stringId": 8095,
+      "value": "solaris-private-context/2"
+    },
+    {
+      "stringId": 8116,
+      "value": "Solaris Recovery"
+    },
+    {
+      "stringId": 8117,
+      "value": "Recovery & backup"
+    },
+    {
+      "stringId": 8248,
+      "value": "solaris-probe.js"
+    },
+    {
+      "stringId": 8251,
+      "value": "Save another recovery file"
+    },
+    {
+      "stringId": 8302,
+      "value": "solaris-qvac-bridge/1"
+    },
+    {
+      "stringId": 8304,
+      "value": "bartowski/google_gemma-4-E4B-it-GGUF/resolve/c04cb322fd63e347db759a08b6249b867488ccf8/mmproj-google_gemma-4-E4B-it-f16.gguf"
+    },
+    {
+      "stringId": 8305,
+      "value": "mmproj-google_gemma-4-E4B-it-f16.gguf"
+    },
+    {
+      "stringId": 8322,
+      "value": "solaris-qvac-cache"
+    },
+    {
+      "stringId": 8326,
+      "value": "SolarisVault"
+    },
+    {
+      "stringId": 8361,
+      "value": "vimalnakrani/unlimited-ocr-gguf/resolve/45cd66ec6b46a7c4de49f376084ecec2b8d3c59a/unlimited-ocr-Q4_0.gguf"
+    },
+    {
+      "stringId": 8362,
+      "value": "unlimited-ocr-Q4_0.gguf"
+    },
+    {
+      "stringId": 8399,
+      "value": "solaris-qvac-download.json"
+    },
+    {
+      "stringId": 8417,
+      "value": "solaris-qvac-models/"
+    },
+    {
+      "stringId": 8492,
+      "value": "window.__solarisVaultReply?.("
+    },
+    {
+      "stringId": 8498,
+      "value": "solaris-runtime-result/1"
+    },
+    {
+      "stringId": 8594,
+      "value": "TheMajicCode/solaris-health"
+    },
+    {
+      "stringId": 8595,
+      "value": "solaris-health-snapshot/1"
+    },
+    {
+      "stringId": 8647,
+      "value": "solaris-runtime-trace/1"
+    },
+    {
+      "stringId": 8702,
+      "value": "^health_[a-zA-Z0-9_-]{1,90}$"
+    },
+    {
+      "stringId": 8703,
+      "value": "health_"
+    },
+    {
+      "stringId": 8733,
+      "value": "solaris-vault-ui/1"
+    },
+    {
+      "stringId": 8829,
+      "value": "window.__solarisVaultState?.("
+    },
+    {
+      "stringId": 8869,
+      "value": "Unlock or protect this Vault"
+    },
+    {
+      "stringId": 8918,
+      "value": "VAULT_BUSY"
+    },
+    {
+      "stringId": 8920,
+      "value": "VAULT_INTEGRITY_FAILED"
+    },
+    {
+      "stringId": 8921,
+      "value": "VAULT_KEY_INVALID"
+    },
+    {
+      "stringId": 8922,
+      "value": "VAULT_LOCKED"
+    },
+    {
+      "stringId": 8923,
+      "value": "VAULT_OPEN_FAILED"
+    },
+    {
+      "stringId": 8924,
+      "value": "VAULT_OPERATION_FAILED"
+    },
+    {
+      "stringId": 8925,
+      "value": "VAULT_SCHEMA_INVALID"
+    },
+    {
+      "stringId": 8947,
+      "value": "dolphin-mixtral-2x7b-dop-Q2_K-00005-of-00005.gguf"
+    },
+    {
+      "stringId": 9032,
+      "value": "hum-ma/Wan2.2-TI2V-5B-Turbo-GGUF/resolve/9873ba175b4b204a81f4a43c9644e6c385ee4459/Wan2_2-TI2V-5B-Turbo-Q5_K_S.gguf"
+    },
+    {
+      "stringId": 9033,
+      "value": "Wan2_2-TI2V-5B-Turbo-Q5_K_S.gguf"
+    },
+    {
+      "stringId": 9038,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-07-23/cosyvoice3-hift-f32.gguf"
+    },
+    {
+      "stringId": 9039,
+      "value": "cosyvoice3-hift-f32.gguf"
+    },
+    {
+      "stringId": 9041,
+      "value": "qvac_models_compiled/ggml/bitnet/2026-03-05/bitnet_b1_58-large-TQ2_0.gguf"
+    },
+    {
+      "stringId": 9042,
+      "value": "bitnet_b1_58-large-TQ2_0.gguf"
+    },
+    {
+      "stringId": 9074,
+      "value": "When the model emits a reasoning block during generation (e.g. `<think>...</think>` for the Qwen3 family, `<|channel>thought ... <channel|>` for Gemma 4), drop those tokens from the KV cache at end-of-generation so subsequent turns do not accumulate reasoning history. Defaults to `false`, except the Qwen3 reasoning family (Qwen3, Qwen3.5, Qwen3.6, including MoE variants), which defaults to `true`. No-op for models without a recognised reasoning channel. Supported on recurrent / hybrid-SSM models (e.g. Qwen3.5) via a state snapshot and replay when the reasoning close marker is a single token; on such a model with a multi-token close marker, enabling this fails with an error."
+    },
+    {
+      "stringId": 9113,
+      "value": "Your Vault is locked. Tap Unlock my Vault to try again. Your saved records are kept."
+    },
+    {
+      "stringId": 9114,
+      "value": "Your Vault is still here."
+    },
+    {
+      "stringId": 9115,
+      "value": "Your Vault setup is complete. Everyday entry uses your fingerprint or phone screen lock. A recovery passphrase is needed only when you create or open a recovery file."
+    },
+    {
+      "stringId": 9116,
+      "value": "Your earlier records are retained in the encrypted Vault. After you confirm, the app removes only its old unencrypted preview entry. It keeps your identity history and downloaded model."
+    },
+    {
+      "stringId": 9634,
+      "value": "qvac_models_compiled/ABot-World-0-5B-LF/2026-07-17/abot-world-0-5b-lf-dit-q8_0.gguf"
+    },
+    {
+      "stringId": 9635,
+      "value": "abot-world-0-5b-lf-dit-q8_0.gguf"
+    },
+    {
+      "stringId": 9638,
+      "value": "qvac_models_compiled/ggml/acestep/2026-07-22/acestep-v15-turbo-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 9639,
+      "value": "acestep-v15-turbo-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 9640,
+      "value": "qvac_models_compiled/ggml/acestep/2026-07-22/acestep-v15-turbo-Q8_0.gguf"
+    },
+    {
+      "stringId": 9641,
+      "value": "acestep-v15-turbo-Q8_0.gguf"
+    },
+    {
+      "stringId": 9702,
+      "value": "qvac_models_compiled/ggml/audio-8/2026-08-12/audio8-codec-decoder-f16.gguf"
+    },
+    {
+      "stringId": 9703,
+      "value": "audio8-codec-decoder-f16.gguf"
+    },
+    {
+      "stringId": 9704,
+      "value": "qvac_models_compiled/ggml/audio-8/2026-08-12/audio8-codec-decoder-q8_0.gguf"
+    },
+    {
+      "stringId": 9705,
+      "value": "audio8-codec-decoder-q8_0.gguf"
+    },
+    {
+      "stringId": 9706,
+      "value": "qvac_models_compiled/ggml/audio-8/2026-08-12/audio8-codec-encoder-f16.gguf"
+    },
+    {
+      "stringId": 9707,
+      "value": "audio8-codec-encoder-f16.gguf"
+    },
+    {
+      "stringId": 9708,
+      "value": "qvac_models_compiled/ggml/audio-8/2026-08-12/audio8-codec-encoder-q8_0.gguf"
+    },
+    {
+      "stringId": 9709,
+      "value": "audio8-codec-encoder-q8_0.gguf"
+    },
+    {
+      "stringId": 9710,
+      "value": "qvac_models_compiled/ggml/audio-8/2026-08-12/audio8-lm-f16.gguf"
+    },
+    {
+      "stringId": 9711,
+      "value": "audio8-lm-f16.gguf"
+    },
+    {
+      "stringId": 9712,
+      "value": "qvac_models_compiled/ggml/audio-8/2026-08-12/audio8-lm-q8_0.gguf"
+    },
+    {
+      "stringId": 9713,
+      "value": "audio8-lm-q8_0.gguf"
+    },
+    {
+      "stringId": 9740,
+      "value": "bartowski/google_gemma-4-31B-it-GGUF/resolve/dbdaa0588c16bed9aa3897f81ad3f48cbdd4244b/google_gemma-4-31B-it-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 9741,
+      "value": "google_gemma-4-31B-it-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 9743,
+      "value": "bartowski/google_gemma-4-31B-it-GGUF/resolve/dbdaa0588c16bed9aa3897f81ad3f48cbdd4244b/google_gemma-4-31B-it-Q6_K.gguf"
+    },
+    {
+      "stringId": 9744,
+      "value": "google_gemma-4-31B-it-Q6_K.gguf"
+    },
+    {
+      "stringId": 9746,
+      "value": "bartowski/google_gemma-4-31B-it-GGUF/resolve/dbdaa0588c16bed9aa3897f81ad3f48cbdd4244b/mmproj-google_gemma-4-31B-it-f16.gguf"
+    },
+    {
+      "stringId": 9747,
+      "value": "mmproj-google_gemma-4-31B-it-f16.gguf"
+    },
+    {
+      "stringId": 9749,
+      "value": "bartowski/google_gemma-4-E2B-it-GGUF/resolve/b5e99bd964eaacc27ba484bb2eb3e9f6160b9143/google_gemma-4-E2B-it-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 9750,
+      "value": "google_gemma-4-E2B-it-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 9754,
+      "value": "bartowski/google_gemma-4-E2B-it-GGUF/resolve/b5e99bd964eaacc27ba484bb2eb3e9f6160b9143/google_gemma-4-E2B-it-Q6_K.gguf"
+    },
+    {
+      "stringId": 9755,
+      "value": "google_gemma-4-E2B-it-Q6_K.gguf"
+    },
+    {
+      "stringId": 9757,
+      "value": "bartowski/google_gemma-4-E2B-it-GGUF/resolve/b5e99bd964eaacc27ba484bb2eb3e9f6160b9143/mmproj-google_gemma-4-E2B-it-f16.gguf"
+    },
+    {
+      "stringId": 9758,
+      "value": "mmproj-google_gemma-4-E2B-it-f16.gguf"
+    },
+    {
+      "stringId": 9761,
+      "value": "bartowski/google_gemma-4-E4B-it-GGUF/resolve/c04cb322fd63e347db759a08b6249b867488ccf8/google_gemma-4-E4B-it-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 9762,
+      "value": "google_gemma-4-E4B-it-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 9766,
+      "value": "bartowski/google_gemma-4-E4B-it-GGUF/resolve/c04cb322fd63e347db759a08b6249b867488ccf8/mmproj-google_gemma-4-E4B-it-bf16.gguf"
+    },
+    {
+      "stringId": 9767,
+      "value": "mmproj-google_gemma-4-E4B-it-bf16.gguf"
+    },
+    {
+      "stringId": 9825,
+      "value": "medgemma-4b-it-Q4_1-00003-of-00005.gguf"
+    },
+    {
+      "stringId": 9842,
+      "value": "qvac_models_compiled/ggml/bitnet/2026-03-05/bitnet_b1_58-3B-TQ2_0.gguf"
+    },
+    {
+      "stringId": 9843,
+      "value": "bitnet_b1_58-3B-TQ2_0.gguf"
+    },
+    {
+      "stringId": 9844,
+      "value": "qvac_models_compiled/ggml/bitnet/2026-03-05/bitnet_b1_58-xl-TQ2_0.gguf"
+    },
+    {
+      "stringId": 9845,
+      "value": "bitnet_b1_58-xl-TQ2_0.gguf"
+    },
+    {
+      "stringId": 9859,
+      "value": "noctrex/LightOnOCR-2-1B-ocr-soup-GGUF/resolve/main/mmproj-F16.gguf"
+    },
+    {
+      "stringId": 9860,
+      "value": "mmproj-F16.gguf"
+    },
+    {
+      "stringId": 9869,
+      "value": "gpustack/stable-diffusion-xl-base-1.0-GGUF/resolve/5f58340891db3ef66a79758c2dcddad92b1de169/stable-diffusion-xl-base-1.0-Q4_0.gguf"
+    },
+    {
+      "stringId": 9870,
+      "value": "stable-diffusion-xl-base-1.0-Q4_0.gguf"
+    },
+    {
+      "stringId": 9905,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-06-01/chatterbox-s3gen-mtl-q4_0.gguf"
+    },
+    {
+      "stringId": 9907,
+      "value": "chatterbox-s3gen-mtl-q4_0.gguf"
+    },
+    {
+      "stringId": 9911,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-06-01/chatterbox-s3gen-mtl-q5_0.gguf"
+    },
+    {
+      "stringId": 9912,
+      "value": "chatterbox-s3gen-mtl-q5_0.gguf"
+    },
+    {
+      "stringId": 9915,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-06-01/chatterbox-s3gen-mtl-q8_0.gguf"
+    },
+    {
+      "stringId": 9916,
+      "value": "chatterbox-s3gen-mtl-q8_0.gguf"
+    },
+    {
+      "stringId": 9917,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-06-01/chatterbox-s3gen-q8_0.gguf"
+    },
+    {
+      "stringId": 9918,
+      "value": "chatterbox-s3gen-q8_0.gguf"
+    },
+    {
+      "stringId": 9919,
+      "value": "qvac_models_compiled/chatterbox/2026-05-08/chatterbox-s3gen.gguf"
+    },
+    {
+      "stringId": 9920,
+      "value": "chatterbox-s3gen.gguf"
+    },
+    {
+      "stringId": 9921,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-06-01/chatterbox-t3-mtl-q5_0.gguf"
+    },
+    {
+      "stringId": 9922,
+      "value": "chatterbox-t3-mtl-q5_0.gguf"
+    },
+    {
+      "stringId": 9923,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-05-18/chatterbox-t3-mtl-q8_0.gguf"
+    },
+    {
+      "stringId": 9924,
+      "value": "chatterbox-t3-mtl-q8_0.gguf"
+    },
+    {
+      "stringId": 9925,
+      "value": "qvac_models_compiled/chatterbox/2026-05-08/chatterbox-t3-mtl.gguf"
+    },
+    {
+      "stringId": 9926,
+      "value": "chatterbox-t3-mtl.gguf"
+    },
+    {
+      "stringId": 9927,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-05-18/chatterbox-t3-turbo-q4_0.gguf"
+    },
+    {
+      "stringId": 9928,
+      "value": "chatterbox-t3-turbo-q4_0.gguf"
+    },
+    {
+      "stringId": 9929,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-06-01/chatterbox-t3-turbo-q5_0.gguf"
+    },
+    {
+      "stringId": 9930,
+      "value": "chatterbox-t3-turbo-q5_0.gguf"
+    },
+    {
+      "stringId": 9931,
+      "value": "qvac_models_compiled/ggml/chatterbox/2026-05-18/chatterbox-t3-turbo-q8_0.gguf"
+    },
+    {
+      "stringId": 9932,
+      "value": "chatterbox-t3-turbo-q8_0.gguf"
+    },
+    {
+      "stringId": 9933,
+      "value": "qvac_models_compiled/chatterbox/2026-05-08/chatterbox-t3-turbo.gguf"
+    },
+    {
+      "stringId": 9934,
+      "value": "chatterbox-t3-turbo.gguf"
+    },
+    {
+      "stringId": 9947,
+      "value": "gpustack/stable-diffusion-v2-1-GGUF/resolve/12ddc22724f6da35f0b6006e459fae66eaf56931/stable-diffusion-v2-1-Q8_0.gguf"
+    },
+    {
+      "stringId": 9948,
+      "value": "stable-diffusion-v2-1-Q8_0.gguf"
+    },
+    {
+      "stringId": 10006,
+      "value": "medgemma-4b-it-Q4_1-00002-of-00005.gguf"
+    },
+    {
+      "stringId": 10018,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-08-14/cosyvoice3-campplus-f32.gguf"
+    },
+    {
+      "stringId": 10020,
+      "value": "cosyvoice3-campplus-f32.gguf"
+    },
+    {
+      "stringId": 10021,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-07-23/cosyvoice3-llm-q8_0.gguf"
+    },
+    {
+      "stringId": 10022,
+      "value": "cosyvoice3-llm-q8_0.gguf"
+    },
+    {
+      "stringId": 10023,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-08-14/cosyvoice3-s3tok-f16.gguf"
+    },
+    {
+      "stringId": 10024,
+      "value": "cosyvoice3-s3tok-f16.gguf"
+    },
+    {
+      "stringId": 10025,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-08-14/cosyvoice3-s3tok-f32.gguf"
+    },
+    {
+      "stringId": 10026,
+      "value": "cosyvoice3-s3tok-f32.gguf"
+    },
+    {
+      "stringId": 10027,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-08-14/cosyvoice3-s3tok-q8_0.gguf"
+    },
+    {
+      "stringId": 10028,
+      "value": "cosyvoice3-s3tok-q8_0.gguf"
+    },
+    {
+      "stringId": 10031,
+      "value": "qvac_models_compiled/ocr/gguf/easyocr/2026-05-14/craft_mlt_25k.gguf"
+    },
+    {
+      "stringId": 10033,
+      "value": "craft_mlt_25k.gguf"
+    },
+    {
+      "stringId": 10064,
+      "value": "qvac_models_compiled/ocr/gguf/doctrf16/2026-05-15/crnn_mobilenet_v3_small.gguf"
+    },
+    {
+      "stringId": 10066,
+      "value": "crnn_mobilenet_v3_small.gguf"
+    },
+    {
+      "stringId": 10077,
+      "value": "qvac_models_compiled/ocr/gguf/doctrf16/2026-05-15/db_mobilenet_v3_large.gguf"
+    },
+    {
+      "stringId": 10078,
+      "value": "db_mobilenet_v3_large.gguf"
+    },
+    {
+      "stringId": 10133,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-20/diar_streaming_sortformer_4spk-v2.1.f16.gguf"
+    },
+    {
+      "stringId": 10134,
+      "value": "diar_streaming_sortformer_4spk-v2.1.f16.gguf"
+    },
+    {
+      "stringId": 10135,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-20/diar_streaming_sortformer_4spk-v2.1.q4_0.gguf"
+    },
+    {
+      "stringId": 10136,
+      "value": "diar_streaming_sortformer_4spk-v2.1.q4_0.gguf"
+    },
+    {
+      "stringId": 10137,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-20/diar_streaming_sortformer_4spk-v2.1.q8_0.gguf"
+    },
+    {
+      "stringId": 10138,
+      "value": "diar_streaming_sortformer_4spk-v2.1.q8_0.gguf"
+    },
+    {
+      "stringId": 10139,
+      "value": "qvac_models_compiled/ggml/dolphin-mixtral-2x7b-dop_q2/2025-09-17/dolphin-mixtral-2x7b-dop-Q2_K-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 10140,
+      "value": "dolphin-mixtral-2x7b-dop-Q2_K-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 10141,
+      "value": "jmb95/laser-dolphin-mixtral-2x7b-dpo-GGUF/resolve/448afcb8afc647d0c565071222fb8b0c7f9860b4/dolphin-mixtral-2x7b-dop-Q2_K.gguf"
+    },
+    {
+      "stringId": 10142,
+      "value": "dolphin-mixtral-2x7b-dop-Q2_K.gguf"
+    },
+    {
+      "stringId": 10149,
+      "value": "unsloth/embeddinggemma-300m-GGUF/resolve/6661a6504c30d8304af13455cb4a5d4f5bc6011f/embeddinggemma-300M-BF16.gguf"
+    },
+    {
+      "stringId": 10150,
+      "value": "embeddinggemma-300M-BF16.gguf"
+    },
+    {
+      "stringId": 10151,
+      "value": "unsloth/embeddinggemma-300m-GGUF/resolve/6661a6504c30d8304af13455cb4a5d4f5bc6011f/embeddinggemma-300M-F32.gguf"
+    },
+    {
+      "stringId": 10152,
+      "value": "embeddinggemma-300M-F32.gguf"
+    },
+    {
+      "stringId": 10153,
+      "value": "unsloth/embeddinggemma-300m-GGUF/resolve/6661a6504c30d8304af13455cb4a5d4f5bc6011f/embeddinggemma-300M-Q8_0.gguf"
+    },
+    {
+      "stringId": 10154,
+      "value": "embeddinggemma-300M-Q8_0.gguf"
+    },
+    {
+      "stringId": 10155,
+      "value": "unsloth/embeddinggemma-300m-GGUF/resolve/6661a6504c30d8304af13455cb4a5d4f5bc6011f/embeddinggemma-300m-Q4_0.gguf"
+    },
+    {
+      "stringId": 10156,
+      "value": "embeddinggemma-300m-Q4_0.gguf"
+    },
+    {
+      "stringId": 10239,
+      "value": "unsloth/FLUX.2-klein-4B-GGUF/resolve/8342a6a97b2d18acae5d62124735c39ba23060e2/flux-2-klein-4b-Q4_0.gguf"
+    },
+    {
+      "stringId": 10240,
+      "value": "flux-2-klein-4b-Q4_0.gguf"
+    },
+    {
+      "stringId": 10241,
+      "value": "unsloth/FLUX.2-klein-4B-GGUF/resolve/8342a6a97b2d18acae5d62124735c39ba23060e2/flux-2-klein-4b-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 10242,
+      "value": "flux-2-klein-4b-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 10243,
+      "value": "unsloth/FLUX.2-klein-4B-GGUF/resolve/8342a6a97b2d18acae5d62124735c39ba23060e2/flux-2-klein-4b-Q6_K.gguf"
+    },
+    {
+      "stringId": 10244,
+      "value": "flux-2-klein-4b-Q6_K.gguf"
+    },
+    {
+      "stringId": 10245,
+      "value": "unsloth/FLUX.2-klein-4B-GGUF/resolve/8342a6a97b2d18acae5d62124735c39ba23060e2/flux-2-klein-4b-Q8_0.gguf"
+    },
+    {
+      "stringId": 10246,
+      "value": "flux-2-klein-4b-Q8_0.gguf"
+    },
+    {
+      "stringId": 10250,
+      "value": "gte-large_fp16-00002-of-00005.gguf"
+    },
+    {
+      "stringId": 10260,
+      "value": "unsloth/gemma-3-12b-it-GGUF/resolve/d15e4c7dc21dc55d56bf8549db57a71ad8a2a35d/gemma-3-12b-it-UD-Q4_K_XL.gguf"
+    },
+    {
+      "stringId": 10261,
+      "value": "gemma-3-12b-it-UD-Q4_K_XL.gguf"
+    },
+    {
+      "stringId": 10295,
+      "value": "medgemma-4b-it-Q8_0-00002-of-00005.gguf"
+    },
+    {
+      "stringId": 10441,
+      "value": "qvac_models_compiled/ggml/gpt-oss120b/2026-03-17/gpt-oss-120b-Q4_K_M-00001-of-00002.gguf"
+    },
+    {
+      "stringId": 10442,
+      "value": "gpt-oss-120b-Q4_K_M-00001-of-00002.gguf"
+    },
+    {
+      "stringId": 10443,
+      "value": "gpt-oss-120b-Q4_K_M-00002-of-00002.gguf"
+    },
+    {
+      "stringId": 10446,
+      "value": "unsloth/gpt-oss-20b-GGUF/blob/main/gpt-oss-20b-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 10447,
+      "value": "gpt-oss-20b-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 10450,
+      "value": "gpustack/stable-diffusion-v2-1-GGUF/resolve/12ddc22724f6da35f0b6006e459fae66eaf56931/stable-diffusion-v2-1-Q4_0.gguf"
+    },
+    {
+      "stringId": 10451,
+      "value": "stable-diffusion-v2-1-Q4_0.gguf"
+    },
+    {
+      "stringId": 10452,
+      "value": "gpustack/stable-diffusion-xl-base-1.0-GGUF/resolve/5f58340891db3ef66a79758c2dcddad92b1de169/stable-diffusion-xl-base-1.0-Q8_0.gguf"
+    },
+    {
+      "stringId": 10453,
+      "value": "stable-diffusion-xl-base-1.0-Q8_0.gguf"
+    },
+    {
+      "stringId": 10457,
+      "value": "qvac_models_compiled/vla/groot-n1.7-3b-libero/2026-07-14/groot-q5_vf16.gguf"
+    },
+    {
+      "stringId": 10460,
+      "value": "groot-q5_vf16.gguf"
+    },
+    {
+      "stringId": 10462,
+      "value": "qvac_models_compiled/vla/groot-n1.7-3b-multi/2026-08-04/groot-q5_vf16.gguf"
+    },
+    {
+      "stringId": 10464,
+      "value": "qvac_models_compiled/vla/groot-n1.7-3b-libero/2026-07-14/groot-q8_vf16.gguf"
+    },
+    {
+      "stringId": 10465,
+      "value": "groot-q8_vf16.gguf"
+    },
+    {
+      "stringId": 10467,
+      "value": "qvac_models_compiled/ggml/gte-large_fp6/2025-08-21/gte-large_fp16-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 10468,
+      "value": "gte-large_fp16-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 10469,
+      "value": "gte-large_fp16-00004-of-00005.gguf"
+    },
+    {
+      "stringId": 10531,
+      "value": "qvac_models_compiled/ggml/indic_conformer/2026-08-07/indic-conformer-ctc.f16.gguf"
+    },
+    {
+      "stringId": 10532,
+      "value": "indic-conformer-ctc.f16.gguf"
+    },
+    {
+      "stringId": 10533,
+      "value": "qvac_models_compiled/ggml/indic_conformer/2026-08-07/indic-conformer-ctc.q4_0.gguf"
+    },
+    {
+      "stringId": 10534,
+      "value": "indic-conformer-ctc.q4_0.gguf"
+    },
+    {
+      "stringId": 10535,
+      "value": "qvac_models_compiled/ggml/indic_conformer/2026-08-07/indic-conformer-ctc.q8_0.gguf"
+    },
+    {
+      "stringId": 10536,
+      "value": "indic-conformer-ctc.q8_0.gguf"
+    },
+    {
+      "stringId": 10541,
+      "value": "qvac/MedPsy-1.7B-GGUF/resolve/fd4cecc90c2de8dce4b112795456a54be9c59363/medpsy-1.7b-iq3_m-imat.gguf"
+    },
+    {
+      "stringId": 10542,
+      "value": "medpsy-1.7b-iq3_m-imat.gguf"
+    },
+    {
+      "stringId": 10544,
+      "value": "qvac/MedPsy-1.7B-GGUF/resolve/fd4cecc90c2de8dce4b112795456a54be9c59363/medpsy-1.7b-iq3_xxs-imat.gguf"
+    },
+    {
+      "stringId": 10545,
+      "value": "medpsy-1.7b-iq3_xxs-imat.gguf"
+    },
+    {
+      "stringId": 10547,
+      "value": "qvac/MedPsy-1.7B-GGUF/resolve/fd4cecc90c2de8dce4b112795456a54be9c59363/medpsy-1.7b-iq4_nl-imat.gguf"
+    },
+    {
+      "stringId": 10548,
+      "value": "medpsy-1.7b-iq4_nl-imat.gguf"
+    },
+    {
+      "stringId": 10552,
+      "value": "qvac/MedPsy-4B-GGUF/resolve/ad85e5a6f745027a576595df9acf745b071353b3/medpsy-4b-iq4_xs-imat.gguf"
+    },
+    {
+      "stringId": 10553,
+      "value": "medpsy-4b-iq4_xs-imat.gguf"
+    },
+    {
+      "stringId": 10564,
+      "value": "salamandrata_2b_inst_q4-00002-of-00003.gguf"
+    },
+    {
+      "stringId": 10579,
+      "value": "local-vault-only.v1"
+    },
+    {
+      "stringId": 10618,
+      "value": "qvac_models_compiled/ocr/gguf/easyocr/2026-05-14/latin_g2.gguf"
+    },
+    {
+      "stringId": 10619,
+      "value": "latin_g2.gguf"
+    },
+    {
+      "stringId": 10620,
+      "value": "qvac_models_compiled/ggml/lavasr/2026-07-03/lavasr-denoiser-f16.gguf"
+    },
+    {
+      "stringId": 10621,
+      "value": "lavasr-denoiser-f16.gguf"
+    },
+    {
+      "stringId": 10622,
+      "value": "qvac_models_compiled/ggml/lavasr/2026-07-03/lavasr-denoiser-f32.gguf"
+    },
+    {
+      "stringId": 10623,
+      "value": "lavasr-denoiser-f32.gguf"
+    },
+    {
+      "stringId": 10624,
+      "value": "qvac_models_compiled/ggml/lavasr/2026-06-26/lavasr-enhancer-f16.gguf"
+    },
+    {
+      "stringId": 10625,
+      "value": "lavasr-enhancer-f16.gguf"
+    },
+    {
+      "stringId": 10626,
+      "value": "qvac_models_compiled/ggml/lavasr/2026-06-26/lavasr-enhancer-f32.gguf"
+    },
+    {
+      "stringId": 10627,
+      "value": "lavasr-enhancer-f32.gguf"
+    },
+    {
+      "stringId": 10848,
+      "value": "qvac_models_compiled/ggml/medgemma-4b-it-Q4/2025-08-21/medgemma-4b-it-Q4_1-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 10849,
+      "value": "medgemma-4b-it-Q4_1-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 10850,
+      "value": "medgemma-4b-it-Q4_1-00005-of-00005.gguf"
+    },
+    {
+      "stringId": 10851,
+      "value": "unsloth/medgemma-4b-it-GGUF/blob/fa17ea2647ef236db91adfe1465a61ab6562cf2c/medgemma-4b-it-Q4_1.gguf"
+    },
+    {
+      "stringId": 10852,
+      "value": "medgemma-4b-it-Q4_1.gguf"
+    },
+    {
+      "stringId": 10855,
+      "value": "qvac_models_compiled/ggml/medgemma-4b-it-Q8/2025-08-21/medgemma-4b-it-Q8_0-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 10856,
+      "value": "medgemma-4b-it-Q8_0-00001-of-00005.gguf"
+    },
+    {
+      "stringId": 10857,
+      "value": "qvac/MedPsy-4B-GGUF/resolve/ad85e5a6f745027a576595df9acf745b071353b3/medpsy-4b-iq3_xxs-imat.gguf"
+    },
+    {
+      "stringId": 10858,
+      "value": "medpsy-4b-iq3_xxs-imat.gguf"
+    },
+    {
+      "stringId": 10860,
+      "value": "medgemma-4b-it-Q8_0-00003-of-00005.gguf"
+    },
+    {
+      "stringId": 10861,
+      "value": "unsloth/medgemma-4b-it-GGUF/resolve/fa17ea2647ef236db91adfe1465a61ab6562cf2c/medgemma-4b-it-Q8_0.gguf"
+    },
+    {
+      "stringId": 10862,
+      "value": "medgemma-4b-it-Q8_0.gguf"
+    },
+    {
+      "stringId": 10869,
+      "value": "qvac/MedPsy-1.7B-GGUF/resolve/fd4cecc90c2de8dce4b112795456a54be9c59363/medpsy-1.7b-bf16.gguf"
+    },
+    {
+      "stringId": 10870,
+      "value": "medpsy-1.7b-bf16.gguf"
+    },
+    {
+      "stringId": 10871,
+      "value": "qvac/MedPsy-1.7B-GGUF/resolve/fd4cecc90c2de8dce4b112795456a54be9c59363/medpsy-1.7b-q4_k_m-imat.gguf"
+    },
+    {
+      "stringId": 10872,
+      "value": "medpsy-1.7b-q4_k_m-imat.gguf"
+    },
+    {
+      "stringId": 10875,
+      "value": "qvac/MedPsy-1.7B-GGUF/resolve/fd4cecc90c2de8dce4b112795456a54be9c59363/medpsy-1.7b-q5_k_m-imat.gguf"
+    },
+    {
+      "stringId": 10876,
+      "value": "medpsy-1.7b-q5_k_m-imat.gguf"
+    },
+    {
+      "stringId": 10879,
+      "value": "qvac/MedPsy-1.7B-GGUF/resolve/fd4cecc90c2de8dce4b112795456a54be9c59363/medpsy-1.7b-q8_0.gguf"
+    },
+    {
+      "stringId": 10880,
+      "value": "medpsy-1.7b-q8_0.gguf"
+    },
+    {
+      "stringId": 10882,
+      "value": "qvac/MedPsy-4B-GGUF/resolve/ad85e5a6f745027a576595df9acf745b071353b3/medpsy-4b-iq3_m-imat.gguf"
+    },
+    {
+      "stringId": 10883,
+      "value": "medpsy-4b-iq3_m-imat.gguf"
+    },
+    {
+      "stringId": 10884,
+      "value": "qvac/MedPsy-4B-GGUF/resolve/ad85e5a6f745027a576595df9acf745b071353b3/medpsy-4b-iq4_nl-imat.gguf"
+    },
+    {
+      "stringId": 10885,
+      "value": "medpsy-4b-iq4_nl-imat.gguf"
+    },
+    {
+      "stringId": 10886,
+      "value": "qvac/MedPsy-4B-GGUF/resolve/ad85e5a6f745027a576595df9acf745b071353b3/medpsy-4b-q4_k_m-imat.gguf"
+    },
+    {
+      "stringId": 10887,
+      "value": "medpsy-4b-q4_k_m-imat.gguf"
+    },
+    {
+      "stringId": 10888,
+      "value": "qvac/MedPsy-4B-GGUF/resolve/ad85e5a6f745027a576595df9acf745b071353b3/medpsy-4b-q5_k_m-imat.gguf"
+    },
+    {
+      "stringId": 10889,
+      "value": "medpsy-4b-q5_k_m-imat.gguf"
+    },
+    {
+      "stringId": 10890,
+      "value": "qvac/MedPsy-4B-GGUF/resolve/ad85e5a6f745027a576595df9acf745b071353b3/medpsy-4b-q8_0.gguf"
+    },
+    {
+      "stringId": 10891,
+      "value": "medpsy-4b-q8_0.gguf"
+    },
+    {
+      "stringId": 10901,
+      "value": "unsloth/Qwen3.5-0.8B-GGUF/resolve/6ab461498e2023f6e3c1baea90a8f0fe38ab64d0/mmproj-BF16.gguf"
+    },
+    {
+      "stringId": 10902,
+      "value": "mmproj-BF16.gguf"
+    },
+    {
+      "stringId": 10903,
+      "value": "qvac_models_compiled/ocr/gguf/unlimited-ocr/2026-07-25/mmproj-unlimited-ocr-Q8_0.gguf"
+    },
+    {
+      "stringId": 10904,
+      "value": "mmproj-unlimited-ocr-Q8_0.gguf"
+    },
+    {
+      "stringId": 10905,
+      "value": "qvac/VisionPsy-Nano-460M-Flash-GGUFs/resolve/a24fb9cdd1119406b15ff60b06a51f8438a931c1/mmproj-visionpsy-nano-460m-flash-q8.gguf"
+    },
+    {
+      "stringId": 10906,
+      "value": "mmproj-visionpsy-nano-460m-flash-q8.gguf"
+    },
+    {
+      "stringId": 11141,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-07-01/parakeet-ctc-0.6b.f16.gguf"
+    },
+    {
+      "stringId": 11142,
+      "value": "parakeet-ctc-0.6b.f16.gguf"
+    },
+    {
+      "stringId": 11143,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-07-01/parakeet-ctc-0.6b.q4_0.gguf"
+    },
+    {
+      "stringId": 11144,
+      "value": "parakeet-ctc-0.6b.q4_0.gguf"
+    },
+    {
+      "stringId": 11145,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-11/parakeet-ctc-0.6b.q8_0.gguf"
+    },
+    {
+      "stringId": 11146,
+      "value": "parakeet-ctc-0.6b.q8_0.gguf"
+    },
+    {
+      "stringId": 11147,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-07-01/parakeet-eou-120m-v1.f16.gguf"
+    },
+    {
+      "stringId": 11148,
+      "value": "parakeet-eou-120m-v1.f16.gguf"
+    },
+    {
+      "stringId": 11149,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-27/parakeet-eou-120m-v1.q4_0.gguf"
+    },
+    {
+      "stringId": 11150,
+      "value": "parakeet-eou-120m-v1.q4_0.gguf"
+    },
+    {
+      "stringId": 11151,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-11/parakeet-eou-120m-v1.q8_0.gguf"
+    },
+    {
+      "stringId": 11152,
+      "value": "parakeet-eou-120m-v1.q8_0.gguf"
+    },
+    {
+      "stringId": 11153,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-07-01/parakeet-tdt-0.6b-v3.f16.gguf"
+    },
+    {
+      "stringId": 11154,
+      "value": "parakeet-tdt-0.6b-v3.f16.gguf"
+    },
+    {
+      "stringId": 11155,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-27/parakeet-tdt-0.6b-v3.q4_0.gguf"
+    },
+    {
+      "stringId": 11156,
+      "value": "parakeet-tdt-0.6b-v3.q4_0.gguf"
+    },
+    {
+      "stringId": 11157,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-11/parakeet-tdt-0.6b-v3.q8_0.gguf"
+    },
+    {
+      "stringId": 11158,
+      "value": "parakeet-tdt-0.6b-v3.q8_0.gguf"
+    },
+    {
+      "stringId": 11160,
+      "value": "qvac_models_compiled/ggml/parler-tts/2026-07-20/parler-indic-f16.gguf"
+    },
+    {
+      "stringId": 11162,
+      "value": "parler-indic-f16.gguf"
+    },
+    {
+      "stringId": 11163,
+      "value": "qvac_models_compiled/ggml/parler-tts/2026-07-20/parler-indic-f32.gguf"
+    },
+    {
+      "stringId": 11164,
+      "value": "parler-indic-f32.gguf"
+    },
+    {
+      "stringId": 11165,
+      "value": "qvac_models_compiled/ggml/parler-tts/2026-07-20/parler-indic-q8_0.gguf"
+    },
+    {
+      "stringId": 11166,
+      "value": "parler-indic-q8_0.gguf"
+    },
+    {
+      "stringId": 11167,
+      "value": "qvac_models_compiled/ggml/parler-tts/2026-07-20/parler-large-v1-f16.gguf"
+    },
+    {
+      "stringId": 11168,
+      "value": "parler-large-v1-f16.gguf"
+    },
+    {
+      "stringId": 11169,
+      "value": "qvac_models_compiled/ggml/parler-tts/2026-07-20/parler-large-v1-f32.gguf"
+    },
+    {
+      "stringId": 11170,
+      "value": "parler-large-v1-f32.gguf"
+    },
+    {
+      "stringId": 11171,
+      "value": "qvac_models_compiled/ggml/parler-tts/2026-07-20/parler-large-v1-q8_0.gguf"
+    },
+    {
+      "stringId": 11172,
+      "value": "parler-large-v1-q8_0.gguf"
+    },
+    {
+      "stringId": 11173,
+      "value": "qvac_models_compiled/ggml/parler-tts/2026-07-20/parler-mini-v1-f16.gguf"
+    },
+    {
+      "stringId": 11174,
+      "value": "parler-mini-v1-f16.gguf"
+    },
+    {
+      "stringId": 11175,
+      "value": "qvac_models_compiled/ggml/parler-tts/2026-07-20/parler-mini-v1-f32.gguf"
+    },
+    {
+      "stringId": 11176,
+      "value": "parler-mini-v1-f32.gguf"
+    },
+    {
+      "stringId": 11177,
+      "value": "qvac_models_compiled/ggml/parler-tts/2026-07-20/parler-mini-v1-q8_0.gguf"
+    },
+    {
+      "stringId": 11178,
+      "value": "parler-mini-v1-q8_0.gguf"
+    },
+    {
+      "stringId": 11199,
+      "value": "qvac_models_compiled/vla/pi05-base/2026-05-21/pi05-base-q-aggressive.gguf"
+    },
+    {
+      "stringId": 11201,
+      "value": "pi05-base-q-aggressive.gguf"
+    },
+    {
+      "stringId": 11282,
+      "value": "qvac/VisionPsy-Nano-460M-Flash-GGUFs/resolve/a24fb9cdd1119406b15ff60b06a51f8438a931c1/visionpsy-nano-460m-flash-q4_k_m-imat.gguf"
+    },
+    {
+      "stringId": 11283,
+      "value": "visionpsy-nano-460m-flash-q4_k_m-imat.gguf"
+    },
+    {
+      "stringId": 11284,
+      "value": "qvac/VisionPsy-Nano-460M-Flash-GGUFs/resolve/a24fb9cdd1119406b15ff60b06a51f8438a931c1/visionpsy-nano-460m-flash-q8_0.gguf"
+    },
+    {
+      "stringId": 11285,
+      "value": "visionpsy-nano-460m-flash-q8_0.gguf"
+    },
+    {
+      "stringId": 11286,
+      "value": "qvac/VisionPsy-Nano-460M-GGUFs/resolve/4138c5bd6e026d67cebf2dbd2d81c6229c14cdc1/visionpsy-nano-460m-q4_k_m-imat.gguf"
+    },
+    {
+      "stringId": 11287,
+      "value": "visionpsy-nano-460m-q4_k_m-imat.gguf"
+    },
+    {
+      "stringId": 11288,
+      "value": "qvac/VisionPsy-Nano-460M-GGUFs/resolve/4138c5bd6e026d67cebf2dbd2d81c6229c14cdc1/visionpsy-nano-460m-q8_0.gguf"
+    },
+    {
+      "stringId": 11289,
+      "value": "visionpsy-nano-460m-q8_0.gguf"
+    },
+    {
+      "stringId": 11290,
+      "value": "qvac_models_compiled/ABot-World-0-5B-LF/2026-07-17/taew2_2_f16.gguf"
+    },
+    {
+      "stringId": 11291,
+      "value": "taew2_2_f16.gguf"
+    },
+    {
+      "stringId": 11292,
+      "value": "qvac_models_compiled/ABot-World-0-5B-LF/2026-07-17/umt5-xxl-enc-q8_0.gguf"
+    },
+    {
+      "stringId": 11293,
+      "value": "umt5-xxl-enc-q8_0.gguf"
+    },
+    {
+      "stringId": 11294,
+      "value": "qvac_models_compiled/ABot-World-0-5B-LF/2026-07-17/wan2.2_vae_f16.gguf"
+    },
+    {
+      "stringId": 11295,
+      "value": "wan2.2_vae_f16.gguf"
+    },
+    {
+      "stringId": 11537,
+      "value": "qvac_models_compiled/ggml/acestep/2026-07-22/vae-BF16.gguf"
+    },
+    {
+      "stringId": 11538,
+      "value": "vae-BF16.gguf"
+    },
+    {
+      "stringId": 11541,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-07-23/voice-zh-2.gguf"
+    },
+    {
+      "stringId": 11542,
+      "value": "voice-zh-2.gguf"
+    },
+    {
+      "stringId": 11543,
+      "value": "qvac_models_compiled/ggml/cosy_voice/2026-07-23/voice-zh-female.gguf"
+    },
+    {
+      "stringId": 11544,
+      "value": "voice-zh-female.gguf"
+    },
+    {
+      "stringId": 11545,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-11/sortformer-4spk-v1.q8_0.gguf"
+    },
+    {
+      "stringId": 11546,
+      "value": "sortformer-4spk-v1.q8_0.gguf"
+    },
+    {
+      "stringId": 11547,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-05-27/sortformer-4spk-v1.q4_0.gguf"
+    },
+    {
+      "stringId": 11548,
+      "value": "sortformer-4spk-v1.q4_0.gguf"
+    },
+    {
+      "stringId": 11549,
+      "value": "qvac_models_compiled/ggml/parakeet/2026-07-01/sortformer-4spk-v1.f16.gguf"
+    },
+    {
+      "stringId": 11550,
+      "value": "sortformer-4spk-v1.f16.gguf"
+    },
+    {
+      "stringId": 11551,
+      "value": "qvac_models_compiled/ggml/salamandrata_2b_inst_q4/2025-08-21/salamandrata_2b_inst_q4-00001-of-00003.gguf"
+    },
+    {
+      "stringId": 11552,
+      "value": "salamandrata_2b_inst_q4-00001-of-00003.gguf"
+    },
+    {
+      "stringId": 11555,
+      "value": "qvac_models_compiled/ggml/salamandrata_2b_inst_q8/2025-08-21/salamandrata_2b_inst_q8-00001-of-00004.gguf"
+    },
+    {
+      "stringId": 11556,
+      "value": "salamandrata_2b_inst_q8-00001-of-00004.gguf"
+    },
+    {
+      "stringId": 11557,
+      "value": "qvac_models_compiled/ggml/supertonic/2026-05-18/supertonic-q4_0.gguf"
+    },
+    {
+      "stringId": 11559,
+      "value": "supertonic-q4_0.gguf"
+    },
+    {
+      "stringId": 11560,
+      "value": "qvac_models_compiled/ggml/supertonic/2026-05-18/supertonic-q8_0.gguf"
+    },
+    {
+      "stringId": 11561,
+      "value": "supertonic-q8_0.gguf"
+    },
+    {
+      "stringId": 11562,
+      "value": "qvac_models_compiled/ggml/supertonic/2026-05-18/supertonic2-q4_0.gguf"
+    },
+    {
+      "stringId": 11563,
+      "value": "supertonic2-q4_0.gguf"
+    },
+    {
+      "stringId": 11564,
+      "value": "qvac_models_compiled/ggml/supertonic/2026-05-18/supertonic2-q8_0.gguf"
+    },
+    {
+      "stringId": 11565,
+      "value": "supertonic2-q8_0.gguf"
+    },
+    {
+      "stringId": 11566,
+      "value": "qvac_models_compiled/ggml/supertonic/2026-06-10/supertonic3-f16.gguf"
+    },
+    {
+      "stringId": 11567,
+      "value": "supertonic3-f16.gguf"
+    },
+    {
+      "stringId": 11568,
+      "value": "qvac_models_compiled/ggml/supertonic/2026-06-10/supertonic3-f32.gguf"
+    },
+    {
+      "stringId": 11569,
+      "value": "supertonic3-f32.gguf"
+    },
+    {
+      "stringId": 11570,
+      "value": "qvac_models_compiled/ggml/supertonic/2026-06-15/supertonic3-q8_0.gguf"
+    },
+    {
+      "stringId": 11571,
+      "value": "supertonic3-q8_0.gguf"
+    },
+    {
+      "stringId": 11572,
+      "value": "qvac_models_compiled/ggml/supertonic/2026-06-24/supertonic3-q4_0.gguf"
+    },
+    {
+      "stringId": 11573,
+      "value": "supertonic3-q4_0.gguf"
+    },
+    {
+      "stringId": 11586,
+      "value": "qvac_models_compiled/vla/groot-n1.7-3b-multi/2026-08-04/groot-q8_vf16.gguf"
+    },
+    {
+      "stringId": 11587,
+      "value": "qvac_models_compiled/vla/smolvla-libero/2026-04-30/smolvla-libero-vision-q8.gguf"
+    },
+    {
+      "stringId": 11589,
+      "value": "smolvla-libero-vision-q8.gguf"
+    },
+    {
+      "stringId": 11656,
+      "value": "unsloth/Qwen3-0.6B-GGUF/blob/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_0.gguf"
+    },
+    {
+      "stringId": 11657,
+      "value": "unsloth/Qwen3-4B-GGUF/resolve/9b5c4f3506ac99d74e59ecd9aa9abb05537b7f59/Qwen3-4B-Q4_K_M.gguf"
+    },
+    {
+      "stringId": 11658,
+      "value": "unsloth/Qwen3.5-0.8B-GGUF/resolve/6ab461498e2023f6e3c1baea90a8f0fe38ab64d0/mmproj-F16.gguf"
+    },
+    {
+      "stringId": 11659,
+      "value": "unsloth/Qwen3.5-2B-GGUF/resolve/f6d5376be1edb4d416d56da11e5397a961aca8ae/mmproj-BF16.gguf"
+    },
+    {
+      "stringId": 11660,
+      "value": "unsloth/Qwen3.5-2B-GGUF/resolve/f6d5376be1edb4d416d56da11e5397a961aca8ae/mmproj-F16.gguf"
+    },
+    {
+      "stringId": 11661,
+      "value": "unsloth/Qwen3.5-4B-GGUF/resolve/e87f176479d0855a907a41277aca2f8ee7a09523/mmproj-BF16.gguf"
+    },
+    {
+      "stringId": 11662,
+      "value": "unsloth/Qwen3.5-4B-GGUF/resolve/e87f176479d0855a907a41277aca2f8ee7a09523/mmproj-F16.gguf"
+    },
+    {
+      "stringId": 11663,
+      "value": "unsloth/Qwen3.5-9B-GGUF/resolve/3885219b6810b007914f3a7950a8d1b469d598a5/mmproj-BF16.gguf"
+    },
+    {
+      "stringId": 11664,
+      "value": "unsloth/Qwen3.5-9B-GGUF/resolve/3885219b6810b007914f3a7950a8d1b469d598a5/mmproj-F16.gguf"
+    },
+    {
+      "stringId": 11665,
+      "value": "unsloth/Qwen3.6-27B-GGUF/resolve/82d411acf4a06cfb8d9b073a5211bf410bfc29bf/mmproj-BF16.gguf"
+    },
+    {
+      "stringId": 11666,
+      "value": "unsloth/Qwen3.6-27B-GGUF/resolve/82d411acf4a06cfb8d9b073a5211bf410bfc29bf/mmproj-F16.gguf"
+    },
+    {
+      "stringId": 11667,
+      "value": "unsloth/Qwen3.6-35B-A3B-GGUF/resolve/a483e9e6cbd595906af30beda3187c2663a1118c/mmproj-BF16.gguf"
+    },
+    {
+      "stringId": 11668,
+      "value": "unsloth/Qwen3.6-35B-A3B-GGUF/resolve/a483e9e6cbd595906af30beda3187c2663a1118c/mmproj-F16.gguf"
+    },
+    {
+      "stringId": 11669,
+      "value": "unsloth/Qwen3.8-27B-GGUF/resolve/fdd03b8bbd279c1694563650e79d85a2373d9934/mmproj-F16.gguf"
+    },
+    {
+      "stringId": 11735,
+      "value": "voice.gguf"
+    },
+    {
+      "stringId": 12349,
+      "value": "2 \u00b7 Save your recovery file"
+    },
+    {
+      "stringId": 12820,
+      "value": "LLM text encoder model \u2014 required for FLUX.2 [klein] (Qwen3), Ideogram 4 (Qwen3-VL), and LTX-2 video (Gemma)."
+    },
+    {
+      "stringId": 12825,
+      "value": "YOUR VAULT \u00b7 YOUR CONTROL"
+    },
+    {
+      "stringId": 12978,
+      "value": "Qwen3 0.6B \u00b7 Q4 \u00b7 CPU"
+    },
+    {
+      "stringId": 12980,
+      "value": "Qwen3 0.6B \u00b7 Q4. Se compara el archivo con su SHA-256 fijado. Necesitas "
+    },
+    {
+      "stringId": 12981,
+      "value": "Qwen3 0.6B \u00b7 Q4. Setup checks the file against its pinned SHA-256. Allow "
+    },
+    {
+      "stringId": 13078,
+      "value": "Unconditional diffusion model \u2014 Ideogram 4 only. Requires diffusion mode, llmModelSrc (Qwen3-VL), vaeModelSrc, and a JSON-serialized structured caption with explicit bounding boxes as the generation prompt. Plain-text prompts produce degenerate output or the model's placeholder response."
+    },
+    {
+      "stringId": 14859,
+      "value": "vault"
+    },
+    {
+      "stringId": 15811,
+      "value": "recovery"
+    },
+    {
+      "stringId": 15874,
+      "value": "VaultEntry"
+    },
+    {
+      "stringId": 15901,
+      "value": "errorRecoveryDisabledLanes"
+    },
+    {
+      "stringId": 15988,
+      "value": "pendingRecovery"
+    },
+    {
+      "stringId": 17347,
+      "value": "VaultSetup"
+    },
+    {
+      "stringId": 17436,
+      "value": "recoveryCounts"
+    },
+    {
+      "stringId": 17483,
+      "value": "recoveryInfo"
+    },
+    {
+      "stringId": 17610,
+      "value": "VaultStore"
+    },
+    {
+      "stringId": 18393,
+      "value": "freshVault"
+    },
+    {
+      "stringId": 18555,
+      "value": "parseVaultBridge"
+    },
+    {
+      "stringId": 18933,
+      "value": "nativeVault"
+    },
+    {
+      "stringId": 19724,
+      "value": "WORKER_RECOVERY_REQUIRED"
+    }
+  ],
+  "dex": [
+    {
+      "stringId": 662,
+      "value": " does not exist, exiting /data/app recovery."
+    },
+    {
+      "stringId": 3094,
+      "value": "AES"
+    },
+    {
+      "stringId": 3095,
+      "value": "AES/GCM/NoPadding"
+    },
+    {
+      "stringId": 3111,
+      "value": "ANDROID_14_HEALTH_CONNECT_REQUIRED"
+    },
+    {
+      "stringId": 3242,
+      "value": "AndroidKeyStore"
+    },
+    {
+      "stringId": 3440,
+      "value": "Base APK not found during recovery"
+    },
+    {
+      "stringId": 4838,
+      "value": "Failed to run recovery for backup so source due to: "
+    },
+    {
+      "stringId": 4949,
+      "value": "GCM"
+    },
+    {
+      "stringId": 4991,
+      "value": "Got an exception during recovery, will throw the initial error instead"
+    },
+    {
+      "stringId": 5018,
+      "value": "HEALTH_PAGINATION_FAILED"
+    },
+    {
+      "stringId": 5019,
+      "value": "HEALTH_PERMISSION_REQUIRED"
+    },
+    {
+      "stringId": 5020,
+      "value": "HEALTH_PERMISSION_REVOKED"
+    },
+    {
+      "stringId": 5021,
+      "value": "HEALTH_PERMISSION_UNAVAILABLE"
+    },
+    {
+      "stringId": 5022,
+      "value": "HEALTH_PROVIDER_READ_FAILED"
+    },
+    {
+      "stringId": 5023,
+      "value": "HEALTH_PROVIDER_UNAVAILABLE"
+    },
+    {
+      "stringId": 5024,
+      "value": "HEALTH_RANGE_INVALID"
+    },
+    {
+      "stringId": 5025,
+      "value": "HEALTH_RANGE_TOO_DENSE"
+    },
+    {
+      "stringId": 5026,
+      "value": "HEALTH_READ_FAILED"
+    },
+    {
+      "stringId": 5027,
+      "value": "HEALTH_READ_TIMEOUT"
+    },
+    {
+      "stringId": 5028,
+      "value": "HEALTH_SCOPE_INVALID"
+    },
+    {
+      "stringId": 9210,
+      "value": "Landroid/security/keystore/KeyGenParameterSpec$Builder;"
+    },
+    {
+      "stringId": 9211,
+      "value": "Landroid/security/keystore/KeyGenParameterSpec;"
+    },
+    {
+      "stringId": 9212,
+      "value": "Landroid/security/keystore/UserNotAuthenticatedException;"
+    },
+    {
+      "stringId": 13596,
+      "value": "Ljava/security/KeyStore$LoadStoreParameter;"
+    },
+    {
+      "stringId": 13597,
+      "value": "Ljava/security/KeyStore;"
+    },
+    {
+      "stringId": 13777,
+      "value": "Ljavax/crypto/spec/GCMParameterSpec;"
+    },
+    {
+      "stringId": 14393,
+      "value": "Lorg/solarishealth/edge/recovery/MainActivity$a;"
+    },
+    {
+      "stringId": 14394,
+      "value": "Lorg/solarishealth/edge/recovery/MainActivity;"
+    },
+    {
+      "stringId": 14395,
+      "value": "Lorg/solarishealth/edge/recovery/MainApplication$a;"
+    },
+    {
+      "stringId": 14396,
+      "value": "Lorg/solarishealth/edge/recovery/MainApplication;"
+    },
+    {
+      "stringId": 15833,
+      "value": "No recovery strategy"
+    },
+    {
+      "stringId": 16027,
+      "value": "Open your recovery file"
+    },
+    {
+      "stringId": 16063,
+      "value": "PBKDF2WithHmacSHA256"
+    },
+    {
+      "stringId": 16261,
+      "value": "Protect your recovery file"
+    },
+    {
+      "stringId": 16285,
+      "value": "Qwen3-0.6B-Q4_0.gguf"
+    },
+    {
+      "stringId": 16332,
+      "value": "RECEIPT_SIZE"
+    },
+    {
+      "stringId": 16336,
+      "value": "RECOVERY_INVALID"
+    },
+    {
+      "stringId": 16337,
+      "value": "RECOVERY_PASSPHRASE_LENGTH"
+    },
+    {
+      "stringId": 16338,
+      "value": "RECOVERY_READ_FAILED"
+    },
+    {
+      "stringId": 16339,
+      "value": "RECOVERY_SIZE"
+    },
+    {
+      "stringId": 16340,
+      "value": "RECOVERY_STATE_FAILED"
+    },
+    {
+      "stringId": 16341,
+      "value": "RECOVERY_WRITE_FAILED"
+    },
+    {
+      "stringId": 16574,
+      "value": "Recovery passphrase"
+    },
+    {
+      "stringId": 16680,
+      "value": "Running a recovery step for "
+    },
+    {
+      "stringId": 16973,
+      "value": "Solaris can read your steps and sleep from Health Connect when you request it. Choose each permission in Android. Copies you choose to import remain in your encrypted vault; they are not sent to a remote AI service. Health Connect access does not grant LUCA AI access. You can change permissions in Android and manage imported copies in Solaris. Solaris does not write to Health Connect or read in the background."
+    },
+    {
+      "stringId": 16976,
+      "value": "Solaris-recovery.solaris-core"
+    },
+    {
+      "stringId": 16978,
+      "value": "SolarisVault"
+    },
+    {
+      "stringId": 17131,
+      "value": "TLS_AES_128_CCM_8_SHA256"
+    },
+    {
+      "stringId": 17132,
+      "value": "TLS_AES_128_CCM_SHA256"
+    },
+    {
+      "stringId": 17133,
+      "value": "TLS_AES_128_GCM_SHA256"
+    },
+    {
+      "stringId": 17134,
+      "value": "TLS_AES_256_GCM_SHA384"
+    },
+    {
+      "stringId": 17136,
+      "value": "TLS_DHE_DSS_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17137,
+      "value": "TLS_DHE_DSS_WITH_AES_128_CBC_SHA256"
+    },
+    {
+      "stringId": 17138,
+      "value": "TLS_DHE_DSS_WITH_AES_128_GCM_SHA256"
+    },
+    {
+      "stringId": 17139,
+      "value": "TLS_DHE_DSS_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17140,
+      "value": "TLS_DHE_DSS_WITH_AES_256_CBC_SHA256"
+    },
+    {
+      "stringId": 17141,
+      "value": "TLS_DHE_DSS_WITH_AES_256_GCM_SHA384"
+    },
+    {
+      "stringId": 17144,
+      "value": "TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17145,
+      "value": "TLS_DHE_RSA_WITH_AES_128_CBC_SHA256"
+    },
+    {
+      "stringId": 17146,
+      "value": "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+      "stringId": 17147,
+      "value": "TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17148,
+      "value": "TLS_DHE_RSA_WITH_AES_256_CBC_SHA256"
+    },
+    {
+      "stringId": 17149,
+      "value": "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
+    },
+    {
+      "stringId": 17153,
+      "value": "TLS_DH_anon_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17154,
+      "value": "TLS_DH_anon_WITH_AES_128_CBC_SHA256"
+    },
+    {
+      "stringId": 17155,
+      "value": "TLS_DH_anon_WITH_AES_128_GCM_SHA256"
+    },
+    {
+      "stringId": 17156,
+      "value": "TLS_DH_anon_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17157,
+      "value": "TLS_DH_anon_WITH_AES_256_CBC_SHA256"
+    },
+    {
+      "stringId": 17158,
+      "value": "TLS_DH_anon_WITH_AES_256_GCM_SHA384"
+    },
+    {
+      "stringId": 17160,
+      "value": "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17161,
+      "value": "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"
+    },
+    {
+      "stringId": 17162,
+      "value": "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+      "stringId": 17163,
+      "value": "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17164,
+      "value": "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384"
+    },
+    {
+      "stringId": 17165,
+      "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
+    },
+    {
+      "stringId": 17169,
+      "value": "TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17170,
+      "value": "TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17173,
+      "value": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17174,
+      "value": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+    },
+    {
+      "stringId": 17175,
+      "value": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+      "stringId": 17176,
+      "value": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17177,
+      "value": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+    },
+    {
+      "stringId": 17178,
+      "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+    },
+    {
+      "stringId": 17183,
+      "value": "TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17184,
+      "value": "TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256"
+    },
+    {
+      "stringId": 17185,
+      "value": "TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+      "stringId": 17186,
+      "value": "TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17187,
+      "value": "TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384"
+    },
+    {
+      "stringId": 17188,
+      "value": "TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384"
+    },
+    {
+      "stringId": 17192,
+      "value": "TLS_ECDH_RSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17193,
+      "value": "TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256"
+    },
+    {
+      "stringId": 17194,
+      "value": "TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+      "stringId": 17195,
+      "value": "TLS_ECDH_RSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17196,
+      "value": "TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384"
+    },
+    {
+      "stringId": 17197,
+      "value": "TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384"
+    },
+    {
+      "stringId": 17201,
+      "value": "TLS_ECDH_anon_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17202,
+      "value": "TLS_ECDH_anon_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17219,
+      "value": "TLS_PSK_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17220,
+      "value": "TLS_PSK_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17222,
+      "value": "TLS_RSA_WITH_AES_128_CBC_SHA"
+    },
+    {
+      "stringId": 17223,
+      "value": "TLS_RSA_WITH_AES_128_CBC_SHA256"
+    },
+    {
+      "stringId": 17224,
+      "value": "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    {
+      "stringId": 17225,
+      "value": "TLS_RSA_WITH_AES_256_CBC_SHA"
+    },
+    {
+      "stringId": 17226,
+      "value": "TLS_RSA_WITH_AES_256_CBC_SHA256"
+    },
+    {
+      "stringId": 17227,
+      "value": "TLS_RSA_WITH_AES_256_GCM_SHA384"
+    },
+    {
+      "stringId": 17477,
+      "value": "TrustManagerFactory.getI\u2026(null as KeyStore?)\n    }"
+    },
+    {
+      "stringId": 17869,
+      "value": "Unlock your Solaris Vault"
+    },
+    {
+      "stringId": 17934,
+      "value": "Use a long, unique passphrase (at least 20 characters). Keep it separate from your recovery file. Solaris cannot reset it."
+    },
+    {
+      "stringId": 17949,
+      "value": "VAULT_ALREADY_EXISTS"
+    },
+    {
+      "stringId": 17950,
+      "value": "VAULT_AUTH_REQUIRED"
+    },
+    {
+      "stringId": 17951,
+      "value": "VAULT_BUSY"
+    },
+    {
+      "stringId": 17952,
+      "value": "VAULT_CORE_MISSING"
+    },
+    {
+      "stringId": 17953,
+      "value": "VAULT_KEY_UNAVAILABLE"
+    },
+    {
+      "stringId": 17954,
+      "value": "VAULT_LOCKED"
+    },
+    {
+      "stringId": 17955,
+      "value": "VAULT_NOT_CREATED"
+    },
+    {
+      "stringId": 17956,
+      "value": "VAULT_OPERATION_FAILED"
+    },
+    {
+      "stringId": 17957,
+      "value": "VAULT_UNAVAILABLE"
+    },
+    {
+      "stringId": 18580,
+      "value": "WORKER_RECOVERY_REQUIRED"
+    },
+    {
+      "stringId": 24659,
+      "value": "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_0.gguf"
+    },
+    {
+      "stringId": 28095,
+      "value": "pendingRecovery"
+    },
+    {
+      "stringId": 28633,
+      "value": "recovery"
+    },
+    {
+      "stringId": 30646,
+      "value": "solaris-attachment-unlock-check/1"
+    },
+    {
+      "stringId": 30647,
+      "value": "solaris-core-payload/1"
+    },
+    {
+      "stringId": 30648,
+      "value": "solaris-health-snapshot/1"
+    },
+    {
+      "stringId": 30649,
+      "value": "solaris-model-transfer-v2"
+    },
+    {
+      "stringId": 30650,
+      "value": "solaris-models"
+    },
+    {
+      "stringId": 30651,
+      "value": "solaris-native-owner/1"
+    },
+    {
+      "stringId": 30652,
+      "value": "solaris-owner-keys/1"
+    },
+    {
+      "stringId": 30653,
+      "value": "solaris-owner-recovery/1"
+    },
+    {
+      "stringId": 30654,
+      "value": "solaris-qvac-download.json"
+    },
+    {
+      "stringId": 30655,
+      "value": "solaris-qvac-models"
+    },
+    {
+      "stringId": 30656,
+      "value": "solaris-runtime-recovery-v2"
+    },
+    {
+      "stringId": 30657,
+      "value": "solaris-runtime_release"
+    },
+    {
+      "stringId": 30658,
+      "value": "solaris-vault/v1"
+    },
+    {
+      "stringId": 30659,
+      "value": "solaris-vault_release"
+    },
+    {
+      "stringId": 30660,
+      "value": "solaris.vault.wrap.v1"
+    },
+    {
+      "stringId": 30663,
+      "value": "soloader.recovery.CheckBaseApkExists"
+    },
+    {
+      "stringId": 30664,
+      "value": "soloader.recovery.DetectDataAppMove"
+    }
+  ]
+}

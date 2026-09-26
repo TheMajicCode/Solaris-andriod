@@ -1,0 +1,52 @@
+=> [Function #7152 "publishProgress" of 174 bytes]: 1 params, frame size=15, strict=1, exc handler=0, debug info=0  @ offset 0x01c2e1a5
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 2, UInt8: 0>
+==> 00000003: <LoadConstUndefined>: <Reg8: 0>
+==> 00000005: <LoadConstUndefined>: <Reg8: 4>
+==> 00000007: <GetArgumentsLength>: <Reg8: 3, Reg8: 4>
+==> 0000000a: <LoadConstZero>: <Reg8: 1>
+==> 0000000c: <Greater>: <Reg8: 5, Reg8: 3, Reg8: 1>
+==> 00000010: <LoadConstFalse>: <Reg8: 3>
+==> 00000012: <JmpFalse>: <Addr8: 17, Reg8: 5>  # Address: 00000023
+==> 00000015: <GetArgumentsPropByVal>: <Reg8: 5, Reg8: 1, Reg8: 4>
+==> 00000019: <LoadConstFalse>: <Reg8: 3>
+==> 0000001b: <JStrictEqual>: <Addr8: 8, Reg8: 5, Reg8: 0>  # Address: 00000023
+==> 0000001f: <GetArgumentsPropByVal>: <Reg8: 3, Reg8: 1, Reg8: 4>
+==> 00000023: <GetGlobalObject>: <Reg8: 1>
+==> 00000025: <TryGetById>: <Reg8: 4, Reg8: 1, UInt8: 1, string_id: 6>  # String: 'Date' (Identifier)
+==> 0000002b: <GetByIdShort>: <Reg8: 1, Reg8: 4, UInt8: 2, string_id: 183>  # String: 'now' (Identifier)
+==> 00000030: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 4>
+==> 00000034: <JmpTrue>: <Addr8: 22, Reg8: 3>  # Address: 0000004a
+==> 00000037: <GetById>: <Reg8: 3, Reg8: 2, UInt8: 3, string_id: 17992>  # String: 'lastProgressAt' (Identifier)
+==> 0000003d: <Sub>: <Reg8: 4, Reg8: 1, Reg8: 3>
+==> 00000041: <LoadConstUInt8>: <Reg8: 3, UInt8: 150>
+==> 00000044: <JNotLess>: <Addr8: 6, Reg8: 4, Reg8: 3>  # Address: 0000004a
+==> 00000048: <Ret>: <Reg8: 0>
+==> 0000004a: <PutById>: <Reg8: 2, Reg8: 1, UInt8: 1, string_id: 17992>  # String: 'lastProgressAt' (Identifier)
+==> 00000050: <GetById>: <Reg8: 3, Reg8: 2, UInt8: 4, string_id: 19194>  # String: 'onProgress' (Identifier)
+==> 00000056: <LoadConstNull>: <Reg8: 1>
+==> 00000058: <JEqual>: <Addr8: 75, Reg8: 3, Reg8: 1>  # Address: 000000a3
+==> 0000005c: <NewObject>: <Reg8: 1>
+==> 0000005e: <GetByIdShort>: <Reg8: 4, Reg8: 2, UInt8: 5, string_id: 225>  # String: 'status' (Identifier)
+==> 00000063: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 4, string_id: 225>  # String: 'status' (Identifier)
+==> 00000067: <GetByIdShort>: <Reg8: 4, Reg8: 2, UInt8: 6, string_id: 195>  # String: 'phase' (Identifier)
+==> 0000006c: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 4, string_id: 195>  # String: 'phase' (Identifier)
+==> 00000070: <GetById>: <Reg8: 4, Reg8: 2, UInt8: 7, string_id: 16139>  # String: 'progress' (Identifier)
+==> 00000076: <PutNewOwnById>: <Reg8: 1, Reg8: 4, string_id: 14120>  # String: 'percent' (Identifier)
+==> 0000007b: <GetById>: <Reg8: 4, Reg8: 2, UInt8: 8, string_id: 16527>  # String: 'receivedBytes' (Identifier)
+==> 00000081: <PutNewOwnById>: <Reg8: 1, Reg8: 4, string_id: 16527>  # String: 'receivedBytes' (Identifier)
+==> 00000086: <GetEnvironment>: <Reg8: 4, UInt8: 1>
+==> 00000089: <LoadFromEnvironment>: <Reg8: 4, Reg8: 4, UInt8: 9>
+==> 0000008d: <GetById>: <Reg8: 4, Reg8: 4, UInt8: 9, string_id: 14955>  # String: 'MODEL' (Identifier)
+==> 00000093: <GetById>: <Reg8: 4, Reg8: 4, UInt8: 10, string_id: 14372>  # String: 'bytes' (Identifier)
+==> 00000099: <PutNewOwnById>: <Reg8: 1, Reg8: 4, string_id: 19272>  # String: 'exactBytes' (Identifier)
+==> 0000009e: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 2, Reg8: 1>
+==> 000000a3: <GetByIdShort>: <Reg8: 1, Reg8: 2, UInt8: 11, string_id: 72>  # String: 'changed' (Identifier)
+==> 000000a8: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 2>
+==> 000000ac: <Ret>: <Reg8: 0>
+
+
+===============
+

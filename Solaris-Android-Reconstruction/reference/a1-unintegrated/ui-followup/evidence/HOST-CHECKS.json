@@ -1,0 +1,19 @@
+{
+  "kind": "synthetic-exact-function-regression",
+  "assertions": 120,
+  "status": "passed",
+  "androidDeviceTested": false,
+  "nativeInferenceTested": false,
+  "commands": [
+    {
+      "command": "node scripts/ui-repair-apply.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/ui-repair-test.cjs",
+      "exitCode": 0
+    }
+  ],
+  "scopeCheck": "candidate equals previous candidate with only the four documented EN/ES copy replacements",
+  "previousCheckpointPreserved": true
+}

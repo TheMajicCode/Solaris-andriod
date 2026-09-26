@@ -1,0 +1,20 @@
+{
+  "mode": "base603-reflection",
+  "history": [
+    {
+      "role": "system",
+      "content": "You are Pocket LUCA. Answer the user in 1-2 short sentences, in English. No diagnosis, treatment, invented facts or claims of saving. JSON: {\"message\":\"your answer\",\"sourceRefs\":[]}. /no_think"
+    },
+    {
+      "role": "user",
+      "content": "Help me reflect on a difficult work day."
+    }
+  ],
+  "generationParams": {
+    "temp": 0.3,
+    "predict": 128,
+    "seed": 42,
+    "reasoning_budget": 0,
+    "json_schema": "{\"type\":\"object\",\"properties\":{\"message\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":500},\"sourceRefs\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"minItems\":0,\"maxItems\":0}},\"required\":[\"message\",\"sourceRefs\"],\"additionalProperties\":false}"
+  }
+}

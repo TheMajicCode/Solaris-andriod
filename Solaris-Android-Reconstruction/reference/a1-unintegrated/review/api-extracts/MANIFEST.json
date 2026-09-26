@@ -1,0 +1,38 @@
+{
+  "format": "solaris-v6-public-lifecycle-excerpts/1",
+  "source": "v6-next-repair/hermes-audit/evidence/index.android.compact.hasm",
+  "sourceSha256": "af003491d5315bfeacbcf3d3779223d6a791085b398898edfc289f36b3e0c300",
+  "method": "Exact full function blocks selected by anchored function ID, up to next function header; no instruction edits",
+  "functions": [
+    {
+      "functionId": 13769,
+      "publicMethod": "state",
+      "path": "13769-state.hasm",
+      "bytes": 2174,
+      "sha256": "e615c8b1d394889adcee911e84a4f7fbe232f59cf775e3a2b0a6b283b40616b7",
+      "sourceCharacterStart": 30449014,
+      "sourceCharacterEnd": 30451188,
+      "status": "exact complete function text excerpt from existing compact disassembly; not source code"
+    },
+    {
+      "functionId": 13764,
+      "publicMethod": "resume",
+      "path": "13764-resume.hasm",
+      "bytes": 2071,
+      "sha256": "b7cacb4c55cca0368f8de779fdfa45afa53b77f39a5f2ad67488f86680aa0704",
+      "sourceCharacterStart": 30442127,
+      "sourceCharacterEnd": 30444198,
+      "status": "exact complete function text excerpt from existing compact disassembly; not source code"
+    },
+    {
+      "functionId": 13759,
+      "publicMethod": "suspend",
+      "path": "13759-suspend.hasm",
+      "bytes": 2072,
+      "sha256": "895dbe33c24d16f7028cb1950c5642d64c4155d669e61f953694e63459ae5e62",
+      "sourceCharacterStart": 30435231,
+      "sourceCharacterEnd": 30437303,
+      "status": "exact complete function text excerpt from existing compact disassembly; not source code"
+    }
+  ]
+}

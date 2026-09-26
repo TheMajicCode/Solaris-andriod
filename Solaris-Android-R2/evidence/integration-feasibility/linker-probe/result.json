@@ -1,0 +1,83 @@
+{
+  "scope": "Synthetic fixtures only; original Solaris bytecode/APK never modified",
+  "status": "PASS",
+  "original_output": "retained:6\nretained exception\nold:5\n",
+  "merged_output": "retained:6\nretained exception\npatched:16\n",
+  "base_function_count": 3,
+  "donor_function_count": 3,
+  "merged_function_count": 6,
+  "original_string_count": 10,
+  "merged_string_count": 14,
+  "preserved_original_function_ids": true,
+  "preserved_original_strings": true,
+  "preserved_original_debug_bytes": true,
+  "original_global_edits": [
+    {
+      "base_function": 0,
+      "edits": [
+        {
+          "instruction": "CreateClosure",
+          "offset": 28,
+          "old": 2,
+          "new": 4
+        }
+      ]
+    }
+  ],
+  "original_body_relocation": 112,
+  "command_results": [
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+        "-O",
+        "-g1",
+        "-emit-binary",
+        "-out=/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/host.hbc",
+        "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/host.js"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+        "-O0",
+        "-g0",
+        "-emit-binary",
+        "-base-bytecode=/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/host.hbc",
+        "-out=/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/donor.hbc",
+        "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/donor.js"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/bin/hvm",
+        "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/host.hbc"
+      ],
+      "returncode": 0,
+      "stdout": "retained:6\nretained exception\nold:5\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build/bin/hvm",
+        "/workspace/scratch/7a1f5a13b137/Solaris-Android-R2/evidence/integration-feasibility/linker-probe/merged.hbc"
+      ],
+      "returncode": 0,
+      "stdout": "retained:6\nretained exception\npatched:16\n",
+      "stderr": ""
+    }
+  ],
+  "limitations": [
+    "No input parameters; synthetic fixtures only",
+    "Donor arrays, object literals, regexp, bigint, CJS, function source tables rejected",
+    "SwitchImm and overflow function headers rejected",
+    "Operand-width overflows rejected; opcode widening not implemented",
+    "Original modified body alias rejected",
+    "Nested donor lexical capture works; external donor parent captures not addressed"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "reference600HbcSha256": "cbfb0ec84116b5aa8a6aed22461a98f3753b365d202fa965f0e23c0a064930a5",
+  "reference601HbcSha256": "ac973292961cc7a1505a47a416ecafdff2e1688b7eac31f20571e503d74ec177",
+  "headerLayoutIdentical": true,
+  "htmlSlotOffset": 18085610,
+  "htmlSlotBytes": 10468844,
+  "allBytesOutsideHtmlSlotAndFooterIdentical": true,
+  "functionInstructionsChanged": false,
+  "workerSourceChanged": false,
+  "bothFootersVerified": true,
+  "meaning": "Older host instruction evidence applies to601; neither artifact contains an A1 coordinator repair."
+}

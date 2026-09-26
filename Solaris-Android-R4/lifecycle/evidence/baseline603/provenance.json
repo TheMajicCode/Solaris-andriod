@@ -1,0 +1,26 @@
+{
+  "bundle": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/candidate-06/candidate603.hbc",
+  "bundle_sha256": "b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990",
+  "test_sha256": "2d0e901aa40ab130ef9d7b0d9a8171a6503ac7124e3c67b3889108d26f56a362",
+  "fixture_source_hashes": {
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/tests/daily-postlude.js": "05e11d5099461d24a1c722411ca6e9306ef9e90fc5d232af825cee60b5875bad",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/tests/hermes/compare-postlude.js": "f3e370d994b9636b6530fe2cc711cbed413fd54c96cbb48b6cd4f73b607aaa5d"
+  },
+  "command": [
+    "python3",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py",
+    "--tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/reconstruction-work/r2-tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/tests/hermes/capture-prelude.js",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/candidate-06/candidate603.hbc",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/lifecycle/evidence/baseline603/fixture-0.compiled.js",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/lifecycle/evidence/baseline603/fixture-1.compiled.js",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R4/lifecycle/evidence/baseline603/lifecycle.compiled.js"
+  ],
+  "returncode": 0,
+  "limitations": [
+    "Actual retained application bytecode runs in matching desktop Hermes.",
+    "Native vault storage, successful unlock, SDK transport and timers are explicit synthetic adapters.",
+    "No Android background scheduling, biometric unlock or device inference timing is established."
+  ]
+}

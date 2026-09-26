@@ -1,0 +1,20 @@
+{
+  "format": "solaris-r1-independent-review/1",
+  "decision": "PASS_ISOLATED_UNWIRED_CODEC_ONLY",
+  "reviewedFiles": {
+    "src/reconstructed/RecoveryEnvelope.java": "5acb764001ec0f1be2bc9c1221184a14941532bf8c3d9d0928c9a9f3233af253",
+    "tests/recovery-codec/RecoveryEnvelopeConformance.java": "3608439897eadfaf44311473cb8eb4202a82f2101f618549eec246d368da62a2",
+    "tests/recovery-codec/run.py": "866f84c0602fdd10657a1c9b1c0b809f5f7eb7a5d9bd47a68434cb7436944eb8",
+    "tests/recovery-codec/evidence/RUN-RESULTS.json": "73297334ae1adeeb4ad0497fce26fac4b1d6a26ed66ef1afe75d26bff29bc8ad",
+    "docs/RECOVERY-CODEC.md": "406e512280cc479210604fd9faba71ebd8bdd4114862df76f26992f045eacb10",
+    "reference/native-decompiled/L5/b.java": "de02325045b043144146197e4753011954d25472ca58829a7e45abf54f581405"
+  },
+  "recordedTargetedTests": {
+    "javaAssertions": 112,
+    "independentPythonDecryptChecks": 4,
+    "reviewerReranSuite": false,
+    "reviewerVerifiedCurrentEvidenceHashes": 21
+  },
+  "androidCompatibilityVerified": false,
+  "signingAuthorizedByReview": false
+}

@@ -1,0 +1,32 @@
+=> [Function #13074 "update" of 85 bytes]: 1 params, frame size=13, strict=1, exc handler=0, debug info=0  @ offset 0x01cc5c1b
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 1, UInt8: 0>
+==> 00000003: <LoadConstUndefined>: <Reg8: 0>
+==> 00000005: <LoadConstUndefined>: <Reg8: 4>
+==> 00000007: <GetArgumentsLength>: <Reg8: 3, Reg8: 4>
+==> 0000000a: <LoadConstZero>: <Reg8: 2>
+==> 0000000c: <JNotGreater>: <Addr8: 12, Reg8: 3, Reg8: 2>  # Address: 00000018
+==> 00000010: <GetArgumentsPropByVal>: <Reg8: 3, Reg8: 2, Reg8: 4>
+==> 00000014: <JStrictNotEqual>: <Addr8: 19, Reg8: 3, Reg8: 0>  # Address: 00000027
+==> 00000018: <GetEnvironment>: <Reg8: 3, UInt8: 1>
+==> 0000001b: <LoadFromEnvironment>: <Reg8: 3, Reg8: 3, UInt8: 5>
+==> 0000001f: <GetById>: <Reg8: 3, Reg8: 3, UInt8: 1, string_id: 20608>  # String: 'currentState' (Identifier)
+==> 00000025: <Jmp>: <Addr8: 6>  # Address: 0000002b
+==> 00000027: <GetArgumentsPropByVal>: <Reg8: 3, Reg8: 2, Reg8: 4>
+==> 0000002b: <LoadConstString>: <Reg8: 2, string_id: 14370>  # String: 'active' (Identifier)
+==> 0000002f: <JStrictEqual>: <Addr8: 26, Reg8: 2, Reg8: 3>  # Address: 00000049
+==> 00000033: <LoadConstString>: <Reg8: 2, string_id: 14114>  # String: 'background' (Identifier)
+==> 00000037: <JStrictEqual>: <Addr8: 6, Reg8: 2, Reg8: 3>  # Address: 0000003d
+==> 0000003b: <Ret>: <Reg8: 0>
+==> 0000003d: <GetById>: <Reg8: 0, Reg8: 1, UInt8: 2, string_id: 14492>  # String: 'suspend' (Identifier)
+==> 00000043: <Call1>: <Reg8: 0, Reg8: 0, Reg8: 1>
+==> 00000047: <Ret>: <Reg8: 0>
+==> 00000049: <GetById>: <Reg8: 0, Reg8: 1, UInt8: 3, string_id: 14302>  # String: 'resume' (Identifier)
+==> 0000004f: <Call1>: <Reg8: 0, Reg8: 0, Reg8: 1>
+==> 00000053: <Ret>: <Reg8: 0>
+
+
+===============
+

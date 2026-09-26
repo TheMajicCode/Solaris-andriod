@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "Solaris-Android-R2/tests/hermes/baseline-script.js",
+  "output": "Solaris-Android-R2/tests/hermes/baseline.compiled.js",
+  "inputSha256": "44d96e6a2b8186908b86ea9bb2739d8b293a0d0e739059b19d22dae9f2b49f68",
+  "outputSha256": "0e6014dfb5a1ba25df8c0fd3dc25d77df5fc22324f215f192f7f4b8cd13e8f4e",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "baseline-script.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

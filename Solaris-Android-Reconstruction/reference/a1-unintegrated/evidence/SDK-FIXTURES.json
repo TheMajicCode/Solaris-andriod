@@ -1,0 +1,46 @@
+{
+  "apkSha256": "4ac6a72c864118ec548ee5c05738c814b6e519f82b01a7d358d24952b900c518",
+  "source": "Exact previously verified APK Bare bundle recovery",
+  "files": [
+    {
+      "path": "fixtures/qvac-0.18.2/dist/server/bare/runtime-lifecycle.js",
+      "source": "v6-apk-recovery/extracted-v1/worker-files/node_modules/@qvac/sdk/dist/server/bare/runtime-lifecycle.js",
+      "sha256": "9d52cf464f7e625ab5a0a3f81881c390e57bb40c80e0545f19d3e2843d302cab"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/server/rpc/handlers/state.js",
+      "source": "v6-apk-recovery/extracted-v1/worker-files/node_modules/@qvac/sdk/dist/server/rpc/handlers/state.js",
+      "sha256": "15b2edf251e1a48645fb52d45872f325a7b9b9869aa13450d7708a803caae47f"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/server/rpc/handlers/resume.js",
+      "source": "v6-apk-recovery/extracted-v1/worker-files/node_modules/@qvac/sdk/dist/server/rpc/handlers/resume.js",
+      "sha256": "cd14370b6ca341351049b5ddc1457423de265d3ac23cabe4c4f46affb969471a"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/server/rpc/handlers/suspend.js",
+      "source": "v6-apk-recovery/extracted-v1/worker-files/node_modules/@qvac/sdk/dist/server/rpc/handlers/suspend.js",
+      "sha256": "af0439e6822dcea1667ff4f93081f3ef9c0b920b474c7cc265a914374868a660"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/schemas/state.js",
+      "source": "v6-apk-recovery/extracted-v1/worker-files/node_modules/@qvac/sdk/dist/schemas/state.js",
+      "sha256": "f978fb74cf2ee93906f95626934c8eb6e006f45ef09c6b9c50ad13cf3f700ab0"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/schemas/resume.js",
+      "source": "v6-apk-recovery/extracted-v1/worker-files/node_modules/@qvac/sdk/dist/schemas/resume.js",
+      "sha256": "bc01dc35255eefa9ea94fc8833bdf1b816f064043bbc0000ac803a6109eab8a9"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/dist/schemas/suspend.js",
+      "source": "v6-apk-recovery/extracted-v1/worker-files/node_modules/@qvac/sdk/dist/schemas/suspend.js",
+      "sha256": "d6c97f86f40cb4c4291480157cb240267f42ae40fe0db679de2aabe8eb1f538c"
+    },
+    {
+      "path": "fixtures/qvac-0.18.2/package.json",
+      "source": "v6-apk-recovery/extracted-v1/worker-files/node_modules/@qvac/sdk/package.json",
+      "sha256": "f04d6b5148124451a2844ce84564bafda697c1bb8d71cf7f822633ca5c24c3d2"
+    }
+  ]
+}

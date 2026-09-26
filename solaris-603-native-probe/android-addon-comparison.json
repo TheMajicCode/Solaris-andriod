@@ -1,0 +1,56 @@
+{
+  "npmSha256": "f74d733ec42b0b43b3291d7ba23317810041382fc4e745ee3b61afe94ad9edae",
+  "apkSha256": "8e2172153999e71212feac3362845775a09a09f723a856f2ae6003ae55675cb5",
+  "npmSections": {
+    ".dynsym": {
+      "size": 267504,
+      "sha256": "8d894a467207ce88b83a5bfd839f3ee5ce6bf46db6917bde7cc62b99ec97211d"
+    },
+    ".rodata": {
+      "size": 623260,
+      "sha256": "4039bea1ba9cb8bdfbaac7633dc8d876eb44eca7fda2c2c2d09f971e941c37c5"
+    },
+    ".eh_frame": {
+      "size": 708120,
+      "sha256": "ad3522e1587f61706fdc67e9d3da02bda008113ba700b6138b71b6b0dad46a69"
+    },
+    ".text": {
+      "size": 6152292,
+      "sha256": "473e65a9d04bf3b6ed3c966015f39fcf07be1f0adb81a120b8aabc058e4b59e7"
+    },
+    ".dynamic": {
+      "size": 480,
+      "sha256": "1dc7f33cdf0ac855dd1b31de2033e02e4ee7a8541bbc2b4176ca597608036d3b"
+    },
+    ".data": {
+      "size": 3048,
+      "sha256": "02d3a4e152ae11c35265f5a3bc6715cc0c8d0f1ccd2a0cf50b431d51f51e3145"
+    }
+  },
+  "apkSections": {
+    ".dynsym": {
+      "size": 267504,
+      "sha256": "7549a107c151c1454c0e0daeb75406521592af40b5f9f3f6120e76a0a78d1d2a"
+    },
+    ".rodata": {
+      "size": 623260,
+      "sha256": "4039bea1ba9cb8bdfbaac7633dc8d876eb44eca7fda2c2c2d09f971e941c37c5"
+    },
+    ".eh_frame": {
+      "size": 708120,
+      "sha256": "ad3522e1587f61706fdc67e9d3da02bda008113ba700b6138b71b6b0dad46a69"
+    },
+    ".text": {
+      "size": 6152292,
+      "sha256": "473e65a9d04bf3b6ed3c966015f39fcf07be1f0adb81a120b8aabc058e4b59e7"
+    },
+    ".dynamic": {
+      "size": 528,
+      "sha256": "18c363b222aeb748bfc90e14dddfc00069abf65957db31d0093288030a77bf57"
+    },
+    ".data": {
+      "size": 3048,
+      "sha256": "03ac3005c9f0ec67f60991309d25f388f76d5fc26cce7f4150e1045f25b1926b"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "format": "solaris-v6-603-signing-gate/1",
+  "decision": "approve-signing",
+  "baselineApkSha256": "01da9f5281f5f92230dcbd64da62484557cc7a0a15e876cc2d99ec7ec3bcd2cd",
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 603,
+  "versionName": "6.0.3-preview.pocket-chat",
+  "expectedCertificateSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+  "buildManifestSha256": "045dab7fd48ab09c169ed45ce498088fb57de33c40b6a749d4358b1e3cf7a9c3",
+  "patchedHbcSha256": "b8ac7d1b58d9e8ea6eadd25de516e35842aea14e4b849462664bb3200fedc990",
+  "unsignedApkSha256": "696333f57c630df950bdb369bc9bec339e44ec332ab3f2617d4b8a82896f4292",
+  "signingScriptSha256": "58839b723f21b2c8578dd6566907c4e248a887bc118dd65accb1c12a762f0ff6",
+  "packagingScriptSha256": "560afea26dfcf6f2691125220ab2593bac4afbdbffeabf9168349a29d1ff97ee",
+  "independentReviews": [
+    {
+      "reviewer": "trace_chat_validation",
+      "decision": "approve",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/daily-tests-independent-review.md",
+      "sha256": "7d73d9132dc8a3b710ab2700694a34ca000a57a20c8a596100ea263905a469f6"
+    },
+    {
+      "reviewer": "ui_review_603",
+      "decision": "approve",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/docs/HBC-API-INDEPENDENT-REVIEW.md",
+      "sha256": "3e27390b46872a8ceb8f5766ce3b4934502b916cbe502bb4b321def24c31a6fa"
+    },
+    {
+      "reviewer": "native_chat_repro",
+      "decision": "approve",
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/docs/PACKAGING-INDEPENDENT-REVIEW.md",
+      "sha256": "579fba8e4dbb3eff5ce417457c5d5ab6ae17b3e5d076602899d94b06c0f012b3"
+    }
+  ],
+  "additionalUiReviewSha256": "34558ab3a622a09dc7a12bd16ca94e577ed0f51de87d3d00cb45aaaa7d2e9122",
+  "authorizedAction": "Sign and preserve this reviewed candidate only; no installation, reset, key change, push or deployment."
+}

@@ -1,0 +1,83 @@
+=> [Function #7599 "?anon_0_" of 312 bytes]: 1 params, frame size=21, strict=1, exc handler=0, debug info=0  @ offset 0x01c36259
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000004: <JmpTrueLong>: <Addr32: 305, Reg8: 1>  # Address: 00000135
+==> 0000000a: <GetEnvironment>: <Reg8: 3, UInt8: 2>
+==> 0000000d: <LoadFromEnvironment>: <Reg8: 1, Reg8: 3, UInt8: 3>
+==> 00000011: <GetById>: <Reg8: 11, Reg8: 1, UInt8: 1, string_id: 14964>  # String: 'documentDirectory' (Identifier)
+==> 00000017: <JmpTrue>: <Addr8: 24, Reg8: 11>  # Address: 0000002f
+==> 0000001a: <GetGlobalObject>: <Reg8: 1>
+==> 0000001c: <TryGetById>: <Reg8: 4, Reg8: 1, UInt8: 2, string_id: 8>  # String: 'Error' (Identifier)
+==> 00000022: <LoadConstUndefined>: <Reg8: 2>
+==> 00000024: <LoadConstString>: <Reg8: 1, string_id: 8032>  # String: 'RUNTIME_CONFIG_UNAVAILABLE' (String)
+==> 00000028: <Call2>: <Reg8: 1, Reg8: 4, Reg8: 2, Reg8: 1>
+==> 0000002d: <Throw>: <Reg8: 1>
+==> 0000002f: <NewObjectWithBuffer>: <Reg8: 9, UInt16: 7, UInt16: 6, UInt16: 2597, UInt16: 2314>  # Object: {'loggerLevel': 'off', 'loggerConsoleOutput': false, 'swarmRelays': null, 'cacheDirectory': null, 'httpDownloadConcurrency': 1, 'registryDownloadMaxRetries': 0}
+==> 00000039: <LoadConstString>: <Reg8: 7, string_id: 14941>  # String: 'off' (Identifier)
+==> 0000003d: <LoadConstFalse>: <Reg8: 6>
+==> 0000003f: <NewArray>: <Reg8: 1, UInt16: 0>
+==> 00000043: <PutById>: <Reg8: 9, Reg8: 1, UInt8: 1, string_id: 19446>  # String: 'swarmRelays' (Identifier)
+==> 00000049: <GetGlobalObject>: <Reg8: 1>
+==> 0000004b: <TryGetById>: <Reg8: 2, Reg8: 1, UInt8: 3, string_id: 9>  # String: 'HermesInternal' (Identifier)
+==> 00000051: <GetByIdShort>: <Reg8: 4, Reg8: 2, UInt8: 4, string_id: 82>  # String: 'concat' (Identifier)
+==> 00000056: <LoadConstString>: <Reg8: 10, string_id: 13965>  # String: '' (Identifier)
+==> 0000005a: <LoadConstString>: <Reg8: 2, string_id: 8322>  # String: 'solaris-qvac-cache' (String)
+==> 0000005e: <Call3>: <Reg8: 5, Reg8: 4, Reg8: 10, Reg8: 11, Reg8: 2>
+==> 00000064: <GetByIdShort>: <Reg8: 4, Reg8: 5, UInt8: 5, string_id: 212>  # String: 'replace' (Identifier)
+==> 00000069: <CreateRegExp>: <Reg8: 2, string_id: 2936, string_id: 13965, UInt32: 96>  # String: '^file:\\/\\/' (String)  # String: '' (Identifier)
+==> 00000077: <Call3>: <Reg8: 2, Reg8: 4, Reg8: 5, Reg8: 2, Reg8: 10>
+==> 0000007d: <PutById>: <Reg8: 9, Reg8: 2, UInt8: 2, string_id: 16353>  # String: 'cacheDirectory' (Identifier)
+==> 00000083: <NewArrayWithBuffer>: <Reg8: 2, UInt16: 1, UInt16: 1, UInt16: 14025>  # Array: ['@qvac/sdk/llamacpp-completion/plugin']
+==> 0000008b: <PutNewOwnById>: <Reg8: 9, Reg8: 2, string_id: 14009>  # String: 'plugins' (Identifier)
+==> 00000090: <LoadFromEnvironment>: <Reg8: 5, Reg8: 3, UInt8: 3>
+==> 00000094: <GetById>: <Reg8: 4, Reg8: 5, UInt8: 6, string_id: 17195>  # String: 'writeAsStringAsync' (Identifier)
+==> 0000009a: <TryGetById>: <Reg8: 2, Reg8: 1, UInt8: 3, string_id: 9>  # String: 'HermesInternal' (Identifier)
+==> 000000a0: <GetByIdShort>: <Reg8: 8, Reg8: 2, UInt8: 4, string_id: 82>  # String: 'concat' (Identifier)
+==> 000000a5: <LoadConstString>: <Reg8: 2, string_id: 1905>  # String: 'qvac.config.json' (String)
+==> 000000a9: <Call3>: <Reg8: 2, Reg8: 8, Reg8: 10, Reg8: 11, Reg8: 2>
+==> 000000af: <TryGetById>: <Reg8: 8, Reg8: 1, UInt8: 7, string_id: 10>  # String: 'JSON' (Identifier)
+==> 000000b5: <GetByIdShort>: <Reg8: 1, Reg8: 8, UInt8: 8, string_id: 229>  # String: 'stringify' (Identifier)
+==> 000000ba: <Call2>: <Reg8: 1, Reg8: 1, Reg8: 8, Reg8: 9>
+==> 000000bf: <Call3>: <Reg8: 1, Reg8: 4, Reg8: 5, Reg8: 2, Reg8: 1>
+==> 000000c5: <SaveGenerator>: <Addr8: 4>  # Address: 000000c9
+==> 000000c7: <Ret>: <Reg8: 1>
+==> 000000c9: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 000000cc: <JmpTrue>: <Addr8: 102, Reg8: 2>  # Address: 00000132
+==> 000000cf: <LoadFromEnvironment>: <Reg8: 8, Reg8: 3, UInt8: 0>
+==> 000000d3: <LoadFromEnvironment>: <Reg8: 2, Reg8: 3, UInt8: 1>
+==> 000000d7: <LoadConstUInt8>: <Reg8: 4, UInt8: 3>
+==> 000000da: <GetByVal>: <Reg8: 4, Reg8: 2, Reg8: 4>
+==> 000000de: <LoadConstUndefined>: <Reg8: 5>
+==> 000000e0: <Call2>: <Reg8: 8, Reg8: 8, Reg8: 5, Reg8: 4>
+==> 000000e5: <LoadConstUInt8>: <Reg8: 4, UInt8: 2>
+==> 000000e8: <GetByVal>: <Reg8: 4, Reg8: 2, Reg8: 4>
+==> 000000ec: <GetById>: <Reg8: 2, Reg8: 2, UInt8: 9, string_id: 15873>  # String: 'paths' (Identifier)
+==> 000000f2: <Call3>: <Reg8: 2, Reg8: 8, Reg8: 5, Reg8: 4, Reg8: 2>
+==> 000000f8: <SaveGenerator>: <Addr8: 4>  # Address: 000000fc
+==> 000000fa: <Ret>: <Reg8: 2>
+==> 000000fc: <ResumeGenerator>: <Reg8: 2, Reg8: 4>
+==> 000000ff: <JmpTrue>: <Addr8: 48, Reg8: 4>  # Address: 0000012f
+==> 00000102: <GetById>: <Reg8: 4, Reg8: 2, UInt8: 10, string_id: 19226>  # String: 'setGlobalLogLevel' (Identifier)
+==> 00000108: <Call2>: <Reg8: 4, Reg8: 4, Reg8: 2, Reg8: 7>
+==> 0000010d: <GetById>: <Reg8: 4, Reg8: 2, UInt8: 11, string_id: 16442>  # String: 'setGlobalConsoleOutput' (Identifier)
+==> 00000113: <Call2>: <Reg8: 4, Reg8: 4, Reg8: 2, Reg8: 6>
+==> 00000118: <LoadFromEnvironment>: <Reg8: 4, Reg8: 3, UInt8: 0>
+==> 0000011c: <LoadFromEnvironment>: <Reg8: 6, Reg8: 3, UInt8: 1>
+==> 00000120: <LoadConstUInt8>: <Reg8: 3, UInt8: 4>
+==> 00000123: <GetByVal>: <Reg8: 3, Reg8: 6, Reg8: 3>
+==> 00000127: <Call2>: <Reg8: 3, Reg8: 4, Reg8: 5, Reg8: 3>
+==> 0000012c: <CompleteGenerator>: <>
+==> 0000012d: <Ret>: <Reg8: 3>
+==> 0000012f: <CompleteGenerator>: <>
+==> 00000130: <Ret>: <Reg8: 2>
+==> 00000132: <CompleteGenerator>: <>
+==> 00000133: <Ret>: <Reg8: 1>
+==> 00000135: <CompleteGenerator>: <>
+==> 00000136: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,57 @@
+{
+  "format": "solaris-v6-hermes-readonly-audit/1",
+  "checkedAt": "2026-09-13T09:06:00.353428+00:00",
+  "input": {
+    "path": "/workspace/scratch/768f612cf893/v6-apk-recovery/extracted-v1/packaged/assets/index.android.bundle",
+    "bytes": 30744132,
+    "sha256": "cbfb0ec84116b5aa8a6aed22461a98f3753b365d202fa965f0e23c0a064930a5",
+    "bytecodeVersion": 96
+  },
+  "tool": {
+    "repository": "https://github.com/P1sec/hermes-dec",
+    "commit": "a0f18f97ab661eb8ed659c8c683a0d21ea619e69",
+    "declaredVersion": "0.1.7",
+    "license": "AGPL-3.0-or-later",
+    "files": {
+      "src/hermes_dec/disassembly/hbc_disassembler.py": "d58eb709fe500a025d52980b3a6562bff315b730bdb83006e913e58c7fffe00e",
+      "src/hermes_dec/parsers/hbc_file_parser.py": "c103c2688e9f8482f869f7a0f74a9b367a38b464efdef0626de16fbe92f7ea93",
+      "src/hermes_dec/parsers/hbc_bytecode_parser.py": "659b9eba264d0008dd2f76919cb5a9949f7710b44e54662e7d7ef4aa5b99b25e",
+      "src/hermes_dec/parsers/hbc_opcodes/hbc96.py": "788cd66b77e931fe6956e796067e5c813e3be4241508cea556a6bde30f0c9347",
+      "LICENSE": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "pyproject.toml": "f597db62d7fc8941d2361881404488efd8d8907eed88afa1123e1f891a670d0f"
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/P1sec/hermes-dec.git",
+        "v6-next-repair/hermes-audit/tools/hermes-dec"
+      ],
+      "exitCode": 0
+    },
+    {
+      "cwd": "/workspace/scratch/768f612cf893/v6-next-repair/hermes-audit/tools/hermes-dec",
+      "env": {
+        "PYTHONPATH": "src"
+      },
+      "argv": [
+        "python3",
+        "-m",
+        "hermes_dec.disassembly.hbc_disassembler",
+        "/workspace/scratch/768f612cf893/v6-apk-recovery/extracted-v1/packaged/assets/index.android.bundle",
+        "/workspace/scratch/768f612cf893/v6-next-repair/hermes-audit/evidence/index.android.hasm"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "functionCount": 15513,
+  "originalSourceRecovered": false,
+  "apkModified": false,
+  "phoneTestsRun": false,
+  "disassemblySha256": "2ee9d332d65eb7ceb9361d1603e0f9f36f7f27b97ada1015831bf5c7c17d26c1",
+  "outputNote": "Function offsets and names come from HBC. Pseudocode in the report is analyst interpretation, not original TypeScript."
+}

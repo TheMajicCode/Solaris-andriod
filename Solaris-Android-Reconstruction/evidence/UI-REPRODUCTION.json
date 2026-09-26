@@ -1,0 +1,9 @@
+{
+  "readableSourceSha256": "d37c2cca5a60085924bf777e0c0428144f5955799e3d5e1b767e4dce0a7618a9",
+  "reproducedHtmlSha256": "c88f54f8102ba01348f2e973982801a1447d5fa39fc372d1c74eb89822cf3cb2",
+  "actualLiteralHtmlSha256": "baf7a34f28db9fa40e4ad62ba7ea35f91d48d1f16ce92beb302f975b563de15f",
+  "exactCode601LiteralReproducedWithPadding": true,
+  "paddingSpaces": 2681,
+  "nativeAppCompiled": false,
+  "apkChanged": false
+}

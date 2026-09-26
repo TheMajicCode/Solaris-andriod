@@ -1,0 +1,7 @@
+{
+  "url": "https://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu-dev_74.2-1ubuntu3.1_amd64.deb",
+  "sha256": "612b98f4fcfc6ebc57a1b21c2695174694db5a0b7ff760b5d41032076c792398",
+  "bytes": 11892666,
+  "operation": "Extracted headers and symlinks under tools, no system install",
+  "system_runtime": "libicu74 74.2-1ubuntu3.1"
+}

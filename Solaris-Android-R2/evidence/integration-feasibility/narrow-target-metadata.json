@@ -1,0 +1,60 @@
+{
+  "7314": {
+    "header": {
+      "offset": 29560571,
+      "paramCount": 2,
+      "bytecodeSizeInBytes": 1150,
+      "functionName": 2113,
+      "infoOffset": 30729532,
+      "frameSize": 33,
+      "environmentSize": 10,
+      "highestReadCacheIndex": 30,
+      "highestWriteCacheIndex": 9,
+      "prohibitInvoke": 2,
+      "strictMode": 1,
+      "hasExceptionHandler": 1,
+      "hasDebugInfo": 0,
+      "overflowed": 0,
+      "kind": 0
+    },
+    "aliases": [
+      7314
+    ],
+    "exceptions": [
+      {
+        "start": 575,
+        "end": 1043,
+        "target": 1118
+      }
+    ]
+  },
+  "7337": {
+    "header": {
+      "offset": 29563214,
+      "paramCount": 2,
+      "bytecodeSizeInBytes": 1037,
+      "functionName": 2113,
+      "infoOffset": 30729636,
+      "frameSize": 30,
+      "environmentSize": 11,
+      "highestReadCacheIndex": 23,
+      "highestWriteCacheIndex": 6,
+      "prohibitInvoke": 2,
+      "strictMode": 1,
+      "hasExceptionHandler": 1,
+      "hasDebugInfo": 0,
+      "overflowed": 0,
+      "kind": 0
+    },
+    "aliases": [
+      7337
+    ],
+    "exceptions": [
+      {
+        "start": 515,
+        "end": 914,
+        "target": 1001
+      }
+    ]
+  }
+}

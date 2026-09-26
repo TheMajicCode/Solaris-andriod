@@ -1,0 +1,56 @@
+=> [Function #7224 "?anon_0_" of 180 bytes]: 1 params, frame size=16, strict=1, exc handler=0, debug info=0  @ offset 0x01c2fc06
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 4, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrueLong>: <Addr32: 170, Reg8: 1>  # Address: 000000b1
+==> 0000000d: <GetGlobalObject>: <Reg8: 1>
+==> 0000000f: <TryGetById>: <Reg8: 3, Reg8: 1, UInt8: 1, string_id: 19>  # String: 'Promise' (Identifier)
+==> 00000015: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 2, string_id: 18519>  # String: 'allSettled' (Identifier)
+==> 0000001b: <GetById>: <Reg8: 5, Reg8: 4, UInt8: 3, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 00000021: <GetById>: <Reg8: 1, Reg8: 5, UInt8: 4, string_id: 15553>  # String: 'refresh' (Identifier)
+==> 00000027: <Call1>: <Reg8: 5, Reg8: 1, Reg8: 5>
+==> 0000002b: <NewArray>: <Reg8: 1, UInt16: 2>
+==> 0000002f: <PutOwnByIndex>: <Reg8: 1, Reg8: 5, UInt8: 0>
+==> 00000033: <GetById>: <Reg8: 6, Reg8: 4, UInt8: 3, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 00000039: <GetById>: <Reg8: 5, Reg8: 6, UInt8: 5, string_id: 15811>  # String: 'recovery' (Identifier)
+==> 0000003f: <Call1>: <Reg8: 5, Reg8: 5, Reg8: 6>
+==> 00000043: <PutOwnByIndex>: <Reg8: 1, Reg8: 5, UInt8: 1>
+==> 00000047: <Call2>: <Reg8: 1, Reg8: 2, Reg8: 3, Reg8: 1>
+==> 0000004c: <SaveGenerator>: <Addr8: 4>  # Address: 00000050
+==> 0000004e: <Ret>: <Reg8: 1>
+==> 00000050: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 00000053: <JmpTrue>: <Addr8: 91, Reg8: 2>  # Address: 000000ae
+==> 00000056: <GetEnvironment>: <Reg8: 2, UInt8: 3>
+==> 00000059: <LoadFromEnvironment>: <Reg8: 2, Reg8: 2, UInt8: 2>
+==> 0000005d: <GetByIdShort>: <Reg8: 5, Reg8: 2, UInt8: 6, string_id: 101>  # String: 'default' (Identifier)
+==> 00000062: <LoadConstUndefined>: <Reg8: 3>
+==> 00000064: <LoadConstUInt8>: <Reg8: 2, UInt8: 2>
+==> 00000067: <Call3>: <Reg8: 5, Reg8: 5, Reg8: 3, Reg8: 1, Reg8: 2>
+==> 0000006d: <LoadConstZero>: <Reg8: 2>
+==> 0000006f: <GetByVal>: <Reg8: 3, Reg8: 5, Reg8: 2>
+==> 00000073: <LoadConstUInt8>: <Reg8: 2, UInt8: 1>
+==> 00000076: <GetByVal>: <Reg8: 2, Reg8: 5, Reg8: 2>
+==> 0000007a: <GetByIdShort>: <Reg8: 6, Reg8: 2, UInt8: 7, string_id: 225>  # String: 'status' (Identifier)
+==> 0000007f: <LoadConstString>: <Reg8: 5, string_id: 1874>  # String: 'fulfilled' (String)
+==> 00000083: <JStrictNotEqual>: <Addr8: 15, Reg8: 6, Reg8: 5>  # Address: 00000092
+==> 00000087: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 8, string_id: 249>  # String: 'value' (Identifier)
+==> 0000008c: <PutById>: <Reg8: 4, Reg8: 2, UInt8: 1, string_id: 17483>  # String: 'recoveryInfo' (Identifier)
+==> 00000092: <GetByIdShort>: <Reg8: 2, Reg8: 4, UInt8: 9, string_id: 72>  # String: 'changed' (Identifier)
+==> 00000097: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 4>
+==> 0000009b: <GetByIdShort>: <Reg8: 4, Reg8: 3, UInt8: 7, string_id: 225>  # String: 'status' (Identifier)
+==> 000000a0: <LoadConstNull>: <Reg8: 2>
+==> 000000a2: <JStrictNotEqual>: <Addr8: 9, Reg8: 4, Reg8: 5>  # Address: 000000ab
+==> 000000a6: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 8, string_id: 249>  # String: 'value' (Identifier)
+==> 000000ab: <CompleteGenerator>: <>
+==> 000000ac: <Ret>: <Reg8: 2>
+==> 000000ae: <CompleteGenerator>: <>
+==> 000000af: <Ret>: <Reg8: 1>
+==> 000000b1: <CompleteGenerator>: <>
+==> 000000b2: <Ret>: <Reg8: 0>
+
+
+===============
+

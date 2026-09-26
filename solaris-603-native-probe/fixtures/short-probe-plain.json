@@ -1,0 +1,27 @@
+{
+  "mode": "memory-plain",
+  "history": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant. Answer the last question directly. /no_think"
+    },
+    {
+      "role": "user",
+      "content": "My name is Cedar."
+    },
+    {
+      "role": "assistant",
+      "content": "Nice to meet you, Cedar."
+    },
+    {
+      "role": "user",
+      "content": "What name did I tell you?"
+    }
+  ],
+  "generationParams": {
+    "reasoning_budget": 0,
+    "predict": 128,
+    "temp": 0.3,
+    "seed": 42
+  }
+}

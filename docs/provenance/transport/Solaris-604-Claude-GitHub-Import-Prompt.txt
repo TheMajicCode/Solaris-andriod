@@ -1,0 +1,18 @@
+SOLARIS ANDROID — IMPORT THE SMALL PACKAGE FROM GITHUB
+
+Work in Claude Code with my private Solaris Android repository. The input files are on branch import/604-source. If your initial checkout uses another branch, inspect/fetch that input branch and start your permitted task branch from its commit; do not assume the archive is on main. Verify the intended repository and existing work before writes.
+
+The archive is Solaris-604-GitHub-Source-Import.tar.xz (20,179,572 bytes).
+Expected SHA-256: d9e6bc8eb8a361eca34485f31802dff1edcbd7c6068097b533d358ba4793a4ca
+The adjacent Solaris-604-GitHub-Source-Import-SHA256SUMS.txt must agree.
+Compute the archive SHA-256 and compare it with both this value and the checksum file before extraction.
+
+This replaces the requirement to upload the four large 604 backup ZIPs before beginning source setup. It does not replace those backups or provide the omitted APKs, tools, model or complete native source.
+
+Inspect the archive member list before extraction. Reject absolute or parent-traversal paths, links, device files and unexpected roots. Extract only regular files beneath solaris-android-import into a fresh temporary directory outside the Git worktree. Read README.md, AGENTS.md and IMPORT-PACK-NOTES.md. Review verify-import.py, then run it in the unchanged extracted folder. Read setup/CLAUDE-IMPORT-PROMPT.txt and the product/repository brief and README draft in setup/.
+
+I authorize the bounded private repository bootstrap described there: preserve imported application bytes and source paths; create/reconcile the README, documentation, scoped CI and Claude/Codex workflow; perform applicable source-only checks; obtain independent review of the exact candidate; push the permitted task branch and open an unmerged PR. The one small reviewed transport archive may be in the input commit. Remove it from the final working tree after verified import; its earlier Git object remains. Do not rewrite history or upload the four full backups.
+
+Preserve package/signing identity, vault/recovery formats, record IDs, models and consent/authority checks. Do not invent a native build or report historical tests as newly run. Keep full-reference reproduction and missing-input checks blocked. Do not install/sign a new APK, reset data, change keys, make payments, modify the web repository, change visibility, invite collaborators, deploy or merge automatically.
+
+Proceed with the source import and documentation without asking for the large backup ZIPs merely to begin. Return repo/branch/commit/PR links, exact checks and independent review, source/import coverage, excluded inputs and the best next bounded audit task.

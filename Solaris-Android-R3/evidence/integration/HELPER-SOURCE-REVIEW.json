@@ -1,0 +1,40 @@
+{
+  "status": "PASS_WITH_STATED_SCOPE_AND_LIMITS",
+  "reviewed_sources": {
+    "src/recent-context.js": "3cf38b597e3627f7316a60b7b30ca69cebbb699f5877e153f191f806d1875455",
+    "src/conversation-request.js": "33f7e34b75c5e0b15bc7af32df1b2084c483792549be2295f73e7b8e32af6042",
+    "tools/prepare-donor.cjs": "281b1b3eb75d143242dc0ee16842bb75093ee08c85a14861948b52307b143ab8"
+  },
+  "evidence": {
+    "qvac_result_sha256": "56feaee302e17ad6ced57df93421713cf62a23c7f698da95c75095564c52097f",
+    "qvac_provenance_sha256": "e8d002e9eca909a95d32f3416f6343bf2d316625f10befc4c87912762c26387b"
+  },
+  "findings": [
+    {
+      "issue": "Preflight context compilation consumed recent history before actual converse",
+      "resolved": "Session baseline cursor is now immutable per scope; preflight and converse share identical eligibility."
+    },
+    {
+      "issue": "Envelope JSON parsed before validating known prefix/suffix boundaries",
+      "resolved": "Boundaries validated before parsing."
+    }
+  ],
+  "scope_verified": [
+    "No saved vault state or record IDs changed by recent context helper",
+    "New context cache contains scope and baseline tail only; no duplicate conversation text",
+    "Session/subject/authority/permission revisions separate history scope; existing lock increments owner session before state clear",
+    "Only latest fully completed source-free qvac-device pair after current scope baseline is eligible",
+    "Serialized recent pair capped300 UTF8 bytes and full prompt capped1200 bytes",
+    "Original number, negation, source, permission, action and persistence checks retained",
+    "Conversation request helper uses original conversation flag; unrelated private tasks preserved",
+    "Source-free chat gets concise system/user history; source-bearing tasks retain original grounded prompt",
+    "Exact JSON schema keys/source refs/actions bounded; request generation limits explicit",
+    "New strings lowered at build time to compiled fromCharCode operations; no runtime eval or new function IDs"
+  ],
+  "limitations": [
+    "Recent number followups can still be rejected because unchanged numeric grounding does not include prior chat numbers",
+    "Only one short same-session source-free pair is available; not general long-term memory",
+    "Actual QvacService tests use synthetic SDK/timers/provisioner; native model proof handled by separate agent",
+    "Phone behavior still requires device validation; no installation performed by this reviewer"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "baseline/sanctuary.html": "d8192125d041ac8521029dc9b348c2760fafce91e5cb9a5e12d7d91ba2897962",
+  "candidate/sanctuary.html": "d37c2cca5a60085924bf777e0c0428144f5955799e3d5e1b767e4dce0a7618a9",
+  "scripts/ui-repair-apply.mjs": "25683271c4d72579061e8e87ee42b9e80ca3a7bc90d161dcf1026192e50c67c0",
+  "scripts/ui-repair-test.cjs": "eac6fbea19688e9461259dd9015e23e4b021c4f2e66acffa4a45028ade2df0d8"
+}

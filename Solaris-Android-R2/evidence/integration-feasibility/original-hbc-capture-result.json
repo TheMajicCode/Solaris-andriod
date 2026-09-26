@@ -1,0 +1,11 @@
+{
+  "args": [
+    "reconstruction-work/r2-tools/hermes-runner",
+    "Solaris-Android-R2/evidence/integration-feasibility/capture-prelude.js",
+    "Solaris-Android-Reconstruction/src/recovered-601/compiled-reference/assets/index.android.bundle",
+    "Solaris-Android-R2/evidence/integration-feasibility/capture-probe.js"
+  ],
+  "returncode": 0,
+  "stdout": "{\"factoryCount\":966,\"qvacModule\":true,\"deps\":[38,67,8,9,592,593,599,602,603,604,912,913,914,916,716,918],\"suppressedStartup\":[191,3,0]}\n",
+  "stderr": ""
+}

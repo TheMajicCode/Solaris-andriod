@@ -1,0 +1,145 @@
+=> [Function #13065 "BareKitWorklet" of 543 bytes]: 1 params, frame size=32, strict=1, exc handler=0, debug info=0  @ offset 0x01cc547c
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 11, UInt8: 0>
+==> 00000003: <LoadConstUndefined>: <Reg8: 10>
+==> 00000005: <LoadConstUndefined>: <Reg8: 1>
+==> 00000007: <GetArgumentsLength>: <Reg8: 0, Reg8: 1>
+==> 0000000a: <LoadConstZero>: <Reg8: 8>
+==> 0000000c: <Greater>: <Reg8: 0, Reg8: 0, Reg8: 8>
+==> 00000010: <LoadConstNull>: <Reg8: 9>
+==> 00000012: <LoadConstNull>: <Reg8: 2>
+==> 00000014: <JmpFalse>: <Addr8: 17, Reg8: 0>  # Address: 00000025
+==> 00000017: <GetArgumentsPropByVal>: <Reg8: 0, Reg8: 8, Reg8: 1>
+==> 0000001b: <LoadConstNull>: <Reg8: 2>
+==> 0000001d: <JStrictEqual>: <Addr8: 8, Reg8: 0, Reg8: 10>  # Address: 00000025
+==> 00000021: <GetArgumentsPropByVal>: <Reg8: 2, Reg8: 8, Reg8: 1>
+==> 00000025: <GetArgumentsLength>: <Reg8: 3, Reg8: 1>
+==> 00000028: <LoadConstUInt8>: <Reg8: 0, UInt8: 1>
+==> 0000002b: <JNotGreater>: <Addr8: 12, Reg8: 3, Reg8: 0>  # Address: 00000037
+==> 0000002f: <GetArgumentsPropByVal>: <Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000033: <JStrictNotEqual>: <Addr8: 8, Reg8: 3, Reg8: 10>  # Address: 0000003b
+==> 00000037: <NewObject>: <Reg8: 3>
+==> 00000039: <Jmp>: <Addr8: 6>  # Address: 0000003f
+==> 0000003b: <GetArgumentsPropByVal>: <Reg8: 3, Reg8: 0, Reg8: 1>
+==> 0000003f: <GetEnvironment>: <Reg8: 6, UInt8: 1>
+==> 00000042: <LoadFromEnvironment>: <Reg8: 4, Reg8: 6, UInt8: 1>
+==> 00000046: <GetEnvironment>: <Reg8: 0, UInt8: 0>
+==> 00000049: <LoadFromEnvironment>: <Reg8: 1, Reg8: 0, UInt8: 0>
+==> 0000004d: <Call3>: <Reg8: 1, Reg8: 4, Reg8: 10, Reg8: 11, Reg8: 1>
+==> 00000053: <TypeOf>: <Reg8: 7, Reg8: 2>
+==> 00000056: <LoadConstString>: <Reg8: 5, string_id: 184>  # String: 'object' (Identifier)
+==> 0000005a: <Mov>: <Reg8: 1, Reg8: 2>
+==> 0000005d: <Mov>: <Reg8: 4, Reg8: 3>
+==> 00000060: <JStrictNotEqual>: <Addr8: 19, Reg8: 7, Reg8: 5>  # Address: 00000073
+==> 00000064: <Mov>: <Reg8: 1, Reg8: 2>
+==> 00000067: <Mov>: <Reg8: 4, Reg8: 3>
+==> 0000006a: <JStrictEqual>: <Addr8: 9, Reg8: 2, Reg8: 9>  # Address: 00000073
+==> 0000006e: <LoadConstNull>: <Reg8: 1>
+==> 00000070: <Mov>: <Reg8: 4, Reg8: 2>
+==> 00000073: <TypeOf>: <Reg8: 3, Reg8: 1>
+==> 00000076: <LoadConstString>: <Reg8: 12, string_id: 228>  # String: 'string' (Identifier)
+==> 0000007a: <JStrictEqual>: <Addr8: 11, Reg8: 3, Reg8: 12>  # Address: 00000085
+==> 0000007e: <JStrictNotEqualLong>: <Addr32: 359, Reg8: 1, Reg8: 9>  # Address: 000001e5
+==> 00000085: <GetById>: <Reg8: 5, Reg8: 4, UInt8: 1, string_id: 20655>  # String: 'memoryLimit' (Identifier)
+==> 0000008b: <LoadConstZero>: <Reg8: 2>
+==> 0000008d: <JStrictEqual>: <Addr8: 7, Reg8: 5, Reg8: 10>  # Address: 00000094
+==> 00000091: <Mov>: <Reg8: 2, Reg8: 5>
+==> 00000094: <GetById>: <Reg8: 5, Reg8: 4, UInt8: 2, string_id: 14796>  # String: 'assets' (Identifier)
+==> 0000009a: <LoadConstNull>: <Reg8: 4>
+==> 0000009c: <JStrictEqual>: <Addr8: 7, Reg8: 5, Reg8: 10>  # Address: 000000a3
+==> 000000a0: <Mov>: <Reg8: 4, Reg8: 5>
+==> 000000a3: <TypeOf>: <Reg8: 5, Reg8: 2>
+==> 000000a6: <LoadConstString>: <Reg8: 7, string_id: 15>  # String: 'number' (Identifier)
+==> 000000aa: <JStrictNotEqualLong>: <Addr32: 257, Reg8: 5, Reg8: 7>  # Address: 000001ab
+==> 000000b1: <TypeOf>: <Reg8: 7, Reg8: 4>
+==> 000000b4: <JStrictEqual>: <Addr8: 11, Reg8: 7, Reg8: 12>  # Address: 000000bf
+==> 000000b8: <JStrictNotEqualLong>: <Addr32: 185, Reg8: 4, Reg8: 9>  # Address: 00000171
+==> 000000bf: <LoadFromEnvironment>: <Reg8: 9, Reg8: 6, UInt8: 3>
+==> 000000c3: <LoadFromEnvironment>: <Reg8: 0, Reg8: 0, UInt8: 0>
+==> 000000c7: <Call3>: <Reg8: 0, Reg8: 9, Reg8: 10, Reg8: 11, Reg8: 0>
+==> 000000cd: <PutById>: <Reg8: 0, Reg8: 8, UInt8: 1, string_id: 34>  # String: '_state' (Identifier)
+==> 000000d3: <LoadFromEnvironment>: <Reg8: 8, Reg8: 6, UInt8: 8>
+==> 000000d7: <GetByIdShort>: <Reg8: 9, Reg8: 8, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 000000dc: <CreateThis>: <Reg8: 9, Reg8: 9, Reg8: 8>
+==> 000000e0: <Mov>: <Reg8: 25, Reg8: 9>
+==> 000000e3: <Mov>: <Reg8: 24, Reg8: 0>
+==> 000000e6: <Construct>: <Reg8: 8, Reg8: 8, UInt8: 2>
+==> 000000ea: <SelectObject>: <Reg8: 8, Reg8: 9, Reg8: 8>
+==> 000000ee: <PutById>: <Reg8: 0, Reg8: 8, UInt8: 2, string_id: 19996>  # String: '_ipc' (Identifier)
+==> 000000f4: <GetById>: <Reg8: 9, Reg8: 0, UInt8: 4, string_id: 16206>  # String: 'terminate' (Identifier)
+==> 000000fa: <GetByIdShort>: <Reg8: 8, Reg8: 9, UInt8: 5, string_id: 58>  # String: 'bind' (Identifier)
+==> 000000ff: <Call2>: <Reg8: 21, Reg8: 8, Reg8: 9, Reg8: 0>
+==> 00000104: <LoadFromEnvironment>: <Reg8: 13, Reg8: 6, UInt8: 6>
+==> 00000108: <GetByIdShort>: <Reg8: 12, Reg8: 13, UInt8: 6, string_id: 17>  # String: 'init' (Identifier)
+==> 0000010d: <GetById>: <Reg8: 6, Reg8: 0, UInt8: 7, string_id: 19996>  # String: '_ipc' (Identifier)
+==> 00000113: <GetById>: <Reg8: 20, Reg8: 6, UInt8: 8, string_id: 20120>  # String: '_poll' (Identifier)
+==> 00000119: <GetById>: <Reg8: 8, Reg8: 0, UInt8: 9, string_id: 19361>  # String: '_onsuspend' (Identifier)
+==> 0000011f: <GetByIdShort>: <Reg8: 6, Reg8: 8, UInt8: 5, string_id: 58>  # String: 'bind' (Identifier)
+==> 00000124: <Call2>: <Reg8: 19, Reg8: 6, Reg8: 8, Reg8: 0>
+==> 00000129: <GetById>: <Reg8: 8, Reg8: 0, UInt8: 10, string_id: 19394>  # String: '_onwakeup' (Identifier)
+==> 0000012f: <GetByIdShort>: <Reg8: 6, Reg8: 8, UInt8: 5, string_id: 58>  # String: 'bind' (Identifier)
+==> 00000134: <Call2>: <Reg8: 18, Reg8: 6, Reg8: 8, Reg8: 0>
+==> 00000139: <GetById>: <Reg8: 8, Reg8: 0, UInt8: 11, string_id: 16000>  # String: '_onidle' (Identifier)
+==> 0000013f: <GetByIdShort>: <Reg8: 6, Reg8: 8, UInt8: 5, string_id: 58>  # String: 'bind' (Identifier)
+==> 00000144: <Call2>: <Reg8: 17, Reg8: 6, Reg8: 8, Reg8: 0>
+==> 00000149: <GetById>: <Reg8: 15, Reg8: 0, UInt8: 12, string_id: 20094>  # String: '_onresume' (Identifier)
+==> 0000014f: <GetByIdShort>: <Reg8: 6, Reg8: 15, UInt8: 5, string_id: 58>  # String: 'bind' (Identifier)
+==> 00000154: <Call2>: <Reg8: 16, Reg8: 6, Reg8: 15, Reg8: 0>
+==> 00000159: <Mov>: <Reg8: 25, Reg8: 13>
+==> 0000015c: <Mov>: <Reg8: 24, Reg8: 1>
+==> 0000015f: <Mov>: <Reg8: 23, Reg8: 2>
+==> 00000162: <Mov>: <Reg8: 22, Reg8: 4>
+==> 00000165: <Call>: <Reg8: 6, Reg8: 12, UInt8: 10>
+==> 00000169: <PutById>: <Reg8: 0, Reg8: 6, UInt8: 3, string_id: 19943>  # String: '_handle' (Identifier)
+==> 0000016f: <Ret>: <Reg8: 0>
+==> 00000171: <GetGlobalObject>: <Reg8: 0>
+==> 00000173: <TryGetById>: <Reg8: 6, Reg8: 0, UInt8: 13, string_id: 30>  # String: 'TypeError' (Identifier)
+==> 00000179: <LoadConstString>: <Reg8: 0, string_id: 1443>  # String: 'Asset path must be a string. Received type ' (String)
+==> 0000017d: <Add>: <Reg8: 7, Reg8: 0, Reg8: 7>
+==> 00000181: <LoadConstString>: <Reg8: 0, string_id: 1482>  # String: ' (' (String)
+==> 00000185: <Add>: <Reg8: 0, Reg8: 7, Reg8: 0>
+==> 00000189: <Add>: <Reg8: 7, Reg8: 0, Reg8: 4>
+==> 0000018d: <GetByIdShort>: <Reg8: 0, Reg8: 6, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000192: <CreateThis>: <Reg8: 4, Reg8: 0, Reg8: 6>
+==> 00000196: <LoadConstString>: <Reg8: 0, string_id: 1576>  # String: ')' (String)
+==> 0000019a: <Add>: <Reg8: 24, Reg8: 7, Reg8: 0>
+==> 0000019e: <Mov>: <Reg8: 25, Reg8: 4>
+==> 000001a1: <Construct>: <Reg8: 0, Reg8: 6, UInt8: 2>
+==> 000001a5: <SelectObject>: <Reg8: 0, Reg8: 4, Reg8: 0>
+==> 000001a9: <Throw>: <Reg8: 0>
+==> 000001ab: <GetGlobalObject>: <Reg8: 0>
+==> 000001ad: <TryGetById>: <Reg8: 4, Reg8: 0, UInt8: 13, string_id: 30>  # String: 'TypeError' (Identifier)
+==> 000001b3: <LoadConstString>: <Reg8: 0, string_id: 2788>  # String: 'Memory limit must be a number. Received type ' (String)
+==> 000001b7: <Add>: <Reg8: 5, Reg8: 0, Reg8: 5>
+==> 000001bb: <LoadConstString>: <Reg8: 0, string_id: 1482>  # String: ' (' (String)
+==> 000001bf: <Add>: <Reg8: 0, Reg8: 5, Reg8: 0>
+==> 000001c3: <Add>: <Reg8: 5, Reg8: 0, Reg8: 2>
+==> 000001c7: <GetByIdShort>: <Reg8: 0, Reg8: 4, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 000001cc: <CreateThis>: <Reg8: 2, Reg8: 0, Reg8: 4>
+==> 000001d0: <LoadConstString>: <Reg8: 0, string_id: 1576>  # String: ')' (String)
+==> 000001d4: <Add>: <Reg8: 24, Reg8: 5, Reg8: 0>
+==> 000001d8: <Mov>: <Reg8: 25, Reg8: 2>
+==> 000001db: <Construct>: <Reg8: 0, Reg8: 4, UInt8: 2>
+==> 000001df: <SelectObject>: <Reg8: 0, Reg8: 2, Reg8: 0>
+==> 000001e3: <Throw>: <Reg8: 0>
+==> 000001e5: <GetGlobalObject>: <Reg8: 0>
+==> 000001e7: <TryGetById>: <Reg8: 2, Reg8: 0, UInt8: 13, string_id: 30>  # String: 'TypeError' (Identifier)
+==> 000001ed: <LoadConstString>: <Reg8: 0, string_id: 4537>  # String: 'ID must be a string. Received type ' (String)
+==> 000001f1: <Add>: <Reg8: 3, Reg8: 0, Reg8: 3>
+==> 000001f5: <LoadConstString>: <Reg8: 0, string_id: 1482>  # String: ' (' (String)
+==> 000001f9: <Add>: <Reg8: 0, Reg8: 3, Reg8: 0>
+==> 000001fd: <Add>: <Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000201: <GetByIdShort>: <Reg8: 0, Reg8: 2, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000206: <CreateThis>: <Reg8: 1, Reg8: 0, Reg8: 2>
+==> 0000020a: <LoadConstString>: <Reg8: 0, string_id: 1576>  # String: ')' (String)
+==> 0000020e: <Add>: <Reg8: 24, Reg8: 3, Reg8: 0>
+==> 00000212: <Mov>: <Reg8: 25, Reg8: 1>
+==> 00000215: <Construct>: <Reg8: 0, Reg8: 2, UInt8: 2>
+==> 00000219: <SelectObject>: <Reg8: 0, Reg8: 1, Reg8: 0>
+==> 0000021d: <Throw>: <Reg8: 0>
+
+
+===============
+

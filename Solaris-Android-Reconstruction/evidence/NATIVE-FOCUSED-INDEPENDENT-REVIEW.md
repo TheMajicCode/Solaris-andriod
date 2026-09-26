@@ -1,0 +1,23 @@
+# Focused independent native contract review
+
+Date: 2026-09-15. Scope: direct review of retained code601 decompiler output for L5.b, L5.s, related native bridge classes and constant providers. Exact inspected source hashes are in `NATIVE-FOCUSED-REVIEW-HASHES.json`. This does not claim all 254 classes were behaviorally audited, compiled or executed.
+
+## Findings
+
+1. The documented portable recovery byte envelope is grounded in L5.b: ASCII magic `SVCORE1\n`; 32-byte salt; 12-byte IV; big-endian length at offset 52; complete 56-byte header as AAD; ciphertext plus 16-byte tag; plaintext 1..16,777,216 bytes; exact total plaintext+72. KDF is PBKDF2-HMAC-SHA256, 600,000 iterations, 256-bit key. Both GCM call sites resolve tag bits to 128 through the retained constant provider. Strict UTF-8 decoding is a separate method. These contracts are sufficiently specific for a **storage-free, unwired reference codec** with independent interoperability tests.
+2. Passphrase handling preserves NFC normalization, a minimum 20 Unicode code points and maximum 1,024 Java UTF-8 bytes. It neither trims nor uses UTF-16 code-unit count. Java malformed-surrogate behavior and the chosen cryptographic provider require explicit scope notes; desktop-provider tests do not prove Android-provider behavior for every input.
+3. Receipt verification requires <=65,536 UTF-8 body bytes and 64 lowercase-hex digest characters, computes HMAC-SHA256, and uses MessageDigest.isEqual. It does not canonicalize JSON. Any outer receipt reconstruction must preserve original serialized body bytes.
+4. L5.s establishes the existing private files root `solaris-vault/v1`, wrapping alias `solaris.vault.wrap.v1`, AtomicFile `keys.sealed`, marker `core.initialized`, and `core.db` expectation. Alias creation is refused if sealed data exists, creation is disallowed, or missing sealed data conflicts with existing database/marker. Existing sealed keys are read/decrypted instead of allocating replacement IDs. An existing-vault caller supplying recovery data is rejected. These behaviors support the documented fail-closed reconstruction requirements.
+5. New-vault/restore paths validate the new subject/owner/secret fields. Existing sealed-file opening decrypts and parses stored data; do not infer from the documentation table that the same regex validation runs against every existing field on every open. Recovery intentionally preserves subjectId/ownerId/ownerSecret/receiptKey while creating deviceId/databaseKey for a **fresh** restore. This must not be applied to an in-place upgrade.
+6. NativeVault.newId is now established from module registration in L5.m and L5.m$K: UUID.randomUUID().toString(). This completes the earlier limited Health import finding: health and receipt IDs use their existing prefixes plus this UUID text. Existing IDs must remain verbatim.
+7. Recovery preview L5.m$h$a authenticates/decrypts, strict-decodes UTF-8, invokes n validation, requires outer/core and owner capsule format values, checks matching owner/subject in the manifest, bounds receipts at 50,000 and verifies every receipt MAC before exposing stripped payload. This is useful partial outer-contract evidence, not a full JS state/record validator or restore acceptance proof.
+
+## Additional decompiler uncertainty requiring resolution
+
+The structured L5.n$a strict-JSON parser contains suspicious recovered control flow despite having no explicit `Method not decompiled` placeholder: the unicode-escape branch appears to append an additional literal `u`, and object comma iteration has an unreachable-looking throw. This reviewer has **not** established that these are actual APK bugs. They may be structured decompiler artifacts. Native recovery was notified to inspect fallback/bytecode and classify the uncertainty. Do not recreate a JSON acceptance policy from this structured output alone or silently fix it in an assumed-compatible importer.
+
+The broader native report correctly refuses a compile-ready/build-ready claim. Decompiled attachment/model/runtime paths have separately recorded failures/artifacts; no compatible Android replacement is established by source coverage counts.
+
+## Decision
+
+The inspected envelope and HMAC primitives support an isolated reference implementation and targeted synthetic tests. They do not authorize wiring a new codec to real owner data, replacing vault keys, modifying recovery formats, or producing a signed candidate. Full native/JS source compatibility, historical state migration/transaction semantics, Android authentication behavior, model handling and lifecycle authority remain separate gates.

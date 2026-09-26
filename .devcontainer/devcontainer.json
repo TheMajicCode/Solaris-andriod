@@ -1,0 +1,41 @@
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.base.schema.json",
+  "name": "Solaris Android audit workspace",
+
+  // DISCLOSURE — read before trusting this configuration:
+  //   * This devcontainer has NOT been launched or tested. Nothing in this
+  //     repository was produced inside it.
+  //   * The image below is a floating tag, NOT pinned to a digest. Pin it only
+  //     after selecting and actually testing a specific image.
+  //   * The two features are floating major tags too (`python:1`, `node:1`),
+  //     and their language versions are selectors, not the CI pins. CI pins
+  //     Python and Node exactly; this file does not.
+  //   * It is an audit and documentation workspace. It does NOT provide an
+  //     Android SDK, Gradle, NDK, the phone model or the reference build tools,
+  //     and adding them would not make this a buildable Android project — the
+  //     original native source is missing.
+  //   * No model download, signing step, credential mount or opaque install
+  //     hook belongs here. Do not add one.
+  //   * The private 604 reference must never be mounted into a shared or
+  //     untrusted environment; it contains private phone evidence.
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.12" },
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" }
+  },
+
+  "postCreateCommand": "python3 --version && node --version && echo 'Run: python3 tools/repo-check.py'",
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"],
+      "settings": {
+        "files.trimTrailingWhitespace": false,
+        "editor.formatOnSave": false
+      }
+    }
+  },
+
+  "remoteUser": "vscode"
+}

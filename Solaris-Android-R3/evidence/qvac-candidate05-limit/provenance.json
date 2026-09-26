@@ -1,0 +1,38 @@
+{
+  "bundle": "solaris-603-work/Solaris-Android-R3/evidence/candidate-05/candidate603.hbc",
+  "bundle_sha256": "a72bfba8f3f27c5b74b8a59b2055f8c3f11e5fe5ab46814fb4d785241022bb72",
+  "test_sha256": "46d5916a7df7b1353772d188e2ac18d6b16d84b095eead7713f082ac7ef26bce",
+  "expected_source_sha256": "33f7e34b75c5e0b15bc7af32df1b2084c483792549be2295f73e7b8e32af6042",
+  "shared_fixture_sha256": "f3e370d994b9636b6530fe2cc711cbed413fd54c96cbb48b6cd4f73b607aaa5d",
+  "compiled": [
+    {
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/qvac-candidate05-limit/run-p8j_bk23/shared.compiled.js",
+      "sha256": "8c6c5a192cfbfd42141fcaaef031a4404ecff6fa5fa1a57b96810ad4d2dd0697"
+    },
+    {
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/qvac-candidate05-limit/run-p8j_bk23/expected.compiled.js",
+      "sha256": "e98a7b5fcdbe9eb56e650811879b6335044cec96c5bfd044ac173c474c1299ce"
+    },
+    {
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/qvac-candidate05-limit/run-p8j_bk23/qvac.compiled.js",
+      "sha256": "9597fb3cb39905c8257d13de79c93e18d8ec3fce589504da433d67a7f019c7cd"
+    }
+  ],
+  "command": [
+    "python",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/evidence/integration-feasibility/run-hermes-reference.py",
+    "--tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/reconstruction-work/r2-tools",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R2/tests/hermes/capture-prelude.js",
+    "solaris-603-work/Solaris-Android-R3/evidence/candidate-05/candidate603.hbc",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/qvac-candidate05-limit/run-p8j_bk23/shared.compiled.js",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/qvac-candidate05-limit/run-p8j_bk23/expected.compiled.js",
+    "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/evidence/qvac-candidate05-limit/run-p8j_bk23/qvac.compiled.js"
+  ],
+  "returncode": 0,
+  "limitations": [
+    "Actual patched QvacService and original compiler module execute in matching desktop Hermes",
+    "Native SDK/model/timers/provisioner are explicit synthetic fixtures",
+    "No wall-clock timeout, Android background scheduling or on-device inference proof"
+  ]
+}

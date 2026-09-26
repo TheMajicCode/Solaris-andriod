@@ -1,0 +1,7 @@
+[
+  "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/ninja-1.11.1.4/ninja-1.11.1.4.data/scripts/ninja",
+  "-C",
+  "/workspace/scratch/7a1f5a13b137/reconstruction-work/r2-tools/hermes-build",
+  "-j6",
+  "libhermes"
+]

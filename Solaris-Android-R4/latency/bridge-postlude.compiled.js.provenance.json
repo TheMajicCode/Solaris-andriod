@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "bridge-postlude.js",
+  "output": "bridge-postlude.compiled.js",
+  "inputSha256": "7a71ecc97021e0eb5c88157cca22d69385497819414df3f548e97d1c6b1edbd7",
+  "outputSha256": "50d410b2d64298b9d427a83ce9c1a100f8527f10ab1bf4e20ac3d8392bed8cf1",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "bridge-postlude.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+[
+  {
+    "class": "LK5/A0;",
+    "method": "<init>",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "Qwen3-0.6B-Q4_0.gguf",
+      "solaris-model-transfer-v2",
+      "solaris-qvac-download.json",
+      "solaris-qvac-models"
+    ]
+  },
+  {
+    "class": "LK5/A0;",
+    "method": "f",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-models"
+    ]
+  },
+  {
+    "class": "LK5/A0;",
+    "method": "l",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "Qwen3-0.6B-Q4_0.gguf"
+    ]
+  },
+  {
+    "class": "LK5/A0;",
+    "method": "d",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-models"
+    ]
+  },
+  {
+    "class": "LK5/J0;",
+    "method": "<init>",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-runtime-recovery-v2"
+    ]
+  },
+  {
+    "class": "LK5/e0;",
+    "method": "l",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-health-snapshot/1"
+    ]
+  },
+  {
+    "class": "LL5/b;",
+    "method": "a",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "AES/GCM/NoPadding"
+    ]
+  },
+  {
+    "class": "LL5/b;",
+    "method": "b",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "PBKDF2WithHmacSHA256"
+    ]
+  },
+  {
+    "class": "LL5/b;",
+    "method": "c",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "AES/GCM/NoPadding"
+    ]
+  },
+  {
+    "class": "LL5/m$f;",
+    "method": "run",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-attachment-unlock-check/1"
+    ]
+  },
+  {
+    "class": "LL5/m$h$a;",
+    "method": "invoke",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-core-payload/1",
+      "solaris-owner-recovery/1"
+    ]
+  },
+  {
+    "class": "LL5/m$m;",
+    "method": "b",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-attachment-unlock-check/1"
+    ]
+  },
+  {
+    "class": "LL5/m$o;",
+    "method": "b",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-attachment-unlock-check/1"
+    ]
+  },
+  {
+    "class": "LL5/m;",
+    "method": "d",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "SolarisVault"
+    ]
+  },
+  {
+    "class": "LL5/s;",
+    "method": "<init>",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-vault/v1",
+      "solaris.vault.wrap.v1"
+    ]
+  },
+  {
+    "class": "LL5/s;",
+    "method": "o",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "AndroidKeyStore"
+    ]
+  },
+  {
+    "class": "LL5/s;",
+    "method": "l",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "AES/GCM/NoPadding",
+      "solaris-native-owner/1",
+      "solaris-owner-keys/1"
+    ]
+  },
+  {
+    "class": "LL5/s;",
+    "method": "m",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "AndroidKeyStore"
+    ]
+  },
+  {
+    "class": "LL5/s;",
+    "method": "n",
+    "sourcefile": "SourceFile",
+    "matches": [
+      "solaris-owner-recovery/1"
+    ]
+  }
+]

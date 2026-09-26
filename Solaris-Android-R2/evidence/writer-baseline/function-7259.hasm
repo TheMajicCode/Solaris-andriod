@@ -1,0 +1,15 @@
+=> [Function #7259 "" of 24 bytes]: 2 params, frame size=13, strict=1, exc handler=0, debug info=0  @ offset 0x01c3045d
+
+Bytecode listing:
+
+==> 00000000: <GetGlobalObject>: <Reg8: 0>
+==> 00000002: <TryGetById>: <Reg8: 3, Reg8: 0, UInt8: 1, string_id: 18135>  # String: 'setTimeout' (Identifier)
+==> 00000008: <LoadConstUndefined>: <Reg8: 2>
+==> 0000000a: <LoadParam>: <Reg8: 1, UInt8: 1>
+==> 0000000d: <LoadConstUInt8>: <Reg8: 0, UInt8: 20>
+==> 00000010: <Call3>: <Reg8: 0, Reg8: 3, Reg8: 2, Reg8: 1, Reg8: 0>
+==> 00000016: <Ret>: <Reg8: 0>
+
+
+===============
+

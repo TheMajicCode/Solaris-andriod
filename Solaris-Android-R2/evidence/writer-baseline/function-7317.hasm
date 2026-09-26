@@ -1,0 +1,23 @@
+=> [Function #7317 "" of 57 bytes]: 1 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c313d6
+
+Bytecode listing:
+
+==> 00000000: <GetEnvironment>: <Reg8: 0, UInt8: 0>
+==> 00000003: <LoadFromEnvironment>: <Reg8: 2, Reg8: 0, UInt8: 0>
+==> 00000007: <GetEnvironment>: <Reg8: 0, UInt8: 8>
+==> 0000000a: <LoadFromEnvironment>: <Reg8: 0, Reg8: 0, UInt8: 12>
+==> 0000000e: <GetById>: <Reg8: 4, Reg8: 0, UInt8: 1, string_id: 17316>  # String: 'RuntimeError' (Identifier)
+==> 00000014: <GetByIdShort>: <Reg8: 0, Reg8: 4, UInt8: 2, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000019: <CreateThis>: <Reg8: 1, Reg8: 0, Reg8: 4>
+==> 0000001d: <LoadConstString>: <Reg8: 6, string_id: 5999>  # String: 'FIRST_TOKEN_TIMEOUT' (String)
+==> 00000021: <LoadConstString>: <Reg8: 5, string_id: 38>  # String: 'stream' (Identifier)
+==> 00000025: <Mov>: <Reg8: 7, Reg8: 1>
+==> 00000028: <Construct>: <Reg8: 0, Reg8: 4, UInt8: 3>
+==> 0000002c: <SelectObject>: <Reg8: 1, Reg8: 1, Reg8: 0>
+==> 00000030: <LoadConstUndefined>: <Reg8: 0>
+==> 00000032: <Call2>: <Reg8: 0, Reg8: 2, Reg8: 0, Reg8: 1>
+==> 00000037: <Ret>: <Reg8: 0>
+
+
+===============
+

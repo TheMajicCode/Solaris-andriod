@@ -1,0 +1,98 @@
+{
+  "baselineSha256": "d37c2cca5a60085924bf777e0c0428144f5955799e3d5e1b767e4dce0a7618a9",
+  "candidateSha256": "ef223edffb22dbbcafded33f94c54ec2c784121ecba006ac9cea29c9325642e2",
+  "changes": [
+    {
+      "old": "function repairText(en,es)",
+      "new": "// Presentation only. No model inference, permissions or records are changed here.\nlet chatProof=null,chatStartedAt=null,chatPendingId=null;\nconst chatErrorGroups={\n FIRST_TOKEN_TIMEOUT:'first',QVAC_FIRST_TOKEN_TIMEOUT:'first',\n STREAM_TIMEOUT:'timeout',COMPLETION_TIMEOUT:'timeout',QVAC_COMPLETION_TIMEOUT:'timeout',QVAC_TIMEOUT:'timeout',\n EMPTY_COMPLETION:'empty',QVAC_EMPTY_COMPLETION:'empty',OUTPUT_LIMIT:'limit',\n CANDIDATE_INVALID:'invalid',CANDIDATE_UNGROUNDED:'ungrounded',CANDIDATE_UNSAFE:'unsafe',CANDIDATE_NEGATION:'negation',\n SETTLEMENT_UNCONFIRMED:'cleanup',RUNTIME_RESTART_REQUIRED:'cleanup',\n LOCAL_PERMISSION_REQUIRED:'permission',CONTEXT_BUDGET:'context',CANCELLED:'cancelled',ACTIVITY_ENTERS_BACKGROUND:'background',VAULT_LOCKED:'locked',\n LUCA_RESPONSE_UNAVAILABLE:'unknown',OPERATION_FAILED:'unknown',\n QVAC_LIFECYCLE_OPERATION_BLOCKED:'runtime',QVAC_LIFECYCLE_SUSPEND_FAILED:'runtime',QVAC_LIFECYCLE_RESUME_FAILED:'runtime',QVAC_MODEL_LOAD_FAILED:'runtime',QVAC_RPC_CONNECTION_FAILED:'runtime',QVAC_RPC_INIT_TIMEOUT:'runtime',QVAC_WORKER_CRASHED:'runtime',QVAC_WORKER_SHUTDOWN:'runtime',QVAC_CONTEXT_OVERFLOW:'runtime',QVAC_COMPLETION_FAILED:'runtime',QVAC_NOT_READY:'runtime',WORKER_RECOVERY_REQUIRED:'runtime',\n BRIDGE_REPLY_TIMEOUT:'bridge',BRIDGE_ACK_TIMEOUT:'bridge',BRIDGE_SEND_FAILED:'bridge'\n};\nfunction safeChatCode(code){return typeof code==='string'&&Object.hasOwn(chatErrorGroups,code)?code:'OPERATION_FAILED'}\nfunction chatFailureMessage(code){\n const kind=chatErrorGroups[safeChatCode(code)],messages={\n first:['The local model did not start replying in time. Your draft is kept. Try again or check LUCA AI setup.','El modelo local no empezó a responder a tiempo. Tu borrador se conserva. Reintenta o revisa la configuración de LUCA AI.'],\n timeout:['The local reply did not finish in time. Your draft is kept. You can try again.','La respuesta local no terminó a tiempo. Tu borrador se conserva. Puedes reintentar.'],\n limit:['The local reply reached its length limit before finishing. Your draft is kept. You can try again.','La respuesta local alcanzó su límite de longitud antes de terminar. Tu borrador se conserva. Puedes reintentar.'],\n empty:['The local model finished without an answer. Your draft is kept. You can try again.','El modelo local terminó sin una respuesta. Tu borrador se conserva. Puedes reintentar.'],\n invalid:['The reply could not be read in the required format. Your draft is kept. You can try again.','No se pudo leer la respuesta en el formato requerido. Tu borrador se conserva. Puedes reintentar.'],\n ungrounded:['The reply could not be verified against the selected sources, so it was not shown. Your draft is kept.','No se pudo verificar la respuesta con las fuentes seleccionadas y no se mostró. Tu borrador se conserva.'],\n unsafe:['The reply did not pass the answer checks, so it was not shown. Your draft is kept.','La respuesta no pasó las comprobaciones y no se mostró. Tu borrador se conserva.'],\n negation:['The reply changed a meaning that needed to be preserved, so it was not shown. Your draft is kept.','La respuesta cambió un significado que debía conservarse y no se mostró. Tu borrador se conserva.'],\n cleanup:['The local engine did not confirm it stopped. Copy your draft before closing Solaris from recent apps and reopening it to retry.','El motor local no confirmó su detención. Copia tu borrador antes de cerrar Solaris desde las aplicaciones recientes y volver a abrirlo para reintentar.'],\n permission:['Local AI permission is off or expired. Your draft is kept. Review AI permissions to continue.','El permiso de IA local está desactivado o vencido. Tu borrador se conserva. Revisa los permisos de IA para continuar.'],\n context:['The selected context exceeds this model’s limit. Your draft is kept. Choose fewer sources or shorten a long message.','El contexto seleccionado supera el límite de este modelo. Tu borrador se conserva. Elige menos fuentes o acorta un mensaje largo.'],\n cancelled:['The request was stopped. Your draft is kept.','La solicitud se detuvo. Tu borrador se conserva.'],\n background:['The request was interrupted when Solaris left the foreground. Your draft is kept. Keep Solaris open when you retry.','La solicitud se interrumpió al pasar Solaris a segundo plano. Tu borrador se conserva. Mantén Solaris abierto al reintentar.'],\n locked:['Your Vault is locked. Unlock to continue.','Tu bóveda está bloqueada. Desbloquéala para continuar.'],\n bridge:['The app did not receive confirmation from the local engine. Your draft is kept. Check LUCA AI setup before retrying.','La app no recibió confirmación del motor local. Tu borrador se conserva. Revisa la configuración de LUCA AI antes de reintentar.'],\n unknown:['The chat request failed, but its cause was not reported. Your draft is kept. Check LUCA AI setup before retrying.','La solicitud de chat falló sin informar la causa. Tu borrador se conserva. Revisa la configuración de LUCA AI antes de reintentar.']\n };\n return kind==='runtime'?(lucaErrorMessage(code)||repairText(...messages.unknown)):repairText(...messages[kind]);\n}\nfunction resetChatProof(){chatProof=null}\nfunction chatContextGrant(){return JSON.stringify(state.experience?.localContext||null)}\nfunction chatVerified(){\n if(!chatProof)return false;\n if(state.locked||!permitted()||chatProof.epoch!==privateEpoch||chatProof.owner!==state.ownerId||chatProof.expires!==state.grants?.expiresAt||chatProof.context!==chatContextGrant()||(chatProof.contextExpiry&&Date.parse(chatProof.contextExpiry)<=Date.now())){resetChatProof();return false}\n return true;\n}\nfunction recordChatResult(result,beforeIds,message,session){\n // Only the completed result of this normal-chat request can establish proof.\n // Historical replies, setup-test status, empty replies and unchanged state cannot.\n if(session!==privateEpoch||state.locked||result!==state||!permitted())return;\n const list=Array.isArray(result.conversation)?result.conversation:[],reply=list.at(-1),user=list.at(-2);\n if(!reply||!user||reply.role!=='assistant'||reply.mode!=='qvac-device'||typeof reply.id!=='string'||beforeIds.has(reply.id)||typeof reply.text!=='string'||!reply.text.trim()||user.role!=='user'||typeof user.id!=='string'||beforeIds.has(user.id)||user.text!==message)return;\n const contextExpiry=state.experience?.localContext?.expiresAt;chatProof={epoch:session,owner:state.ownerId,expires:state.grants.expiresAt,reply:reply.id,context:chatContextGrant(),contextExpiry:Date.parse(contextExpiry)>Date.now()?contextExpiry:null};\n}\nfunction chatWaitText(){return repairText(Date.now()-chatStartedAt<15000?'Preparing your local reply…':'Still waiting for a completed local reply…',Date.now()-chatStartedAt<15000?'Preparando tu respuesta local…':'Aún esperando una respuesta local completa…')}\nfunction updateChatWait(){\n const mode=root.querySelector('[data-mode]'),modeText=aiModeLabel();if(mode&&mode.textContent!==modeText)mode.textContent=modeText;\n const label=document.getElementById('chat-wait-label'),elapsed=document.getElementById('chat-wait-elapsed');\n if(!waiting||chatStartedAt===null)return;\n const text=chatWaitText();if(label&&label.textContent!==text)label.textContent=text;\n if(elapsed)elapsed.textContent=Math.max(0,Math.floor((Date.now()-chatStartedAt)/1000))+'s';\n}\n\nfunction repairText(en,es)"
+    },
+    {
+      "old": "function operationErrorMessage(code,action=''){",
+      "new": "function operationErrorMessage(code,action=''){\n if(action==='converse')return chatFailureMessage(code);"
+    },
+    {
+      "old": "function showError(code,action=''){errorCode=code;",
+      "new": "function showError(code,action=''){if(action==='converse')code=safeChatCode(code);errorCode=code;"
+    },
+    {
+      "old": "The local AI could not finish an answer. Your draft is kept; try a shorter question or fewer selected records.",
+      "new": "The local AI could not finish an answer. Your draft is kept. You can retry or check LUCA AI setup."
+    },
+    {
+      "old": "La IA local no pudo terminar una respuesta. Tu borrador se conserva; prueba una pregunta más corta o menos registros seleccionados.",
+      "new": "La IA local no pudo terminar una respuesta. Tu borrador se conserva. Puedes reintentar o revisar la configuración de LUCA AI."
+    },
+    {
+      "old": "state={...next,hasVault:next.hasVault??state.hasVault};if(!state.locked)",
+      "new": "if(next.locked||next.ownerId!==state.ownerId||next.grants?.local!==true||next.grants?.expiresAt!==state.grants?.expiresAt)resetChatProof();state={...next,hasVault:next.hasVault??state.hasVault};if(!state.locked)"
+    },
+    {
+      "old": "if(state.locked){privateEpoch++;healthStatus=null;",
+      "new": "if(state.locked){privateEpoch++;resetChatProof();chatPendingId=null;chatStartedAt=null;healthStatus=null;"
+    },
+    {
+      "old": "const ai=lucaErrorMessage(errorCode)||",
+      "new": "const ai=errorAction==='converse'||lucaErrorMessage(errorCode)||"
+    },
+    {
+      "old": "</span>${action}`}\nfunction updateError",
+      "new": "</span>${action}${errorAction==='converse'?`<details><summary>${repairText('Details for support','Detalles para soporte')}</summary><code>${esc(safeChatCode(errorCode))}</code></details>`:''}`}\nfunction updateError"
+    },
+    {
+      "old": "${esc(m.text)}<small>${m.role==='user'?'You':m.mode==='qvac-device'?'Pocket LUCA AI · on this phone':'LUCA AI · guided support'}",
+      "new": "${esc(m.text)}<small>${m.role==='user'?tr('You'):m.mode==='qvac-device'?repairText('Pocket LUCA AI · generated on this phone','Pocket LUCA AI · generado en este teléfono'):repairText('Guided support · predefined','Apoyo guiado · predefinido')}"
+    },
+    {
+      "old": "aria-live=\"polite\" ${waiting?'':'hidden'}>LUCA is thinking on your phone…</div>",
+      "new": "aria-busy=\"${waiting}\" ${waiting?'':'hidden'}><span id=\"chat-wait-label\" role=\"status\">${esc(chatWaitText())}</span> <span id=\"chat-wait-elapsed\" aria-hidden=\"true\"></span><small>${repairText('You can stop. Your draft stays here.','Puedes detener la solicitud. Tu borrador sigue aquí.')}</small></div>"
+    },
+    {
+      "old": "if(p.state==='ready')return Date.now()<readyUntil?{text:p.label,ready:true}:null;",
+      "new": "if(p.state==='ready')return Date.now()<readyUntil?{text:repairText('Model loaded · chat checked separately','Modelo cargado · chat se comprueba aparte'),ready:true}:null;"
+    },
+    {
+      "old": "text:'LUCA AI is ready on this phone'",
+      "new": "text:repairText('Model loaded · chat checked separately','Modelo cargado · chat se comprueba aparte')"
+    },
+    {
+      "old": "function aiModeLabel(){if(!permitted())return 'Local AI is off';if(modelLoaded)return runtimeStatus.inference?.state==='succeeded'?'Answered on this phone':'Loaded on this phone · ready to try';if(runtimeStatus.busy)return 'Preparing on this phone';if(runtimeStatus.blocked||runtimeStatus.recovery?.blocked)return 'Local AI needs a restart';return runtimeStatus.verified?'Saved on this phone · not started':'Your private companion'}",
+      "new": "function aiModeLabel(){if(!permitted()){resetChatProof();return tr('Local AI is off')}if(runtimeStatus.blocked||runtimeStatus.recovery?.blocked)return tr('Local AI needs a restart');if(waiting)return repairText('Waiting for a completed local reply','Esperando una respuesta local completa');if(chatVerified())return repairText('Chat answered in this session','El chat respondió en esta sesión');if(modelLoaded)return repairText('Model loaded · chat not verified this session','Modelo cargado · chat sin verificar en esta sesión');if(runtimeStatus.busy)return tr('Preparing on this phone');return runtimeStatus.verified?tr('Saved on this phone · not started'):repairText('Chat not verified this session','Chat sin verificar en esta sesión')}"
+    },
+    {
+      "old": "repairText('Model loaded · ready to try','Modelo cargado · listo para probar')",
+      "new": "repairText('Model loaded','Modelo cargado')"
+    },
+    {
+      "old": "</p>${p?.bytes!==undefined?",
+      "new": "</p><p>${esc(aiModeLabel())}</p>${p?.bytes!==undefined?"
+    },
+    {
+      "old": "'):code);}",
+      "new": "'):repairText('The local engine reported an unrecognized error.','El motor local informó un error no reconocido.'));}"
+    },
+    {
+      "old": "const ticket=navigationEpoch,session=privateEpoch,op=uid(),text=message;",
+      "new": "const ticket=navigationEpoch,session=privateEpoch,op=uid(),text=message,beforeIds=new Set((state.conversation||[]).map(m=>m.id));"
+    },
+    {
+      "old": "waiting=true;chatDraft=text;render();try{",
+      "new": "waiting=true;chatPendingId=op;chatStartedAt=Date.now();chatDraft=text;error='';updateError();render();try{"
+    },
+    {
+      "old": "adoptState(result);if(chatDraft===text)",
+      "new": "const accepted=adoptState(result);if(accepted.revision===result.revision)recordChatResult(accepted,beforeIds,text,session);if(chatDraft===text)"
+    },
+    {
+      "old": "catch(e){if(ticket===navigationEpoch&&session===privateEpoch)showError(e.message,'converse')}finally{waiting=false;",
+      "new": "catch(e){if(session===privateEpoch&&!state.locked){resetChatProof();showError(e.message,'converse')}}finally{if(chatPendingId!==op)return;waiting=false;chatPendingId=null;chatStartedAt=null;"
+    },
+    {
+      "old": "setInterval(()=>{refreshCalendarDay();updateSessionClock();",
+      "new": "setInterval(()=>{if(chatProof&&!chatVerified())updateRuntimeUI();updateChatWait();refreshCalendarDay();updateSessionClock();"
+    },
+    {
+      "old": "</style>\n<meta name=\"solaris-privacy-baseline\"",
+      "new": ".daily .message-wait small{display:block;margin-top:5px;color:var(--muted)}.daily .alertbar code{font-size:12px;overflow-wrap:anywhere}.daily .alertbar details summary{min-height:36px;padding:8px 0}\n</style>\n<meta name=\"solaris-privacy-baseline\""
+    }
+  ]
+}

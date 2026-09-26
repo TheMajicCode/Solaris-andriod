@@ -1,0 +1,24 @@
+=> [Function #7256 "" of 66 bytes]: 2 params, frame size=10, strict=1, exc handler=0, debug info=0  @ offset 0x01c30365
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 2, UInt8: 1>
+==> 00000003: <GetEnvironment>: <Reg8: 0, UInt8: 4>
+==> 00000006: <LoadFromEnvironment>: <Reg8: 1, Reg8: 0, UInt8: 0>
+==> 0000000a: <PutById>: <Reg8: 1, Reg8: 2, UInt8: 1, string_id: 16527>  # String: 'receivedBytes' (Identifier)
+==> 00000010: <LoadConstUInt8>: <Reg8: 0, UInt8: 100>
+==> 00000013: <Mul>: <Reg8: 2, Reg8: 0, Reg8: 2>
+==> 00000017: <GetEnvironment>: <Reg8: 0, UInt8: 8>
+==> 0000001a: <LoadFromEnvironment>: <Reg8: 0, Reg8: 0, UInt8: 9>
+==> 0000001e: <GetById>: <Reg8: 0, Reg8: 0, UInt8: 1, string_id: 14955>  # String: 'MODEL' (Identifier)
+==> 00000024: <GetById>: <Reg8: 0, Reg8: 0, UInt8: 2, string_id: 14372>  # String: 'bytes' (Identifier)
+==> 0000002a: <Div>: <Reg8: 0, Reg8: 2, Reg8: 0>
+==> 0000002e: <PutById>: <Reg8: 1, Reg8: 0, UInt8: 2, string_id: 16139>  # String: 'progress' (Identifier)
+==> 00000034: <GetById>: <Reg8: 0, Reg8: 1, UInt8: 3, string_id: 21077>  # String: 'publishProgress' (Identifier)
+==> 0000003a: <Call1>: <Reg8: 0, Reg8: 0, Reg8: 1>
+==> 0000003e: <LoadConstUndefined>: <Reg8: 0>
+==> 00000040: <Ret>: <Reg8: 0>
+
+
+===============
+

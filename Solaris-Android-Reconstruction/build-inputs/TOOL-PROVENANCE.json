@@ -1,0 +1,27 @@
+{
+  "tools": [
+    {
+      "name": "JADX",
+      "version": "1.5.6",
+      "archive": "toolchain/jadx-1.5.6.zip",
+      "url": "https://github.com/skylot/jadx/releases/download/v1.5.6/jadx-1.5.6.zip",
+      "sha256": "545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974"
+    },
+    {
+      "name": "hermes-dec",
+      "commit": "a0f18f97ab661eb8ed659c8c683a0d21ea619e69",
+      "archive": "toolchain/hermes-dec-a0f18f97ab661eb8ed659c8c683a0d21ea619e69.zip",
+      "url": "https://codeload.github.com/P1sec/hermes-dec/zip/a0f18f97ab661eb8ed659c8c683a0d21ea619e69",
+      "sha256": "8b14716ae7d571d130bceee120956b3c3bab5533955cc67da86fbc3fbb7ce52f"
+    },
+    {
+      "name": "Android build tools",
+      "version": "36.0.0",
+      "archive": "toolchain/android-build-tools-r36.zip",
+      "url": "https://dl.google.com/android/repository/build-tools_r36_linux.zip",
+      "sha256": "5d9ac77fb6ff43d9da518a337b4fcf8f9097113df531d99ccefe80ef7ce8250b"
+    }
+  ],
+  "keysIncluded": false,
+  "toolPinsDoNotEstablishOriginalNativeBuildGraph": true
+}

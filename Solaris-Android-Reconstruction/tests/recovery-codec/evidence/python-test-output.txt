@@ -1,0 +1,5 @@
+PASS minimum Java encrypt to Python decrypt exact bytes
+PASS unicode Java encrypt to Python decrypt exact bytes
+PASS binary Java encrypt to Python decrypt exact bytes
+PASS maximum 16777216-byte Java encrypt to Python decrypt exact bytes
+PYTHON_CHECKS=4

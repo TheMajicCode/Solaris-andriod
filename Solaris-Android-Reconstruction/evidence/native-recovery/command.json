@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "bash",
+    "reconstruction-work/toolchain/jadx/bin/jadx",
+    "-r",
+    "-j",
+    "4",
+    "--log-level",
+    "warn",
+    "--no-inline-anonymous",
+    "--no-inline-methods",
+    "--no-inline-kotlin-lambda",
+    "--no-move-inner-classes",
+    "--use-source-name-as-class-name-alias",
+    "never",
+    "-d",
+    "reconstruction-work/code601-jadx-all",
+    "reconstruction-work/code601-classes.dex"
+  ],
+  "exit_code": 3,
+  "note": "Full DEX decompilation emitted all sources but had 21 errors in dependency classes. Solaris package failures are separately inventoried; readable Java is reference only."
+}

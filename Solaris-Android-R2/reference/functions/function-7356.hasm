@@ -1,0 +1,27 @@
+=> [Function #7356 "" of 80 bytes]: 1 params, frame size=17, strict=1, exc handler=0, debug info=0  @ offset 0x01c3261f
+
+Bytecode listing:
+
+==> 00000000: <GetEnvironment>: <Reg8: 0, UInt8: 4>
+==> 00000003: <LoadFromEnvironment>: <Reg8: 3, Reg8: 0, UInt8: 7>
+==> 00000007: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 1, string_id: 17195>  # String: 'writeAsStringAsync' (Identifier)
+==> 0000000d: <GetEnvironment>: <Reg8: 6, UInt8: 0>
+==> 00000010: <LoadFromEnvironment>: <Reg8: 0, Reg8: 6, UInt8: 0>
+==> 00000014: <GetById>: <Reg8: 1, Reg8: 0, UInt8: 2, string_id: 15716>  # String: 'choicePath' (Identifier)
+==> 0000001a: <GetGlobalObject>: <Reg8: 0>
+==> 0000001c: <TryGetById>: <Reg8: 5, Reg8: 0, UInt8: 3, string_id: 10>  # String: 'JSON' (Identifier)
+==> 00000022: <GetByIdShort>: <Reg8: 4, Reg8: 5, UInt8: 4, string_id: 229>  # String: 'stringify' (Identifier)
+==> 00000027: <NewObject>: <Reg8: 0>
+==> 00000029: <LoadConstString>: <Reg8: 7, string_id: 7796>  # String: 'solaris-model-preparation/1' (String)
+==> 0000002d: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 7, string_id: 134>  # String: 'format' (Identifier)
+==> 00000031: <LoadFromEnvironment>: <Reg8: 7, Reg8: 6, UInt8: 1>
+==> 00000035: <PutNewOwnById>: <Reg8: 0, Reg8: 7, string_id: 17456>  # String: 'enabled' (Identifier)
+==> 0000003a: <LoadFromEnvironment>: <Reg8: 6, Reg8: 6, UInt8: 2>
+==> 0000003e: <PutNewOwnById>: <Reg8: 0, Reg8: 6, string_id: 19244>  # String: 'mobileData' (Identifier)
+==> 00000043: <Call2>: <Reg8: 0, Reg8: 4, Reg8: 5, Reg8: 0>
+==> 00000048: <Call3>: <Reg8: 0, Reg8: 2, Reg8: 3, Reg8: 1, Reg8: 0>
+==> 0000004e: <Ret>: <Reg8: 0>
+
+
+===============
+

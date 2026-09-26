@@ -1,0 +1,1 @@
+print(JSON.stringify({factoryCount:Object.keys(__capturedFactories).length, qvacModule:!!__capturedFactories[591], deps:__capturedFactories[591]&&__capturedFactories[591].deps, suppressedStartup:__suppressedStartup}));

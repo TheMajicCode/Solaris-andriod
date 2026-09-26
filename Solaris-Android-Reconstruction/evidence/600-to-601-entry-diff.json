@@ -1,0 +1,17 @@
+[
+  {
+    "path": "AndroidManifest.xml",
+    "old": "7e16d234252f32925716d6a804270f2f072158e7895e55011051c53f3fee78e9",
+    "new": "51967b0d46d2edac87ebfb40368a448ef790cd77fd8319daaeba5c463b4200e8"
+  },
+  {
+    "path": "assets/app.config",
+    "old": "51cb0f75dd0640bae63a9ab7f4f8b550387ccb71dc3bd8e549e32d49c238d798",
+    "new": "9fa359be78bc5ce286eed91d4dd95d9f2f46208557b9f524ca605c9b5ca1e3b4"
+  },
+  {
+    "path": "assets/index.android.bundle",
+    "old": "cbfb0ec84116b5aa8a6aed22461a98f3753b365d202fa965f0e23c0a064930a5",
+    "new": "ac973292961cc7a1505a47a416ecafdff2e1688b7eac31f20571e503d74ec177"
+  }
+]

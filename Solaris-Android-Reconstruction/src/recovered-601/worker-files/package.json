@@ -1,0 +1,45 @@
+{
+  "name": "solaris-edge-v5-runtime-preview",
+  "version": "6.0.0-preview.sanctuary",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test --test-concurrency=2 scripts/recovery.test.mjs scripts/runtime.test.mjs scripts/provisioning.test.mjs scripts/native-compatibility.test.mjs scripts/vault.test.mjs scripts/local-authority.test.mjs scripts/daily-loop.test.mjs scripts/daily-ui.test.mjs scripts/vault-entry.test.mjs scripts/tracking.test.mjs scripts/tracking-service.test.mjs scripts/tracking-recovery.test.mjs scripts/tracking-ui.test.mjs scripts/questionnaire.test.mjs scripts/generative.test.mjs scripts/voice.test.mjs scripts/health.test.mjs scripts/attachments.test.mjs scripts/experience.test.mjs scripts/experience-service.test.mjs scripts/experience-recovery.test.mjs scripts/guided-ui.test.mjs scripts/journey.test.mjs scripts/experience-ai.test.mjs scripts/scroll-stability.test.mjs scripts/questionnaire-continuity.test.mjs scripts/runtime-recovery-ui.test.mjs scripts/action-responsiveness.test.mjs scripts/history-performance.test.mjs scripts/brand-continuity.test.mjs scripts/local-ai-access.test.mjs scripts/local-ai-access-ui.test.mjs scripts/voice-preparation-ui.test.mjs scripts/session-service.test.mjs scripts/native-ui.test.cjs scripts/v6-sanctuary-ui.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "bundle-ui": "node scripts/bundle-ui.mjs",
+    "prebuild": "npm run bundle-ui && expo prebuild --platform android --no-install",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "test:recovery-interop": "node --test scripts/recovery-format.test.mjs",
+    "bundle-recovery": "node scripts/build-recovery-validator.mjs"
+  },
+  "dependencies": {
+    "@noble/hashes": "1.8.0",
+    "@qvac/sdk": "0.18.2",
+    "bare-rpc": "1.3.8",
+    "bare-runtime": "1.28.7",
+    "expo": "54.0.37",
+    "expo-build-properties": "1.0.10",
+    "expo-device": "8.0.10",
+    "expo-document-picker": "14.0.8",
+    "expo-file-system": "19.0.24",
+    "expo-sqlite": "16.0.10",
+    "expo-status-bar": "3.0.9",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-bare-kit": "0.14.0",
+    "react-native-safe-area-context": "5.6.0",
+    "react-native-webview": "13.15.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.10",
+    "babel-preset-expo": "54.0.10",
+    "bare-pack": "2.2.2",
+    "typescript": "5.9.2"
+  },
+  "overrides": {
+    "react-native-bare-kit": {
+      "bare-link": "3.0.1"
+    }
+  }
+}

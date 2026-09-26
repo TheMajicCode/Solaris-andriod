@@ -1,0 +1,48 @@
+=> [Function #7307 "?anon_0_" of 143 bytes]: 2 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c30dc9
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 3, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrueLong>: <Addr32: 133, Reg8: 1>  # Address: 0000008c
+==> 0000000d: <GetByIdShort>: <Reg8: 1, Reg8: 3, UInt8: 1, string_id: 96>  # String: 'current' (Identifier)
+==> 00000012: <JmpTrue>: <Addr8: 79, Reg8: 1>  # Address: 00000061
+==> 00000015: <GetByIdShort>: <Reg8: 1, Reg8: 3, UInt8: 2, string_id: 176>  # String: 'modelId' (Identifier)
+==> 0000001a: <JmpTrue>: <Addr8: 71, Reg8: 1>  # Address: 00000061
+==> 0000001d: <GetById>: <Reg8: 1, Reg8: 3, UInt8: 3, string_id: 16498>  # String: 'transferImport' (Identifier)
+==> 00000023: <JmpTrue>: <Addr8: 62, Reg8: 1>  # Address: 00000061
+==> 00000026: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 4, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 0000002c: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 5, string_id: 14408>  # String: 'remove' (Identifier)
+==> 00000032: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 2>
+==> 00000036: <SaveGenerator>: <Addr8: 4>  # Address: 0000003a
+==> 00000038: <Ret>: <Reg8: 1>
+==> 0000003a: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 0000003d: <JmpTrue>: <Addr8: 33, Reg8: 2>  # Address: 0000005e
+==> 00000040: <LoadConstNull>: <Reg8: 2>
+==> 00000042: <PutById>: <Reg8: 3, Reg8: 2, UInt8: 1, string_id: 17885>  # String: 'verifiedPath' (Identifier)
+==> 00000048: <LoadConstString>: <Reg8: 2, string_id: 10683>  # String: 'not-installed' (String)
+==> 0000004c: <PutById>: <Reg8: 3, Reg8: 2, UInt8: 2, string_id: 225>  # String: 'status' (Identifier)
+==> 00000052: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 6, string_id: 72>  # String: 'changed' (Identifier)
+==> 00000057: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 0000005b: <CompleteGenerator>: <>
+==> 0000005c: <Ret>: <Reg8: 1>
+==> 0000005e: <CompleteGenerator>: <>
+==> 0000005f: <Ret>: <Reg8: 1>
+==> 00000061: <GetEnvironment>: <Reg8: 1, UInt8: 3>
+==> 00000064: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 12>
+==> 00000068: <GetById>: <Reg8: 4, Reg8: 1, UInt8: 7, string_id: 17316>  # String: 'RuntimeError' (Identifier)
+==> 0000006e: <GetByIdShort>: <Reg8: 1, Reg8: 4, UInt8: 8, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000073: <CreateThis>: <Reg8: 2, Reg8: 1, Reg8: 4>
+==> 00000077: <LoadConstString>: <Reg8: 6, string_id: 8779>  # String: 'UNLOAD_REQUIRED' (String)
+==> 0000007b: <LoadConstString>: <Reg8: 5, string_id: 104>  # String: 'delete' (Identifier)
+==> 0000007f: <Mov>: <Reg8: 7, Reg8: 2>
+==> 00000082: <Construct>: <Reg8: 1, Reg8: 4, UInt8: 3>
+==> 00000086: <SelectObject>: <Reg8: 1, Reg8: 2, Reg8: 1>
+==> 0000008a: <Throw>: <Reg8: 1>
+==> 0000008c: <CompleteGenerator>: <>
+==> 0000008d: <Ret>: <Reg8: 0>
+
+
+===============
+

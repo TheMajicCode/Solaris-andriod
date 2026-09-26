@@ -1,0 +1,130 @@
+{
+  "description": "Selected relevant disassembled functions; originals remain compiled artifacts.",
+  "files": [
+    {
+      "path": "evidence/functions/function-13051.hasm",
+      "bytes": 5135,
+      "sha256": "0ca41c3c842393ba18b2d0398e19910f4351f1b4a54dc36cf471f13745fdd7ed"
+    },
+    {
+      "path": "evidence/functions/function-13064.hasm",
+      "bytes": 10827,
+      "sha256": "c764eb08a8680fb39102aca75d127f693701148c9cbd6337afd27cc21e53754e"
+    },
+    {
+      "path": "evidence/functions/function-13065.hasm",
+      "bytes": 9439,
+      "sha256": "fb31e8093d564cbea322092f761183760df6ea8ad781906403c6cc30aaf693a2"
+    },
+    {
+      "path": "evidence/functions/function-13074.hasm",
+      "bytes": 1740,
+      "sha256": "8d56dcac152ee7ab544e08b438786ab95dab4b2804ced36eef55a99b28716bd8"
+    },
+    {
+      "path": "evidence/functions/function-14778.hasm",
+      "bytes": 1157,
+      "sha256": "270e87ec0b46c0d21f7ac7a738f5a154c514f28c2523a537b2ff8bbe84e45ac3"
+    },
+    {
+      "path": "evidence/functions/function-14782.hasm",
+      "bytes": 2999,
+      "sha256": "cf212dd201e193678d91bcf076ca0bcca36036b7cf8b252176ca321721eb6ce8"
+    },
+    {
+      "path": "evidence/functions/function-14786.hasm",
+      "bytes": 3067,
+      "sha256": "8aaa9cdf7bbead96b7122022c115862d299d5e974f3495444b0cc0231f7ea74a"
+    },
+    {
+      "path": "evidence/functions/function-14790.hasm",
+      "bytes": 7859,
+      "sha256": "547470a9f1805f8188ca3be8a8e27898d1813abecb8a04656295de3c3da38cc6"
+    },
+    {
+      "path": "evidence/functions/function-14791.hasm",
+      "bytes": 678,
+      "sha256": "6e3e6285830ca08f5abad38f8f76f829e07640b5377765a9151cc099a092352b"
+    },
+    {
+      "path": "evidence/functions/function-14852.hasm",
+      "bytes": 677,
+      "sha256": "3cf184f8fc40c74f9e0a444f0e99af073d180586d60db494d79d650931c9d2c4"
+    },
+    {
+      "path": "evidence/functions/function-14854.hasm",
+      "bytes": 1965,
+      "sha256": "4cfbf3aab2b6ed31f0869c979dc356dd7a3b54e1d93d01321baa9e837ab73ede"
+    },
+    {
+      "path": "evidence/functions/function-14856.hasm",
+      "bytes": 11191,
+      "sha256": "6dde9977ea74f2d46cd27a29c3eb835e2d1d35bdd0e6225533073d0c9686d1de"
+    },
+    {
+      "path": "evidence/functions/function-15430.hasm",
+      "bytes": 27063,
+      "sha256": "4dd7ef5735e2afd25122f1c666a20eb4796e63cd518805041ce3b149b2cb3e6f"
+    },
+    {
+      "path": "evidence/functions/function-6929.hasm",
+      "bytes": 76553,
+      "sha256": "b064745e6dfd7e731e6ae8c22a7fefd04216c22c2f186da7cd8a3bf2378e0413"
+    },
+    {
+      "path": "evidence/functions/function-6931.hasm",
+      "bytes": 1125,
+      "sha256": "36dcd1416f881a2da32e6c6c80cbf4254454ab5f8dc47253727b9facba17f334"
+    },
+    {
+      "path": "evidence/functions/function-6957.hasm",
+      "bytes": 4733,
+      "sha256": "cf689898b8458a0b9faaf131c8a6bb4e40b214d285f805e82e90facac1452cdf"
+    },
+    {
+      "path": "evidence/functions/function-7146.hasm",
+      "bytes": 11880,
+      "sha256": "43136be2c494f65fd93ad6e870722a8e2bd6c1933231319c03d688ab5a68c046"
+    },
+    {
+      "path": "evidence/functions/function-7184.hasm",
+      "bytes": 23059,
+      "sha256": "a3865bde6da00259d0e4a41981fbfae66fd2e7300b3a2909c19112d03e3b7870"
+    },
+    {
+      "path": "evidence/functions/function-7194.hasm",
+      "bytes": 10248,
+      "sha256": "4e64ead5c43d836ba748022a8f2de102caa90340aad4882874e6017c292a1af1"
+    },
+    {
+      "path": "evidence/functions/function-7369.hasm",
+      "bytes": 667,
+      "sha256": "2fcdff6dee49af8f383a568ad232c3817af046f242833fa39108b303033aeb43"
+    },
+    {
+      "path": "evidence/functions/function-7371.hasm",
+      "bytes": 2996,
+      "sha256": "8ef92ae111931963138c6780d318adca0d2051948c3f2a2861f82dfd23f7465b"
+    },
+    {
+      "path": "evidence/functions/function-7373.hasm",
+      "bytes": 5306,
+      "sha256": "01e6864bdb94644cb01d7653a40e1e4608621c965389c9aa2e572e535be0a0ee"
+    },
+    {
+      "path": "evidence/functions/function-7374.hasm",
+      "bytes": 234,
+      "sha256": "6a6460d1839bc4af491bf5e55bfcc3a55d2cfdcf2662887e57659ed161ae88b8"
+    },
+    {
+      "path": "evidence/functions/function-7597.hasm",
+      "bytes": 1138,
+      "sha256": "2eb2c3f4aadade09b572979498ff241709a8a2680c472ad1eddf3b745288890b"
+    },
+    {
+      "path": "evidence/functions/function-7599.hasm",
+      "bytes": 5682,
+      "sha256": "fa5d438cc5f6882fb43667e4a585c94add9fc468000fff2e3ea2ee6df61b51ec"
+    }
+  ]
+}

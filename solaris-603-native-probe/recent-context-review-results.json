@@ -1,0 +1,46 @@
+{
+  "helperSHA256": "3cf38b597e3627f7316a60b7b30ca69cebbb699f5877e153f191f806d1875455",
+  "scope": "Independent JavaScript helper review only; must additionally verify real owner.session changes on lock/unlock",
+  "results": [
+    {
+      "name": "established history not included at first session observation",
+      "pass": true
+    },
+    {
+      "name": "new source-free pair eligible",
+      "pass": true
+    },
+    {
+      "name": "repeat preflight does not consume pair",
+      "pass": true
+    },
+    {
+      "name": "selected source task cannot include prior text",
+      "pass": true
+    },
+    {
+      "name": "permission revision reset blocks existing history",
+      "pass": true
+    },
+    {
+      "name": "session transition resets cursor",
+      "pass": true
+    },
+    {
+      "name": "record-bearing pair excluded",
+      "pass": true
+    },
+    {
+      "name": "non-generated guided assistant excluded",
+      "pass": true
+    },
+    {
+      "name": "oversize history excluded without text mutation",
+      "pass": true
+    },
+    {
+      "name": "provenance revision mismatch excluded",
+      "pass": true
+    }
+  ]
+}

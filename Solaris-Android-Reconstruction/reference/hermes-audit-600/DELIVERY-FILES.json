@@ -1,0 +1,42 @@
+{
+  "root": "/workspace/scratch/768f612cf893/v6-next-repair/hermes-audit",
+  "files": [
+    "HERMES-FINDINGS.md",
+    "HERMES-DEC-LICENSE.txt",
+    "evidence/TOOL-AND-INPUT-PROVENANCE.json",
+    "evidence/functions/function-13051.hasm",
+    "evidence/functions/function-13064.hasm",
+    "evidence/functions/function-13065.hasm",
+    "evidence/functions/function-13074.hasm",
+    "evidence/functions/function-14778.hasm",
+    "evidence/functions/function-14782.hasm",
+    "evidence/functions/function-14786.hasm",
+    "evidence/functions/function-14790.hasm",
+    "evidence/functions/function-14791.hasm",
+    "evidence/functions/function-14852.hasm",
+    "evidence/functions/function-14854.hasm",
+    "evidence/functions/function-14856.hasm",
+    "evidence/functions/function-15430.hasm",
+    "evidence/functions/function-6929.hasm",
+    "evidence/functions/function-6931.hasm",
+    "evidence/functions/function-6957.hasm",
+    "evidence/functions/function-7146.hasm",
+    "evidence/functions/function-7184.hasm",
+    "evidence/functions/function-7194.hasm",
+    "evidence/functions/function-7369.hasm",
+    "evidence/functions/function-7371.hasm",
+    "evidence/functions/function-7373.hasm",
+    "evidence/functions/function-7374.hasm",
+    "evidence/functions/function-7597.hasm",
+    "evidence/functions/function-7599.hasm",
+    "evidence/FUNCTION-EVIDENCE-MANIFEST.json"
+  ],
+  "exclude": [
+    "tools/",
+    "evidence/index.android.hasm",
+    "evidence/index.android.compact.hasm",
+    "evidence/relevant-strings.json",
+    "evidence/lifecycle-functions.json"
+  ],
+  "totalBytes": 277120
+}

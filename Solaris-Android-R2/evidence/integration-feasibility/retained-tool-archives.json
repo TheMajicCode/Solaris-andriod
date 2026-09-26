@@ -1,0 +1,32 @@
+[
+  {
+    "path": "reconstruction-work/r2-tools/babel-standalone-7.28.5.tgz",
+    "bytes": 5467564,
+    "sha256": "ab51d15b14f07b90a5814ab0060344b2a0ced71c34ec3c0fedda610d47066ed8"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/cmake-3.31.6-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl",
+    "bytes": 26820570,
+    "sha256": "2297e9591307d9c61e557efe737bcf4d7c13a30f1f860732f684a204fee24dca"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/hermes-2025-07-07-RNv0.81.0-e0fc67142ec0763c6b6153ca2bf96df815539782.tar.gz",
+    "bytes": 15684595,
+    "sha256": "010e9b2f1c0f668947beb7acfc3510a9b07a2832cac54712405be7055314e59e"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/libicu-dev_74.2-1ubuntu3.1_amd64.deb",
+    "bytes": 11892666,
+    "sha256": "612b98f4fcfc6ebc57a1b21c2695174694db5a0b7ff760b5d41032076c792398"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/ninja-1.11.1.4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl",
+    "bytes": 422814,
+    "sha256": "096487995473320de7f65d622c3f1d16c3ad174797602218ca8c967f51ec38a0"
+  },
+  {
+    "path": "reconstruction-work/r2-tools/react-native-0.81.5.tgz",
+    "bytes": 24766674,
+    "sha256": "e31721654764d1ca040bdddc5d6343376cef799f65115098ba250340af7e18b2"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  "java",
+  "-jar",
+  "solaris-603-work/reconstruction-work/toolchain/android-tools/lib/apksigner.jar",
+  "sign",
+  "--ks",
+  "solaris-603-private-signing-inputs/expo-sdk54-template-debug.keystore",
+  "--ks-pass",
+  "stdin",
+  "--key-pass",
+  "stdin",
+  "--v1-signing-enabled",
+  "false",
+  "--v2-signing-enabled",
+  "true",
+  "--v3-signing-enabled",
+  "false",
+  "--v4-signing-enabled",
+  "false",
+  "--out",
+  "/tmp/solaris604-signed-final/Solaris-V6.0.4-Grounded-Chat-Candidate.apk",
+  "/tmp/solaris604-unsigned-final/candidate-aligned-unsigned.apk"
+]

@@ -1,0 +1,42 @@
+{
+  "format": "solaris-scoped-candidate-signing-gate/1",
+  "date": "2026-09-15",
+  "decision": "approve-signing",
+  "authorization": "User authorized next APK build subject to verified compatibility; installation/reset/key changes/push/deployment remain prohibited.",
+  "scope": "Only two synchronous completion admission guards and version metadata; binary-preserving candidate.",
+  "scopeCompatibilityVerified": true,
+  "androidDeviceValidationPerformed": false,
+  "unsignedApkSha256": "8f0246f04150747ee671e1945781410689f3a5b18f7623f498cecee7ff44206d",
+  "patchedHbcSha256": "fd8b38bcdd42421c18da4a0b69b2d58906ceddd7c4a2044b34faed51490f4653",
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 602,
+  "signingScriptSha256": "415eec27b292e4be42508709cb262bff3c5b4b654094e34b05dad60789f62f77",
+  "independentReviews": [
+    {
+      "path": "Solaris-Android-R2/evidence/guard-patch/INDEPENDENT-COMPATIBILITY-REVIEW.md",
+      "sha256": "19301659d36f0d222bff65985f8793da7bcb5261904e5c5720d582f69b31057a"
+    },
+    {
+      "path": "Solaris-Android-R2/evidence/apk-packaging/INDEPENDENT-REVIEW.md",
+      "sha256": "262490b75cff5c6447fb8e09a4bfc996abb5c9922f768178368f74ee8021383e"
+    }
+  ],
+  "compatibilityBasis": [
+    "Independent actual instruction/relocation review and original-byte preservation",
+    "24 actual-VM coordinator comparisons plus4admission probes on original and patched bytecode",
+    "17 actual-VM completion scenarios:5denials corrected,12controls preserved",
+    "Independent manifest/version and602entry comparison:599unchanged payloads,51unchanged native libraries",
+    "Matching existing signer verified; all native libraries stored and16KiB aligned"
+  ],
+  "limits": [
+    "Full LUCA SDK resume repair and deferred step race remain pending",
+    "Not a complete original native/app source reconstruction",
+    "Synthetic desktop VM tests do not establish hardware inference or an on-device upgrade",
+    "Same shared public development signer; no new production key custody"
+  ],
+  "finalRequirements": [
+    "Final signature/certificate verification",
+    "Final allowed-entry diff and alignmentverification",
+    "Durable editable artifacts and build inputs"
+  ]
+}

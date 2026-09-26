@@ -1,0 +1,33 @@
+=> [Function #7385 "" of 99 bytes]: 2 params, frame size=17, strict=1, exc handler=0, debug info=0  @ offset 0x01c32e32
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 5>
+==> 00000002: <LoadParam>: <Reg8: 4, UInt8: 1>
+==> 00000005: <StoreToEnvironment>: <Reg8: 5, UInt8: 0, Reg8: 4>
+==> 00000009: <LoadConstString>: <Reg8: 0, string_id: 101>  # String: 'default' (Identifier)
+==> 0000000d: <JStrictEqual>: <Addr8: 82, Reg8: 4, Reg8: 0>  # Address: 0000005f
+==> 00000011: <GetGlobalObject>: <Reg8: 1>
+==> 00000013: <TryGetById>: <Reg8: 0, Reg8: 1, UInt8: 1, string_id: 18>  # String: 'Object' (Identifier)
+==> 00000019: <GetByIdShort>: <Reg8: 0, Reg8: 0, UInt8: 2, string_id: 203>  # String: 'prototype' (Identifier)
+==> 0000001e: <GetByIdShort>: <Reg8: 6, Reg8: 0, UInt8: 3, string_id: 140>  # String: 'hasOwnProperty' (Identifier)
+==> 00000023: <GetByIdShort>: <Reg8: 3, Reg8: 6, UInt8: 4, string_id: 70>  # String: 'call' (Identifier)
+==> 00000028: <GetEnvironment>: <Reg8: 0, UInt8: 0>
+==> 0000002b: <LoadFromEnvironment>: <Reg8: 2, Reg8: 0, UInt8: 0>
+==> 0000002f: <Call3>: <Reg8: 2, Reg8: 3, Reg8: 6, Reg8: 2, Reg8: 4>
+==> 00000035: <JmpTrue>: <Addr8: 42, Reg8: 2>  # Address: 0000005f
+==> 00000038: <TryGetById>: <Reg8: 3, Reg8: 1, UInt8: 1, string_id: 18>  # String: 'Object' (Identifier)
+==> 0000003e: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 5, string_id: 103>  # String: 'defineProperty' (Identifier)
+==> 00000043: <LoadFromEnvironment>: <Reg8: 1, Reg8: 0, UInt8: 0>
+==> 00000047: <NewObject>: <Reg8: 0>
+==> 00000049: <LoadConstTrue>: <Reg8: 6>
+==> 0000004b: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 6, string_id: 120>  # String: 'enumerable' (Identifier)
+==> 0000004f: <CreateClosure>: <Reg8: 5, Reg8: 5, function_id: 7386>  # Function: [#7386 get of 20 bytes]: 1 params @ offset 0x01b92da0
+==> 00000054: <PutNewOwnByIdShort>: <Reg8: 0, Reg8: 5, string_id: 136>  # String: 'get' (Identifier)
+==> 00000058: <Call4>: <Reg8: 0, Reg8: 2, Reg8: 3, Reg8: 1, Reg8: 4, Reg8: 0>
+==> 0000005f: <LoadConstUndefined>: <Reg8: 0>
+==> 00000061: <Ret>: <Reg8: 0>
+
+
+===============
+

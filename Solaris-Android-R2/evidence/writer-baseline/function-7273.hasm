@@ -1,0 +1,23 @@
+=> [Function #7273 "?anon_0_" of 49 bytes]: 2 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c30591
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000004: <JmpTrue>: <Addr8: 42, Reg8: 1>  # Address: 0000002e
+==> 00000007: <GetEnvironment>: <Reg8: 1, UInt8: 2>
+==> 0000000a: <LoadFromEnvironment>: <Reg8: 4, Reg8: 1, UInt8: 0>
+==> 0000000e: <GetById>: <Reg8: 1, Reg8: 4, UInt8: 1, string_id: 19140>  # String: 'choiceEpoch' (Identifier)
+==> 00000014: <PutById>: <Reg8: 4, Reg8: 1, UInt8: 1, string_id: 15551>  # String: 'attemptedPreparationEpoch' (Identifier)
+==> 0000001a: <GetById>: <Reg8: 3, Reg8: 4, UInt8: 2, string_id: 14885>  # String: 'loadModelOperation' (Identifier)
+==> 00000020: <LoadParam>: <Reg8: 2, UInt8: 1>
+==> 00000023: <LoadConstTrue>: <Reg8: 1>
+==> 00000025: <Call3>: <Reg8: 1, Reg8: 3, Reg8: 4, Reg8: 2, Reg8: 1>
+==> 0000002b: <CompleteGenerator>: <>
+==> 0000002c: <Ret>: <Reg8: 1>
+==> 0000002e: <CompleteGenerator>: <>
+==> 0000002f: <Ret>: <Reg8: 0>
+
+
+===============
+

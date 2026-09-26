@@ -1,0 +1,18 @@
+{
+  "newest-inputs/Solaris-V6.0.1-Sanctuary-Recovery.apk": {
+    "sha256": "228c3d9f282d716515e3640de2b13478a29e21c607293eaf589741ec6d34f183",
+    "bytes": 242580679
+  },
+  "reconstruction-work/code601-classes.dex": {
+    "sha256": "c05b0cc8e3ed118b26023440896c946e2722e3dbb6fd017b61e56da581d53d75",
+    "bytes": 5903400
+  },
+  "reconstruction-work/toolchain/jadx/lib/jadx-1.5.6-all.jar": {
+    "sha256": "fe3e12c45acf75f92369685fd02d1d7a7323385dc725680a9b98a0dac0ea554b",
+    "bytes": 78227367
+  },
+  "reconstruction-work/toolchain/jadx-1.5.6.zip": {
+    "sha256": "545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974",
+    "bytes": 72646741
+  }
+}

@@ -1,0 +1,22 @@
+=> [Function #7375 "" of 58 bytes]: 8 params, frame size=3, strict=0, exc handler=0, debug info=0  @ offset 0x01c32aea
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 1>
+==> 00000002: <LoadParam>: <Reg8: 0, UInt8: 5>
+==> 00000005: <CreateClosure>: <Reg8: 2, Reg8: 1, function_id: 7377>  # Function: [#7377 AsyncFromSyncIterator of 96 bytes]: 2 params @ offset 0x01c32bf1
+==> 0000000a: <StoreToEnvironment>: <Reg8: 1, UInt8: 0, Reg8: 2>
+==> 0000000e: <CreateClosure>: <Reg8: 1, Reg8: 1, function_id: 7376>  # Function: [#7376 _asyncIterator of 205 bytes]: 2 params @ offset 0x01c32b24
+==> 00000013: <PutById>: <Reg8: 0, Reg8: 1, UInt8: 1, string_id: 125>  # String: 'exports' (Identifier)
+==> 00000019: <GetByIdShort>: <Reg8: 2, Reg8: 0, UInt8: 1, string_id: 125>  # String: 'exports' (Identifier)
+==> 0000001e: <LoadConstTrue>: <Reg8: 1>
+==> 00000020: <PutById>: <Reg8: 2, Reg8: 1, UInt8: 2, string_id: 32>  # String: '__esModule' (Identifier)
+==> 00000026: <GetByIdShort>: <Reg8: 1, Reg8: 0, UInt8: 1, string_id: 125>  # String: 'exports' (Identifier)
+==> 0000002b: <GetByIdShort>: <Reg8: 0, Reg8: 0, UInt8: 1, string_id: 125>  # String: 'exports' (Identifier)
+==> 00000030: <PutById>: <Reg8: 1, Reg8: 0, UInt8: 3, string_id: 101>  # String: 'default' (Identifier)
+==> 00000036: <LoadConstUndefined>: <Reg8: 0>
+==> 00000038: <Ret>: <Reg8: 0>
+
+
+===============
+

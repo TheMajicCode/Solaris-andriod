@@ -1,0 +1,40 @@
+=> [Function #13759 "?anon_0_" of 100 bytes]: 1 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01cd90bb
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000004: <JmpTrue>: <Addr8: 93, Reg8: 1>  # Address: 00000061
+==> 00000007: <GetEnvironment>: <Reg8: 2, UInt8: 2>
+==> 0000000a: <LoadFromEnvironment>: <Reg8: 1, Reg8: 2, UInt8: 1>
+==> 0000000e: <GetById>: <Reg8: 5, Reg8: 1, UInt8: 1, string_id: 15756>  # String: 'send' (Identifier)
+==> 00000014: <NewObject>: <Reg8: 1>
+==> 00000016: <LoadConstString>: <Reg8: 4, string_id: 14492>  # String: 'suspend' (Identifier)
+==> 0000001a: <PutNewOwnByIdShort>: <Reg8: 1, Reg8: 4, string_id: 204>  # String: 'type' (Identifier)
+==> 0000001e: <LoadConstUndefined>: <Reg8: 3>
+==> 00000020: <Call2>: <Reg8: 1, Reg8: 5, Reg8: 3, Reg8: 1>
+==> 00000025: <SaveGenerator>: <Addr8: 4>  # Address: 00000029
+==> 00000027: <Ret>: <Reg8: 1>
+==> 00000029: <ResumeGenerator>: <Reg8: 1, Reg8: 5>
+==> 0000002c: <JmpTrue>: <Addr8: 50, Reg8: 5>  # Address: 0000005e
+==> 0000002f: <GetByIdShort>: <Reg8: 5, Reg8: 1, UInt8: 2, string_id: 204>  # String: 'type' (Identifier)
+==> 00000034: <JStrictNotEqual>: <Addr8: 7, Reg8: 5, Reg8: 4>  # Address: 0000003b
+==> 00000038: <CompleteGenerator>: <>
+==> 00000039: <Ret>: <Reg8: 3>
+==> 0000003b: <LoadFromEnvironment>: <Reg8: 2, Reg8: 2, UInt8: 2>
+==> 0000003f: <GetById>: <Reg8: 2, Reg8: 2, UInt8: 3, string_id: 19545>  # String: 'InvalidResponseError' (Identifier)
+==> 00000045: <GetByIdShort>: <Reg8: 3, Reg8: 2, UInt8: 4, string_id: 203>  # String: 'prototype' (Identifier)
+==> 0000004a: <CreateThis>: <Reg8: 3, Reg8: 3, Reg8: 2>
+==> 0000004e: <Mov>: <Reg8: 7, Reg8: 3>
+==> 00000051: <Mov>: <Reg8: 6, Reg8: 4>
+==> 00000054: <Construct>: <Reg8: 2, Reg8: 2, UInt8: 2>
+==> 00000058: <SelectObject>: <Reg8: 2, Reg8: 3, Reg8: 2>
+==> 0000005c: <Throw>: <Reg8: 2>
+==> 0000005e: <CompleteGenerator>: <>
+==> 0000005f: <Ret>: <Reg8: 1>
+==> 00000061: <CompleteGenerator>: <>
+==> 00000062: <Ret>: <Reg8: 0>
+
+
+===============
+

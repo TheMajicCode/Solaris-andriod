@@ -1,0 +1,32 @@
+=> [Function #7242 "?anon_0_" of 81 bytes]: 1 params, frame size=11, strict=1, exc handler=0, debug info=0  @ offset 0x01c2ff6d
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 3, UInt8: 0>
+==> 00000004: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000007: <JmpTrue>: <Addr8: 71, Reg8: 1>  # Address: 0000004e
+==> 0000000a: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 1, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 00000010: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 2, string_id: 14920>  # String: 'verify' (Identifier)
+==> 00000016: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 2>
+==> 0000001a: <SaveGenerator>: <Addr8: 4>  # Address: 0000001e
+==> 0000001c: <Ret>: <Reg8: 1>
+==> 0000001e: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 00000021: <JmpTrue>: <Addr8: 42, Reg8: 2>  # Address: 0000004b
+==> 00000024: <GetById>: <Reg8: 2, Reg8: 3, UInt8: 1, string_id: 21070>  # String: 'provisioner' (Identifier)
+==> 0000002a: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 3, string_id: 191>  # String: 'path' (Identifier)
+==> 0000002f: <PutById>: <Reg8: 3, Reg8: 2, UInt8: 1, string_id: 17885>  # String: 'verifiedPath' (Identifier)
+==> 00000035: <LoadConstString>: <Reg8: 2, string_id: 14374>  # String: 'downloaded' (Identifier)
+==> 00000039: <PutById>: <Reg8: 3, Reg8: 2, UInt8: 2, string_id: 225>  # String: 'status' (Identifier)
+==> 0000003f: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 4, string_id: 72>  # String: 'changed' (Identifier)
+==> 00000044: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 3>
+==> 00000048: <CompleteGenerator>: <>
+==> 00000049: <Ret>: <Reg8: 1>
+==> 0000004b: <CompleteGenerator>: <>
+==> 0000004c: <Ret>: <Reg8: 1>
+==> 0000004e: <CompleteGenerator>: <>
+==> 0000004f: <Ret>: <Reg8: 0>
+
+
+===============
+

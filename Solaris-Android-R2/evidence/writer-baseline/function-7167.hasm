@@ -1,0 +1,61 @@
+=> [Function #7167 "guard" of 195 bytes]: 1 params, frame size=16, strict=1, exc handler=0, debug info=0  @ offset 0x01c2e89e
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 2, UInt8: 0>
+==> 00000003: <LoadConstUndefined>: <Reg8: 0>
+==> 00000005: <LoadConstUndefined>: <Reg8: 4>
+==> 00000007: <GetArgumentsLength>: <Reg8: 1, Reg8: 4>
+==> 0000000a: <LoadConstZero>: <Reg8: 3>
+==> 0000000c: <Greater>: <Reg8: 5, Reg8: 1, Reg8: 3>
+==> 00000010: <LoadConstFalse>: <Reg8: 1>
+==> 00000012: <JmpFalse>: <Addr8: 17, Reg8: 5>  # Address: 00000023
+==> 00000015: <GetArgumentsPropByVal>: <Reg8: 5, Reg8: 3, Reg8: 4>
+==> 00000019: <LoadConstFalse>: <Reg8: 1>
+==> 0000001b: <JStrictEqual>: <Addr8: 8, Reg8: 5, Reg8: 0>  # Address: 00000023
+==> 0000001f: <GetArgumentsPropByVal>: <Reg8: 1, Reg8: 3, Reg8: 4>
+==> 00000023: <GetById>: <Reg8: 3, Reg8: 2, UInt8: 1, string_id: 14370>  # String: 'active' (Identifier)
+==> 00000029: <JmpTrue>: <Addr8: 46, Reg8: 3>  # Address: 00000057
+==> 0000002c: <GetEnvironment>: <Reg8: 3, UInt8: 1>
+==> 0000002f: <LoadFromEnvironment>: <Reg8: 3, Reg8: 3, UInt8: 12>
+==> 00000033: <GetById>: <Reg8: 6, Reg8: 3, UInt8: 2, string_id: 17316>  # String: 'RuntimeError' (Identifier)
+==> 00000039: <GetByIdShort>: <Reg8: 3, Reg8: 6, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 0000003e: <CreateThis>: <Reg8: 4, Reg8: 3, Reg8: 6>
+==> 00000042: <LoadConstString>: <Reg8: 8, string_id: 5625>  # String: 'FOREGROUND_REQUIRED' (String)
+==> 00000046: <LoadConstString>: <Reg8: 7, string_id: 16940>  # String: 'service' (Identifier)
+==> 0000004a: <Mov>: <Reg8: 9, Reg8: 4>
+==> 0000004d: <Construct>: <Reg8: 3, Reg8: 6, UInt8: 3>
+==> 00000051: <SelectObject>: <Reg8: 3, Reg8: 4, Reg8: 3>
+==> 00000055: <Throw>: <Reg8: 3>
+==> 00000057: <GetByIdShort>: <Reg8: 3, Reg8: 2, UInt8: 4, string_id: 96>  # String: 'current' (Identifier)
+==> 0000005c: <JmpTrue>: <Addr8: 60, Reg8: 3>  # Address: 00000098
+==> 0000005f: <GetById>: <Reg8: 2, Reg8: 2, UInt8: 5, string_id: 14465>  # String: 'blocked' (Identifier)
+==> 00000065: <JmpFalse>: <Addr8: 49, Reg8: 2>  # Address: 00000096
+==> 00000068: <JmpTrue>: <Addr8: 46, Reg8: 1>  # Address: 00000096
+==> 0000006b: <GetEnvironment>: <Reg8: 1, UInt8: 1>
+==> 0000006e: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 12>
+==> 00000072: <GetById>: <Reg8: 4, Reg8: 1, UInt8: 2, string_id: 17316>  # String: 'RuntimeError' (Identifier)
+==> 00000078: <GetByIdShort>: <Reg8: 1, Reg8: 4, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 0000007d: <CreateThis>: <Reg8: 2, Reg8: 1, Reg8: 4>
+==> 00000081: <LoadConstString>: <Reg8: 8, string_id: 4460>  # String: 'RUNTIME_RESTART_REQUIRED' (String)
+==> 00000085: <LoadConstString>: <Reg8: 7, string_id: 16940>  # String: 'service' (Identifier)
+==> 00000089: <Mov>: <Reg8: 9, Reg8: 2>
+==> 0000008c: <Construct>: <Reg8: 1, Reg8: 4, UInt8: 3>
+==> 00000090: <SelectObject>: <Reg8: 1, Reg8: 2, Reg8: 1>
+==> 00000094: <Throw>: <Reg8: 1>
+==> 00000096: <Ret>: <Reg8: 0>
+==> 00000098: <GetEnvironment>: <Reg8: 0, UInt8: 1>
+==> 0000009b: <LoadFromEnvironment>: <Reg8: 0, Reg8: 0, UInt8: 12>
+==> 0000009f: <GetById>: <Reg8: 3, Reg8: 0, UInt8: 2, string_id: 17316>  # String: 'RuntimeError' (Identifier)
+==> 000000a5: <GetByIdShort>: <Reg8: 0, Reg8: 3, UInt8: 3, string_id: 203>  # String: 'prototype' (Identifier)
+==> 000000aa: <CreateThis>: <Reg8: 1, Reg8: 0, Reg8: 3>
+==> 000000ae: <LoadConstString>: <Reg8: 8, string_id: 7869>  # String: 'QVAC_BUSY' (String)
+==> 000000b2: <LoadConstString>: <Reg8: 7, string_id: 16940>  # String: 'service' (Identifier)
+==> 000000b6: <Mov>: <Reg8: 9, Reg8: 1>
+==> 000000b9: <Construct>: <Reg8: 0, Reg8: 3, UInt8: 3>
+==> 000000bd: <SelectObject>: <Reg8: 0, Reg8: 1, Reg8: 0>
+==> 000000c1: <Throw>: <Reg8: 0>
+
+
+===============
+

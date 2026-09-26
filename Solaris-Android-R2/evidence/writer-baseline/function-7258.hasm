@@ -1,0 +1,59 @@
+=> [Function #7258 "?anon_0_" of 173 bytes]: 1 params, frame size=18, strict=1, exc handler=0, debug info=0  @ offset 0x01c303b0
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <CreateEnvironment>: <Reg8: 8>
+==> 00000003: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000006: <JmpTrueLong>: <Addr32: 164, Reg8: 1>  # Address: 000000aa
+==> 0000000c: <GetEnvironment>: <Reg8: 1, UInt8: 5>
+==> 0000000f: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 0>
+==> 00000013: <LoadConstFalse>: <Reg8: 3>
+==> 00000015: <PutById>: <Reg8: 2, Reg8: 3, UInt8: 1, string_id: 18715>  # String: 'picking' (Identifier)
+==> 0000001b: <GetById>: <Reg8: 2, Reg8: 2, UInt8: 1, string_id: 14370>  # String: 'active' (Identifier)
+==> 00000021: <JmpTrue>: <Addr8: 111, Reg8: 2>  # Address: 00000090
+==> 00000024: <GetEnvironment>: <Reg8: 7, UInt8: 2>
+==> 00000027: <LoadFromEnvironment>: <Reg8: 2, Reg8: 7, UInt8: 0>
+==> 0000002b: <GetById>: <Reg8: 2, Reg8: 2, UInt8: 2, string_id: 14914>  # String: 'cancelled' (Identifier)
+==> 00000031: <LoadConstUInt8>: <Reg8: 5, UInt8: 100>
+==> 00000034: <GetGlobalObject>: <Reg8: 4>
+==> 00000036: <LoadConstZero>: <Reg8: 6>
+==> 00000038: <JmpTrue>: <Addr8: 88, Reg8: 2>  # Address: 00000090
+==> 0000003b: <TryGetById>: <Reg8: 9, Reg8: 4, UInt8: 3, string_id: 19>  # String: 'Promise' (Identifier)
+==> 00000041: <GetByIdShort>: <Reg8: 2, Reg8: 9, UInt8: 4, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000046: <CreateThis>: <Reg8: 3, Reg8: 2, Reg8: 9>
+==> 0000004a: <CreateClosure>: <Reg8: 10, Reg8: 8, function_id: 7259>  # Function: [#7259  of 24 bytes]: 2 params @ offset 0x01c3045d
+==> 0000004f: <Mov>: <Reg8: 11, Reg8: 3>
+==> 00000052: <Construct>: <Reg8: 2, Reg8: 9, UInt8: 2>
+==> 00000056: <SelectObject>: <Reg8: 2, Reg8: 3, Reg8: 2>
+==> 0000005a: <Mov>: <Reg8: 3, Reg8: 6>
+==> 0000005d: <SaveGenerator>: <Addr8: 4>  # Address: 00000061
+==> 0000005f: <Ret>: <Reg8: 2>
+==> 00000061: <ResumeGenerator>: <Reg8: 2, Reg8: 9>
+==> 00000064: <JmpTrue>: <Addr8: 41, Reg8: 9>  # Address: 0000008d
+==> 00000067: <Inc>: <Reg8: 9, Reg8: 3>
+==> 0000006a: <JNotLess>: <Addr8: 38, Reg8: 9, Reg8: 5>  # Address: 00000090
+==> 0000006e: <LoadFromEnvironment>: <Reg8: 3, Reg8: 1, UInt8: 0>
+==> 00000072: <GetById>: <Reg8: 3, Reg8: 3, UInt8: 1, string_id: 14370>  # String: 'active' (Identifier)
+==> 00000078: <JmpTrue>: <Addr8: 24, Reg8: 3>  # Address: 00000090
+==> 0000007b: <LoadFromEnvironment>: <Reg8: 3, Reg8: 7, UInt8: 0>
+==> 0000007f: <GetById>: <Reg8: 3, Reg8: 3, UInt8: 2, string_id: 14914>  # String: 'cancelled' (Identifier)
+==> 00000085: <Mov>: <Reg8: 6, Reg8: 9>
+==> 00000088: <JmpTrue>: <Addr8: 8, Reg8: 3>  # Address: 00000090
+==> 0000008b: <Jmp>: <Addr8: -80>  # Address: 0000003b
+==> 0000008d: <CompleteGenerator>: <>
+==> 0000008e: <Ret>: <Reg8: 2>
+==> 00000090: <LoadFromEnvironment>: <Reg8: 3, Reg8: 1, UInt8: 0>
+==> 00000094: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 5, string_id: 73>  # String: 'check' (Identifier)
+==> 00000099: <GetEnvironment>: <Reg8: 1, UInt8: 2>
+==> 0000009c: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 0>
+==> 000000a0: <Call2>: <Reg8: 1, Reg8: 2, Reg8: 3, Reg8: 1>
+==> 000000a5: <LoadConstUndefined>: <Reg8: 1>
+==> 000000a7: <CompleteGenerator>: <>
+==> 000000a8: <Ret>: <Reg8: 1>
+==> 000000aa: <CompleteGenerator>: <>
+==> 000000ab: <Ret>: <Reg8: 0>
+
+
+===============
+

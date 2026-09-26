@@ -1,0 +1,24 @@
+=> [Function #7164 "?anon_0_" of 49 bytes]: 1 params, frame size=5, strict=1, exc handler=0, debug info=0  @ offset 0x01c2e839
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000004: <JmpTrue>: <Addr8: 42, Reg8: 1>  # Address: 0000002e
+==> 00000007: <GetEnvironment>: <Reg8: 2, UInt8: 7>
+==> 0000000a: <LoadFromEnvironment>: <Reg8: 1, Reg8: 2, UInt8: 8>
+==> 0000000e: <GetById>: <Reg8: 3, Reg8: 1, UInt8: 1, string_id: 20860>  # String: 'isDevice' (Identifier)
+==> 00000014: <TypeOf>: <Reg8: 4, Reg8: 3>
+==> 00000017: <LoadConstString>: <Reg8: 3, string_id: 66>  # String: 'boolean' (Identifier)
+==> 0000001b: <LoadConstNull>: <Reg8: 1>
+==> 0000001d: <JStrictNotEqual>: <Addr8: 14, Reg8: 4, Reg8: 3>  # Address: 0000002b
+==> 00000021: <LoadFromEnvironment>: <Reg8: 2, Reg8: 2, UInt8: 8>
+==> 00000025: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 1, string_id: 20860>  # String: 'isDevice' (Identifier)
+==> 0000002b: <CompleteGenerator>: <>
+==> 0000002c: <Ret>: <Reg8: 1>
+==> 0000002e: <CompleteGenerator>: <>
+==> 0000002f: <Ret>: <Reg8: 0>
+
+
+===============
+

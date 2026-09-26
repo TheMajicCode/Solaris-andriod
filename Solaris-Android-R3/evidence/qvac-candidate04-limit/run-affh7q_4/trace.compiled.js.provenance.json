@@ -1,0 +1,25 @@
+{
+  "compiler": "@babel/standalone",
+  "version": "7.28.5",
+  "compilerSha256": "c86085dcd80a7b2c4098737aae724e42946f897815279b255f9877d6ec1d6cc3",
+  "input": "solaris-603-work/Solaris-Android-R3/evidence/qvac-candidate04-limit/run-affh7q_4/trace.js",
+  "output": "solaris-603-work/Solaris-Android-R3/evidence/qvac-candidate04-limit/run-affh7q_4/trace.compiled.js",
+  "inputSha256": "1ed400a2e6c2b528c9699ab6e8d87dac867db1fe2ea69002ff4e224d245c129c",
+  "outputSha256": "d2f71dd723d900414fe2ce27840636cd20c4cdc337e2b010dde824c580ae7816",
+  "options": {
+    "sourceType": "script",
+    "sourceMaps": true,
+    "filename": "trace.js",
+    "assumptions": {},
+    "presets": [],
+    "plugins": [
+      "transform-classes",
+      "transform-async-to-generator",
+      "transform-parameters",
+      "transform-destructuring",
+      "transform-object-rest-spread",
+      "transform-optional-chaining",
+      "transform-nullish-coalescing-operator"
+    ]
+  }
+}

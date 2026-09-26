@@ -1,0 +1,23 @@
+=> [Function #7597 "_createRuntime" of 53 bytes]: 1 params, frame size=14, strict=1, exc handler=0, debug info=0  @ offset 0x01c3621b
+
+Bytecode listing:
+
+==> 00000000: <LoadConstUndefined>: <Reg8: 4>
+==> 00000002: <LoadConstUndefined>: <Reg8: 0>
+==> 00000004: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 00000007: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 2>
+==> 0000000b: <GetByIdShort>: <Reg8: 3, Reg8: 2, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 00000010: <CreateEnvironment>: <Reg8: 2>
+==> 00000012: <CreateGeneratorClosure>: <Reg8: 2, Reg8: 2, function_id: 7598>  # Function: [#7598  of 9 bytes]: 1 params @ offset 0x01c36250
+==> 00000017: <Call2>: <Reg8: 3, Reg8: 3, Reg8: 4, Reg8: 2>
+==> 0000001c: <StoreToEnvironment>: <Reg8: 1, UInt8: 4, Reg8: 3>
+==> 00000020: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 2, string_id: 26>  # String: 'apply' (Identifier)
+==> 00000025: <ReifyArguments>: <Reg8: 0>
+==> 00000027: <Mov>: <Reg8: 1, Reg8: 0>
+==> 0000002a: <LoadParam>: <Reg8: 0, UInt8: 0>
+==> 0000002d: <Call3>: <Reg8: 0, Reg8: 2, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 00000033: <Ret>: <Reg8: 0>
+
+
+===============
+

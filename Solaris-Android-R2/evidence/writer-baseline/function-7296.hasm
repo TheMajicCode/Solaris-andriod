@@ -1,0 +1,17 @@
+=> [Function #7296 "unloadModel" of 30 bytes]: 2 params, frame size=13, strict=1, exc handler=0, debug info=0  @ offset 0x01b95eb2
+
+Bytecode listing:
+
+==> 00000000: <LoadConstUndefined>: <Reg8: 0>
+==> 00000002: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 00000005: <LoadFromEnvironment>: <Reg8: 3, Reg8: 1, UInt8: 0>
+==> 00000009: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 1, string_id: 26>  # String: 'apply' (Identifier)
+==> 0000000e: <ReifyArguments>: <Reg8: 0>
+==> 00000010: <Mov>: <Reg8: 1, Reg8: 0>
+==> 00000013: <LoadParam>: <Reg8: 0, UInt8: 0>
+==> 00000016: <Call3>: <Reg8: 0, Reg8: 2, Reg8: 3, Reg8: 0, Reg8: 1>
+==> 0000001c: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "exact declared members and manifest are archived",
+      "pass": true
+    },
+    {
+      "check": "Unix executable member mode is preserved",
+      "pass": true
+    },
+    {
+      "check": "existing output is refused without modification",
+      "pass": true
+    },
+    {
+      "check": "output inside project is refused",
+      "pass": true
+    },
+    {
+      "check": "changed inventoried input is refused before output creation",
+      "pass": true
+    },
+    {
+      "check": "symlinked input is refused",
+      "pass": true
+    }
+  ],
+  "reviewedHash": "2a2de3123dc4aac49038263bcf737e74054cc8a025e855215e46c91bb1b665e4"
+}

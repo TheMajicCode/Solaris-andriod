@@ -1,0 +1,49 @@
+{
+  "format": "solaris-v6-604-unsigned-packaging-or-verification/1",
+  "baselineApkSha256": "25d3642ab5f45986e5dfcfe5c5413d40982c6142eb703adffc391f9d3b033227",
+  "candidatePath": "/tmp/solaris604-unsigned-final/candidate-aligned-unsigned.apk",
+  "candidateSha256": "1064281a1ee874726d1e16e69e0d621af4dad23539fba301e0b91eed3b175b10",
+  "candidateBytes": 242628887,
+  "patchedHbcSha256": "30be9989cc00299836715cc3de5cf3a2a75b00019bdf2f1b91629205f558d8b3",
+  "buildManifestSha256": "38b14c723fa8f08d0e4719384a6abf6ab4640fba2db2d57162bc077825cc0c13",
+  "packagingScriptSha256": "998cb6679f7d81d4fd0ea0fdde5e7a8b9d645f9499bfa20b736435383e2c0445",
+  "toolSha256": {
+    "zipalign": "c5f559e946de5a9e7d58792181db20383b228877812136bc469d97ae00a43b0a",
+    "aapt2": "1a6a396b9cd071f7040071fdd108718cb98c3c9f4960044f373b288993d19eb7",
+    "lib/apksigner.jar": "3716d9311e55d2b0918a2fd9d54ba9e406c5f6abeea700b287f11259bc163dec",
+    "lib64/libc++.so": "96a19cd2154a4423a61f8444e5d3148a608fa3033bc1a22285d19855a950d05a"
+  },
+  "manifestSha256": "4ef82d17ea09549fb352e22268b88fdfd0f6ea80e0c8608d2ebabf150caa9d15",
+  "configSha256": "d4ef985f0cbcff4bd6088353523e4707c35e5a7d2ac2653e7709f157976ffbb7",
+  "packageId": "org.solarishealth.edge.recovery",
+  "versionCode": 604,
+  "versionName": "6.0.4-preview.grounded-chat",
+  "changedPayloadEntries": [
+    "AndroidManifest.xml",
+    "assets/app.config",
+    "assets/index.android.bundle"
+  ],
+  "preservedPayloadEntries": 599,
+  "removedObsoleteSignatureEntries": [],
+  "nativeLibraryCount": 51,
+  "allNativePayloadsUnchanged": true,
+  "allNativeLibrariesStoredAnd16KiBAligned": true,
+  "manifestChange": {
+    "stringIndex": 35,
+    "originalStringOffset": 1452,
+    "stringGrowthBytes": 4,
+    "poolGrowthBytes": 4,
+    "originalVersionCodeOffset": 6720,
+    "newVersionCodeOffset": 6724,
+    "allOtherStringsUnchanged": true,
+    "allOtherXmlNodeBytesUnchanged": true
+  },
+  "allOtherManifestSemanticsUnchanged": true,
+  "signatureVerified": false,
+  "expectedCertificateSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+  "signingPerformedByThisTool": false,
+  "phoneInstalled": false,
+  "phoneTested": false,
+  "buildKind": "APK-derived binary patch; not a complete native source rebuild",
+  "scope": "Guided common-intent answers use only validated selected check-in fields or explain missing sources; bypass model load/generation; retain open chat and native model configuration. Strengthen post-MAC authority recheck. Correct stale chat notices/waiting controls and make source selection explicit. Return to chat after background unlock with honest interruption message; background generation and durable pending drafts remain unsupported. Native vault/model payloads and original foreground/cancellation guards unchanged."
+}

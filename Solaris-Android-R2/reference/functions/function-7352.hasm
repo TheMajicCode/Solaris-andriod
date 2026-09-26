@@ -1,0 +1,18 @@
+=> [Function #7352 "" of 37 bytes]: 1 params, frame size=12, strict=1, exc handler=0, debug info=0  @ offset 0x01c3236e
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 0>
+==> 00000002: <GetEnvironment>: <Reg8: 1, UInt8: 1>
+==> 00000005: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 3>
+==> 00000009: <GetByIdShort>: <Reg8: 3, Reg8: 1, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 0000000e: <LoadConstUndefined>: <Reg8: 2>
+==> 00000010: <CreateGeneratorClosure>: <Reg8: 1, Reg8: 0, function_id: 7354>  # Function: [#7354  of 9 bytes]: 2 params @ offset 0x01c32393
+==> 00000015: <Call2>: <Reg8: 1, Reg8: 3, Reg8: 2, Reg8: 1>
+==> 0000001a: <StoreToEnvironment>: <Reg8: 0, UInt8: 0, Reg8: 1>
+==> 0000001e: <CreateClosure>: <Reg8: 0, Reg8: 0, function_id: 7353>  # Function: [#7353 choosePreparation of 30 bytes]: 2 params @ offset 0x01b95eb2
+==> 00000023: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,57 @@
+# This full handoff preserves inputs/evidence that do not belong in normal Git.
+# Review `git status --short` and the handoff/GIT-IMPORT.md before staging.
+.handoff-output/
+audit-output/
+__pycache__/
+*.py[cod]
+.DS_Store
+.*.??????
+
+# Local credentials and personal state are never repository inputs.
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.key
+*.pem
+local.properties
+key.properties
+.npmrc
+.pypirc
+
+# Retained offline dependencies and executables stay in the full handoff.
+node_modules/
+/reconstruction-work/
+/reconstruction-inputs/
+/solaris-603-native-probe/runtime/
+/solaris-603-native-probe/acquired/
+/Solaris-Android-Reconstruction/build-inputs/
+*.apk
+*.aab
+*.hbc
+*.bundle
+*.dex
+*.so
+*.bare
+*.o
+*.a
+*.gguf
+*.zip
+*.tgz
+*.gz
+*.xz
+*.whl
+*.deb
+/releases/.*
+
+# Supplied phone frames can expose personal records. Preserved privately in ZIP.
+/Solaris-Android-R4/evidence/phone604/
+# Bulky generated host views remain available in the archive and hash inventory.
+/Solaris-Android-Reconstruction/reference/host-disassembly/
+
+# One-time source transport is removed from final working tree.
+*.tar.xz
+.import-output/

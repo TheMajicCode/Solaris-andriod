@@ -1,0 +1,12 @@
+{
+  "tools/test-completion-guards.py": "40636ec26adcce34d844f5901e754fda3dfa128cff9ecc0cc74f7d4ed9f624fc",
+  "tests/hermes/guard-postlude.js": "dc575e4ebb547c312b0111cdc059d9ae61f9eecacf4c34af8b5dc56b5ab44e79",
+  "tests/hermes/compare-postlude.js": "f3e370d994b9636b6530fe2cc711cbed413fd54c96cbb48b6cd4f73b607aaa5d",
+  "evidence/guard-patch/INDEPENDENT-BEHAVIORAL-RERUN.json": "1f8a8ab1e31f83db538dab2eb6dec50160ac5b1f60bbb54e97f438185aa8b2dd",
+  "docs/CANDIDATE-SCOPE-602.md": "c2adc299b6c97afc050ee60a9452edaaf884562c263ffa077d0ced6d23f5df11",
+  "tools/patch-completion-guards.py": "498e34875eb04aedf33e0bec4c90ed4005abb5fa7b1c6ba85411dc4bd5cc86a2",
+  "src/patches/completion-guards.semantic.js": "fb4ee1a4c1ad86dd54d4700005a898fcfa86633d578fa216fe5b1eb629699ee0",
+  "evidence/guard-patch/completion-guards.hbc": "fd8b38bcdd42421c18da4a0b69b2d58906ceddd7c4a2044b34faed51490f4653",
+  "evidence/HERMES-ORACLE-REVIEW.md": "5fbf043ef2de0917195579c5cb2425cc640f2eb10dc86db42d0cdd8a3d444515",
+  "evidence/guard-patch/INDEPENDENT-COMPATIBILITY-REVIEW.md": "19301659d36f0d222bff65985f8793da7bcb5261904e5c5720d582f69b31057a"
+}

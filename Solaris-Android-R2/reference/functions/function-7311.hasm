@@ -1,0 +1,30 @@
+=> [Function #7311 "?anon_0_" of 71 bytes]: 3 params, frame size=17, strict=1, exc handler=0, debug info=0  @ offset 0x01c30e86
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <LoadParam>: <Reg8: 6, UInt8: 1>
+==> 00000004: <LoadParam>: <Reg8: 5, UInt8: 0>
+==> 00000007: <CreateEnvironment>: <Reg8: 1>
+==> 00000009: <ResumeGenerator>: <Reg8: 0, Reg8: 2>
+==> 0000000c: <JmpTrue>: <Addr8: 56, Reg8: 2>  # Address: 00000044
+==> 0000000f: <StoreToEnvironment>: <Reg8: 1, UInt8: 0, Reg8: 6>
+==> 00000013: <StoreToEnvironment>: <Reg8: 1, UInt8: 1, Reg8: 5>
+==> 00000017: <GetByIdShort>: <Reg8: 4, Reg8: 5, UInt8: 1, string_id: 217>  # String: 'run' (Identifier)
+==> 0000001c: <LoadConstString>: <Reg8: 3, string_id: 16014>  # String: 'completePublic' (Identifier)
+==> 00000020: <LoadConstString>: <Reg8: 2, string_id: 4120>  # String: 'smoke' (String)
+==> 00000024: <JStrictNotEqual>: <Addr8: 8, Reg8: 6, Reg8: 2>  # Address: 0000002c
+==> 00000028: <LoadConstString>: <Reg8: 3, string_id: 7292>  # String: 'runSmoke' (String)
+==> 0000002c: <CreateClosure>: <Reg8: 2, Reg8: 1, function_id: 7312>  # Function: [#7312  of 37 bytes]: 1 params @ offset 0x01c30ecd
+==> 00000031: <LoadConstUndefined>: <Reg8: 1>
+==> 00000033: <Call1>: <Reg8: 2, Reg8: 2, Reg8: 1>
+==> 00000037: <LoadParam>: <Reg8: 1, UInt8: 2>
+==> 0000003a: <Call4>: <Reg8: 1, Reg8: 4, Reg8: 5, Reg8: 3, Reg8: 2, Reg8: 1>
+==> 00000041: <CompleteGenerator>: <>
+==> 00000042: <Ret>: <Reg8: 1>
+==> 00000044: <CompleteGenerator>: <>
+==> 00000045: <Ret>: <Reg8: 0>
+
+
+===============
+

@@ -1,0 +1,100 @@
+# Source-only checks for the Solaris Android repository projection.
+#
+# This workflow does NOT build, sign, install or test an Android application,
+# and it is NOT the full-reference 604 verification. A green run proves imported
+# bytes are intact and tracked text parses. It proves nothing about security,
+# licensing, native build completeness or release readiness.
+#
+# Fail-closed contract: tools/repo-check.py exits non-zero when a required
+# dependency is missing, a check inspected nothing, an unexpected error occurred,
+# or a defect is not registered in docs/provenance/CANDIDATE-CHANGES.json. A
+# skipped required check is a FAILURE here, never a green run.
+#
+# There is deliberately no reference-reproduction job. The complete 604 reference
+# is private and contains private phone evidence, so it is restored and run by a
+# human outside CI. tools/repo-check.py lists that gate as BLOCKED on every run.
+name: source-checks
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+# Ordinary checks need read access only. No secrets are referenced anywhere in
+# this workflow, and no signing material may ever be added to it.
+permissions:
+  contents: read
+
+concurrency:
+  group: source-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-checks:
+    name: Source-only repository checks
+    runs-on: ubuntu-latest
+    steps:
+      # Every remote action is pinned to a full commit SHA, including the
+      # GitHub-owned ones. The comment records the upstream release that SHA is.
+      - name: Check out the candidate
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+        with:
+          persist-credentials: false
+
+      # SP-CI-01: action code SHAs and RUNTIME versions are separate concerns.
+      # The actions were pinned; the runtimes were selectors ('3.12', '22'), so
+      # the remote resolved 3.12.14 / 22.23.2 while a local run used 22.22.2.
+      # These are now explicit supported pins. The checker additionally records
+      # the versions that actually executed, because a selector is a request,
+      # not evidence.
+      - name: Set up Python
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b  # v5.3.0
+        with:
+          python-version: '3.12.14'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af  # v4.1.0
+        with:
+          node-version: '22.23.2'
+
+      - name: Record the runtime that actually executed
+        run: |
+          echo "python: $(python3 --version)"
+          echo "node:   $(node --version)"
+          echo "runner: $RUNNER_OS $(uname -m)"
+
+      # Required, not best-effort. repo-check.py fails the yaml-parse check when
+      # PyYAML is absent, so a failure here must stop the run rather than leave a
+      # required check quietly skipped.
+      - name: Install pinned checker dependencies
+        run: python3 -m pip install --require-hashes --no-deps -r tools/requirements.txt
+
+      - name: Verify the checker's own negative controls
+        run: python3 tools/tests/test_repo_check.py
+
+      # AND-CI-01: measured on the runtime this workflow actually pins, with
+      # valid ESM/CJS positives as well as malformed negatives. Rejecting valid
+      # ESM would not be a correct fix, so the positives are required.
+      - name: Verify JavaScript parse-mode controls on the pinned runtime
+        run: python3 tools/tests/test_js_parse_modes.py
+
+      # SP-CI-02: central status/coverage/registration invariants, with
+      # legitimate empty-scope positives alongside the negatives.
+      - name: Verify result-aggregation invariants
+        run: python3 tools/tests/test_result_aggregation.py
+
+      # Runs the checks exactly once, writes the machine-readable report as a
+      # side effect, and preserves the real exit status. The report is written
+      # even on failure, so the upload step below never needs to mask it.
+      - name: Run source-only repository checks
+        run: python3 tools/repo-check.py --report repo-check-report.json
+
+      - name: Upload the check report
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882  # v4.4.3
+        with:
+          name: repo-check-report
+          path: repo-check-report.json
+          retention-days: 14
+          if-no-files-found: error

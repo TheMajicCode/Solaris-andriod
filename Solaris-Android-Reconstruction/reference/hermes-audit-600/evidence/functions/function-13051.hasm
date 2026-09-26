@@ -1,0 +1,78 @@
+=> [Function #13051 "" of 302 bytes]: 8 params, frame size=17, strict=0, exc handler=0, debug info=0  @ offset 0x01cc4da2
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 1>
+==> 00000002: <LoadParam>: <Reg8: 6, UInt8: 2>
+==> 00000005: <LoadParam>: <Reg8: 7, UInt8: 7>
+==> 00000008: <LoadConstZero>: <Reg8: 0>
+==> 0000000a: <GetByVal>: <Reg8: 2, Reg8: 7, Reg8: 0>
+==> 0000000e: <LoadConstUndefined>: <Reg8: 0>
+==> 00000010: <Call2>: <Reg8: 2, Reg8: 6, Reg8: 0, Reg8: 2>
+==> 00000015: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 0000001a: <StoreToEnvironment>: <Reg8: 1, UInt8: 0, Reg8: 2>
+==> 0000001e: <LoadConstUInt8>: <Reg8: 2, UInt8: 1>
+==> 00000021: <GetByVal>: <Reg8: 2, Reg8: 7, Reg8: 2>
+==> 00000025: <Call2>: <Reg8: 2, Reg8: 6, Reg8: 0, Reg8: 2>
+==> 0000002a: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 0000002f: <StoreToEnvironment>: <Reg8: 1, UInt8: 1, Reg8: 2>
+==> 00000033: <LoadConstUInt8>: <Reg8: 2, UInt8: 2>
+==> 00000036: <GetByVal>: <Reg8: 2, Reg8: 7, Reg8: 2>
+==> 0000003a: <Call2>: <Reg8: 2, Reg8: 6, Reg8: 0, Reg8: 2>
+==> 0000003f: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 00000044: <StoreToEnvironment>: <Reg8: 1, UInt8: 2, Reg8: 2>
+==> 00000048: <LoadConstUInt8>: <Reg8: 2, UInt8: 3>
+==> 0000004b: <GetByVal>: <Reg8: 2, Reg8: 7, Reg8: 2>
+==> 0000004f: <Call2>: <Reg8: 2, Reg8: 6, Reg8: 0, Reg8: 2>
+==> 00000054: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 00000059: <StoreToEnvironment>: <Reg8: 1, UInt8: 3, Reg8: 2>
+==> 0000005d: <LoadConstUInt8>: <Reg8: 2, UInt8: 4>
+==> 00000060: <GetByVal>: <Reg8: 2, Reg8: 7, Reg8: 2>
+==> 00000064: <Call2>: <Reg8: 2, Reg8: 6, Reg8: 0, Reg8: 2>
+==> 00000069: <GetByIdShort>: <Reg8: 2, Reg8: 2, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 0000006e: <StoreToEnvironment>: <Reg8: 1, UInt8: 4, Reg8: 2>
+==> 00000072: <LoadConstUInt8>: <Reg8: 2, UInt8: 5>
+==> 00000075: <GetByVal>: <Reg8: 2, Reg8: 7, Reg8: 2>
+==> 00000079: <Call2>: <Reg8: 2, Reg8: 6, Reg8: 0, Reg8: 2>
+==> 0000007e: <GetById>: <Reg8: 4, Reg8: 2, UInt8: 2, string_id: 15508>  # String: 'AppState' (Identifier)
+==> 00000084: <StoreToEnvironment>: <Reg8: 1, UInt8: 5, Reg8: 4>
+==> 00000088: <LoadConstUInt8>: <Reg8: 2, UInt8: 6>
+==> 0000008b: <GetByVal>: <Reg8: 2, Reg8: 7, Reg8: 2>
+==> 0000008f: <Call2>: <Reg8: 2, Reg8: 6, Reg8: 0, Reg8: 2>
+==> 00000094: <GetById>: <Reg8: 5, Reg8: 2, UInt8: 3, string_id: 15030>  # String: 'Duplex' (Identifier)
+==> 0000009a: <LoadConstUInt8>: <Reg8: 2, UInt8: 7>
+==> 0000009d: <GetByVal>: <Reg8: 2, Reg8: 7, Reg8: 2>
+==> 000000a1: <Call2>: <Reg8: 2, Reg8: 6, Reg8: 0, Reg8: 2>
+==> 000000a6: <LoadConstUInt8>: <Reg8: 3, UInt8: 8>
+==> 000000a9: <GetByVal>: <Reg8: 3, Reg8: 7, Reg8: 3>
+==> 000000ad: <Call2>: <Reg8: 3, Reg8: 6, Reg8: 0, Reg8: 3>
+==> 000000b2: <GetByIdShort>: <Reg8: 3, Reg8: 3, UInt8: 1, string_id: 101>  # String: 'default' (Identifier)
+==> 000000b7: <StoreToEnvironment>: <Reg8: 1, UInt8: 6, Reg8: 3>
+==> 000000bb: <NewObjectWithBuffer>: <Reg8: 3, UInt16: 3, UInt16: 3, UInt16: 3703, UInt16: 9757>  # Object: {'STARTED': 1, 'TERMINATED': 2, 'SUSPENDED': 4}
+==> 000000c5: <StoreToEnvironment>: <Reg8: 1, UInt8: 7, Reg8: 3>
+==> 000000c9: <CreateClosure>: <Reg8: 3, Reg8: 1, function_id: 13052>  # Function: [#13052  of 275 bytes]: 2 params @ offset 0x01cc4ed0
+==> 000000ce: <Call2>: <Reg8: 3, Reg8: 3, Reg8: 0, Reg8: 5>
+==> 000000d3: <StoreToEnvironment>: <Reg8: 1, UInt8: 8, Reg8: 3>
+==> 000000d7: <CreateClosure>: <Reg8: 1, Reg8: 1, function_id: 13064>  # Function: [#13064  of 471 bytes]: 2 params @ offset 0x01cc52a5
+==> 000000dc: <Call2>: <Reg8: 5, Reg8: 1, Reg8: 0, Reg8: 2>
+==> 000000e1: <GetGlobalObject>: <Reg8: 1>
+==> 000000e3: <TryGetById>: <Reg8: 1, Reg8: 1, UInt8: 4, string_id: 22>  # String: 'Set' (Identifier)
+==> 000000e9: <GetByIdShort>: <Reg8: 2, Reg8: 1, UInt8: 5, string_id: 203>  # String: 'prototype' (Identifier)
+==> 000000ee: <CreateThis>: <Reg8: 2, Reg8: 2, Reg8: 1>
+==> 000000f2: <Mov>: <Reg8: 10, Reg8: 2>
+==> 000000f5: <Construct>: <Reg8: 1, Reg8: 1, UInt8: 1>
+==> 000000f9: <SelectObject>: <Reg8: 1, Reg8: 2, Reg8: 1>
+==> 000000fd: <PutById>: <Reg8: 5, Reg8: 1, UInt8: 1, string_id: 20295>  # String: '_worklets' (Identifier)
+==> 00000103: <LoadParam>: <Reg8: 1, UInt8: 6>
+==> 00000106: <PutById>: <Reg8: 1, Reg8: 5, UInt8: 2, string_id: 14916>  # String: 'Worklet' (Identifier)
+==> 0000010c: <GetById>: <Reg8: 3, Reg8: 4, UInt8: 6, string_id: 16111>  # String: 'addEventListener' (Identifier)
+==> 00000112: <GetById>: <Reg8: 2, Reg8: 5, UInt8: 7, string_id: 14593>  # String: 'update' (Identifier)
+==> 00000118: <GetByIdShort>: <Reg8: 1, Reg8: 2, UInt8: 8, string_id: 58>  # String: 'bind' (Identifier)
+==> 0000011d: <Call2>: <Reg8: 2, Reg8: 1, Reg8: 2, Reg8: 5>
+==> 00000122: <LoadConstString>: <Reg8: 1, string_id: 14161>  # String: 'change' (Identifier)
+==> 00000126: <Call3>: <Reg8: 1, Reg8: 3, Reg8: 4, Reg8: 1, Reg8: 2>
+==> 0000012c: <Ret>: <Reg8: 0>
+
+
+===============
+

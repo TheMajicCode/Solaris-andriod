@@ -1,0 +1,20 @@
+=> [Function #7381 "next" of 45 bytes]: 1 params, frame size=16, strict=0, exc handler=0, debug info=0  @ offset 0x01c32cfd
+
+Bytecode listing:
+
+==> 00000000: <LoadThisNS>: <Reg8: 3>
+==> 00000002: <LoadConstUndefined>: <Reg8: 2>
+==> 00000004: <LoadConstUndefined>: <Reg8: 0>
+==> 00000006: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 00000009: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 0>
+==> 0000000d: <GetById>: <Reg8: 5, Reg8: 3, UInt8: 1, string_id: 14040>  # String: 'n' (Identifier)
+==> 00000013: <GetByIdShort>: <Reg8: 4, Reg8: 5, UInt8: 2, string_id: 26>  # String: 'apply' (Identifier)
+==> 00000018: <GetById>: <Reg8: 3, Reg8: 3, UInt8: 3, string_id: 13971>  # String: 's' (Identifier)
+==> 0000001e: <ReifyArguments>: <Reg8: 0>
+==> 00000020: <Call3>: <Reg8: 0, Reg8: 4, Reg8: 5, Reg8: 3, Reg8: 0>
+==> 00000026: <Call2>: <Reg8: 0, Reg8: 1, Reg8: 2, Reg8: 0>
+==> 0000002b: <Ret>: <Reg8: 0>
+
+
+===============
+

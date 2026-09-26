@@ -1,0 +1,45 @@
+[
+  {
+    "args": [
+      "reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+      "-O",
+      "-emit-binary",
+      "-out=Solaris-Android-R2/evidence/integration-feasibility/base-probe.hbc",
+      "Solaris-Android-R2/evidence/integration-feasibility/base-probe.js"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "reconstruction-work/r2-tools/react-native-0.81.5/package/sdks/hermesc/linux64-bin/hermesc",
+      "-O",
+      "-emit-binary",
+      "-base-bytecode=Solaris-Android-R2/evidence/integration-feasibility/base-probe.hbc",
+      "-out=Solaris-Android-R2/evidence/integration-feasibility/delta-probe.hbc",
+      "Solaris-Android-R2/evidence/integration-feasibility/delta-probe.js"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "reconstruction-work/r2-tools/hermes-build/bin/hvm",
+      "Solaris-Android-R2/evidence/integration-feasibility/base-probe.hbc"
+    ],
+    "returncode": 0,
+    "stdout": "base-only\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "reconstruction-work/r2-tools/hermes-build/bin/hvm",
+      "Solaris-Android-R2/evidence/integration-feasibility/delta-probe.hbc"
+    ],
+    "returncode": 0,
+    "stdout": "undefined\nnew-behavior\n",
+    "stderr": ""
+  }
+]

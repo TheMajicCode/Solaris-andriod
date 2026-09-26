@@ -1,0 +1,590 @@
+        829266    StartGenerator   
+        829267    LoadParam         r1, 1
+        829270    CreateEnvironment r3
+        829272    ResumeGenerator   r0, r4
+        829275    JmpTrueLong       L1, r4
+        829281    Mov               r7, r1
+        829284    StoreToEnvironment r3, 0, r1
+        829288    LoadConstUndefined r5
+        829290    StoreNPToEnvironment r3, 1, r5
+        829294    LoadConstUndefined r11
+        829296    StoreNPToEnvironment r3, 2, r5
+        829300    StoreNPToEnvironment r3, 3, r5
+        829304    StoreNPToEnvironment r3, 4, r5
+        829308    StoreNPToEnvironment r3, 5, r5
+        829312    StoreNPToEnvironment r3, 6, r5
+        829316    StoreNPToEnvironment r3, 7, r5
+        829320    LoadConstUndefined r2
+        829322    StoreNPToEnvironment r3, 8, r5
+        829326    StoreNPToEnvironment r3, 9, r5
+        829330    LoadConstUndefined r8
+        829332    GetEnvironment    r13, 2
+        829335    LoadFromEnvironment r1, r13, 1
+        829339    GetByIdShort      r1, r1, 1, "modelId"
+        829344    JmpFalse          L2, r1
+        829347    LoadFromEnvironment r1, r13, 1
+        829351    GetById           r1, r1, 2, "workerReady"
+        829357    JmpTrue           L3, r1
+L2:
+        829360    GetEnvironment    r1, 6
+        829363    LoadFromEnvironment r1, r1, 12
+        829367    GetById           r9, r1, 3, "RuntimeError"
+        829373    GetByIdShort      r1, r9, 4, "prototype"
+        829378    CreateThis        r4, r1, r9
+        829382    LoadConstString   r25, "QVAC_NOT_READY"
+        829386    LoadConstString   r24, "stream"
+        829390    Mov               r26, r4
+        829393    Construct         r1, r9, 3
+        829397    SelectObject      r1, r4, r1
+        829401    Throw             r1
+L3:
+        829403    LoadFromEnvironment r1, r13, 0
+        829407    LoadConstString   r18, "smoke"
+        829411    JStrictEqual      L4, r1, r18
+        829415    GetGlobalObject   r1
+        829417    TryGetById        r10, r1, 5, "Object"
+        829423    GetById           r9, r10, 6, "hasOwn"
+        829429    GetEnvironment    r1, 6
+        829432    LoadFromEnvironment r4, r1, 9
+        829436    GetById           r6, r4, 7, "PROMPTS"
+        829442    LoadFromEnvironment r4, r13, 0
+        829446    Call3             r4, r9, r10, r6, r4
+        829452    JmpTrue           L4, r4
+        829455    LoadFromEnvironment r1, r1, 12
+        829459    GetById           r9, r1, 3, "RuntimeError"
+        829465    GetByIdShort      r1, r9, 4, "prototype"
+        829470    CreateThis        r4, r1, r9
+        829474    LoadConstString   r25, "PUBLIC_PROMPT_REQ"...
+        829478    LoadConstString   r24, "stream"
+        829482    Mov               r26, r4
+        829485    Construct         r1, r9, 3
+        829489    SelectObject      r1, r4, r1
+        829493    Throw             r1
+L4:
+        829495    LoadFromEnvironment r1, r13, 1
+        829499    GetById           r6, r1, 8, "runtime"
+        829505    GetById           r4, r6, 9, "peek"
+        829511    Call1             r14, r4, r6
+        829515    StoreToEnvironment r3, 1, r14
+        829519    GetGlobalObject   r4
+        829521    TryGetById        r9, r4, 10, "Date"
+        829527    GetByIdShort      r6, r9, 11, "now"
+        829532    Call1             r6, r6, r9
+        829536    Mov               r11, r6
+        829539    StoreToEnvironment r3, 2, r6
+        829543    LoadConstString   r6, ""
+        829547    PutById           r1, r6, 1, "output"
+        829553    LoadConstNull     r6
+        829555    PutById           r1, r6, 2, "receipt"
+        829561    NewObjectWithBuffer r9, 3, 3, 2487, 2268
+        829571    PutById           r1, r9, 3, "inference"
+        829577    StoreNPToEnvironment r3, 3, r6
+        829581    LoadConstZero     r9
+        829583    StoreNPToEnvironment r3, 4, r9
+        829587    GetById           r9, r1, 12, "provisioner"
+        829593    GetById           r1, r9, 13, "stage"
+        829599    LoadConstString   r15, "stream"
+        829603    Call2             r1, r1, r9, r15
+        829608    SaveGenerator     L5
+        829610    Ret               r1
+L5:
+        829612    ResumeGenerator   r1, r9
+        829615    JmpTrueLong       L6, r9
+        829621    LoadFromEnvironment r9, r13, 1
+        829625    GetByIdShort      r12, r9, 31, "check"
+        829630    Call2             r12, r12, r9, r7
+        829635    GetById           r12, r14, 14, "completion"
+        829641    NewObjectWithBuffer r9, 5, 5, 2544, 541
+        829651    LoadFromEnvironment r10, r13, 1
+        829655    GetByIdShort      r10, r10, 1, "modelId"
+        829660    PutById           r9, r10, 4, "modelId"
+        829666    NewObject         r16
+        829668    LoadConstString   r10, "user"
+        829672    PutNewOwnById     r16, r10, "role"
+        829677    LoadFromEnvironment r17, r13, 0
+        829681    LoadConstString   r10, "Say hello in one "...
+        829685    JStrictEqual      L7, r17, r18
+        829689    GetEnvironment    r17, 6
+        829692    LoadFromEnvironment r17, r17, 9
+        829696    GetById           r18, r17, 7, "PROMPTS"
+        829702    LoadFromEnvironment r17, r13, 0
+        829706    GetByVal          r18, r18, r17
+        829710    LoadConstString   r17, " /no_think"
+        829714    Add               r10, r18, r17
+L7:
+        829718    PutNewOwnById     r16, r10, "content"
+        829723    NewArray          r10, 1
+        829727    PutOwnByIndex     r10, r16, 0
+        829731    PutById           r9, r10, 5, "history"
+        829737    LoadConstFalse    r10
+        829739    Call2             r9, r12, r14, r9
+        829744    StoreToEnvironment r3, 5, r9
+        829748    Mov               r14, r7
+        829751    CreateClosure     r12, r3, NCFunction<>7315
+        829756    PutById           r14, r12, 6, "cancelAction"
+        829762    TryGetById        r16, r4, 15, "Promise"
+        829768    GetByIdShort      r12, r16, 4, "prototype"
+        829773    CreateThis        r14, r12, r16
+        829777    CreateClosure     r25, r3, NCFunction<>7316
+        829782    Mov               r26, r14
+        829785    Construct         r12, r16, 2
+        829789    SelectObject      r12, r14, r12
+        829793    StoreToEnvironment r3, 7, r12
+        829797    GetById           r14, r9, 16, "final"
+        829803    Mov               r2, r14
+        829806    StoreToEnvironment r3, 8, r14
+        829810    GetByIdShort      r12, r14, 17, "catch"
+        829815    CreateClosure     r9, r3, NCFunction<>7318
+        829820    Call2             r9, r12, r14, r9
+        829825    GetEnvironment    r12, 6
+        829828    LoadFromEnvironment r9, r12, 3
+        829832    GetByIdShort      r14, r9, 18, "default"
+        829837    CreateGeneratorClosure r9, r3, NCFunction<>7319
+        829842    Call2             r9, r14, r5, r9
+        829847    Call1             r9, r9, r5
+        829851    StoreToEnvironment r3, 9, r9
+L21:
+        829855    LoadFromEnvironment r18, r13, 1
+        829859    GetById           r17, r18, 19, "step"
+        829865    Mov               r25, r7
+        829868    GetById           r9, r18, 20, "budgets"
+        829874    GetById           r22, r9, 14, "completion"
+        829880    Mov               r20, r2
+        829883    CreateClosure     r23, r3, NCFunction<>7321
+        829888    Mov               r26, r18
+        829891    Mov               r24, r15
+        829894    LoadConstTrue     r21
+        829896    Call              r2, r17, 7
+        829900    SaveGenerator     L8
+        829902    Ret               r2
+L8:
+        829904    ResumeGenerator   r2, r9
+        829907    JmpTrueLong       L9, r9
+        829913    Mov               r8, r2
+        829916    LoadFromEnvironment r9, r3, 4
+        829920    JmpFalse          L10, r9
+        829923    Mov               r9, r8
+        829926    GetById           r14, r9, 21, "contentText"
+        829932    Eq                r9, r14, r6
+        829936    LoadConstUndefined r6
+        829938    JmpTrue           L11, r9
+        829941    GetByIdShort      r9, r14, 22, "trim"
+        829946    Call1             r6, r9, r14
+L11:
+        829950    JmpTrue           L12, r6
+L10:
+        829953    LoadFromEnvironment r6, r12, 12
+        829957    GetById           r14, r6, 3, "RuntimeError"
+        829963    GetByIdShort      r6, r14, 4, "prototype"
+        829968    CreateThis        r9, r6, r14
+        829972    LoadConstString   r25, "EMPTY_COMPLETION"
+        829976    Mov               r26, r9
+        829979    Mov               r24, r15
+        829982    Construct         r6, r14, 3
+        829986    SelectObject      r6, r9, r6
+        829990    Throw             r6
+L12:
+        829992    LoadFromEnvironment r6, r13, 1
+        829996    GetByIdShort      r9, r6, 23, "check"
+        830001    Call2             r7, r9, r6, r7
+        830006    GetById           r9, r6, 12, "provisioner"
+        830012    GetById           r7, r9, 13, "stage"
+        830018    LoadConstString   r6, "stream-complete"
+        830022    Call2             r6, r7, r9, r6
+        830027    SaveGenerator     L13
+        830029    Ret               r6
+L13:
+        830031    ResumeGenerator   r6, r7
+        830034    JmpTrueLong       L14, r7
+        830040    LoadFromEnvironment r9, r13, 1
+        830044    LoadConstString   r7, "ready"
+        830048    PutById           r9, r7, 7, "status"
+        830054    LoadConstString   r7, "idle"
+        830058    PutById           r9, r7, 8, "phase"
+        830064    NewObjectWithBuffer r7, 3, 2, 2487, 712
+        830074    TryGetById        r14, r4, 10, "Date"
+        830080    GetByIdShort      r15, r14, 4, "prototype"
+        830085    CreateThis        r15, r15, r14
+        830089    Mov               r26, r15
+        830092    Construct         r14, r14, 1
+        830096    SelectObject      r15, r15, r14
+        830100    GetById           r14, r15, 24, "toISOString"
+        830106    Call1             r14, r14, r15
+        830110    PutNewOwnById     r7, r14, "completedAt"
+        830115    PutById           r9, r7, 3, "inference"
+        830121    NewObjectWithBuffer r7, 13, 6, 2556, 2272
+        830131    LoadFromEnvironment r13, r13, 0
+        830135    PutById           r7, r13, 9, "promptId"
+        830141    LoadFromEnvironment r12, r12, 9
+        830145    GetById           r13, r12, 25, "MODEL"
+        830151    GetByIdShort      r13, r13, 26, "id"
+        830156    PutNewOwnByIdShort r7, r13, "modelId"
+        830160    GetById           r12, r12, 25, "MODEL"
+        830166    GetById           r12, r12, 27, "checksum"
+        830172    PutNewOwnById     r7, r12, "checksum"
+        830177    LoadFromEnvironment r12, r3, 4
+        830181    PutNewOwnById     r7, r12, "contentEvents"
+        830186    LoadFromEnvironment r12, r3, 3
+        830190    PutNewOwnById     r7, r12, "firstTokenMs"
+        830195    TryGetById        r13, r4, 10, "Date"
+        830201    GetByIdShort      r12, r13, 11, "now"
+        830206    Call1             r12, r12, r13
+        830210    Sub               r11, r12, r11
+        830214    PutNewOwnById     r7, r11, "latencyMs"
+        830219    TryGetById        r11, r4, 10, "Date"
+        830225    GetByIdShort      r12, r11, 4, "prototype"
+        830230    CreateThis        r12, r12, r11
+        830234    Mov               r26, r12
+        830237    Construct         r11, r11, 1
+        830241    SelectObject      r12, r12, r11
+        830245    GetById           r11, r12, 24, "toISOString"
+        830251    Call1             r11, r11, r12
+        830255    PutNewOwnById     r7, r11, "completedAt"
+        830260    PutNewOwnById     r7, r10, "signed"
+        830265    PutById           r9, r7, 2, "receipt"
+        830271    GetByIdShort      r7, r9, 28, "changed"
+        830276    Call1             r7, r7, r9
+        830280    NewObject         r7
+        830282    GetById           r24, r9, 29, "receipt"
+        830288    Mov               r25, r7
+        830291    CallBuiltin       r9, "HermesBuiltin.copyDataProperties", 3
+        830295    GetById           r9, r8, 21, "contentText"
+        830301    LoadConstString   r8, "text"
+        830305    PutOwnByVal       r7, r9, r8, 1
+        830310    LoadConstString   r9, "device"
+        830314    LoadConstString   r8, "residency"
+        830318    PutOwnByVal       r7, r9, r8, 1
+L22:
+        830323    LoadFromEnvironment r8, r3, 6
+        830327    JmpFalse          L15, r8
+        830330    TryGetById        r9, r4, 30, "clearTimeout"
+        830336    LoadFromEnvironment r8, r3, 6
+        830340    Call2             r8, r9, r5, r8
+L15:
+        830345    CompleteGenerator
+        830346    Ret               r7
+L14:
+        830348    LoadFromEnvironment r7, r3, 6
+        830352    JmpFalse          L16, r7
+        830355    TryGetById        r8, r4, 30, "clearTimeout"
+        830361    LoadFromEnvironment r7, r3, 6
+        830365    Call2             r7, r8, r5, r7
+L16:
+        830370    CompleteGenerator
+        830371    Ret               r6
+L9:
+        830373    LoadFromEnvironment r6, r3, 6
+        830377    JmpFalse          L17, r6
+        830380    TryGetById        r7, r4, 30, "clearTimeout"
+        830386    LoadFromEnvironment r6, r3, 6
+        830390    Call2             r6, r7, r5, r6
+L17:
+        830395    CompleteGenerator
+        830396    Ret               r2
+L18:
+        830398    Catch             r2
+        830400    LoadFromEnvironment r6, r3, 6
+        830404    JmpFalse          L19, r6
+        830407    TryGetById        r4, r4, 30, "clearTimeout"
+        830413    LoadFromEnvironment r3, r3, 6
+        830417    Call2             r3, r4, r5, r3
+L19:
+        830422    Throw             r2
+L6:
+        830424    CompleteGenerator
+        830425    Ret               r1
+L1:
+        830427    CompleteGenerator
+        830428    Ret               r0
+
+Exception Handlers:
+0: start = L21, end = L22, target = L18
+
+
+        832047    StartGenerator   
+        832048    LoadParam         r1, 1
+        832051    CreateEnvironment r4
+        832053    ResumeGenerator   r0, r3
+        832056    JmpTrueLong       L1, r3
+        832062    Mov               r6, r1
+        832065    StoreToEnvironment r4, 0, r1
+        832069    LoadConstUndefined r7
+        832071    LoadConstUndefined r8
+        832073    StoreNPToEnvironment r4, 1, r7
+        832077    StoreNPToEnvironment r4, 2, r7
+        832081    StoreNPToEnvironment r4, 3, r7
+        832085    StoreNPToEnvironment r4, 4, r7
+        832089    LoadConstUndefined r10
+        832091    StoreNPToEnvironment r4, 5, r7
+        832095    StoreNPToEnvironment r4, 6, r7
+        832099    StoreNPToEnvironment r4, 7, r7
+        832103    LoadConstUndefined r2
+        832105    StoreNPToEnvironment r4, 8, r7
+        832109    StoreNPToEnvironment r4, 9, r7
+        832113    StoreNPToEnvironment r4, 10, r7
+        832117    GetEnvironment    r9, 2
+        832120    LoadFromEnvironment r1, r9, 1
+        832124    Call1             r1, r1, r7
+        832128    JmpTrue           L2, r1
+L7:
+        832131    GetEnvironment    r1, 6
+        832134    LoadFromEnvironment r1, r1, 12
+        832138    GetById           r11, r1, 1, "RuntimeError"
+        832144    GetByIdShort      r1, r11, 2, "prototype"
+        832149    CreateThis        r3, r1, r11
+        832153    LoadConstString   r22, "CANCELLED"
+        832157    LoadConstString   r21, "local"
+        832161    Mov               r23, r3
+        832164    Construct         r1, r11, 3
+        832168    SelectObject      r1, r3, r1
+        832172    Throw             r1
+L2:
+        832174    LoadFromEnvironment r1, r9, 3
+        832178    GetByIdShort      r1, r1, 3, "modelId"
+        832183    JmpFalse          L3, r1
+        832186    LoadFromEnvironment r1, r9, 3
+        832190    GetById           r1, r1, 4, "workerReady"
+        832196    JmpTrue           L4, r1
+L3:
+        832199    GetEnvironment    r1, 6
+        832202    LoadFromEnvironment r1, r1, 12
+        832206    GetById           r11, r1, 1, "RuntimeError"
+        832212    GetByIdShort      r1, r11, 2, "prototype"
+        832217    CreateThis        r3, r1, r11
+        832221    LoadConstString   r22, "QVAC_NOT_READY"
+        832225    LoadConstString   r21, "local"
+        832229    Mov               r23, r3
+        832232    Construct         r1, r11, 3
+        832236    SelectObject      r1, r3, r1
+        832240    Throw             r1
+L4:
+        832242    LoadFromEnvironment r1, r9, 3
+        832246    GetById           r5, r1, 5, "runtime"
+        832252    GetById           r3, r5, 6, "peek"
+        832258    Call1             r3, r3, r5
+        832262    Mov               r8, r3
+        832265    StoreToEnvironment r4, 1, r3
+        832269    LoadConstString   r3, ""
+        832273    StoreToEnvironment r4, 2, r3
+        832277    LoadConstZero     r5
+        832279    StoreNPToEnvironment r4, 3, r5
+        832283    LoadConstNull     r5
+        832285    StoreNPToEnvironment r4, 4, r5
+        832289    NewObjectWithBuffer r5, 3, 3, 2487, 2268
+        832299    PutById           r1, r5, 1, "inference"
+        832305    GetGlobalObject   r5
+        832307    TryGetById        r12, r5, 7, "Date"
+        832313    GetByIdShort      r11, r12, 8, "now"
+        832318    Call1             r11, r11, r12
+        832322    Mov               r10, r11
+        832325    StoreToEnvironment r4, 5, r11
+        832329    GetById           r11, r1, 9, "provisioner"
+        832335    GetById           r1, r11, 10, "stage"
+        832341    LoadConstString   r16, "stream"
+        832345    Call2             r1, r1, r11, r16
+        832350    SaveGenerator     L5
+        832352    Ret               r1
+L5:
+        832354    ResumeGenerator   r1, r11
+        832357    JmpTrueLong       L6, r11
+        832363    LoadFromEnvironment r1, r9, 1
+        832367    Call1             r1, r1, r7
+        832371    JmpFalseLong      L7, r1
+        832377    LoadFromEnvironment r11, r9, 3
+        832381    GetByIdShort      r12, r11, 24, "check"
+        832386    Call2             r12, r12, r11, r6
+        832391    Mov               r12, r8
+        832394    GetById           r11, r12, 11, "completion"
+        832400    NewObjectWithBuffer r8, 6, 5, 2544, 541
+        832410    LoadFromEnvironment r13, r9, 3
+        832414    GetByIdShort      r13, r13, 3, "modelId"
+        832419    PutById           r8, r13, 2, "modelId"
+        832425    NewObject         r14
+        832427    LoadConstString   r13, "user"
+        832431    PutNewOwnById     r14, r13, "role"
+        832436    LoadFromEnvironment r13, r9, 0
+        832440    PutNewOwnById     r14, r13, "content"
+        832445    NewArray          r13, 1
+        832449    PutOwnByIndex     r13, r14, 0
+        832453    PutById           r8, r13, 3, "history"
+        832459    NewObject         r13
+        832461    LoadConstString   r14, "json_object"
+        832465    PutNewOwnByIdShort r13, r14, "type"
+        832469    PutNewOwnById     r8, r13, "responseFormat"
+        832474    Call2             r8, r11, r12, r8
+        832479    StoreToEnvironment r4, 7, r8
+        832483    Mov               r12, r6
+        832486    CreateClosure     r11, r4, NCFunction<>7338
+        832491    PutById           r12, r11, 4, "cancelAction"
+        832497    GetById           r12, r8, 12, "final"
+        832503    Mov               r2, r12
+        832506    StoreToEnvironment r4, 8, r12
+        832510    GetByIdShort      r11, r12, 13, "catch"
+        832515    CreateClosure     r8, r4, NCFunction<>7339
+        832520    Call2             r8, r11, r12, r8
+        832525    TryGetById        r12, r5, 14, "Promise"
+        832531    GetByIdShort      r8, r12, 2, "prototype"
+        832536    CreateThis        r11, r8, r12
+        832540    CreateClosure     r22, r4, NCFunction<>7340
+        832545    Mov               r23, r11
+        832548    Construct         r8, r12, 2
+        832552    SelectObject      r8, r11, r8
+        832556    StoreToEnvironment r4, 9, r8
+        832560    GetEnvironment    r11, 6
+        832563    LoadFromEnvironment r8, r11, 3
+        832567    GetByIdShort      r12, r8, 15, "default"
+        832572    CreateGeneratorClosure r8, r4, NCFunction<>7342
+        832577    Call2             r8, r12, r7, r8
+        832582    Call1             r8, r8, r7
+        832586    StoreToEnvironment r4, 10, r8
+L22:
+        832590    LoadFromEnvironment r14, r9, 3
+        832594    GetById           r13, r14, 16, "step"
+        832600    Mov               r22, r6
+        832603    GetById           r6, r14, 17, "budgets"
+        832609    GetById           r19, r6, 11, "completion"
+        832615    Mov               r17, r2
+        832618    CreateClosure     r20, r4, NCFunction<>7344
+        832623    Mov               r23, r14
+        832626    Mov               r21, r16
+        832629    LoadConstTrue     r18
+        832631    Call              r2, r13, 7
+        832635    SaveGenerator     L8
+        832637    Ret               r2
+L8:
+        832639    ResumeGenerator   r2, r6
+        832642    JmpTrueLong       L9, r6
+        832648    LoadFromEnvironment r6, r9, 1
+        832652    Call1             r6, r6, r7
+        832656    JmpTrue           L10, r6
+        832659    LoadFromEnvironment r6, r11, 12
+        832663    GetById           r13, r6, 1, "RuntimeError"
+        832669    GetByIdShort      r6, r13, 2, "prototype"
+        832674    CreateThis        r8, r6, r13
+        832678    LoadConstString   r22, "CANCELLED"
+        832682    LoadConstString   r21, "local"
+        832686    Mov               r23, r8
+        832689    Construct         r6, r13, 3
+        832693    SelectObject      r6, r8, r6
+        832697    Throw             r6
+L10:
+        832699    LoadFromEnvironment r6, r4, 3
+        832703    JmpFalse          L11, r6
+        832706    LoadFromEnvironment r8, r4, 2
+        832710    GetByIdShort      r6, r8, 18, "trim"
+        832715    Call1             r6, r6, r8
+        832719    JmpTrue           L12, r6
+L11:
+        832722    LoadFromEnvironment r6, r11, 12
+        832726    GetById           r13, r6, 1, "RuntimeError"
+        832732    GetByIdShort      r6, r13, 2, "prototype"
+        832737    CreateThis        r8, r6, r13
+        832741    LoadConstString   r22, "EMPTY_COMPLETION"
+        832745    LoadConstString   r21, "local"
+        832749    Mov               r23, r8
+        832752    Construct         r6, r13, 3
+        832756    SelectObject      r6, r8, r6
+        832760    Throw             r6
+L12:
+        832762    LoadFromEnvironment r6, r9, 3
+        832766    GetById           r12, r6, 9, "provisioner"
+        832772    GetById           r8, r12, 10, "stage"
+        832778    LoadConstString   r6, "stream-complete"
+        832782    Call2             r6, r8, r12, r6
+        832787    SaveGenerator     L13
+        832789    Ret               r6
+L13:
+        832791    ResumeGenerator   r6, r8
+        832794    JmpTrueLong       L14, r8
+        832800    LoadFromEnvironment r12, r9, 3
+        832804    LoadConstString   r8, "ready"
+        832808    PutById           r12, r8, 5, "status"
+        832814    LoadConstString   r8, "idle"
+        832818    PutById           r12, r8, 6, "phase"
+        832824    NewObjectWithBuffer r8, 3, 2, 2487, 712
+        832834    TryGetById        r13, r5, 7, "Date"
+        832840    GetByIdShort      r14, r13, 2, "prototype"
+        832845    CreateThis        r14, r14, r13
+        832849    Mov               r23, r14
+        832852    Construct         r13, r13, 1
+        832856    SelectObject      r14, r14, r13
+        832860    GetById           r13, r14, 19, "toISOString"
+        832866    Call1             r13, r13, r14
+        832870    PutNewOwnById     r8, r13, "completedAt"
+        832875    PutById           r12, r8, 1, "inference"
+        832881    NewObject         r8
+        832883    LoadFromEnvironment r12, r4, 2
+        832887    PutNewOwnByIdShort r8, r12, "text"
+        832891    LoadFromEnvironment r12, r4, 3
+        832895    PutNewOwnById     r8, r12, "contentEvents"
+        832900    LoadFromEnvironment r11, r11, 9
+        832904    GetById           r12, r11, 20, "MODEL"
+        832910    GetByIdShort      r12, r12, 21, "id"
+        832915    PutNewOwnByIdShort r8, r12, "modelId"
+        832919    GetById           r11, r11, 20, "MODEL"
+        832925    GetById           r11, r11, 22, "checksum"
+        832931    PutNewOwnById     r8, r11, "checksum"
+        832936    LoadFromEnvironment r11, r4, 4
+        832940    PutNewOwnById     r8, r11, "firstTokenMs"
+        832945    TryGetById        r12, r5, 7, "Date"
+        832951    GetByIdShort      r11, r12, 8, "now"
+        832956    Call1             r11, r11, r12
+        832960    Sub               r10, r11, r10
+        832964    PutNewOwnById     r8, r10, "latencyMs"
+        832969    LoadFromEnvironment r10, r9, 2
+        832973    LoadConstString   r9, "daily-policy/1"
+        832977    JmpFalse          L15, r10
+        832980    LoadConstString   r9, "luca-conversation"...
+L15:
+        832984    PutNewOwnById     r8, r9, "policyVersion"
+L23:
+        832989    LoadFromEnvironment r9, r4, 6
+        832993    JmpFalse          L16, r9
+        832996    TryGetById        r10, r5, 23, "clearTimeout"
+        833002    LoadFromEnvironment r9, r4, 6
+        833006    Call2             r9, r10, r7, r9
+L16:
+        833011    StoreToEnvironment r4, 2, r3
+        833015    CompleteGenerator
+        833016    Ret               r8
+L14:
+        833018    LoadFromEnvironment r8, r4, 6
+        833022    JmpFalse          L17, r8
+        833025    TryGetById        r9, r5, 23, "clearTimeout"
+        833031    LoadFromEnvironment r8, r4, 6
+        833035    Call2             r8, r9, r7, r8
+L17:
+        833040    StoreToEnvironment r4, 2, r3
+        833044    CompleteGenerator
+        833045    Ret               r6
+L9:
+        833047    LoadFromEnvironment r6, r4, 6
+        833051    JmpFalse          L18, r6
+        833054    TryGetById        r8, r5, 23, "clearTimeout"
+        833060    LoadFromEnvironment r6, r4, 6
+        833064    Call2             r6, r8, r7, r6
+L18:
+        833069    StoreToEnvironment r4, 2, r3
+        833073    CompleteGenerator
+        833074    Ret               r2
+L19:
+        833076    Catch             r2
+        833078    LoadFromEnvironment r6, r4, 6
+        833082    JmpFalse          L20, r6
+        833085    TryGetById        r6, r5, 23, "clearTimeout"
+        833091    LoadFromEnvironment r5, r4, 6
+        833095    Call2             r5, r6, r7, r5
+L20:
+        833100    StoreToEnvironment r4, 2, r3
+        833104    Throw             r2
+L6:
+        833106    CompleteGenerator
+        833107    Ret               r1
+L1:
+        833109    CompleteGenerator
+        833110    Ret               r0
+
+Exception Handlers:
+0: start = L22, end = L23, target = L19
+
+

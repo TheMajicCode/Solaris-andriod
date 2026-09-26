@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security report
+    url: https://github.com/TheMajicCode/solaris-andriod/blob/main/docs/SECURITY.md
+    about: Do not open a public issue for a suspected vulnerability. Read docs/SECURITY.md first.

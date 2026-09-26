@@ -1,0 +1,31 @@
+=> [Function #7142 "" of 89 bytes]: 2 params, frame size=18, strict=1, exc handler=0, debug info=0  @ offset 0x01c2d815
+
+Bytecode listing:
+
+==> 00000000: <CreateEnvironment>: <Reg8: 6>
+==> 00000002: <LoadParam>: <Reg8: 4, UInt8: 1>
+==> 00000005: <StoreToEnvironment>: <Reg8: 6, UInt8: 0, Reg8: 4>
+==> 00000009: <GetGlobalObject>: <Reg8: 2>
+==> 0000000b: <TryGetById>: <Reg8: 5, Reg8: 2, UInt8: 1, string_id: 18>  # String: 'Object' (Identifier)
+==> 00000011: <GetByIdShort>: <Reg8: 3, Reg8: 5, UInt8: 2, string_id: 137>  # String: 'getOwnPropertyDescriptor' (Identifier)
+==> 00000016: <GetEnvironment>: <Reg8: 1, UInt8: 0>
+==> 00000019: <LoadFromEnvironment>: <Reg8: 0, Reg8: 1, UInt8: 0>
+==> 0000001d: <Call3>: <Reg8: 0, Reg8: 3, Reg8: 5, Reg8: 0, Reg8: 4>
+==> 00000023: <TryGetById>: <Reg8: 3, Reg8: 2, UInt8: 1, string_id: 18>  # String: 'Object' (Identifier)
+==> 00000029: <GetByIdShort>: <Reg8: 2, Reg8: 3, UInt8: 3, string_id: 103>  # String: 'defineProperty' (Identifier)
+==> 0000002e: <LoadFromEnvironment>: <Reg8: 1, Reg8: 1, UInt8: 1>
+==> 00000032: <GetByIdShort>: <Reg8: 5, Reg8: 0, UInt8: 4, string_id: 136>  # String: 'get' (Identifier)
+==> 00000037: <JmpTrue>: <Addr8: 23, Reg8: 5>  # Address: 0000004e
+==> 0000003a: <NewObject>: <Reg8: 5>
+==> 0000003c: <LoadConstTrue>: <Reg8: 7>
+==> 0000003e: <PutNewOwnByIdShort>: <Reg8: 5, Reg8: 7, string_id: 120>  # String: 'enumerable' (Identifier)
+==> 00000042: <CreateClosure>: <Reg8: 6, Reg8: 6, function_id: 7143>  # Function: [#7143 get of 20 bytes]: 1 params @ offset 0x01b92ee7
+==> 00000047: <PutNewOwnByIdShort>: <Reg8: 5, Reg8: 6, string_id: 136>  # String: 'get' (Identifier)
+==> 0000004b: <Mov>: <Reg8: 0, Reg8: 5>
+==> 0000004e: <Call4>: <Reg8: 0, Reg8: 2, Reg8: 3, Reg8: 1, Reg8: 4, Reg8: 0>
+==> 00000055: <LoadConstUndefined>: <Reg8: 0>
+==> 00000057: <Ret>: <Reg8: 0>
+
+
+===============
+

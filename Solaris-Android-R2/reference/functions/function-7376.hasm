@@ -1,0 +1,64 @@
+=> [Function #7376 "_asyncIterator" of 205 bytes]: 2 params, frame size=22, strict=0, exc handler=0, debug info=0  @ offset 0x01c32b24
+
+Bytecode listing:
+
+==> 00000000: <LoadParam>: <Reg8: 2, UInt8: 1>
+==> 00000003: <GetGlobalObject>: <Reg8: 0>
+==> 00000005: <GetByIdShort>: <Reg8: 1, Reg8: 0, UInt8: 1, string_id: 28>  # String: 'Symbol' (Identifier)
+==> 0000000a: <LoadConstString>: <Reg8: 3, string_id: 14550>  # String: 'undefined' (Identifier)
+==> 0000000e: <TypeOf>: <Reg8: 1, Reg8: 1>
+==> 00000011: <LoadConstUndefined>: <Reg8: 10>
+==> 00000013: <LoadConstUndefined>: <Reg8: 9>
+==> 00000015: <JStrictEqual>: <Addr8: 28, Reg8: 3, Reg8: 1>  # Address: 00000031
+==> 00000019: <TryGetById>: <Reg8: 1, Reg8: 0, UInt8: 1, string_id: 28>  # String: 'Symbol' (Identifier)
+==> 0000001f: <GetById>: <Reg8: 10, Reg8: 1, UInt8: 2, string_id: 15293>  # String: 'asyncIterator' (Identifier)
+==> 00000025: <TryGetById>: <Reg8: 1, Reg8: 0, UInt8: 1, string_id: 28>  # String: 'Symbol' (Identifier)
+==> 0000002b: <GetById>: <Reg8: 9, Reg8: 1, UInt8: 3, string_id: 15451>  # String: 'iterator' (Identifier)
+==> 00000031: <LoadConstUInt8>: <Reg8: 8, UInt8: 1>
+==> 00000034: <LoadConstString>: <Reg8: 7, string_id: 4131>  # String: '@@asyncIterator' (String)
+==> 00000038: <LoadConstString>: <Reg8: 6, string_id: 18870>  # String: '@@iterator' (Identifier)
+==> 0000003c: <LoadConstNull>: <Reg8: 5>
+==> 0000003e: <LoadConstUndefined>: <Reg8: 11>
+==> 00000040: <Mov>: <Reg8: 13, Reg8: 11>
+==> 00000043: <Mov>: <Reg8: 1, Reg8: 10>
+==> 00000046: <Mov>: <Reg8: 3, Reg8: 9>
+==> 00000049: <Mov>: <Reg8: 4, Reg8: 8>
+==> 0000004c: <JmpFalse>: <Addr8: 14, Reg8: 1>  # Address: 0000005a
+==> 0000004f: <GetByVal>: <Reg8: 1, Reg8: 2, Reg8: 1>
+==> 00000053: <Mov>: <Reg8: 13, Reg8: 1>
+==> 00000056: <JNotEqual>: <Addr8: 107, Reg8: 5, Reg8: 13>  # Address: 000000c1
+==> 0000005a: <JmpFalse>: <Addr8: 14, Reg8: 3>  # Address: 00000068
+==> 0000005d: <GetByVal>: <Reg8: 3, Reg8: 2, Reg8: 3>
+==> 00000061: <Mov>: <Reg8: 13, Reg8: 3>
+==> 00000064: <JNotEqual>: <Addr8: 54, Reg8: 5, Reg8: 13>  # Address: 0000009a
+==> 00000068: <ToNumeric>: <Reg8: 4, Reg8: 4>
+==> 0000006b: <Dec>: <Reg8: 8, Reg8: 4>
+==> 0000006e: <Mov>: <Reg8: 11, Reg8: 13>
+==> 00000071: <Mov>: <Reg8: 10, Reg8: 7>
+==> 00000074: <Mov>: <Reg8: 9, Reg8: 6>
+==> 00000077: <JmpTrue>: <Addr8: -55, Reg8: 4>  # Address: 00000040
+==> 0000007a: <TryGetById>: <Reg8: 5, Reg8: 0, UInt8: 4, string_id: 30>  # String: 'TypeError' (Identifier)
+==> 00000080: <GetByIdShort>: <Reg8: 0, Reg8: 5, UInt8: 5, string_id: 203>  # String: 'prototype' (Identifier)
+==> 00000085: <CreateThis>: <Reg8: 4, Reg8: 0, Reg8: 5>
+==> 00000089: <LoadConstString>: <Reg8: 14, string_id: 3431>  # String: 'Object is not async iterable' (String)
+==> 0000008d: <Mov>: <Reg8: 15, Reg8: 4>
+==> 00000090: <Construct>: <Reg8: 0, Reg8: 5, UInt8: 2>
+==> 00000094: <SelectObject>: <Reg8: 0, Reg8: 4, Reg8: 0>
+==> 00000098: <Throw>: <Reg8: 0>
+==> 0000009a: <GetEnvironment>: <Reg8: 0, UInt8: 0>
+==> 0000009d: <LoadFromEnvironment>: <Reg8: 4, Reg8: 0, UInt8: 0>
+==> 000000a1: <GetByIdShort>: <Reg8: 0, Reg8: 3, UInt8: 6, string_id: 70>  # String: 'call' (Identifier)
+==> 000000a6: <Call2>: <Reg8: 14, Reg8: 0, Reg8: 3, Reg8: 2>
+==> 000000ab: <GetByIdShort>: <Reg8: 3, Reg8: 4, UInt8: 5, string_id: 203>  # String: 'prototype' (Identifier)
+==> 000000b0: <CreateThis>: <Reg8: 3, Reg8: 3, Reg8: 4>
+==> 000000b4: <Mov>: <Reg8: 15, Reg8: 3>
+==> 000000b7: <Construct>: <Reg8: 0, Reg8: 4, UInt8: 2>
+==> 000000bb: <SelectObject>: <Reg8: 0, Reg8: 3, Reg8: 0>
+==> 000000bf: <Ret>: <Reg8: 0>
+==> 000000c1: <GetByIdShort>: <Reg8: 0, Reg8: 1, UInt8: 6, string_id: 70>  # String: 'call' (Identifier)
+==> 000000c6: <Call2>: <Reg8: 0, Reg8: 0, Reg8: 1, Reg8: 2>
+==> 000000cb: <Ret>: <Reg8: 0>
+
+
+===============
+

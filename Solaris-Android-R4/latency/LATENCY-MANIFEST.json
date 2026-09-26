@@ -1,0 +1,124 @@
+{
+  "scope": "Exact model Linux native experiment; no Android/phone speed claim. Proposed variants rejected, production request remains603.",
+  "inputs": [
+    {
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-work/Solaris-Android-R3/src/conversation-request.js",
+      "bytes": 3150,
+      "sha256": "33f7e34b75c5e0b15bc7af32df1b2084c483792549be2295f73e7b8e32af6042"
+    },
+    {
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-native-probe/acquired/Qwen3-0.6B-Q4_0.gguf",
+      "bytes": 382156480,
+      "sha256": "33bcc57074ec7b6eada5a90651ee546ec0c2b271002c22baf9f1b2dd1e8f75cb"
+    },
+    {
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-native-probe/reference-worker/node_modules/@qvac/llm-llamacpp/prebuilds/linux-x64/qvac__llm-llamacpp.bare",
+      "bytes": 13144608,
+      "sha256": "3dc59723d8c8a7bcd146a980c93db50e6bebaaa9204c999c7c02e6ee69341a4b"
+    },
+    {
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-native-probe/reference-worker/node_modules/@qvac/llm-llamacpp/index.d.ts",
+      "bytes": 29445,
+      "sha256": "61484aa9ef09e02ffe662319d8535aab0b7966a1a0ee69228fb968fca872af86"
+    },
+    {
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-native-probe/reference-worker/node_modules/@qvac/sdk/dist/server/bare/plugins/llamacpp-completion/ops/completion-stream.js",
+      "bytes": 18647,
+      "sha256": "d175ae3937b16aec01ec07a8a3bc4e7b5002c6bea337dcb7c35a294ee3524eb9"
+    },
+    {
+      "path": "/workspace/scratch/7a1f5a13b137/solaris-603-native-probe/native-fixture-runner.cjs",
+      "bytes": 2419,
+      "sha256": "303f71e6ea8f0e8ee2e3b297b582b5055bf5390141154ef853f835aff2e83b9a"
+    }
+  ],
+  "results": {
+    "base603": {
+      "runs": 11,
+      "allJSONValid": true,
+      "allEOS": true,
+      "loadMs": [
+        1593,
+        542,
+        1796,
+        967,
+        559,
+        1122,
+        975,
+        1562,
+        1031,
+        970,
+        868
+      ],
+      "generatedTokens": [
+        16,
+        48,
+        35,
+        18,
+        17,
+        13,
+        11,
+        37,
+        58,
+        124,
+        51
+      ]
+    },
+    "short604": {
+      "runs": 8,
+      "allJSONValid": true,
+      "allEOS": true,
+      "loadMs": [
+        979,
+        550,
+        966,
+        663,
+        1308,
+        1130,
+        553,
+        1507
+      ],
+      "generatedTokens": [
+        16,
+        48,
+        44,
+        18,
+        20,
+        19,
+        11,
+        34
+      ]
+    },
+    "caps604": {
+      "runs": 11,
+      "allJSONValid": true,
+      "allEOS": true,
+      "loadMs": [
+        1035,
+        534,
+        605,
+        1072,
+        949,
+        769,
+        1227,
+        1104,
+        569,
+        964,
+        1252
+      ],
+      "generatedTokens": [
+        16,
+        48,
+        35,
+        18,
+        17,
+        58,
+        81,
+        13,
+        11,
+        37,
+        51
+      ]
+    }
+  }
+}

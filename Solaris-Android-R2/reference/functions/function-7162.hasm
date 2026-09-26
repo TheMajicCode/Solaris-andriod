@@ -1,0 +1,29 @@
+=> [Function #7162 "?anon_0_" of 60 bytes]: 1 params, frame size=12, strict=1, exc handler=0, debug info=0  @ offset 0x01c2e7f4
+
+Bytecode listing:
+
+==> 00000000: <StartGenerator>: <>
+==> 00000001: <ResumeGenerator>: <Reg8: 0, Reg8: 1>
+==> 00000004: <JmpTrue>: <Addr8: 53, Reg8: 1>  # Address: 00000039
+==> 00000007: <GetEnvironment>: <Reg8: 1, UInt8: 7>
+==> 0000000a: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 12>
+==> 0000000e: <GetById>: <Reg8: 3, Reg8: 2, UInt8: 1, string_id: 18749>  # String: 'finiteBytes' (Identifier)
+==> 00000014: <LoadFromEnvironment>: <Reg8: 2, Reg8: 1, UInt8: 7>
+==> 00000018: <GetById>: <Reg8: 1, Reg8: 2, UInt8: 2, string_id: 17926>  # String: 'getFreeDiskStorageAsync' (Identifier)
+==> 0000001e: <Call1>: <Reg8: 1, Reg8: 1, Reg8: 2>
+==> 00000022: <SaveGenerator>: <Addr8: 4>  # Address: 00000026
+==> 00000024: <Ret>: <Reg8: 1>
+==> 00000026: <ResumeGenerator>: <Reg8: 1, Reg8: 2>
+==> 00000029: <JmpTrue>: <Addr8: 13, Reg8: 2>  # Address: 00000036
+==> 0000002c: <LoadConstUndefined>: <Reg8: 2>
+==> 0000002e: <Call2>: <Reg8: 2, Reg8: 3, Reg8: 2, Reg8: 1>
+==> 00000033: <CompleteGenerator>: <>
+==> 00000034: <Ret>: <Reg8: 2>
+==> 00000036: <CompleteGenerator>: <>
+==> 00000037: <Ret>: <Reg8: 1>
+==> 00000039: <CompleteGenerator>: <>
+==> 0000003a: <Ret>: <Reg8: 0>
+
+
+===============
+
