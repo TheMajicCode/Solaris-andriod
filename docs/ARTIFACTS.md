@@ -91,13 +91,17 @@ recorded identity above exactly: 242,638,023 bytes,
   physically present in the APK — stated an unqualified "no copyleft"
   conclusion, and called the notices table itself a "complete" package
   though it contained no actual license text. **Further correction (27
-  September 2026):** RocksDB's dual-license election, previously flagged as
+  September 2026):** RocksDB's dual-license status, previously flagged as
   unconfirmable from the compiled binary alone, is now resolved — a
   verified build-evidence trail (`rocksdb-native` v3.17.4's own
   `CMakeLists.txt` → `holepunchto/librocksdb@1a00e82` → `facebook/rocksdb@10.5.1`)
-  establishes the exact vendored RocksDB revision, whose own README confirms
-  the Apache-2.0 election it permits; that election is now made, with the
-  required materials included in `604-APK-THIRD-PARTY-LICENSES.txt`. Two
+  establishes the exact vendored RocksDB revision. RocksDB specifies no
+  formal election mechanism; satisfying Apache-2.0 for this vendored code is
+  a matter of conduct (its license text and copyright notice included, no
+  GPLv2-exclusive obligation triggered), not a written declaration, and
+  downstream recipients retain their own independent choice under RocksDB's
+  own terms — the full, non-overclaiming framing and required materials are
+  in `604-APK-THIRD-PARTY-LICENSES.txt`. Two
   further bundled components not previously listed — BoringSSL and libuv,
   both statically linked inside `libbare-kit.so` — were also found and are
   now recorded. MPL-2.0 is a file-level, non-viral copyleft that does not
@@ -105,8 +109,9 @@ recorded identity above exactly: 242,638,023 bytes,
   (notice preservation, source availability) are met and verified —
   including a byte-for-byte diff against the pinned upstream tag, performed
   independently twice with an identical result. The corrected conclusion: no
-  reciprocal (GPL/LGPL/AGPL) copyleft applies to this APK's own code once
-  RocksDB's Apache-2.0 option is elected; the one weak, file-level copyleft
+  reciprocal (GPL/LGPL/AGPL) copyleft applies to this APK's own code — this
+  project's redistribution of the vendored RocksDB code complies with its
+  Apache-2.0 option's conditions; the one weak, file-level copyleft
   component present (MPL-2.0) has both its conditions met and verified. This
   is evidence for this one binary's redistribution eligibility; it does
   **not** close `AND-01` (the repository's own full dependency/license

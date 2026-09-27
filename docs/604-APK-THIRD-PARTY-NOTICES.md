@@ -54,15 +54,22 @@ either incomplete or stale:
    itself — have now each been individually fetched at their own exact
    bundled version tag (see the native-library table below and
    `604-APK-THIRD-PARTY-LICENSES.txt` Section 1). None remain "sampled."
-3. **RocksDB's dual-license election was called "unresolved."** A missing
+3. **RocksDB's dual-license status was called "unresolved."** A missing
    build-time election string in the compiled binary is not proof the
-   choice cannot be resolved. A verified build-evidence trail (`rocksdb-native`
+   question cannot be resolved. A verified build-evidence trail (`rocksdb-native`
    v3.17.4's own `CMakeLists.txt` → `holepunchto/librocksdb` commit `1a00e82`
    → `facebook/rocksdb` tag `v10.5.1`) establishes exactly which upstream
-   RocksDB revision is vendored, and that revision's own README explicitly
-   permits electing Apache-2.0. This repository elects Apache-2.0 for that
-   code; see `604-APK-THIRD-PARTY-LICENSES.txt` Section 7 for the full trail
-   and the required materials.
+   RocksDB revision is vendored, and that revision's own README confirms a
+   redistributor may use its Apache-2.0 option. RocksDB specifies no formal
+   election mechanism — satisfying Apache-2.0 is a matter of conduct
+   (including its license text and copyright notice, not triggering any
+   GPLv2-exclusive obligation), not a written declaration, and every
+   recipient of this APK retains their own independent choice under
+   RocksDB's own terms regardless of what this document says. See
+   `604-APK-THIRD-PARTY-LICENSES.txt` Section 7 for the full trail, the
+   required materials, and this precise framing (itself corrected once,
+   after independent review, from an earlier overclaiming "election is now
+   made" framing this document also carried).
 4. **The Public Suffix List byte-for-byte diff "was not performed."** That
    was true when written. It has since been performed, twice — once by an
    independent review agent, once directly in this task — against a fresh
@@ -137,9 +144,11 @@ Solaris code.
 
 ## Corrected eligibility conclusion
 
-**No reciprocal (GPL/LGPL/AGPL) copyleft applies to this APK's own code once
-RocksDB's Apache-2.0 option is elected** (see `604-APK-THIRD-PARTY-LICENSES.txt`
-Section 7 for the verified build-evidence trail). **One weak, file-level
+**No reciprocal (GPL/LGPL/AGPL) copyleft applies to this APK's own code — this
+project's redistribution of the vendored RocksDB code complies with its
+Apache-2.0 option's conditions** (see `604-APK-THIRD-PARTY-LICENSES.txt`
+Section 7 for the verified build-evidence trail and the precise, non-overclaiming
+framing of what that compliance basis does and does not establish). **One weak, file-level
 copyleft component (MPL-2.0) is present and both its conditions are verified
 met.** This is evidence for this one binary's redistribution eligibility; it
 does **not** close `AND-01` (the repository's own full dependency/license
@@ -202,7 +211,7 @@ them:
 | `librabin-native.2.0.0.so` | `rabin-native` (Holepunch) | 2.0.0 | Apache-2.0 | Upstream `LICENSE` fetched directly at tag `v2.0.0` |
 | `libreact_codegen_safeareacontext.so` | `react-native-safe-area-context` (AppAndFlow/Th3rd Wave) | version not extracted | MIT (copyright "2019 Th3rd Wave") | Upstream `LICENSE` fetched directly |
 | `libreactnative.so` | Meta React Native | inferred React Native 0.81.x via Expo SDK 54's documented pairing — **not independently extracted from this binary** | MIT | Upstream `facebook/react-native` `LICENSE` fetched at the inferred tag `v0.81.4` |
-| `librocksdb-native.3.17.4.so` | `rocksdb-native` (Holepunch wrapper) vendoring Facebook's RocksDB at upstream tag `v10.5.1` | 3.17.4 (wrapper) | Wrapper: Apache-2.0. **RocksDB itself: Apache-2.0 elected** — RocksDB is dual-licensed (GPLv2 or Apache-2.0, redistributor's choice); a verified build-evidence trail (`rocksdb-native` v3.17.4's `CMakeLists.txt` → `holepunchto/librocksdb@1a00e82` → `facebook/rocksdb@10.5.1`) established the exact vendored revision, and that revision's own README confirms the election is available. Apache-2.0 is elected. | Wrapper `LICENSE` fetched directly. Full trail, RocksDB's own copyright line, and the required Apache-2.0 materials are in `604-APK-THIRD-PARTY-LICENSES.txt` Section 7. |
+| `librocksdb-native.3.17.4.so` | `rocksdb-native` (Holepunch wrapper) vendoring Facebook's RocksDB at upstream tag `v10.5.1` | 3.17.4 (wrapper) | Wrapper: Apache-2.0. **RocksDB itself: Apache-2.0 compliance basis established** — RocksDB is dual-licensed (GPLv2 or Apache-2.0); a verified build-evidence trail (`rocksdb-native` v3.17.4's `CMakeLists.txt` line 12 → `holepunchto/librocksdb@1a00e82` `CMakeLists.txt` lines 27–30 → `facebook/rocksdb@10.5.1`) established the exact vendored revision. Its license text is included and its copyright notice preserved (Apache-2.0's conditions), with no GPLv2-exclusive obligation triggered; downstream recipients retain their own independent choice under RocksDB's own terms. | Wrapper `LICENSE` fetched directly. Full trail, exact line citations, RocksDB's complete (untruncated) source-header text, and the precise compliance framing are in `604-APK-THIRD-PARTY-LICENSES.txt` Section 7. |
 | `libsimdle-native.1.3.9.so` | `simdle-native` (Holepunch) | 1.3.9 | Apache-2.0 | Upstream `LICENSE` fetched directly at tag `v1.3.9` |
 | `libsodium-native.5.1.0.so` | `sodium-native` (Holepunch, wraps libsodium) | 5.1.0 | Wrapper: MIT (copyright "2016 Mathias Buus and Emil Bay"). Underlying libsodium: ISC License (copyright "2013–2026 Frank Denis") | Both upstream `LICENSE` files fetched directly at tag `v5.1.0` (wrapper) |
 | `libstatic-webp.so` | Meta Fresco (WebP) | not filename-versioned | MIT | Embedded `com.facebook.animated.webp` symbols |

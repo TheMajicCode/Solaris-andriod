@@ -2493,31 +2493,38 @@ Software.
 
 ================================================================================
 
-SECTION 7 -- ROCKSDB: VERIFIED DUAL-LICENSE RESOLUTION AND APACHE-2.0 ELECTION
+SECTION 7 -- ROCKSDB: VERIFIED DUAL-LICENSE RESOLUTION (APACHE-2.0 COMPLIANCE)
 
 ================================================================================
 
 Covers librocksdb-native.3.17.4.so. The prior pass through this evidence
-flagged RocksDB's own dual-license election (GPLv2 or Apache-2.0) as
+flagged RocksDB's own dual-license status (GPLv2 or Apache-2.0) as
 unconfirmable from the compiled binary alone. That characterization of the
 binary itself stands -- no build-time election string is embedded in the
 compiled .so -- but a missing build-time-election string is not proof the
-choice cannot be resolved: RocksDB's dual license lets the *redistributor*
-elect either option at any time, and the following build-evidence trail,
-verified directly against each cited source in this task, establishes
-exactly which upstream RocksDB revision is actually vendored and that its
-license explicitly permits electing Apache-2.0:
+question cannot be resolved: the following build-evidence trail, verified
+directly against each cited source in this task (and re-verified, at the
+reviewing agent's insistence on exact line numbers, in a follow-up pass),
+establishes exactly which upstream RocksDB revision is actually vendored
+and that its own license terms permit a redistributor's compliant use of
+the Apache-2.0 option:
 
   1. rocksdb-native v3.17.4's own CMakeLists.txt, fetched and read directly,
-     line 9:
+     line 12:
        fetch_package("github:holepunchto/librocksdb#1a00e82")
 
   2. holepunchto/librocksdb at commit 1a00e82, fetched and read directly,
-     CMakeLists.txt lines 21-25:
+     CMakeLists.txt lines 27-30:
        fetch_package(
          "github:facebook/rocksdb@10.5.1"
          SOURCE_DIR rocksdb_dir
          PATCHES
+
+     The same file's line 21 sets ROCKSDB_SKIP_THIRDPARTY ON, and the only
+     _deps/github+*-src build path embedded in librocksdb-native.3.17.4.so
+     itself is _deps/github+facebook+rocksdb-src -- confirming no separate
+     bundled compression library (zstd/lz4/snappy) with its own license
+     terms was vendored alongside RocksDB.
 
   3. facebook/rocksdb at tag v10.5.1, README.md, fetched and quoted verbatim:
        "RocksDB is dual-licensed under both the GPLv2 (found in the COPYING
@@ -2526,20 +2533,45 @@ license explicitly permits electing Apache-2.0:
        option, one of the above-listed licenses."
 
   4. facebook/rocksdb's own source file headers (verified directly against
-     db/db_impl/db_impl.h at tag v10.5.1) read:
+     db/db_impl/db_impl.h at tag v10.5.1, and confirmed to recur pervasively
+     across RocksDB's core, e.g. memtable.cc, db_impl.cc,
+     block_based_table_reader.cc, status.cc) read, in full -- not truncated:
        "Copyright (c) 2011-present, Facebook, Inc.  All rights reserved.
        This source code is licensed under both the GPLv2 (found in the
        COPYING file in the root directory) and Apache 2.0 License (found in
-       the LICENSE.Apache file in the root directory)."
+       the LICENSE.Apache file in the root directory).
 
-On this evidence, this repository elects the Apache License, Version 2.0
-option for the RocksDB code vendored into librocksdb-native.3.17.4.so. That
-license's full text is Section 1 above (the same Apache License, Version
-2.0 RocksDB's own LICENSE.Apache file contains, byte-for-byte identical to
-Section 1's canonical text). The GPLv2 alternative RocksDB also offers is
-not elected and its text is not reproduced here; anyone wanting to see it
-can find it in RocksDB's own COPYING file at the pinned tag:
-https://github.com/facebook/rocksdb/blob/v10.5.1/COPYING
+       Copyright (c) 2011 The LevelDB Authors. All rights reserved.
+       Use of this source code is governed by a BSD-style license that can
+       be found in the LICENSE file. See the AUTHORS file for names of
+       contributors."
+
+     That second paragraph is a holdover from RocksDB's LevelDB ancestry.
+     The LICENSE file it points to does not exist in facebook/rocksdb at
+     v10.5.1 (checked directly: 404) -- only LICENSE.Apache and COPYING do.
+     This reads as inert, vestigial text carried forward from the LevelDB
+     fork rather than a live, separate licensing obligation, but it is
+     disclosed here rather than silently dropped from the quotation.
+
+What this establishes, and what it does not: RocksDB's own text specifies
+no formal election mechanism -- "you may select, at your option" describes
+a choice available to any redistributor, not a procedure to invoke. What
+actually satisfies Apache-2.0 for redistributing this code is conduct, not
+a written declaration: including the license text (Section 1 above, which
+RocksDB's own LICENSE.Apache file matches byte-for-byte) and retaining the
+required copyright notice (item 4 above), and not doing anything that would
+only be permissible under the GPLv2 option -- nothing about this
+distribution triggers a GPLv2-exclusive obligation (no RocksDB source
+disclosure is being withheld that Apache-2.0 would otherwise require, since
+Apache-2.0 imposes none). On that basis, this project's redistribution of
+librocksdb-native.3.17.4.so complies with the Apache-2.0 option's
+conditions. This does not foreclose anything downstream: **every recipient
+of this APK retains the same independent GPLv2-or-Apache-2.0 choice under
+RocksDB's own dual license, regardless of what this document says** -- this
+document records a compliance basis for this project's own redistribution,
+not a binding election on anyone else's behalf. The GPLv2 alternative's
+text is not reproduced here; it is in RocksDB's own COPYING file at the
+pinned tag: https://github.com/facebook/rocksdb/blob/v10.5.1/COPYING
 
 The rocksdb-native wrapper package's own code (the CMake/JavaScript glue,
 distinct from the vendored RocksDB C++ itself) is separately Apache-2.0
