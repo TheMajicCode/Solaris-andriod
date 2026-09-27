@@ -89,7 +89,7 @@ alone.**
 
 ## Native libraries (`lib/arm64-v8a/`)
 
-All 47 entries in this directory, as listed by the APK's own central
+All 51 entries in this directory, as listed by the APK's own central
 directory:
 
 | Library file | Component | Version evidence | License | How verified |
@@ -114,7 +114,7 @@ directory:
 | `libbare-type.1.1.1.so` | `bare-type` | 1.1.1 | Apache-2.0 | Sampled |
 | `libbare-url.2.5.4.so` | `bare-url` | 2.5.4 | Apache-2.0 | Sampled |
 | `libbare-zlib.1.4.1.so` | `bare-zlib` | 1.4.1 | Apache-2.0 | Sampled |
-| `libc++_shared.so` | LLVM libc++ (Android NDK) | NDK clang 19.0.0 / 21.0.0 build strings embedded | Dual: University of Illinois "BSD-Like" license or MIT, redistributor's choice | Upstream `libcxx/LICENSE.TXT` fetched live |
+| `libc++_shared.so` | LLVM libc++ (Android NDK) | NDK clang 19.0.0 / 21.0.0 build strings embedded — well after LLVM's 2019 relicense | **Apache License v2.0 with LLVM Exceptions** — the current, primary LLVM Project license (a legacy "University of Illinois 'BSD-Like' / MIT" dual license applies only to the historical libc++ text this LICENSE.TXT explicitly labels superseded, and is not the applicable license for a build this recent) | Upstream `libcxx/LICENSE.TXT` fetched live; its own text distinguishes the current primary license from the "Legacy LLVM License" section |
 | `libcrypto.so` | OpenSSL (Google `ndkports` prebuilt) | version not extracted from binary | Apache License 2.0 (OpenSSL ≥3.0) | Embedded `ndkports/openssl` build-path strings |
 | `libexpo-modules-core.so` | Expo modules core | Expo SDK 54.0.0 (`app.config`); module-level version not extracted | MIT | Upstream `expo/expo` `LICENSE` fetched; identity confirmed via embedded `expo.modules.*`/`com.facebook.jni` symbols |
 | `libexpo-sqlite.so` | `expo-sqlite` | as above | MIT | as above |
@@ -161,7 +161,7 @@ of each one's own `LICENSE` file.
 | AndroidX (`activity` 1.7.0, `annotation-experimental` 1.4.1, `appcompat`/`appcompat-resources` 1.7.0, `asynclayoutinflater` 1.0.0, `autofill` 1.1.0, `coordinatorlayout` 1.0.0, `core`/`core-ktx` 1.13.1, `cursoradapter` 1.0.0, `customview` 1.0.0, `documentfile` 1.1.0, `drawerlayout` 1.0.0, `emoji2`/`emoji2-views-helper` 1.3.0, `fragment` 1.5.4, `interpolator` 1.0.0, `legacy-support-*` 1.0.0, `loader` 1.0.0, `localbroadcastmanager` 1.0.0, `media` 1.0.0, `print` 1.0.0, `profileinstaller` 1.3.1, `savedstate` 1.2.1, `slidingpanelayout` 1.0.0, `startup-runtime` 1.1.1, `swiperefreshlayout` 1.1.0, `tracing`/`tracing-ktx` 1.2.0, `vectordrawable`/`vectordrawable-animated` 1.1.0, `versionedparcelable` 1.1.1, `viewpager` 1.0.0, `webkit` 1.14.0; `arch.core-runtime` and the four `lifecycle-*` artifacts ship a build-task placeholder string instead of a literal version) | Every version above read **directly from its own `META-INF/androidx.*.version` file physically inside the APK** | Apache-2.0 | Read from the binary itself |
 | `kotlinx-coroutines-core`, `kotlinx-coroutines-android` | 1.7.3 (both, read directly from `META-INF/kotlinx_coroutines_*.version`) | Apache-2.0 | Read from the binary itself |
 | OkHttp | **4.9.2** — the literal string `okhttp/4.9.2` is embedded in `classes.dex` | Apache-2.0 | Upstream `LICENSE.txt` fetched directly, at the matching `parent-4.9.2` tag for the MPL sub-component above |
-| Apache Commons Codec (Beider-Morse phonetic matching rule data, `org/apache/commons/codec/language/bm/*.txt`, 128 files) | **Not established** — no version marker found in the binary | Apache-2.0 | Upstream `LICENSE.txt` fetched directly; component identity confirmed by the presence of its exact resource file set |
+| Apache Commons Codec (Beider-Morse phonetic matching rule data, `org/apache/commons/codec/language/bm/*.txt`, 127 files) | **Not established** — no version marker found in the binary | Apache-2.0 | Upstream `LICENSE.txt` fetched directly; component identity confirmed by the presence of its exact resource file set |
 
 ## What must accompany this APK when it is redistributed
 

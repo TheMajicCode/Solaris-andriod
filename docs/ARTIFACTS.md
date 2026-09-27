@@ -72,7 +72,7 @@ recorded identity above exactly: 242,638,023 bytes,
   or SMS.
 - **Third-party licensing and notices** (concrete evidence, not name-based
   assumption): a complete, artifact-specific notices package covering every
-  one of the 47 native libraries and the DEX-embedded Java/Kotlin components
+  one of the 51 native libraries and the DEX-embedded Java/Kotlin components
   is at
   [`docs/604-APK-THIRD-PARTY-NOTICES.md`](604-APK-THIRD-PARTY-NOTICES.md),
   built by parsing the binary's own `META-INF/*.version` files (exact
