@@ -71,44 +71,65 @@ recorded identity above exactly: 242,638,023 bytes,
   `VIBRATE`, and one app-scoped receiver permission — no location, contacts
   or SMS.
 - **Third-party licensing and notices** (concrete evidence, not name-based
-  assumption): a complete, artifact-specific notices package covering every
-  one of the 51 native libraries and the DEX-embedded Java/Kotlin components
-  is at
-  [`docs/604-APK-THIRD-PARTY-NOTICES.md`](604-APK-THIRD-PARTY-NOTICES.md),
-  built by parsing the binary's own `META-INF/*.version` files (exact
-  AndroidX/kotlinx.coroutines versions), an embedded literal version string
-  (OkHttp `4.9.2`), the repository's own pinned `packaged-dependencies.json`
-  evidence, embedded native-code strings confirming component identity
-  (Meta's Fresco/Hermes/fbjni, `ggml-org/llama.cpp`), and upstream `LICENSE`
-  files fetched at the matching version where one exists. **Correction (27
-  September 2026):** an earlier pass through this evidence omitted a bundled
-  Mozilla Public License 2.0 (MPL-2.0) component — OkHttp's compiled Public
-  Suffix List data and its own `NOTICE` file, both physically present in the
-  APK — and stated an unqualified "no copyleft" conclusion. MPL-2.0 is a
-  file-level, non-viral copyleft that does not require relicensing the
-  surrounding application; both of its conditions (notice preservation,
-  source availability) are met, and the notices package records the
-  version-pinned upstream source location rather than today's. The corrected
-  conclusion: no reciprocal (GPL/LGPL/AGPL) copyleft was identified that
-  would require disclosing Solaris's own source; the one weak, file-level
-  copyleft component present (MPL-2.0) has both its conditions met; one
-  component's upstream dual-license election (RocksDB, GPLv2 or Apache-2.0)
-  could not be independently confirmed from the compiled binary alone. This
+  assumption): the inventory covering every one of the 51 native libraries
+  and the DEX-embedded Java/Kotlin components is at
+  [`docs/604-APK-THIRD-PARTY-NOTICES.md`](604-APK-THIRD-PARTY-NOTICES.md);
+  the actual license, copyright and NOTICE texts each of those components
+  requires a redistributor to preserve are in
+  [`docs/604-APK-THIRD-PARTY-LICENSES.txt`](604-APK-THIRD-PARTY-LICENSES.txt)
+  — the inventory alone is not the complete package; both files are, and
+  both must accompany the APK. Built by parsing the binary's own
+  `META-INF/*.version` files (exact AndroidX/kotlinx.coroutines versions),
+  an embedded literal version string (OkHttp `4.9.2`), the repository's own
+  pinned `packaged-dependencies.json` evidence, embedded native-code strings
+  confirming component identity (Meta's Fresco/Hermes/fbjni,
+  `ggml-org/llama.cpp`), and upstream `LICENSE` files fetched directly for
+  every identified component, at the matching version tag where one exists.
+  **Correction (27 September 2026):** an earlier pass through this evidence
+  omitted a bundled Mozilla Public License 2.0 (MPL-2.0) component —
+  OkHttp's compiled Public Suffix List data and its own `NOTICE` file, both
+  physically present in the APK — stated an unqualified "no copyleft"
+  conclusion, and called the notices table itself a "complete" package
+  though it contained no actual license text. **Further correction (27
+  September 2026):** RocksDB's dual-license status, previously flagged as
+  unconfirmable from the compiled binary alone, is now resolved — a
+  verified build-evidence trail (`rocksdb-native` v3.17.4's own
+  `CMakeLists.txt` → `holepunchto/librocksdb@1a00e82` → `facebook/rocksdb@10.5.1`)
+  establishes the exact vendored RocksDB revision. RocksDB specifies no
+  formal election mechanism; satisfying Apache-2.0 for this vendored code is
+  a matter of conduct (its license text and copyright notice included, no
+  GPLv2-exclusive obligation triggered), not a written declaration, and
+  downstream recipients retain their own independent choice under RocksDB's
+  own terms — the full, non-overclaiming framing and required materials are
+  in `604-APK-THIRD-PARTY-LICENSES.txt`. Two
+  further bundled components not previously listed — BoringSSL and libuv,
+  both statically linked inside `libbare-kit.so` — were also found and are
+  now recorded. MPL-2.0 is a file-level, non-viral copyleft that does not
+  require relicensing the surrounding application; both of its conditions
+  (notice preservation, source availability) are met and verified —
+  including a byte-for-byte diff against the pinned upstream tag, performed
+  independently twice with an identical result. The corrected conclusion: no
+  reciprocal (GPL/LGPL/AGPL) copyleft applies to this APK's own code — this
+  project's redistribution of the vendored RocksDB code complies with its
+  Apache-2.0 option's conditions; the one weak, file-level copyleft
+  component present (MPL-2.0) has both its conditions met and verified. This
   is evidence for this one binary's redistribution eligibility; it does
   **not** close `AND-01` (the repository's own full dependency/license
   inventory with versions), which remains open exactly as
-  [Third-party notices](THIRD-PARTY-NOTICES.md) states.
+  [Third-party notices](THIRD-PARTY-NOTICES.md) states, nor does it extend
+  to the JS-only dependency graph named as a concrete, open gap in
+  `604-APK-THIRD-PARTY-NOTICES.md`.
 
 **On the evidence above, this APK is eligible for the narrow evaluation
-prerelease authorized above, once this notices package accompanies it.**
-Publication itself is blocked for a different,
+prerelease authorized above, once both the notices inventory and the
+licenses text accompany it.** Publication itself is blocked for a different,
 concrete reason: this session's sanctioned GitHub tooling exposes no
 release-creation or asset-upload capability, only reading existing releases,
 and this repository's operating instructions restrict GitHub actions to that
-sanctioned tooling. The unchanged APK, a `SHA256SUMS.txt`, the completed
-notices package above, and drafted evaluation notes are prepared and ready to
-attach the moment a session with release-asset-upload capability — or a
-maintainer, using the verified hash above — creates the prerelease.
+sanctioned tooling. The unchanged APK, a `SHA256SUMS.txt`, both notices files
+above, and drafted evaluation notes are prepared and ready to attach the
+moment a session with release-asset-upload capability — or a maintainer,
+using the verified hash above — creates the prerelease.
 
 When assets are eventually curated, each entry records: asset name, bytes,
 SHA-256, origin and provenance, license status, required/optional role, exact
