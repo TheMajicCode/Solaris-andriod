@@ -42,30 +42,38 @@ remove any obligation attached to them.
 The same applies to reference APKs, native libraries, model weights, the pinned
 host compiler/parser, the formatter and Android packaging tools.
 
-## Evidence gathered for the 604 evaluation APK (26 September 2026)
+## Evidence gathered for the 604 evaluation APK (26–27 September 2026)
 
 While verifying `Solaris-V6.0.4-Grounded-Chat-Candidate.apk`
 (`org.solarishealth.edge.recovery`, `6.0.4-preview.grounded-chat` / code 604,
 SHA-256 `0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827`) for
 the narrow evaluation-prerelease authorization in
 [Artifacts](ARTIFACTS.md), the components bundled in that one binary were
-checked against their actual licenses, not assumed by name:
+checked against their actual licenses, not assumed by name. The full,
+component-by-component inventory — every native library, the DEX-embedded
+Java/Kotlin components, and the one Mozilla Public License 2.0 (MPL-2.0)
+component this table originally omitted — is now the dedicated notices
+package that must accompany this APK:
+[`docs/604-APK-THIRD-PARTY-NOTICES.md`](604-APK-THIRD-PARTY-NOTICES.md).
 
-| Component | Evidence | License |
-| --- | --- | --- |
-| Tether QVAC on-device AI SDK (`@qvac/sdk`, `libqvac-ggml-*.so`) | Fetched upstream `LICENSE` | Apache License 2.0 |
-| Holepunch Bare runtime (`bare-kit`, `libbare-*.so` family) | Fetched upstream `LICENSE` (`bare-kit`) | Apache License 2.0 |
-| OpenSSL (`libcrypto.so`) | Embedded `ndkports/openssl` build-path strings | Apache License 2.0 |
-| Meta `fbjni` (`libfbjni.so`) | Embedded `com.facebook.jni` symbols | Apache License 2.0 |
-| Meta Hermes engine (`libhermes.so`, `libjsi.so`) | Embedded engine strings | MIT |
-| AndroidX, Kotlin/kotlinx.coroutines | `META-INF/*.version` descriptors, well-established public license (not independently re-fetched) | Apache License 2.0 |
-| Expo modules, Meta Fresco image pipeline | File names, well-established public license (not independently re-fetched) | MIT |
-
-No copyleft (GPL/LGPL/AGPL) component was identified in this binary. This
-table is evidence for that one artifact's redistribution eligibility. It does
-**not** constitute the `AND-01` dependency/license inventory above, which
-remains **not produced**, and it does not cover any other build or any source
-in this repository.
+**Correction (27 September 2026):** this section previously omitted the
+MPL-2.0-licensed Public Suffix List data OkHttp bundles
+(`okhttp3/internal/publicsuffix/publicsuffixes.gz`, with its own `NOTICE`
+file, both physically present in the APK) and stated an unqualified
+redistribution-eligibility conclusion. MPL-2.0 is a file-level, non-viral
+copyleft — it does not require relicensing the surrounding application — and
+both of its conditions (notice preservation, source availability) are met;
+see the dedicated notices package for the full analysis and the
+version-pinned upstream source location. The corrected conclusion: **no
+reciprocal (GPL/LGPL/AGPL) copyleft was identified that would require
+disclosing Solaris's own source; one weak, file-level copyleft component
+(MPL-2.0) is present and both of its conditions are met; one component's
+upstream dual-license election (RocksDB, GPLv2 or Apache-2.0) could not be
+independently confirmed from the compiled binary alone** — see the notices
+package for what remains explicitly unresolved. This does **not** constitute
+the `AND-01` dependency/license inventory above, which remains **not
+produced**, and it does not cover any other build or any source in this
+repository.
 
 ## Adapters under consideration
 

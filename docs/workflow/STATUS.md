@@ -1,6 +1,6 @@
 # Status
 
-**Updated:** 2026-09-26 · Sprint-02
+**Updated:** 2026-09-27 · Sprint-02
 
 ## Publication — authorized, conflict resolved
 
@@ -205,6 +205,7 @@ account, and is not presented as one.
 | `U0-03` | Two finish-button labels ("Finish and check in", "Finish and open my records") are the writer's wording, not the contract's. | Needs qualified EN/ES copy review. |
 | `U0-04` | **FIXED (merge-polish, 2026-09-26):** the vision panel's web copy now describes intended architecture instead of an unverified present-tense claim (S2R2-7). Still open: an absent `onboardingComplete` replays chapter 1, and chapter 1 has no Back (S2R2-5/6). | Recorded in `docs/onboarding/SCREEN-ACTION-MAP.md`; owner decision before integration. |
 | `S2R7-1` | **FIXED (this entry, 2026-09-26):** the APK-EVAL task (historical 604 APK verification) had no ledger entry, though AGENTS.md's working method requires one for every bounded task. | Recorded in `docs/workflow/TASKS.md` ("APK-EVAL"). |
+| `APK-NOTICE-01` | **FIXED (2026-09-27):** APK-EVAL's license table omitted a bundled MPL-2.0 component (OkHttp's compiled Public Suffix List data and its own `NOTICE`) and stated an unqualified "no copyleft" conclusion. | Corrected in `docs/THIRD-PARTY-NOTICES.md` and `docs/ARTIFACTS.md`; full analysis and the completed per-component notices package in `docs/604-APK-THIRD-PARTY-NOTICES.md` (task `APK-EVAL-2`). |
 
 ## Unresolved boundaries
 

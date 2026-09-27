@@ -74,7 +74,7 @@ repository.
 | **Reviewer** | Independent review agent. It independently reassembled the archive, re-derived every hash, wrote its own from-scratch APK Signing Block v2 parser/verifier (catching and fixing a real bug in its own first draft, then cross-validating against a second independent tool, `apksigtool`), and independently re-ran the secrets/content scan. **APPROVE WITH FINDINGS** on `2b0931b`: one non-blocking finding, `S2R7-1` (this ledger entry was missing — now added). |
 | **Base SHA** | `25c9e93` (`main`, post-merge) |
 | **Allowed paths** | `docs/ARTIFACTS.md`, `docs/THIRD-PARTY-NOTICES.md` only. No source, no binary committed to Git. |
-| **Acceptance evidence** | Reassembly matched all pinned hashes; APK SHA-256 `0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827` (242,638,023 bytes) independently recomputed twice; package/version/version-code parsed from the binary manifest and matched; v2 APK Signing Block signature cryptographically verified against the certificate's public key, with the content digest recomputed over the full file and matched against the embedded digest; certificate SHA-256 `fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c` matched, confirmed as the existing self-signed Android Debug certificate; `classes.dex`, the JS bundle and `assets/app.config` scanned for secrets/PII with none found; license evidence gathered for bundled third-party components (Apache-2.0/MIT only, no copyleft identified) — recorded in `docs/THIRD-PARTY-NOTICES.md` as evidence for this one binary, explicitly not as `AND-01` closure. `tools/repo-check.py` PASS at this head (15/15 applicable checks). |
+| **Acceptance evidence** | Reassembly matched all pinned hashes; APK SHA-256 `0e9a66da00cbe128851d981a9f9a3d9a1dbfe653f7a4ced93d638bc4d7d31827` (242,638,023 bytes) independently recomputed twice; package/version/version-code parsed from the binary manifest and matched; v2 APK Signing Block signature cryptographically verified against the certificate's public key, with the content digest recomputed over the full file and matched against the embedded digest; certificate SHA-256 `fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c` matched, confirmed as the existing self-signed Android Debug certificate; `classes.dex`, the JS bundle and `assets/app.config` scanned for secrets/PII with none found; license evidence gathered for bundled third-party components — recorded in `docs/THIRD-PARTY-NOTICES.md` as evidence for this one binary, explicitly not as `AND-01` closure. `tools/repo-check.py` PASS at this head (15/15 applicable checks). **Correction, see APK-EVAL-2 below**: this pass's "no copyleft identified" conclusion omitted a bundled MPL-2.0 component. |
 | **Output paths** | `docs/ARTIFACTS.md`, `docs/THIRD-PARTY-NOTICES.md` |
 | **Status** | Verification complete and independently reviewed. **Publication itself is BLOCKED**: this session's GitHub tooling exposes no release-creation or asset-upload capability (only reading existing releases), and this repository's operating instructions restrict GitHub actions to that sanctioned tooling. No release, tag, README download link, or badge was created. The unchanged APK, a `SHA256SUMS.txt`, and drafted evaluation notes are prepared and held outside Git, ready to attach. |
 | **Next step** | A session or maintainer with GitHub release-asset-upload capability creates the "Solaris Android 604 — Historical evaluation preview" prerelease using the verified hash above, attaches the APK and `SHA256SUMS.txt`, and only then is the README updated with the real release/download URLs in a further small reviewed change. |
@@ -86,5 +86,27 @@ created. No merge to `main`. `AND-01` (the full dependency/license inventory)
 was not closed — only per-component evidence for this one binary was
 gathered. The F05 trade-off, clinical escalation-copy review and native
 source recovery were not touched.
+
+## APK-EVAL-2 — 604 APK third-party notices correction
+
+| Field | Value |
+| --- | --- |
+| **Problem** | An owner-provided reproduction found that APK-EVAL's license table omitted a real, bundled Mozilla Public License 2.0 (MPL-2.0) component (`okhttp3/internal/publicsuffix/publicsuffixes.gz` and its own `NOTICE`), both physically present in the APK, and stated an unqualified "no copyleft" redistribution-eligibility conclusion. |
+| **Writer** | Claude Code (this session), isolated branch `claude/solaris-604-notices` |
+| **Reviewer** | Recorded once independent review of this diff completes; see `STATUS.md`. |
+| **Base SHA** | `d21c670` (`main`, after PR #2) |
+| **Allowed paths** | `docs/604-APK-THIRD-PARTY-NOTICES.md` (new), `docs/ARTIFACTS.md`, `docs/THIRD-PARTY-NOTICES.md`, `docs/workflow/TASKS.md`, `docs/workflow/STATUS.md`. No source, no binary, no re-verification of hash/signature (unchanged from APK-EVAL; no new evidence contradicted them, so they were not re-run). |
+| **Acceptance evidence** | Reproduced both flagged entry reads directly from the APK (the `NOTICE` text and `publicsuffixes.gz`'s presence, 37,730 bytes). Built a complete, artifact-specific notices package covering all 47 native libraries and the DEX-embedded Java/Kotlin components: exact AndroidX/kotlinx.coroutines versions read from their own embedded `META-INF/*.version` files; OkHttp's exact version (`4.9.2`) read from an embedded literal string; Holepunch/QVAC-family native-addon versions cross-checked against this repository's own pinned `packaged-dependencies.json` evidence; component identity for Fresco/Hermes/fbjni/ggml/llama.cpp confirmed via embedded native-code symbols and URLs, not name alone; upstream `LICENSE` files fetched live for every component whose terms were not already directly confirmed, at the matching version tag where the flagged component's own version could be pinned (`parent-4.9.2` for OkHttp). Flagged RocksDB's own dual-license election (GPLv2 or Apache-2.0) as unconfirmable from the compiled binary alone. `tools/repo-check.py` PASS (1997/1997 files, doc-links 58/58); `tools/tests/test_repo_check.py` 50/50. |
+| **Output paths** | `docs/604-APK-THIRD-PARTY-NOTICES.md`, `docs/ARTIFACTS.md`, `docs/THIRD-PARTY-NOTICES.md` |
+| **Status** | Documentation-only correction complete, checks pass. Publication remains blocked exactly as APK-EVAL recorded — no release-asset-upload tool in this session. |
+| **Next step** | Same as APK-EVAL's next step, now with the completed notices package included among the assets to attach. |
+
+### Explicitly not done in APK-EVAL-2
+
+No re-verification of the APK's hash, package/version or signature (unchanged
+from APK-EVAL, no new evidence contradicted them). No release, tag, merge or
+download link created. `AND-01` was not closed — the full JS-only npm
+dependency graph's licenses remain unchecked beyond the natively-compiled
+members already covered.
 
 Later items are sequenced in the [Roadmap](../ROADMAP.md).
