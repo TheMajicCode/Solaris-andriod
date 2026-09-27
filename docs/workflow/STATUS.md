@@ -1,6 +1,6 @@
 # Status
 
-**Updated:** 2026-09-26 · Sprint-02
+**Updated:** 2026-09-27 · Sprint-02
 
 ## Publication — authorized, conflict resolved
 
@@ -205,6 +205,10 @@ account, and is not presented as one.
 | `U0-03` | Two finish-button labels ("Finish and check in", "Finish and open my records") are the writer's wording, not the contract's. | Needs qualified EN/ES copy review. |
 | `U0-04` | **FIXED (merge-polish, 2026-09-26):** the vision panel's web copy now describes intended architecture instead of an unverified present-tense claim (S2R2-7). Still open: an absent `onboardingComplete` replays chapter 1, and chapter 1 has no Back (S2R2-5/6). | Recorded in `docs/onboarding/SCREEN-ACTION-MAP.md`; owner decision before integration. |
 | `S2R7-1` | **FIXED (this entry, 2026-09-26):** the APK-EVAL task (historical 604 APK verification) had no ledger entry, though AGENTS.md's working method requires one for every bounded task. | Recorded in `docs/workflow/TASKS.md` ("APK-EVAL"). |
+| `APK-NOTICE-01` | **FIXED (2026-09-27):** APK-EVAL's license table omitted a bundled MPL-2.0 component (OkHttp's compiled Public Suffix List data and its own `NOTICE`) and stated an unqualified "no copyleft" conclusion. | Corrected in `docs/THIRD-PARTY-NOTICES.md` and `docs/ARTIFACTS.md`; full analysis and the completed per-component notices package in `docs/604-APK-THIRD-PARTY-NOTICES.md` (task `APK-EVAL-2`). |
+| `APK-NOTICE-02` | **FIXED (independent review, 2026-09-27):** `docs/604-APK-THIRD-PARTY-NOTICES.md` said "47 native libraries"; `lib/arm64-v8a/` actually has 51, and the table itself already listed all 51 correctly — only the prose count was wrong. | Corrected the count in `docs/604-APK-THIRD-PARTY-NOTICES.md`, `docs/ARTIFACTS.md` and `docs/workflow/TASKS.md`. |
+| `APK-NOTICE-03` | **FIXED (independent review, 2026-09-27):** the Apache Commons Codec row said "128 files" of Beider-Morse rule data; the APK's central directory has 127. | Corrected the count in `docs/604-APK-THIRD-PARTY-NOTICES.md`. |
+| `APK-NOTICE-04` | **FIXED (independent review, 2026-09-27):** the `libc++_shared.so` row cited the legacy "University of Illinois / MIT" dual license, but its own cited source (`libcxx/LICENSE.TXT`) states the current, primary LLVM Project license — applicable to a build this recent (NDK clang 19–21) — is Apache License v2.0 with LLVM Exceptions, and explicitly labels the dual license "Legacy." Does not change the no-reciprocal-copyleft conclusion. | Corrected the license and rationale in `docs/604-APK-THIRD-PARTY-NOTICES.md`. |
 
 ## Unresolved boundaries
 

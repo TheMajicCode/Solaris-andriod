@@ -70,33 +70,45 @@ recorded identity above exactly: 242,638,023 bytes,
   `health.READ_SLEEP`, `health.READ_STEPS`, `INTERNET`, `RECORD_AUDIO`,
   `VIBRATE`, and one app-scoped receiver permission — no location, contacts
   or SMS.
-- **Third-party licensing** (concrete evidence, not name-based assumption):
-  fetched the actual upstream `LICENSE` for the two bundled components whose
-  terms were not already well established — Tether's QVAC on-device AI SDK
-  (`@qvac/sdk`, the `libqvac-ggml-*.so` family) and Holepunch's Bare runtime
-  (`bare-kit` and the `libbare-*.so` family) — both **Apache License 2.0**.
-  Confirmed `libcrypto.so` is OpenSSL (embedded `ndkports/openssl` build-path
-  strings; Apache-2.0), `libfbjni.so` is Meta's `com.facebook.jni` helper
-  (Apache-2.0), and `libhermes.so`/`libjsi.so` are Meta's Hermes engine (MIT),
-  by inspecting the binaries' own embedded strings. AndroidX and Kotlin/
-  kotlinx.coroutines (both Apache-2.0), Expo modules and Meta's Fresco image
-  pipeline (both MIT) were identified from `META-INF/*.version` descriptors
-  and file names against their well-established public licenses, without a
-  fresh fetch per package. No copyleft (GPL/LGPL/AGPL) component was
-  identified. This is evidence for this one binary's redistribution
-  eligibility; it does **not** close `AND-01` (the repository's own full
-  dependency/license inventory with versions), which remains open exactly as
+- **Third-party licensing and notices** (concrete evidence, not name-based
+  assumption): a complete, artifact-specific notices package covering every
+  one of the 51 native libraries and the DEX-embedded Java/Kotlin components
+  is at
+  [`docs/604-APK-THIRD-PARTY-NOTICES.md`](604-APK-THIRD-PARTY-NOTICES.md),
+  built by parsing the binary's own `META-INF/*.version` files (exact
+  AndroidX/kotlinx.coroutines versions), an embedded literal version string
+  (OkHttp `4.9.2`), the repository's own pinned `packaged-dependencies.json`
+  evidence, embedded native-code strings confirming component identity
+  (Meta's Fresco/Hermes/fbjni, `ggml-org/llama.cpp`), and upstream `LICENSE`
+  files fetched at the matching version where one exists. **Correction (27
+  September 2026):** an earlier pass through this evidence omitted a bundled
+  Mozilla Public License 2.0 (MPL-2.0) component — OkHttp's compiled Public
+  Suffix List data and its own `NOTICE` file, both physically present in the
+  APK — and stated an unqualified "no copyleft" conclusion. MPL-2.0 is a
+  file-level, non-viral copyleft that does not require relicensing the
+  surrounding application; both of its conditions (notice preservation,
+  source availability) are met, and the notices package records the
+  version-pinned upstream source location rather than today's. The corrected
+  conclusion: no reciprocal (GPL/LGPL/AGPL) copyleft was identified that
+  would require disclosing Solaris's own source; the one weak, file-level
+  copyleft component present (MPL-2.0) has both its conditions met; one
+  component's upstream dual-license election (RocksDB, GPLv2 or Apache-2.0)
+  could not be independently confirmed from the compiled binary alone. This
+  is evidence for this one binary's redistribution eligibility; it does
+  **not** close `AND-01` (the repository's own full dependency/license
+  inventory with versions), which remains open exactly as
   [Third-party notices](THIRD-PARTY-NOTICES.md) states.
 
 **On the evidence above, this APK is eligible for the narrow evaluation
-prerelease authorized above.** Publication itself is blocked for a different,
+prerelease authorized above, once this notices package accompanies it.**
+Publication itself is blocked for a different,
 concrete reason: this session's sanctioned GitHub tooling exposes no
 release-creation or asset-upload capability, only reading existing releases,
 and this repository's operating instructions restrict GitHub actions to that
-sanctioned tooling. The unchanged APK, a `SHA256SUMS.txt`, and drafted
-evaluation notes are prepared and ready to attach the moment a session with
-release-asset-upload capability — or a maintainer, using the verified hash
-above — creates the prerelease.
+sanctioned tooling. The unchanged APK, a `SHA256SUMS.txt`, the completed
+notices package above, and drafted evaluation notes are prepared and ready to
+attach the moment a session with release-asset-upload capability — or a
+maintainer, using the verified hash above — creates the prerelease.
 
 When assets are eventually curated, each entry records: asset name, bytes,
 SHA-256, origin and provenance, license status, required/optional role, exact
