@@ -109,4 +109,27 @@ download link created. `AND-01` was not closed — the full JS-only npm
 dependency graph's licenses remain unchecked beyond the natively-compiled
 members already covered.
 
+## APK-EVAL-3 — Complete the 604 APK third-party license texts
+
+| Field | Value |
+| --- | --- |
+| **Problem** | An owner-provided reproduction found that `604-APK-THIRD-PARTY-NOTICES.md` (from `APK-EVAL-2`) was an inventory of license *names*, not the actual license, copyright and NOTICE *texts* each component's license requires a redistributor to preserve — its "complete notices package" and "nothing else is required" claims were unsupported. Concrete example given: `sodium-native` v5.1.0's actual `LICENSE` contains a specific copyright line ("Copyright (c) 2016 Mathias Buus and Emil Bay") that the notices table never reproduced. Also flagged: RocksDB's dual-license election called "unresolved" despite a traceable build-evidence trail; a discrepancy between what this session reported in chat (a byte-diff was performed) and what the committed document said (it was not); and thirteen `bare-*` packages marked "sampled" rather than individually verified. |
+| **Writer** | Claude Code (this session), isolated branch `claude/solaris-604-licenses` |
+| **Reviewer** | Recorded once independent review of this diff completes; see `STATUS.md`. |
+| **Base SHA** | `08a647d` (`main`, after PR #3) |
+| **Allowed paths** | `docs/604-APK-THIRD-PARTY-LICENSES.txt` (new), `docs/604-APK-THIRD-PARTY-NOTICES.md`, `docs/ARTIFACTS.md`, `docs/workflow/TASKS.md`, `docs/workflow/STATUS.md`. No source, no binary, no re-verification of the APK's hash/signature (unchanged from `APK-EVAL`; no new evidence contradicted them). |
+| **Acceptance evidence** | Fetched, at the exact bundled version tag wherever one could be pinned, the upstream `LICENSE`/`NOTICE` text for all 25 Holepunch/Bare-family native components (the 8 previously fetched plus the 13 previously "sampled," plus `bare-kit` itself — none remain sampled), AndroidX, the Kotlin standard library, `kotlinx.coroutines`, OkHttp, Apache Commons Codec (with its own `NOTICE`), Meta's React Native/Hermes/Fresco/fbjni, Expo, `react-native-safe-area-context`, `ggml`/`llama.cpp`, libsodium, and Tether's QVAC SDK (confirmed a filled copyright: "Copyright 2026 Tether Data, S.A. de C.V."). Discovered and fetched licenses for two components not previously listed: BoringSSL and libuv, both statically linked inside `libbare-kit.so`, found via that binary's own embedded build-path and runtime-message strings. Verified the RocksDB build-evidence trail directly against each cited source (`rocksdb-native` v3.17.4 `CMakeLists.txt` → `holepunchto/librocksdb@1a00e82` → `facebook/rocksdb@10.5.1`; that revision's own `README.md` and a source-file header quoted verbatim), resolving the election to Apache-2.0. Independently reproduced the Public Suffix List byte-for-byte diff against OkHttp's pinned `parent-4.9.2` tag myself (matching the hashes an independent reviewer separately reported in `APK-EVAL-2`'s review): both `NOTICE` and `publicsuffixes.gz` identical. Assembled `docs/604-APK-THIRD-PARTY-LICENSES.txt` (2,689 lines) organizing all of the above by license family, cross-indexed to every one of the 51 native libraries and the DEX-embedded components, with an explicit "coverage gaps" section naming what remains unresolved (`bare-kit`'s own version; a full audit of everything else potentially linked inside its 63 MB binary; exact per-module versions for Hermes/React Native/Fresco/fbjni/`react-native-safe-area-context`/Kotlin stdlib/Commons Codec; and the ~85 pure-JS-only `packaged-dependencies.json` entries with no native `.so`, whose actual reachability in the compiled Hermes bytecode was not independently confirmed). `tools/repo-check.py` PASS (1998/1998 files, doc-links 58/58); `tools/tests/test_repo_check.py` 50/50. |
+| **Output paths** | `docs/604-APK-THIRD-PARTY-LICENSES.txt`, `docs/604-APK-THIRD-PARTY-NOTICES.md`, `docs/ARTIFACTS.md` |
+| **Status** | Documentation-only completion of the licenses package, checks pass. Publication remains blocked exactly as `APK-EVAL` recorded — no release-asset-upload tool in this session. |
+| **Next step** | Same as `APK-EVAL`'s next step, now with three release-artifact files (`604-APK-THIRD-PARTY-NOTICES.md`, `604-APK-THIRD-PARTY-LICENSES.txt`, `SHA256SUMS.txt`) plus the evaluation notes to attach. |
+
+### Explicitly not done in APK-EVAL-3
+
+No re-verification of the APK's hash, package/version or signature (unchanged
+from `APK-EVAL`, no new evidence contradicted them). No release, tag, merge
+or download link created. No exhaustive audit of every component potentially
+statically linked inside `libbare-kit.so` beyond the two found. No
+per-package license check of the ~85 pure-JS-only `packaged-dependencies.json`
+entries. `AND-01` was not closed.
+
 Later items are sequenced in the [Roadmap](../ROADMAP.md).
